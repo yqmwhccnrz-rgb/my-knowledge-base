@@ -3,3 +3,5 @@ docs/.vitepress/dist/
 docs/.vitepress/cache/
 .npm-cache/
 .DS_Store
+# 构建时自动生成的资料库页，不需要提交
+docs/notes/library.md
