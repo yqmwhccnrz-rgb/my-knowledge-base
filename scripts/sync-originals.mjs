@@ -46,8 +46,9 @@ if (pdfs.length) {
   for (const f of pdfs) {
     lines.push(`- [${safeLabel(f)}](${urlOf('/files', f)})（[在新窗口打开](${urlOf('/files', f)}) · [下载](${urlOf('/files', f)})）`)
   }
-  lines.push('', '### 在线预览', '')
-  lines.push(`<iframe src="${urlOf('/files', pdfs[0])}" style="width:100%;height:520px;border:1px solid var(--vp-c-divider);border-radius:8px"></iframe>`, '')
+  const preview = pdfs.find((f) => !/^sample\./i.test(f)) ?? pdfs[0]
+  lines.push('', `### 在线预览 · ${safeLabel(preview)}`, '')
+  lines.push(`<iframe src="${urlOf('/files', preview)}" style="width:100%;height:520px;border:1px solid var(--vp-c-divider);border-radius:8px"></iframe>`, '')
 }
 
 if (images.length) {
