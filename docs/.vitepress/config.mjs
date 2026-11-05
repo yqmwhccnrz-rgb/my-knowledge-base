@@ -25,6 +25,47 @@ function noteLinks() {
     }))
 }
 
+// 从每篇笔记里提取最关键信息，作为首页卡片的简要内容
+function readSummary(file) {
+  const raw = fs.readFileSync(path.join(notesDir, file), 'utf8')
+  const frontmatter = raw.match(/^---\n([\s\S]*?)\n---/)
+  const own = frontmatter?.[1].match(/^summary:\s*(.+)$/m)
+  if (own) return own[1].trim().replace(/^["']|["']$/g, '')
+
+  // 优先「笔记概要」里的核心内容，其次取第一段正文
+  const core = raw.match(/\*\*核心内容\*\*[：:]\s*(.+)/)
+  let text = core ? core[1] : ''
+  if (!text) {
+    const para = raw.split(/\n\s*\n/).find((p) => {
+      const t = p.trim()
+      return t && !/^(#|>|:::|\||---|\*\*)/.test(t)
+    })
+    text = para || ''
+  }
+  text = text
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+    .replace(/[`*_]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+  return text.length > 78 ? `${text.slice(0, 76)}…` : text
+}
+
+// 首页三个方框：一篇笔记一个，笔记不足时其余留空
+function featureCards() {
+  if (!fs.existsSync(notesDir)) return []
+  const files = fs.readdirSync(notesDir)
+    .filter((f) => f.endsWith('.md') && f !== 'library.md')
+    .sort((a, b) => (a === 'welcome.md' ? -1 : b === 'welcome.md' ? 1 : a.localeCompare(b)))
+  const cards = files.slice(0, 3).map((f) => ({
+    title: readTitle(f),
+    details: readSummary(f),
+    link: `/notes/${f.replace(/\.md$/, '')}.html`,
+    linkText: '阅读笔记'
+  }))
+  while (cards.length < 3) cards.push({ title: '', details: '' })
+  return cards
+}
+
 const notes = noteLinks()
 
 export default defineConfig({
@@ -36,6 +77,12 @@ export default defineConfig({
   appearance: false,
   ignoreDeadLinks: true,
   srcExclude: ['public/**'],
+  // 首页卡片由 docs/notes 自动生成，新增笔记后无需手改首页
+  transformPageData(pageData) {
+    if (pageData.relativePath === 'index.md' && pageData.frontmatter.layout === 'home') {
+      pageData.frontmatter.features = featureCards()
+    }
+  },
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },

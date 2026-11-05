@@ -409,6 +409,10 @@ body.kb-resizing * {
 body:not(:has(.VPDoc.has-aside)) .kb-resizer-outline {
   display: none;
 }
+/* 首页没有侧栏，不显示任何拖拽手柄，避免竖线穿过标题与卡片 */
+body:has(.VPHome) .kb-resizers {
+  display: none;
+}
 @media (max-width: 1279px) {
   .kb-resizers { display: none; }
 }
@@ -449,6 +453,22 @@ body:not(:has(.VPDoc.has-aside)) .kb-resizer-outline {
 .VPDocAsideOutline .VPDocOutlineItem.nested {
   padding-left: 9px !important;
   padding-right: 2px !important;
+}
+
+/* 首页笔记卡片：整块可点；空着的占位框保持低调 */
+.VPFeatures .VPFeature {
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+.VPFeatures .VPFeature.link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+.VPFeatures .VPFeature:not(.link) {
+  background: rgba(127, 127, 127, 0.025);
+  border-color: rgba(0, 0, 0, 0.045);
+}
+.VPFeatures .VPFeature .link-text-value {
+  font-size: 12px;
 }
 
 /* 与原笔记的「提示 / 易错点 / 核心结论」框呼应，保持灰白主调 */

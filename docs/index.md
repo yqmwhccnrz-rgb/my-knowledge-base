@@ -13,11 +13,6 @@ hero:
       text: 开始习题测试
       link: /quiz.html
 
-features:
-  - title: 排好版的文章
-    details: Markdown 自动变成带标题层级、目录和导航的阅读页，支持全文搜索。
-  - title: 订正与补充
-    details: 原笔记里不准确或过时的说法逐条标明，缺失的关键知识点补全，PDF 原件可单独下载。
-  - title: 习题测试
-    details: 从知识点题库随机抽题，提交后立刻看到答案与解析。
+# 下面三个方框由 config.mjs 从 docs/notes 自动生成：一篇笔记一个，笔记不足时留空
+features: []
 ---
