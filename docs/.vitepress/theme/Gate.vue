@@ -1,10 +1,9 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 
-const KEY = 'kb_auth_v1'
+const KEY = 'kb_auth_v2'
 const ACCOUNTS = [
-  { user: 'friend', pass: 'kb2026' },
-  { user: 'owner', pass: 'kb2026' }
+  { user: '111222', pass: '111222' }
 ]
 
 const authed = ref(false)
