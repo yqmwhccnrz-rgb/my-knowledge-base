@@ -1,15 +1,17 @@
 [
   {
-    "id": 1,
-    "topic": "C 语言 · 运算符",
+    "id": "c1",
+    "note": "C",
+    "topic": "运算符",
     "question": "表达式 5 / 2 在 C 语言中的结果是多少？",
     "options": ["2", "2.5", "3", "编译报错"],
     "answer": 0,
-    "explanation": "两个整数相除执行整数除法，小数部分被直接截断，得到 2。要得到 2.5 需写成 5.0 / 2。"
+    "explanation": "两个整数相除执行整数除法，小数部分被直接截断，得到 2。想得到 2.5 需写成 5.0 / 2。"
   },
   {
-    "id": 2,
-    "topic": "C 语言 · 运算符",
+    "id": "c2",
+    "note": "C",
+    "topic": "运算符",
     "question": "关于逻辑与 && 的短路特性，下面说法正确的是？",
     "options": [
       "两侧表达式一定都会被求值",
@@ -18,27 +20,30 @@
       "短路行为由编译器随机决定"
     ],
     "answer": 1,
-    "explanation": "&& 左侧为假时整个表达式已确定为假，右侧会被跳过，这就是短路求值。"
+    "explanation": "&& 左侧为假时整个表达式已确定为假，右侧会被跳过，这就是短路求值；|| 则是左侧为真时跳过右侧。"
   },
   {
-    "id": 3,
-    "topic": "C 语言 · 指针",
+    "id": "c3",
+    "note": "C",
+    "topic": "指针",
     "question": "若 int a = 10; int *p = &a; 则 *p 的值是多少？",
     "options": ["a 的地址", "10", "p 的地址", "不确定"],
     "answer": 1,
     "explanation": "p 存放的是 a 的地址，*p 表示解引用，取出该地址上的值，也就是 10。"
   },
   {
-    "id": 4,
-    "topic": "C 语言 · 函数",
+    "id": "c4",
+    "note": "C",
+    "topic": "函数",
     "question": "C 语言中函数参数默认采用哪种传递方式？",
     "options": ["引用传递", "值传递", "按名称传递", "由参数类型决定"],
     "answer": 1,
-    "explanation": "默认是值传递，函数内拿到的是副本；想修改实参需要传指针。"
+    "explanation": "默认是值传递，函数内拿到的是实参的副本；想修改实参需要传指针。"
   },
   {
-    "id": 5,
-    "topic": "C 语言 · 数组",
+    "id": "c5",
+    "note": "C",
+    "topic": "数组",
     "question": "int arr[5]; 中 arr[0] 到 arr[4] 的合法下标范围，下列描述正确的是？",
     "options": [
       "下标从 1 开始，最大为 5",
@@ -50,24 +55,27 @@
     "explanation": "C 数组下标从 0 开始，长度为 5 时最大合法下标是 4，访问 arr[5] 属于越界。"
   },
   {
-    "id": 6,
-    "topic": "C 语言 · 字符串",
+    "id": "c6",
+    "note": "C",
+    "topic": "字符串",
     "question": "字符串常量 \"hello\" 在内存中实际占用多少字节？",
     "options": ["5 字节", "6 字节", "7 字节", "由编译器决定"],
     "answer": 1,
     "explanation": "5 个可见字符之外，末尾还会自动追加一个结束符 \\0，共 6 字节。"
   },
   {
-    "id": 7,
-    "topic": "C 语言 · 内存",
+    "id": "c7",
+    "note": "C",
+    "topic": "内存",
     "question": "malloc 分配的内存使用后应当如何释放？",
     "options": ["程序结束自动释放，无需处理", "用 free 释放", "用 delete 释放", "把指针置为 0 即可"],
     "answer": 1,
-    "explanation": "malloc 与 free 成对使用，忘记释放会造成内存泄漏。"
+    "explanation": "malloc 与 free 成对使用，忘记释放会造成内存泄漏；C++ 才用 delete。"
   },
   {
-    "id": 8,
-    "topic": "C 语言 · 流程控制",
+    "id": "c8",
+    "note": "C",
+    "topic": "流程控制",
     "question": "switch 语句中若某个 case 末尾没有 break，会发生什么？",
     "options": [
       "编译报错",
@@ -77,5 +85,424 @@
     ],
     "answer": 2,
     "explanation": "缺少 break 会产生 fall-through 贯穿，依次执行后续 case 的语句，直到遇到 break 或结束。"
+  },
+  {
+    "id": "c9",
+    "note": "C",
+    "topic": "数据类型",
+    "question": "int 占 4 字节时，数值 -1 在内存中的补码表示是？",
+    "options": ["0x00000000", "0xFFFFFFFF", "0x80000001", "0x7FFFFFFF"],
+    "answer": 1,
+    "explanation": "负数补码 = 反码 + 1，-1 的补码是所有位都为 1，即 0xFFFFFFFF；0x80000001 是 -2147483647 的补码。"
+  },
+  {
+    "id": "c10",
+    "note": "C",
+    "topic": "数据类型",
+    "question": "int a[10]; 在 int 为 4 字节的平台上，sizeof(a) 的结果是？",
+    "options": ["10", "40", "4", "编译错误"],
+    "answer": 1,
+    "explanation": "sizeof 返回字节数，10 个 int 共 40 字节；注意它测的是数组总大小，元素个数要用 sizeof(a)/sizeof(a[0])。"
+  },
+  {
+    "id": "c11",
+    "note": "C",
+    "topic": "数据类型",
+    "question": "字符常量 '\\0' 的数值是？",
+    "options": ["0", "1", "32（空格）", "48（'0'）"],
+    "answer": 0,
+    "explanation": "'\\0' 是空字符，ASCII 值为 0，用作 C 字符串的结束符；它与字符 '0'（值 48）完全不同。"
+  },
+  {
+    "id": "c12",
+    "note": "C",
+    "topic": "运算符",
+    "question": "在 C 语言中，关系表达式（如 a > b）求值后得到什么类型的值？",
+    "options": ["int（0 或 1）", "布尔 bool", "字符 char", "浮点 double"],
+    "answer": 0,
+    "explanation": "传统 C 中关系/逻辑运算结果用 int 表示，成立为 1、不成立为 0；C99 虽引入 _Bool/bool，但表达式仍按整型 0/1 参与运算。"
+  },
+  {
+    "id": "c13",
+    "note": "C",
+    "topic": "运算符",
+    "question": "int i = 3; int j = i++; 执行后 i 和 j 的值分别是？",
+    "options": ["i=4, j=3", "i=4, j=4", "i=3, j=4", "i=3, j=3"],
+    "answer": 0,
+    "explanation": "后置自增先返回原值再自增，所以 j 得到 3，i 变成 4；若用 ++i 则 i、j 都为 4。"
+  },
+  {
+    "id": "c14",
+    "note": "C",
+    "topic": "数组",
+    "question": "把数组作为函数参数传递时，实际传递的是？",
+    "options": [
+      "整个数组的拷贝",
+      "数组首元素地址（退化为指针）",
+      "数组长度",
+      "编译错误"
+    ],
+    "answer": 1,
+    "explanation": "数组名作为实参会退化为指向首元素的指针，函数内无法通过该指针用 sizeof 得知原数组长度，常需额外传入长度参数。"
+  },
+  {
+    "id": "c15",
+    "note": "C",
+    "topic": "指针",
+    "question": "在 int 为 4 字节的平台上，若 int *p 指向地址 0x1000，则 p + 1 指向的地址是？",
+    "options": ["0x1001", "0x1004", "0x1008", "0x2000"],
+    "answer": 1,
+    "explanation": "指针算术按元素大小移动，p + 1 跳过 1 个 int（4 字节），指向 0x1004，而不是加 1 字节。"
+  },
+  {
+    "id": "c16",
+    "note": "C",
+    "topic": "指针",
+    "question": "const int *p; 表示？",
+    "options": [
+      "p 指向的 int 不可通过该指针修改",
+      "p 本身不能被重新赋值",
+      "p 和 *p 都不可改",
+      "没有任何限制"
+    ],
+    "answer": 0,
+    "explanation": "const 在 * 左侧修饰所指对象，不能通过 p 改值；但 p 仍可指向别处。若要锁死指针本身应写 int *const p。"
+  },
+  {
+    "id": "c17",
+    "note": "C",
+    "topic": "数组",
+    "question": "对于 int m[2][3];，表达式 m[1][2] 等价于以下哪些写法？",
+    "options": [
+      "仅 *(m[1] + 2)",
+      "仅 *(*(m + 1) + 2)",
+      "两者都正确",
+      "两者都错误"
+    ],
+    "answer": 2,
+    "explanation": "二维数组下标 m[i][j] 等价于 *(*(m + i) + j)，也等价于 *(m[i] + j)，两种写法都成立。"
+  },
+  {
+    "id": "c18",
+    "note": "C",
+    "topic": "结构体",
+    "question": "结构体的 sizeof 结果与其各成员 sizeof 之和相比，通常？",
+    "options": ["一定相等", "可能更大（因内存对齐）", "一定更小", "没有关系"],
+    "answer": 1,
+    "explanation": "为满足对齐要求编译器会插入填充字节，结构体总大小常大于成员之和；可用 #pragma pack 改变对齐。"
+  },
+  {
+    "id": "c19",
+    "note": "C",
+    "topic": "枚举",
+    "question": "enum { A, B, C }; 中，常量 B 的值是？",
+    "options": ["0", "1", "2", "由编译器随机定"],
+    "answer": 1,
+    "explanation": "枚举常量默认从 0 开始自动递增，A=0、B=1、C=2；也可显式赋值，如 enum {X=1, Y, Z} 则 Y=2。"
+  },
+  {
+    "id": "c20",
+    "note": "C",
+    "topic": "预处理",
+    "question": "在 C 中引入标准库头文件应使用？",
+    "options": ["#include", "#define", "#import", "using"],
+    "answer": 0,
+    "explanation": "#include 负责把头文件内容插入当前源文件；#define 是宏定义，与引入头文件无关。"
+  },
+  {
+    "id": "c21",
+    "note": "C",
+    "topic": "流程控制",
+    "question": "for (;;) { ... } 的效果是？",
+    "options": ["编译错误", "无限循环", "一次都不执行", "只执行一次"],
+    "answer": 1,
+    "explanation": "三个表达式都省略时条件恒为真，成为无限循环，通常靠 break 退出。"
+  },
+  {
+    "id": "c22",
+    "note": "C",
+    "topic": "运算符",
+    "question": "表达式 a > b ? a : b 的作用是？",
+    "options": ["返回 a、b 中较大的", "总是返回 a", "总是返回 b", "返回布尔值"],
+    "answer": 0,
+    "explanation": "条件为真取 a，否则取 b，常用于取两数较大值；注意三目运算符要求两个分支类型兼容。"
+  },
+  {
+    "id": "c23",
+    "note": "C",
+    "topic": "函数",
+    "question": "函数内的 static 局部变量，其特点是？",
+    "options": [
+      "每次调用都重新初始化",
+      "只初始化一次且调用间保留值",
+      "等价于全局变量",
+      "不能赋值"
+    ],
+    "answer": 1,
+    "explanation": "static 局部变量在程序生命周期内只初始化一次，值在函数调用之间保持，但作用域仍限于该函数。"
+  },
+  {
+    "id": "c24",
+    "note": "C",
+    "topic": "运算符",
+    "question": "printf(\"%d\", 5 / 2); 的输出是？",
+    "options": ["2", "2.5", "3", "编译错误"],
+    "answer": 0,
+    "explanation": "整数除法截断小数，得 2；想输出 2.5 应写 5.0 / 2 并用 %f 格式符。"
+  },
+  {
+    "id": "p1",
+    "note": "Python",
+    "topic": "ndarray 基础",
+    "question": "np.array([1, 2, 3]) 创建的数组，其 dtype 默认是？",
+    "options": ["int64", "float64", "object", "str"],
+    "answer": 0,
+    "explanation": "传入纯整数列表时 NumPy 默认用平台整数类型（通常 int64）。"
+  },
+  {
+    "id": "p2",
+    "note": "Python",
+    "topic": "ndarray 基础",
+    "question": "np.array([1, 2.5, 3]) 的 dtype 是？",
+    "options": ["int64", "float64", "object", "bool"],
+    "answer": 1,
+    "explanation": "数组要求同构，存在浮点数时整体提升为 float64；这正是 ndarray 与 Python 列表的重要区别。"
+  },
+  {
+    "id": "p3",
+    "note": "Python",
+    "topic": "数据类型",
+    "question": "np.array([0, 1, 2]).astype(bool) 后，哪些元素为 True？",
+    "options": ["全部", "仅 1 和 2", "仅 0", "全部为 False"],
+    "answer": 1,
+    "explanation": "布尔转换规则是“0 为 False、非 0 为 True”，所以只有 0 变 False，1、2 为 True（原笔记曾误写 0 为 True，已修正）。"
+  },
+  {
+    "id": "p4",
+    "note": "Python",
+    "topic": "视图与拷贝",
+    "question": "a = np.arange(5); b = a[1:4]; b[0] = 100; 之后 a[1] 的值是？",
+    "options": ["1", "100", "0", "不变，仍为 1"],
+    "answer": 1,
+    "explanation": "切片返回的是原数组的视图，与 a 共享内存，修改 b 会影响 a。要独立副本需 a[1:4].copy()。"
+  },
+  {
+    "id": "p5",
+    "note": "Python",
+    "topic": "视图与拷贝",
+    "question": "要得到一个与 ndarray 完全独立、不共享内存的副本，应使用？",
+    "options": ["b = a.copy()", "b = a[:]", "b = a", "b = list(a)"],
+    "answer": 0,
+    "explanation": "ndarray.copy() 返回深拷贝；而切片 a[:] 仍是视图，修改会互相影响；b = a 只是同一对象的新引用。"
+  },
+  {
+    "id": "p6",
+    "note": "Python",
+    "topic": "广播",
+    "question": "a = np.array([[1],[2],[3]])（形状 3×1），b = np.array([10,20])（形状 1×2），a + b 的形状是？",
+    "options": ["(3, 2)", "(3, 3)", "报错", "(2, 3)"],
+    "answer": 0,
+    "explanation": "广播把 (3,1) 沿列、(1,2) 沿行扩展为 (3,2) 后逐元素相加；形状不兼容时才会报错。"
+  },
+  {
+    "id": "p7",
+    "note": "Python",
+    "topic": "数组运算",
+    "question": "NumPy 中对两个同形状数组做逐元素相乘，应使用？",
+    "options": ["*", "@", "np.dot", "np.matmul"],
+    "answer": 0,
+    "explanation": "* 是逐元素乘法；@、np.dot、np.matmul 用于矩阵乘法，结果完全不同。"
+  },
+  {
+    "id": "p8",
+    "note": "Python",
+    "topic": "数组函数",
+    "question": "np.where(cond, x, y) 的作用是？",
+    "options": ["按 cond 从 x、y 中逐元素挑选", "对 cond 求和", "排序", "去重"],
+    "answer": 0,
+    "explanation": "条件为真取 x 对应元素，否则取 y，常用于按条件替换或取两数组的较大值。"
+  },
+  {
+    "id": "p9",
+    "note": "Python",
+    "topic": "Series",
+    "question": "未指定 index 时，pandas Series 的默认索引是？",
+    "options": ["0, 1, 2 …", "字母 a, b, c", "随机整数", "时间戳"],
+    "answer": 0,
+    "explanation": "Series 默认用从 0 开始的整数位置索引；DataFrame 的行索引同理。"
+  },
+  {
+    "id": "p10",
+    "note": "Python",
+    "topic": "Series",
+    "question": "两个 Series 做算术运算时，pandas 按什么进行匹配？",
+    "options": ["位置顺序", "索引标签（index）", "元素值大小", "随机"],
+    "answer": 1,
+    "explanation": "pandas 按标签对齐后再运算，而非按位置——这是与 NumPy 数组最关键的区别，也是最常见的坑。"
+  },
+  {
+    "id": "p11",
+    "note": "Python",
+    "topic": "Series",
+    "question": "s1 = pd.Series([1,2,3], index=['a','b','c']); s2 = pd.Series([10,20], index=['b','c']); 则 s1 + s2 中 'a' 对应的值是？",
+    "options": ["1", "11", "NaN", "0"],
+    "answer": 2,
+    "explanation": "'a' 在 s2 中不存在，按标签对齐后无法配对，结果为 NaN；只有 b、c 能相加。"
+  },
+  {
+    "id": "p12",
+    "note": "Python",
+    "topic": "DataFrame",
+    "question": "pandas DataFrame 本质上是？",
+    "options": ["一维带标签序列", "带行、列标签的二维表格", "三维数组", "普通 Python 字典"],
+    "answer": 1,
+    "explanation": "DataFrame 是二维结构，既有行索引也有列名，类似电子表格或 SQL 表。"
+  },
+  {
+    "id": "p13",
+    "note": "Python",
+    "topic": "DataFrame",
+    "question": "对于 DataFrame df，df['列名']（单括号选一列）返回的数据类型是？",
+    "options": ["Series", "DataFrame", "list", "ndarray"],
+    "answer": 0,
+    "explanation": "单列访问返回 Series；想保留 DataFrame 的二维结构，应使用双括号 df[['列名']]。"
+  },
+  {
+    "id": "p14",
+    "note": "Python",
+    "topic": "DataFrame",
+    "question": "df[['列名']]（双括号选一列）返回的是？",
+    "options": ["DataFrame", "Series", "报错", "None"],
+    "answer": 0,
+    "explanation": "双括号返回子 DataFrame，便于链式调用时保持二维结构；单括号返回 Series。"
+  },
+  {
+    "id": "p15",
+    "note": "Python",
+    "topic": "缺失值",
+    "question": "下列用于检测缺失值（NaN）的方式，正确的是？",
+    "options": [
+      "pd.isna(x)",
+      "用 x == np.nan 判断",
+      "df.dropna() 用于填充缺失",
+      "df.fillna() 用于删除缺失"
+    ],
+    "answer": 0,
+    "explanation": "缺失值用 pd.isna / isnull 检测；NaN 不等于任何值（含自身），故 x == np.nan 永远为 False。"
+  },
+  {
+    "id": "p16",
+    "note": "Python",
+    "topic": "缺失值",
+    "question": "np.nan == np.nan 的结果是？",
+    "options": ["True", "False", "报错", "返回 NaN"],
+    "answer": 1,
+    "explanation": "NaN 与任何值（含自身）比较都为 False，检测缺失只能用 pd.isna / np.isnan。"
+  },
+  {
+    "id": "p17",
+    "note": "Python",
+    "topic": "缺失值",
+    "question": "df.fillna(0) 默认的行为是？",
+    "options": [
+      "返回填充后的新对象，不修改原 df",
+      "原地修改 df",
+      "删除含缺失的行",
+      "报错"
+    ],
+    "answer": 0,
+    "explanation": "pandas 多数方法默认返回新对象（inplace=False）；要改原表需显式 inplace=True（官方不推荐常用）。"
+  },
+  {
+    "id": "p18",
+    "note": "Python",
+    "topic": "缺失值",
+    "question": "df.dropna() 默认会？",
+    "options": [
+      "删除含缺失值的行",
+      "删除缺失值所在的列",
+      "用 0 填充",
+      "不做任何处理"
+    ],
+    "answer": 0,
+    "explanation": "默认 axis=0 删除含 NaN 的行；删列用 axis=1；可用 how='all'、thresh= 等参数细化。"
+  },
+  {
+    "id": "p19",
+    "note": "Python",
+    "topic": "数据读取",
+    "question": "用 pd.read_csv 读取含中文的 CSV 出现乱码，通常应优先尝试？",
+    "options": [
+      "指定 encoding='utf-8' 或 'gbk'",
+      "把文件删掉重新下载",
+      "无法解决",
+      "改用图片方式读取"
+    ],
+    "answer": 0,
+    "explanation": "乱码多因编码不匹配，常见用 utf-8、utf-8-sig 或 gbk；Windows 导出的 CSV 常是 gbk 编码。"
+  },
+  {
+    "id": "p20",
+    "note": "Python",
+    "topic": "表合并",
+    "question": "把多个结构相同的表上下拼接（增加行），应使用？",
+    "options": ["pd.concat", "pd.merge", "df.join", "df.append"],
+    "answer": 0,
+    "explanation": "pd.concat 默认 axis=0 纵向堆叠；merge/join 用于按键横向合并；append 已弃用。"
+  },
+  {
+    "id": "p21",
+    "note": "Python",
+    "topic": "表合并",
+    "question": "按某一列（键）把两个表左右合并，应使用？",
+    "options": ["pd.merge", "pd.concat", "df.sort_values", "df.groupby"],
+    "answer": 0,
+    "explanation": "pd.merge 按指定键做类似 SQL 的连接（inner/left/right/outer）；concat 只适合简单堆叠。"
+  },
+  {
+    "id": "p22",
+    "note": "Python",
+    "topic": "数据透视",
+    "question": "想按“行键、列键”对数值做聚合（如求和、均值），生成透视表，可用？",
+    "options": ["df.pivot_table", "只能手写循环", "df.plot 仅作图", "df.drop"],
+    "answer": 0,
+    "explanation": "pivot_table 支持按行列分组并用 aggfunc 聚合；groupby 也能实现类似效果，再 unstack 成透视形状。"
+  },
+  {
+    "id": "p23",
+    "note": "Python",
+    "topic": "可视化",
+    "question": "matplotlib 作图时中文显示为方框，正确的解决方式是？",
+    "options": [
+      "设置 rcParams 指定中文字体",
+      "无法显示中文",
+      "只能输出英文",
+      "删除中文标题"
+    ],
+    "answer": 0,
+    "explanation": "通过 plt.rcParams['font.sans-serif'] 指定中文字体（多字体候选防缺失），并设 axes.unicode_minus=False 修复负号显示。"
+  },
+  {
+    "id": "p24",
+    "note": "Python",
+    "topic": "可视化",
+    "question": "箱线图（boxplot）能直观反映哪些统计信息？",
+    "options": ["中位数、四分位数与异常值", "仅均值", "仅标准差", "相关系数"],
+    "answer": 0,
+    "explanation": "箱线图展示中位数、上下四分位数、须与外异常值，适合发现离群点；均值并不在箱线图中直接体现。"
+  },
+  {
+    "id": "p25",
+    "note": "Python",
+    "topic": "可视化",
+    "question": "plt.subplots(2, 1) 的作用是？",
+    "options": [
+      "创建 2×1 的多个子图，并返回画布与轴对象",
+      "直接保存图片",
+      "清空当前图",
+      "立即显示图片"
+    ],
+    "answer": 0,
+    "explanation": "subplots 一次性创建网格化的多个坐标系，返回 (fig, axes)，便于在一张画布里排布多张子图。"
   }
 ]
