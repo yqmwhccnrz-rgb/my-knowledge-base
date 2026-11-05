@@ -17,6 +17,12 @@ const noteLabel = computed(
   () => (noteOptions.find((n) => n.key === selectedNote.value) || {}).label || ''
 )
 
+// 单题归属的笔记名称（用于卡片上标注）
+function noteName(note) {
+  const m = noteOptions.find((o) => o.key === note)
+  return m ? m.label : note
+}
+
 // 按所选笔记过滤题库；「全部笔记」展示所有题
 const bankForNote = computed(() =>
   selectedNote.value === 'all'
@@ -180,6 +186,7 @@ function retry() {
     <div v-for="(q, i) in picked" :key="q.id" class="quiz-card">
       <div class="quiz-q">
         <span class="quiz-no">{{ i + 1 }}</span>
+        <span class="quiz-note">{{ noteName(q.note) }}</span>
         <span class="quiz-topic">{{ q.topic }}</span>
         <p
           v-if="q.type !== 'program'"
@@ -247,8 +254,11 @@ function retry() {
         正确答案 {{ correctText(q) }} · {{ q.explanation }}
       </div>
       <template v-else>
+        <p v-if="q.type === 'program'" class="quiz-empty-hint">
+          请在框内输入答案
+        </p>
         <p
-          v-if="(!q.type || q.type !== 'fill') && answers[i] === undefined"
+          v-else-if="(!q.type || q.type !== 'fill') && answers[i] === undefined"
           class="quiz-empty-hint"
         >
           请选择一个答案
@@ -369,6 +379,16 @@ function retry() {
   color: #fff;
   background: var(--vp-c-brand-1);
   border-radius: 6px;
+}
+.quiz-note {
+  margin-right: 8px;
+  padding: 2px 8px;
+  font-size: 12px;
+  color: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft);
+  border: 1px solid var(--vp-c-brand-1);
+  border-radius: 6px;
+  white-space: nowrap;
 }
 .quiz-topic {
   font-size: 12px;
