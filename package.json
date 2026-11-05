@@ -1,0 +1,15 @@
+{
+  "name": "my-knowledge-base",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync": "node scripts/sync-originals.mjs",
+    "dev": "npm run sync && vitepress dev docs",
+    "build": "npm run sync && vitepress build docs",
+    "preview": "vitepress preview docs"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  }
+}
