@@ -30,6 +30,8 @@ export default defineConfig({
   description: '笔记、原文与习题测试',
   lang: 'zh-CN',
   lastUpdated: true,
+  // 固定灰白浅色主调，不跟随访客系统的深色模式
+  appearance: false,
   ignoreDeadLinks: true,
   srcExclude: ['public/**'],
   themeConfig: {
