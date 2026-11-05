@@ -138,3 +138,27 @@
   font-size: 13px;
   color: var(--vp-c-brand-1);
 }
+
+.logout-btn {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 60;
+  padding: 6px 12px;
+  font-size: 12px;
+  color: var(--vp-c-text-2);
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 20px;
+  cursor: pointer;
+}
+.logout-btn:hover {
+  color: var(--vp-c-text-1);
+  border-color: var(--vp-c-brand-1);
+}
+@media (max-width: 640px) {
+  .logout-btn {
+    right: 12px;
+    bottom: 12px;
+  }
+}
