@@ -1440,5 +1440,378 @@
     ],
     "answer": 0,
     "explanation": "np.sqrt 开方、np.abs 取绝对值、np.power(a,b) 计算 a 的 b 次幂（数组也支持，等价于 a**b）。"
+  },
+  {
+    "id": "j1",
+    "note": "C",
+    "topic": "存储规则",
+    "type": "judge",
+    "question": "在补码表示中，负数的最高位（符号位）为 1，正数为 0。",
+    "options": [
+      "正确",
+      "错误"
+    ],
+    "answer": 0,
+    "explanation": "补码用最高位作符号位，1 表示负、0 表示正。"
+  },
+  {
+    "id": "j2",
+    "note": "C",
+    "topic": "数组",
+    "type": "judge",
+    "question": "在 C 语言中，数组名作为函数参数传递时会退化为指向首元素的指针。",
+    "options": [
+      "正确",
+      "错误"
+    ],
+    "answer": 0,
+    "explanation": "数组名在多数表达式中（含作参数）退化为指针，所以函数内无法用 sizeof 求原数组长度。"
+  },
+  {
+    "id": "j3",
+    "note": "C",
+    "topic": "流程控制",
+    "type": "judge",
+    "question": "break 语句只能用于循环，不能用于 switch 语句。",
+    "options": [
+      "正确",
+      "错误"
+    ],
+    "answer": 1,
+    "explanation": "break 既可用于循环也可用于 switch，用于跳出当前 switch 的 case 穿透。"
+  },
+  {
+    "id": "j4",
+    "note": "C",
+    "topic": "结构体",
+    "type": "judge",
+    "question": "结构体经过内存对齐后，其大小一定等于各成员大小之和。",
+    "options": [
+      "正确",
+      "错误"
+    ],
+    "answer": 1,
+    "explanation": "对齐会在成员间/末尾插入填充字节，大小通常大于成员大小之和。"
+  },
+  {
+    "id": "j5",
+    "note": "C",
+    "topic": "指针",
+    "type": "judge",
+    "question": "在 C 语言中，将 malloc 的返回值赋给具体类型指针时可以不写强制转换（如 int *p = malloc(n);）。",
+    "options": [
+      "正确",
+      "错误"
+    ],
+    "answer": 0,
+    "explanation": "C 允许 void* 隐式转为任意对象指针，可不强制转换（C++ 则需要）。"
+  },
+  {
+    "id": "j6",
+    "note": "Python",
+    "topic": "DataFrame",
+    "type": "judge",
+    "question": "pandas 的 DataFrame 允许列名重复。",
+    "options": [
+      "正确",
+      "错误"
+    ],
+    "answer": 0,
+    "explanation": "列名可以重复，但用列名访问会得到多列、易产生歧义，建议避免。"
+  },
+  {
+    "id": "j7",
+    "note": "Python",
+    "topic": "广播",
+    "type": "judge",
+    "question": "NumPy 中 np.array([1,2,3]) + 1 会把 1 广播到每个元素上，结果为 [2,3,4]。",
+    "options": [
+      "正确",
+      "错误"
+    ],
+    "answer": 0,
+    "explanation": "标量与数组运算会广播到每个元素。"
+  },
+  {
+    "id": "j8",
+    "note": "Python",
+    "topic": "重复值",
+    "type": "judge",
+    "question": "df.drop_duplicates() 默认会直接修改原 DataFrame 并返回 None。",
+    "options": [
+      "正确",
+      "错误"
+    ],
+    "answer": 1,
+    "explanation": "默认返回新对象、不修改原表；要原地修改需 inplace=True。"
+  },
+  {
+    "id": "j9",
+    "note": "Python",
+    "topic": "索引",
+    "type": "judge",
+    "question": "用整数列表对 NumPy 数组做索引（如 a[[1,0,1]]）会按列表顺序取数，且可以重复取同一个元素。",
+    "options": [
+      "正确",
+      "错误"
+    ],
+    "answer": 0,
+    "explanation": "这是花式索引，按给定顺序返回元素，允许重复。"
+  },
+  {
+    "id": "j10",
+    "note": "Python",
+    "topic": "可视化",
+    "type": "judge",
+    "question": "seaborn 是建立在 matplotlib 之上的高级统计绘图库。",
+    "options": [
+      "正确",
+      "错误"
+    ],
+    "answer": 0,
+    "explanation": "seaborn 基于 matplotlib，提供更简洁的统计图形接口与统一风格。"
+  },
+  {
+    "id": "f1",
+    "note": "C",
+    "topic": "数据类型",
+    "type": "fill",
+    "question": "在常见的 16 位/32 位平台上，short 类型通常占 ____ 个字节。",
+    "answer": [
+      "2",
+      "两"
+    ],
+    "explanation": "short 通常 16 位 = 2 字节；int 多为 4 字节。"
+  },
+  {
+    "id": "f2",
+    "note": "C",
+    "topic": "数组",
+    "type": "fill",
+    "question": "定义 int a[5] = {1, 2, 3};，则未显式初始化的元素 a[3]、a[4] 的初值是 ____。",
+    "answer": [
+      "0",
+      "零"
+    ],
+    "explanation": "部分初始化时，剩余元素自动初始化为 0。"
+  },
+  {
+    "id": "f3",
+    "note": "C",
+    "topic": "字符串",
+    "type": "fill",
+    "question": "C 语言字符串以字符 ____（填 0 或 \\0）作为结束标志。",
+    "answer": [
+      "0",
+      "零",
+      "'\\0'"
+    ],
+    "explanation": "字符串以 ASCII 0（写作 \\0）结尾，标志串的结束。"
+  },
+  {
+    "id": "f4",
+    "note": "C",
+    "topic": "逻辑类型",
+    "type": "fill",
+    "question": "关系表达式 3 > 5 的值为 ____（填数字）。",
+    "answer": [
+      "0",
+      "零"
+    ],
+    "explanation": "不成立的关系表达式结果为 0（假）。"
+  },
+  {
+    "id": "f5",
+    "note": "C",
+    "topic": "sizeof",
+    "type": "fill",
+    "question": "sizeof(char) 的返回值是 ____。",
+    "answer": [
+      "1",
+      "一"
+    ],
+    "explanation": "char 固定占 1 字节。"
+  },
+  {
+    "id": "f6",
+    "note": "Python",
+    "topic": "数组运算",
+    "type": "fill",
+    "question": "np.array([1, 2, 3]) * 2 的结果中，第三个元素是 ____。",
+    "answer": [
+      "6",
+      "六"
+    ],
+    "explanation": "数组与标量相乘逐元素乘，3*2=6。"
+  },
+  {
+    "id": "f7",
+    "note": "Python",
+    "topic": "Series",
+    "type": "fill",
+    "question": "给定 pd.Series([10, 20, 30], index=['a','b','c'])，则 s['b'] 的值是 ____。",
+    "answer": [
+      "20",
+      "二十"
+    ],
+    "explanation": "按标签 'b' 取值，对应 20。"
+  },
+  {
+    "id": "f8",
+    "note": "Python",
+    "topic": "统计函数",
+    "type": "fill",
+    "question": "np.arange(3) 生成的一维数组包含 ____ 个元素。",
+    "answer": [
+      "3",
+      "三"
+    ],
+    "explanation": "arange(3) 生成 [0,1,2]，共 3 个。"
+  },
+  {
+    "id": "f9",
+    "note": "Python",
+    "topic": "布尔",
+    "type": "fill",
+    "question": "在 Python 中，bool(0) 的结果是 ____（填 True 或 False）。",
+    "answer": [
+      "False",
+      "false",
+      "假"
+    ],
+    "explanation": "0、空容器、None 等为假，bool(0) 为 False。"
+  },
+  {
+    "id": "f10",
+    "note": "Python",
+    "topic": "loc",
+    "type": "fill",
+    "question": "pandas 中 df.loc[0, 'name'] 的 loc 是基于 ____ 的索引方式（填“标签”或“位置”）。",
+    "answer": [
+      "标签",
+      "label",
+      "行标签"
+    ],
+    "explanation": "loc 按标签选取；iloc 才按整数位置。"
+  },
+  {
+    "id": "cd1",
+    "note": "C",
+    "topic": "代码",
+    "type": "choice",
+    "question": "阅读以下 C 代码，其输出结果是？\n\nint a = 5, b = 3;\nprintf(\"%d\", a % b);\n",
+    "options": [
+      "2",
+      "1",
+      "3",
+      "5"
+    ],
+    "answer": 0,
+    "explanation": "% 为取余，5 % 3 = 2。"
+  },
+  {
+    "id": "cd2",
+    "note": "C",
+    "topic": "代码",
+    "type": "choice",
+    "question": "阅读以下 C 代码，其输出结果是？\n\nint x = 2, y = 3;\nint z = x > y ? x : y;\nprintf(\"%d\", z);\n",
+    "options": [
+      "2",
+      "3",
+      "5",
+      "0"
+    ],
+    "answer": 1,
+    "explanation": "三元运算符取较大值，z = y = 3。"
+  },
+  {
+    "id": "cd3",
+    "note": "C",
+    "topic": "代码",
+    "type": "choice",
+    "question": "阅读以下 C 代码，其输出结果是？\n\nfor (int i = 0; i < 5; i++) {\n    if (i % 2 == 0) continue;\n    printf(\"%d\", i);\n}\n",
+    "options": [
+      "01324",
+      "13",
+      "024",
+      "1234"
+    ],
+    "answer": 1,
+    "explanation": "跳过偶数，打印奇数 1 和 3。"
+  },
+  {
+    "id": "cd4",
+    "note": "C",
+    "topic": "代码",
+    "type": "choice",
+    "question": "阅读以下 C 代码，其输出结果是？\n\nchar s[] = \"abc\";\nprintf(\"%d\", sizeof(s));\n",
+    "options": [
+      "3",
+      "4",
+      "2",
+      "运行时错误"
+    ],
+    "answer": 1,
+    "explanation": "字符串字面量含结尾 \\0，共 4 字节（a,b,c,\\0）。"
+  },
+  {
+    "id": "cd5",
+    "note": "C",
+    "topic": "代码",
+    "type": "choice",
+    "question": "阅读以下 C 代码，其输出结果是？\n\nint a = 1, b = 2, t;\nt = a; a = b; b = t;\nprintf(\"%d,%d\", a, b);\n",
+    "options": [
+      "1,2",
+      "2,1",
+      "2,2",
+      "1,1"
+    ],
+    "answer": 1,
+    "explanation": "经典交换，a、b 互换后为 2,1。"
+  },
+  {
+    "id": "cd6",
+    "note": "Python",
+    "topic": "代码",
+    "type": "choice",
+    "question": "阅读以下 Python 代码，其输出结果是？\n\nimport numpy as np\na = np.array([1, 2, 3])\nprint((a > 1).sum())\n",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "0"
+    ],
+    "answer": 1,
+    "explanation": "a>1 得到 [False,True,True]，sum 统计 True 个数 = 2。"
+  },
+  {
+    "id": "cd7",
+    "note": "Python",
+    "topic": "代码",
+    "type": "choice",
+    "question": "阅读以下 Python 代码，其输出结果是？\n\na = [1, 2, 3]\nb = a\nb.append(4)\nprint(len(a))\n",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "报错"
+    ],
+    "answer": 1,
+    "explanation": "b 与 a 引用同一列表，append 后 a 也变成 4 个元素。"
+  },
+  {
+    "id": "cd8",
+    "note": "Python",
+    "topic": "代码",
+    "type": "choice",
+    "question": "阅读以下 Python 代码，其输出结果是？\n\nprint(0.1 + 0.2 == 0.3)\n",
+    "options": [
+      "True",
+      "False",
+      "0.3",
+      "报错"
+    ],
+    "answer": 1,
+    "explanation": "浮点数二进制表示有误差，0.1+0.2 不等于精确的 0.3，比较为 False。"
   }
 ]

@@ -47,15 +47,38 @@ function start() {
 watch([selectedNote, size], start)
 start()
 
+function normalize(s) {
+  return String(s).trim().toLowerCase()
+}
+
+// 填空题：答案支持多个可接受写法，忽略大小写与首尾空格
+function isFillCorrect(q, a) {
+  const got = normalize(a)
+  return (q.answer || []).some((ans) => normalize(ans) === got)
+}
+
+function isRight(q, i) {
+  const a = answers.value[i]
+  if (q.type === 'fill') return a != null && isFillCorrect(q, a)
+  return a === q.answer
+}
+
+function correctText(q) {
+  if (q.type === 'fill') return (q.answer || []).join(' / ')
+  if (q.type === 'judge') return q.options[q.answer]
+  return letter(q.answer)
+}
+
 const score = computed(() =>
-  picked.value.reduce(
-    (total, q, i) => total + (answers.value[i] === q.answer ? 1 : 0),
-    0
-  )
+  picked.value.reduce((total, q, i) => total + (isRight(q, i) ? 1 : 0), 0)
 )
 
 const allAnswered = computed(() =>
-  picked.value.every((_, i) => answers.value[i] !== undefined)
+  picked.value.every((q, i) => {
+    const a = answers.value[i]
+    if (q.type === 'fill') return typeof a === 'string' && a.trim() !== ''
+    return a !== undefined
+  })
 )
 
 const accuracy = computed(() => {
@@ -105,16 +128,21 @@ function retry() {
     <p class="quiz-tip">
       当前展示 <strong>{{ noteLabel }}</strong> 的习题，题库共
       {{ bankForNote.length }} 道，覆盖 {{ topicCount }} 个知识点方向；本次随机抽取
-      {{ picked.length }} 道。
+      {{ picked.length }} 道（含选择 / 判断 / 填空 / 代码题）。
     </p>
 
     <div v-for="(q, i) in picked" :key="q.id" class="quiz-card">
       <div class="quiz-q">
         <span class="quiz-no">{{ i + 1 }}</span>
         <span class="quiz-topic">{{ q.topic }}</span>
-        <p class="quiz-text">{{ q.question }}</p>
+        <p class="quiz-text" :class="{ 'is-code': q.topic === '代码' }">{{ q.question }}</p>
       </div>
-      <div class="quiz-options">
+
+      <!-- 选择 / 判断题：单选 -->
+      <div
+        v-if="!q.type || q.type === 'choice' || q.type === 'judge'"
+        class="quiz-options"
+      >
         <label
           v-for="(opt, k) in q.options"
           :key="k"
@@ -133,17 +161,38 @@ function retry() {
           <span>{{ letter(k) }}. {{ opt }}</span>
         </label>
       </div>
+
+      <!-- 填空题：文本输入 -->
+      <input
+        v-else-if="q.type === 'fill'"
+        class="quiz-fill"
+        type="text"
+        v-model="answers[i]"
+        placeholder="请输入答案"
+      />
+
       <div
         v-if="submitted"
         class="quiz-result"
-        :class="answers[i] === q.answer ? 'ok' : 'bad'"
+        :class="isRight(q, i) ? 'ok' : 'bad'"
       >
-        <strong>{{ answers[i] === q.answer ? '答对了' : '答错了' }}</strong>
-        正确答案 {{ letter(q.answer) }} · {{ q.explanation }}
+        <strong>{{ isRight(q, i) ? '答对了' : '答错了' }}</strong>
+        正确答案 {{ correctText(q) }} · {{ q.explanation }}
       </div>
-      <p v-else-if="answers[i] === undefined" class="quiz-empty-hint">
-        请选择一个答案
-      </p>
+      <template v-else>
+        <p
+          v-if="(!q.type || q.type !== 'fill') && answers[i] === undefined"
+          class="quiz-empty-hint"
+        >
+          请选择一个答案
+        </p>
+        <p
+          v-else-if="q.type === 'fill' && (!answers[i] || !answers[i].trim())"
+          class="quiz-empty-hint"
+        >
+          请填写答案
+        </p>
+      </template>
     </div>
 
     <div class="quiz-footer">
@@ -263,6 +312,16 @@ function retry() {
   font-size: 15px;
   line-height: 1.7;
   color: var(--vp-c-text-1);
+  white-space: pre-wrap;
+}
+.quiz-text.is-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 13px;
+  background: var(--vp-c-bg-alt, #f6f8fa);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  padding: 12px 14px;
+  overflow-x: auto;
 }
 .quiz-options {
   display: flex;
@@ -294,6 +353,20 @@ function retry() {
 }
 .quiz-options label.is-empty {
   border-style: dashed;
+}
+.quiz-fill {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 14px;
+  font-size: 15px;
+  color: var(--vp-c-text-1);
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+}
+.quiz-fill:focus {
+  outline: none;
+  border-color: var(--vp-c-brand-1);
 }
 .quiz-result {
   margin-top: 12px;
