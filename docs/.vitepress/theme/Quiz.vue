@@ -99,6 +99,7 @@ function retry() {
         </select>
       </label>
       <button class="quiz-btn" type="button" @click="start">换一组题</button>
+      <span class="quiz-total">本笔记题库共 {{ bankForNote.length }} 题</span>
     </div>
 
     <p class="quiz-tip">
@@ -216,6 +217,12 @@ function retry() {
 .quiz-btn:disabled {
   opacity: 0.45;
   cursor: not-allowed;
+}
+.quiz-total {
+  margin-left: auto;
+  font-size: 13px;
+  color: var(--vp-c-text-2);
+  white-space: nowrap;
 }
 .quiz-tip {
   margin: 14px 0 20px;
