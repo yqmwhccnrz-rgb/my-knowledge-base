@@ -168,9 +168,8 @@ function retry() {
       <label>
         每次抽题
         <select v-model.number="size">
-          <option :value="3">3 题</option>
           <option :value="5">5 题</option>
-          <option :value="bankForNote.length">全部</option>
+          <option :value="10">10 题</option>
         </select>
       </label>
       <button class="quiz-btn" type="button" @click="start">换一组题</button>
