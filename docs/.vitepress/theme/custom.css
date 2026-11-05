@@ -241,7 +241,7 @@ body {
     position: fixed;
     top: var(--vp-nav-height);
     left: var(--vp-sidebar-width);
-    width: 196px;
+    width: 220px;
     height: calc(100vh - var(--vp-nav-height));
     padding: 26px 14px 24px 18px;
     overflow-y: auto;
@@ -275,7 +275,7 @@ body {
     margin-left: 0;
   }
   .VPContent.has-sidebar {
-    padding-left: calc(var(--vp-sidebar-width) + 196px) !important;
+    padding-left: calc(var(--vp-sidebar-width) + 220px) !important;
   }
   .VPContent:has(.VPDoc:not(.has-aside)).has-sidebar {
     padding-left: var(--vp-sidebar-width) !important;
@@ -303,6 +303,17 @@ body {
 .vp-doc th:first-child,
 .vp-doc td:first-child {
   white-space: nowrap;
+}
+
+/* 整本书的目录条目较长，允许换行而不是被省略号截断 */
+.VPDocAsideOutline .outline-link {
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  line-height: 1.5;
+  padding: 3px 0;
 }
 
 /* 与原笔记的「提示 / 易错点 / 核心结论」框呼应，保持灰白主调 */
