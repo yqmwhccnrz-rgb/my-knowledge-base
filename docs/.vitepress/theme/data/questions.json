@@ -1813,5 +1813,77 @@
     ],
     "answer": 1,
     "explanation": "浮点数二进制表示有误差，0.1+0.2 不等于精确的 0.3，比较为 False。"
+  },
+  {
+    "id": "pg1",
+    "note": "C",
+    "topic": "程序设计",
+    "type": "program",
+    "question": "#include <stdio.h>\nint main() {\n    int i, s = 0;\n    for (i = 1; i <= __1__; i++) {\n        __2__;\n    }\n    printf(\"sum=%d\\n\", s);\n    return 0;\n}\n/* 预期输出：sum=5050 */",
+    "blanks": [
+      { "answer": ["100"] },
+      { "answer": ["s += i", "s = s + i", "s = i + s", "s+=i", "s=s+i", "s=i+s"] }
+    ],
+    "explanation": "用 for 循环从 1 累加到 100：循环上界填 100；累加语句把 i 加入累加器 s（s += i 或 s = s + i）。运行后 s=5050。"
+  },
+  {
+    "id": "pg2",
+    "note": "C",
+    "topic": "程序设计",
+    "type": "program",
+    "question": "#include <stdio.h>\nint main() {\n    int a[] = {3, 9, 1, 7, 5}, n = 5, i, mx = __1__;\n    for (i = 1; i < n; i++) {\n        if (__2__) mx = a[i];\n    }\n    printf(\"max=%d\\n\", mx);\n    return 0;\n}\n/* 预期输出：max=9 */",
+    "blanks": [
+      { "answer": ["a[0]"] },
+      { "answer": ["a[i] > mx"] }
+    ],
+    "explanation": "求最大值：先把最大值初值设为第一个元素 a[0]；再遍历其余元素，若当前元素 a[i] 大于当前最大值 mx 就更新 mx。最终 mx=9。"
+  },
+  {
+    "id": "pg3",
+    "note": "C",
+    "topic": "程序设计",
+    "type": "program",
+    "question": "#include <stdio.h>\nint main() {\n    int n = 17, i, isPrime = 1;\n    for (i = 2; i * i <= n; i++) {\n        if (n % i == 0) { __1__; break; }\n    }\n    if (__2__) printf(\"prime\\n\"); else printf(\"not prime\\n\");\n    return 0;\n}\n/* 预期输出：prime */",
+    "blanks": [
+      { "answer": ["isPrime = 0", "isprime = 0", "isPrime=0", "isprime=0"] },
+      { "answer": ["isPrime", "isPrime == 1", "isPrime != 0", "isprime", "isprime == 1", "isprime != 0"] }
+    ],
+    "explanation": "判断素数：用标志 isPrime 初值 1；若能在 [2, √n] 内找到因子（n % i == 0），把标志置 0 并退出；最后根据标志是否为真输出 prime。17 是素数，输出 prime。"
+  },
+  {
+    "id": "pg4",
+    "note": "Python",
+    "topic": "程序设计",
+    "type": "program",
+    "question": "import numpy as np\na = np.array([1, 2, 3, 4, 5])\nprint(\"sum =\", __1__)\nprint(\"mean =\", __2__)\n# 预期输出：\n# sum = 15\n# mean = 3.0",
+    "blanks": [
+      { "answer": ["a.sum()", "np.sum(a)", "sum(a)"] },
+      { "answer": ["a.mean()", "np.mean(a)"] }
+    ],
+    "explanation": "用 NumPy 计算：总和用 a.sum() 或 np.sum(a)；均值用 a.mean() 或 np.mean(a)。结果 sum=15、mean=3.0。"
+  },
+  {
+    "id": "pg5",
+    "note": "Python",
+    "topic": "程序设计",
+    "type": "program",
+    "question": "import pandas as pd\ndf = pd.DataFrame({\"score\": [60, 75, 90, 50]})\npassed = df[__1__]\nprint(__2__)\n# 预期输出：\n# 2",
+    "blanks": [
+      { "answer": ["df[\"score\"] > 70", "df['score'] > 70", "df.score > 70", "df[\"score\"]>70", "df['score']>70"] },
+      { "answer": ["len(passed)", "passed.shape[0]"] }
+    ],
+    "explanation": "用布尔索引筛选：df[\"score\"] > 70 选出 score 大于 70 的行（75、90 共 2 行），赋给 passed；再用 len(passed) 得到行数 2。"
+  },
+  {
+    "id": "pg6",
+    "note": "Python",
+    "topic": "程序设计",
+    "type": "program",
+    "question": "nums = [1, 2, 3, 4]\nsquares = [__1__ for x in nums]\nprint(__2__)\n# 预期输出：\n# [1, 4, 9, 16]",
+    "blanks": [
+      { "answer": ["x * x", "x**2", "x*x", "x ** 2"] },
+      { "answer": ["squares"] }
+    ],
+    "explanation": "列表推导式 [x*x for x in nums]（或 x**2）生成平方列表 [1,4,9,16]；最后打印 squares。"
   }
 ]

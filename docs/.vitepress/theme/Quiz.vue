@@ -51,22 +51,62 @@ function normalize(s) {
   return String(s).trim().toLowerCase()
 }
 
-// 填空题：答案支持多个可接受写法，忽略大小写与首尾空格
-function isFillCorrect(q, a) {
+// 填空题 / 程序设计题：答案支持多个可接受写法，忽略大小写与首尾空格
+function isFillCorrect(blank, a) {
   const got = normalize(a)
-  return (q.answer || []).some((ans) => normalize(ans) === got)
+  return (blank.answer || []).some((ans) => normalize(ans) === got)
 }
 
 function isRight(q, i) {
   const a = answers.value[i]
   if (q.type === 'fill') return a != null && isFillCorrect(q, a)
+  if (q.type === 'program') {
+    if (!a) return false
+    return (q.blanks || []).every(
+      (blk, b) => a[b] != null && isFillCorrect(blk, a[b])
+    )
+  }
   return a === q.answer
 }
 
 function correctText(q) {
   if (q.type === 'fill') return (q.answer || []).join(' / ')
+  if (q.type === 'program') {
+    return (q.blanks || [])
+      .map((blk, b) => `空${b + 1}: ${(blk.answer || []).join(' / ')}`)
+      .join('；')
+  }
   if (q.type === 'judge') return q.options[q.answer]
   return letter(q.answer)
+}
+
+// 程序设计题：把题目中的 __N__ 占位符解析成「文本片段 + 填空位」
+const BLANK_RE = /__(\d+)__/g
+function segments(q) {
+  if (q.type !== 'program') return []
+  const out = []
+  let last = 0
+  let m
+  BLANK_RE.lastIndex = 0
+  while ((m = BLANK_RE.exec(q.question)) !== null) {
+    if (m.index > last) out.push({ text: q.question.slice(last, m.index) })
+    out.push({ blank: Number(m[1]) - 1 })
+    last = m.index + m[0].length
+  }
+  if (last < q.question.length) out.push({ text: q.question.slice(last) })
+  return out
+}
+
+function setBlank(i, b, val) {
+  if (!answers.value[i]) answers.value[i] = {}
+  answers.value[i][b] = val
+}
+
+function blankRight(q, i, b) {
+  const a = answers.value[i]
+  const val = a && a[b]
+  const blk = q.blanks && q.blanks[b]
+  return val != null && blk && isFillCorrect(blk, val)
 }
 
 const score = computed(() =>
@@ -77,6 +117,12 @@ const allAnswered = computed(() =>
   picked.value.every((q, i) => {
     const a = answers.value[i]
     if (q.type === 'fill') return typeof a === 'string' && a.trim() !== ''
+    if (q.type === 'program') {
+      if (!a) return false
+      return (q.blanks || []).every(
+        (_, b) => typeof a[b] === 'string' && a[b].trim() !== ''
+      )
+    }
     return a !== undefined
   })
 )
@@ -128,14 +174,35 @@ function retry() {
     <p class="quiz-tip">
       当前展示 <strong>{{ noteLabel }}</strong> 的习题，题库共
       {{ bankForNote.length }} 道，覆盖 {{ topicCount }} 个知识点方向；本次随机抽取
-      {{ picked.length }} 道（含选择 / 判断 / 填空 / 代码题）。
+      {{ picked.length }} 道（含选择 / 判断 / 填空 / 代码 / 程序设计题）。
     </p>
 
     <div v-for="(q, i) in picked" :key="q.id" class="quiz-card">
       <div class="quiz-q">
         <span class="quiz-no">{{ i + 1 }}</span>
         <span class="quiz-topic">{{ q.topic }}</span>
-        <p class="quiz-text" :class="{ 'is-code': q.topic === '代码' }">{{ q.question }}</p>
+        <p
+          v-if="q.type !== 'program'"
+          class="quiz-text"
+          :class="{ 'is-code': q.topic === '代码' }"
+        >
+          {{ q.question }}
+        </p>
+        <div v-else class="quiz-text is-code">
+          <template v-for="(seg, si) in segments(q)" :key="si">
+            <span v-if="seg.text">{{ seg.text }}</span>
+            <input
+              v-else
+              class="quiz-blank"
+              :class="{
+                'is-wrong': submitted && !blankRight(q, i, seg.blank),
+                'is-right': submitted && blankRight(q, i, seg.blank)
+              }"
+              :value="(answers[i] && answers[i][seg.blank]) || ''"
+              @input="setBlank(i, seg.blank, $event.target.value)"
+            />
+          </template>
+        </div>
       </div>
 
       <!-- 选择 / 判断题：单选 -->
@@ -322,6 +389,26 @@ function retry() {
   border-radius: 8px;
   padding: 12px 14px;
   overflow-x: auto;
+}
+.quiz-blank {
+  font-family: inherit;
+  font-size: 13px;
+  padding: 2px 6px;
+  margin: 0 2px;
+  color: var(--vp-c-text-1);
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-brand-1);
+  border-radius: 4px;
+  width: 110px;
+  text-align: center;
+}
+.quiz-blank.is-wrong {
+  border-color: #c0392b;
+  background: rgba(192, 57, 43, 0.06);
+}
+.quiz-blank.is-right {
+  border-color: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft);
 }
 .quiz-options {
   display: flex;
