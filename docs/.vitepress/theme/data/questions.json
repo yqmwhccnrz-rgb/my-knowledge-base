@@ -4,7 +4,12 @@
     "note": "C",
     "topic": "运算符",
     "question": "表达式 5 / 2 在 C 语言中的结果是多少？",
-    "options": ["2", "2.5", "3", "编译报错"],
+    "options": [
+      "2",
+      "2.5",
+      "3",
+      "编译报错"
+    ],
     "answer": 0,
     "explanation": "两个整数相除执行整数除法，小数部分被直接截断，得到 2。想得到 2.5 需写成 5.0 / 2。"
   },
@@ -27,7 +32,12 @@
     "note": "C",
     "topic": "指针",
     "question": "若 int a = 10; int *p = &a; 则 *p 的值是多少？",
-    "options": ["a 的地址", "10", "p 的地址", "不确定"],
+    "options": [
+      "a 的地址",
+      "10",
+      "p 的地址",
+      "不确定"
+    ],
     "answer": 1,
     "explanation": "p 存放的是 a 的地址，*p 表示解引用，取出该地址上的值，也就是 10。"
   },
@@ -36,7 +46,12 @@
     "note": "C",
     "topic": "函数",
     "question": "C 语言中函数参数默认采用哪种传递方式？",
-    "options": ["引用传递", "值传递", "按名称传递", "由参数类型决定"],
+    "options": [
+      "引用传递",
+      "值传递",
+      "按名称传递",
+      "由参数类型决定"
+    ],
     "answer": 1,
     "explanation": "默认是值传递，函数内拿到的是实参的副本；想修改实参需要传指针。"
   },
@@ -59,7 +74,12 @@
     "note": "C",
     "topic": "字符串",
     "question": "字符串常量 \"hello\" 在内存中实际占用多少字节？",
-    "options": ["5 字节", "6 字节", "7 字节", "由编译器决定"],
+    "options": [
+      "5 字节",
+      "6 字节",
+      "7 字节",
+      "由编译器决定"
+    ],
     "answer": 1,
     "explanation": "5 个可见字符之外，末尾还会自动追加一个结束符 \\0，共 6 字节。"
   },
@@ -68,7 +88,12 @@
     "note": "C",
     "topic": "内存",
     "question": "malloc 分配的内存使用后应当如何释放？",
-    "options": ["程序结束自动释放，无需处理", "用 free 释放", "用 delete 释放", "把指针置为 0 即可"],
+    "options": [
+      "程序结束自动释放，无需处理",
+      "用 free 释放",
+      "用 delete 释放",
+      "把指针置为 0 即可"
+    ],
     "answer": 1,
     "explanation": "malloc 与 free 成对使用，忘记释放会造成内存泄漏；C++ 才用 delete。"
   },
@@ -91,7 +116,12 @@
     "note": "C",
     "topic": "数据类型",
     "question": "int 占 4 字节时，数值 -1 在内存中的补码表示是？",
-    "options": ["0x00000000", "0xFFFFFFFF", "0x80000001", "0x7FFFFFFF"],
+    "options": [
+      "0x00000000",
+      "0xFFFFFFFF",
+      "0x80000001",
+      "0x7FFFFFFF"
+    ],
     "answer": 1,
     "explanation": "负数补码 = 反码 + 1，-1 的补码是所有位都为 1，即 0xFFFFFFFF；0x80000001 是 -2147483647 的补码。"
   },
@@ -100,7 +130,12 @@
     "note": "C",
     "topic": "数据类型",
     "question": "int a[10]; 在 int 为 4 字节的平台上，sizeof(a) 的结果是？",
-    "options": ["10", "40", "4", "编译错误"],
+    "options": [
+      "10",
+      "40",
+      "4",
+      "编译错误"
+    ],
     "answer": 1,
     "explanation": "sizeof 返回字节数，10 个 int 共 40 字节；注意它测的是数组总大小，元素个数要用 sizeof(a)/sizeof(a[0])。"
   },
@@ -109,7 +144,12 @@
     "note": "C",
     "topic": "数据类型",
     "question": "字符常量 '\\0' 的数值是？",
-    "options": ["0", "1", "32（空格）", "48（'0'）"],
+    "options": [
+      "0",
+      "1",
+      "32（空格）",
+      "48（'0'）"
+    ],
     "answer": 0,
     "explanation": "'\\0' 是空字符，ASCII 值为 0，用作 C 字符串的结束符；它与字符 '0'（值 48）完全不同。"
   },
@@ -118,7 +158,12 @@
     "note": "C",
     "topic": "运算符",
     "question": "在 C 语言中，关系表达式（如 a > b）求值后得到什么类型的值？",
-    "options": ["int（0 或 1）", "布尔 bool", "字符 char", "浮点 double"],
+    "options": [
+      "int（0 或 1）",
+      "布尔 bool",
+      "字符 char",
+      "浮点 double"
+    ],
     "answer": 0,
     "explanation": "传统 C 中关系/逻辑运算结果用 int 表示，成立为 1、不成立为 0；C99 虽引入 _Bool/bool，但表达式仍按整型 0/1 参与运算。"
   },
@@ -127,7 +172,12 @@
     "note": "C",
     "topic": "运算符",
     "question": "int i = 3; int j = i++; 执行后 i 和 j 的值分别是？",
-    "options": ["i=4, j=3", "i=4, j=4", "i=3, j=4", "i=3, j=3"],
+    "options": [
+      "i=4, j=3",
+      "i=4, j=4",
+      "i=3, j=4",
+      "i=3, j=3"
+    ],
     "answer": 0,
     "explanation": "后置自增先返回原值再自增，所以 j 得到 3，i 变成 4；若用 ++i 则 i、j 都为 4。"
   },
@@ -150,7 +200,12 @@
     "note": "C",
     "topic": "指针",
     "question": "在 int 为 4 字节的平台上，若 int *p 指向地址 0x1000，则 p + 1 指向的地址是？",
-    "options": ["0x1001", "0x1004", "0x1008", "0x2000"],
+    "options": [
+      "0x1001",
+      "0x1004",
+      "0x1008",
+      "0x2000"
+    ],
     "answer": 1,
     "explanation": "指针算术按元素大小移动，p + 1 跳过 1 个 int（4 字节），指向 0x1004，而不是加 1 字节。"
   },
@@ -187,7 +242,12 @@
     "note": "C",
     "topic": "结构体",
     "question": "结构体的 sizeof 结果与其各成员 sizeof 之和相比，通常？",
-    "options": ["一定相等", "可能更大（因内存对齐）", "一定更小", "没有关系"],
+    "options": [
+      "一定相等",
+      "可能更大（因内存对齐）",
+      "一定更小",
+      "没有关系"
+    ],
     "answer": 1,
     "explanation": "为满足对齐要求编译器会插入填充字节，结构体总大小常大于成员之和；可用 #pragma pack 改变对齐。"
   },
@@ -196,7 +256,12 @@
     "note": "C",
     "topic": "枚举",
     "question": "enum { A, B, C }; 中，常量 B 的值是？",
-    "options": ["0", "1", "2", "由编译器随机定"],
+    "options": [
+      "0",
+      "1",
+      "2",
+      "由编译器随机定"
+    ],
     "answer": 1,
     "explanation": "枚举常量默认从 0 开始自动递增，A=0、B=1、C=2；也可显式赋值，如 enum {X=1, Y, Z} 则 Y=2。"
   },
@@ -205,7 +270,12 @@
     "note": "C",
     "topic": "预处理",
     "question": "在 C 中引入标准库头文件应使用？",
-    "options": ["#include", "#define", "#import", "using"],
+    "options": [
+      "#include",
+      "#define",
+      "#import",
+      "using"
+    ],
     "answer": 0,
     "explanation": "#include 负责把头文件内容插入当前源文件；#define 是宏定义，与引入头文件无关。"
   },
@@ -214,7 +284,12 @@
     "note": "C",
     "topic": "流程控制",
     "question": "for (;;) { ... } 的效果是？",
-    "options": ["编译错误", "无限循环", "一次都不执行", "只执行一次"],
+    "options": [
+      "编译错误",
+      "无限循环",
+      "一次都不执行",
+      "只执行一次"
+    ],
     "answer": 1,
     "explanation": "三个表达式都省略时条件恒为真，成为无限循环，通常靠 break 退出。"
   },
@@ -223,7 +298,12 @@
     "note": "C",
     "topic": "运算符",
     "question": "表达式 a > b ? a : b 的作用是？",
-    "options": ["返回 a、b 中较大的", "总是返回 a", "总是返回 b", "返回布尔值"],
+    "options": [
+      "返回 a、b 中较大的",
+      "总是返回 a",
+      "总是返回 b",
+      "返回布尔值"
+    ],
     "answer": 0,
     "explanation": "条件为真取 a，否则取 b，常用于取两数较大值；注意三目运算符要求两个分支类型兼容。"
   },
@@ -246,7 +326,12 @@
     "note": "C",
     "topic": "运算符",
     "question": "printf(\"%d\", 5 / 2); 的输出是？",
-    "options": ["2", "2.5", "3", "编译错误"],
+    "options": [
+      "2",
+      "2.5",
+      "3",
+      "编译错误"
+    ],
     "answer": 0,
     "explanation": "整数除法截断小数，得 2；想输出 2.5 应写 5.0 / 2 并用 %f 格式符。"
   },
@@ -255,7 +340,12 @@
     "note": "Python",
     "topic": "ndarray 基础",
     "question": "np.array([1, 2, 3]) 创建的数组，其 dtype 默认是？",
-    "options": ["int64", "float64", "object", "str"],
+    "options": [
+      "int64",
+      "float64",
+      "object",
+      "str"
+    ],
     "answer": 0,
     "explanation": "传入纯整数列表时 NumPy 默认用平台整数类型（通常 int64）。"
   },
@@ -264,7 +354,12 @@
     "note": "Python",
     "topic": "ndarray 基础",
     "question": "np.array([1, 2.5, 3]) 的 dtype 是？",
-    "options": ["int64", "float64", "object", "bool"],
+    "options": [
+      "int64",
+      "float64",
+      "object",
+      "bool"
+    ],
     "answer": 1,
     "explanation": "数组要求同构，存在浮点数时整体提升为 float64；这正是 ndarray 与 Python 列表的重要区别。"
   },
@@ -273,7 +368,12 @@
     "note": "Python",
     "topic": "数据类型",
     "question": "np.array([0, 1, 2]).astype(bool) 后，哪些元素为 True？",
-    "options": ["全部", "仅 1 和 2", "仅 0", "全部为 False"],
+    "options": [
+      "全部",
+      "仅 1 和 2",
+      "仅 0",
+      "全部为 False"
+    ],
     "answer": 1,
     "explanation": "布尔转换规则是“0 为 False、非 0 为 True”，所以只有 0 变 False，1、2 为 True（原笔记曾误写 0 为 True，已修正）。"
   },
@@ -282,7 +382,12 @@
     "note": "Python",
     "topic": "视图与拷贝",
     "question": "a = np.arange(5); b = a[1:4]; b[0] = 100; 之后 a[1] 的值是？",
-    "options": ["1", "100", "0", "不变，仍为 1"],
+    "options": [
+      "1",
+      "100",
+      "0",
+      "不变，仍为 1"
+    ],
     "answer": 1,
     "explanation": "切片返回的是原数组的视图，与 a 共享内存，修改 b 会影响 a。要独立副本需 a[1:4].copy()。"
   },
@@ -291,7 +396,12 @@
     "note": "Python",
     "topic": "视图与拷贝",
     "question": "要得到一个与 ndarray 完全独立、不共享内存的副本，应使用？",
-    "options": ["b = a.copy()", "b = a[:]", "b = a", "b = list(a)"],
+    "options": [
+      "b = a.copy()",
+      "b = a[:]",
+      "b = a",
+      "b = list(a)"
+    ],
     "answer": 0,
     "explanation": "ndarray.copy() 返回深拷贝；而切片 a[:] 仍是视图，修改会互相影响；b = a 只是同一对象的新引用。"
   },
@@ -300,7 +410,12 @@
     "note": "Python",
     "topic": "广播",
     "question": "a = np.array([[1],[2],[3]])（形状 3×1），b = np.array([10,20])（形状 1×2），a + b 的形状是？",
-    "options": ["(3, 2)", "(3, 3)", "报错", "(2, 3)"],
+    "options": [
+      "(3, 2)",
+      "(3, 3)",
+      "报错",
+      "(2, 3)"
+    ],
     "answer": 0,
     "explanation": "广播把 (3,1) 沿列、(1,2) 沿行扩展为 (3,2) 后逐元素相加；形状不兼容时才会报错。"
   },
@@ -309,7 +424,12 @@
     "note": "Python",
     "topic": "数组运算",
     "question": "NumPy 中对两个同形状数组做逐元素相乘，应使用？",
-    "options": ["*", "@", "np.dot", "np.matmul"],
+    "options": [
+      "*",
+      "@",
+      "np.dot",
+      "np.matmul"
+    ],
     "answer": 0,
     "explanation": "* 是逐元素乘法；@、np.dot、np.matmul 用于矩阵乘法，结果完全不同。"
   },
@@ -318,7 +438,12 @@
     "note": "Python",
     "topic": "数组函数",
     "question": "np.where(cond, x, y) 的作用是？",
-    "options": ["按 cond 从 x、y 中逐元素挑选", "对 cond 求和", "排序", "去重"],
+    "options": [
+      "按 cond 从 x、y 中逐元素挑选",
+      "对 cond 求和",
+      "排序",
+      "去重"
+    ],
     "answer": 0,
     "explanation": "条件为真取 x 对应元素，否则取 y，常用于按条件替换或取两数组的较大值。"
   },
@@ -327,7 +452,12 @@
     "note": "Python",
     "topic": "Series",
     "question": "未指定 index 时，pandas Series 的默认索引是？",
-    "options": ["0, 1, 2 …", "字母 a, b, c", "随机整数", "时间戳"],
+    "options": [
+      "0, 1, 2 …",
+      "字母 a, b, c",
+      "随机整数",
+      "时间戳"
+    ],
     "answer": 0,
     "explanation": "Series 默认用从 0 开始的整数位置索引；DataFrame 的行索引同理。"
   },
@@ -336,7 +466,12 @@
     "note": "Python",
     "topic": "Series",
     "question": "两个 Series 做算术运算时，pandas 按什么进行匹配？",
-    "options": ["位置顺序", "索引标签（index）", "元素值大小", "随机"],
+    "options": [
+      "位置顺序",
+      "索引标签（index）",
+      "元素值大小",
+      "随机"
+    ],
     "answer": 1,
     "explanation": "pandas 按标签对齐后再运算，而非按位置——这是与 NumPy 数组最关键的区别，也是最常见的坑。"
   },
@@ -345,7 +480,12 @@
     "note": "Python",
     "topic": "Series",
     "question": "s1 = pd.Series([1,2,3], index=['a','b','c']); s2 = pd.Series([10,20], index=['b','c']); 则 s1 + s2 中 'a' 对应的值是？",
-    "options": ["1", "11", "NaN", "0"],
+    "options": [
+      "1",
+      "11",
+      "NaN",
+      "0"
+    ],
     "answer": 2,
     "explanation": "'a' 在 s2 中不存在，按标签对齐后无法配对，结果为 NaN；只有 b、c 能相加。"
   },
@@ -354,7 +494,12 @@
     "note": "Python",
     "topic": "DataFrame",
     "question": "pandas DataFrame 本质上是？",
-    "options": ["一维带标签序列", "带行、列标签的二维表格", "三维数组", "普通 Python 字典"],
+    "options": [
+      "一维带标签序列",
+      "带行、列标签的二维表格",
+      "三维数组",
+      "普通 Python 字典"
+    ],
     "answer": 1,
     "explanation": "DataFrame 是二维结构，既有行索引也有列名，类似电子表格或 SQL 表。"
   },
@@ -363,7 +508,12 @@
     "note": "Python",
     "topic": "DataFrame",
     "question": "对于 DataFrame df，df['列名']（单括号选一列）返回的数据类型是？",
-    "options": ["Series", "DataFrame", "list", "ndarray"],
+    "options": [
+      "Series",
+      "DataFrame",
+      "list",
+      "ndarray"
+    ],
     "answer": 0,
     "explanation": "单列访问返回 Series；想保留 DataFrame 的二维结构，应使用双括号 df[['列名']]。"
   },
@@ -372,7 +522,12 @@
     "note": "Python",
     "topic": "DataFrame",
     "question": "df[['列名']]（双括号选一列）返回的是？",
-    "options": ["DataFrame", "Series", "报错", "None"],
+    "options": [
+      "DataFrame",
+      "Series",
+      "报错",
+      "None"
+    ],
     "answer": 0,
     "explanation": "双括号返回子 DataFrame，便于链式调用时保持二维结构；单括号返回 Series。"
   },
@@ -395,7 +550,12 @@
     "note": "Python",
     "topic": "缺失值",
     "question": "np.nan == np.nan 的结果是？",
-    "options": ["True", "False", "报错", "返回 NaN"],
+    "options": [
+      "True",
+      "False",
+      "报错",
+      "返回 NaN"
+    ],
     "answer": 1,
     "explanation": "NaN 与任何值（含自身）比较都为 False，检测缺失只能用 pd.isna / np.isnan。"
   },
@@ -446,7 +606,12 @@
     "note": "Python",
     "topic": "表合并",
     "question": "把多个结构相同的表上下拼接（增加行），应使用？",
-    "options": ["pd.concat", "pd.merge", "df.join", "df.append"],
+    "options": [
+      "pd.concat",
+      "pd.merge",
+      "df.join",
+      "df.append"
+    ],
     "answer": 0,
     "explanation": "pd.concat 默认 axis=0 纵向堆叠；merge/join 用于按键横向合并；append 已弃用。"
   },
@@ -455,7 +620,12 @@
     "note": "Python",
     "topic": "表合并",
     "question": "按某一列（键）把两个表左右合并，应使用？",
-    "options": ["pd.merge", "pd.concat", "df.sort_values", "df.groupby"],
+    "options": [
+      "pd.merge",
+      "pd.concat",
+      "df.sort_values",
+      "df.groupby"
+    ],
     "answer": 0,
     "explanation": "pd.merge 按指定键做类似 SQL 的连接（inner/left/right/outer）；concat 只适合简单堆叠。"
   },
@@ -464,7 +634,12 @@
     "note": "Python",
     "topic": "数据透视",
     "question": "想按“行键、列键”对数值做聚合（如求和、均值），生成透视表，可用？",
-    "options": ["df.pivot_table", "只能手写循环", "df.plot 仅作图", "df.drop"],
+    "options": [
+      "df.pivot_table",
+      "只能手写循环",
+      "df.plot 仅作图",
+      "df.drop"
+    ],
     "answer": 0,
     "explanation": "pivot_table 支持按行列分组并用 aggfunc 聚合；groupby 也能实现类似效果，再 unstack 成透视形状。"
   },
@@ -487,7 +662,12 @@
     "note": "Python",
     "topic": "可视化",
     "question": "箱线图（boxplot）能直观反映哪些统计信息？",
-    "options": ["中位数、四分位数与异常值", "仅均值", "仅标准差", "相关系数"],
+    "options": [
+      "中位数、四分位数与异常值",
+      "仅均值",
+      "仅标准差",
+      "相关系数"
+    ],
     "answer": 0,
     "explanation": "箱线图展示中位数、上下四分位数、须与外异常值，适合发现离群点；均值并不在箱线图中直接体现。"
   },
@@ -504,5 +684,761 @@
     ],
     "answer": 0,
     "explanation": "subplots 一次性创建网格化的多个坐标系，返回 (fig, axes)，便于在一张画布里排布多张子图。"
+  },
+  {
+    "id": "c26",
+    "note": "C",
+    "topic": "注释",
+    "question": "下列关于 C 语言注释的说法，正确的是？",
+    "options": [
+      "只能用 /* */ 进行块注释，没有单行注释",
+      "支持 // 单行注释和 /* */ 块注释两种",
+      "注释可以嵌套在 /* */ 内部",
+      "注释会被编译进可执行文件"
+    ],
+    "answer": 1,
+    "explanation": "C99 起支持 // 单行注释；/* */ 不能嵌套；注释在预处理阶段被移除，不会进入可执行文件。"
+  },
+  {
+    "id": "c27",
+    "note": "C",
+    "topic": "常量",
+    "question": "关于 `const` 修饰的变量，下列说法正确的是？",
+    "options": [
+      "const 变量的值在运行期间可以随时修改",
+      "const 变量通常需在定义时初始化，之后不能再修改",
+      "const 变量会占用更多内存",
+      "const 与 #define 宏完全等价"
+    ],
+    "answer": 1,
+    "explanation": "const 定义的是只读变量，定义后不可再赋值修改；#define 是预处理文本替换、无类型，二者机制不同。"
+  },
+  {
+    "id": "c28",
+    "note": "C",
+    "topic": "变量",
+    "question": "在函数内写 `int x;`（未初始化）定义的局部变量 x，其初值是？",
+    "options": [
+      "自动为 0",
+      "未定义的垃圾值",
+      "自动为 1",
+      "编译报错"
+    ],
+    "answer": 1,
+    "explanation": "局部（自动）变量未初始化时值是未定义的（垃圾值）；只有全局变量和 static 变量才默认零初始化。"
+  },
+  {
+    "id": "c29",
+    "note": "C",
+    "topic": "输入输出",
+    "question": "用 printf 输出一个 double 类型变量 d，应使用哪个格式占位符？",
+    "options": [
+      "%d",
+      "%f",
+      "%c",
+      "%s"
+    ],
+    "answer": 1,
+    "explanation": "%d 整数，%f 浮点（double/float 都用 %f，float 传参会提升为 double），%c 字符，%s 字符串。"
+  },
+  {
+    "id": "c30",
+    "note": "C",
+    "topic": "输入输出",
+    "question": "用 scanf 读入一个 int 变量 a，正确的写法是？",
+    "options": [
+      "scanf(\"%d\", a);",
+      "scanf(\"%d\", &a);",
+      "scanf(\"%d\", *a);",
+      "scanf(a, \"%d\");"
+    ],
+    "answer": 1,
+    "explanation": "scanf 需要变量的地址，用 & 取地址符传入；若传值会把变量内容当指针，导致未定义行为。"
+  },
+  {
+    "id": "c31",
+    "note": "C",
+    "topic": "换行符",
+    "question": "在 C 语言字符串或字符常量中，表示“换行”的转义字符是？",
+    "options": [
+      "\\t",
+      "\\n",
+      "\\r",
+      "\\0"
+    ],
+    "answer": 1,
+    "explanation": "\\n 换行，\\t 制表符，\\r 回车，\\0 字符串结束符。"
+  },
+  {
+    "id": "c32",
+    "note": "C",
+    "topic": "存储规则",
+    "question": "在采用补码表示的有符号 8 位整数中，-1 的二进制表示是？",
+    "options": [
+      "10000001",
+      "11111111",
+      "10000000",
+      "00000001"
+    ],
+    "answer": 1,
+    "explanation": "补码中 -1 = 对 1(00000001) 按位取反得 11111110 再加 1 = 11111111；10000000 表示 -128。"
+  },
+  {
+    "id": "c33",
+    "note": "C",
+    "topic": "sizeof",
+    "question": "`sizeof` 运算符返回的是？",
+    "options": [
+      "变量的数值大小",
+      "对象或类型所占的字节数",
+      "数组中元素的个数",
+      "字符串的长度（含 \\0）"
+    ],
+    "answer": 1,
+    "explanation": "sizeof 返回字节数；元素个数要用 总长度/sizeof(元素)；字符串长度用 strlen（不含 \\0）。"
+  },
+  {
+    "id": "c34",
+    "note": "C",
+    "topic": "整数浮点运算",
+    "question": "在 C 语言中，`int a = 7 / 2;` 执行后 a 的值是？",
+    "options": [
+      "3.5",
+      "3",
+      "4",
+      "编译报错"
+    ],
+    "answer": 1,
+    "explanation": "两个整数相除结果仍为整数，向零截断，7/2=3（小数部分直接丢弃）。要得 3.5 需写成 7.0/2 或 (double)7/2。"
+  },
+  {
+    "id": "c35",
+    "note": "C",
+    "topic": "字符类型",
+    "question": "关于 char 类型，下列说法正确的是？",
+    "options": [
+      "char 只能存英文字母",
+      "char 本质是 1 字节整数，可参与算术运算，'A' 的 ASCII 值为 65",
+      "char 占 4 字节",
+      "char 不能和 int 相互转换"
+    ],
+    "answer": 1,
+    "explanation": "char 是 1 字节整数，存的是字符的 ASCII 码，'A'=65，可直接参与算术运算并和 int 互转。"
+  },
+  {
+    "id": "c36",
+    "note": "C",
+    "topic": "类型转换",
+    "question": "表达式 `(int)3.9` 的值是？",
+    "options": [
+      "3.9",
+      "3",
+      "4",
+      "4.0"
+    ],
+    "answer": 1,
+    "explanation": "强制类型转换 (int) 直接截断小数部分，3.9 → 3（不是四舍五入）。"
+  },
+  {
+    "id": "c37",
+    "note": "C",
+    "topic": "逻辑类型",
+    "question": "已知 `int a = 5, b = 3;`，表达式 `a > b` 的值是？",
+    "options": [
+      "1",
+      "5",
+      "3",
+      "真"
+    ],
+    "answer": 0,
+    "explanation": "C 中关系表达式成立结果为整数 1，不成立为 0。"
+  },
+  {
+    "id": "c38",
+    "note": "C",
+    "topic": "逗号运算",
+    "question": "表达式 `int x = (3 + 4, 5 + 6);` 执行后 x 的值是？",
+    "options": [
+      "7",
+      "11",
+      "18",
+      "编译报错"
+    ],
+    "answer": 1,
+    "explanation": "逗号表达式取最后一个子表达式的值，即 5+6=11。"
+  },
+  {
+    "id": "c39",
+    "note": "C",
+    "topic": "switch",
+    "question": "关于 switch 语句，下列说法正确的是？",
+    "options": [
+      "每个 case 自动结束，不会继续执行下一个 case",
+      "若 case 末尾没有 break，会继续执行后续 case（穿透）",
+      "switch 只能判断 int，不能判断 char",
+      "default 必须放在最后"
+    ],
+    "answer": 1,
+    "explanation": "switch 的 case 没有 break 时会顺序“穿透”执行后续 case；char 也可用（本质是整型）；default 位置任意。"
+  },
+  {
+    "id": "c40",
+    "note": "C",
+    "topic": "循环",
+    "question": "关于 do-while 循环，下列说法正确的是？",
+    "options": [
+      "先判断条件再执行，可能一次都不执行",
+      "先执行循环体再判断条件，至少执行一次",
+      "与 while 完全等价",
+      "不能用于无限循环"
+    ],
+    "answer": 1,
+    "explanation": "do-while 先执行后判断，循环体至少执行一次；while 是先判断、可能一次都不执行。"
+  },
+  {
+    "id": "c41",
+    "note": "C",
+    "topic": "循环",
+    "question": "`for (int i=0; i<3; i++)` 第一次循环前执行的步骤顺序是？",
+    "options": [
+      "先 i++，再判断 i<3，再进循环体",
+      "先 i=0 初始化，再判断 i<3，再进循环体",
+      "先判断 i<3，再 i=0，再循环体",
+      "先循环体，再 i++，再判断"
+    ],
+    "answer": 1,
+    "explanation": "for 首次：初始化 i=0 → 判断条件 → 满足则执行循环体；之后每轮：i++ → 判断 → 循环体。"
+  },
+  {
+    "id": "c42",
+    "note": "C",
+    "topic": "嵌套循环",
+    "question": "嵌套循环 `for(i=0;i<3;i++) for(j=0;j<4;j++)` 内层语句共执行多少次？",
+    "options": [
+      "7",
+      "12",
+      "34",
+      "3"
+    ],
+    "answer": 1,
+    "explanation": "外层 3 次，内层每次 4 次，共 3×4=12 次。"
+  },
+  {
+    "id": "c43",
+    "note": "C",
+    "topic": "随机数",
+    "question": "关于 C 语言生成随机数，下列说法正确的是？",
+    "options": [
+      "直接用 rand() 每次运行结果都不同，无需其他设置",
+      "应先用 srand(time(NULL)) 设置种子，再调用 rand() 才能得到变化的序列",
+      "rand() 返回的是浮点数",
+      "rand() 返回 0 到 1 之间的小数"
+    ],
+    "answer": 1,
+    "explanation": "rand() 返回 0~RAND_MAX 的整数；若不调用 srand 设种子，每次运行的序列相同；用 srand(time(NULL)) 以时间为种子可得不同序列。"
+  },
+  {
+    "id": "c44",
+    "note": "C",
+    "topic": "循环应用",
+    "question": "计算 n 的阶乘 n!（n≥1），最合适的循环结构是？",
+    "options": [
+      "用求余循环",
+      "用累乘循环（result *= i）",
+      "用字符串拼接",
+      "用位运算"
+    ],
+    "answer": 1,
+    "explanation": "阶乘是连乘，用 result 初值 1，循环 i 从 1 到 n 执行 result *= i。"
+  },
+  {
+    "id": "c45",
+    "note": "C",
+    "topic": "函数",
+    "question": "在 main 中调用一个定义在 main 之后的函数，调用前通常需要？",
+    "options": [
+      "什么都不用做",
+      "先写函数原型（声明）",
+      "用 #include 包含",
+      "用 extern 变量"
+    ],
+    "answer": 1,
+    "explanation": "被调用函数若定义在调用点之后，需先声明函数原型（返回类型、名字、参数列表），否则编译报错。"
+  },
+  {
+    "id": "c46",
+    "note": "C",
+    "topic": "函数",
+    "question": "关于 C 语言函数的参数传递（传值），下列说法正确的是？",
+    "options": [
+      "函数内修改形参会影响实参",
+      "函数得到的是实参的副本，修改形参不影响原实参",
+      "所有参数都按引用传递",
+      "数组作为参数是传值"
+    ],
+    "answer": 1,
+    "explanation": "C 默认传值，形参是实参的拷贝，函数内改形参不影响外部；数组名作为参数会退化为指针（传地址），在函数内可改原数组。"
+  },
+  {
+    "id": "c47",
+    "note": "C",
+    "topic": "函数",
+    "question": "在函数内部定义的局部变量，其可见范围是？",
+    "options": [
+      "整个程序",
+      "仅在该函数内部",
+      "从定义处到文件结束",
+      "全局可见"
+    ],
+    "answer": 1,
+    "explanation": "局部变量作用域限于所在函数（或复合语句），函数外不可见；不同函数可同名互不干扰。"
+  },
+  {
+    "id": "c48",
+    "note": "C",
+    "topic": "数组",
+    "question": "定义 `int a[2][3];`，关于其元素访问与存储，正确的是？",
+    "options": [
+      "a[2][3] 是合法元素",
+      "元素按行优先顺序连续存储，a[1][0] 紧跟在 a[0][2] 之后",
+      "二维数组其实是两行独立的一维数组，不连续",
+      "a[0][3] 是合法元素"
+    ],
+    "answer": 1,
+    "explanation": "下标从 0 开始，最大合法是 a[1][2]，a[2][3] 越界；C 二维数组行优先连续存储。"
+  },
+  {
+    "id": "c49",
+    "note": "C",
+    "topic": "指针",
+    "question": "`const int *p;` 表示？",
+    "options": [
+      "p 本身是常量，不能指向别处",
+      "p 指向的 int 是只读的，不能通过 p 修改",
+      "p 和 *p 都是常量",
+      "该写法非法"
+    ],
+    "answer": 1,
+    "explanation": "const 在 * 左边（const int * 或 int const *）表示指向的对象只读；若 const 在 * 右边（int *const p）才是指针本身常量。"
+  },
+  {
+    "id": "c50",
+    "note": "C",
+    "topic": "指针",
+    "question": "已知 `int a[5]; int *p = a;`，则 `p + 1` 指向？",
+    "options": [
+      "下一个字节",
+      "下一个 int（即 &a[1]，地址增加 sizeof(int) 字节）",
+      "数组末尾",
+      "编译报错"
+    ],
+    "answer": 1,
+    "explanation": "指针 ± 整数按指向类型大小移动，p+1 指向 a[1]，地址增加 sizeof(int)（通常 4）字节。"
+  },
+  {
+    "id": "c51",
+    "note": "C",
+    "topic": "指针",
+    "question": "动态分配内存使用 malloc，释放内存应使用？",
+    "options": [
+      "delete",
+      "free",
+      "close",
+      "release"
+    ],
+    "answer": 1,
+    "explanation": "C 中用 malloc/calloc/realloc 分配、free 释放；delete 是 C++ 的。不释放会导致内存泄漏。"
+  },
+  {
+    "id": "c52",
+    "note": "C",
+    "topic": "字符串",
+    "question": "字符串 `\"hello\"`（含结尾 \\0）用 strlen 测得的长度是？",
+    "options": [
+      "5",
+      "6",
+      "4",
+      "不确定"
+    ],
+    "answer": 0,
+    "explanation": "strlen 统计 \\0 之前的字符数，不计结尾 \\0，所以 \"hello\" 长度为 5。"
+  },
+  {
+    "id": "c53",
+    "note": "C",
+    "topic": "字符串",
+    "question": "使用 strcpy(dest, src) 或 strcat(dest, src) 时，必须保证？",
+    "options": [
+      "dest 指向足够大的空间容纳结果",
+      "src 是常量",
+      "dest 和 src 长度相同",
+      "不需要任何保证"
+    ],
+    "answer": 0,
+    "explanation": "strcpy/strcat 不会检查目标空间大小，若 dest 空间不足会缓冲区溢出，必须确保 dest 足够大（可用更安全的 strncpy/snprintf）。"
+  },
+  {
+    "id": "c54",
+    "note": "C",
+    "topic": "字符串",
+    "question": "`strcmp(\"abc\", \"abd\")` 的返回值是？",
+    "options": [
+      "0",
+      "正数",
+      "负数",
+      "1"
+    ],
+    "answer": 2,
+    "explanation": "strcmp 按字典序比较，前两个字符相同，'c'(99) < 'd'(100)，所以返回负数（表示前者小于后者；具体数值未规定）。"
+  },
+  {
+    "id": "c55",
+    "note": "C",
+    "topic": "字符串",
+    "question": "关于 `char *s = \"hello\";`，下列说法正确的是？",
+    "options": [
+      "可以通过 s[0] = 'H' 修改字符串内容",
+      "\"hello\" 是字符串常量，通常存于只读区，修改它行为未定义",
+      "s 是一个字符数组，长度为 6",
+      "该写法非法"
+    ],
+    "answer": 1,
+    "explanation": "字符串字面量存于只读存储区，char *s 指向它，试图修改是未定义行为；若要可修改应写成 char s[] = \"hello\";（数组拷贝）。"
+  },
+  {
+    "id": "c56",
+    "note": "C",
+    "topic": "枚举",
+    "question": "定义 `enum {A=2, B, C};`，则 B 和 C 的值分别是？",
+    "options": [
+      "B=2, C=3",
+      "B=3, C=4",
+      "B=0, C=1",
+      "B=3, C=3"
+    ],
+    "answer": 1,
+    "explanation": "枚举量若显式赋值，后续未指定的在前一个基础上自动 +1，所以 B=3, C=4。"
+  },
+  {
+    "id": "c57",
+    "note": "C",
+    "topic": "结构体",
+    "question": "若有结构体指针 `struct P *p;`，通过指针访问其成员 x 的正确写法是？",
+    "options": [
+      "p.x",
+      "p->x",
+      "*p.x",
+      "p*x"
+    ],
+    "answer": 1,
+    "explanation": "结构体指针用 `->` 访问成员（等价于 (*p).x）；`.` 用于结构体变量本身。"
+  },
+  {
+    "id": "c58",
+    "note": "C",
+    "topic": "结构体",
+    "question": "在某常见对齐规则下，`struct { char c; int i; };` 的大小通常？",
+    "options": [
+      "5 字节",
+      "8 字节（char 后补 3 字节使 int 对齐到 4 字节边界）",
+      "4 字节",
+      "9 字节"
+    ],
+    "answer": 1,
+    "explanation": "结构体成员按对齐要求排布，char 后通常填充 3 字节使 int 对齐到 4 字节边界，整体大小为 1+3+4=8（并满足整体对齐到最大成员倍数）。"
+  },
+  {
+    "id": "c59",
+    "note": "C",
+    "topic": "综合算法",
+    "question": "判断整数 n(>1) 是否为素数，最朴素的做法是？",
+    "options": [
+      "检查 2 到 √n（或 n-1）之间是否有能整除 n 的数",
+      "检查 n 是否为偶数",
+      "直接返回 true",
+      "用 n%3 判断"
+    ],
+    "answer": 0,
+    "explanation": "素数是大于 1 且只能被 1 和自身整除的数；可遍历 2~√n 看是否有因子，有则非素数。"
+  },
+  {
+    "id": "c60",
+    "note": "C",
+    "topic": "综合算法",
+    "question": "求两数的最大公约数（GCD），经典算法是？",
+    "options": [
+      "辗转相除法（欧几里得算法）",
+      "冒泡排序",
+      "二分查找",
+      "快速幂"
+    ],
+    "answer": 0,
+    "explanation": "辗转相除法：gcd(a,b)=gcd(b, a%b)，直到余数为 0，此时 b 即为最大公约数。"
+  },
+  {
+    "id": "c61",
+    "note": "C",
+    "topic": "综合算法",
+    "question": "“水仙花数”是指一个三位数，其各位数字的立方和等于该数本身（如 153=1³+5³+3³）。判断一个数是否为水仙花数需要？",
+    "options": [
+      "取出百位、十位、个位分别立方求和比较",
+      "判断是否为素数",
+      "判断能否被 3 整除",
+      "判断是否为偶数"
+    ],
+    "answer": 0,
+    "explanation": "需逐位分解数字，计算各位立方和，与原数比较是否相等。"
+  },
+  {
+    "id": "p26",
+    "note": "Python",
+    "topic": "数据分析流程",
+    "question": "典型的数据分析流程通常依次是？",
+    "options": [
+      "采集 → 清洗 → 探索(EDA) → 建模/可视化 → 结论",
+      "建模 → 采集 → 清洗",
+      "可视化 → 采集",
+      "清洗 → 删除数据"
+    ],
+    "answer": 0,
+    "explanation": "标准流程：明确问题→数据采集→数据清洗→探索性分析→建模/可视化→得出结论。"
+  },
+  {
+    "id": "p27",
+    "note": "Python",
+    "topic": "ndarray 属性",
+    "question": "NumPy 数组 a 的 `.shape` 属性表示？",
+    "options": [
+      "元素的数据类型",
+      "数组的维度大小（如 (2,3)）",
+      "元素总个数",
+      "每个元素的字节数"
+    ],
+    "answer": 1,
+    "explanation": "shape 是各维度大小的元组；ndim 是维数；dtype 是类型；size 是总元素数；itemsize 是每元素字节数。"
+  },
+  {
+    "id": "p28",
+    "note": "Python",
+    "topic": "ndarray 属性",
+    "question": "关于 ndarray 的属性，下列说法正确的是？",
+    "options": [
+      "ndim 表示元素个数",
+      "dtype 表示数组元素的数据类型",
+      "size 表示维度数",
+      "shape 表示数据类型"
+    ],
+    "answer": 1,
+    "explanation": "dtype=数据类型，ndim=维数，size=总元素数，shape=各维大小。"
+  },
+  {
+    "id": "p29",
+    "note": "Python",
+    "topic": "数组创建",
+    "question": "想创建一个 3×3 的单位矩阵，应使用？",
+    "options": [
+      "np.zeros((3,3))",
+      "np.ones((3,3))",
+      "np.eye(3)",
+      "np.arange(3)"
+    ],
+    "answer": 2,
+    "explanation": "np.eye(n) 生成 n×n 单位矩阵；zeros 全 0；ones 全 1；arange 生成一维序列。"
+  },
+  {
+    "id": "p30",
+    "note": "Python",
+    "topic": "数组创建",
+    "question": "`np.arange(0, 1, 0.2)` 与 `np.linspace(0, 1, 5)` 的主要区别是？",
+    "options": [
+      "完全相同",
+      "arange 按步长取（通常不含终点），linspace 按个数均匀取（含终点）",
+      "都只生成整数",
+      "linspace 不能指定个数"
+    ],
+    "answer": 1,
+    "explanation": "arange(start,stop,step) 按步长、通常不含终点；linspace(start,stop,num) 在起止间等分成 num 个点、包含终点。"
+  },
+  {
+    "id": "p31",
+    "note": "Python",
+    "topic": "索引切片",
+    "question": "一维数组 a = np.array([10,20,30,40])，a[-1] 的值是？",
+    "options": [
+      "10",
+      "20",
+      "30",
+      "40"
+    ],
+    "answer": 3,
+    "explanation": "NumPy/Python 负索引从末尾计数，-1 表示最后一个元素 40。"
+  },
+  {
+    "id": "p32",
+    "note": "Python",
+    "topic": "统计函数",
+    "question": "对数组 a=np.array([1,2,3,4])，np.mean(a) 的值是？",
+    "options": [
+      "2",
+      "2.5",
+      "3",
+      "10"
+    ],
+    "answer": 1,
+    "explanation": "均值=(1+2+3+4)/4=2.5；np.sum 为 10，np.max 为 4。"
+  },
+  {
+    "id": "p33",
+    "note": "Python",
+    "topic": "统计函数",
+    "question": "关于 NumPy 统计函数，下列说法正确的是？",
+    "options": [
+      "np.max 返回最小值",
+      "np.std 返回标准差",
+      "np.min 返回平均值",
+      "这些函数不能指定 axis"
+    ],
+    "answer": 1,
+    "explanation": "np.max 最大、np.min 最小、np.std 标准差、np.mean 均值；都可用 axis 指定按行/列计算。"
+  },
+  {
+    "id": "p34",
+    "note": "Python",
+    "topic": "排序去重",
+    "question": "`np.unique([3,1,3,2])` 的返回值是？",
+    "options": [
+      "[3,1,3,2]",
+      "[1,2,3]",
+      "[3,1,2]",
+      "(3,1,2)"
+    ],
+    "answer": 1,
+    "explanation": "np.unique 返回排序后的去重数组 [1,2,3]；np.sort 只排序不去重；np.argsort 返回排序后的索引。"
+  },
+  {
+    "id": "p35",
+    "note": "Python",
+    "topic": "拼接变形",
+    "question": "想把形状 (2,3) 的数组变成形状 (6,) 的一维数组，应使用？",
+    "options": [
+      "np.concatenate",
+      "np.reshape(a, 6) 或 a.reshape(-1)",
+      "np.transpose",
+      "np.flatten（不存在）"
+    ],
+    "answer": 1,
+    "explanation": "reshape 改变形状不改数据，a.reshape(-1) 自动展平为一维；concatenate 用于拼接多个数组。"
+  },
+  {
+    "id": "p36",
+    "note": "Python",
+    "topic": "重复值",
+    "question": "在 pandas 中删除 DataFrame 中完全重复的行，应使用？",
+    "options": [
+      "df.dropna()",
+      "df.drop_duplicates()",
+      "df.unique()",
+      "df.duplicated() 直接删除"
+    ],
+    "answer": 1,
+    "explanation": "drop_duplicates() 删除重复行；dropna 删缺失值；duplicated() 只返回布尔标记、不删除。"
+  },
+  {
+    "id": "p37",
+    "note": "Python",
+    "topic": "时间序列",
+    "question": "把字符串列转成 pandas 的日期时间类型，应使用？",
+    "options": [
+      "pd.to_numeric",
+      "pd.to_datetime",
+      "strptime 才行",
+      "astype('time')"
+    ],
+    "answer": 1,
+    "explanation": "pd.to_datetime 可将字符串/数字转为 datetime64；之后可用 .dt 访问器提取年/月/日等。"
+  },
+  {
+    "id": "p38",
+    "note": "Python",
+    "topic": "分组聚合",
+    "question": "想按某列分组并对另一列求平均值，pandas 的典型写法是？",
+    "options": [
+      "df.group_by('A').avg('B')",
+      "df.groupby('A')['B'].mean()",
+      "df.split('A').mean()",
+      "df.aggregate('A','B')"
+    ],
+    "answer": 1,
+    "explanation": "groupby('A')['B'].mean() 先按 A 分组，再对 B 求均值；pandas 用 groupby 而非 group_by。"
+  },
+  {
+    "id": "p39",
+    "note": "Python",
+    "topic": "可视化",
+    "question": "关于 seaborn，下列说法正确的是？",
+    "options": [
+      "是替代 matplotlib 的全新底层绘图库",
+      "基于 matplotlib，提供更高级的统计图表接口和更美观默认样式",
+      "不能画分布图",
+      "只能画折线图"
+    ],
+    "answer": 1,
+    "explanation": "seaborn 建立在 matplotlib 之上，封装了更简洁的统计图形 API（如 sns.histplot、sns.heatmap）和统一美观的风格。"
+  },
+  {
+    "id": "p40",
+    "note": "Python",
+    "topic": "易错点",
+    "question": "关于 pandas 的 `inplace=True` 参数，下列说法正确的是？",
+    "options": [
+      "inplace=True 总是更快更省内存，应优先使用",
+      "使用 inplace=True 时方法返回 None（不返回新对象），且并非所有操作都支持",
+      "inplace=True 会复制一份数据",
+      "inplace 参数也存在于 matplotlib"
+    ],
+    "answer": 1,
+    "explanation": "inplace=True 在原对象上修改并返回 None，容易在链式调用中踩坑；部分方法不支持，并不总更优。"
+  },
+  {
+    "id": "p41",
+    "note": "Python",
+    "topic": "速查",
+    "question": "NumPy 相比纯 Python 循环的最大性能优势来自？",
+    "options": [
+      "自动多线程 GUI",
+      "向量化（底层 C 实现，对整个数组一次性运算，避免 Python 层循环）",
+      "使用了更多内存",
+      "代码更短"
+    ],
+    "answer": 1,
+    "explanation": "NumPy 的向量化运算在底层 C 循环完成，避免了 Python 解释器逐元素循环的开销，是其主要性能来源。"
+  },
+  {
+    "id": "c62",
+    "note": "C",
+    "topic": "流程控制",
+    "question": "关于 if 语句的执行，下列说法正确的是？",
+    "options": [
+      "if 后的条件为真（非 0）时执行对应语句块",
+      "if 后的条件必须用小括号且条件表达式两侧可省略",
+      "if 只能单独使用，不能加 else",
+      "条件为假时也会执行一次"
+    ],
+    "answer": 0,
+    "explanation": "if(条件) 中条件为真（非 0）才执行语句块；C 要求条件用圆括号括起来；if 可配合 else / else if 使用。"
+  },
+  {
+    "id": "p42",
+    "note": "Python",
+    "topic": "数学函数",
+    "question": "关于 NumPy 的数学函数，下列说法正确的是？",
+    "options": [
+      "np.sqrt 用于开方，np.abs 取绝对值，np.power(a,2) 等价于 a**2",
+      "np.sqrt 只能用于标量，不能用于数组",
+      "np.abs 用于求平方根",
+      "np.power 不存在"
+    ],
+    "answer": 0,
+    "explanation": "np.sqrt 开方、np.abs 取绝对值、np.power(a,b) 计算 a 的 b 次幂（数组也支持，等价于 a**b）。"
   }
 ]
