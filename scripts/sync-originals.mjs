@@ -35,20 +35,18 @@ const images = fs.existsSync(imagesDir)
   : []
 
 const lines = [
-  '# 资料库',
+  '# 原件下载',
   '',
-  '这一页由构建脚本自动生成：放进桌面「我的知识库 / PDF」和「图片」的文件，推送后会全部列在这里，不用手动编辑。',
+  '这一页由构建脚本自动生成：PDF 里的知识点已重排成左侧各章笔记，并做了补充与订正。这里只保留原文件供下载，不做在线预览。',
   ''
 ]
 
 if (pdfs.length) {
-  lines.push('## PDF 文件', '')
+  lines.push('## PDF 原件', '')
   for (const f of pdfs) {
-    lines.push(`- [${safeLabel(f)}](${urlOf('/files', f)})（[在新窗口打开](${urlOf('/files', f)}) · [下载](${urlOf('/files', f)})）`)
+    lines.push(`- [${safeLabel(f)}](${urlOf('/files', f)}) — 点击在线打开，或右键另存为下载`)
   }
-  const preview = pdfs.find((f) => !/^sample\./i.test(f)) ?? pdfs[0]
-  lines.push('', `### 在线预览 · ${safeLabel(preview)}`, '')
-  lines.push(`<iframe src="${urlOf('/files', preview)}" style="width:100%;height:520px;border:1px solid var(--vp-c-divider);border-radius:8px"></iframe>`, '')
+  lines.push('')
 }
 
 if (images.length) {
@@ -61,7 +59,6 @@ if (images.length) {
 if (!pdfs.length && !images.length) {
   lines.push('目前还没有 PDF 或图片。把文件拖进桌面对应文件夹并推送后，这里会自动出现。', '')
 }
-
 fs.writeFileSync(path.join(src, libraryFile), lines.join('\n'), 'utf8')
 
 console.log(`[sync] 已保留 ${notes.length} 份 Markdown 原文；资料库页收录 ${pdfs.length} 个 PDF / ${images.length} 张图片`)

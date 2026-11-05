@@ -292,3 +292,40 @@ body {
 .VPDocAsideOutline .outline-title {
   font-size: 11px;
 }
+
+/* 让表格按内容自然分列，避免首列被挤成竖排 */
+.vp-doc table {
+  display: table;
+  width: auto;
+  min-width: 100%;
+  overflow-x: auto;
+}
+.vp-doc th:first-child,
+.vp-doc td:first-child {
+  white-space: nowrap;
+}
+
+/* 与原笔记的「提示 / 易错点 / 核心结论」框呼应，保持灰白主调 */
+.vp-doc .custom-block {
+  margin: 20px 0;
+  padding: 12px 16px;
+  background: rgba(127, 127, 127, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-left: 3px solid var(--vp-c-text-3);
+  border-radius: 8px;
+  font-size: 14px;
+}
+.vp-doc .custom-block .custom-block-title {
+  color: var(--vp-c-text-1);
+  font-size: 13px;
+  font-weight: 500;
+}
+.vp-doc .custom-block.tip { border-left-color: #6f8a78; }
+.vp-doc .custom-block.info { border-left-color: #6f8199; }
+.vp-doc .custom-block.warning { border-left-color: #a98855; }
+.vp-doc .custom-block.danger { border-left-color: #a56b6b; }
+.dark .vp-doc .custom-block {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.1);
+  border-left-width: 3px;
+}
