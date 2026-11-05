@@ -119,26 +119,6 @@
   color: var(--vp-c-text-1);
 }
 
-.original-box {
-  margin-top: 40px;
-  padding: 16px 18px;
-  background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 10px;
-}
-.original-box .ob-title {
-  margin: 0 0 10px;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--vp-c-text-1);
-}
-.original-box a {
-  display: inline-block;
-  margin-right: 16px;
-  font-size: 13px;
-  color: var(--vp-c-brand-1);
-}
-
 .logout-btn {
   position: fixed;
   right: 16px;

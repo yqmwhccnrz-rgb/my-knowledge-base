@@ -4,25 +4,9 @@ import { fileURLToPath } from 'node:url'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const src = path.join(root, 'docs', 'notes')
-const dst = path.join(root, 'docs', 'public', 'originals')
 const filesDir = path.join(root, 'docs', 'public', 'files')
 const imagesDir = path.join(root, 'docs', 'public', 'images')
 const libraryFile = 'library.md'
-
-fs.mkdirSync(dst, { recursive: true })
-
-const notes = fs.readdirSync(src)
-  .filter((f) => f.endsWith('.md') && f !== libraryFile)
-for (const f of notes) {
-  fs.copyFileSync(path.join(src, f), path.join(dst, f))
-}
-
-// 笔记被删除时，同步清掉它留下的原文副本
-for (const f of fs.readdirSync(dst)) {
-  if (f.endsWith('.md') && !notes.includes(f)) {
-    fs.unlinkSync(path.join(dst, f))
-  }
-}
 
 const safeLabel = (name) => name.replace(/[\[\]]/g, '')
 const urlOf = (base, name) => `${base}/${encodeURIComponent(name)}`
@@ -61,4 +45,4 @@ if (!pdfs.length && !images.length) {
 }
 fs.writeFileSync(path.join(src, libraryFile), lines.join('\n'), 'utf8')
 
-console.log(`[sync] 已保留 ${notes.length} 份 Markdown 原文；资料库页收录 ${pdfs.length} 个 PDF / ${images.length} 张图片`)
+console.log(`[sync] 资料库页收录 ${pdfs.length} 个 PDF / ${images.length} 张图片`)

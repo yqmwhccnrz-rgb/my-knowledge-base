@@ -29,7 +29,7 @@ const notes = noteLinks()
 
 export default defineConfig({
   title: '我的知识库',
-  description: '笔记、原文与习题测试',
+  description: '笔记与习题测试',
   lang: 'zh-CN',
   lastUpdated: true,
   // 固定灰白浅色主调，不跟随访客系统的深色模式
@@ -48,7 +48,7 @@ export default defineConfig({
     ],
     search: { provider: 'local' },
     outline: { level: [2, 3], label: '本页目录' },
-    docFooter: { prev: '上一篇', next: '下一篇' },
+    docFooter: { prev: false, next: false },
     returnToTopLabel: '回到顶部',
     sidebarMenuLabel: '目录',
     darkModeSwitchLabel: '外观',
