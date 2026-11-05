@@ -145,6 +145,15 @@
 
 /* 灰白简约主调：背景灰白、文字深灰（不用纯黑），玻璃质感只作用于「壳」 */
 :root {
+  /* 两列目录宽度由拖拽组件写入，CSS 只负责消费 */
+  --kb-side-w: 272px;
+  --kb-outline-w: 220px;
+
+  --kb-font-sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", "Noto Sans CJK SC", "Segoe UI", Roboto, sans-serif;
+  --kb-font-mono: "SF Mono", SFMono-Regular, ui-monospace, Menlo, Consolas,
+    "Liberation Mono", monospace;
+
   --vp-c-brand-1: #3f403f;
   --vp-c-brand-2: #5d5f5e;
   --vp-c-brand-3: #828482;
@@ -196,6 +205,9 @@
 
 /* 极淡的背景光斑，让半透明层看得出质感，不影响正文对比度 */
 body {
+  font-family: var(--kb-font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   background-image:
     radial-gradient(560px circle at 6% 2%, rgba(0, 0, 0, 0.022), transparent 62%),
     radial-gradient(520px circle at 94% 92%, rgba(0, 0, 0, 0.016), transparent 62%);
@@ -217,11 +229,16 @@ body {
 
 /* 双级目录：把本页目录移到全部目录的右边（仅宽屏生效） */
 @media (min-width: 1280px) {
+  /* 让 VitePress 原生侧栏宽度跟随拖拽变量 */
+  :root {
+    --vp-sidebar-width: var(--kb-side-w);
+  }
   .VPDoc.has-aside .aside {
     position: fixed;
     top: var(--vp-nav-height);
-    left: var(--vp-sidebar-width);
-    width: 220px;
+    left: var(--kb-side-w);
+    width: var(--kb-outline-w);
+    max-width: none;
     height: calc(100vh - var(--vp-nav-height));
     padding: 26px 14px 24px 18px;
     overflow-y: auto;
@@ -255,22 +272,131 @@ body {
     margin-left: 0;
   }
   .VPContent.has-sidebar {
-    padding-left: calc(var(--vp-sidebar-width) + 220px) !important;
+    padding-left: calc(var(--kb-side-w) + var(--kb-outline-w)) !important;
   }
   .VPContent:has(.VPDoc:not(.has-aside)).has-sidebar {
-    padding-left: var(--vp-sidebar-width) !important;
+    padding-left: var(--kb-side-w) !important;
   }
 }
 
-/* 层级靠字号与字重表达，不加多余文字标注 */
-.VPSidebar .VPSidebarItem .link-text {
-  font-size: 13px;
+/* 层级靠字号与字重表达；字号跟随列宽变化，拖动时标题同步适应 */
+.VPSidebar .VPSidebarItem .text {
+  font-family: var(--kb-font-sans);
+  font-size: clamp(12px, calc(var(--kb-side-w) * 0.048), 14px) !important;
+  font-weight: 450;
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+  font-variant-numeric: tabular-nums;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.VPSidebar .VPSidebarItem.level-0 > .item > .text {
+  font-size: clamp(11px, calc(var(--kb-side-w) * 0.044), 13px) !important;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--vp-c-text-3);
 }
 .VPDocAsideOutline .content {
-  font-size: 12px;
+  font-family: var(--kb-font-sans);
+  font-size: clamp(11px, calc(var(--kb-outline-w) * 0.055), 13px) !important;
+  font-variant-numeric: tabular-nums;
 }
 .VPDocAsideOutline .outline-title {
-  font-size: 11px;
+  font-size: clamp(10px, calc(var(--kb-outline-w) * 0.05), 12px) !important;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  color: var(--vp-c-text-3);
+}
+
+/* 整体字体：中文用系统苹方/雅黑，数字等宽对齐，代码用等宽字体 */
+.vp-doc {
+  font-family: var(--kb-font-sans);
+  line-height: 1.85;
+  letter-spacing: 0.012em;
+}
+.vp-doc h1, .vp-doc h2, .vp-doc h3, .vp-doc h4 {
+  font-weight: 600;
+  letter-spacing: -0.012em;
+}
+.vp-doc p, .vp-doc li, .vp-doc td, .vp-doc th {
+  font-variant-numeric: tabular-nums;
+}
+.vp-doc code, .vp-doc pre, .vp-doc kbd, .vp-doc .line {
+  font-family: var(--kb-font-mono);
+  font-variant-ligatures: none;
+  letter-spacing: 0;
+}
+
+/* 正文标题随正文实际宽度收敛：目录拉宽 → 正文变窄 → 标题相应变小 */
+@media (min-width: 1280px) {
+  .VPDoc .content {
+    container-type: inline-size;
+  }
+  .vp-doc h1 { font-size: clamp(26px, 5cqw, 36px); }
+  .vp-doc h2 { font-size: clamp(21px, 3.4cqw, 28px); }
+  .vp-doc h3 { font-size: clamp(17px, 2.6cqw, 22px); }
+}
+
+/* 可拖拽分隔条：默认近乎隐形，悬停/拖动时显形 */
+.kb-resizers {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+}
+.kb-resizer {
+  position: fixed;
+  top: var(--vp-nav-height);
+  bottom: 0;
+  width: 9px;
+  display: flex;
+  justify-content: center;
+  cursor: col-resize;
+  pointer-events: auto;
+  touch-action: none;
+}
+.kb-resizer-side { left: calc(var(--kb-side-w) - 4px); }
+.kb-resizer-outline { left: calc(var(--kb-side-w) + var(--kb-outline-w) - 4px); }
+.kb-resizer > span {
+  position: relative;
+  width: 3px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.045);
+  transition: background-color 0.18s ease;
+}
+/* 中间一小段握把，让人一眼看出这里可以拖 */
+.kb-resizer > span::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3px;
+  height: 34px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.17);
+  transform: translate(-50%, -50%);
+  transition: background-color 0.18s ease, height 0.18s ease;
+}
+.kb-resizer:hover > span,
+.kb-resizers.is-dragging .kb-resizer > span {
+  background: rgba(0, 0, 0, 0.1);
+}
+.kb-resizer:hover > span::after,
+.kb-resizer.active > span::after,
+.kb-resizers.is-dragging .kb-resizer > span::after {
+  background: var(--vp-c-brand-2);
+  height: 46px;
+}
+body.kb-resizing,
+body.kb-resizing * {
+  cursor: col-resize !important;
+  user-select: none !important;
+}
+body:not(:has(.VPDoc.has-aside)) .kb-resizer-outline {
+  display: none;
+}
+@media (max-width: 1279px) {
+  .kb-resizers { display: none; }
 }
 
 /* 让表格按内容自然分列，避免首列被挤成竖排 */
@@ -292,7 +418,10 @@ body {
   text-overflow: clip !important;
   overflow-wrap: anywhere;
   word-break: break-word;
-  line-height: 1.5;
+  line-height: 1.6;
+  letter-spacing: 0.006em;
+  font-variant-numeric: tabular-nums;
+  text-wrap: pretty;
   padding: 3px 0;
 }
 

@@ -14,10 +14,10 @@ function readTitle(file) {
 
 function noteLinks() {
   if (!fs.existsSync(notesDir)) return []
-  // 导读排最前，自动生成的「原件下载」页排最后，其余按文件名顺序
-  const rank = (f) => (f === 'welcome.md' ? 0 : f === 'library.md' ? 2 : 1)
+  // 导读排最前，其余按文件名顺序；「原件下载」页已移除，不进导航
+  const rank = (f) => (f === 'welcome.md' ? 0 : 1)
   return fs.readdirSync(notesDir)
-    .filter((f) => f.endsWith('.md'))
+    .filter((f) => f.endsWith('.md') && f !== 'library.md')
     .sort((a, b) => rank(a) - rank(b) || a.localeCompare(b))
     .map((f) => ({
       text: readTitle(f),
