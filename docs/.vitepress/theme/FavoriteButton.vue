@@ -52,6 +52,8 @@ async function toggle() {
     if (res.ok) {
       const data = await res.json()
       favorited.value = Array.isArray(data.favorites) && data.favorites.includes(noteId.value)
+      // 通知侧边栏收藏夹刷新
+      window.dispatchEvent(new Event('kb-fav-changed'))
     }
   } catch (e) {
     /* 忽略 */

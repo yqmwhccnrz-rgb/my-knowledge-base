@@ -4,6 +4,8 @@ import { ref, onMounted, onBeforeUnmount } from 'vue'
 const deferredPrompt = ref(null)
 const canInstall = ref(false)
 const showHelp = ref(false)
+// 已以独立 App 形式运行（已安装）时隐藏安装入口
+const isStandalone = ref(false)
 
 function onBeforeInstallPrompt(e) {
   // 拦截浏览器默认的小气泡，改由本站按钮统一触发
@@ -31,10 +33,12 @@ function closeHelp() {
 
 onMounted(() => {
   window.addEventListener('beforeinstallprompt', onBeforeInstallPrompt)
-  // 若已经以独立应用（standalone）模式运行，则不显示安装按钮
-  if (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) {
-    canInstall.value = false
-  }
+  // 若已经以独立应用（standalone）模式运行，则隐藏安装入口
+  const standalone =
+    (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) ||
+    window.navigator.standalone === true
+  isStandalone.value = !!standalone
+  if (standalone) canInstall.value = false
 })
 
 onBeforeUnmount(() => {
@@ -44,7 +48,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="install-app">
-    <button class="install-btn" type="button" @click="install" title="将本站安装到手机或电脑桌面">
+    <button v-if="!isStandalone" class="install-btn" type="button" @click="install" title="将本站安装到手机或电脑桌面">
       <svg class="install-ico" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
         <path
           fill="currentColor"
