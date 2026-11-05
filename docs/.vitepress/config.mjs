@@ -73,6 +73,15 @@ export default defineConfig({
   description: '笔记与习题测试',
   lang: 'zh-CN',
   lastUpdated: true,
+  // PWA：可安装为 App + 离线缓存已访问页面
+  head: [
+    ['link', { rel: 'manifest', href: '/manifest.webmanifest' }],
+    ['meta', { name: 'theme-color', content: '#3451b2' }],
+    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
+    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'default' }],
+    ['link', { rel: 'apple-touch-icon', href: '/icon-192.png' }],
+    ['script', { src: '/register-sw.js' }]
+  ],
   // 固定灰白浅色主调，不跟随访客系统的深色模式
   appearance: false,
   ignoreDeadLinks: true,

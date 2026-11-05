@@ -152,6 +152,69 @@ function retry() {
   answers.value = {}
   submitted.value = false
 }
+
+// ---- 答题记录（B 后端：Cloudflare Pages Functions + KV）----
+const saving = ref(false)
+const savedMsg = ref('')
+const showRecords = ref(false)
+const recordsList = ref([])
+
+function visitorId() {
+  let id = localStorage.getItem('kb_visitor_id')
+  if (!id) {
+    id = 'v_' + (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2))
+    localStorage.setItem('kb_visitor_id', id)
+  }
+  return id
+}
+
+async function saveRecord() {
+  if (!submitted.value) return
+  saving.value = true
+  savedMsg.value = ''
+  try {
+    const res = await fetch('/api/records', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json', 'x-visitor-id': visitorId() },
+      body: JSON.stringify({
+        note: selectedNote.value,
+        score: score.value,
+        total: picked.value.length
+      })
+    })
+    if (res.ok) {
+      savedMsg.value = '已保存本次成绩'
+      await loadRecords()
+    } else {
+      savedMsg.value = '保存失败（请确认后端 KV 已绑定）'
+    }
+  } catch (e) {
+    savedMsg.value = '保存失败（离线或后端未配置）'
+  } finally {
+    saving.value = false
+  }
+}
+
+async function loadRecords() {
+  try {
+    const res = await fetch('/api/records', { headers: { 'x-visitor-id': visitorId() } })
+    if (res.ok) recordsList.value = await res.json()
+  } catch (e) {
+    recordsList.value = []
+  }
+}
+
+function toggleRecords() {
+  showRecords.value = !showRecords.value
+  if (showRecords.value) loadRecords()
+}
+
+function fmtDate(iso) {
+  const d = new Date(iso)
+  if (isNaN(d.getTime())) return iso
+  const p = (n) => String(n).padStart(2, '0')
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`
+}
 </script>
 
 <template>
@@ -293,7 +356,26 @@ function retry() {
         <button class="quiz-btn" type="button" @click="retry">
           重新作答
         </button>
+        <button class="quiz-btn" type="button" :disabled="saving" @click="saveRecord">
+          {{ saving ? '保存中…' : '保存成绩' }}
+        </button>
+        <button class="quiz-btn" type="button" @click="toggleRecords">
+          {{ showRecords ? '隐藏记录' : '我的记录' }}
+        </button>
+        <span v-if="savedMsg" class="quiz-saved">{{ savedMsg }}</span>
       </template>
+    </div>
+
+    <div v-if="showRecords" class="quiz-records">
+      <h4 class="quiz-records-title">我的答题记录</h4>
+      <p v-if="!recordsList.length" class="quiz-records-empty">暂无记录</p>
+      <ul v-else class="quiz-records-list">
+        <li v-for="(r, idx) in recordsList" :key="idx">
+          <span class="rk-note">{{ noteName(r.note) }}</span>
+          <span class="rk-score">{{ r.score }} / {{ r.total }}</span>
+          <span class="rk-date">{{ fmtDate(r.date) }}</span>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -521,5 +603,57 @@ function retry() {
   margin-left: 12px;
   font-size: 13px;
   color: var(--vp-c-text-2);
+}
+.quiz-saved {
+  font-size: 12px;
+  color: var(--vp-c-brand-1);
+}
+.quiz-records {
+  margin-top: 22px;
+  padding: 16px 18px;
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+}
+.quiz-records-title {
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: var(--vp-c-text-1);
+}
+.quiz-records-empty {
+  margin: 0;
+  font-size: 13px;
+  color: var(--vp-c-text-2);
+}
+.quiz-records-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.quiz-records-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  font-size: 13px;
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+}
+.rk-note {
+  color: var(--vp-c-brand-1);
+  white-space: nowrap;
+}
+.rk-score {
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+}
+.rk-date {
+  margin-left: auto;
+  color: var(--vp-c-text-2);
+  white-space: nowrap;
 }
 </style>
