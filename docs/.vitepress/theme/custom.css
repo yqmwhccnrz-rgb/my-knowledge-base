@@ -162,3 +162,102 @@
     bottom: 12px;
   }
 }
+
+/* 黑白简约配色 */
+:root {
+  --vp-c-brand-1: #1c1c1c;
+  --vp-c-brand-2: #3a3a3a;
+  --vp-c-brand-3: #5c5c5c;
+  --vp-c-brand-soft: rgba(0, 0, 0, 0.06);
+  --vp-nav-bg-color: rgba(255, 255, 255, 0.62);
+  --vp-sidebar-bg-color: rgba(255, 255, 255, 0.42);
+  --vp-c-bg-alt: rgba(255, 255, 255, 0.55);
+}
+.dark {
+  --vp-c-brand-1: #f2f2f2;
+  --vp-c-brand-2: #cfcfcf;
+  --vp-c-brand-3: #a6a6a6;
+  --vp-c-brand-soft: rgba(255, 255, 255, 0.1);
+  --vp-nav-bg-color: rgba(20, 20, 20, 0.62);
+  --vp-sidebar-bg-color: rgba(20, 20, 20, 0.42);
+  --vp-c-bg-alt: rgba(30, 30, 30, 0.55);
+}
+
+/* 极淡的背景光斑，让半透明层看得出质感，不影响正文对比度 */
+body {
+  background-image:
+    radial-gradient(560px circle at 6% 2%, rgba(0, 0, 0, 0.035), transparent 62%),
+    radial-gradient(520px circle at 94% 92%, rgba(0, 0, 0, 0.028), transparent 62%);
+  background-attachment: fixed;
+}
+.dark body {
+  background-image:
+    radial-gradient(560px circle at 6% 2%, rgba(255, 255, 255, 0.035), transparent 62%),
+    radial-gradient(520px circle at 94% 92%, rgba(255, 255, 255, 0.028), transparent 62%);
+}
+
+/* 玻璃质感只作用于「壳」，正文区域保持实色底 */
+.VPNavBar,
+.VPSidebar,
+.VPLocalNav {
+  backdrop-filter: blur(14px) saturate(1.15);
+  -webkit-backdrop-filter: blur(14px) saturate(1.15);
+}
+
+/* 双级目录：把本页目录移到全部目录的右边（仅宽屏生效） */
+@media (min-width: 1280px) {
+  .VPDoc.has-aside .aside {
+    position: fixed;
+    top: var(--vp-nav-height);
+    left: var(--vp-sidebar-width);
+    width: 196px;
+    height: calc(100vh - var(--vp-nav-height));
+    padding: 26px 14px 24px 18px;
+    overflow-y: auto;
+    z-index: 5;
+    background: rgba(255, 255, 255, 0.42);
+    border-right: 1px solid rgba(0, 0, 0, 0.07);
+    backdrop-filter: blur(14px) saturate(1.15);
+    -webkit-backdrop-filter: blur(14px) saturate(1.15);
+  }
+  .dark .VPDoc.has-aside .aside {
+    background: rgba(20, 20, 20, 0.42);
+    border-right-color: rgba(255, 255, 255, 0.09);
+  }
+  .VPDoc.has-aside .aside-curtain {
+    display: none;
+  }
+  .VPDoc.has-aside .aside-container,
+  .VPDoc.has-aside .aside-content {
+    position: static;
+    height: auto;
+    max-height: none;
+    padding: 0;
+  }
+  .VPDoc.has-aside .VPDocAside {
+    padding: 0;
+  }
+  .VPDoc.has-aside .container {
+    justify-content: flex-start;
+  }
+  .VPDoc.has-aside .content-container {
+    margin-left: 0;
+  }
+  .VPContent.has-sidebar {
+    padding-left: calc(var(--vp-sidebar-width) + 196px) !important;
+  }
+  .VPContent:has(.VPDoc:not(.has-aside)).has-sidebar {
+    padding-left: var(--vp-sidebar-width) !important;
+  }
+}
+
+/* 层级靠字号与字重表达，不加多余文字标注 */
+.VPSidebar .VPSidebarItem .link-text {
+  font-size: 13px;
+}
+.VPDocAsideOutline .content {
+  font-size: 12px;
+}
+.VPDocAsideOutline .outline-title {
+  font-size: 11px;
+}

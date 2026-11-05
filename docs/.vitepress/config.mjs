@@ -27,7 +27,7 @@ const notes = noteLinks()
 
 export default defineConfig({
   title: '我的知识库',
-  description: '笔记、原文与刷题',
+  description: '笔记、原文与习题测试',
   lang: 'zh-CN',
   lastUpdated: true,
   ignoreDeadLinks: true,
@@ -36,11 +36,11 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: '笔记', link: notes[0]?.link ?? '/' },
-      { text: '刷题', link: '/quiz.html' }
+      { text: '习题测试', link: '/quiz.html' }
     ],
     sidebar: [
       { text: '笔记', items: notes },
-      { text: '练习', items: [{ text: '随机刷题', link: '/quiz' }] }
+      { text: '练习', items: [{ text: '习题测试', link: '/quiz' }] }
     ],
     search: { provider: 'local' },
     outline: { level: [2, 3], label: '本页目录' },
