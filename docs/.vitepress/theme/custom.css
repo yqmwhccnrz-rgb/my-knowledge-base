@@ -242,6 +242,7 @@ body {
     height: calc(100vh - var(--vp-nav-height));
     padding: 26px 14px 24px 18px;
     overflow-y: auto;
+    overflow-x: hidden;
     z-index: 5;
     background: rgba(127, 127, 127, 0.035);
     border-right: 1px solid rgba(0, 0, 0, 0.07);
@@ -261,6 +262,17 @@ body {
     height: auto;
     max-height: none;
     padding: 0;
+  }
+  /* VitePress 内层容器默认 224px 且 min-width:auto，拖窄时会把文字裁掉 */
+  .VPDoc.has-aside .aside-container,
+  .VPDoc.has-aside .aside-content,
+  .VPDoc.has-aside .VPDocAside,
+  .VPDoc.has-aside .VPDocAsideOutline,
+  .VPDoc.has-aside .VPDocAsideOutline .content {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
   }
   .VPDoc.has-aside .VPDocAside {
     padding: 0;
@@ -282,8 +294,8 @@ body {
 /* 层级靠字号与字重表达；字号跟随列宽变化，拖动时标题同步适应 */
 .VPSidebar .VPSidebarItem .text {
   font-family: var(--kb-font-sans);
-  font-size: clamp(12px, calc(var(--kb-side-w) * 0.048), 14px) !important;
-  font-weight: 450;
+  font-size: clamp(13px, calc(var(--kb-side-w) * 0.056), 17px) !important;
+  font-weight: 600 !important;
   line-height: 1.55;
   letter-spacing: 0.01em;
   font-variant-numeric: tabular-nums;
@@ -291,15 +303,17 @@ body {
   overflow-wrap: anywhere;
 }
 .VPSidebar .VPSidebarItem.level-0 > .item > .text {
-  font-size: clamp(11px, calc(var(--kb-side-w) * 0.044), 13px) !important;
-  font-weight: 600;
+  font-size: clamp(12px, calc(var(--kb-side-w) * 0.052), 16px) !important;
+  font-weight: 650;
   letter-spacing: 0.06em;
   color: var(--vp-c-text-3);
 }
 .VPDocAsideOutline .content {
   font-family: var(--kb-font-sans);
-  font-size: clamp(11px, calc(var(--kb-outline-w) * 0.055), 13px) !important;
+  font-size: clamp(11px, calc(var(--kb-outline-w) * 0.052), 13px) !important;
   font-variant-numeric: tabular-nums;
+  max-width: 100%;
+  overflow: visible !important;
 }
 .VPDocAsideOutline .outline-title {
   font-size: clamp(10px, calc(var(--kb-outline-w) * 0.05), 12px) !important;
@@ -411,18 +425,30 @@ body:not(:has(.VPDoc.has-aside)) .kb-resizer-outline {
   white-space: nowrap;
 }
 
-/* 整本书的目录条目较长，允许换行而不是被省略号截断 */
+/* 整本书的目录条目较长：压过 VitePress 的 14px / nowrap / 省略号，完整换行显示 */
 .VPDocAsideOutline .outline-link {
+  display: block !important;
+  width: 100% !important;
+  box-sizing: border-box;
+  max-width: 100% !important;
+  height: auto !important;
+  font-size: clamp(11px, calc(var(--kb-outline-w) * 0.052), 13px) !important;
+  font-weight: 400;
   white-space: normal !important;
   overflow: visible !important;
   text-overflow: clip !important;
   overflow-wrap: anywhere;
   word-break: break-word;
-  line-height: 1.6;
+  line-height: 1.55 !important;
   letter-spacing: 0.006em;
   font-variant-numeric: tabular-nums;
   text-wrap: pretty;
-  padding: 3px 0;
+  padding: 4px 0;
+}
+/* 嵌套层级缩进收窄，把宽度让给标题文字 */
+.VPDocAsideOutline .VPDocOutlineItem.nested {
+  padding-left: 9px !important;
+  padding-right: 2px !important;
 }
 
 /* 与原笔记的「提示 / 易错点 / 核心结论」框呼应，保持灰白主调 */

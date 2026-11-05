@@ -1,9 +1,10 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onBeforeUnmount, watch, nextTick } from 'vue'
+import { useRoute } from 'vitepress'
 
 const SIDE_DEFAULT = 272
 const OUTLINE_DEFAULT = 220
-const SIDE_MIN = 190
+const SIDE_MIN = 150
 const SIDE_MAX = 340
 const OUTLINE_MIN = 170
 const OUTLINE_MAX = 340
@@ -86,6 +87,23 @@ function reset() {
   save()
 }
 
+// VitePress 默认给目录链接加 title，悬停会弹出黑色原生提示；标题现在完整换行，不需要它
+const route = useRoute()
+let outlineObserver = null
+function stripTitles() {
+  document.querySelectorAll('.VPDocAsideOutline .outline-link[title]')
+    .forEach((el) => el.removeAttribute('title'))
+}
+function watchOutline() {
+  if (outlineObserver) outlineObserver.disconnect()
+  const target = document.querySelector('.VPDocAsideOutline')
+  if (!target) return
+  stripTitles()
+  outlineObserver = new MutationObserver(stripTitles)
+  outlineObserver.observe(target, { childList: true, subtree: true })
+}
+watch(() => route.path, () => nextTick(watchOutline))
+
 function onResize() {
   revalidate()
 }
@@ -102,10 +120,12 @@ onMounted(() => {
   }
   revalidate()
   apply()
+  watchOutline()
   window.addEventListener('resize', onResize)
 })
 
 onBeforeUnmount(() => {
+  if (outlineObserver) outlineObserver.disconnect()
   window.removeEventListener('resize', onResize)
   window.removeEventListener('pointermove', move)
   window.removeEventListener('pointerup', end)
