@@ -1,4 +1,4 @@
-const CACHE = 'kb-cache-v1'
+const CACHE = 'kb-cache-v2'
 const OFFLINE = '/offline.html'
 const PRECACHE = ['/', '/offline.html', '/manifest.webmanifest', '/icon.svg']
 
