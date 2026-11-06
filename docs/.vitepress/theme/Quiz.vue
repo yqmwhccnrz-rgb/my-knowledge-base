@@ -5,7 +5,8 @@ import bank from './data/questions.json'
 const noteOptions = [
   { key: 'all', label: '全部笔记' },
   { key: 'C', label: 'C 语言笔记' },
-  { key: 'Python', label: 'Python 数据分析笔记' }
+  { key: 'Python', label: 'Python 数据分析笔记' },
+  { key: 'Matlab', label: 'Matlab 笔记' }
 ]
 const selectedNote = ref('all')
 const size = ref(5)
