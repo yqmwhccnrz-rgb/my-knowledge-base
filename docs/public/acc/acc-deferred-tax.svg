@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" width="900" height="440" font-family="-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif">
+  <rect width="900" height="440" fill="#fafaf9"/>
+  <text x="28" y="36" font-size="19" font-weight="600" fill="#2e2f2e">所得税：资产负债表债务法（第 19 章）</text>
+  <text x="28" y="58" font-size="11" fill="#626463">从资产负债表出发，比较账面价值与计税基础，先算递延、再倒挤当期费用</text>
+
+  <g font-size="11" fill="#2e2f2e">
+    <rect x="28" y="78" width="262" height="56" rx="7" fill="#eef0f4" stroke="rgba(0,0,0,.1)"/>
+    <text x="42" y="98" font-size="12" font-weight="600">账面价值（会计）</text>
+    <text x="42" y="118" fill="#626463">按会计准则确定的列报金额</text>
+    <rect x="319" y="78" width="262" height="56" rx="7" fill="#eef0f4" stroke="rgba(0,0,0,.1)"/>
+    <text x="333" y="98" font-size="12" font-weight="600">计税基础（税法）</text>
+    <text x="333" y="118" fill="#626463">未来可税前扣除 / 应税金额</text>
+    <rect x="610" y="78" width="262" height="56" rx="7" fill="#f5f1ea" stroke="rgba(0,0,0,.1)"/>
+    <text x="624" y="98" font-size="12" font-weight="600">暂时性差异</text>
+    <text x="624" y="118" fill="#626463">两者之差 × 转回期间税率</text>
+  </g>
+
+  <g font-size="11" fill="#2e2f2e">
+    <rect x="28" y="150" width="412" height="82" rx="8" fill="#eef2f0" stroke="rgba(0,0,0,.1)"/>
+    <text x="42" y="172" font-size="13" font-weight="600">应纳税暂时性差异 → 递延所得税负债</text>
+    <text x="42" y="192">资产账面 &gt; 计税基础，或负债账面 &lt; 计税基础</text>
+    <text x="42" y="210" fill="#626463">未来多交税；除例外情形外一律确认</text>
+    <text x="42" y="226" fill="#626463">对应科目：所得税费用 / 其他综合收益 / 商誉</text>
+
+    <rect x="456" y="150" width="416" height="82" rx="8" fill="#f2eeee" stroke="rgba(0,0,0,.1)"/>
+    <text x="470" y="172" font-size="13" font-weight="600">可抵扣暂时性差异 → 递延所得税资产</text>
+    <text x="470" y="192">资产账面 &lt; 计税基础，或负债账面 &gt; 计税基础</text>
+    <text x="470" y="210" fill="#626463">未来少交税；以很可能取得的应税所得为限</text>
+    <text x="470" y="226" fill="#626463">可抵扣亏损、税款抵减视同可抵扣差异</text>
+  </g>
+
+  <rect x="28" y="248" width="844" height="50" rx="7" fill="#f5f1ea" stroke="rgba(0,0,0,.1)"/>
+  <text x="42" y="268" font-size="12" font-weight="600" fill="#2e2f2e">所得税费用 ＝ 当期所得税 ＋ 递延所得税</text>
+  <text x="42" y="288" font-size="11" fill="#626463">当期所得税＝应纳税所得额 × 当期税率；递延所得税＝（期末 DTL−期初 DTL）−（期末 DTA−期初 DTA）</text>
+
+  <text x="28" y="326" font-size="13" font-weight="600" fill="#3f403f">高频考点：不确认递延所得税的情形</text>
+  <g font-size="11" fill="#2e2f2e">
+    <rect x="28" y="336" width="272" height="62" rx="7" fill="#eef0f4" stroke="rgba(0,0,0,.1)"/>
+    <text x="42" y="356">① 商誉的初始确认</text>
+    <text x="42" y="374" fill="#626463">免税合并下商誉计税基础</text>
+    <text x="42" y="390" fill="#626463">为 0，不确认 DTL</text>
+    <rect x="314" y="336" width="272" height="62" rx="7" fill="#eef0f4" stroke="rgba(0,0,0,.1)"/>
+    <text x="328" y="356">② 非企业合并且不影响</text>
+    <text x="328" y="374" fill="#626463">会计利润与应税所得</text>
+    <text x="328" y="390" fill="#626463">的初始确认差异</text>
+    <rect x="600" y="336" width="272" height="62" rx="7" fill="#eef0f4" stroke="rgba(0,0,0,.1)"/>
+    <text x="614" y="356">③ 长期股权投资相关</text>
+    <text x="614" y="374" fill="#626463">能控制转回时间且可预见</text>
+    <text x="614" y="390" fill="#626463">未来很可能不转回</text>
+  </g>
+
+  <text x="28" y="424" font-size="11" fill="#626463">计量：按转回期间适用税率，不折现；税率变动时对已确认的 DTA/DTL 按新税率重新计量，影响计入当期（或权益）。</text>
+</svg>

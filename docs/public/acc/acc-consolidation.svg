@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" width="900" height="420" font-family="-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif">
+  <rect width="900" height="420" fill="#fafaf9"/>
+  <text x="28" y="36" font-size="19" font-weight="600" fill="#2e2f2e">合并财务报表：先调整、再抵销（第 26–27 章）</text>
+  <text x="28" y="58" font-size="11" fill="#626463">合并范围以「控制」为基础；抵销的是集团内部交易，不改变集团对外财务状况</text>
+
+  <rect x="28" y="76" width="844" height="46" rx="7" fill="#eef0f4" stroke="rgba(0,0,0,.1)"/>
+  <text x="42" y="96" font-size="12" font-weight="600" fill="#2e2f2e">前提：统一会计政策与期间 → 将子公司个别报表按购买日公允价值调整 → 长投由成本法调整为权益法</text>
+  <text x="42" y="114" font-size="11" fill="#626463">同一控制下：按被合并方在最终控制方合并报表中的账面价值入账，不产生新商誉；非同一控制下：按购买日公允价值，差额确认为商誉</text>
+
+  <text x="28" y="150" font-size="13" font-weight="600" fill="#3f403f">四类核心抵销分录</text>
+  <g font-size="11" fill="#2e2f2e">
+    <rect x="28" y="160" width="412" height="72" rx="8" fill="#eef2f0" stroke="rgba(0,0,0,.1)"/>
+    <text x="42" y="182" font-size="12" font-weight="600">① 长投 ↔ 子公司所有者权益</text>
+    <text x="42" y="202">借：股本 / 资本公积 / 盈余公积 / 未分配利润 / 商誉</text>
+    <text x="42" y="220" fill="#626463">贷：长期股权投资、少数股东权益</text>
+
+    <rect x="456" y="160" width="416" height="72" rx="8" fill="#eef2f0" stroke="rgba(0,0,0,.1)"/>
+    <text x="470" y="182" font-size="12" font-weight="600">② 投资收益 ↔ 利润分配</text>
+    <text x="470" y="202">借：投资收益、少数股东损益、年初未分配利润</text>
+    <text x="470" y="220" fill="#626463">贷：提取盈余公积、对股东分配、年末未分配利润</text>
+
+    <rect x="28" y="242" width="412" height="72" rx="8" fill="#f5f1ea" stroke="rgba(0,0,0,.1)"/>
+    <text x="42" y="264" font-size="12" font-weight="600">③ 内部债权债务</text>
+    <text x="42" y="284">借：应付账款 / 应付票据等　贷：应收账款等</text>
+    <text x="42" y="302" fill="#626463">同时抵销坏账准备及其递延所得税影响</text>
+
+    <rect x="456" y="242" width="416" height="72" rx="8" fill="#f5f1ea" stroke="rgba(0,0,0,.1)"/>
+    <text x="470" y="264" font-size="12" font-weight="600">④ 内部商品 / 固定资产 / 无形资产交易</text>
+    <text x="470" y="284">抵销未实现内部损益：营业收入↔营业成本↔存货</text>
+    <text x="470" y="302" fill="#626463">固定资产需连续抵销多计折旧，并考虑所得税影响</text>
+  </g>
+
+  <rect x="28" y="330" width="844" height="52" rx="7" fill="#f2eeee" stroke="rgba(0,0,0,.1)"/>
+  <text x="42" y="350" font-size="12" font-weight="600" fill="#2e2f2e">易错提示</text>
+  <text x="42" y="370" font-size="11" fill="#626463">逆流交易未实现损益需按持股比例在母公司与少数股东之间分摊；顺流交易全部由母公司承担；连续编制时先调整年初未分配利润</text>
+  <text x="28" y="406" font-size="11" fill="#626463">合并范围豁免：投资性主体对不为其投资活动提供相关服务的子公司，不纳入合并，按公允价值计量且其变动计入损益。</text>
+</svg>

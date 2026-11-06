@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 450" width="900" height="450" font-family="-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif">
+  <rect width="900" height="450" fill="#fafaf9"/>
+  <text x="28" y="36" font-size="19" font-weight="600" fill="#2e2f2e">金融资产分类：两步判断（第 13 章）</text>
+  <text x="28" y="58" font-size="11" fill="#626463">先看业务模式，再看合同现金流量特征（SPPI），两类指定是例外</text>
+
+  <rect x="28" y="76" width="844" height="46" rx="7" fill="#eef0f4" stroke="rgba(0,0,0,.1)"/>
+  <text x="42" y="96" font-size="12" font-weight="600" fill="#2e2f2e">第一步：企业管理金融资产的业务模式</text>
+  <text x="42" y="114" font-size="11" fill="#626463">① 以收取合同现金流量为目标　② 既收取又出售　③ 其他（交易性、以出售为目标）</text>
+
+  <rect x="28" y="132" width="844" height="46" rx="7" fill="#eef0f4" stroke="rgba(0,0,0,.1)"/>
+  <text x="42" y="152" font-size="12" font-weight="600" fill="#2e2f2e">第二步：合同现金流量特征（SPPI 测试）</text>
+  <text x="42" y="170" font-size="11" fill="#626463">特定日期的现金流量，是否「仅为本金 + 以未偿付本金为基础的利息」</text>
+
+  <text x="28" y="204" font-size="13" font-weight="600" fill="#3f403f">分类结果（债务工具）</text>
+  <g font-size="11" fill="#2e2f2e">
+    <rect x="28" y="214" width="272" height="96" rx="8" fill="#eef2f0" stroke="rgba(0,0,0,.1)"/>
+    <text x="42" y="236" font-size="13" font-weight="600">① 以摊余成本计量（AC）</text>
+    <text x="42" y="256">业务模式：仅收取合同现金流</text>
+    <text x="42" y="274">且通过 SPPI 测试</text>
+    <text x="42" y="294" fill="#626463">科目：债权投资 / 应收款项</text>
+
+    <rect x="314" y="214" width="272" height="96" rx="8" fill="#f5f1ea" stroke="rgba(0,0,0,.1)"/>
+    <text x="328" y="236" font-size="13" font-weight="600">② FVOCI（债务工具）</text>
+    <text x="328" y="256">业务模式：收取 + 出售</text>
+    <text x="328" y="274">且通过 SPPI 测试</text>
+    <text x="328" y="294" fill="#626463">科目：其他债权投资</text>
+
+    <rect x="600" y="214" width="272" height="96" rx="8" fill="#f2eeee" stroke="rgba(0,0,0,.1)"/>
+    <text x="614" y="236" font-size="13" font-weight="600">③ FVTPL（兜底）</text>
+    <text x="614" y="256">不属于上述两类的全部</text>
+    <text x="614" y="274">含交易性、衍生工具、</text>
+    <text x="614" y="294" fill="#626463">未通过 SPPI 的债务工具</text>
+  </g>
+
+  <text x="28" y="338" font-size="13" font-weight="600" fill="#3f403f">两类「指定」（一经作出不得撤销）</text>
+  <g font-size="11" fill="#2e2f2e">
+    <rect x="28" y="348" width="412" height="62" rx="7" fill="#eef2f0" stroke="rgba(0,0,0,.1)"/>
+    <text x="42" y="368" font-size="12" font-weight="600">公允价值选择权 → 指定为 FVTPL</text>
+    <text x="42" y="386" fill="#626463">前提：能消除或显著减少会计错配</text>
+    <text x="42" y="402" fill="#626463">对象：本可归入 AC / FVOCI 的金融资产</text>
+    <rect x="456" y="348" width="416" height="62" rx="7" fill="#f5f1ea" stroke="rgba(0,0,0,.1)"/>
+    <text x="470" y="368" font-size="12" font-weight="600">非交易性权益工具 → 指定为 FVOCI</text>
+    <text x="470" y="386" fill="#626463">股利计入损益；处置时累计 OCI</text>
+    <text x="470" y="402" fill="#626463">转入留存收益，不得转入损益</text>
+  </g>
+
+  <text x="28" y="434" font-size="11" fill="#626463">重分类：仅当业务模式发生改变时，才允许对债务工具重分类；权益工具指定与 FVTPL 指定均不得重分类。</text>
+</svg>

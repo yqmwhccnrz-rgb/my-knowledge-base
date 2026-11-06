@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" width="900" height="430" font-family="-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif">
+  <rect width="900" height="430" fill="#fafaf9"/>
+  <text x="28" y="36" font-size="19" font-weight="600" fill="#2e2f2e">收入确认与计量：五步法（第 17 章）</text>
+  <text x="28" y="58" font-size="11" fill="#626463">核心：在「履行履约义务」时，按分摊至该义务的交易价格确认收入</text>
+
+  <g font-size="11" fill="#2e2f2e">
+    <rect x="28" y="78" width="164" height="104" rx="8" fill="#eef2f0" stroke="rgba(0,0,0,.1)"/>
+    <text x="40" y="100" font-size="12" font-weight="600">① 识别合同</text>
+    <text x="40" y="121">合同须经批准、</text>
+    <text x="40" y="139">权利义务清晰、</text>
+    <text x="40" y="157" fill="#626463">有商业实质、</text>
+    <text x="40" y="173" fill="#626463">对价很可能收回</text>
+
+    <rect x="204" y="78" width="164" height="104" rx="8" fill="#eef2f0" stroke="rgba(0,0,0,.1)"/>
+    <text x="216" y="100" font-size="12" font-weight="600">② 识别履约义务</text>
+    <text x="216" y="121">承诺向客户转让</text>
+    <text x="216" y="139">「可明确区分」</text>
+    <text x="216" y="157" fill="#626463">商品或服务；</text>
+    <text x="216" y="173" fill="#626463">不可区分则合并</text>
+
+    <rect x="380" y="78" width="164" height="104" rx="8" fill="#f5f1ea" stroke="rgba(0,0,0,.1)"/>
+    <text x="392" y="100" font-size="12" font-weight="600">③ 确定交易价格</text>
+    <text x="392" y="121">可变对价、</text>
+    <text x="392" y="139">重大融资成分、</text>
+    <text x="392" y="157" fill="#626463">非现金对价、</text>
+    <text x="392" y="173" fill="#626463">应付客户对价</text>
+
+    <rect x="556" y="78" width="164" height="104" rx="8" fill="#f5f1ea" stroke="rgba(0,0,0,.1)"/>
+    <text x="568" y="100" font-size="12" font-weight="600">④ 分摊交易价格</text>
+    <text x="568" y="121">按各单项履约</text>
+    <text x="568" y="139">义务单独售价的</text>
+    <text x="568" y="157" fill="#626463">相对比例分摊；</text>
+    <text x="568" y="173" fill="#626463">折扣与可变对价</text>
+
+    <rect x="732" y="78" width="140" height="104" rx="8" fill="#eef0f4" stroke="rgba(0,0,0,.1)"/>
+    <text x="744" y="100" font-size="12" font-weight="600">⑤ 确认收入</text>
+    <text x="744" y="121">履约义务</text>
+    <text x="744" y="139">「时段」或</text>
+    <text x="744" y="157" fill="#626463">「时点」履行时，</text>
+    <text x="744" y="173" fill="#626463">按分摊价确认</text>
+  </g>
+
+  <rect x="28" y="198" width="844" height="52" rx="7" fill="#eef0f4" stroke="rgba(0,0,0,.1)"/>
+  <text x="42" y="218" font-size="12" font-weight="600" fill="#2e2f2e">时段确认的三个条件（满足其一）</text>
+  <text x="42" y="238" font-size="11" fill="#626463">客户在履约同时取得并消耗利益 ｜ 客户控制在建商品 ｜ 产出不可替代且企业有权就累计履约部分收款</text>
+
+  <text x="28" y="278" font-size="13" font-weight="600" fill="#3f403f">配套科目与易混概念</text>
+  <g font-size="11" fill="#2e2f2e">
+    <rect x="28" y="288" width="272" height="58" rx="7" fill="#f2eeee" stroke="rgba(0,0,0,.1)"/>
+    <text x="42" y="308" font-size="12" font-weight="600">合同资产 vs 应收账款</text>
+    <text x="42" y="326" fill="#626463">前者还受「时间之外」</text>
+    <text x="42" y="342" fill="#626463">因素制约；后者仅待时间</text>
+    <rect x="314" y="288" width="272" height="58" rx="7" fill="#f2eeee" stroke="rgba(0,0,0,.1)"/>
+    <text x="328" y="308" font-size="12" font-weight="600">合同负债</text>
+    <text x="328" y="326" fill="#626463">已收（或应收）对价</text>
+    <text x="328" y="342" fill="#626463">而负有的转让义务</text>
+    <rect x="600" y="288" width="272" height="58" rx="7" fill="#f2eeee" stroke="rgba(0,0,0,.1)"/>
+    <text x="614" y="308" font-size="12" font-weight="600">合同取得 / 履约成本</text>
+    <text x="614" y="326" fill="#626463">预期可收回才资本化，</text>
+    <text x="614" y="342" fill="#626463">按与收入相同基础摊销</text>
+  </g>
+
+  <rect x="28" y="360" width="844" height="50" rx="7" fill="#eef2f0" stroke="rgba(0,0,0,.1)"/>
+  <text x="42" y="380" font-size="12" font-weight="600" fill="#2e2f2e">特定交易判断要点</text>
+  <text x="42" y="400" font-size="11" fill="#626463">主要责任人按总额、代理人按净额；附退货按预期有权收取对价确认收入并计提预计负债；质量保证区分保证类与服务类</text>
+</svg>

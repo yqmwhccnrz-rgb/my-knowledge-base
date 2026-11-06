@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" width="900" height="460" font-family="-apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei, sans-serif">
+  <rect width="900" height="460" fill="#fafaf9"/>
+  <text x="28" y="36" font-size="19" font-weight="600" fill="#2e2f2e">会计总论：概念框架（第 1 章）</text>
+  <text x="28" y="58" font-size="11" fill="#626463">以基本准则为纲，先定目标与假设，再定信息质量、要素与计量</text>
+
+  <text x="28" y="88" font-size="13" font-weight="600" fill="#3f403f">一、会计信息质量要求（8 项）</text>
+  <g font-size="11" fill="#2e2f2e">
+    <rect x="28" y="98" width="204" height="40" rx="7" fill="#eef2f0" stroke="rgba(0,0,0,.1)"/>
+    <text x="40" y="115">可靠性 · 实际发生</text><text x="40" y="131" fill="#626463">真实完整、无偏反映</text>
+    <rect x="242" y="98" width="204" height="40" rx="7" fill="#eef2f0" stroke="rgba(0,0,0,.1)"/>
+    <text x="254" y="115">相关性 · 决策有用</text><text x="254" y="131" fill="#626463">具预测与反馈价值</text>
+    <rect x="456" y="98" width="204" height="40" rx="7" fill="#eef2f0" stroke="rgba(0,0,0,.1)"/>
+    <text x="468" y="115">可理解性 · 清晰明了</text><text x="468" y="131" fill="#626463">便于理解和使用</text>
+    <rect x="670" y="98" width="202" height="40" rx="7" fill="#eef2f0" stroke="rgba(0,0,0,.1)"/>
+    <text x="682" y="115">可比性 · 纵横一致</text><text x="682" y="131" fill="#626463">同一企业 / 不同企业</text>
+
+    <rect x="28" y="146" width="204" height="40" rx="7" fill="#eef0f4" stroke="rgba(0,0,0,.1)"/>
+    <text x="40" y="163">实质重于形式</text><text x="40" y="179" fill="#626463">按经济实质核算</text>
+    <rect x="242" y="146" width="204" height="40" rx="7" fill="#eef0f4" stroke="rgba(0,0,0,.1)"/>
+    <text x="254" y="163">重要性 · 抓大放小</text><text x="254" y="179" fill="#626463">重要事项单独反映</text>
+    <rect x="456" y="146" width="204" height="40" rx="7" fill="#eef0f4" stroke="rgba(0,0,0,.1)"/>
+    <text x="468" y="163">谨慎性 · 不高估</text><text x="468" y="179" fill="#626463">不高估资产/收益</text>
+    <rect x="670" y="146" width="202" height="40" rx="7" fill="#eef0f4" stroke="rgba(0,0,0,.1)"/>
+    <text x="682" y="163">及时性 · 不提前延后</text><text x="682" y="179" fill="#626463">及时确认计量报告</text>
+  </g>
+
+  <text x="28" y="216" font-size="13" font-weight="600" fill="#3f403f">二、六大会计要素</text>
+  <rect x="28" y="226" width="412" height="58" rx="7" fill="#f5f1ea" stroke="rgba(0,0,0,.1)"/>
+  <text x="42" y="248" font-size="12" font-weight="600" fill="#2e2f2e">财务状况（资产负债表）</text>
+  <text x="42" y="270" font-size="12" fill="#626463">资产 ＝ 负债 ＋ 所有者权益</text>
+  <rect x="456" y="226" width="416" height="58" rx="7" fill="#f5f1ea" stroke="rgba(0,0,0,.1)"/>
+  <text x="470" y="248" font-size="12" font-weight="600" fill="#2e2f2e">经营成果（利润表）</text>
+  <text x="470" y="270" font-size="12" fill="#626463">利润 ＝ 收入 － 费用 ＋ 直接计入损益</text>
+
+  <text x="28" y="314" font-size="13" font-weight="600" fill="#3f403f">三、五种计量属性（优先历史成本）</text>
+  <g font-size="11" fill="#2e2f2e">
+    <rect x="28" y="324" width="164" height="54" rx="7" fill="#f2eeee" stroke="rgba(0,0,0,.1)"/>
+    <text x="40" y="344">历史成本</text><text x="40" y="362" fill="#626463">取得时实付对价</text>
+    <rect x="202" y="324" width="164" height="54" rx="7" fill="#f2eeee" stroke="rgba(0,0,0,.1)"/>
+    <text x="214" y="344">重置成本</text><text x="214" y="362" fill="#626463">现在重新取得</text>
+    <rect x="376" y="324" width="164" height="54" rx="7" fill="#f2eeee" stroke="rgba(0,0,0,.1)"/>
+    <text x="388" y="344">可变现净值</text><text x="388" y="362" fill="#626463">估计售价减完工</text>
+    <rect x="550" y="324" width="164" height="54" rx="7" fill="#f2eeee" stroke="rgba(0,0,0,.1)"/>
+    <text x="562" y="344">现值</text><text x="562" y="362" fill="#626463">未来现金流折现</text>
+    <rect x="724" y="324" width="148" height="54" rx="7" fill="#f2eeee" stroke="rgba(0,0,0,.1)"/>
+    <text x="736" y="344">公允价值</text><text x="736" y="362" fill="#626463">有序交易脱手价</text>
+  </g>
+
+  <rect x="28" y="396" width="844" height="44" rx="7" fill="#eef2f0" stroke="rgba(0,0,0,.1)"/>
+  <text x="42" y="415" font-size="12" font-weight="600" fill="#2e2f2e">贯穿全书的主线</text>
+  <text x="42" y="433" font-size="11" fill="#626463">确认（是否入表） → 计量（金额多少） → 记录（借贷分录） → 列报（报表项目与附注披露）</text>
+</svg>
