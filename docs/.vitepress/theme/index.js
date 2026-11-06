@@ -1,6 +1,7 @@
 import DefaultTheme from 'vitepress/theme'
 import { h } from 'vue'
 import Quiz from './Quiz.vue'
+import Listening from './Listening.vue'
 import LogoutButton from './LogoutButton.vue'
 import LayoutFix from './LayoutFix.vue'
 import ColumnResizer from './ColumnResizer.vue'
@@ -13,6 +14,7 @@ export default {
   extends: DefaultTheme,
   enhanceApp({ app }) {
     app.component('Quiz', Quiz)
+    app.component('Listening', Listening)
     app.component('FavoriteButton', FavoriteButton)
     app.component('InstallApp', InstallApp)
     app.component('Favorites', Favorites)
