@@ -4,8 +4,6 @@ summary: "9 章 Python 数据分析笔记：ndarray、numpy 函数、Series 与 
 
 # Python 数据分析笔记
 
-> **这是一篇笔记**：9 章内容连续排在同一页，从上往下读即可；也可以点右侧「本页目录」跳到任意章节。
-
 ::: info 笔记概要
 - **所属课程**：Python 数据分析
 - **核心内容**：用 numpy 的 `ndarray` 与 pandas 的 `Series`/`DataFrame` 完成数据的创建、清洗、变形、聚合与可视化，并用 matplotlib / seaborn 绘图
