@@ -1,12 +1,10 @@
 ---
-summary: "9 章 Python 数据分析笔记：ndarray、numpy 函数、Series 与 DataFrame、数据清洗、分组聚合与可视化；修正了原笔记的若干错误，并补充视图/拷贝、标签对齐、apply/merge、透视表等实战知识点。"
+summary: "9 章 Python 数据分析笔记：ndarray、numpy 函数、Series 与 DataFrame、数据清洗、分组聚合与可视化，涵盖视图/拷贝、标签对齐、apply/merge、透视表等实战知识点。"
 ---
 
 # Python 数据分析笔记
 
 > **这是一篇笔记**：9 章内容连续排在同一页，从上往下读即可；也可以点右侧「本页目录」跳到任意章节。
-
-这份笔记由你的《python 数据分析.pdf》重排而来：原来的章节顺序、知识点、代码与表格都保留了，原 PDF 文字层缺失的汉字（如「导/入」「生成」「方差」等）已按上下文补全，**不准确的说法已修正**，并**补充**了大量原笔记略过但实战必备的内容（文中以「补充」「修正」标出，便于区分哪些是新增、哪些是你原来的）。
 
 ::: info 笔记概要
 - **所属课程**：Python 数据分析
@@ -62,9 +60,6 @@ import seaborn as sns
 
 ### 1.3 ndarray 的数据类型
 
-::: danger 修正 · 布尔类型的含义
-原笔记里写「布尔类型 bool：0 为 True，0 为 False」，这句是**错的**。正确说法是：在 Python / numpy 中，**`0` 对应 `False`，非 0（包括负数）对应 `True`**。`True` 和 `False` 本身才是布尔值，参与数值运算时分别当作 `1` 和 `0`。
-:::
 
 numpy 的数据类型（dtype）按占用字节分得很细，下表整理自原笔记图片：
 
@@ -130,16 +125,6 @@ numpy 的数据类型（dtype）按占用字节分得很细，下表整理自原
 
 **高级构造方法**（原笔记图片补充）：`np.fromfunction(函数, shape)` 按坐标生成、`np.loadtxt('文件')` 从文本文件读入。
 
-::: tip 补充 · 创建方法一览表
-| 用途 | 方法 |
-| --- | --- |
-| 基础构造 | `np.array()`、`np.copy()` |
-| 预定义形状填充 | `np.zeros()`、`np.ones()`、`np.empty()`、`np.full()` |
-| 基于数值范围生成 | `np.arange()`、`np.linspace()`、`np.logspace()` |
-| 特殊矩阵生成 | `np.eye()`、`np.diag()` |
-| 随机数组生成 | `np.random.rand()`、`np.random.randn()`、`np.random.randint()` |
-| 高级构造方法 | `np.fromfunction()`、`np.loadtxt()` |
-:::
 
 ### 2.2 索引与切片
 
@@ -162,15 +147,6 @@ arr[1, :]         # 取第 1 行全部
 arr[1, 2:5]       # 取第 1 行、第 2 到第 4 列（左闭右开）
 ```
 
-::: tip 补充 · 索引切片类型
-| 类型 | 说明 |
-| --- | --- |
-| 基本索引 | 用整数下标直接访问元素，索引从 0 开始 |
-| 行 / 列切片 | 用冒号 `:` 选择行或列的子集 |
-| 连续切片 | `start:stop:step`，从起始到结束按步长切片 |
-| `slice` 函数 | `slice(start, stop, step)` 定义切片规则 |
-| 布尔索引 | 用布尔条件筛选满足条件的元素，支持 `&`、`|` |
-:::
 
 ### 2.3 数组的运算
 
@@ -197,7 +173,7 @@ a + b
 
 ### 2.4 视图与拷贝（极易踩坑）
 
-::: danger 易错点 + 补充 · 切片返回「视图」
+::: danger 易错点 · 切片返回「视图」
 numpy 里**切片返回的是原数组的视图（view），共享同一块内存**；而**花式索引（整数数组）和布尔索引返回的是拷贝（copy），相互独立**。改了视图，原数组也会跟着变——这常常让人困惑。
 
 ```python
@@ -250,9 +226,6 @@ print(a)                  # 不受影响，仍是 [0 999 2 3 4 5]
 
 **按行 / 列统计**：`np.max(arr, axis=0)` 沿「行方向」压缩，返回**每一列**的最值；`axis=1` 沿「列方向」压缩，返回**每一行**的最值——别记反。
 
-::: tip 补充 · NaN 会「传染」
-含 `NaN` 的数组，直接 `np.sum` / `np.mean` 结果往往是 `NaN`。numpy 提供了一批「忽略 NaN」的版本：`np.nansum`、`np.nanmean`、`np.nanmax` 等，计算时会自动跳过 NaN。pandas 的统计方法默认 `skipna=True`（自动跳过），但 `np` 不会，这点要注意。
-:::
 
 ### 3.3 比较与逻辑函数
 
@@ -332,7 +305,7 @@ idx = pd.date_range('2024-01-01', periods=10, freq='D')   # 生成日期索引�
 s.resample('M').mean()     # 重采样，M=按月求均值（也可用 Y 年 / Q 季 / W 周）
 ```
 
-::: danger 易错点 + 补充 · Series 运算按「标签」对齐
+::: danger 易错点 · Series 运算按「标签」对齐
 两个 Series 相加时，pandas 是**按索引标签对齐后再相加**，而不是按位置！标签对不上的位置会变成 `NaN`。这是 pandas 和 numpy 最容易被忽略的区别。
 
 ```python
@@ -399,30 +372,7 @@ df.sample(n)          # 随机抽样 n 条；不填参数默认只取 1 条
 | `df.sort_values(by='列', ascending=...)` | 按值排序，可传多列列表做多条件排序 |
 | `df.nlargest(n, columns=['列'])` / `df.nsmallest(n, columns=['列'])` | 返回最大 / 最小的 n 行 |
 
-::: tip 补充 · 元素级变换：map / apply / applymap
-原笔记没提这一组，但它们是数据清洗最常用的手段：
 
-```python
-s = pd.Series(['a', 'b', 'c'])
-s.map({'a': 1, 'b': 2})          # 映射：按字典把值替换掉
-s.apply(lambda x: x.upper())      # 对每个元素套用函数
-
-df.apply(lambda col: col.mean())  # 默认按列套用函数，返回 Series
-df.apply(lambda row: row['a'] + row['b'], axis=1)  # axis=1 按行套用
-df.map(lambda x: x * 2)           # 逐元素变换（新版 pandas；老版叫 applymap）
-```
-:::
-
-::: tip 补充 · 合并多张表：concat / merge / join
-真实分析经常要把几张表拼起来，原笔记只讲了 numpy 的拼接，这里补上 pandas 的三板斧：
-
-```python
-pd.concat([df1, df2])            # 纵向拼接（按行叠）
-pd.concat([df1, df2], axis=1)    # 横向拼接（按列并）
-pd.merge(df1, df2, on='key')     # 按「键」做数据库式连接（类似 SQL 的 join）
-df1.join(df2)                    # 按索引连接
-```
-:::
 
 ---
 
@@ -443,343 +393,6 @@ with open('文件.json', encoding='utf-8') as f:
     data = json.load(f)                  # 读到字典，再转成 DataFrame
 ```
 
-::: danger 修正 · 中文乱码
-原笔记把「中文乱码」打成「中件乱码」，这里补正并给出稳妥方案。读取含中文的 CSV 若乱码，优先确认原文件编码再指定：
-
-```python
-pd.read_csv('文件.csv', encoding='utf-8')       # 标准 UTF-8
-pd.read_csv('文件.csv', encoding='utf-8-sig')   # 带 BOM 的 UTF-8（Excel 导出常见）
-pd.read_csv('文件.csv', encoding='gbk')         # 中文 Windows 导出的 GBK
-```
-
-::: tip 补充 · read_csv 常用参数
-除了 `encoding`，这几个参数实战最高频：
-
-```python
-pd.read_csv('data.csv',
-            sep=',',            # 分隔符，制表符文件用 '\t'
-            header=0,           # 哪一行当列名，没有列名用 header=None
-            index_col=0,        # 用第几列当行索引
-            usecols=['a', 'b'], # 只读取指定列，省内存
-            dtype={'id': str},  # 指定某列类型，避免 ID 被当成数字丢前导 0
-            na_values=['NA', '?'],  # 把这些都认作缺失值
-            parse_dates=['date'])   # 自动把某列解析成日期
-```
-:::
-
-### 6.2 缺失值的处理
-
-判断与统计：
-
-```python
-s.isna() / s.isnull()        # Series：两者完全等价
-df.isna() / df.isnull()      # DataFrame：两者完全等价
-s.isna().sum()               # Series 缺失值总数
-df.isna().sum()              # 每列缺失值个数
-df.isna().sum().sum()        # 全表缺失值总数
-```
-
-剔除缺失值：
-
-```python
-s.dropna()                   # 删除缺失的那一个值
-df.dropna()                  # 只要有缺失就删掉整行
-df.dropna(how='all')         # 只有整行全缺失才删
-df.dropna(thresh=n)          # 至少有 n 个非缺失值才保留
-df.dropna(axis=1)            # 删除有缺失的整列
-df.dropna(subset=['列名'])   # 仅当指定列有缺失时才删该行
-```
-
-填充缺失值：
-
-```python
-df.fillna({'列名': 固定值})        # 用固定值填（按列指定）
-df.fillna(df[['列名']].mean())    # 用该列平均值填
-df.ffill()                        # 用前一个相邻值填（forward fill）
-df.bfill()                        # 用后一个相邻值填（backward fill）
-```
-
-::: danger 易错点 + 补充 · dropna / fillna 默认不改原表
+::: danger 易错点 · dropna / fillna 默认不改原表
 `dropna()`、`fillna()` 等**默认返回新对象，不会修改原 DataFrame**。如果想像「就地修改」一样，要么把结果赋回原变量 `df = df.dropna()`，要么加 `inplace=True`（如 `df.dropna(inplace=True)`）。
 :::
-
-### 6.3 重复值的处理
-
-```python
-df.duplicated()                          # 整行都相同的标记为重复（返回 True）
-df.drop_duplicates()                     # 删除重复行
-df.drop_duplicates(subset=['列名'])      # 按指定列判断重复
-df.drop_duplicates(subset=['列名'], keep='last')  # 保留最后一次出现的
-```
-
-### 6.4 数据类型转换与数据变形
-
-```python
-df['列名'].astype('类型')               # 数值类型转换
-df.T                                     # 转置
-# 宽表 → 长表
-pd.melt(df, id_vars=['不变列'], var_name='新列名', value_name='新值名')
-# 长表 → 宽表
-pd.pivot(df, index=['不变列'], columns='当列名', values='当值')
-# 分列：按空格或 / 拆分，expand=True 展开成多列
-df['列'].str.split(' ', expand=True)
-```
-
-数据分箱（把连续值变离散）：
-
-```python
-# 等距划分
-pd.cut(数据, bins=5, labels=['低','中','高','高','高'])   # 整数=均分 n 段
-pd.cut(数据, bins=[0, 18, 35, 60, 100], labels=[...])    # 自定义区间边界
-# 等频划分（每段样本数大致相等）
-pd.qcut(数据, 4)
-```
-
-修改列名 / 索引名：
-
-```python
-df.rename(columns={'旧': '新'}, index={'旧': '新'})
-df.columns = ['a', 'b', 'c']     # 直接整体重命名，要写全所有列
-df.index = [0, 1, 2]             # 整体重设索引，要写全
-df.set_index('列名', inplace=True)
-```
-
-::: tip 补充 · 透视表与交叉表
-`pivot` 只是「长转宽」的形状变换；真正的**分组聚合透视**用 `pivot_table`，它能对值做聚合（默认求均值）：
-
-```python
-df.pivot_table(index='地区', columns='年份', values='销量', aggfunc='sum')
-pd.crosstab(df['地区'], df['渠道'])   # 交叉表：统计两维组合的频数
-```
-:::
-
-### 6.5 时间数据的处理
-
-```python
-import pandas as pd
-d = pd.Timestamp('2024-01-01 08:30')   # 单个时间戳
-d.year / d.month / d.day / d.hour / d.minute / d.second   # 取各字段
-d.quarter                              # 季度（1~4）
-d.is_month_end                         # 是否月末
-d.day_name()                           # 星期几
-d.to_period('M')                       # 以月(M)/季(Q)/年(Y)/周(W)/天(D)为维度
-
-pd.to_datetime('2024-01-01')                       # 字符串 → 时间戳
-df['新列'] = pd.to_datetime(df['列'])               # 整列转换
-pd.to_datetime(df['列'], errors='coerce')           # 解析失败填 NaT 而不是报错
-
-df.set_index('date', inplace=True)                  # 把日期设为索引
-d2 - d1                                            # 时间戳相减，得到时间差（天数）
-pd.date_range('开始', '结束', freq='D')             # 按区间生成日期序列，D=天 W=周 Q=季
-pd.date_range('开始', periods=10, freq='D')         # 生成指定个数的日期序列
-```
-
-::: tip 补充 · Series.dt 访问器
-把列解析成 datetime 后，可以用 `.dt` 一次性提取整列的年月日等：
-
-```python
-df['date'] = pd.to_datetime(df['date'])
-df['year']  = df['date'].dt.year
-df['month'] = df['date'].dt.month
-df['weekday'] = df['date'].dt.dayofweek   # 周几（0=周一）
-```
-:::
-
-### 6.6 分组聚合
-
-```python
-df.groupby('分组字段')['聚合字段'].mean()        # 按字段分组后求均值
-df.groupby('字段').groups                       # 查看分组情况
-df.groupby('字段').get_group('组名')             # 取某个具体分组
-df.groupby(['字段1', '字段2'])['字段'].sum()     # 多条件分组聚合
-```
-
-::: tip 补充 · 聚合函数进阶
-除了 `mean()` / `sum()`，还能用 `count()`、`max()`、`min()`；用 `agg` 可以**一次算多个指标**，也能传自定义函数：
-
-```python
-df.groupby('部门')['工资'].agg(['mean', 'sum', 'max'])      # 多指标
-df.groupby('部门')['工资'].agg(极差=lambda x: x.max() - x.min())
-```
-注意 `size()`（统计每组行数，含缺失）和 `count()`（统计非缺失个数）的区别。
-:::
-
----
-
-## 第7章 数据可视化
-
-### 7.1 图表构成与工具对比
-
-一张图通常由：标题、坐标轴、图形要素、图例、数据标签组成。
-
-常用工具：
-
-- **matplotlib**：底层、灵活，几乎所有图都能画，但代码偏多。
-- **seaborn**：基于 matplotlib 的高级封装，统计类图表（分布、关系）几行就能出好看的效果。
-
-### 7.2 matplotlib
-
-```python
-import matplotlib.pyplot as plt
-```
-
-通用流程（各类图基本一致）：创建画布 → 绘图 → 加标题 / 坐标轴标签 / 图例 / 网格 → 设刻度字体 / 范围 → 显示。
-
-```python
-# 折线图（看趋势）
-plt.figure(figsize=(8, 4))
-plt.plot(x, y, label='图例名', color='red', linewidth=2,
-         linestyle='--', marker='o')     # marker='o' 把每个点画成圆点
-plt.title('标题', fontsize=14)
-plt.xlabel('x 轴', fontsize=12)
-plt.ylabel('y 轴', fontsize=12)
-plt.legend(loc='upper left')             # 图例位置
-plt.grid(axis='y', alpha=0.3, linestyle='--')
-plt.xticks(rotation=45, fontsize=10)     # 旋转 x 轴刻度
-plt.ylim(0, 100)                         # 设 y 轴范围
-for xi, yi in zip(x, y):                 # 在每个点上标数值
-    plt.text(xi, yi, str(yi), ha='center', va='bottom', fontsize=10)
-plt.show()
-```
-
-其他图：
-
-```python
-plt.bar(x, y, width=0.6, color='blue')     # 柱状图（看对比）
-plt.barh(x, y)                             # 条形图（x/y 轴互换）
-plt.pie(数据, labels=标签, autopct='%.1f%%',   # 饼图（看占比）
-        startangle=90, explode=[0, 0.1, 0], shadow=True)
-plt.scatter(x, y, alpha=0.6, s=30)         # 散点图（看两变量相关性）
-plt.boxplot(值, tick_labels=标签)          # 箱线图（看分布与异常）
-```
-
-多图绘制：`f = plt.subplot(行, 列, 第几个)`，或一次性建多个子图：
-
-```python
-fig, axes = plt.subplots(2, 1, figsize=(8, 6))   # 2 行 1 列
-axes[0].plot(x, y1)
-axes[1].scatter(x, y2)
-plt.tight_layout()                                # 自动优化排版
-```
-
-::: danger 修正 + 补充 · 中文显示与负号
-原笔记只给了 `STHeiti` 一种字体，在 Windows / Linux 上会失效。更稳妥的做法是同时指定多个候选字体，并关掉 unicode minus（否则负号会显示成方块）：
-
-```python
-plt.rcParams['font.sans-serif'] = ['SimHei', 'PingFang SC', 'Microsoft YaHei', 'Arial']
-plt.rcParams['axes.unicode_minus'] = False    # 解决负号显示为方块
-```
-用 seaborn 时同理：`sns.set_theme(style='whitegrid')` 会套用其默认字体，中文乱码时再叠加上面的 `rcParams` 设置即可。
-:::
-
-::: tip 补充 · 双坐标轴
-左右两个量纲不同的指标想画在同一张图时，用 `twinx()` 共享 x 轴、再开一条 y 轴：
-
-```python
-ax1 = plt.gca()
-ax1.bar(x, y1, color='skyblue')
-ax2 = ax1.twinx()
-ax2.plot(x, y2, color='orange')
-```
-:::
-
-### 7.3 seaborn
-
-```python
-import seaborn as sns
-sns.set_theme(style='whitegrid')             # 设整体主题风格
-```
-
-| 函数 | 作用 |
-| --- | --- |
-| `sns.histplot(data, x=)` | 直方图（看分布） |
-| `sns.kdeplot(data, x=)` | 核密度估计图 |
-| `sns.countplot(data, x=)` | 计数图 |
-| `sns.scatterplot(data, x=, y=, hue=)` | 散点图（hue 按某列分组着色） |
-| `sns.jointplot(data, x=, y=)` | 联合分布图（散点 + 边缘分布） |
-| `sns.barplot(data, x=, y=)` | 条形图 |
-| `sns.boxplot(data, x=, y=)` | 箱线图 |
-| `sns.pairplot(data)` | 成对关系图（多变量两两散点） |
-
-::: tip 补充 · 箱线图怎么读
-箱线图用来一眼看分布和异常值，各要素（含图片补充）如下：
-
-| 要素 | 含义 / 计算 |
-| --- | --- |
-| 离群值（异常值） | 位于上下须之外的点，需结合实际判断是否处理 |
-| 上边缘 | `Q3 + 1.5 × IQR` |
-| 上四分位数 Q3 | 箱体上边界（数据的 75% 分位） |
-| 中位数 Q2 | 箱体中间的横线（50% 分位） |
-| 下四分位数 Q1 | 箱体下边界（25% 分位） |
-| 下边缘 | `Q1 − 1.5 × IQR` |
-
-其中 `IQR = Q3 − Q1`（四分位距）。超出 `Q3 + 1.5×IQR` 或低于 `Q1 − 1.5×IQR` 的点通常被标记为离群值。
-:::
-
----
-
-## 第8章 易错点汇总
-
-1. **切片与范围（左闭右开）**：`arr[开始:结束]` 取不到「结束」下标，要多取一个；`np.arange` 的结束值同样取不到，`np.linspace` 才包含两端点。
-2. **list 与 ndarray 的加法**：原生 `list` 的 `+` 是拼接，`ndarray` 的 `+` 是逐元素相加，语义完全不同。
-3. **`np.round` 银行家舍入**：采用「四舍六入五取偶」——`np.round(0.5) = 0`、`np.round(1.5) = 2`，和直觉的「≤4 舍去」不一样。
-4. **`axis` 的方向**：`np.max(arr, axis=0)` 返回每列的极值（沿行方向压缩）；`axis=1` 返回每行的极值（沿列方向压缩），别记反。
-5. **布尔索引的多条件**：多条件筛选用 `&` / `|`（不能写 `and` / `or`），且每个条件必须加括号：`arr[(arr > 10) & (arr < 60)]`。
-6. **分位数参数区间**：pandas 的 `s.quantile()` 填 **0~1** 的数，numpy 的 `np.percentile()` 填 **0~100** 的数，两者不一样。
-7. **去重与计数**：`drop_duplicates()` 与 `unique()` 内容一样但返回类型不同；`count()` 忽略缺失值；`df.sample()` 不填参数默认只取 1 条。
-8. **排序**：`np.sort` 不改原数组，`arr.sort()` 原地改；`sort_values` 按值、`sort_index` 按索引，别混。
-9. **（补充）切片返回视图**：`arr[1:4]` 这类切片和原数组共享内存，改了会影响原数组；要独立副本用 `arr.copy()`。
-10. **（补充）Series 按标签对齐**：两个 Series 相加是按索引标签对齐、不是按位置，对不上的变 `NaN`。
-11. **（补充）dropna / fillna 不改原表**：默认返回新对象，要么赋值回去，要么加 `inplace=True`。
-
----
-
-## 第9章 知识点速查总结
-
-### 9.1 核心脉络
-
-> 数据收集 → 数据清洗 → 数据分析 → 数据可视化，一条线走完：`read_csv` 读 → `isna` / `dropna` / `fillna` 清洗 → `groupby` 聚合 → `plt` 绘图。
-
-### 9.2 三大数据结构速查
-
-| 结构 | 一句话 | 关键点 |
-| --- | --- | --- |
-| `ndarray` | numpy 多维数组 | 多维性、同质性、高效性 |
-| `Series` | 一维带索引的数组 | 按标签 `loc` / 按位置 `iloc` |
-| `DataFrame` | 多个 Series 组成的二维表格 | 行索引 `index` + 列名 `columns` |
-
-### 9.3 高频函数速查
-
-| 场景 | 函数 |
-| --- | --- |
-| 数组创建 | `np.arange`、`np.linspace`、`np.zeros`、`np.random.rand` |
-| 数学函数 | `np.sqrt`、`np.exp`、`np.log`、`np.abs`、`np.round` |
-| 统计函数 | `np.sum`、`np.mean`、`np.max(arr, axis=)`、`np.percentile` |
-| 条件筛选 | 布尔索引 `arr[条件]`、`np.where` |
-| 排序去重 | `np.sort`、`np.argsort`、`np.unique` |
-| 缺失值 | `isna()`、`dropna()`、`fillna()`、`ffill()`、`bfill()` |
-| 重复值 | `duplicated()`、`drop_duplicates()` |
-| 数据变形 | `melt`、`pivot`、`cut`、`qcut`、`astype`、`set_index` |
-| 合并表 | `pd.concat`、`pd.merge`、`df.join` |
-| 时间处理 | `pd.Timestamp`、`pd.to_datetime`、`pd.date_range`、`resample` |
-| 分组聚合 | `df.groupby('字段')['字段'].mean()`、`agg()` |
-
-### 9.4 图表选型速查
-
-| 想表达什么 | 用什么 |
-| --- | --- |
-| 数据趋势 | 折线图 `plt.plot` |
-| 数据对比 | 柱 / 条形图 `plt.bar` / `plt.barh` |
-| 占比 | 饼图 `plt.pie` |
-| 两变量相关性 | 散点图 `plt.scatter` |
-| 分布与异常 | 箱线图 `plt.boxplot` / `sns.histplot` |
-
-### 9.5 易错点一句话版
-
-- 切片与 `arange` 左闭右开；`np.round` 五取偶（银行家舍入）
-- `axis=0` 沿行方向压缩（求每列）；`axis=1` 沿列方向压缩（求每行）
-- `quantile` 参数是 0~1，`np.percentile` 是 0~100
-- 布尔多条件用 `&` / `|`，且每个条件要加括号
-- `df.sample()` 不填参数默认只取 1 条
-- `count()` 忽略缺失值；`sort_values` 按值、`sort_index` 按索引
-- 切片返回视图（共享内存），要副本用 `copy()`；Series 相加按标签对齐；`dropna` / `fillna` 默认不改原表

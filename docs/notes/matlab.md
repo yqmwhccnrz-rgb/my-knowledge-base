@@ -1,12 +1,10 @@
 ---
-summary: "14 章 MATLAB 笔记：从矩阵与运算、程序流程控制、绘图，到数据分析、数值积分、方程求解与符号计算，再到句柄图形、GUI、Simulink 与接口；按新版 MATLAB 修正了原书过时函数，补充了隐式扩展、string、预分配等实战要点。"
+summary: "14 章 MATLAB 笔记：从矩阵与运算、程序流程控制、绘图，到数据分析、数值积分、方程求解与符号计算，再到句柄图形、GUI、Simulink 与接口；涵盖隐式扩展、string、预分配等实战要点。"
 ---
 
 # Matlab 笔记
 
 > **这是一本书**：14 章正文与附录连续排在同一页，从上往下读即可；也可以点右侧「本页目录」跳到任意章节。
-
-这份笔记由你的《MATLAB 程序设计与应用（第 3 版）》（刘卫国主编，高等教育出版社 2017，全书 393 页、ISBN 978-7-04-047813-6）整理而来。原书为**纯扫描版 PDF**，我先逐页做了中文 OCR，再按你原有的 C 语言笔记体例重排：章节顺序、知识点、代码、表格、提示与易错点都保留，OCR 丢失或误识的汉字、全角符号已按上下文补全并统一为规范的 MATLAB 语法。
 
 ::: info 笔记概要
 - **所属课程**：MATLAB 程序设计与应用
@@ -15,9 +13,6 @@ summary: "14 章 MATLAB 笔记：从矩阵与运算、程序流程控制、绘�
 - **关键词**：矩阵、点运算、冒号表达式、M 文件、函数文件、plot、polyfit、integral、ode45、syms、句柄
 :::
 
-::: tip 关于「修正」与「补充」
-原书以 **MATLAB R2016a** 为操作环境（2016 年发布）。近十年 MATLAB 有不少函数被废弃或替换，笔记中凡属**修正**的内容以 `::: danger 修正 · …` 标出，凡属**补充**（原书略过但实战必备）的以 `::: tip 补充 · …` 标出，便于区分哪些是原书内容、哪些是新增。核心语法（矩阵、索引、流程控制、函数文件）至今完全通用。
-:::
 
 ## 全书目录
 
@@ -49,9 +44,6 @@ summary: "14 章 MATLAB 笔记：从矩阵与运算、程序流程控制、绘�
 
 MATLAB 是 **MATrix LABoratory（矩阵实验室）** 的缩写，20 世纪 70 年代后期由美国新墨西哥大学 **Cleve Moler** 教授为方便学生调用 LINPACK / EISPACK 而编写，早期用 FORTRAN 实现。1984 年 **MathWorks** 公司成立并推出 MATLAB 1.0（DOS 版），核心改用 C 语言编写。1992 年的 4.0 版具有划时代意义，随后加入符号计算工具包与 Simulink。
 
-::: tip 补充 · 版本命名
-从 2006 年起 MathWorks 每年发布两个以年份命名的版本：**3 月左右发 a 版、9 月左右发 b 版**（如 R2006a / R2006b）。本书以 **R2016a（9.0 版）** 为操作环境。从 **R2012b（8.0 版）** 起操作界面改为功能区（Ribbon）样式，此后各版界面和基本功能保持一致，所以不必纠结版本差异。
-:::
 
 MATLAB 起源于矩阵运算，现已把**数值计算、符号计算、图形处理、系统仿真、程序流程控制**集成在统一环境中，并提供面向特定领域的工具箱（Toolbox）。
 
@@ -60,18 +52,12 @@ MATLAB 起源于矩阵运算，现已把**数值计算、符号计算、图形�
 | 功能 | 说明 |
 | --- | --- |
 | 数值计算 | 以矩阵为基本数据对象，提供国际公认的可靠算法与高度优化的函数库，是 MATLAB 的立身之本 |
-| 符号计算 | 可求解析解；原书时代借助 MuPAD 引擎（详见 9.1 的修正说明） |
+| 符号计算 | 可求解析解；原书时代借助 MuPAD 引擎(详见附录 B.1) |
 | 绘图 | 分**高层绘图**（`plot` 等，给参数即出图）与**低层绘图**（直接操作图形对象句柄，更灵活）两个层次 |
 | 程序设计语言 | 具备流程控制、函数调用、数据结构、输入输出、面向对象等特征，是解释性语言 |
 | 工具箱扩展 | 分**功能性工具箱**（扩充符号计算、仿真、文字处理等）与**学科性工具箱**（Control System、Signal Processing、Optimization、Statistics 等） |
 
-::: danger 修正 · 「解释型语言不能独立运行」
-原书写「MATLAB 是解释性语言，程序执行速度较慢，而且不能脱离 MATLAB 环境而独立运行」。前半句在今天仍大体成立（但有 JIT 即时编译，纯循环已快很多），后半句**已不准确**：借助 **MATLAB Compiler**（`mcc`）可把程序打包成独立可执行文件，或用 **MATLAB Coder** 生成 C/C++ 代码，脱离 MATLAB 环境运行。真正该强调的是——**向量化写法比逐元素循环快得多**（见 4.5 补充）。
-:::
 
-::: tip 补充 · 开放性
-除内部函数外，绝大多数 MATLAB 基本文件与工具箱文件都是**可读可改的 `.m` 源文件**，`edit eig` 之类命令可直接打开查看。这是学习算法实现的好途径，但不要修改自带函数。
-:::
 
 ### 1.3 操作界面与搜索路径
 
@@ -117,17 +103,7 @@ x =
 
 常用 `format`：`short`（默认，4 位小数）、`long`（15 位）、`short e` / `long e`（科学记数）、`rat`（有理数近似）、`hex`（十六进制机器表示）、`compact` / `loose`（空行疏密）。`format` 单独使用恢复默认。
 
-::: danger 修正 · `format` 不改变精度
-`format long` **只改变显示**，变量内部始终是双精度（`double`）。想真正改变存储类型要用 `single(x)`、`int8(x)` 等转换函数。这一点初学者极易误解。
-:::
 
-::: tip 补充 · 命令与技巧
-- 方向键 `↑` / `↓` 调出历史命令；`Tab` 自动补全函数名或变量名。
-- 长语句用 `...`（三个点）续行。
-- 一行可写多条语句，用逗号（显示结果）或分号（不显示）分隔。
-- `Ctrl+C` 中断正在运行的长程序。
-- `tic` / `toc` 计时，`profile on` … `profile viewer` 做性能剖析。
-:::
 
 ### 1.5 帮助系统
 
@@ -157,7 +133,7 @@ MATLAB 的数值数据分**整型、浮点型、复数型**，默认所有数值
 | 浮点 | `single`（4 字节）、`double`（8 字节，默认） | `single` 约 7 位有效数字，`double` 约 16 位 |
 | 复数 | `double` / `single` 的复数形式 | 实部虚部均为浮点，`i` 或 `j` 为虚数单位 |
 | 逻辑 | `logical` | 关系/逻辑运算结果，`true` / `false` |
-| 字符 | `char`（单引号）、`string`（双引号） | 见 2.6 与补充 |
+| 字符 | `char`（单引号）、`string`（双引号） | 见 2.6 |
 
 ```matlab
 >> x = int8(129)      % 超出 int8 范围(-128~127) → 饱和到 127
@@ -171,9 +147,6 @@ ans =
 >> real(z), imag(z), abs(z), conj(z)
 ```
 
-::: tip 补充 · 整型饱和与运算规则
-把数值转成整型时会**四舍五入并饱和**（超出范围取边界值），不是 C 语言的回绕溢出，这是 MATLAB 与 C 的重要差异。另外**整型不能与 double 直接做算术运算**（会报错），需先统一类型；但整型与同类型标量、以及整型与 `double` 常量在部分场景可用，稳妥做法是显式 `double(...)`。
-:::
 
 ::: danger 易错点 · `i` 和 `j` 是预定义变量
 `i` / `j` 默认是虚数单位，但**可以被重新赋值覆盖**。一旦用 `for i=1:n` 之后又要写复数，`7+5*i` 就不再是复数了。推荐两种做法：
@@ -195,9 +168,6 @@ R = [1,2,3; 4,5,6]; I = [6,7,8; 9,10,11];
 Z = R + 1i*I                    % 实部矩阵 + 虚部矩阵构成复数矩阵
 ```
 
-::: danger 修正 · 复数矩阵不要用 `R + i*I`
-原书示例写 `Z = R + i*I`，一旦 `i` 被赋值覆盖（见 2.1 易错点）就会得到错误结果。**改写为 `R + 1i*I`**，语义相同但绝对安全。
-:::
 
 #### 2.2.2 冒号表达式与 linspace
 
@@ -213,9 +183,6 @@ logspace(a,b,n) % 10^a 到 10^b 之间 n 个对数等分点
 
 `linspace(a,b,n)` 等价于 `a:(b-a)/(n-1):b`。
 
-::: tip 补充 · 何时用 linspace
-冒号表达式用「步长」控制，浮点累加会有误差，且**末项未必恰好等于终值**（如 `0:0.1:1`）。当你要的是「在 [a,b] 内取固定的 n 个点」，用 `linspace` 更精确、意图更清晰。
-:::
 
 #### 2.2.3 矩阵元素的引用
 
@@ -265,9 +232,6 @@ y = reshape(x, 3, 4)       % 按列重新排成 3×4
 z = reshape(y, 2, 6)       % 再排成 2×6（元素总数必须不变）
 ```
 
-::: tip 补充 · reshape 也是按列
-`reshape(x,3,4)` 是**一列一列地填**，不是一行一行。想按行填充，先转置再 reshape 再转回：`reshape(x,4,3)'`。
-:::
 
 矩阵大小相关函数：`size(A)` 返回 `[行数, 列数]`、`length(A)` 返回**最长维长度**、`ndims(A)` 返回维数、`numel(A)` 返回元素总数、`isempty(A)` 判空。
 
@@ -287,9 +251,6 @@ myexamp12        % 合法
 _myexamp12       % 非法：下划线开头
 ```
 
-::: danger 修正 · 标准函数名必须小写
-原书说「标准函数名以及命令名必须用小写字母，如 `inv(A)` 不能写成 `Inv(A)`」。这条**至今成立且很重要**：MATLAB 大小写敏感，`Inv(A)` 会被当成未定义的自定义函数。补充一点——现代 MATLAB 里很多「命令」其实是函数，且部分工具箱函数名含大写（如 `Table` 类方法），但**内置的数学/矩阵函数一律小写**。
-:::
 
 赋值语句两种格式：
 
@@ -326,9 +287,6 @@ save mydata -append % 追加变量到已有 MAT 文件
 load mydata         % 载入 mydata.mat 中的变量
 ```
 
-::: tip 补充 · 保存工作区
-MAT 文件（`.mat`）是 MATLAB 标准二进制格式。若不写变量名表，`save mydata` 保存**全部**变量。加 `-ascii` 存为文本格式（会丢失类型/结构信息）。现代写法还可指定版本：`save('data.mat','-v7.3')` 支持大于 2 GB 的变量。
-:::
 
 ### 2.4 常用内部函数
 
@@ -399,9 +357,6 @@ A ^ 2             % 方阵乘方，等价于 A*A
 对矩阵一般 `A\B ≠ B/A`（前者解 `A*X=B`，后者解 `X*A=B`）；含标量时两者结果才相同（如 `3/4 == 4\3 == 0.75`）。维数不相容时 `A*B` 会报「内部矩阵维度必须一致」。
 :::
 
-::: tip 补充 · 解方程组用反斜杠，不要用 inv
-`x = A\b` 用 QR/LU 等数值稳定算法直接求解，**比 `x = inv(A)*b` 更快、更精确**（尤其病态矩阵）。`inv` 只在确实需要逆矩阵本身时才用。这是数值计算最重要的习惯之一。
-:::
 
 **点运算**（.`*` `./` `.\` `.^`）：两矩阵**对应元素**之间运算，要求同型。
 
@@ -420,9 +375,6 @@ y = sin(x) .* cos(x);      % 必须点乘！写成 * 会报维度错误
 `*` `^` `/` 是**矩阵运算**，`.*` `.^` `./` 是**逐元素运算**。凡是「对一组 x 逐个求 y」的场景（绘图、统计、向量化），几乎都要用点运算。原书例 2-1 的 `sin(x).*cos(x)` 就是这个道理。
 :::
 
-::: tip 补充 · 隐式扩展（R2016b 起）
-原书基于 **R2016a**，那时「矩阵与向量逐元素运算」需要 `bsxfun`。**R2016b 及以后**支持**隐式扩展**：`A - mean(A)`、`[1;2;3] + [10 20 30]` 会自动把维度为 1 的维复制补齐，无需 `bsxfun`。注意这会让一些**本该报错的维度组合**（如 3×1 减 1×3）悄悄得到 3×3 结果，写数组运算时要留意 `size`。
-:::
 
 #### 2.5.2 关系运算
 
@@ -441,18 +393,7 @@ A(k)                                % 用序号取出这些元素
 
 常用关系/判定函数：`all`（全非零）、`any`（存在非零）、`find`（非零元素位置）、`exist`（变量/文件是否存在）、`isempty`、`isinf`、`isnan`、`isfinite`、`isinteger`、`isnumeric`、`isreal`、`isfloat`。
 
-::: tip 补充 · find 的双输出与随机数
-`[i,j] = find(A>4)` 可直接拿到**行列下标**，比先拿线性索引再 `ind2sub` 方便。另外原书用 `fix((90-10+1)*rand(5)+10)` 生成 [10,90] 随机整数，**现代应直接用 `randi([10,90],5)`** —— 更直观且严格均匀、边界无歧义。
-:::
 
-::: danger 补充 · 浮点数不要用 == 比较
-`0.1+0.2 == 0.3` 返回 `0`（false），因为二进制浮点有误差。判断相等要用容差：
-```matlab
-abs(a-b) < 1e-12
-% 或用 eps 缩放：abs(a-b) <= 1e-10*max(1,abs(a),abs(b))
-```
-另外 **`NaN == NaN` 恒为 false**，判 `NaN` 必须用 `isnan(x)`。
-:::
 
 #### 2.5.3 逻辑运算
 
@@ -464,9 +405,6 @@ A & B                  % → [0 1 1 0 1]
 xor(A>10, B<10)
 ```
 
-::: tip 补充 · `&&` / `||` 与 `&` / `|`
-`&&`（短路与）、`||`（短路或）**只用于标量条件**，且右侧在左侧已能判定时**不会被执行**（可避免除零、越界）；`&` `|` 是逐元素数组运算。写 `if` 条件时用 `&&` / `||`，写数组掩码时用 `&` / `|`。原书第 4 章例 4-5 用的就是 `&&`。
-:::
 
 **优先级**：算术 > 关系 > 逻辑。`~` 是单目运算符，优先级较高。
 
@@ -482,16 +420,6 @@ ch = ['abcdef'; '123456'];          % 字符串矩阵，各行字符数必须相
 ch(2,3)                             % → '3'
 ```
 
-::: tip 补充 · 双引号 string 类型（R2016b 起）
-原书只有单引号 `char`。**R2016b 引入双引号 `string`**：
-```matlab
-s = "Central South University";   % 1×1 string 标量
-s = ["a","b","c"];               % string 数组
-s + " " + "OK"                   % 用 + 连接字符串
-strlength(s)                     % string 的长度；char 用 length
-```
-区别：`char` 是「字符数组」，多行文本必须等长补空格；`string` 是「一个整体」，长度可各不相同，处理表格/文本数据时更方便。老函数（`strcmp` 等）大都同时支持两者。
-:::
 
 #### 2.6.2 字符串操作
 
@@ -512,29 +440,8 @@ strcat('ss','ff','DD','1234')
 eval('[t, sin(t), cos(t)]')         % 把字符串当命令执行
 ```
 
-::: danger 修正 · 字符串比较函数名
-原书写「`strcmp(s1,s2,n)` 用来比较前 n 个字符」——**函数名写错了**，正确的是 **`strncmp(s1,s2,n)`**；忽略大小写的版本是 **`strncmpi`**。四个函数为：
-```matlab
-strcmp(s1,s2)        % 完整比较，相等返回 1
-strncmp(s1,s2,n)     % 只比较前 n 个字符
-strcmpi(s1,s2)       % 忽略大小写
-strncmpi(s1,s2,n)    % 忽略大小写 + 前 n 个字符
-```
-另：原书 `strcmp` / `strncmpi` 返回 `1`/`0`，现代 MATLAB 返回 `logical` 的 `true`/`false`，语义一致。
-:::
 
-::: danger 修正 · 已废弃的字符串函数
-- `setstr`（ASCII → 字符）**已移除**，一律用 `char`。
-- `findstr(s1,s2)` **已不推荐**，用 `strfind(s, pattern)`，且**参数顺序不同**：`strfind(长串, 短串)` 返回所有匹配起始位置；`findstr` 是「短串在长串中」，两参数可互换易致混淆。
-- `str2mat`、`strvcat` 已由 `char` / `string` 取代。
-:::
 
-::: danger 修正 · 不要使用 eval
-`eval` 把字符串当命令执行，看似灵活，实际会**破坏代码可读性、阻碍静态检查与 JIT 优化、且难以调试**，还有注入风险。现代替代方案：
-- 动态调用已知函数 → 函数句柄 `fh = @sin; fh(x)`
-- 动态字段名 → `S.(fieldName)`
-- 批量变量 → 用 `cell` 数组 / `struct` 代替 `a1 a2 a3`
-:::
 
 #### 2.6.3 结构数据与单元数据
 
@@ -555,14 +462,6 @@ C(1)            % 取单元「本身」→ 1×1 cell
 对 cell 数组，`C(k)` 返回的是 **cell**（一个包装），`C{k}` 返回的才是**里面的数据**。对 struct，`S.field` 返回字段内容；字段名不确定时用 `S.(name)` 动态访问。
 :::
 
-::: tip 补充 · table 表格类型
-处理「有列名、每列类型不同」的数据（如 Excel 表），现代首选 `table`：
-```matlab
-T = table([1;2;3], {'A';'B';'C'}, 'VariableNames', {'ID','Name'});
-T.ID, T.Name(2)         % 按列名访问
-readtable('data.xlsx')   % 直接从文件读（见 13 章修正）
-```
-:::
 
 ---
 
@@ -579,7 +478,7 @@ readtable('data.xlsx')   % 直接从文件读（见 13 章修正）
 | `eye(m,n)` | 单位矩阵（主对角线为 1） |
 | `rand(m,n)` | (0,1) 区间**均匀分布**随机矩阵 |
 | `randn(m,n)` | 均值 0、方差 1 的**标准正态分布**随机矩阵 |
-| `randi([a,b],m,n)` | [a,b] 区间随机整数矩阵（见补充） |
+| `randi([a,b],m,n)` | [a,b] 区间随机整数矩阵 |
 | `randperm(n)` | 1~n 的随机排列 |
 
 ```matlab
@@ -589,14 +488,6 @@ y = 0.6 + sqrt(0.1)*randn(5);   % 均值 0.6、方差 0.1 的正态随机矩阵
 
 一般化公式：`x ~ U(0,1)` → `y = a + (b-a)*x` 得到 `U(a,b)`；`x ~ N(0,1)` → `y = mu + sigma*x` 得到 `N(mu, sigma^2)`（**注意第二个参数是标准差 sigma，不是方差**，方差是 `sigma^2`）。
 
-::: tip 补充 · 随机数三件套
-```matlab
-rng(1)                    % 设随机种子，让结果可复现（写实验报告必备）
-randi([10,90],5)          % 随机整数，替代 fix((b-a+1)*rand+a)
-randperm(10, 3)           % 从 1~10 中随机取 3 个不重复的数
-```
-`rng('shuffle')` 用时间作种子恢复随机性。原书用 `fix`/`rand` 拼随机整数，在现代 MATLAB 里应直接用 `randi`。
-:::
 
 #### 3.1.2 专门学科特殊矩阵
 
@@ -665,9 +556,6 @@ inv(A)     % 方阵的逆（A 必须非奇异）
 pinv(A)    % 伪逆（Moore-Penrose），对奇异/非方阵也适用，基于 SVD
 ```
 
-::: tip 补充 · 什么时候用 pinv
-求 `A*X = B` 时：`A` 方阵良态 → `A\B`；`A` 奇异或**超定/欠定**（行数≠列数）→ `pinv(A)*B` 给出最小二乘 / 最小范数解。`polyfit` 内部就是走这条路。
-:::
 
 ### 3.3 矩阵求值
 
@@ -698,9 +586,6 @@ E = eig(A)              % 只返回全部特征值（列向量）
 eigs(A, k)              % 求大型稀疏矩阵的前 k 个特征值
 ```
 
-::: tip 补充 · eig 结果的排列
-`[V,D] = eig(A)` 中 `D` 对角线上的第 j 个特征值对应 `V` 的**第 j 列**特征向量；特征向量已归一化（2 范数为 1），符号可能与你手算的相反，这是正常的。复特征值成对出现。
-:::
 
 ### 3.5 稀疏矩阵
 
@@ -758,13 +643,7 @@ end
 % 命令行：[x,y] = fexch(x,y)。函数内的 a/b/c 不进入工作区
 ```
 
-::: tip 补充 · 实时脚本 Live Script（R2016a 起）
-扩展名 `.mlx`，可在同一文件里混合代码、格式化文本、公式、图像，运行结果内联显示，非常适合做实验报告与教学。此外 R2016b 起支持**分节运行**（`%%` 分节）。
-:::
 
-::: danger 补充 · 脚本不要 clear all
-开头的 `clear` 只是教材为了演示方便。实际项目里脚本若用 `clear` / `clear all` 会清空调用者的工作区变量，造成难以追踪的副作用。函数文件天然隔离变量，是更推荐的组织方式。
-:::
 
 ### 4.2 程序控制结构
 
@@ -781,9 +660,6 @@ pause                            % 暂停，按任意键继续
 pause(2)                         % 暂停 2 秒
 ```
 
-::: tip 补充 · fprintf 常用格式
-`%d` 整数、`%f` 小数、`%.4f` 保留 4 位、`%e` 科学记数、`%g` 自动最短、`%s` 字符串、`%c` 字符、`\n` 换行、`\t` 制表符。拼接带数值的提示信息，`fprintf` 比 `disp([... num2str(...)])` 清爽得多。
-:::
 
 #### 4.2.2 选择结构
 
@@ -872,17 +748,6 @@ catch ME
 end
 ```
 
-::: tip 补充 · 现代异常处理
-```matlab
-try
-    x = A(i,j);
-catch ME
-    fprintf('出错：%s\n', ME.message);
-    rethrow(ME)       % 需要时可重新抛出
-end
-```
-`lasterr`（原书表 2-3 中列出）**已废弃**，现在用 `MException` / `ME.message`；警告仍可用 `lastwarn`。主动断言用 `assert(cond, '提示')`。
-:::
 
 #### 4.2.3 循环结构
 
@@ -916,15 +781,6 @@ for n = 100:200
 end
 ```
 
-::: tip 补充 · 循环变量用列向量
-`for v = A` 按**列**遍历，这是 MATLAB 特有的写法：
-```matlab
-for col = A
-    disp(mean(col))    % 每次处理 A 的一列
-end
-```
-不过多数场景直接用 `mean(A)`（按列求）更简洁，见第 6 章。
-:::
 
 **while 语句**：循环次数不确定时用。
 
@@ -965,21 +821,7 @@ for m = 1:500
 end
 ```
 
-::: danger 修正 · 不要把内置函数名当变量
-原书例 4-11 用 `sum`、`mean` 作变量名。这在语法上允许，但会**遮蔽内置函数**，之后同一作用域里再想调 `sum(...)` 就会出错或得到诡异结果（MATLAB 会优先当变量索引）。写成 `total`、`avg` 更安全。`i`、`j`、`pi`、`eps` 同理。
-:::
 
-::: tip 补充 · 向量化优先于循环
-上面求完数、筛选素数等例子都可以用向量化一步完成（原书也给了「筛选法」的简洁版）。原则是：**能写成矩阵/数组运算就别写循环**。
-```matlab
-% 筛选法求 2~m 的素数（向量化）
-p = 2:m;
-for i = 2:sqrt(m)
-    p(rem(p,i)==0 & p~=i) = [];
-end
-```
-MATLAB 的 JIT 已让循环快很多，但**预分配 + 向量化**仍是性能关键（见 4.5）。
-:::
 
 ### 4.3 函数文件
 
@@ -1030,15 +872,6 @@ end
 end
 ```
 
-::: tip 补充 · 匿名函数与函数句柄
-```matlab
-f = @(x) x.^2 + 2*x + 1;    % 匿名函数（单行、无需建文件）
-f(3)                         % → 16
-fh = @sin; feval(fh, pi/2)   % 函数句柄，可作为参数传给 integral / fzero 等
-arrayfun(f, 1:5)             % 对数组逐元素调用
-```
-几乎所有「把函数传给函数」的场合（数值积分、求根、优化、ODE）都用**函数句柄 `@`**，这是现代 MATLAB 的标准写法。
-:::
 
 #### 4.3.3 函数参数的可调性
 
@@ -1056,24 +889,6 @@ end
 end
 ```
 
-::: tip 补充 · 可变参数与参数校验
-```matlab
-function y = myfun(x, varargin)      % 任意多个额外输入
-    if nargin > 1, opt = varargin{1}; end
-end
-
-function [a, varargout] = f(...)     % 任意多个输出
-
-% R2019b 起推荐用 arguments 块做声明式校验
-function y = area(r)
-    arguments
-        r (1,1) double {mustBePositive}
-    end
-    y = pi*r^2;
-end
-```
-`narginchk(1,3)` 可直接限制个数；`validateattributes` 校验类型与范围。
-:::
 
 #### 4.3.4 全局变量与局部变量
 
@@ -1087,26 +902,16 @@ end
 ```
 调用前也要在命令行声明：`global ALPHA BETA; ALPHA=1; BETA=2; wadd(1,2)` → 5。
 
-::: danger 修正 · 不推荐使用 global
-原书已明确「全局变量破坏封装、降低可读性、不提倡使用」，这一点在现代工程中**更应坚持**。替代方案（按推荐顺序）：
-1. 把共享数据**作为参数传入**（最清晰）；
-2. 用 `struct` 打包配置：`cfg.alpha = 1; wadd(x,y,cfg)`；
-3. 需要跨多次调用保持状态时用**闭包（匿名函数捕获）**或 `persistent` 变量；
-4. 类（`classdef`）的属性。
-:::
 
 ### 4.4 特殊形式的函数
 
 | 形式 | 说明 |
 | --- | --- |
 | **主函数 / 子函数** | 一个函数文件中第一个函数是主函数，外部只能调主函数；其余为子函数，仅本文件内可见 |
-| **匿名函数** | `f = @(x) ...`，见 4.3.2 补充 |
+| **匿名函数** | `f = @(x) ...`，见 4.3.2 |
 | **嵌套函数** | 定义在另一个函数体内，可访问外层函数的变量（需配 `end`） |
-| **内联函数 `inline`** | 原书介绍过，现已废弃（见修正） |
+| **内联函数 `inline`** | 原书介绍过，现已废弃(见附录 B.1) |
 
-::: danger 修正 · `inline` 已移除
-原书提到的 `inline('x^2+1')` **已被移除**，一律改用匿名函数 `@(x) x.^2+1`（注意用**点运算**，否则传入向量会出错）。
-:::
 
 ### 4.5 程序调试与优化
 
@@ -1123,31 +928,7 @@ tic;  ...代码...;  toc       % 简单计时
 profile on;  myfun();  profile viewer   % 逐函数耗时剖析
 ```
 
-::: tip 补充 · 性能优化三条铁律
-1. **预分配数组**（最重要）：
-```matlab
-% 慢：每轮扩展数组，反复重新分配内存
-x = [];
-for k = 1:100000, x(k) = k^2; end
-% 快：先开好空间
-x = zeros(1, 100000);
-for k = 1:100000, x(k) = k^2; end
-% 最快：向量化
-x = (1:100000).^2;
-```
-2. **向量化**：用数组运算与内置函数代替逐元素循环。
-3. **避免重复计算**：把循环内不变的表达式提到循环外；`size(A,1)` 只求一次。
 
-原书 4.5 的示例测得循环与向量化可差数十倍，这个结论至今成立。
-:::
-
-::: danger 补充 · 逻辑数组索引比 find 更快
-```matlab
-A(A>4) = 0;        % 推荐：逻辑索引
-A(find(A>4)) = 0;  % 多余：find 只是把逻辑值转成序号，绕了一圈
-```
-只有在确实**需要位置编号**（如要同时操作另一个数组的对应位置）时才用 `find`。
-:::
 
 ---
 
@@ -1198,30 +979,7 @@ plot(x,y)
 plot(x, y, 'Color', [0.2 0.4 0.8], 'LineWidth', 2, 'LineStyle', '--');
 ```
 
-::: tip 补充 · 自适应采样绘图 fplot
-```matlab
-fplot(@(x) sin(1./x), [0.01 0.1])     % 自动在变化剧烈处加密采样
-fplot(@(x) [sin(x); cos(x)], [-pi pi]) % 一次画多条
-```
-对 `sin(1/x)` 这类振荡函数，固定步长的 `plot` 会失真，`fplot` 自适应采样更可靠。
-:::
 
-::: danger 修正 · `ezplot` / `ezmesh` / `ezsurf` 已废弃
-原书大量使用 `ezplot`（"easy plot"，可直接传符号表达式或字符串）。这些函数**已被移除**，对应替代为：
-| 原函数 | 现代替代 |
-| --- | --- |
-| `ezplot(f)` 显函数 / 隐函数 | `fplot(f)` / `fimplicit(f)` |
-| `ezplot` 参数方程 | `fplot(fx, fy, [a b])` 或 `fparametric` |
-| `ezplot3` | `fplot3` |
-| `ezpolar` | `fpolarplot` 或 `polarplot` |
-| `ezmesh` / `ezsurf` / `ezcontour` | `fmesh` / `fsurf` / `fcontour` |
-
-```matlab
-fimplicit(@(x,y) x.^2 + y.^2 - 1, [-1.5 1.5])   % 隐函数 x²+y²=1
-fplot(@(x) exp(-x).*sin(x), [0 10])
-```
-⚠️ 替代函数接收的是**函数句柄**且要求**向量化**（用 `.*` `.^`），这是迁移时最常见的报错原因。
-:::
 
 #### 5.1.2 图形辅助操作
 
@@ -1252,25 +1010,13 @@ subplot(2,1,2); plot(x, cos(x)); title('cos'); grid on
 3. `subplot` 的 p 是**按行从左到右编号**：`subplot(2,3,4)` 是第二行第一个。
 :::
 
-::: tip 补充 · 一图多用的现代写法
-```matlab
-tiledlayout(2,1)      % R2019b 起，比 subplot 更灵活（支持共享色标、统一标题）
-nexttile; plot(x, sin(x))
-nexttile; plot(x, cos(x))
-
-yyaxis left;  plot(x, y1); ylabel('左轴')
-yyaxis right; plot(x, y2); ylabel('右轴')   % 双 y 轴
-
-sgtitle('总标题')
-```
-:::
 
 ### 5.2 其他形式二维图形
 
 | 函数 | 图形 |
 | --- | --- |
 | `bar(x,y)` / `barh` | 条形图 / 水平条形图 |
-| `histogram(x)` / `histogram(x,nbins)` | 直方图（见修正） |
+| `histogram(x)` / `histogram(x,nbins)` | 直方图(见附录 B.1) |
 | `pie(x)` / `pie3` | 饼图 |
 | `stairs(x,y)` | 阶梯图 |
 | `stem(x,y)` | 火柴杆（离散序列）图 |
@@ -1284,15 +1030,7 @@ rho = sin(2*theta).*cos(2*theta);
 polarplot(theta, rho)
 ```
 
-::: danger 修正 · `hist` 与 `polar` 已废弃
-- `hist(x, n)`（原书 5.2.3）→ **`histogram(x, n)`**，且默认自动选分箱数、可设 `'BinWidth'`、`'Normalization','probability'`。`histcounts` 只返回计数不出图。
-- `polar(theta,rho)` → **`polarplot(theta,rho)`**。
-- `ezpolar` → `polarplot` 配合句柄。
-:::
 
-::: danger 修正 · 对函数自适应采样的 fplot
-原书 5.2.1 用 `fplot`（当时较新）替代固定步长 plot，这个思路正确。但同节的 `ezplot` 系列已废弃，请按 5.1.1 的表替换。
-:::
 
 ### 5.3 三维图形
 
@@ -1344,9 +1082,6 @@ fimplicit(@(x,y) x.^2 + y.^2 - 1)                 % 二维隐函数
 fimplicit3(@(x,y,z) x.^2 + y.^2 + z.^2 - 1)      % 三维隐曲面
 ```
 
-::: danger 修正 · 原书 ezplot 画隐函数
-原书 5.4 用 `ezplot('x^2+y^2-1')` 与 `ezmesh`/`ezsurf` 画隐函数与隐曲面。现代写法见上，注意函数句柄内要写成 `f(x,y)=0` 的形式并**向量化**（`x.^2`）。
-:::
 
 ### 5.5 图形修饰处理
 
@@ -1362,23 +1097,7 @@ light('Position',[1 0 1]); lighting gouraud; material shiny
 axis([xmin xmax ymin ymax zmin zmax]); axis vis3d
 ```
 
-::: tip 补充 · 图形裁剪与 NaN
-把不想显示区域的 Z 值设为 `NaN`，`surf` 会自动跳过该处形成「裁剪」效果：
-```matlab
-Z(X.^2 + Y.^2 > 1) = NaN;
-surf(X,Y,Z)
-```
-这比原书用 `NaN` 做裁剪的思路一致，且是最常用技巧。
-:::
 
-::: tip 补充 · 中文与导出
-```matlab
-set(gca,'FontName','Microsoft YaHei')    % 中文标题字体
-print('-dpng','-r300','fig1')            % 导出 300 dpi PNG
-exportgraphics(gcf, 'fig1.pdf')          % R2020a 起，导出更清晰（推荐）
-saveas(gcf, 'fig1.fig')                  % 保存可编辑图形
-```
-:::
 
 ### 5.6 图像处理与动画
 
@@ -1397,19 +1116,11 @@ end
 movie(F, 2, 30)              % 播放 2 遍，每秒 30 帧
 ```
 
-::: tip 补充 · 现代动画与图像
-- `drawnow limitrate` 比 `drawnow` 更适合高频刷新（限制刷新率）。
-- 分享动画可用 `VideoWriter` 直接写 MP4；`animatedline` + `addpoints` 比反复 `plot` 高效。
-- 图像处理请用 **Image Processing Toolbox**（`imresize`、`imfilter`、`rgb2gray` 等）。读图前注意 `im2double` 把 `uint8` 转成 `[0,1]` 的 double 再做数值运算，否则算术会饱和。
-:::
 
 ### 5.7 交互式绘图工具
 
 「绘图」选项卡可选变量后直接点图形类型出图；绘图工具（Plot Tools）可交互式改属性。生成的代码可用「生成代码」按钮导出，是学习属性设置的好办法。
 
-::: tip 补充
-图形窗口的**属性检查器**和「生成代码」功能，本质就是第 10 章的 `set(gca, ...)` 语句，导出后可直接粘进脚本复用。
-:::
 
 ---
 
@@ -1436,7 +1147,7 @@ max(A)               % 各列最大值
 [Y,U] = max(A)       % Y 为最大值，U 为对应位置（行号）
 max(A,[],dim)        % 指定维
 max(A,B)             % 两同型矩阵逐元素取较大者
-max(A,[],'all')      % 全矩阵最大值（见补充）
+max(A,[],'all')      % 全矩阵最大值
 min(A)               % 同理
 ```
 
@@ -1483,9 +1194,6 @@ sort(A,dim,mode)         % dim=1 按列，dim=2 按行
 sortrows(A, col)         % 按指定列对「行」整体排序（表格数据常用）
 ```
 
-::: tip 补充 · 'all' 选项与 NaN 处理
-R2018b 起多数函数支持 `sum(A,'all')`、`max(A,[],'all')` 一次性对全矩阵聚合，不用再写 `sum(sum(A))`。含缺失值时用 `mean(A,'omitnan')`、`sum(A,'omitnan')` 系列，比手动 `A(isnan(A))=[ ]` 更清晰。
-:::
 
 ### 6.2 多项式计算
 
@@ -1586,11 +1294,6 @@ y1 = polyval(p, x1, S, mu);      % 求值也要传 S、mu
 `x` 数值跨度大时这个形式能显著改善条件数。
 :::
 
-::: tip 补充 · 非线性拟合与拟合工具箱
-- 有物理模型（指数、幂律、高斯）时用 `fit` / `fittype`（Curve Fitting Toolbox）或 `lsqcurvefit`（Optimization Toolbox）。
-- 交互拟合：命令行 `cftool` 打开拟合工具箱，可导出代码。
-- 线性化技巧：对 `y = a*exp(b*x)` 取对数后 `polyfit(x, log(y), 1)` 得 `log(a)` 与 `b`（注意会改变误差分布）。
-:::
 
 ---
 
@@ -1622,14 +1325,6 @@ f = @(x) sin(x);
 df = (f(1+h) - f(1-h)) / (2*h);
 ```
 
-::: tip 补充 · gradient
-`diff` 结果长度少 1、且位置偏移半格。要得到**与 x 等长**的导数估计，用 `gradient`：
-```matlab
-dy = gradient(y, x);     % 内部点用中心差分，端点用单边差分
-[FX, FY] = gradient(Z, X, Y);   % 二维梯度
-```
-注意 `gradient(y, x)` 的第二个参数是**坐标间距**（或坐标向量），不是单独一个标量步长时也可传 `h`。
-:::
 
 ::: danger 易错点 · h 不是越小越精确
 h 太小会因浮点相减而**灾难性抵消**，误差反而变大。双精度下 `h ≈ 1e-5 ~ 1e-6`（约 `eps^(1/3)` 量级）较稳妥；需要高精度时用**符号微分**（第 9 章 `diff(syms)`）或复步导数。
@@ -1645,23 +1340,6 @@ h 太小会因浮点相减而**灾难性抵消**，误差反而变大。双精�
 
 #### 7.2.2 定积分实现
 
-::: danger 修正 · quad / quadl / dblquad 已废弃
-原书 7.2 以 `quad`（自适应辛普森）、`quadl`（自适应 Lobatto）、`dblquad`（二重积分）为主。**这些函数均已废弃/移除**，现代统一使用 `integral` 系列：
-
-| 原函数 | 现代替代 |
-| --- | --- |
-| `quad(f,a,b)` / `quadl(f,a,b)` | `integral(f,a,b)` |
-| `quadgk(f,a,b)` | `integral(f,a,b,'ArrayValued',true)` 或 `quadgk`（仍保留） |
-| `dblquad(f,xmin,xmax,ymin,ymax)` | `integral2(f,xmin,xmax,ymin,ymax)` |
-| `triplequad(...)` | `integral3(...)` |
-
-```matlab
-f = @(x) exp(-x.^2) .* sin(x);    % 必须向量化！
-I = integral(f, 0, Inf)            % 支持 Inf 上下限
-I2 = integral2(@(x,y) x.*y, 0,1, 0,1)
-I3 = integral3(@(x,y,z) x+y+z, 0,1, 0,1, 0,1)
-```
-:::
 
 ::: danger 易错点 · integral 要求向量化
 `integral` 会**一次传入一个向量** x 来批量求值，所以被积函数里必须写 `x.^2`、`.*`、`./`。写 `x^2` 会报「矩阵维度必须一致」。若函数确实只能接受标量，加 `'ArrayValued', true`（但会慢很多）。
@@ -1722,15 +1400,6 @@ plot(f, P1); xlabel('f (Hz)'); ylabel('|P1|')   % 在 50、120 Hz 处出现峰
 x = A\b               % 首选：反斜杠，内部按 A 的结构自动选算法
 ```
 
-::: danger 修正 · 不要先求 inv
-原书 8.1.1 从 `inv(A)*b`、`LU 分解`讲起。实际工程中 **`x = A\b` 是唯一推荐写法**：
-- A 为一般方阵 → LU 分解（部分主元）；
-- A 对称正定 → Cholesky（`chol`），更快更稳；
-- A 为稀疏 → 专用稀疏直接法；
-- A 超定（m>n）→ 最小二乘解。
-
-`inv(A)*b` **更慢且数值误差更大**（尤其 `cond(A)` 大时），只在你真的需要逆矩阵本身时才用。
-:::
 
 ```matlab
 [L,U] = lu(A);        % LU 分解（A = L*U，带置换时 [L,U,P] = lu(A)）
@@ -1753,9 +1422,6 @@ norm(A*x - b)
 x = pcg(A, b, 1e-8, 1000);
 ```
 
-::: tip 补充 · 何时用迭代法
-直接法复杂度约为 O(n³)，n 上万时内存吃不消；迭代法每轮只需矩阵-向量乘（稀疏矩阵极快），配合**预条件子**收敛更快。`pcg` 要求 A 对称正定，`gmres` 适用一般方阵。
-:::
 
 #### 8.1.3 求通解
 
@@ -1807,14 +1473,6 @@ options = optimset('Display','iter','TolX',1e-8);   % 原书写法
 [x,fval] = fminbnd(f,0,5,options);
 ```
 
-::: tip 补充 · optimoptions
-`optimset` 是旧接口，现代推荐 `optimoptions`：
-```matlab
-opts = optimoptions('fminunc', 'Display','iter', 'Algorithm','quasi-newton');
-[x,fval] = fminunc(f, x0, opts);
-```
-非线性约束优化用 `fmincon`；整数/组合优化用 `intlinprog`、`ga`。
-:::
 
 ::: danger 易错点 · 局部最优
 `fminsearch` / `fminunc` 找到的是**局部极小值**，结果依赖初值 `x0`。多峰函数要多试几个初值，或用 `ga` / `particleswarm` / `MultiStart` 做全局搜索。
@@ -1849,13 +1507,6 @@ plot(t, z(:,1))      % → cos(t)
 若 `ode45` 跑得极慢或步长小到几乎不动，多半是**刚性问题**（系统中存在量级悬殊的时间尺度），换 `ode15s` 通常立竿见影。另外 ODE 函数签名必须是 `(t,y)` **两个参数**，即使不显含 t 也要写。
 :::
 
-::: tip 补充 · 事件与参数
-```matlab
-opts = odeset('RelTol',1e-8, 'AbsTol',1e-10, 'Events',@myEvent);
-[t,y] = ode45(@(t,y) param*y, [0 10], y0, opts);   % 用匿名函数捕获参数
-```
-`odeget` 读取选项，`deval` 配合 `sol` 结构可在任意点插值求值。
-:::
 
 ---
 
@@ -1863,9 +1514,6 @@ opts = odeset('RelTol',1e-8, 'AbsTol',1e-10, 'Events',@myEvent);
 
 数值计算给近似解，**符号计算给解析解**（精确表达式）。功能由 **Symbolic Math Toolbox** 提供。
 
-::: danger 修正 · 关于符号引擎
-原书写「MATLAB 先后与 Maple 与 MuPAD 结合，从 MATLAB R2008b 开始使用 MuPAD」。这条历史沿革属实，但**版本细节已变化**（后续版本引擎实现有调整，MuPAD notebook 已被移除）。对使用者而言**无需关心底层引擎**，`syms` / `solve` / `diff` / `int` 这套 API 保持稳定。另：原书用的 `findsym`（查找符号变量）**已移除**，改用 `symvar`。
-:::
 
 ### 9.1 符号计算基础
 
@@ -1954,9 +1602,6 @@ taylor(exp(x), x, 0, 'Order', 6) % 在 x=0 处展开到 5 阶
 taylor(sin(x), x, 'ExpansionPoint', pi/2, 'Order', 5)
 ```
 
-::: danger 修正 · taylor 参数写法
-老版本用 `taylor(f, n, a)`（位置参数），**现代用名称-值对**：`taylor(f, x, 'ExpansionPoint', a, 'Order', n)`。老写法会报错或语义不符。
-:::
 
 ### 9.4 方程符号求解
 
@@ -1969,24 +1614,7 @@ syms y(x)
 dsolve(diff(y,x) == y, y(0) == 1)  % → exp(x)
 ```
 
-::: danger 修正 · solve 的方程用 `==`
-老代码常写 `solve('x^2-3*x+2')`（传字符串）。现代写法必须：
-1. 用 `syms` 定义变量；
-2. 用 `==` 构成**符号等式**（写 `=` 是赋值，会报错）；
-3. 显式指定求解变量。
 
-多解时 `solve` 返回结构体或向量，用 `[x,y] = solve(...)` 接收。若方程无解析解，`solve` 会给出数值近似或空解，此时改用 `vpasolve` 或 `fzero`（第 8 章）。
-:::
-
-::: tip 补充 · 符号转数值函数
-```matlab
-syms x
-f = x^2 + sin(x);
-matlabFunction(f, 'File', 'myf.m')   % 生成可数值计算的 .m 文件
-g = matlabFunction(f);  g(1.5)       % 或直接生成匿名函数句柄
-```
-符号推导 → 生成高效数值函数，是「推公式 + 大量计算」的标准工作流。
-:::
 
 ---
 
@@ -2020,17 +1648,6 @@ gco                         % getCurrentObject：最近被选中的对象句柄
 findobj(gca, 'Type', 'line')% 按属性查找对象
 ```
 
-::: danger 修正 · 句柄不再是「双精度数字」
-原书（R2016a 之前）里句柄是**浮点数**，可以 `set(1.0, ...)` 这样用，也能参与算术。**R2014b 起句柄改为真正的对象（Handle Graphics 2）**：
-```matlab
-h = plot(x,y);
-h.Color = 'r';               % 推荐：点语法直接读写属性
-h.LineWidth = 2;
-set(h, 'LineStyle', '--')    % 传统 set/get 仍可用
-get(h, 'Color')
-```
-因为旧代码里的 `gcf + 1`、`double(gca)` 之类写法**全部失效**，迁移时要用 `groot`、`gobjects`、`ishandle`、`isgraphics` 等新 API。
-:::
 
 ### 10.2 图形窗口与坐标轴
 
@@ -2044,9 +1661,6 @@ set(gca, 'XLim',[0 10], 'FontSize',12, 'XGrid','on')
 常用 Figure 属性：`Name`、`Color`、`Position`、`Visible`、`NumberTitle`、`MenuBar`、`ToolBar`。
 常用 Axes 属性：`XLim`/`YLim`/`ZLim`、`XLabel`/`YLabel`/`Title`、`XScale`（`'linear'`/`'log'`）、`FontSize`、`FontName`、`Box`、`GridLineStyle`、`View`、`CameraPosition`。
 
-::: tip 补充 · 属性名不区分大小写但建议写全
-`set(gca,'xlim',[0 1])` 能工作，但推荐驼峰式 `XLim` 或点语法 `ax.XLim = [0 1]`，可读性与自动补全都更好。用 `get(gca)` 可列出全部可设属性。
-:::
 
 ### 10.3 低层绘图操作
 
@@ -2115,34 +1729,10 @@ uimenu(m, 'Text','打开', 'Callback',@openfile);
 cm = uicontextmenu;                     % 快捷（右键）菜单
 ```
 
-::: danger 修正 · `Label` → `Text`
-R2014b（HG2）起，`uimenu` / `uicontrol` 的文字属性由 **`Label`/`String` 体系**逐步转向：菜单用 `Text`，控件仍用 `String`。旧代码里的 `uimenu(...,'Label','文件')` 在新版可能不生效，建议统一用 `Text`（菜单）与 `String`（控件）。
-:::
 
 ### 11.3 可视化 GUI 设计
 
-::: danger 重要修正 · GUIDE 已被 App Designer 取代
-原书 11.3 讲的是 **GUIDE**（GUI Development Environment，`guide` 命令）。**GUIDE 已被移除**：MathWorks 自 R2019b 起主推 **App Designer**，GUIDE 在后续版本中不再可用，官方提供迁移工具。
 
-现代做法：
-```matlab
-appdesigner          % 打开 App Designer，拖拽组件 + 写回调，生成 .mlapp
-```
-- 组件基于 `uifigure`（不是 `figure`），如 `uibutton`、`uieditfield`、`uitable`、`uiaxes`。
-- 采用**面向对象**结构（`classdef` + 属性 + 回调方法），比 GUIDE 的全局句柄更清晰。
-- 可用 **App Designer 的 GUIDE 迁移工具**把旧 `.fig` 转换。
-
-若只做简单交互，也可以完全不用 GUI：用 `input`、`questdlg`、`inputdlg`、`uigetfile` 等对话框即可。
-:::
-
-::: tip 补充 · 常用交互对话框
-```matlab
-answer = inputdlg('请输入半径','参数');
-choice = questdlg('是否继续？','确认','是','否','是');
-[file, path] = uigetfile('*.mat','选择数据文件');
-uialert(uifigure, '出错了', '错误');     % App Designer 风格提示
-```
-:::
 
 ---
 
@@ -2150,14 +1740,6 @@ uialert(uifigure, '出错了', '错误');     % App Designer 风格提示
 
 Simulink 是 MATLAB 下的**动态系统建模与仿真**集成环境，用**框图（模块 + 连线）**描述系统，无需手写微分方程求解代码。
 
-::: tip 补充 · 启动方式
-```matlab
-simulink            % 打开 Simulink 模块库浏览器
-new_system('mymodel'); open_system('mymodel')   % 命令行新建并打开
-sim('mymodel')      % 命令行运行仿真
-```
-原书介绍的是菜单/工具栏启动，效果一致。
-:::
 
 ### 12.1 仿真初步
 
@@ -2208,13 +1790,6 @@ plot(tout, yout)
 
 S 函数（System Function）用 MATLAB / C / C++ 编写自定义模块，按 `初始化 → 计算导数 → 更新状态 → 计算输出 → 结束` 的**仿真阶段回调**组织。
 
-::: tip 补充 · 现代替代
-多数场景不必写 S 函数：
-- 纯数学运算 → **`MATLAB Function` 模块**（直接写 MATLAB 代码，自动生成代码）；
-- 查表 / 分段 → `Lookup Table`、`Interpreted MATLAB Function`；
-- 需要 C 代码生成 → `C Caller` / `MATLAB Coder`。
-S 函数更适合需要精细控制仿真阶段或复用已有 C 代码的场合。
-:::
 
 ---
 
@@ -2224,10 +1799,6 @@ S 函数更适合需要精细控制仿真阶段或复用已有 C 代码的场合
 
 原书讲 **MATLAB Notebook**（在 Word 里调用 MATLAB）与 **Excel Link**（在 Excel 里调用 MATLAB）。
 
-::: danger 重要修正 · 这两项已淘汰
-- **MATLAB Notebook**（Word 集成）**早已移除**，现代替代是 **Live Script（`.mlx`）**——把代码、公式、文字、图像与结果放在同一文档，并可用 `publish` / `export` 导出 HTML、PDF、DOCX。
-- **Excel Link** 加载项也已不推荐。现在直接**用 MATLAB 读写 Excel 文件**（见下），或在 Excel 侧通过 COM/Python 调用 MATLAB。
-:::
 
 ### 13.2 数据接口
 
@@ -2245,16 +1816,6 @@ if fid < 0, error('打开失败: %s', msg); end
 
 低级函数：`fread` / `fwrite`（二进制）、`fgetl` / `fgets`（按行）、`feof`、`frewind`、`fseek`、`ftell`。
 
-::: tip 补充 · 高层文件函数（优先用）
-```matlab
-T = readtable('data.csv');        % 表格（自动识别表头与类型）
-M = readmatrix('data.csv');       % 纯数值矩阵
-S = readlines('log.txt');         % 按行读成 string 数组
-writetable(T, 'out.xlsx');
-writematrix(M, 'out.csv');
-```
-绝大多数场景不需要 `fopen/fscanf`。文本文件用 `readlines`、表格用 `readtable`、二进制 MAT 用 `load/save`。
-:::
 
 #### 13.2.2 MAT 文件
 
@@ -2264,9 +1825,6 @@ S = load('data.mat');             % 载入为结构体（S.A、S.B），更安�
 whos('-file','data.mat')          % 不载入也能查看内容
 ```
 
-::: danger 修正 · `xlsread` / `xlswrite` 已不推荐
-原书 13.1.2 与 13.2 涉及的 `xlsread`、`xlswrite` **已被标记为不推荐**，改用 `readtable` / `writetable` / `readmatrix` / `writematrix`。它们不依赖 Excel 安装、速度更快、对 `.csv` / `.xlsx` 一视同仁。
-:::
 
 ### 13.3 与其他语言接口
 
@@ -2277,17 +1835,6 @@ whos('-file','data.mat')          % 不载入也能查看内容
 | **MATLAB Coder** | 把 MATLAB 代码生成独立 C/C++ 代码 |
 | **MATLAB Compiler** | 打包成独立应用或库 |
 
-::: tip 补充 · 与 Python 互操作（现代最常用）
-```matlab
-% 在 MATLAB 里调 Python
-py.list({1,2,3})
-py.numpy.array([1 2 3])
-% 在 Python 里调 MATLAB：安装 MATLAB Engine API for Python
-```
-R2020b 起 MATLAB 与 Python 的互操作大幅简化，很多场景比 MEX 更省事。
-
-另外调用 Java、.NET、C 共享库（`loadlibrary`）、REST API（`webread` / `webwrite`）也都原生支持。
-:::
 
 ### 13.4 关于「17 个实验」
 
@@ -2382,7 +1929,7 @@ end
 
 ## 附录 B 常用函数速查表
 
-### B.1 原书过时函数 → 现代替代（修正汇总）
+### B.1 原书过时函数 → 现代替代
 
 | 已废弃/不推荐 | 现代替代 | 出现章节 |
 | --- | --- | --- |
