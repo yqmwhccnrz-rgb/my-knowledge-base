@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect width="900" height="520" fill="#ffffff"/>
+  <text x="450" y="28" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">企业所得税：应纳税所得额与应纳税额</text>
+
+  <text x="24" y="56" font-size="13" font-weight="700" fill="#1e3a8a">① 计算公式（直接法）</text>
+  <rect x="24" y="66" width="852" height="42" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>
+  <text x="450" y="92" text-anchor="middle" font-size="13" font-weight="600" fill="#1e3a8a">应纳税所得额 = 收入总额 − 不征税收入 − 免税收入 − 各项扣除 − 允许弥补的以前年度亏损</text>
+
+  <text x="24" y="136" font-size="13" font-weight="700" fill="#1e3a8a">② 税率</text>
+  <g font-size="10">
+    <rect x="24" y="146" width="204" height="52" rx="8" fill="#dbeafe" stroke="#93c5fd"/><text x="126" y="166" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">25%</text><text x="126" y="183" text-anchor="middle" fill="#374151">居民企业 / 有机构非居民</text>
+    <rect x="236" y="146" width="204" height="52" rx="8" fill="#dcfce7" stroke="#86efac"/><text x="338" y="166" text-anchor="middle" font-size="17" font-weight="700" fill="#166534">20%</text><text x="338" y="183" text-anchor="middle" fill="#374151">小型微利（实际税负 5%）</text>
+    <rect x="448" y="146" width="204" height="52" rx="8" fill="#fef3c7" stroke="#fcd34d"/><text x="550" y="166" text-anchor="middle" font-size="17" font-weight="700" fill="#92400e">15%</text><text x="550" y="183" text-anchor="middle" fill="#374151">高新技术企业等</text>
+    <rect x="660" y="146" width="216" height="52" rx="8" fill="#fee2e2" stroke="#fca5a5"/><text x="768" y="166" text-anchor="middle" font-size="17" font-weight="700" fill="#991b1b">10%</text><text x="768" y="183" text-anchor="middle" fill="#374151">非居民预提（法定 20%）</text>
+  </g>
+
+  <text x="24" y="224" font-size="13" font-weight="700" fill="#1e3a8a">③ 重点扣除标准（限额类，超支大多可结转）</text>
+  <g font-size="11">
+    <rect x="24" y="234" width="276" height="40" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="36" y="251" fill="#1f2937">职工福利费：工资薪金总额 <tspan font-weight="700" fill="#b91c1c">14%</tspan></text>
+    <text x="36" y="267" font-size="10" fill="#6b7280">超过部分不得扣除</text>
+    <rect x="308" y="234" width="276" height="40" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="320" y="251" fill="#1f2937">工会经费：工资薪金总额 <tspan font-weight="700" fill="#b91c1c">2%</tspan></text>
+    <text x="320" y="267" font-size="10" fill="#6b7280">凭相关支付凭证扣除</text>
+    <rect x="592" y="234" width="284" height="40" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="604" y="251" fill="#1f2937">职工教育经费：<tspan font-weight="700" fill="#b91c1c">8%</tspan></text>
+    <text x="604" y="267" font-size="10" fill="#6b7280">超过部分结转以后年度扣除</text>
+
+    <rect x="24" y="280" width="276" height="40" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="36" y="297" fill="#1f2937">补充养老 / 医疗保险：各 <tspan font-weight="700" fill="#b91c1c">5%</tspan></text>
+    <text x="36" y="313" font-size="10" fill="#6b7280">超过部分不得扣除</text>
+    <rect x="308" y="280" width="276" height="40" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="320" y="297" fill="#1f2937">业务招待费：发生额 <tspan font-weight="700" fill="#b91c1c">60%</tspan> 与营收 <tspan font-weight="700" fill="#b91c1c">5‰</tspan></text>
+    <text x="320" y="313" font-size="10" fill="#6b7280">孰低扣除；不得结转</text>
+    <rect x="592" y="280" width="284" height="40" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="604" y="297" fill="#1f2937">广告费和业务宣传费：营收 <tspan font-weight="700" fill="#b91c1c">15%</tspan></text>
+    <text x="604" y="313" font-size="10" fill="#6b7280">化妆品/医药/饮料 30%；烟草不得扣</text>
+
+    <rect x="24" y="326" width="276" height="40" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="36" y="343" fill="#1f2937">公益性捐赠：利润总额 <tspan font-weight="700" fill="#b91c1c">12%</tspan></text>
+    <text x="36" y="359" font-size="10" fill="#6b7280">超过部分结转以后三年扣除</text>
+    <rect x="308" y="326" width="276" height="40" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="320" y="343" fill="#1f2937">手续费佣金：保险 <tspan font-weight="700" fill="#b91c1c">18%</tspan>、其他 <tspan font-weight="700" fill="#b91c1c">5%</tspan></text>
+    <text x="320" y="359" font-size="10" fill="#6b7280">保险超支可结转</text>
+    <rect x="592" y="326" width="284" height="40" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="604" y="343" fill="#1f2937">关联方债资比：金融 <tspan font-weight="700" fill="#b91c1c">5:1</tspan>、其他 <tspan font-weight="700" fill="#b91c1c">2:1</tspan></text>
+    <text x="604" y="359" font-size="10" fill="#6b7280">符合独立交易原则可例外</text>
+  </g>
+
+  <text x="24" y="394" font-size="13" font-weight="700" fill="#1e3a8a">④ 不得扣除（记忆：向投资者分红、与收入无关、违法支出）</text>
+  <rect x="24" y="404" width="852" height="48" rx="8" fill="#fee2e2" stroke="#fca5a5"/>
+  <text x="36" y="423" font-size="10" fill="#7f1d1d">股息红利等权益性投资收益款项 · 企业所得税税款 · 税收滞纳金 · 罚金罚款和被没收财物损失</text>
+  <text x="36" y="441" font-size="10" fill="#7f1d1d">超标准捐赠 · 赞助支出 · 未经核定的准备金 · 企业之间支付的管理费 · 与取得收入无关的其他支出</text>
+
+  <text x="24" y="480" font-size="13" font-weight="700" fill="#1e3a8a">⑤ 亏损弥补与应纳税额</text>
+  <rect x="24" y="490" width="852" height="24" rx="6" fill="#dcfce7" stroke="#86efac"/>
+  <text x="450" y="506" text-anchor="middle" font-size="11" font-weight="600" fill="#166534">亏损结转 ≤ 5 年（高新/科技型中小企业 10 年） → 应纳税额 = 应纳税所得额 × 税率 − 减免税额 − 抵免税额</text>
+</svg>

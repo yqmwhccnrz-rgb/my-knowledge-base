@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect width="900" height="440" fill="#ffffff"/>
+  <text x="450" y="28" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">土地增值税：五步计算法（照原书流程重绘）</text>
+
+  <g font-size="10">
+    <rect x="20" y="48" width="164" height="76" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="102" y="68" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a">① 确定应税收入</text>
+    <text x="102" y="88" text-anchor="middle" fill="#374151">货币 + 实物 + 其他收入</text>
+    <text x="102" y="106" text-anchor="middle" fill="#b91c1c" font-weight="600">不含增值税</text>
+    <path d="M186 86 h14" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#a)"/>
+
+    <rect x="202" y="48" width="164" height="76" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="284" y="68" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a">② 确定扣除项目</text>
+    <text x="284" y="88" text-anchor="middle" fill="#374151">新建房 5 项 / 存量房 3 项</text>
+    <text x="284" y="106" text-anchor="middle" fill="#6b7280">房企可加计 20% 扣除</text>
+    <path d="M368 86 h14" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#a)"/>
+
+    <rect x="384" y="48" width="164" height="76" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="466" y="68" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a">③ 算增值额</text>
+    <text x="466" y="90" text-anchor="middle" fill="#374151" font-weight="600">增值额 = 收入 − 扣除项目</text>
+    <text x="466" y="108" text-anchor="middle" fill="#6b7280" font-size="9">普通住宅增值率≤20% 免税</text>
+    <path d="M550 86 h14" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#a)"/>
+
+    <rect x="566" y="48" width="164" height="76" rx="8" fill="#fef3c7" stroke="#fcd34d"/>
+    <text x="648" y="68" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">④ 算增值率找税率</text>
+    <text x="648" y="90" text-anchor="middle" fill="#78350f" font-weight="600">增值率 = 增值额 ÷ 扣除项目</text>
+    <text x="648" y="108" text-anchor="middle" fill="#78350f">查四级超率累进表</text>
+    <path d="M732 86 h14" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#a)"/>
+
+    <rect x="748" y="48" width="132" height="76" rx="8" fill="#166534"/>
+    <text x="814" y="68" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">⑤ 算税额</text>
+    <text x="814" y="90" text-anchor="middle" fill="#dcfce7">增值额 × 税率</text>
+    <text x="814" y="108" text-anchor="middle" fill="#dcfce7">− 扣除项目 × 速算系数</text>
+  </g>
+
+  <text x="24" y="156" font-size="14" font-weight="700" fill="#1e3a8a">四级超率累进税率表</text>
+  <g font-size="12" fill="#1f2937">
+    <rect x="24" y="166" width="852" height="30" fill="#1e3a8a"/>
+    <text x="60" y="186" fill="#ffffff" font-weight="600">级数</text>
+    <text x="200" y="186" fill="#ffffff" font-weight="600">增值额与扣除项目金额的比率（增值率）</text>
+    <text x="620" y="186" fill="#ffffff" font-weight="600">税率</text>
+    <text x="740" y="186" fill="#ffffff" font-weight="600">速算扣除系数</text>
+    <rect x="24" y="196" width="852" height="30" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="60" y="216">1</text><text x="200" y="216">不超过 50% 的部分</text><text x="620" y="216" font-weight="700" fill="#b91c1c">30%</text><text x="740" y="216">0</text>
+    <rect x="24" y="226" width="852" height="30" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="60" y="246">2</text><text x="200" y="246">超过 50% ~ 100% 的部分</text><text x="620" y="246" font-weight="700" fill="#b91c1c">40%</text><text x="740" y="246">5%</text>
+    <rect x="24" y="256" width="852" height="30" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="60" y="276">3</text><text x="200" y="276">超过 100% ~ 200% 的部分</text><text x="620" y="276" font-weight="700" fill="#b91c1c">50%</text><text x="740" y="276">15%</text>
+    <rect x="24" y="286" width="852" height="30" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="60" y="306">4</text><text x="200" y="306">超过 200% 的部分</text><text x="620" y="306" font-weight="700" fill="#b91c1c">60%</text><text x="740" y="306">35%</text>
+  </g>
+
+  <text x="24" y="348" font-size="14" font-weight="700" fill="#1e3a8a">新建房转让扣除 5 项（房地产开发企业）</text>
+  <g font-size="10" fill="#1f2937">
+    <rect x="24" y="358" width="164" height="64" rx="8" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="106" y="378" text-anchor="middle" font-weight="600" fill="#1e3a8a">1 取得土地使用权</text>
+    <text x="106" y="396" text-anchor="middle" fill="#374151">所支付的金额</text>
+    <rect x="196" y="358" width="164" height="64" rx="8" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="278" y="378" text-anchor="middle" font-weight="600" fill="#1e3a8a">2 房地产开发成本</text>
+    <text x="278" y="396" text-anchor="middle" fill="#374151">6 项（征地、建安等）</text>
+    <rect x="368" y="358" width="164" height="64" rx="8" fill="#fef3c7" stroke="#fcd34d"/>
+    <text x="450" y="378" text-anchor="middle" font-weight="600" fill="#92400e">3 房地产开发费用</text>
+    <text x="450" y="395" text-anchor="middle" fill="#78350f">利息 + (1+2)×5% 以内</text>
+    <text x="450" y="411" text-anchor="middle" fill="#78350f">或 (1+2)×10% 以内</text>
+    <rect x="540" y="358" width="164" height="64" rx="8" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="622" y="378" text-anchor="middle" font-weight="600" fill="#1e3a8a">4 转让有关税金</text>
+    <text x="622" y="396" text-anchor="middle" fill="#374151">城建税、教育费附加等</text>
+    <rect x="712" y="358" width="164" height="64" rx="8" fill="#dcfce7" stroke="#86efac"/>
+    <text x="794" y="378" text-anchor="middle" font-weight="600" fill="#166534">5 加计扣除</text>
+    <text x="794" y="396" text-anchor="middle" fill="#166534">（1+2）× 20%</text>
+    <text x="794" y="412" text-anchor="middle" fill="#166534" font-size="9">仅房企适用</text>
+  </g>
+
+  <defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#94a3b8"/></marker></defs>
+</svg>

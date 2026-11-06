@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 450" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="900" height="450" fill="#ffffff"/>
+  <text x="450" y="30" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">税法总论：法律关系 · 要素 · 立法层级</text>
+
+  <text x="24" y="66" font-size="14" font-weight="700" fill="#1e3a8a">① 税收法律关系的构成</text>
+  <g>
+    <rect x="24" y="78" width="200" height="56" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="124" y="100" text-anchor="middle" font-size="14" font-weight="600" fill="#1e3a8a">主体</text>
+    <text x="124" y="120" text-anchor="middle" font-size="11" fill="#374151">国家（征税方）/ 纳税人</text>
+    <rect x="238" y="78" width="200" height="56" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="338" y="100" text-anchor="middle" font-size="14" font-weight="600" fill="#1e3a8a">客体</text>
+    <text x="338" y="120" text-anchor="middle" font-size="11" fill="#374151">征税对象（权义所指向）</text>
+    <rect x="452" y="78" width="200" height="56" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="552" y="100" text-anchor="middle" font-size="14" font-weight="600" fill="#1e3a8a">内容</text>
+    <text x="552" y="120" text-anchor="middle" font-size="11" fill="#374151">权利与义务（平等保护）</text>
+    <rect x="666" y="78" width="210" height="56" rx="8" fill="#fef3c7" stroke="#fcd34d"/>
+    <text x="771" y="100" text-anchor="middle" font-size="13" font-weight="600" fill="#92400e">产生 / 变更 / 消灭</text>
+    <text x="771" y="120" text-anchor="middle" font-size="11" fill="#78350f">由税收法律事实决定</text>
+  </g>
+
+  <text x="24" y="166" font-size="14" font-weight="700" fill="#1e3a8a">② 税法（种）要素 — 11 项</text>
+  <g font-size="12" fill="#1f2937">
+    <rect x="24" y="178" width="132" height="32" rx="6" fill="#f8fafc" stroke="#e2e8f0"/><text x="90" y="199" text-anchor="middle">总则</text>
+    <rect x="164" y="178" width="132" height="32" rx="6" fill="#dbeafe" stroke="#93c5fd"/><text x="230" y="199" text-anchor="middle" font-weight="600">纳税义务人</text>
+    <rect x="304" y="178" width="132" height="32" rx="6" fill="#dbeafe" stroke="#93c5fd"/><text x="370" y="199" text-anchor="middle" font-weight="600">征税对象 ★</text>
+    <rect x="444" y="178" width="132" height="32" rx="6" fill="#f8fafc" stroke="#e2e8f0"/><text x="510" y="199" text-anchor="middle">税目</text>
+    <rect x="584" y="178" width="132" height="32" rx="6" fill="#dbeafe" stroke="#93c5fd"/><text x="650" y="199" text-anchor="middle" font-weight="600">税率 ★</text>
+    <rect x="724" y="178" width="152" height="32" rx="6" fill="#f8fafc" stroke="#e2e8f0"/><text x="800" y="199" text-anchor="middle">纳税环节</text>
+    <rect x="24" y="216" width="132" height="32" rx="6" fill="#f8fafc" stroke="#e2e8f0"/><text x="90" y="237" text-anchor="middle">纳税期限</text>
+    <rect x="164" y="216" width="132" height="32" rx="6" fill="#f8fafc" stroke="#e2e8f0"/><text x="230" y="237" text-anchor="middle">纳税地点</text>
+    <rect x="304" y="216" width="132" height="32" rx="6" fill="#fef3c7" stroke="#fcd34d"/><text x="370" y="237" text-anchor="middle">减税免税</text>
+    <rect x="444" y="216" width="132" height="32" rx="6" fill="#f8fafc" stroke="#e2e8f0"/><text x="510" y="237" text-anchor="middle">罚则</text>
+    <rect x="584" y="216" width="132" height="32" rx="6" fill="#f8fafc" stroke="#e2e8f0"/><text x="650" y="237" text-anchor="middle">附则</text>
+    <rect x="724" y="216" width="152" height="32" rx="6" fill="#e0f2fe" stroke="#7dd3fc"/>
+    <text x="800" y="230" text-anchor="middle" font-size="10">区别税种的主要标志</text>
+    <text x="800" y="243" text-anchor="middle" font-size="10">＝ 征税对象</text>
+  </g>
+
+  <text x="24" y="282" font-size="14" font-weight="700" fill="#1e3a8a">③ 税收立法机关与效力层级（由高到低）</text>
+  <g font-size="11">
+    <rect x="24" y="294" width="200" height="40" rx="6" fill="#1e3a8a"/>
+    <text x="124" y="311" text-anchor="middle" fill="#ffffff" font-weight="600">全国人大及其常委会</text>
+    <text x="124" y="327" text-anchor="middle" fill="#dbeafe">→ 法律</text>
+    <path d="M229 314 h14" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#ar)"/>
+    <rect x="248" y="294" width="196" height="40" rx="6" fill="#3b5bdb"/>
+    <text x="346" y="311" text-anchor="middle" fill="#ffffff" font-weight="600">国务院</text>
+    <text x="346" y="327" text-anchor="middle" fill="#dbeafe">→ 税收行政法规</text>
+    <path d="M449 314 h14" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#ar)"/>
+    <rect x="468" y="294" width="196" height="40" rx="6" fill="#5b7fe0"/>
+    <text x="566" y="311" text-anchor="middle" fill="#ffffff" font-weight="600">财政部 / 税务总局 / 海关总署</text>
+    <text x="566" y="327" text-anchor="middle" fill="#eef2ff">→ 部门规章</text>
+    <path d="M669 314 h14" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#ar)"/>
+    <rect x="688" y="294" width="188" height="40" rx="6" fill="#8aa5ea"/>
+    <text x="782" y="311" text-anchor="middle" fill="#ffffff" font-weight="600">地方人大 / 政府</text>
+    <text x="782" y="327" text-anchor="middle" fill="#eef2ff">→ 地方性法规、规章</text>
+  </g>
+
+  <text x="24" y="366" font-size="14" font-weight="700" fill="#1e3a8a">④ 税法原则</text>
+  <rect x="24" y="378" width="416" height="56" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>
+  <text x="36" y="396" font-size="12" font-weight="600" fill="#1e3a8a">基本原则（4）</text>
+  <text x="36" y="413" font-size="11" fill="#374151">税收法定 · 税收公平</text>
+  <text x="36" y="428" font-size="11" fill="#374151">税收效率 · 实质课税</text>
+  <rect x="452" y="378" width="424" height="56" rx="8" fill="#fef3c7" stroke="#fcd34d"/>
+  <text x="464" y="396" font-size="12" font-weight="600" fill="#92400e">适用原则（6）</text>
+  <text x="464" y="413" font-size="11" fill="#78350f">法律优位 · 法律不溯及既往 · 新法优于旧法</text>
+  <text x="464" y="428" font-size="11" fill="#78350f">特别法优于普通法 · 实体从旧程序从新 · 程序优于实体</text>
+
+  <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#94a3b8"/></marker></defs>
+</svg>

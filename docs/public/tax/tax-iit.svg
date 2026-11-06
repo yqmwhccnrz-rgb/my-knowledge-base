@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect width="900" height="430" fill="#ffffff"/>
+  <text x="450" y="28" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">个人所得税：九项所得 · 计税方式 · 税率</text>
+
+  <text x="24" y="58" font-size="14" font-weight="700" fill="#166534">综合所得（4 项，按年合并、七级超额累进 3%~45%）</text>
+  <g font-size="11">
+    <rect x="24" y="70" width="204" height="54" rx="8" fill="#dcfce7" stroke="#86efac"/>
+    <text x="126" y="90" text-anchor="middle" font-weight="700" fill="#166534" font-size="12">工资、薪金所得</text>
+    <text x="126" y="108" text-anchor="middle" fill="#374151">累计预扣法，按月预扣</text>
+    <text x="126" y="120" text-anchor="middle" fill="#6b7280" font-size="10">年度汇算清缴</text>
+    <rect x="236" y="70" width="204" height="54" rx="8" fill="#dcfce7" stroke="#86efac"/>
+    <text x="338" y="90" text-anchor="middle" font-weight="700" fill="#166534" font-size="12">劳务报酬所得</text>
+    <text x="338" y="108" text-anchor="middle" fill="#374151">收入额 = 收入 ×(1−20%)</text>
+    <rect x="448" y="70" width="204" height="54" rx="8" fill="#dcfce7" stroke="#86efac"/>
+    <text x="550" y="90" text-anchor="middle" font-weight="700" fill="#166534" font-size="12">稿酬所得</text>
+    <text x="550" y="108" text-anchor="middle" fill="#374151">收入额 = 收入 ×56%</text>
+    <text x="550" y="120" text-anchor="middle" fill="#6b7280" font-size="10">（减 20% 后再 ×70%）</text>
+    <rect x="660" y="70" width="216" height="54" rx="8" fill="#dcfce7" stroke="#86efac"/>
+    <text x="768" y="90" text-anchor="middle" font-weight="700" fill="#166534" font-size="12">特许权使用费所得</text>
+    <text x="768" y="108" text-anchor="middle" fill="#374151">收入额 = 收入 ×(1−20%)</text>
+  </g>
+
+  <rect x="24" y="134" width="852" height="38" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>
+  <text x="450" y="158" text-anchor="middle" font-size="12" font-weight="600" fill="#1e3a8a">年应纳税所得额 = 年收入额 − 60 000 − 专项扣除（三险一金）− 专项附加扣除（7 项）− 其他扣除</text>
+
+  <text x="24" y="204" font-size="13" font-weight="700" fill="#92400e">经营所得（五级超额累进 5%~35%）</text>
+  <rect x="24" y="214" width="416" height="50" rx="8" fill="#fef3c7" stroke="#fcd34d"/>
+  <text x="36" y="232" font-size="11" font-weight="600" fill="#92400e">个体工商户 / 个人独资 / 合伙企业 / 承包承租经营</text>
+  <text x="36" y="250" font-size="10" fill="#78350f">应纳税所得额 = 年收入 − 成本 − 费用 − 损失（业主工资不得扣除）</text>
+
+  <text x="460" y="204" font-size="13" font-weight="700" fill="#1e3a8a">分类所得（4 项，20% 比例税率，按次计算）</text>
+  <rect x="460" y="214" width="416" height="50" rx="8" fill="#dbeafe" stroke="#93c5fd"/>
+  <text x="472" y="232" font-size="11" font-weight="600" fill="#1e3a8a">利息股息红利 · 财产租赁 · 财产转让 · 偶然所得</text>
+  <text x="472" y="250" font-size="10" fill="#374151">个人出租住房减按 10%；租赁每次减 800 元或 20% 费用</text>
+
+  <text x="24" y="294" font-size="13" font-weight="700" fill="#1e3a8a">专项附加扣除 7 项（每月定额，除注明外）</text>
+  <g font-size="10" fill="#1f2937">
+    <rect x="24" y="304" width="204" height="48" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="36" y="320">3 岁以下婴幼儿照护 <tspan font-weight="700" fill="#b91c1c">2000</tspan></text>
+    <text x="36" y="337">子女教育 <tspan font-weight="700" fill="#b91c1c">2000</tspan> / 月·每孩</text>
+    <rect x="236" y="304" width="204" height="48" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="248" y="320">继续教育 <tspan font-weight="700" fill="#b91c1c">400</tspan>/月（≤48月）</text>
+    <text x="248" y="337">职业资格证书 <tspan font-weight="700" fill="#b91c1c">3600</tspan>/年</text>
+    <rect x="448" y="304" width="204" height="48" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="460" y="320">大病医疗：超 <tspan font-weight="700" fill="#b91c1c">15000</tspan> 部分</text>
+    <text x="460" y="337">年度限额 <tspan font-weight="700" fill="#b91c1c">80000</tspan>（仅汇算扣）</text>
+    <rect x="660" y="304" width="216" height="48" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="672" y="320">住房贷款利息 <tspan font-weight="700" fill="#b91c1c">1000</tspan>/月</text>
+    <text x="672" y="337">最长 240 个月、仅限首套</text>
+
+    <rect x="24" y="358" width="276" height="48" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="36" y="374">住房租金 <tspan font-weight="700" fill="#b91c1c">1500 / 1100 / 800</tspan></text>
+    <text x="36" y="391" font-size="9">按直辖市/省会、人口 &gt;100 万、≤100 万城市</text>
+    <rect x="308" y="358" width="276" height="48" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="320" y="374">赡养老人：独生 <tspan font-weight="700" fill="#b91c1c">3000</tspan></text>
+    <text x="320" y="391">非独生分摊，每人 ≤ <tspan font-weight="700" fill="#b91c1c">1500</tspan></text>
+    <rect x="592" y="358" width="284" height="48" rx="6" fill="#fee2e2" stroke="#fca5a5"/>
+    <text x="604" y="374" fill="#7f1d1d" font-weight="600">房贷利息与住房租金不可同时享受</text>
+    <text x="604" y="391" fill="#7f1d1d">分摊扣除方式在一个纳税年度内不能变更</text>
+  </g>
+</svg>
