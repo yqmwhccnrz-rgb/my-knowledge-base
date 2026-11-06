@@ -291,7 +291,7 @@ body {
   }
 }
 
-/* 层级靠字号与字重表达；字号跟随列宽变化，拖动时标题同步适应 */
+/* 层级靠字号与字重表达；三栏宽度固定，字号稳定不跳变 */
 .VPSidebar .VPSidebarItem .text {
   font-family: var(--kb-font-sans);
   font-size: clamp(13px, calc(var(--kb-side-w) * 0.056), 17px) !important;
@@ -307,6 +307,18 @@ body {
   font-weight: 650;
   letter-spacing: 0.06em;
   color: var(--vp-c-text-3);
+}
+/* 侧边栏笔记条目：文字左侧加一个实心粗圆点，让列表层级一眼可辨 */
+.VPSidebar .VPSidebarItem.level-1.is-link .text::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background: var(--vp-c-text-2);
+  vertical-align: middle;
+  transform: translateY(-1px);
 }
 .VPDocAsideOutline .content {
   font-family: var(--kb-font-sans);
