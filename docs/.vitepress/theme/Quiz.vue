@@ -16,8 +16,6 @@ const selectedNote = ref('all')
 const size = ref(5)
 const picked = ref([])
 const answers = ref({})
-// 自评题（会计习题册无官方答案、计算分析题）由作答者对照参考答案自行判定
-const selfScores = ref({})
 const submitted = ref(false)
 
 const noteLabel = computed(
@@ -53,7 +51,6 @@ function start() {
   const n = Math.min(Number(size.value), bankForNote.value.length)
   picked.value = shuffle(bankForNote.value).slice(0, n)
   answers.value = {}
-  selfScores.value = {}
   submitted.value = false
 }
 
@@ -77,10 +74,6 @@ function isFillCorrect(blank, a) {
   return (blank.answer || []).some((ans) => normalize(ans) === got)
 }
 
-function isSelfCheck(q) {
-  return !!q.selfCheck
-}
-
 function isSelected(q, i, k) {
   const a = answers.value[i]
   return Array.isArray(a) ? a.includes(k) : a === k
@@ -91,7 +84,6 @@ function answerIncludes(q, k) {
 }
 
 function isRight(q, i) {
-  if (isSelfCheck(q)) return selfScores.value[i] === true
   const a = answers.value[i]
   if (q.type === 'fill') return a != null && isFillCorrect(q, a)
   if (q.type === 'program') {
@@ -129,10 +121,6 @@ function toggleMulti(i, k) {
   answers.value[i] = cur
 }
 
-function setSelf(i, val) {
-  selfScores.value[i] = val
-}
-
 // 程序设计题：把题目中的 __N__ 占位符解析成「文本片段 + 填空位」
 const BLANK_RE = /__(\d+)__/g
 function segments(q) {
@@ -162,8 +150,14 @@ function blankRight(q, i, b) {
   return val != null && blk && isFillCorrect(blk, val)
 }
 
+const gradableCount = computed(
+  () => picked.value.filter((q) => q.type !== 'essay').length
+)
 const score = computed(() =>
-  picked.value.reduce((total, q, i) => total + (isRight(q, i) ? 1 : 0), 0)
+  picked.value.reduce(
+    (total, q, i) => total + (q.type === 'essay' ? 0 : isRight(q, i) ? 1 : 0),
+    0
+  )
 )
 
 const allAnswered = computed(() =>
@@ -184,8 +178,8 @@ const allAnswered = computed(() =>
 )
 
 const accuracy = computed(() => {
-  if (!picked.value.length) return 0
-  return Math.round((score.value / picked.value.length) * 100)
+  if (!gradableCount.value) return 0
+  return Math.round((score.value / gradableCount.value) * 100)
 })
 
 function letter(n) {
@@ -200,7 +194,6 @@ function submit() {
 // 重新作答：清空已选答案，保留当前这组题，可重新作答
 function retry() {
   answers.value = {}
-  selfScores.value = {}
   submitted.value = false
 }
 
@@ -337,8 +330,8 @@ function fmtDate(iso) {
           v-for="(opt, k) in q.options"
           :key="k"
           :class="{
-            'is-right': submitted && !q.selfCheck && k === q.answer,
-            'is-wrong': submitted && !q.selfCheck && answers[i] === k && k !== q.answer,
+            'is-right': submitted && k === q.answer,
+            'is-wrong': submitted && answers[i] === k && k !== q.answer,
             'is-empty': !submitted && answers[i] === undefined
           }"
         >
@@ -358,8 +351,8 @@ function fmtDate(iso) {
           v-for="(opt, k) in q.options"
           :key="k"
           :class="{
-            'is-right': submitted && !q.selfCheck && answerIncludes(q, k),
-            'is-wrong': submitted && !q.selfCheck && isSelected(q, i, k) && !answerIncludes(q, k),
+            'is-right': submitted && answerIncludes(q, k),
+            'is-wrong': submitted && isSelected(q, i, k) && !answerIncludes(q, k),
             'is-empty': !submitted && !isSelected(q, i, k)
           }"
         >
@@ -390,9 +383,9 @@ function fmtDate(iso) {
         placeholder="请输入答案"
       />
 
-      <!-- 自动判分题 -->
+      <!-- 自动判分题（单选 / 判断 / 多选 / 填空 / 代码） -->
       <div
-        v-if="submitted && !q.selfCheck"
+        v-if="submitted && q.type !== 'essay'"
         class="quiz-result"
         :class="isRight(q, i) ? 'ok' : 'bad'"
       >
@@ -400,37 +393,11 @@ function fmtDate(iso) {
         正确答案 {{ correctText(q) }} · {{ q.explanation }}
       </div>
 
-      <!-- 自评题：会计习题册（未附官方答案）与计算分析题 -->
-      <div
-        v-else-if="submitted"
-        class="quiz-result self"
-        :class="selfScores[i] === true ? 'ok' : selfScores[i] === false ? 'bad' : ''"
-      >
-        <strong>{{
-          selfScores[i] === true ? '已自评：答对了'
-            : selfScores[i] === false ? '已自评：答错了'
-            : '请对照参考答案自评'
-        }}</strong>
-        <div v-if="q.type === 'essay' && q.answer" class="quiz-ref">
-          <b>参考答案</b>：{{ q.answer }}
-        </div>
-        <p v-if="q.unofficial" class="quiz-unofficial">
-          本习题册未附官方答案，请对照《{{ q.note === 'Accounting' ? '会计' : '税法' }}笔记》{{ q.topic }}核对；
-          提供答案册后可切换为自动判分。
-        </p>
-        <div v-else-if="q.explanation" class="quiz-ref">{{ q.explanation }}</div>
-        <div class="quiz-self-btns">
-          <button
-            type="button"
-            :class="{ active: selfScores[i] === true }"
-            @click="setSelf(i, true)"
-          >✓ 我答对了</button>
-          <button
-            type="button"
-            :class="{ active: selfScores[i] === false }"
-            @click="setSelf(i, false)"
-          >✗ 我答错了</button>
-        </div>
+      <!-- 计算分析题：展示参考答案（不计分） -->
+      <div v-else-if="submitted && q.type === 'essay'" class="quiz-result self">
+        <strong>参考答案</strong>
+        <div v-if="q.answer" class="quiz-ref">{{ q.answer }}</div>
+        <div v-if="q.explanation" class="quiz-ref">{{ q.explanation }}</div>
       </div>
 
       <template v-else>
@@ -477,8 +444,11 @@ function fmtDate(iso) {
       </template>
       <template v-else>
         <div class="quiz-score">
-          本次得分 <strong>{{ score }} / {{ picked.length }}</strong>
+          本次得分 <strong>{{ score }} / {{ gradableCount }}</strong>
           <span class="quiz-acc">正确率 {{ accuracy }}%</span>
+          <span v-if="picked.length > gradableCount" class="quiz-acc">
+            计算分析题仅展示参考答案，不计分
+          </span>
         </div>
         <button class="quiz-btn" type="button" @click="retry">
           重新作答
