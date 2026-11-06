@@ -2,9 +2,8 @@
 import { nextTick, onBeforeUnmount, onMounted, watch } from 'vue'
 import { useRoute } from 'vitepress'
 
-// 三栏宽度在 custom.css 中固定（侧栏 272px / 本页目录 220px），不再提供拖拽调整，
-// 正文位置因此保持稳定，不会因拖动而错位或被固定目录栏遮住。
-// 本组件只做两件事：清除旧版拖拽残留在本地的宽度设置、去掉目录链接多余的原生 title 提示。
+// 宽度拖拽由 ColumnResizer.vue 负责（新存储 kb-column-widths-v2）。
+// 本组件只做两件事：清除更早一版残留在本地的极端宽度值、去掉目录链接多余的原生 title 提示。
 const LEGACY_STORE_KEY = 'kb-column-widths-v1'
 const route = useRoute()
 let observer = null

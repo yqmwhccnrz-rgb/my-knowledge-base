@@ -145,7 +145,8 @@
 
 /* 灰白简约主调：背景灰白、文字深灰（不用纯黑），玻璃质感只作用于「壳」 */
 :root {
-  /* 三栏宽度固定值：侧栏 / 本页目录。不再允许拖拽调整 */
+  /* 一级目录 / 二级目录的默认宽度。ColumnResizer 拖拽时会覆盖这两个变量，
+     侧栏字号、目录字号与正文标题字号都随之平滑收敛 */
   --kb-side-w: 272px;
   --kb-outline-w: 220px;
 
@@ -291,10 +292,11 @@ body {
   }
 }
 
-/* 层级靠字号与字重表达；三栏宽度固定，字号稳定不跳变 */
+/* 层级靠字号与字重表达。字号随目录宽度线性收敛：拖宽变大、拖窄变小，
+   clamp 给出可读性上下限，保证任何宽度下都不裁切、不缩到看不清 */
 .VPSidebar .VPSidebarItem .text {
   font-family: var(--kb-font-sans);
-  font-size: clamp(13px, calc(var(--kb-side-w) * 0.056), 17px) !important;
+  font-size: clamp(12.5px, calc(8px + var(--kb-side-w) * 0.021), 17px) !important;
   font-weight: 600 !important;
   line-height: 1.55;
   letter-spacing: 0.01em;
@@ -303,7 +305,7 @@ body {
   overflow-wrap: anywhere;
 }
 .VPSidebar .VPSidebarItem.level-0 > .item > .text {
-  font-size: clamp(12px, calc(var(--kb-side-w) * 0.052), 16px) !important;
+  font-size: clamp(11px, calc(7px + var(--kb-side-w) * 0.018), 15px) !important;
   font-weight: 650;
   letter-spacing: 0.06em;
   color: var(--vp-c-text-3);
@@ -314,7 +316,7 @@ body {
   display: inline-block;
   width: 8px;
   height: 8px;
-  margin-right: 10px;
+  margin-right: 8px;
   border-radius: 50%;
   background: var(--vp-c-text-2);
   vertical-align: middle;
@@ -322,13 +324,13 @@ body {
 }
 .VPDocAsideOutline .content {
   font-family: var(--kb-font-sans);
-  font-size: clamp(11px, calc(var(--kb-outline-w) * 0.052), 13px) !important;
+  font-size: clamp(11px, calc(6.5px + var(--kb-outline-w) * 0.024), 14px) !important;
   font-variant-numeric: tabular-nums;
   max-width: 100%;
   overflow: visible !important;
 }
 .VPDocAsideOutline .outline-title {
-  font-size: clamp(10px, calc(var(--kb-outline-w) * 0.05), 12px) !important;
+  font-size: clamp(10px, calc(6px + var(--kb-outline-w) * 0.022), 12.5px) !important;
   font-weight: 600;
   letter-spacing: 0.07em;
   color: var(--vp-c-text-3);
@@ -353,7 +355,8 @@ body {
   letter-spacing: 0;
 }
 
-/* 正文标题按固定的正文列宽收敛，字号稳定不跳变 */
+/* 正文标题按正文列实际宽度（容器查询 cqw）收敛：目录拖宽 → 正文变窄 → 标题同步变小，
+   拖窄则反向变大，始终留在 clamp 上下限内 */
 @media (min-width: 1280px) {
   .VPDoc .content {
     container-type: inline-size;
@@ -363,7 +366,7 @@ body {
   .vp-doc h3 { font-size: clamp(17px, 2.6cqw, 22px); }
 }
 
-/* 三栏固定布局：正文位置不随任何操作移动，避免被固定目录栏遮住或左右窜动 */
+/* 拖拽改变 padding-left 时正文容器同步收缩；min-width:0 保证不会被固定目录栏压住或撑出横向滚动 */
 @media (min-width: 1280px) {
   .VPDoc.has-aside .container,
   .VPDoc.has-aside .content-container,
@@ -393,6 +396,13 @@ body {
 .vp-doc p, .vp-doc li, .vp-doc th, .vp-doc td, .vp-doc blockquote {
   overflow-wrap: anywhere;
   word-break: break-word;
+}
+
+/* 引用块右侧留余量：目录拖宽后正文变窄，行内代码/长公式不会顶出右边界 */
+.vp-doc blockquote {
+  max-width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
 }
 
 /* 表格：列宽按内容自适应。禁止给首列 nowrap —— 长句首列会撑爆整表、
@@ -437,7 +447,7 @@ body {
   box-sizing: border-box;
   max-width: 100% !important;
   height: auto !important;
-  font-size: clamp(11px, calc(var(--kb-outline-w) * 0.052), 13px) !important;
+  font-size: clamp(11px, calc(6.5px + var(--kb-outline-w) * 0.024), 14px) !important;
   font-weight: 400;
   white-space: normal !important;
   overflow: visible !important;
@@ -495,4 +505,110 @@ body {
   background: rgba(255, 255, 255, 0.04);
   border-color: rgba(255, 255, 255, 0.1);
   border-left-width: 3px;
+}
+
+/* ===== 一级目录 / 二级目录宽度拖拽 ===== */
+.kb-resizers {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+}
+.kb-resizer {
+  position: fixed;
+  top: var(--vp-nav-height);
+  bottom: 0;
+  width: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: col-resize;
+  pointer-events: auto;
+  touch-action: none;
+}
+/* 手柄位置跟随宽度变量，拖拽后无需重算样式 */
+.kb-resizer-side { left: calc(var(--kb-side-w) - 5px); }
+.kb-resizer-outline { left: calc(var(--kb-side-w) + var(--kb-outline-w) - 5px); }
+.kb-grip {
+  position: relative;
+  width: 3px;
+  height: 100%;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.045);
+  transition: background-color 0.18s ease;
+}
+/* 中段握把，让可拖拽位置一眼可见 */
+.kb-grip::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3px;
+  height: 38px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.18);
+  transform: translate(-50%, -50%);
+  transition: background-color 0.18s ease, height 0.18s ease;
+}
+.kb-resizer:hover .kb-grip,
+.kb-resizers.is-dragging .kb-grip { background: rgba(0, 0, 0, 0.1); }
+.kb-resizer:hover .kb-grip::after,
+.kb-resizer.active .kb-grip::after {
+  background: var(--vp-c-brand-2);
+  height: 52px;
+}
+/* 拖拽时显示当前宽度，便于精确对齐 */
+.kb-width-tip {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  padding: 3px 8px;
+  font: 11px/1.4 var(--kb-font-mono);
+  color: var(--vp-c-bg);
+  background: var(--vp-c-brand-2);
+  border-radius: 5px;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+}
+.dark .kb-grip { background: rgba(255, 255, 255, 0.07); }
+.dark .kb-grip::after { background: rgba(255, 255, 255, 0.24); }
+.dark .kb-resizer:hover .kb-grip,
+.dark .kb-resizers.is-dragging .kb-grip { background: rgba(255, 255, 255, 0.14); }
+
+body.kb-resizing,
+body.kb-resizing * {
+  cursor: col-resize !important;
+  user-select: none !important;
+}
+body:not(:has(.VPDoc.has-aside)) .kb-resizer-outline { display: none; }
+/* 首页没有侧栏，不显示任何手柄，避免竖线穿过标题与卡片 */
+body:has(.VPHome) .kb-resizers { display: none; }
+@media (max-width: 1279px) {
+  .kb-resizers { display: none; }
+}
+
+/* 字号跟随宽度做短过渡；拖拽过程中即时跟随（禁用过渡），避免字号滞后产生拖影 */
+.VPSidebar .VPSidebarItem .text,
+.VPSidebar .VPSidebarItem.level-0 > .item > .text,
+.VPDocAsideOutline .content,
+.VPDocAsideOutline .outline-title,
+.VPDocAsideOutline .outline-link,
+.kb-fav-head, .kb-fav-list a, .kb-fav-empty,
+.vp-doc h1, .vp-doc h2, .vp-doc h3 {
+  transition: font-size 0.12s ease;
+}
+body.kb-resizing .VPSidebar .VPSidebarItem .text,
+body.kb-resizing .VPSidebar .VPSidebarItem.level-0 > .item > .text,
+body.kb-resizing .VPDocAsideOutline .content,
+body.kb-resizing .VPDocAsideOutline .outline-title,
+body.kb-resizing .VPDocAsideOutline .outline-link,
+body.kb-resizing .kb-fav-head,
+body.kb-resizing .kb-fav-list a,
+body.kb-resizing .kb-fav-empty,
+body.kb-resizing .vp-doc h1,
+body.kb-resizing .vp-doc h2,
+body.kb-resizing .vp-doc h3 {
+  transition: none !important;
 }
