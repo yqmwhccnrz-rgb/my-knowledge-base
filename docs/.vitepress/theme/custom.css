@@ -417,17 +417,39 @@ body:has(.VPHome) .kb-resizers {
   .kb-resizers { display: none; }
 }
 
-/* 让表格按内容自然分列，避免首列被挤成竖排 */
+/* 表格：列宽按内容自适应。禁止给首列 nowrap —— 长句首列会撑爆整表、
+   把其他列压成竖排。改为允许换行；首列给一个下限防止短标签被挤成一字宽，
+   长文本列由浏览器按内容比例自动分配宽度。 */
 .vp-doc table {
   display: table;
-  width: auto;
-  min-width: 100%;
+  width: 100%;
   overflow-x: auto;
+}
+.vp-doc th,
+.vp-doc td {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  vertical-align: top;
+  line-height: 1.7;
 }
 .vp-doc th:first-child,
 .vp-doc td:first-child {
-  white-space: nowrap;
+  min-width: 6.5em;
+  max-width: 28em;
 }
+/* 两列长文本对照表（表头带 .kb-bal 标记）：固定 50/50 列宽，
+   避免右列过窄导致折行过多、整行被撑高、左列留大片空白 */
+.vp-doc table:has(.kb-bal) {
+  table-layout: fixed;
+}
+.vp-doc table:has(.kb-bal) th:first-child,
+.vp-doc table:has(.kb-bal) td:first-child {
+  width: 50%;
+  min-width: 0;
+  max-width: 50%;
+}
+
 
 /* 整本书的目录条目较长：压过 VitePress 的 14px / nowrap / 省略号，完整换行显示 */
 .VPDocAsideOutline .outline-link {
