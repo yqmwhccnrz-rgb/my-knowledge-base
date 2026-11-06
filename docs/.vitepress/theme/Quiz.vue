@@ -1,17 +1,23 @@
 <script setup>
-import { ref, computed, watch } from 'vue'
-import bank from './data/questions.json'
+import { ref, computed, watch, onMounted } from 'vue'
+// 题库近 1MB，异步加载：只有真正打开习题页时才拉取，不拖慢其他笔记页
+const bank = ref([])
+const bankReady = ref(false)
 
 const noteOptions = [
   { key: 'all', label: '全部笔记' },
   { key: 'C', label: 'C 语言笔记' },
   { key: 'Python', label: 'Python 数据分析笔记' },
-  { key: 'Matlab', label: 'Matlab 笔记' }
+  { key: 'Matlab', label: 'Matlab 笔记' },
+  { key: 'Tax', label: '税法笔记（CPA）' },
+  { key: 'Accounting', label: '会计笔记（CPA）' }
 ]
 const selectedNote = ref('all')
 const size = ref(5)
 const picked = ref([])
 const answers = ref({})
+// 自评题（会计习题册无官方答案、计算分析题）由作答者对照参考答案自行判定
+const selfScores = ref({})
 const submitted = ref(false)
 
 const noteLabel = computed(
@@ -27,8 +33,8 @@ function noteName(note) {
 // 按所选笔记过滤题库；「全部笔记」展示所有题
 const bankForNote = computed(() =>
   selectedNote.value === 'all'
-    ? bank
-    : bank.filter((q) => q.note === selectedNote.value)
+    ? bank.value
+    : bank.value.filter((q) => q.note === selectedNote.value)
 )
 const topicCount = computed(
   () => new Set(bankForNote.value.map((q) => q.topic)).size
@@ -47,12 +53,19 @@ function start() {
   const n = Math.min(Number(size.value), bankForNote.value.length)
   picked.value = shuffle(bankForNote.value).slice(0, n)
   answers.value = {}
+  selfScores.value = {}
   submitted.value = false
 }
 
 // 切换笔记或题量时自动重新抽题
 watch([selectedNote, size], start)
-start()
+
+onMounted(async () => {
+  const mod = await import('./data/questions.json')
+  bank.value = mod.default
+  bankReady.value = true
+  start()
+})
 
 function normalize(s) {
   return String(s).trim().toLowerCase()
@@ -64,7 +77,21 @@ function isFillCorrect(blank, a) {
   return (blank.answer || []).some((ans) => normalize(ans) === got)
 }
 
+function isSelfCheck(q) {
+  return !!q.selfCheck
+}
+
+function isSelected(q, i, k) {
+  const a = answers.value[i]
+  return Array.isArray(a) ? a.includes(k) : a === k
+}
+
+function answerIncludes(q, k) {
+  return Array.isArray(q.answer) && q.answer.includes(k)
+}
+
 function isRight(q, i) {
+  if (isSelfCheck(q)) return selfScores.value[i] === true
   const a = answers.value[i]
   if (q.type === 'fill') return a != null && isFillCorrect(q, a)
   if (q.type === 'program') {
@@ -72,6 +99,11 @@ function isRight(q, i) {
     return (q.blanks || []).every(
       (blk, b) => a[b] != null && isFillCorrect(blk, a[b])
     )
+  }
+  if (q.type === 'multi') {
+    if (!Array.isArray(a) || !Array.isArray(q.answer)) return false
+    const norm = (x) => [...x].sort((m, n) => m - n).join(',')
+    return norm(a) === norm(q.answer)
   }
   return a === q.answer
 }
@@ -83,8 +115,22 @@ function correctText(q) {
       .map((blk, b) => `空${b + 1}: ${(blk.answer || []).join(' / ')}`)
       .join('；')
   }
+  if (q.type === 'multi') return (q.answer || []).map(letter).join('、')
   if (q.type === 'judge') return q.options[q.answer]
   return letter(q.answer)
+}
+
+// 多选题：点击勾选 / 取消
+function toggleMulti(i, k) {
+  const cur = Array.isArray(answers.value[i]) ? [...answers.value[i]] : []
+  const pos = cur.indexOf(k)
+  if (pos >= 0) cur.splice(pos, 1)
+  else cur.push(k)
+  answers.value[i] = cur
+}
+
+function setSelf(i, val) {
+  selfScores.value[i] = val
 }
 
 // 程序设计题：把题目中的 __N__ 占位符解析成「文本片段 + 填空位」
@@ -123,13 +169,16 @@ const score = computed(() =>
 const allAnswered = computed(() =>
   picked.value.every((q, i) => {
     const a = answers.value[i]
-    if (q.type === 'fill') return typeof a === 'string' && a.trim() !== ''
+    if (q.type === 'fill' || q.type === 'essay') {
+      return typeof a === 'string' && a.trim() !== ''
+    }
     if (q.type === 'program') {
       if (!a) return false
       return (q.blanks || []).every(
         (_, b) => typeof a[b] === 'string' && a[b].trim() !== ''
       )
     }
+    if (q.type === 'multi') return Array.isArray(a) && a.length > 0
     return a !== undefined
   })
 )
@@ -151,6 +200,7 @@ function submit() {
 // 重新作答：清空已选答案，保留当前这组题，可重新作答
 function retry() {
   answers.value = {}
+  selfScores.value = {}
   submitted.value = false
 }
 
@@ -237,13 +287,16 @@ function fmtDate(iso) {
         </select>
       </label>
       <button class="quiz-btn" type="button" @click="start">换一组题</button>
-      <span class="quiz-total">本笔记题库共 {{ bankForNote.length }} 题</span>
+      <span class="quiz-total">
+        {{ bankReady ? `本笔记题库共 ${bankForNote.length} 题` : '题库加载中…' }}
+      </span>
     </div>
 
-    <p class="quiz-tip">
+    <p v-if="!bankReady" class="quiz-tip">题库加载中，请稍候…</p>
+    <p v-else class="quiz-tip">
       当前展示 <strong>{{ noteLabel }}</strong> 的习题，题库共
       {{ bankForNote.length }} 道，覆盖 {{ topicCount }} 个知识点方向；本次随机抽取
-      {{ picked.length }} 道（含选择 / 判断 / 填空 / 代码 / 程序设计题）。
+      {{ picked.length }} 道（含单选 / 多选 / 判断 / 填空 / 代码 / 程序设计 / 计算分析题）。
     </p>
 
     <div v-for="(q, i) in picked" :key="q.id" class="quiz-card">
@@ -275,7 +328,7 @@ function fmtDate(iso) {
         </div>
       </div>
 
-      <!-- 选择 / 判断题：单选 -->
+      <!-- 单选 / 判断题 -->
       <div
         v-if="!q.type || q.type === 'choice' || q.type === 'judge'"
         class="quiz-options"
@@ -284,8 +337,8 @@ function fmtDate(iso) {
           v-for="(opt, k) in q.options"
           :key="k"
           :class="{
-            'is-right': submitted && k === q.answer,
-            'is-wrong': submitted && answers[i] === k && k !== q.answer,
+            'is-right': submitted && !q.selfCheck && k === q.answer,
+            'is-wrong': submitted && !q.selfCheck && answers[i] === k && k !== q.answer,
             'is-empty': !submitted && answers[i] === undefined
           }"
         >
@@ -299,6 +352,35 @@ function fmtDate(iso) {
         </label>
       </div>
 
+      <!-- 多选题：可勾选多个选项 -->
+      <div v-else-if="q.type === 'multi'" class="quiz-options">
+        <label
+          v-for="(opt, k) in q.options"
+          :key="k"
+          :class="{
+            'is-right': submitted && !q.selfCheck && answerIncludes(q, k),
+            'is-wrong': submitted && !q.selfCheck && isSelected(q, i, k) && !answerIncludes(q, k),
+            'is-empty': !submitted && !isSelected(q, i, k)
+          }"
+        >
+          <input
+            type="checkbox"
+            :checked="isSelected(q, i, k)"
+            @change="toggleMulti(i, k)"
+          />
+          <span>{{ letter(k) }}. {{ opt }}</span>
+        </label>
+      </div>
+
+      <!-- 计算分析题：写出解答过程 -->
+      <textarea
+        v-else-if="q.type === 'essay'"
+        class="quiz-essay"
+        rows="5"
+        v-model="answers[i]"
+        placeholder="请写出你的计算过程与结论"
+      ></textarea>
+
       <!-- 填空题：文本输入 -->
       <input
         v-else-if="q.type === 'fill'"
@@ -308,29 +390,73 @@ function fmtDate(iso) {
         placeholder="请输入答案"
       />
 
+      <!-- 自动判分题 -->
       <div
-        v-if="submitted"
+        v-if="submitted && !q.selfCheck"
         class="quiz-result"
         :class="isRight(q, i) ? 'ok' : 'bad'"
       >
         <strong>{{ isRight(q, i) ? '答对了' : '答错了' }}</strong>
         正确答案 {{ correctText(q) }} · {{ q.explanation }}
       </div>
+
+      <!-- 自评题：会计习题册（未附官方答案）与计算分析题 -->
+      <div
+        v-else-if="submitted"
+        class="quiz-result self"
+        :class="selfScores[i] === true ? 'ok' : selfScores[i] === false ? 'bad' : ''"
+      >
+        <strong>{{
+          selfScores[i] === true ? '已自评：答对了'
+            : selfScores[i] === false ? '已自评：答错了'
+            : '请对照参考答案自评'
+        }}</strong>
+        <div v-if="q.type === 'essay' && q.answer" class="quiz-ref">
+          <b>参考答案</b>：{{ q.answer }}
+        </div>
+        <p v-if="q.unofficial" class="quiz-unofficial">
+          本习题册未附官方答案，请对照《{{ q.note === 'Accounting' ? '会计' : '税法' }}笔记》{{ q.topic }}核对；
+          提供答案册后可切换为自动判分。
+        </p>
+        <div v-else-if="q.explanation" class="quiz-ref">{{ q.explanation }}</div>
+        <div class="quiz-self-btns">
+          <button
+            type="button"
+            :class="{ active: selfScores[i] === true }"
+            @click="setSelf(i, true)"
+          >✓ 我答对了</button>
+          <button
+            type="button"
+            :class="{ active: selfScores[i] === false }"
+            @click="setSelf(i, false)"
+          >✗ 我答错了</button>
+        </div>
+      </div>
+
       <template v-else>
         <p v-if="q.type === 'program'" class="quiz-empty-hint">
           请在框内输入答案
         </p>
+        <p v-else-if="q.type === 'essay'" class="quiz-empty-hint">
+          请在框内写出你的解答
+        </p>
         <p
-          v-else-if="(!q.type || q.type !== 'fill') && answers[i] === undefined"
+          v-else-if="q.type === 'multi' && (!Array.isArray(answers[i]) || !answers[i].length)"
           class="quiz-empty-hint"
         >
-          请选择一个答案
+          请选择至少一个选项（可多选）
         </p>
         <p
           v-else-if="q.type === 'fill' && (!answers[i] || !answers[i].trim())"
           class="quiz-empty-hint"
         >
           请填写答案
+        </p>
+        <p
+          v-else-if="(!q.type || q.type === 'choice' || q.type === 'judge') && answers[i] === undefined"
+          class="quiz-empty-hint"
+        >
+          请选择一个答案
         </p>
       </template>
     </div>
@@ -577,6 +703,69 @@ function fmtDate(iso) {
   font-size: 12px;
   color: var(--vp-c-text-2);
 }
+.quiz-essay {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 14px;
+  font-size: 14px;
+  line-height: 1.7;
+  font-family: inherit;
+  color: var(--vp-c-text-1);
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  resize: vertical;
+}
+.quiz-essay:focus {
+  outline: none;
+  border-color: var(--vp-c-brand-1);
+}
+.quiz-result.self {
+  color: var(--vp-c-text-1);
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-divider);
+}
+.quiz-ref {
+  margin-top: 8px;
+  padding: 10px 12px;
+  font-size: 13px;
+  line-height: 1.75;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  color: var(--vp-c-text-1);
+  background: var(--vp-c-bg-soft);
+  border-radius: 6px;
+}
+.quiz-unofficial {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--vp-c-text-2);
+}
+.quiz-self-btns {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.quiz-self-btns button {
+  padding: 6px 14px;
+  font-size: 12px;
+  color: var(--vp-c-text-1);
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.quiz-self-btns button:hover {
+  border-color: var(--vp-c-brand-1);
+}
+.quiz-self-btns button.active {
+  color: #fff;
+  background: var(--vp-c-brand-1);
+  border-color: var(--vp-c-brand-1);
+}
+.quiz-result.self.ok strong { color: var(--vp-c-brand-1); }
+.quiz-result.self.bad strong { color: #c0392b; }
 .quiz-footer {
   margin-top: 20px;
   display: flex;
