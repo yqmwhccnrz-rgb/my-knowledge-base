@@ -145,7 +145,7 @@
 
 /* 灰白简约主调：背景灰白、文字深灰（不用纯黑），玻璃质感只作用于「壳」 */
 :root {
-  /* 两列目录宽度由拖拽组件写入，CSS 只负责消费 */
+  /* 三栏宽度固定值：侧栏 / 本页目录。不再允许拖拽调整 */
   --kb-side-w: 272px;
   --kb-outline-w: 220px;
 
@@ -341,7 +341,7 @@ body {
   letter-spacing: 0;
 }
 
-/* 正文标题随正文实际宽度收敛：目录拉宽 → 正文变窄 → 标题相应变小 */
+/* 正文标题按固定的正文列宽收敛，字号稳定不跳变 */
 @media (min-width: 1280px) {
   .VPDoc .content {
     container-type: inline-size;
@@ -351,70 +351,36 @@ body {
   .vp-doc h3 { font-size: clamp(17px, 2.6cqw, 22px); }
 }
 
-/* 可拖拽分隔条：默认近乎隐形，悬停/拖动时显形 */
-.kb-resizers {
-  position: fixed;
-  inset: 0;
-  z-index: 30;
-  pointer-events: none;
+/* 三栏固定布局：正文位置不随任何操作移动，避免被固定目录栏遮住或左右窜动 */
+@media (min-width: 1280px) {
+  .VPDoc.has-aside .container,
+  .VPDoc.has-aside .content-container,
+  .VPDoc.has-aside .content {
+    min-width: 0;
+  }
 }
-.kb-resizer {
-  position: fixed;
-  top: var(--vp-nav-height);
-  bottom: 0;
-  width: 9px;
-  display: flex;
-  justify-content: center;
-  cursor: col-resize;
-  pointer-events: auto;
-  touch-action: none;
+
+/* 正文内容一律收在正文列内，杜绝字体裁切与横向溢出 */
+.vp-doc {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
-.kb-resizer-side { left: calc(var(--kb-side-w) - 4px); }
-.kb-resizer-outline { left: calc(var(--kb-side-w) + var(--kb-outline-w) - 4px); }
-.kb-resizer > span {
-  position: relative;
-  width: 3px;
-  border-radius: 3px;
-  background: rgba(0, 0, 0, 0.045);
-  transition: background-color 0.18s ease;
+.vp-doc img,
+.vp-doc svg,
+.vp-doc video {
+  max-width: 100%;
+  height: auto;
 }
-/* 中间一小段握把，让人一眼看出这里可以拖 */
-.kb-resizer > span::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 3px;
-  height: 34px;
-  border-radius: 3px;
-  background: rgba(0, 0, 0, 0.17);
-  transform: translate(-50%, -50%);
-  transition: background-color 0.18s ease, height 0.18s ease;
+/* 行内代码允许折行；代码块（pre > code）保持原样 */
+.vp-doc :not(pre) > code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
-.kb-resizer:hover > span,
-.kb-resizers.is-dragging .kb-resizer > span {
-  background: rgba(0, 0, 0, 0.1);
-}
-.kb-resizer:hover > span::after,
-.kb-resizer.active > span::after,
-.kb-resizers.is-dragging .kb-resizer > span::after {
-  background: var(--vp-c-brand-2);
-  height: 46px;
-}
-body.kb-resizing,
-body.kb-resizing * {
-  cursor: col-resize !important;
-  user-select: none !important;
-}
-body:not(:has(.VPDoc.has-aside)) .kb-resizer-outline {
-  display: none;
-}
-/* 首页没有侧栏，不显示任何拖拽手柄，避免竖线穿过标题与卡片 */
-body:has(.VPHome) .kb-resizers {
-  display: none;
-}
-@media (max-width: 1279px) {
-  .kb-resizers { display: none; }
+.vp-doc h1, .vp-doc h2, .vp-doc h3, .vp-doc h4,
+.vp-doc p, .vp-doc li, .vp-doc th, .vp-doc td, .vp-doc blockquote {
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 /* 表格：列宽按内容自适应。禁止给首列 nowrap —— 长句首列会撑爆整表、
@@ -423,6 +389,7 @@ body:has(.VPHome) .kb-resizers {
 .vp-doc table {
   display: table;
   width: 100%;
+  max-width: 100%;
   overflow-x: auto;
 }
 .vp-doc th,

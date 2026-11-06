@@ -2,7 +2,7 @@ import DefaultTheme from 'vitepress/theme'
 import { h } from 'vue'
 import Quiz from './Quiz.vue'
 import LogoutButton from './LogoutButton.vue'
-import ColumnResizer from './ColumnResizer.vue'
+import LayoutFix from './LayoutFix.vue'
 import FavoriteButton from './FavoriteButton.vue'
 import InstallApp from './InstallApp.vue'
 import Favorites from './Favorites.vue'
@@ -24,6 +24,6 @@ export default {
     'nav-bar-content-after': () => h(InstallApp),
     // 手机端：放进展开菜单的底部
     'nav-screen-content-after': () => h(InstallApp),
-    'layout-bottom': () => [h(LogoutButton), h(ColumnResizer)]
+    'layout-bottom': () => [h(LogoutButton), h(LayoutFix)]
   })
 }
