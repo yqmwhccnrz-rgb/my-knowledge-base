@@ -24,11 +24,50 @@ const groups = computed(() => {
   return out
 })
 
-// ---------- 音频播放 ----------
+// ---------- 章节 / 分段筛选 ----------
+const activeChapter = ref(0)
+const activePart = ref(0)
 const playingId = ref(null)
 const audios = new Map()
 const states = reactive({}) // id -> { time, dur }
 
+const parts = computed(() => {
+  const g = groups.value[activeChapter.value]
+  if (!g) return []
+  const n = g.items.length
+  const size = Math.ceil(n / 3)
+  const out = []
+  for (let i = 0; i < n; i += size) {
+    const end = Math.min(i + size, n)
+    out.push({ label: `${i + 1}–${end}`, start: i, items: g.items.slice(i, end) })
+  }
+  return out
+})
+
+const currentChapter = computed(() => groups.value[activeChapter.value] || null)
+const currentPart = computed(() => parts.value[activePart.value] || null)
+const currentItems = computed(() => (currentPart.value ? currentPart.value.items : []))
+const chapterShort = (name) => (name || '').split(' ')[0]
+
+function stopAll() {
+  audios.forEach((a) => a.pause())
+  playingId.value = null
+}
+
+function pickChapter(i) {
+  if (i === activeChapter.value) return
+  stopAll()
+  activeChapter.value = i
+  activePart.value = 0
+}
+
+function pickPart(i) {
+  if (i === activePart.value) return
+  stopAll()
+  activePart.value = i
+}
+
+// ---------- 音频播放 ----------
 function audioFor(it) {
   let a = audios.get(it.id)
   if (a) return a
@@ -87,15 +126,18 @@ function progress(it) {
 
 // ---------- 中文翻译显示/隐藏 ----------
 const zhOpen = reactive({}) // id -> bool
-const allZh = ref(false)
+
+const allZhOn = computed(
+  () => currentItems.value.length > 0 && currentItems.value.every((it) => zhOpen[it.id])
+)
 
 function toggleZh(id) {
   zhOpen[id] = !zhOpen[id]
 }
 
 function toggleAllZh() {
-  allZh.value = !allZh.value
-  for (const it of bank.value) zhOpen[it.id] = allZh.value
+  const on = !allZhOn.value
+  for (const it of currentItems.value) zhOpen[it.id] = on
 }
 
 onBeforeUnmount(() => {
@@ -109,18 +151,51 @@ onBeforeUnmount(() => {
     <p v-if="!ready" class="listen-tip">听力题库加载中，请稍候…</p>
     <template v-else>
       <div class="listen-bar">
-        <span class="listen-total">共 {{ bank.length }} 段录音</span>
+        <span class="listen-total">
+          共 {{ bank.length }} 段录音 · 当前 {{ currentItems.length }} 段
+        </span>
         <button class="zh-all-btn" type="button" @click="toggleAllZh">
-          {{ allZh ? '全部隐藏中文' : '全部显示中文' }}
+          {{ allZhOn ? '隐藏中文翻译' : '显示中文翻译' }}
         </button>
       </div>
 
-      <section v-for="g in groups" :key="g.chapter" class="listen-group">
-        <h3 class="listen-chapter">{{ g.chapter }}</h3>
+      <div class="listen-filter">
+        <div class="chip-row">
+          <button
+            v-for="(g, i) in groups"
+            :key="g.chapter"
+            type="button"
+            class="chip"
+            :class="{ active: i === activeChapter }"
+            :title="g.chapter"
+            @click="pickChapter(i)"
+          >
+            {{ chapterShort(g.chapter) }}
+          </button>
+        </div>
+        <div v-if="parts.length > 1" class="chip-row chip-row-sub">
+          <button
+            v-for="(p, i) in parts"
+            :key="p.label"
+            type="button"
+            class="chip chip-sub"
+            :class="{ active: i === activePart }"
+            @click="pickPart(i)"
+          >
+            {{ p.label }}
+          </button>
+        </div>
+      </div>
 
-        <article v-for="(it, i) in g.items" :key="it.id" class="listen-card">
+      <section v-if="currentChapter" class="listen-group">
+        <h3 class="listen-chapter">
+          {{ currentChapter.chapter }}
+          <span v-if="currentPart" class="listen-range">· {{ currentPart.label }}</span>
+        </h3>
+
+        <article v-for="(it, i) in currentItems" :key="it.id" class="listen-card">
           <div class="listen-head">
-            <span class="listen-no">{{ i + 1 }}</span>
+            <span class="listen-no">{{ currentPart.start + i + 1 }}</span>
             <span class="listen-title">{{ it.title }}</span>
           </div>
 
@@ -190,12 +265,51 @@ onBeforeUnmount(() => {
 .listen-group {
   margin-bottom: 28px;
 }
+.listen-filter {
+  margin-bottom: 18px;
+}
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chip-row-sub {
+  margin-top: 8px;
+}
+.chip {
+  padding: 6px 14px;
+  font-size: 13px;
+  color: var(--vp-c-text-1);
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.chip:hover {
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
+}
+.chip.active {
+  color: #fff;
+  background: var(--vp-c-brand-1);
+  border-color: var(--vp-c-brand-1);
+}
+.chip-sub {
+  padding: 4px 12px;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
 .listen-chapter {
   margin: 0 0 12px;
   padding-left: 10px;
   font-size: 15px;
   color: var(--vp-c-text-1);
   border-left: 3px solid var(--vp-c-brand-1);
+}
+.listen-range {
+  font-weight: 400;
+  color: var(--vp-c-text-2);
 }
 .listen-card {
   margin-bottom: 14px;
