@@ -146,11 +146,33 @@ function seek(it, e) {
   const r = e.currentTarget.getBoundingClientRect()
   a.currentTime = Math.max(0, Math.min(a.duration, ((e.clientX - r.left) / r.width) * a.duration))
 }
+// 进度条支持键盘：左右方向键 ±5 秒（Shift 为 ±10 秒），Home/End 跳到首尾
+function onTrackKey(it, ev) {
+  const a = audioFor(it)
+  if (!a.duration) return
+  const step = ev.shiftKey ? 10 : 5
+  if (ev.key === 'ArrowRight') a.currentTime = Math.min(a.duration, a.currentTime + step)
+  else if (ev.key === 'ArrowLeft') a.currentTime = Math.max(0, a.currentTime - step)
+  else if (ev.key === 'Home') a.currentTime = 0
+  else if (ev.key === 'End') a.currentTime = a.duration
+  else return
+  ev.preventDefault()
+  states[it.id] = { time: a.currentTime, dur: a.duration }
+}
 
-// 进入分组即预加载本组 10 条音频的元数据，避免显示 0:00 / 0:00
+// 进入分组即预加载本组 10 条音频的元数据，避免显示 0:00 / 0:00；
+// 同时释放上一组的音频对象，200 段音频不会全部常驻内存
 watch([ready, activeUnit, activeGroup], () => {
   if (!ready.value) return
   nextTick(() => {
+    const keep = new Set(currentItems.value.map((x) => x.id))
+    for (const [id, a] of audios) {
+      if (keep.has(id)) continue
+      a.pause()
+      a.removeAttribute('src')
+      a.load()
+      audios.delete(id)
+    }
     for (const it of currentItems.value) audioFor(it).load()
   })
 })
@@ -257,7 +279,17 @@ const scores = computed(() => {
             <svg v-if="!(playingId === it.id && isPlaying)" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
             <svg v-else viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
           </button>
-          <div class="dict-track" @click="seek(it, $event)">
+          <div
+            class="dict-track"
+            role="slider"
+            tabindex="0"
+            aria-label="播放进度"
+            :aria-valuemin="0"
+            :aria-valuemax="100"
+            :aria-valuenow="Math.round(progress(it))"
+            @click="seek(it, $event)"
+            @keydown="onTrackKey(it, $event)"
+          >
             <div class="dict-track-fill" :style="{ width: progress(it) + '%' }"></div>
           </div>
           <span class="dict-time">{{ fmt(states[it.id]?.time || 0) }} / {{ fmt(states[it.id]?.dur || 0) }}</span>
@@ -271,6 +303,7 @@ const scores = computed(() => {
             class="dict-input"
             rows="3"
             spellcheck="false"
+            :aria-label="`第 ${it.no} 题听写作答`"
             placeholder="听录音，把听到的英文逐字打在这里…"
           ></textarea>
           <div class="dict-input-foot">
@@ -381,6 +414,10 @@ const scores = computed(() => {
   flex: 1; height: 6px; min-width: 60px;
   background: var(--vp-c-bg-soft); border: 1px solid var(--vp-c-divider);
   border-radius: 4px; cursor: pointer; overflow: hidden;
+}
+.dict-track:focus-visible {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: 3px;
 }
 .dict-track-fill { height: 100%; background: var(--vp-c-brand-1); transition: width 0.15s linear; }
 .dict-time { font-size: 12px; color: var(--vp-c-text-2); white-space: nowrap; font-variant-numeric: tabular-nums; }

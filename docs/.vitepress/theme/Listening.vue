@@ -65,6 +65,7 @@ const chapterShort = (name) => (name || '').split(' ')[0]
 function stopAll() {
   audios.forEach((a) => a.pause())
   playingId.value = null
+  isPlaying.value = false
 }
 
 function pickChapter(i) {
@@ -137,6 +138,20 @@ function seek(it, ev) {
   states[it.id].time = a.currentTime
 }
 
+// 进度条支持键盘：左右方向键 ±5 秒（按住 Shift 为 ±10 秒），Home/End 跳到首尾
+function onTrackKey(it, ev) {
+  const a = audioFor(it)
+  if (!a.duration) return
+  const step = ev.shiftKey ? 10 : 5
+  if (ev.key === 'ArrowRight') a.currentTime = Math.min(a.duration, a.currentTime + step)
+  else if (ev.key === 'ArrowLeft') a.currentTime = Math.max(0, a.currentTime - step)
+  else if (ev.key === 'Home') a.currentTime = 0
+  else if (ev.key === 'End') a.currentTime = a.duration
+  else return
+  ev.preventDefault()
+  states[it.id].time = a.currentTime
+}
+
 function fmt(s) {
   if (!s || isNaN(s)) return '0:00'
   const m = Math.floor(s / 60)
@@ -150,10 +165,19 @@ function progress(it) {
   return Math.min(100, (st.time / st.dur) * 100)
 }
 
-// 进入某个分段后预取元数据，让总时长立即显示出来
+// 进入某个分段后预取元数据，让总时长立即显示出来；
+// 同时释放上一段的音频对象，避免长音频（第5章单段约 27 分钟）长期占用内存
 watch(
   currentItems,
   (items) => {
+    const keep = new Set(items.map((x) => x.id))
+    for (const [id, a] of audios) {
+      if (keep.has(id)) continue
+      a.pause()
+      a.removeAttribute('src')
+      a.load()
+      audios.delete(id)
+    }
     for (const it of items) audioFor(it)
   },
   { immediate: true }
@@ -308,14 +332,24 @@ onBeforeUnmount(() => {
             <button
               class="play-btn"
               type="button"
-              :class="{ playing: playingId === it.id }"
-              :aria-label="playingId === it.id ? '暂停' : '播放'"
+              :class="{ playing: playingId === it.id && isPlaying }"
+              :aria-label="playingId === it.id && isPlaying ? '暂停' : '播放'"
               @click="toggle(it)"
             >
               <svg v-if="!(playingId === it.id && isPlaying)" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
               <svg v-else viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
             </button>
-            <div class="track" @click="seek(it, $event)">
+            <div
+              class="track"
+              role="slider"
+              tabindex="0"
+              aria-label="播放进度"
+              :aria-valuemin="0"
+              :aria-valuemax="100"
+              :aria-valuenow="Math.round(progress(it))"
+              @click="seek(it, $event)"
+              @keydown="onTrackKey(it, $event)"
+            >
               <div class="track-fill" :style="{ width: progress(it) + '%' }"></div>
             </div>
             <span class="time">
@@ -441,12 +475,14 @@ onBeforeUnmount(() => {
   font-weight: 400;
   color: var(--vp-c-text-2);
 }
+/* 与习题测试 / 听力训练页保持同一套卡片观感 */
 .listen-card {
   margin-bottom: 14px;
   padding: 16px 18px;
-  background: var(--vp-c-bg-soft);
+  background: var(--vp-c-bg);
   border: 1px solid var(--vp-c-divider);
   border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 .listen-head {
   display: flex;
@@ -499,6 +535,10 @@ onBeforeUnmount(() => {
   border-radius: 3px;
   cursor: pointer;
   overflow: hidden;
+}
+.track:focus-visible {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: 3px;
 }
 .track-fill {
   height: 100%;

@@ -223,7 +223,8 @@ async function saveRecord() {
       body: JSON.stringify({
         note: selectedNote.value,
         score: score.value,
-        total: picked.value.length
+        // 计算分析题不计分，满分应为可判分题数，否则记录里会出现「4 / 5」这种永远拿不到的满分
+        total: gradableCount.value
       })
     })
     if (res.ok) {
@@ -287,9 +288,8 @@ function fmtDate(iso) {
 
     <p v-if="!bankReady" class="quiz-tip">题库加载中，请稍候…</p>
     <p v-else class="quiz-tip">
-      当前展示 <strong>{{ noteLabel }}</strong> 的习题，题库共
-      {{ bankForNote.length }} 道，覆盖 {{ topicCount }} 个知识点方向；本次随机抽取
-      {{ picked.length }} 道（含单选 / 多选 / 判断 / 填空 / 代码 / 程序设计 / 计算分析题）。
+      <strong>{{ noteLabel }}</strong> · 题库 {{ bankForNote.length }} 题 ·
+      {{ topicCount }} 个知识点 · 本组随机 {{ picked.length }} 题
     </p>
 
     <div v-for="(q, i) in picked" :key="q.id" class="quiz-card">
@@ -310,6 +310,7 @@ function fmtDate(iso) {
             <input
               v-else
               class="quiz-blank"
+              :aria-label="`第 ${seg.blank + 1} 空`"
               :class="{
                 'is-wrong': submitted && !blankRight(q, i, seg.blank),
                 'is-right': submitted && blankRight(q, i, seg.blank)
@@ -370,6 +371,7 @@ function fmtDate(iso) {
         v-else-if="q.type === 'essay'"
         class="quiz-essay"
         rows="5"
+        aria-label="计算分析题作答区域"
         v-model="answers[i]"
         placeholder="请写出你的计算过程与结论"
       ></textarea>
@@ -379,6 +381,7 @@ function fmtDate(iso) {
         v-else-if="q.type === 'fill'"
         class="quiz-fill"
         type="text"
+        aria-label="填空题答案"
         v-model="answers[i]"
         placeholder="请输入答案"
       />
@@ -536,12 +539,14 @@ function fmtDate(iso) {
 .quiz-tip strong {
   color: var(--vp-c-text-1);
 }
+/* 与英语听力 / 听力训练页保持同一套卡片观感 */
 .quiz-card {
   margin-bottom: 16px;
   padding: 18px 20px;
-  background: var(--vp-c-bg-soft);
+  background: var(--vp-c-bg);
   border: 1px solid var(--vp-c-divider);
   border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 .quiz-q {
   margin-bottom: 14px;
@@ -706,36 +711,6 @@ function fmtDate(iso) {
   background: var(--vp-c-bg-soft);
   border-radius: 6px;
 }
-.quiz-unofficial {
-  margin: 8px 0 0;
-  font-size: 12px;
-  line-height: 1.7;
-  color: var(--vp-c-text-2);
-}
-.quiz-self-btns {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-}
-.quiz-self-btns button {
-  padding: 6px 14px;
-  font-size: 12px;
-  color: var(--vp-c-text-1);
-  background: var(--vp-c-bg);
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 6px;
-  cursor: pointer;
-}
-.quiz-self-btns button:hover {
-  border-color: var(--vp-c-brand-1);
-}
-.quiz-self-btns button.active {
-  color: #fff;
-  background: var(--vp-c-brand-1);
-  border-color: var(--vp-c-brand-1);
-}
-.quiz-result.self.ok strong { color: var(--vp-c-brand-1); }
-.quiz-result.self.bad strong { color: #c0392b; }
 .quiz-footer {
   margin-top: 20px;
   display: flex;
@@ -815,5 +790,18 @@ function fmtDate(iso) {
   margin-left: auto;
   color: var(--vp-c-text-2);
   white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .quiz { margin-top: 16px; }
+  .quiz-bar { padding: 12px; gap: 10px; }
+  .quiz-bar label { display: inline-flex; align-items: center; }
+  .quiz-total { width: 100%; margin-left: 0; }
+  .quiz-card { padding: 14px; }
+  .quiz-footer { gap: 10px; }
+  .quiz-score { width: 100%; box-sizing: border-box; }
+  .quiz-acc { display: inline-block; margin: 4px 0 0; }
+  .quiz-records-list li { flex-wrap: wrap; gap: 6px; }
+  .rk-date { width: 100%; margin-left: 0; }
 }
 </style>
