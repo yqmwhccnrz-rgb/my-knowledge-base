@@ -146,11 +146,11 @@ function progress(it) {
 }
 
 // ---------- 题目 / 听力原文 / 中文翻译 显示隐藏 ----------
-const qOpen = reactive({}) // id -> bool，默认显示（未设置时视为 true）
+const qOpen = reactive({}) // id -> bool，默认隐藏
 const enOpen = reactive({}) // id -> bool，默认隐藏
 const zhOpen = reactive({}) // id -> bool，默认隐藏
 
-const isQOpen = (id) => qOpen[id] !== false
+const isQOpen = (id) => qOpen[id] === true
 
 const allZhOn = computed(
   () => currentItems.value.length > 0 && currentItems.value.every((it) => zhOpen[it.id])
