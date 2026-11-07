@@ -145,6 +145,15 @@ function progress(it) {
   return Math.min(100, (st.time / st.dur) * 100)
 }
 
+// 进入某个分段后预取元数据，让总时长立即显示出来
+watch(
+  currentItems,
+  (items) => {
+    for (const it of items) audioFor(it)
+  },
+  { immediate: true }
+)
+
 // ---------- 题目 / 听力原文 / 中文翻译 显示隐藏 ----------
 const qOpen = reactive({}) // id -> bool，默认隐藏
 const enOpen = reactive({}) // id -> bool，默认隐藏
