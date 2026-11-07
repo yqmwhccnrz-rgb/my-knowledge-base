@@ -6,7 +6,87 @@
   "audio": "/listening/c1-01.m4a",
   "en": "Getting behind the wheel of a car can be an exciting new step in a teen's life. But along with that excitement comes a new responsibility: understanding the need for common sense and maturity to avoid accidents. In an effort to spread awareness to teens across the nation, the Allstate Foundation sponsored a Keep the Drive summit at Sunset Station on January 23rd. Students from Kennedy and Alamo Heights high schools participated in the summit, which was held here for the first time. The goal of the year-long effort is to educate teens on the rules of safe driving and the severe consequences that can result if those rules are not followed, and then have them communicate that information to their peers. The students watched videos that told them about the numbers of teenage driving injuries and deaths. They listened to the videos as students from other cities shared their stories of how their reckless driving affected not only their lives, but also those of their passengers. \"We are trying to create awareness in high schools across the country,\" said Westermann, an Allstate representative. \"We focus on changing how teens think behind the wheel.\" According to the presentation, more teens die in automobile crashes in the United States each year than from drugs, violence, smoking and suicide. An average of 16 teens die every day in motor vehicle crashes, and nearly 40% of those are caused by speeding. Texas is the state with the most teen driving deaths, according to the presentation. Students agreed that the statistics were amazing and made them think twice about how they drive.",
   "zh": "开车可能是一个青少年生活中令人兴奋的新一步。但与这份兴奋相伴而来的，是一种新的责任：要懂得用常识与成熟去避免事故。为了让全美青少年提高意识，Allstate 基金会于 1 月 23 日在 Sunset Station 赞助举办了一场「Keep the Drive」峰会。来自 Kennedy 高中和 Alamo Heights 高中的学生参加了这场首次在此举办的峰会。这项为期一年的活动旨在教育青少年遵守安全驾驶的规则，以及不遵守规则可能带来的严重后果，然后再让他们把这些信息传达给同龄人。学生们观看了介绍青少年驾驶受伤与死亡数据的视频；他们在观看视频的同时，也听到来自其他城市的学生讲述自己的鲁莽驾驶如何不仅影响了自己的生命，也影响了乘客的生命。「我们正努力在全国的高中里建立这种意识，」Allstate 的代表 Westermann 说，「我们专注于改变青少年坐在方向盘后的想法。」据展示介绍，在美国，每年死于车祸的青少年比死于毒品、暴力、吸烟和自杀的还多。平均每天有 16 名青少年死于机动车事故，其中近 40% 是由超速造成的。据展示介绍，德克萨斯州是青少年驾驶死亡人数最多的州。学生们一致认为这些统计数字令人震惊，让他们重新思考自己开车的方式。",
-  "q": ""
+  "q": "",
+  "segs": [
+   {
+    "text": "Getting behind the wheel of a car can be an exciting new step in a teen's life.",
+    "p": 0,
+    "t0": 3.37,
+    "t1": 9.43
+   },
+   {
+    "text": "But along with that excitement comes a new responsibility: understanding the need for common sense and maturity to avoid accidents.",
+    "p": 0,
+    "t0": 9.43,
+    "t1": 19.37
+   },
+   {
+    "text": "In an effort to spread awareness to teens across the nation, the Allstate Foundation sponsored a Keep the Drive summit at Sunset Station on January 23rd.",
+    "p": 0,
+    "t0": 19.37,
+    "t1": 32.45
+   },
+   {
+    "text": "Students from Kennedy and Alamo Heights high schools participated in the summit, which was held here for the first time.",
+    "p": 0,
+    "t0": 32.45,
+    "t1": 41.71
+   },
+   {
+    "text": "The goal of the year-long effort is to educate teens on the rules of safe driving and the severe consequences that can result if those rules are not followed, and then have them communicate that information to their peers.",
+    "p": 0,
+    "t0": 41.71,
+    "t1": 57.63
+   },
+   {
+    "text": "The students watched videos that told them about the numbers of teenage driving injuries and deaths.",
+    "p": 0,
+    "t0": 57.63,
+    "t1": 64.87
+   },
+   {
+    "text": "They listened to the videos as students from other cities shared their stories of how their reckless driving affected not only their lives, but also those of their passengers.",
+    "p": 0,
+    "t0": 64.87,
+    "t1": 76.68
+   },
+   {
+    "text": "\"We are trying to create awareness in high schools across the country,\" said Westermann, an Allstate representative.",
+    "p": 0,
+    "t0": 76.68,
+    "t1": 84.37
+   },
+   {
+    "text": "\"We focus on changing how teens think behind the wheel.",
+    "p": 0,
+    "t0": 84.37,
+    "t1": 89.52
+   },
+   {
+    "text": "\" According to the presentation, more teens die in automobile crashes in the United States each year than from drugs, violence, smoking and suicide.",
+    "p": 0,
+    "t0": 89.52,
+    "t1": 100.21
+   },
+   {
+    "text": "An average of 16 teens die every day in motor vehicle crashes, and nearly 40% of those are caused by speeding.",
+    "p": 0,
+    "t0": 100.21,
+    "t1": 109.79
+   },
+   {
+    "text": "Texas is the state with the most teen driving deaths, according to the presentation.",
+    "p": 0,
+    "t0": 109.79,
+    "t1": 116.09
+   },
+   {
+    "text": "Students agreed that the statistics were amazing and made them think twice about how they drive.",
+    "p": 0,
+    "t0": 116.09,
+    "t1": 121.99
+   }
+  ]
  },
  {
   "id": "c1-02",
@@ -15,7 +95,75 @@
   "audio": "/listening/c1-02.m4a",
   "en": "Many days seem to bring numerous tasks and responsibilities, all of which apparently must be tackled right away. You spend the day putting out fires, but by the end of the day you haven't accomplished any of the really important things you set out to do. In desperation, you draft a to-do list, but most days you can make little progress with it. When you look at the list each morning, a big fat cloud of doom is right at the top — those difficult, complex, important tasks that are so crucial to get done and so easy to avoid. Plenty of us create a to-do list to address feelings of being overwhelmed, but we rarely use these tools to their best effect. They wind up being guilt-provoking reminders of the fact that we're overcommitted and losing control of our priorities. According to Timothy Pychyl, a professor of psychology at Carleton University in Ottawa, people often draw up a to-do list and then that's it. The list itself becomes the day's achievement, allowing us to feel we've done something useful without taking on any real work. In fact, drawing up the list becomes a way of avoiding the work itself. Too often, the list is seen as the accomplishment for the day, reducing the immediate guilt of not working on the tasks at hand by investing energy in the list, says Pychyl. When a list is used like this, it's simply another way in which we lie to ourselves.",
   "zh": "很多日子似乎都会带来大量的任务和责任，而且它们显然都必须马上处理。你整天都在「救火」，可到一天结束时，却没能完成任何你真正想完成的重要事情。走投无路之下，你草草列了一张待办清单，但大多数日子里它几乎没什么进展。每天早晨你看着这份清单，最上面赫然是一大片「厄运乌云」——那些困难、复杂、重要，既非做不可、又特别容易被拖延的任务。我们中很多人都靠列待办清单来缓解不堪重负的感觉，却很少把这些工具用到最好。它们最终变成了引发内疚的提醒：我们承诺过多，正在失去对优先事项的掌控。渥太华卡尔顿大学的心理学教授 Timothy Pychyl 说，人们往往列完清单就到此为止。清单本身就成了一种成就，让我们觉得自己做了有用的事，却没有真正动工。事实上，列清单反倒成了一种逃避工作本身的方式。Pychyl 说，清单太常被当成当天的成就，靠把精力花在清单上，来减轻没动手做眼前任务带来的即时内疚。当清单被这样使用时，它不过是我们对自己撒谎的又一种方式。",
-  "q": ""
+  "q": "",
+  "segs": [
+   {
+    "text": "Many days seem to bring numerous tasks and responsibilities, all of which apparently must be tackled right away.",
+    "p": 0,
+    "t0": 2.79,
+    "t1": 11.0
+   },
+   {
+    "text": "You spend the day putting out fires, but by the end of the day you haven't accomplished any of the really important things you set out to do.",
+    "p": 0,
+    "t0": 11.0,
+    "t1": 20.89
+   },
+   {
+    "text": "In desperation, you draft a to-do list, but most days you can make little progress with it.",
+    "p": 0,
+    "t0": 20.89,
+    "t1": 28.42
+   },
+   {
+    "text": "When you look at the list each morning, a big fat cloud of doom is right at the top — those difficult, complex, important tasks that are so crucial to get done and so easy to avoid.",
+    "p": 0,
+    "t0": 28.42,
+    "t1": 43.27
+   },
+   {
+    "text": "Plenty of us create a to-do list to address feelings of being overwhelmed, but we rarely use these tools to their best effect.",
+    "p": 0,
+    "t0": 43.27,
+    "t1": 52.64
+   },
+   {
+    "text": "They wind up being guilt-provoking reminders of the fact that we're overcommitted and losing control of our priorities.",
+    "p": 0,
+    "t0": 52.64,
+    "t1": 60.59
+   },
+   {
+    "text": "According to Timothy Pychyl, a professor of psychology at Carleton University in Ottawa, people often draw up a to-do list and then that's it.",
+    "p": 0,
+    "t0": 60.59,
+    "t1": 72.74
+   },
+   {
+    "text": "The list itself becomes the day's achievement, allowing us to feel we've done something useful without taking on any real work.",
+    "p": 0,
+    "t0": 72.74,
+    "t1": 81.99
+   },
+   {
+    "text": "In fact, drawing up the list becomes a way of avoiding the work itself.",
+    "p": 0,
+    "t0": 81.99,
+    "t1": 87.68
+   },
+   {
+    "text": "Too often, the list is seen as the accomplishment for the day, reducing the immediate guilt of not working on the tasks at hand by investing energy in the list, says Pychyl.",
+    "p": 0,
+    "t0": 87.68,
+    "t1": 101.26
+   },
+   {
+    "text": "When a list is used like this, it's simply another way in which we lie to ourselves.",
+    "p": 0,
+    "t0": 101.26,
+    "t1": 107.06
+   }
+  ]
  },
  {
   "id": "c1-03",
@@ -24,7 +172,81 @@
   "audio": "/listening/c1-03.m4a",
   "en": "It seems to me that neighbors are going out of style in America. The friend next door from whom you borrowed four eggs or a ladder has moved, and the people in there now are strangers. Some of the traditional stories of neighborliness are impractical or silly, and it may be just as well that our relations with our neighbors are changing. The saying in the Bible, \"Love thy neighbor,\" was probably a poor translation of what must have originally been \"Respect thy neighbor.\" Love can't be called up on order. Fewer than half the people in the United States live in the same house they lived in five years ago, so there's no reason to love the people who live next door to you, just because they happened to wander into a real estate office that listed the place next door to yours. The only thing neighbors have in common to begin with is proximity, and unless something more develops, that isn't reason enough to be best friends. It sometimes happens naturally, but the chances are very small that your neighbors will be your choice as friends, or that you will be theirs either. The best relationship with neighbors is one of friendly distance. You say hello, you small-talk if you see them in the yard, you discuss problems as they arise, and you help each other in an emergency. The driveway or the fence between you is not really a cold shoulder, but a clear boundary. We all like clearly defined boundaries for ourselves.",
   "zh": "在我看来，在美国，邻里关系正在变得过时。那个你曾找他借过四个鸡蛋或一把梯子的隔壁朋友已经搬走了，现在住在那儿的是陌生人。关于邻里情谊的一些传统说法既不切实际也很愚蠢，我们与邻居的关系正在改变，这或许也未必是坏事。圣经里那句「爱邻如己」，很可能只是对原本应是「敬邻如己」的糟糕翻译。爱是无法按命令唤起的。在美国，不到一半的人还住在五年前的那所房子里，所以你没有理由仅仅因为邻居碰巧走进一家房产中介、登记了你隔壁的那套房子，就去爱他们。邻里之间最初唯一的共同点就是距离近；除非之后有更多的发展，否则这并不足以成为最好朋友的理由。有时这会自然而然地发生，但你的邻居恰好成为你选择的朋友、或你成为他们的朋友，这种可能性都很小。与邻居最好的关系是一种「友好的距离」。你打个招呼，在院子里遇见就聊两句，出现问题时一起商量，遇到紧急情况互相帮忙。你们之间的车道或栅栏并不是冷漠的拒绝，而是一道清晰的界限。我们都喜欢为自己划定清晰的界限。",
-  "q": ""
+  "q": "",
+  "segs": [
+   {
+    "text": "It seems to me that neighbors are going out of style in America.",
+    "p": 0,
+    "t0": 1.34,
+    "t1": 5.79
+   },
+   {
+    "text": "The friend next door from whom you borrowed four eggs or a ladder has moved, and the people in there now are strangers.",
+    "p": 0,
+    "t0": 5.79,
+    "t1": 15.28
+   },
+   {
+    "text": "Some of the traditional stories of neighborliness are impractical or silly, and it may be just as well that our relations with our neighbors are changing.",
+    "p": 0,
+    "t0": 15.28,
+    "t1": 25.33
+   },
+   {
+    "text": "The saying in the Bible, \"Love thy neighbor,\" was probably a poor translation of what must have originally been \"Respect thy neighbor.",
+    "p": 0,
+    "t0": 25.33,
+    "t1": 36.38
+   },
+   {
+    "text": "\" Love can't be called up on order.",
+    "p": 0,
+    "t0": 36.38,
+    "t1": 38.98
+   },
+   {
+    "text": "Fewer than half the people in the United States live in the same house they lived in five years ago, so there's no reason to love the people who live next door to you, just because they happened to wander into a real estate office that listed the place next door to yours.",
+    "p": 0,
+    "t0": 38.98,
+    "t1": 58.65
+   },
+   {
+    "text": "The only thing neighbors have in common to begin with is proximity, and unless something more develops, that isn't reason enough to be best friends.",
+    "p": 0,
+    "t0": 58.65,
+    "t1": 68.9
+   },
+   {
+    "text": "It sometimes happens naturally, but the chances are very small that your neighbors will be your choice as friends, or that you will be theirs either.",
+    "p": 0,
+    "t0": 68.9,
+    "t1": 80.15
+   },
+   {
+    "text": "The best relationship with neighbors is one of friendly distance.",
+    "p": 0,
+    "t0": 80.15,
+    "t1": 84.4
+   },
+   {
+    "text": "You say hello, you small-talk if you see them in the yard, you discuss problems as they arise, and you help each other in an emergency.",
+    "p": 0,
+    "t0": 84.4,
+    "t1": 95.64
+   },
+   {
+    "text": "The driveway or the fence between you is not really a cold shoulder, but a clear boundary.",
+    "p": 0,
+    "t0": 95.64,
+    "t1": 102.72
+   },
+   {
+    "text": "We all like clearly defined boundaries for ourselves.",
+    "p": 0,
+    "t0": 102.72,
+    "t1": 106.05
+   }
+  ]
  },
  {
   "id": "c1-04",
@@ -33,7 +255,99 @@
   "audio": "/listening/c1-04.m4a",
   "en": "I'm interested in the criminal justice system of our country. It seems to me that something has to be done if we're to survive as a country. I certainly don't know what the answers to our problems are. Things certainly get complicated in a hurry when you get into them. But I wonder if something couldn't be done to deal with some of these problems. One thing I'm concerned about is our practice of putting offenders in jail who haven't harmed anyone. Why not work out some system whereby they can pay back the debts they owe society, instead of incurring another debt by going to prison and, of course, coming under the influence of hardened criminals? I'm also concerned about the short prison sentences people are serving for serious crimes. Of course, one alternative to this is to restore capital punishment, but I'm not sure I would be for that. I'm not sure it's right to take an eye for an eye. The alternative to capital punishment is longer sentences, but they would certainly cost the taxpayers much money. I also think we must do something about the insanity plea. In my opinion, anyone who takes another person's life intentionally is insane. However, that does not mean that the person isn't guilty of the crime or that he shouldn't pay society the debt he owes. It's sad, of course, that a person may have to spend the rest of his life, or a large part of it, in prison for acts that he committed while not in full control of his mind.",
   "zh": "我对我们国家的刑事司法制度很感兴趣。在我看来，如果我们国家要生存下去，就必须做点什么。我当然不知道我们这些问题的答案是什么。一旦深入其中，事情很快会变得非常复杂。但我在想，能不能采取一些措施来处理其中一些问题。我担心的一件事，是我们把并未伤害任何人的违法者关进监狱的做法。为什么不设计一套制度，让他们偿还欠社会的债，而不是因为坐牢而再欠一笔债、当然还受到惯犯的影响呢？我还担心人们因严重罪行而服刑期过短的问题。当然，一个替代办法是恢复死刑，但我不确定我会支持它。我不确定「以眼还眼」是否正确。死刑的替代办法是更长的刑期，但这显然会让纳税人花很多钱。我还认为，我们必须对「精神病抗辩」做点什么。在我看来，任何故意夺走他人生命的人都是精神失常的。然而，这并不意味着此人没有犯罪，也不意味着他不必偿还欠社会的债。当然，一个人可能因为在自己无法完全控制心智时犯下的行为而在监狱里度过余生或其中很大一部分，这令人悲哀。",
-  "q": ""
+  "q": "",
+  "segs": [
+   {
+    "text": "I'm interested in the criminal justice system of our country.",
+    "p": 0,
+    "t0": 2.46,
+    "t1": 7.1
+   },
+   {
+    "text": "It seems to me that something has to be done if we're to survive as a country.",
+    "p": 0,
+    "t0": 7.1,
+    "t1": 12.76
+   },
+   {
+    "text": "I certainly don't know what the answers to our problems are.",
+    "p": 0,
+    "t0": 12.76,
+    "t1": 16.8
+   },
+   {
+    "text": "Things certainly get complicated in a hurry when you get into them.",
+    "p": 0,
+    "t0": 16.8,
+    "t1": 21.04
+   },
+   {
+    "text": "But I wonder if something couldn't be done to deal with some of these problems.",
+    "p": 0,
+    "t0": 21.04,
+    "t1": 26.74
+   },
+   {
+    "text": "One thing I'm concerned about is our practice of putting offenders in jail who haven't harmed anyone.",
+    "p": 0,
+    "t0": 26.74,
+    "t1": 34.35
+   },
+   {
+    "text": "Why not work out some system whereby they can pay back the debts they owe society, instead of incurring another debt by going to prison and, of course, coming under the influence of hardened criminals?",
+    "p": 0,
+    "t0": 34.35,
+    "t1": 50.38
+   },
+   {
+    "text": "I'm also concerned about the short prison sentences people are serving for serious crimes.",
+    "p": 0,
+    "t0": 50.38,
+    "t1": 55.49
+   },
+   {
+    "text": "Of course, one alternative to this is to restore capital punishment, but I'm not sure I would be for that.",
+    "p": 0,
+    "t0": 55.49,
+    "t1": 62.8
+   },
+   {
+    "text": "I'm not sure it's right to take an eye for an eye.",
+    "p": 0,
+    "t0": 62.8,
+    "t1": 68.33
+   },
+   {
+    "text": "The alternative to capital punishment is longer sentences, but they would certainly cost the taxpayers much money.",
+    "p": 0,
+    "t0": 68.33,
+    "t1": 77.16
+   },
+   {
+    "text": "I also think we must do something about the insanity plea.",
+    "p": 0,
+    "t0": 77.16,
+    "t1": 81.89
+   },
+   {
+    "text": "In my opinion, anyone who takes another person's life intentionally is insane.",
+    "p": 0,
+    "t0": 81.89,
+    "t1": 88.18
+   },
+   {
+    "text": "However, that does not mean that the person isn't guilty of the crime or that he shouldn't pay society the debt he owes.",
+    "p": 0,
+    "t0": 88.18,
+    "t1": 96.32
+   },
+   {
+    "text": "It's sad, of course, that a person may have to spend the rest of his life, or a large part of it, in prison for acts that he committed while not in full control of his mind.",
+    "p": 0,
+    "t0": 96.32,
+    "t1": 107.67
+   }
+  ]
  },
  {
   "id": "c1-05",
@@ -42,7 +356,105 @@
   "audio": "/listening/c1-05.m4a",
   "en": "If you're like most people, you've indulged in fake listening many times. You go to history class, sit in the third row and look squarely at the instructor as she speaks. But your mind is far away, floating in the clouds of pleasant daydreams. Occasionally you come back to earth: the instructor writes an important term on the chalkboard, and you dutifully copy it in your notebook. Every once in a while, the instructor makes a witty remark, causing others in the class to laugh. You smile politely, pretending that you've heard the remark and found it mildly humorous. You have a vague sense of guilt that you aren't paying close attention, but you tell yourself that any material you miss can be picked up from a friend's notes. Besides, the instructor is talking about road construction in Ancient Rome and nothing could be more boring. So back you go into your private little world. Only later do you realize you've missed important information for a test. Fake listening may be easily exposed, since many speakers are sensitive to facial cues and can tell if you're merely pretending to listen. Your blank expression and the faraway look in your eyes are the cues that betray your inattentiveness. Even if you're not exposed, there's another reason to avoid fakery. It's easy for this behavior to become a habit. For some people, the habit is so deeply rooted that they automatically start daydreaming when a speaker begins talking on something complex or uninteresting. As a result, they miss lots of valuable information.",
   "zh": "如果你和大多数人一样，那你已经很多次「假装在听」了。你去上历史课，坐在第三排，在老师讲课时正对着她看。可你的思绪早已飘远，浮在愉快的白日梦云端。偶尔你会回到现实：老师在黑板上写下一个重要术语，你便忠实地把它抄进笔记本。老师时不时说一句俏皮话，引得班上其他人发笑。你礼貌地微笑，假装自己听到了那句话，还觉得它有点好笑。你隐约感到一丝内疚，因为自己没在认真听，但你安慰自己：任何漏掉的内容都可以从朋友的笔记里补上。再说，老师正在讲古罗马的道路修建，没有什么比这更无聊了。于是你又回到了自己那个小小的私人世界。直到后来你才意识到，自己漏掉了考试要考的重要信息。假装听讲很容易被识破，因为许多讲话者对表情很敏感，能看出你只是在装样子听。你面无表情、目光游离，正是暴露你心不在焉的线索。就算没被识破，也还有另一个理由要避免伪装：这种行为很容易变成习惯。对某些人来说，这个习惯根深蒂固，只要讲话者一谈到复杂或无趣的内容，他们就会不由自主地开始做白日梦。结果，他们错过了大量宝贵的信息。",
-  "q": ""
+  "q": "",
+  "segs": [
+   {
+    "text": "If you're like most people, you've indulged in fake listening many times.",
+    "p": 0,
+    "t0": 2.8,
+    "t1": 8.78
+   },
+   {
+    "text": "You go to history class, sit in the third row and look squarely at the instructor as she speaks.",
+    "p": 0,
+    "t0": 8.78,
+    "t1": 15.9
+   },
+   {
+    "text": "But your mind is far away, floating in the clouds of pleasant daydreams.",
+    "p": 0,
+    "t0": 15.9,
+    "t1": 21.86
+   },
+   {
+    "text": "Occasionally you come back to earth: the instructor writes an important term on the chalkboard, and you dutifully copy it in your notebook.",
+    "p": 0,
+    "t0": 21.86,
+    "t1": 31.86
+   },
+   {
+    "text": "Every once in a while, the instructor makes a witty remark, causing others in the class to laugh.",
+    "p": 0,
+    "t0": 31.86,
+    "t1": 38.54
+   },
+   {
+    "text": "You smile politely, pretending that you've heard the remark and found it mildly humorous.",
+    "p": 0,
+    "t0": 38.54,
+    "t1": 45.5
+   },
+   {
+    "text": "You have a vague sense of guilt that you aren't paying close attention, but you tell yourself that any material you miss can be picked up from a friend's notes.",
+    "p": 0,
+    "t0": 45.5,
+    "t1": 56.06
+   },
+   {
+    "text": "Besides, the instructor is talking about road construction in Ancient Rome and nothing could be more boring.",
+    "p": 0,
+    "t0": 56.06,
+    "t1": 64.93
+   },
+   {
+    "text": "So back you go into your private little world.",
+    "p": 0,
+    "t0": 64.93,
+    "t1": 68.76
+   },
+   {
+    "text": "Only later do you realize you've missed important information for a test.",
+    "p": 0,
+    "t0": 68.76,
+    "t1": 74.12
+   },
+   {
+    "text": "Fake listening may be easily exposed, since many speakers are sensitive to facial cues and can tell if you're merely pretending to listen.",
+    "p": 0,
+    "t0": 74.12,
+    "t1": 84.59
+   },
+   {
+    "text": "Your blank expression and the faraway look in your eyes are the cues that betray your inattentiveness.",
+    "p": 0,
+    "t0": 84.59,
+    "t1": 92.77
+   },
+   {
+    "text": "Even if you're not exposed, there's another reason to avoid fakery.",
+    "p": 0,
+    "t0": 92.77,
+    "t1": 98.3
+   },
+   {
+    "text": "It's easy for this behavior to become a habit.",
+    "p": 0,
+    "t0": 98.3,
+    "t1": 102.51
+   },
+   {
+    "text": "For some people, the habit is so deeply rooted that they automatically start daydreaming when a speaker begins talking on something complex or uninteresting.",
+    "p": 0,
+    "t0": 102.51,
+    "t1": 113.96
+   },
+   {
+    "text": "As a result, they miss lots of valuable information.",
+    "p": 0,
+    "t0": 113.96,
+    "t1": 118.31
+   }
+  ]
  },
  {
   "id": "c1-06",
@@ -51,7 +463,129 @@
   "audio": "/listening/c1-06.m4a",
   "en": "So we've already talked a bit about the growth of extreme sports like rock climbing. As psychologists, we need to ask ourselves: why is this person doing this? Why do people take these risks and put themselves in danger when they don't have to? One common trait among risk takers is that they enjoy strong feelings or sensations. We call this trait sensation seeking. A sensation seeker is someone who's always looking for new sensations. What else do we know about sensation seekers? Well, as I said, sensation seekers like strong emotions. You can see this trait in many parts of a person's life, not just in extreme sports. For example, many sensation seekers enjoy hard rock music; they like the loud sound and strong emotion of the songs. Similarly, sensation seekers enjoy frightening horror movies; they like the feeling of being scared and horrified while watching the movie. This feeling is even stronger for extreme sports, where the person faces real danger. Sensation seekers feel that danger is very exciting. In addition, sensation seekers like new experiences that force them to push their personal limits. For them, repeating the same things every day is boring. Many sensation seekers choose jobs that involve risk, such as starting a new business or being an emergency room doctor. These jobs are different every day, so they never know what will happen. That's why many sensation seekers also like extreme sports. When you do rock climbing, you never know what will happen. The activity is always new and different.",
   "zh": "我们已经稍微谈过极限运动（比如攀岩）的兴起。作为心理学家，我们需要问自己：这个人为什么要这样做？人们为什么在没必要的时候去冒这些风险、把自己置于危险之中？冒险者有一个共同特点：他们享受强烈的感觉或刺激。我们把这种特质称为「感觉寻求」。感觉寻求者就是那种总是在寻找新刺激的人。关于感觉寻求者，我们还知道些什么？嗯，正如我所说，感觉寻求者喜欢强烈的情绪。这种特质在一个人生活的许多方面都能看到，不只是极限运动。例如，很多感觉寻求者喜欢硬摇滚音乐，他们喜欢歌曲中大音量和强烈的情感。同样，感觉寻求者喜欢吓人的恐怖片，他们喜欢看电影时被吓到、毛骨悚然的感觉。对于要面对真实危险的极限运动，这种感觉更强烈。感觉寻求者觉得危险非常令人兴奋。此外，感觉寻求者喜欢迫使他们挑战个人极限的新体验。对他们来说，每天重复同样的事情很无聊。很多感觉寻求者选择带风险的工作，比如创业或当急诊室医生。这类工作每天都不同，他们永远不知道会发生什么。这就是为什么很多感觉寻求者也喜欢极限运动。攀岩时，你永远不知道会发生什么，这项活动总是新鲜而不同的。",
-  "q": ""
+  "q": "",
+  "segs": [
+   {
+    "text": "So we've already talked a bit about the growth of extreme sports like rock climbing.",
+    "p": 0,
+    "t0": 3.31,
+    "t1": 9.9
+   },
+   {
+    "text": "As psychologists, we need to ask ourselves: why is this person doing this?",
+    "p": 0,
+    "t0": 9.9,
+    "t1": 16.34
+   },
+   {
+    "text": "Why do people take these risks and put themselves in danger when they don't have to?",
+    "p": 0,
+    "t0": 16.34,
+    "t1": 22.72
+   },
+   {
+    "text": "One common trait among risk takers is that they enjoy strong feelings or sensations.",
+    "p": 0,
+    "t0": 22.72,
+    "t1": 29.62
+   },
+   {
+    "text": "We call this trait sensation seeking.",
+    "p": 0,
+    "t0": 29.62,
+    "t1": 33.4
+   },
+   {
+    "text": "A sensation seeker is someone who's always looking for new sensations.",
+    "p": 0,
+    "t0": 33.4,
+    "t1": 39.31
+   },
+   {
+    "text": "What else do we know about sensation seekers?",
+    "p": 0,
+    "t0": 39.31,
+    "t1": 43.32
+   },
+   {
+    "text": "Well, as I said, sensation seekers like strong emotions.",
+    "p": 0,
+    "t0": 43.32,
+    "t1": 48.42
+   },
+   {
+    "text": "You can see this trait in many parts of a person's life, not just in extreme sports.",
+    "p": 0,
+    "t0": 48.42,
+    "t1": 54.39
+   },
+   {
+    "text": "For example, many sensation seekers enjoy hard rock music; they like the loud sound and strong emotion of the songs.",
+    "p": 0,
+    "t0": 54.39,
+    "t1": 64.5
+   },
+   {
+    "text": "Similarly, sensation seekers enjoy frightening horror movies; they like the feeling of being scared and horrified while watching the movie.",
+    "p": 0,
+    "t0": 64.5,
+    "t1": 74.23
+   },
+   {
+    "text": "This feeling is even stronger for extreme sports, where the person faces real danger.",
+    "p": 0,
+    "t0": 74.23,
+    "t1": 80.4
+   },
+   {
+    "text": "Sensation seekers feel that danger is very exciting.",
+    "p": 0,
+    "t0": 80.4,
+    "t1": 85.2
+   },
+   {
+    "text": "In addition, sensation seekers like new experiences that force them to push their personal limits.",
+    "p": 0,
+    "t0": 85.2,
+    "t1": 92.78
+   },
+   {
+    "text": "For them, repeating the same things every day is boring.",
+    "p": 0,
+    "t0": 92.78,
+    "t1": 97.78
+   },
+   {
+    "text": "Many sensation seekers choose jobs that involve risk, such as starting a new business or being an emergency room doctor.",
+    "p": 0,
+    "t0": 97.78,
+    "t1": 107.31
+   },
+   {
+    "text": "These jobs are different every day, so they never know what will happen.",
+    "p": 0,
+    "t0": 107.31,
+    "t1": 112.64
+   },
+   {
+    "text": "That's why many sensation seekers also like extreme sports.",
+    "p": 0,
+    "t0": 112.64,
+    "t1": 118.38
+   },
+   {
+    "text": "When you do rock climbing, you never know what will happen.",
+    "p": 0,
+    "t0": 118.38,
+    "t1": 122.63
+   },
+   {
+    "text": "The activity is always new and different.",
+    "p": 0,
+    "t0": 122.63,
+    "t1": 125.33
+   }
+  ]
  },
  {
   "id": "c1-07",
@@ -60,7 +594,99 @@
   "audio": "/listening/c1-07.m4a",
   "en": "The new year always brings with it a cultural tradition of new possibilities. We see it as a chance for renewal. We begin to dream of new possible selves; we design our ideal self or an image that is quite different from what we are now. For some of us, we roll that dreamy film in our heads just because it's the beginning of a new year. But we aren't serious about making changes; we just make some half-hearted resolution and it evaporates after a week or two. The experience makes us feel less successful and leads us to discount our ability to change in the future. It's not that change is impossible, but that it won't last unless our resolutions are supported with plans for implementation. We have to make our intentions manageable by detailing the specific steps that will carry us to our goal. Say your goal is to lose weight by dieting and cutting off sweets. But one night you just have to have a cookie, and you know there's a bag of your favorites in the cupboard. You want one, you eat two, and check the bag and find out you've just shot 132 calories. You say to yourself, \"What the hell,\" and polish off the whole bag. Then you begin to draw all kinds of unpleasant conclusions about yourself. To protect your sense of self, you begin to discount the goal. You may think, \"Well, dieting wasn't that important to me and I won't make it anyhow,\" so you abandon the goal and return to your bad habits.",
   "zh": "新年总会带来一种文化传统——新的可能性。我们把它看作一次重生的机会。我们开始梦想新的可能的自己；我们设计理想的自我，或一个与现在的自己大不相同的形象。对我们有些人来说，我们之所以在脑中放映那部梦幻影片，只是因为这是新年的开始。但我们并不是认真地要做出改变，我们只是下个半心半意的决心，一两周后它就烟消云散了。这种经历让我们觉得自己不那么成功，还让我们低估自己未来改变的能力。并不是改变不可能，而是除非我们的决心有执行计划作支撑，否则它不会持久。我们必须把具体的步骤细化，让目标变得可操作。比如说，你的目标是通过节食、戒掉甜食来减肥。可某天晚上你就是想吃一块饼干，而你知道橱柜里有一袋你最爱吃的。你想吃一块，却吃了两块，然后看了看袋子，发现你刚刚摄入了 132 卡路里。你对自己说「管他呢」，把整袋都吃光了。接着你开始对自己下各种难听的结论。为了保护自我感觉，你开始贬低这个目标。你可能会想：「唉，节食对我来说没那么重要，反正我也做不到」，于是你放弃目标，回到坏习惯里。",
-  "q": ""
+  "q": "",
+  "segs": [
+   {
+    "text": "The new year always brings with it a cultural tradition of new possibilities.",
+    "p": 0,
+    "t0": 2.72,
+    "t1": 7.92
+   },
+   {
+    "text": "We see it as a chance for renewal.",
+    "p": 0,
+    "t0": 7.92,
+    "t1": 10.66
+   },
+   {
+    "text": "We begin to dream of new possible selves; we design our ideal self or an image that is quite different from what we are now.",
+    "p": 0,
+    "t0": 10.66,
+    "t1": 20.08
+   },
+   {
+    "text": "For some of us, we roll that dreamy film in our heads just because it's the beginning of a new year.",
+    "p": 0,
+    "t0": 20.08,
+    "t1": 27.18
+   },
+   {
+    "text": "But we aren't serious about making changes; we just make some half-hearted resolution and it evaporates after a week or two.",
+    "p": 0,
+    "t0": 27.18,
+    "t1": 35.9
+   },
+   {
+    "text": "The experience makes us feel less successful and leads us to discount our ability to change in the future.",
+    "p": 0,
+    "t0": 35.9,
+    "t1": 43.33
+   },
+   {
+    "text": "It's not that change is impossible, but that it won't last unless our resolutions are supported with plans for implementation.",
+    "p": 0,
+    "t0": 43.33,
+    "t1": 52.03
+   },
+   {
+    "text": "We have to make our intentions manageable by detailing the specific steps that will carry us to our goal.",
+    "p": 0,
+    "t0": 52.03,
+    "t1": 59.47
+   },
+   {
+    "text": "Say your goal is to lose weight by dieting and cutting off sweets.",
+    "p": 0,
+    "t0": 59.47,
+    "t1": 64.46
+   },
+   {
+    "text": "But one night you just have to have a cookie, and you know there's a bag of your favorites in the cupboard.",
+    "p": 0,
+    "t0": 64.46,
+    "t1": 71.26
+   },
+   {
+    "text": "You want one, you eat two, and check the bag and find out you've just shot 132 calories.",
+    "p": 0,
+    "t0": 71.26,
+    "t1": 79.06
+   },
+   {
+    "text": "You say to yourself, \"What the hell,\" and polish off the whole bag.",
+    "p": 0,
+    "t0": 79.06,
+    "t1": 83.94
+   },
+   {
+    "text": "Then you begin to draw all kinds of unpleasant conclusions about yourself.",
+    "p": 0,
+    "t0": 83.94,
+    "t1": 88.72
+   },
+   {
+    "text": "To protect your sense of self, you begin to discount the goal.",
+    "p": 0,
+    "t0": 88.72,
+    "t1": 93.02
+   },
+   {
+    "text": "You may think, \"Well, dieting wasn't that important to me and I won't make it anyhow,\" so you abandon the goal and return to your bad habits.",
+    "p": 0,
+    "t0": 93.02,
+    "t1": 102.69
+   }
+  ]
  },
  {
   "id": "c1-08",
@@ -69,7 +695,111 @@
   "audio": "/listening/c1-08.m4a",
   "en": "Esperanto is an artificial language designed to serve internationally as an auxiliary means of communication among speakers of different languages. It was created by Ludwik Lejzer Zamenhof, a Polish Jewish doctor specializing in eye diseases. Esperanto was first presented in 1887. An international movement was launched to promote its use. Despite arguments and disagreements, the movement has continued to flourish and has members in more than 80 countries. Esperanto is used internationally across language boundaries by at least 1 million people, particularly in specialized fields. It is used in personal contacts, on radio broadcasts and in a number of publications, as well as in translations of both modern works and classics. Its popularity has spread from Europe, both east and west, to such countries as Brazil and Japan. It is, however, in China that Esperanto has had its greatest impact. It is taught in universities and used in many translations, often in scientific or technological works. El Popola Ĉinio, which means \"From People's China,\" is a monthly magazine in Esperanto and is read worldwide. Radio Beijing's Esperanto program is the most popular program in Esperanto in the world. Esperanto's vocabulary is drawn primarily from Latin, the Romance languages, English and German. Spelling is completely regular. A simple and consistent set of endings indicates grammatical functions of words. Thus, for example, every noun ends in -o, every adjective in -a, and the basic form of every verb in -i. Esperanto also has a highly productive system of constructing new words from old ones.",
   "zh": "世界语（Esperanto）是一种人造语言，旨在国际范围内充当不同语言使用者之间的辅助交流工具。它由波兰犹太裔眼科医生柴门霍夫（Ludwik Lejzer Zamenhof）创造。世界语于 1887 年首次问世。一场旨在推广它的国际运动随之发起。尽管存在争论与分歧，这场运动仍在蓬勃发展，在 80 多个国家拥有成员。世界语跨越语言界限，被至少一百万人用于国际交流，尤其是在专业领域。它被用于私人交往、电台广播和许多出版物，以及现代作品和经典作品的翻译中。它的流行从东西欧扩展到巴西、日本等国。然而，世界语影响最大的地方是中国。它在大学里被教授，并用于许多翻译，尤其是科技著作的翻译。《中国报道》（El Popola Ĉinio，意为「来自人民中国」）是一本世界语月刊，在全世界都有读者。北京电台的世界语节目是世界上最受欢迎的世界语节目。世界语的词汇主要取自拉丁语、罗曼语族、英语和德语。拼写完全规则。一套简单而一致的词尾用来表示词的语法功能。因此，例如每个名词都以 -o 结尾，每个形容词都以 -a 结尾，每个动词的基本形式都以 -i 结尾。世界语还有一套从旧词构造新词的、极高产的系统。",
-  "q": ""
+  "q": "",
+  "segs": [
+   {
+    "text": "Esperanto is an artificial language designed to serve internationally as an auxiliary means of communication among speakers of different languages.",
+    "p": 0,
+    "t0": 1.81,
+    "t1": 13.94
+   },
+   {
+    "text": "It was created by Ludwik Lejzer Zamenhof, a Polish Jewish doctor specializing in eye diseases.",
+    "p": 0,
+    "t0": 13.94,
+    "t1": 21.78
+   },
+   {
+    "text": "Esperanto was first presented in 1887.",
+    "p": 0,
+    "t0": 21.78,
+    "t1": 25.98
+   },
+   {
+    "text": "An international movement was launched to promote its use.",
+    "p": 0,
+    "t0": 25.98,
+    "t1": 30.49
+   },
+   {
+    "text": "Despite arguments and disagreements, the movement has continued to flourish and has members in more than 80 countries.",
+    "p": 0,
+    "t0": 30.49,
+    "t1": 38.88
+   },
+   {
+    "text": "Esperanto is used internationally across language boundaries by at least 1 million people, particularly in specialized fields.",
+    "p": 0,
+    "t0": 38.88,
+    "t1": 48.66
+   },
+   {
+    "text": "It is used in personal contacts, on radio broadcasts and in a number of publications, as well as in translations of both modern works and classics.",
+    "p": 0,
+    "t0": 48.66,
+    "t1": 59.94
+   },
+   {
+    "text": "Its popularity has spread from Europe, both east and west, to such countries as Brazil and Japan.",
+    "p": 0,
+    "t0": 59.94,
+    "t1": 67.68
+   },
+   {
+    "text": "It is, however, in China that Esperanto has had its greatest impact.",
+    "p": 0,
+    "t0": 67.68,
+    "t1": 72.73
+   },
+   {
+    "text": "It is taught in universities and used in many translations, often in scientific or technological works.",
+    "p": 0,
+    "t0": 72.73,
+    "t1": 81.8
+   },
+   {
+    "text": "El Popola Ĉinio, which means \"From People's China,\" is a monthly magazine in Esperanto and is read worldwide.",
+    "p": 0,
+    "t0": 81.8,
+    "t1": 91.66
+   },
+   {
+    "text": "Radio Beijing's Esperanto program is the most popular program in Esperanto in the world.",
+    "p": 0,
+    "t0": 91.66,
+    "t1": 98.48
+   },
+   {
+    "text": "Esperanto's vocabulary is drawn primarily from Latin, the Romance languages, English and German.",
+    "p": 0,
+    "t0": 98.48,
+    "t1": 106.87
+   },
+   {
+    "text": "Spelling is completely regular.",
+    "p": 0,
+    "t0": 106.87,
+    "t1": 108.72
+   },
+   {
+    "text": "A simple and consistent set of endings indicates grammatical functions of words.",
+    "p": 0,
+    "t0": 108.72,
+    "t1": 114.37
+   },
+   {
+    "text": "Thus, for example, every noun ends in -o, every adjective in -a, and the basic form of every verb in -i.",
+    "p": 0,
+    "t0": 114.37,
+    "t1": 125.4
+   },
+   {
+    "text": "Esperanto also has a highly productive system of constructing new words from old ones.",
+    "p": 0,
+    "t0": 125.4,
+    "t1": 131.25
+   }
+  ]
  },
  {
   "id": "c1-09",
@@ -78,7 +808,87 @@
   "audio": "/listening/c1-09.m4a",
   "en": "English is the leading international language. In different countries around the globe, English is acquired as the mother tongue; in others it's used as a second language. Some nations use English as their official language, performing the function of administration; in others, it's used as an international language for business, commerce and industry. What factors and forces have led to the spread of English? Why is English now considered to be so prestigious that across the globe individuals and societies feel disadvantaged if they do not have competence in this language? How has English changed through fifteen hundred years? These are some of the questions that you investigate when you study English. You also examine the immense variability of English and come to understand how it's used as a symbol of both individual identity and social connection. You develop in-depth knowledge of the intricate structure of the language. Why do some non-native speakers of English claim that it's a difficult language to learn, while infants born into English-speaking communities acquire their language before they learn to use forks and knives? At the University of Sussex you are introduced to the nature and grammar of English in all its aspects. This involves the study of sound structures, the formation of words, the sequencing of words and the construction of meaning, as well as examination of the theories explaining these aspects of English usage. You are encouraged to develop your own individual responses to various practical and theoretical issues, which are raised by studying how speakers and writers employ English for a wide variety of purposes.",
   "zh": "英语是首要的国际语言。在全球不同的国家里，英语作为母语被习得；在另一些国家，它被当作第二语言使用。有些国家把英语作为官方语言，承担行政职能；在另一些国家，英语则作为商业、贸易和工业的国际语言使用。是哪些因素和力量促成了英语的传播？为什么英语如今被视为如此有威望，以至于全球各地的个人和社会若不能掌握这门语言，就会觉得自己处于劣势？在过去一千五百年里，英语是如何变化的？这些就是你在学习英语时要探究的一些问题。你还会考察英语的巨大多样性，并逐渐理解它如何被用作个人身份和社会联系的象征。你会深入学习这门语言错综复杂的结构。为什么一些非英语母语者声称英语很难学，而出生在英语社群的婴儿却在学会使用刀叉之前就掌握了这门语言？在萨塞克斯大学，你会全面了解英语的本质与语法。这包括研究语音结构、构词、词序和意义构建，以及考察解释这些英语使用现象的理论。学校鼓励你对语言使用中提出的各种实践与理论问题形成自己的独立见解——这些问题源自对话者和作者为各种目的使用英语的研究。",
-  "q": ""
+  "q": "",
+  "segs": [
+   {
+    "text": "English is the leading international language.",
+    "p": 0,
+    "t0": 2.33,
+    "t1": 5.03
+   },
+   {
+    "text": "In different countries around the globe, English is acquired as the mother tongue; in others it's used as a second language.",
+    "p": 0,
+    "t0": 5.03,
+    "t1": 14.0
+   },
+   {
+    "text": "Some nations use English as their official language, performing the function of administration; in others, it's used as an international language for business, commerce and industry.",
+    "p": 0,
+    "t0": 14.0,
+    "t1": 26.82
+   },
+   {
+    "text": "What factors and forces have led to the spread of English?",
+    "p": 0,
+    "t0": 26.82,
+    "t1": 31.18
+   },
+   {
+    "text": "Why is English now considered to be so prestigious that across the globe individuals and societies feel disadvantaged if they do not have competence in this language?",
+    "p": 0,
+    "t0": 31.18,
+    "t1": 43.0
+   },
+   {
+    "text": "How has English changed through fifteen hundred years?",
+    "p": 0,
+    "t0": 43.0,
+    "t1": 47.54
+   },
+   {
+    "text": "These are some of the questions that you investigate when you study English.",
+    "p": 0,
+    "t0": 47.54,
+    "t1": 52.8
+   },
+   {
+    "text": "You also examine the immense variability of English and come to understand how it's used as a symbol of both individual identity and social connection.",
+    "p": 0,
+    "t0": 52.8,
+    "t1": 64.65
+   },
+   {
+    "text": "You develop in-depth knowledge of the intricate structure of the language.",
+    "p": 0,
+    "t0": 64.65,
+    "t1": 69.69
+   },
+   {
+    "text": "Why do some non-native speakers of English claim that it's a difficult language to learn, while infants born into English-speaking communities acquire their language before they learn to use forks and knives?",
+    "p": 0,
+    "t0": 69.69,
+    "t1": 84.3
+   },
+   {
+    "text": "At the University of Sussex you are introduced to the nature and grammar of English in all its aspects.",
+    "p": 0,
+    "t0": 84.3,
+    "t1": 92.17
+   },
+   {
+    "text": "This involves the study of sound structures, the formation of words, the sequencing of words and the construction of meaning, as well as examination of the theories explaining these aspects of English usage.",
+    "p": 0,
+    "t0": 92.17,
+    "t1": 107.93
+   },
+   {
+    "text": "You are encouraged to develop your own individual responses to various practical and theoretical issues, which are raised by studying how speakers and writers employ English for a wide variety of purposes.",
+    "p": 0,
+    "t0": 107.93,
+    "t1": 122.48
+   }
+  ]
  },
  {
   "id": "c1-10",
@@ -87,7 +897,81 @@
   "audio": "/listening/c1-10.m4a",
   "en": "Articles in magazines and newspapers and special reports on radio and television reflect the concern of many Americans about the increasing dropout rate in our junior and senior high schools. Coupled with this fact is the warning that soon we will no longer have a workforce to fill the many jobs that require properly educated personnel. The high student dropout rate is not a recent development. 10 years ago, many urban schools were reporting dropout rates between 35 and 50%. Some administrators maintain that dropouts remain the single greatest problem in their schools. Consequently, much effort has been spent on identifying students with problems in order to give them more attention before they become failures. Since the dropout problem doesn't start in senior high school, special programs in junior high school focus on students who show promise but have a record of truancy—that is, staying away from school without permission. Under the guidance of counselors, these students are placed in classes with teachers who have had success in working with similar young people. Strategies to motivate students in high school include rewarding academic excellence by designating scholars of the month, or by issuing articles of clothing, such as school letter jackets, formerly given only to athletes. No one working with these students claims to know how to keep all students in school. Counselors, teachers and administrators are in the front lines of what seems at times to be a losing battle. Actually, this problem should be everyone's concern, since uneducated, unemployed citizens affect us all.",
   "zh": "杂志和报纸上的文章、广播电视上的专题报道，反映出许多美国人对初高中辍学率上升的担忧。与这一事实相伴的还有一个警告：不久我们将不再有足够的劳动力来填补那些需要受过良好教育的人才的众多岗位。学生高辍学率并非新近才出现的问题。10 年前，许多城市学校报告的辍学率在 35% 到 50% 之间。一些管理者坚持认为，辍学仍是他们学校唯一最大的问题。因此，人们花了大量精力去识别有问题的学生，以便在他们成为失败者之前给予更多关注。由于辍学问题并非始于高中，初中的一些特别项目把重点放在那些有潜力、但有旷课记录的学生身上——所谓旷课，就是未经允许不到校。在辅导员的指导下，这些学生被安排到在与类似年轻人打交道方面有成功经验的老师的班级里。激励高中学生的策略包括：通过评选「本月学者」来奖励学业优异，或发放一些衣物，比如过去只发给运动员的校队字母夹克。与这些学生打交道的人中，没有人声称自己知道如何让所有学生都留在学校。辅导员、教师和管理者站在一条有时看似注定要失败的战线的最前沿。事实上，这个问题应当引起所有人的关注，因为未受教育、失业的公民会影响我们每一个人。",
-  "q": ""
+  "q": "",
+  "segs": [
+   {
+    "text": "Articles in magazines and newspapers and special reports on radio and television reflect the concern of many Americans about the increasing dropout rate in our junior and senior high schools.",
+    "p": 0,
+    "t0": 2.94,
+    "t1": 14.74
+   },
+   {
+    "text": "Coupled with this fact is the warning that soon we will no longer have a workforce to fill the many jobs that require properly educated personnel.",
+    "p": 0,
+    "t0": 14.74,
+    "t1": 25.17
+   },
+   {
+    "text": "The high student dropout rate is not a recent development.",
+    "p": 0,
+    "t0": 25.17,
+    "t1": 29.28
+   },
+   {
+    "text": "10 years ago, many urban schools were reporting dropout rates between 35 and 50%.",
+    "p": 0,
+    "t0": 29.28,
+    "t1": 35.76
+   },
+   {
+    "text": "Some administrators maintain that dropouts remain the single greatest problem in their schools.",
+    "p": 0,
+    "t0": 35.76,
+    "t1": 42.52
+   },
+   {
+    "text": "Consequently, much effort has been spent on identifying students with problems in order to give them more attention before they become failures.",
+    "p": 0,
+    "t0": 42.52,
+    "t1": 52.52
+   },
+   {
+    "text": "Since the dropout problem doesn't start in senior high school, special programs in junior high school focus on students who show promise but have a record of truancy—that is, staying away from school without permission.",
+    "p": 0,
+    "t0": 52.52,
+    "t1": 67.5
+   },
+   {
+    "text": "Under the guidance of counselors, these students are placed in classes with teachers who have had success in working with similar young people.",
+    "p": 0,
+    "t0": 67.5,
+    "t1": 76.48
+   },
+   {
+    "text": "Strategies to motivate students in high school include rewarding academic excellence by designating scholars of the month, or by issuing articles of clothing, such as school letter jackets, formerly given only to athletes.",
+    "p": 0,
+    "t0": 76.48,
+    "t1": 92.59
+   },
+   {
+    "text": "No one working with these students claims to know how to keep all students in school.",
+    "p": 0,
+    "t0": 92.59,
+    "t1": 98.24
+   },
+   {
+    "text": "Counselors, teachers and administrators are in the front lines of what seems at times to be a losing battle.",
+    "p": 0,
+    "t0": 98.24,
+    "t1": 105.7
+   },
+   {
+    "text": "Actually, this problem should be everyone's concern, since uneducated, unemployed citizens affect us all.",
+    "p": 0,
+    "t0": 105.7,
+    "t1": 112.75
+   }
+  ]
  },
  {
   "id": "c1-11",
@@ -96,7 +980,123 @@
   "audio": "/listening/c1-11.m4a",
   "en": "More than 50 years ago, the United Nations declared that literacy is a basic human right. It's very important for improving the lives of individuals. However, it is estimated that 880 million adults around the world are illiterate—that is, they are unable to read or write. A majority of them are women. More than 110 million school-aged children in the world do not attend school. Many others complete school or fail to finish their studies without learning to read or write. Many countries depend on the efforts of people who offer their time to help illiterate individuals. For example, John Morgan became concerned about the problem of illiteracy three years ago, so he started teaching five prisoners in Brazil. In his teaching, he developed a system with this group of prisoners. He says his way of teaching can help anyone learn how to read and write with about 30 hours of study. To learn his system, people must first know how to write letters of the alphabet and learn which sounds they represent. The system divides letters into three groups. The first group of letters can be written between two lines. The second can be written between two lines, but part of the letter is above the top line. The third group has letters that are partly written below the lower line. John Morgan taught his students to write simple words from the letters. In this way, his students learnt more than 700 words. Many of them can now write to family members. They also can read newspapers and magazines.",
   "zh": "50 多年前，联合国宣布识字是一项基本人权。识字对改善个人生活非常重要。然而，据估计全世界有 8.8 亿成年人是文盲，也就是说，他们不会读也不会写。其中大多数是女性。全世界有超过 1.1 亿学龄儿童没有上学。还有很多人虽然读完了学校，或没能完成学业，却没有学会读写。许多国家依靠那些愿意付出时间帮助文盲的人的努力。例如，John Morgan 三年前开始关注文盲问题，于是他在巴西开始教五名囚犯。在教学过程中，他和这群囚犯一起开发出一套教学体系。他说，他的教学方法能帮助任何人在大约 30 小时的学习后学会读写。要学习他的体系，人们首先得会写字母表里的字母，并知道它们代表哪些读音。这套体系把字母分成三组：第一组字母可以写在两条横线之间；第二组也能写在两条横线之间，但字母的一部分要超出上方的线；第三组则是有一部分写在下线以下的字母。John Morgan 教学生们用这些字母拼写简单的单词。这样，他的学生们学会了 700 多个单词。他们中许多人现在能给家人写信了，也能读报纸和杂志。",
-  "q": ""
+  "q": "",
+  "segs": [
+   {
+    "text": "More than 50 years ago, the United Nations declared that literacy is a basic human right.",
+    "p": 0,
+    "t0": 2.89,
+    "t1": 9.83
+   },
+   {
+    "text": "It's very important for improving the lives of individuals.",
+    "p": 0,
+    "t0": 9.83,
+    "t1": 13.74
+   },
+   {
+    "text": "However, it is estimated that 880 million adults around the world are illiterate—that is, they are unable to read or write.",
+    "p": 0,
+    "t0": 13.74,
+    "t1": 24.24
+   },
+   {
+    "text": "A majority of them are women.",
+    "p": 0,
+    "t0": 24.24,
+    "t1": 26.04
+   },
+   {
+    "text": "More than 110 million school-aged children in the world do not attend school.",
+    "p": 0,
+    "t0": 26.04,
+    "t1": 32.09
+   },
+   {
+    "text": "Many others complete school or fail to finish their studies without learning to read or write.",
+    "p": 0,
+    "t0": 32.09,
+    "t1": 39.93
+   },
+   {
+    "text": "Many countries depend on the efforts of people who offer their time to help illiterate individuals.",
+    "p": 0,
+    "t0": 39.93,
+    "t1": 46.59
+   },
+   {
+    "text": "For example, John Morgan became concerned about the problem of illiteracy three years ago, so he started teaching five prisoners in Brazil.",
+    "p": 0,
+    "t0": 46.59,
+    "t1": 55.76
+   },
+   {
+    "text": "In his teaching, he developed a system with this group of prisoners.",
+    "p": 0,
+    "t0": 55.76,
+    "t1": 61.42
+   },
+   {
+    "text": "He says his way of teaching can help anyone learn how to read and write with about 30 hours of study.",
+    "p": 0,
+    "t0": 61.42,
+    "t1": 69.12
+   },
+   {
+    "text": "To learn his system, people must first know how to write letters of the alphabet and learn which sounds they represent.",
+    "p": 0,
+    "t0": 69.12,
+    "t1": 77.7
+   },
+   {
+    "text": "The system divides letters into three groups.",
+    "p": 0,
+    "t0": 77.7,
+    "t1": 80.22
+   },
+   {
+    "text": "The first group of letters can be written between two lines.",
+    "p": 0,
+    "t0": 80.22,
+    "t1": 84.18
+   },
+   {
+    "text": "The second can be written between two lines, but part of the letter is above the top line.",
+    "p": 0,
+    "t0": 84.18,
+    "t1": 91.46
+   },
+   {
+    "text": "The third group has letters that are partly written below the lower line.",
+    "p": 0,
+    "t0": 91.46,
+    "t1": 96.73
+   },
+   {
+    "text": "John Morgan taught his students to write simple words from the letters.",
+    "p": 0,
+    "t0": 96.73,
+    "t1": 101.39
+   },
+   {
+    "text": "In this way, his students learnt more than 700 words.",
+    "p": 0,
+    "t0": 101.39,
+    "t1": 105.38
+   },
+   {
+    "text": "Many of them can now write to family members.",
+    "p": 0,
+    "t0": 105.38,
+    "t1": 108.78
+   },
+   {
+    "text": "They also can read newspapers and magazines.",
+    "p": 0,
+    "t0": 108.78,
+    "t1": 112.6
+   }
+  ]
  },
  {
   "id": "c1-12",
@@ -105,7 +1105,87 @@
   "audio": "/listening/c1-12.m4a",
   "en": "Adults are getting smarter about how smart babies are. Not long ago, researchers learned that four-day-olds could understand addition and subtraction. Now British research psychologist Graham Schafer has discovered that infants can learn words for uncommon things long before they can speak. He found that nine-month-old infants could be taught, through repeated show-and-tell, to recognize the names of objects that were foreign to them—a result that challenges in some ways the received wisdom that, apart from learning to identify things common to their daily lives, children don't begin to build vocabulary until well into their second year. \"It's no secret that children learn words, but the words they tend to know are words linked to specific situations in the home,\" explained Schafer. \"This is the first demonstration that we can choose what words the children will learn and that they can respond to them with an unfamiliar voice, giving instructions in an unfamiliar setting.\" Figuring out how humans acquire language may shed light on why some children learn to read and write later than others, Schafer says, and could lead to better treatments for developmental problems. What's more, the study of language acquisition offers direct insight into how humans learn. \"Language is a test case for human cognitive development,\" says Schafer. But parents eager to teach their infants should take note: even without being taught new words, a control group caught up with the other infants within a few months. \"This is not about advancing development,\" he says. \"It's just about what children can do at an earlier age than what educators have often thought.\"",
   "zh": "成年人对婴儿到底有多聪明，正越来越了解。不久前，研究人员发现，出生才四天的婴儿就能理解加法和减法。如今，英国研究心理学家 Graham Schafer 发现，婴儿在会说话之前很久就能学会不常见事物的词汇。他发现，九个月大的婴儿可以通过反复的「展示—讲解」，被教会辨认对他们来说陌生的物品名称——这一结果在某些方面挑战了人们普遍接受的看法：除了学会辨认日常生活中的常见事物，儿童要到两岁多才开始积累词汇。Schafer 解释说：「孩子学词并不是秘密，但他们往往会的是与家中特定情境相关的词。这是首次证明，我们可以选择让孩子学哪些词，而且他们能对陌生的声音、在陌生的情境中给出的指令作出反应。」Schafer 说，弄清人类如何习得语言，或许能揭示为什么有些孩子比别的孩子更晚学会读写，也可能带来对发育问题更好的治疗方法。更重要的是，对语言习得的研究能直接洞察人类是如何学习的。Schafer 说：「语言是人类认知发展的一个试验案例。」但急于教婴儿的父母应当注意：即使没有被教新词，一个对照组婴儿也在几个月内就赶上了其他婴儿。他说：「这并不是要加速发育，而只是说明孩子能在比教育者通常认为的更早的年龄做到一些事情。」",
-  "q": ""
+  "q": "",
+  "segs": [
+   {
+    "text": "Adults are getting smarter about how smart babies are.",
+    "p": 0,
+    "t0": 2.68,
+    "t1": 6.72
+   },
+   {
+    "text": "Not long ago, researchers learned that four-day-olds could understand addition and subtraction.",
+    "p": 0,
+    "t0": 6.72,
+    "t1": 13.81
+   },
+   {
+    "text": "Now British research psychologist Graham Schafer has discovered that infants can learn words for uncommon things long before they can speak.",
+    "p": 0,
+    "t0": 13.81,
+    "t1": 22.46
+   },
+   {
+    "text": "He found that nine-month-old infants could be taught, through repeated show-and-tell, to recognize the names of objects that were foreign to them—a result that challenges in some ways the received wisdom that, apart from learning to identify things common to their daily lives, children don't begin to build vocabulary until well into their second year.",
+    "p": 0,
+    "t0": 22.46,
+    "t1": 47.78
+   },
+   {
+    "text": "\"It's no secret that children learn words, but the words they tend to know are words linked to specific situations in the home,\" explained Schafer.",
+    "p": 0,
+    "t0": 47.78,
+    "t1": 58.26
+   },
+   {
+    "text": "\"This is the first demonstration that we can choose what words the children will learn and that they can respond to them with an unfamiliar voice, giving instructions in an unfamiliar setting.",
+    "p": 0,
+    "t0": 58.26,
+    "t1": 71.41
+   },
+   {
+    "text": "\" Figuring out how humans acquire language may shed light on why some children learn to read and write later than others, Schafer says, and could lead to better treatments for developmental problems.",
+    "p": 0,
+    "t0": 71.41,
+    "t1": 84.01
+   },
+   {
+    "text": "What's more, the study of language acquisition offers direct insight into how humans learn.",
+    "p": 0,
+    "t0": 84.01,
+    "t1": 90.91
+   },
+   {
+    "text": "\"Language is a test case for human cognitive development,\" says Schafer.",
+    "p": 0,
+    "t0": 90.91,
+    "t1": 95.87
+   },
+   {
+    "text": "But parents eager to teach their infants should take note: even without being taught new words, a control group caught up with the other infants within a few months.",
+    "p": 0,
+    "t0": 95.87,
+    "t1": 107.48
+   },
+   {
+    "text": "\"This is not about advancing development,\" he says.",
+    "p": 0,
+    "t0": 107.48,
+    "t1": 110.73
+   },
+   {
+    "text": "\"It's just about what children can do at an earlier age than what educators have often thought.",
+    "p": 0,
+    "t0": 110.73,
+    "t1": 117.63
+   },
+   {
+    "text": "\"",
+    "p": 0,
+    "t0": 117.22,
+    "t1": 117.63
+   }
+  ]
  },
  {
   "id": "c1-13",
@@ -114,7 +1194,93 @@
   "audio": "/listening/c1-13.m4a",
   "en": "George Herbert Mead said that humans are talked into humanity. He meant that we gain personal identity as we communicate with others. In the earliest years of our lives, our parents tell us who we are: \"You're intelligent,\" \"You're so strong.\" We first see ourselves through the eyes of others, so their messages form important foundations of our self-concepts. Later, we interact with teachers, friends, romantic partners, and coworkers who communicate their views of us. Thus, how we see ourselves reflects the views of us that others communicate. The profound connection between identity and communication is dramatically evident in children who are deprived of human contact. Case studies of children who were isolated from others reveal that they lack a firm self-concept, and their mental and psychological development is severely hindered by lack of language. Communication with others not only affects our sense of identity, but also directly influences our physical and emotional well-being. Consistently, research shows that communicating with others promotes health, whereas social isolation is linked to stress, disease and early death. People who lack close friends have greater levels of anxiety and depression than people who are close to others. A group of researchers reviewed scores of studies that traced the relationship between health and interaction with others. The conclusion was that social isolation is statistically as dangerous as high blood pressure, smoking and obesity. Many doctors and researchers believe that loneliness harms the immune system, making us more vulnerable to a range of minor and major illnesses.",
   "zh": "乔治·赫伯特·米德说，人是被「说」成人（在交谈中成为人）的。他的意思是，我们在与他人交流中获得个人身份。在生命最初的岁月里，父母告诉我们我们是谁：「你很聪明」「你很强壮」。我们最初是通过别人的眼睛看自己的，因此他们传递的信息构成了我们自我概念的重要基础。后来，我们与老师、朋友、恋人、同事互动，他们也会表达对我们的看法。因此，我们如何看待自己，反映了别人所传达的对我们的看法。身份与交流之间深刻的联系，在被剥夺了人际接触的儿童身上表现得尤为明显。对那些与他人隔绝的儿童的个案研究表明，他们缺乏牢固的自我概念，而且由于缺乏语言，他们的心理与精神发展受到严重阻碍。与他人交流不仅影响我们的身份认同感，还直接影响我们的身心健康。研究一致表明，与他人交流能促进健康，而社会孤立则与压力、疾病和早逝相关。缺乏密友的人比与他人亲近的人焦虑和抑郁程度更高。一组研究人员回顾了大量追踪健康与人际互动关系的研究，结论是：从统计数据看，社会孤立与高血压、吸烟和肥胖一样危险。许多医生和研究人员认为，孤独会损害免疫系统，使我们更容易患上各种大大小小的疾病。",
-  "q": ""
+  "q": "",
+  "segs": [
+   {
+    "text": "George Herbert Mead said that humans are talked into humanity.",
+    "p": 0,
+    "t0": 2.46,
+    "t1": 7.48
+   },
+   {
+    "text": "He meant that we gain personal identity as we communicate with others.",
+    "p": 0,
+    "t0": 7.48,
+    "t1": 12.98
+   },
+   {
+    "text": "In the earliest years of our lives, our parents tell us who we are: \"You're intelligent,\" \"You're so strong.",
+    "p": 0,
+    "t0": 12.98,
+    "t1": 21.56
+   },
+   {
+    "text": "\" We first see ourselves through the eyes of others, so their messages form important foundations of our self-concepts.",
+    "p": 0,
+    "t0": 21.56,
+    "t1": 30.24
+   },
+   {
+    "text": "Later, we interact with teachers, friends, romantic partners, and coworkers who communicate their views of us.",
+    "p": 0,
+    "t0": 30.24,
+    "t1": 39.55
+   },
+   {
+    "text": "Thus, how we see ourselves reflects the views of us that others communicate.",
+    "p": 0,
+    "t0": 39.55,
+    "t1": 46.6
+   },
+   {
+    "text": "The profound connection between identity and communication is dramatically evident in children who are deprived of human contact.",
+    "p": 0,
+    "t0": 46.6,
+    "t1": 55.29
+   },
+   {
+    "text": "Case studies of children who were isolated from others reveal that they lack a firm self-concept, and their mental and psychological development is severely hindered by lack of language.",
+    "p": 0,
+    "t0": 55.29,
+    "t1": 67.96
+   },
+   {
+    "text": "Communication with others not only affects our sense of identity, but also directly influences our physical and emotional well-being.",
+    "p": 0,
+    "t0": 67.96,
+    "t1": 78.18
+   },
+   {
+    "text": "Consistently, research shows that communicating with others promotes health, whereas social isolation is linked to stress, disease and early death.",
+    "p": 0,
+    "t0": 78.18,
+    "t1": 88.01
+   },
+   {
+    "text": "People who lack close friends have greater levels of anxiety and depression than people who are close to others.",
+    "p": 0,
+    "t0": 88.01,
+    "t1": 96.56
+   },
+   {
+    "text": "A group of researchers reviewed scores of studies that traced the relationship between health and interaction with others.",
+    "p": 0,
+    "t0": 96.56,
+    "t1": 104.73
+   },
+   {
+    "text": "The conclusion was that social isolation is statistically as dangerous as high blood pressure, smoking and obesity.",
+    "p": 0,
+    "t0": 104.73,
+    "t1": 114.09
+   },
+   {
+    "text": "Many doctors and researchers believe that loneliness harms the immune system, making us more vulnerable to a range of minor and major illnesses.",
+    "p": 0,
+    "t0": 114.09,
+    "t1": 123.67
+   }
+  ]
  },
  {
   "id": "c1-14",
@@ -123,7 +1289,123 @@
   "audio": "/listening/c1-14.m4a",
   "en": "The Ancient Greeks developed basic memory systems called mnemonics. The name is derived from their goddess of memory, Mnemosyne. In the ancient world, a trained memory was an immense asset, particularly in public life. There were no convenient devices for taking notes, and early Greek orators delivered long speeches with great accuracy because they learned the speeches using mnemonic systems. The Greeks discovered that human memory is largely an associative process—that it works by linking things together. For example, think of an apple. The instant your brain registers the word \"apple,\" it recalls the shape, color, taste, smell and texture of that fruit. All these things are associated in your memory with the word \"apple.\" This means that any thought about a certain subject will often bring up more memories that are related to it. An example could be when you think about a lecture you have had. This could trigger a memory about what you were talking about through that lecture, which can then trigger another memory. Associations do not have to be logical. They just have to make a good link. An example given on a website I was looking at follows: Do you remember the shape of Austria, Canada, Belgium or Germany? Probably not. What about Italy, though? If you remember the shape of Italy, it is because you have been told some time that Italy is shaped like a boot. You made an association with something already known. The shape of a boot and the shape of Italy could not be forgotten once you had made the association.",
   "zh": "古希腊人发展出了被称为「记忆术」（mnemonics）的基本记忆系统。这个名字源于他们掌管记忆的女神谟涅摩叙涅（Mnemosyne）。在古代，训练有素的记忆力是巨大的财富，尤其在公共生活中。那时没有方便的记笔记工具，早期希腊的演说家能非常准确地发表长篇演讲，因为他们借助记忆术系统来记住演讲内容。希腊人发现，人的记忆在很大程度上是一个联想的过程——它通过把事物联系起来而运作。例如，想一想「苹果」。你的大脑一接收到「苹果」这个词，就会立刻回忆起这种水果的形状、颜色、味道、气味和质地。所有这些在你的记忆里都与「苹果」这个词联系在一起。这意味着，关于某个主题的任何念头，常常会引出与其相关的更多记忆。举个例子，当你想起听过的一场讲座，这可能触发关于那场讲座所讲内容的记忆，而那个记忆又能触发另一个记忆。联想不一定要合乎逻辑，只要建立起好的联系就行。我看过的一个网站上举了这样一个例子：你还记得奥地利、加拿大、比利时或德国的形状吗？大概不记得。那意大利呢？如果你记得意大利的形状，那是因为曾经有人告诉过你，意大利的形状像一只靴子。你把它与已经熟悉的事物联系了起来。一旦建立了这种联想，靴子的形状和意大利的形状就再也忘不掉了。",
-  "q": ""
+  "q": "",
+  "segs": [
+   {
+    "text": "The Ancient Greeks developed basic memory systems called mnemonics.",
+    "p": 0,
+    "t0": 2.59,
+    "t1": 7.96
+   },
+   {
+    "text": "The name is derived from their goddess of memory, Mnemosyne.",
+    "p": 0,
+    "t0": 7.96,
+    "t1": 12.14
+   },
+   {
+    "text": "In the ancient world, a trained memory was an immense asset, particularly in public life.",
+    "p": 0,
+    "t0": 12.14,
+    "t1": 19.16
+   },
+   {
+    "text": "There were no convenient devices for taking notes, and early Greek orators delivered long speeches with great accuracy because they learned the speeches using mnemonic systems.",
+    "p": 0,
+    "t0": 19.16,
+    "t1": 30.86
+   },
+   {
+    "text": "The Greeks discovered that human memory is largely an associative process—that it works by linking things together.",
+    "p": 0,
+    "t0": 30.86,
+    "t1": 38.32
+   },
+   {
+    "text": "For example, think of an apple.",
+    "p": 0,
+    "t0": 38.32,
+    "t1": 40.73
+   },
+   {
+    "text": "The instant your brain registers the word \"apple,\" it recalls the shape, color, taste, smell and texture of that fruit.",
+    "p": 0,
+    "t0": 40.73,
+    "t1": 49.68
+   },
+   {
+    "text": "All these things are associated in your memory with the word \"apple.",
+    "p": 0,
+    "t0": 49.68,
+    "t1": 54.67
+   },
+   {
+    "text": "\" This means that any thought about a certain subject will often bring up more memories that are related to it.",
+    "p": 0,
+    "t0": 54.67,
+    "t1": 62.16
+   },
+   {
+    "text": "An example could be when you think about a lecture you have had.",
+    "p": 0,
+    "t0": 62.16,
+    "t1": 66.64
+   },
+   {
+    "text": "This could trigger a memory about what you were talking about through that lecture, which can then trigger another memory.",
+    "p": 0,
+    "t0": 66.64,
+    "t1": 75.22
+   },
+   {
+    "text": "Associations do not have to be logical.",
+    "p": 0,
+    "t0": 75.22,
+    "t1": 77.96
+   },
+   {
+    "text": "They just have to make a good link.",
+    "p": 0,
+    "t0": 77.96,
+    "t1": 80.46
+   },
+   {
+    "text": "An example given on a website I was looking at follows: Do you remember the shape of Austria, Canada, Belgium or Germany?",
+    "p": 0,
+    "t0": 80.46,
+    "t1": 89.28
+   },
+   {
+    "text": "Probably not.",
+    "p": 0,
+    "t0": 89.28,
+    "t1": 90.92
+   },
+   {
+    "text": "What about Italy, though?",
+    "p": 0,
+    "t0": 90.92,
+    "t1": 92.16
+   },
+   {
+    "text": "If you remember the shape of Italy, it is because you have been told some time that Italy is shaped like a boot.",
+    "p": 0,
+    "t0": 92.16,
+    "t1": 100.02
+   },
+   {
+    "text": "You made an association with something already known.",
+    "p": 0,
+    "t0": 100.02,
+    "t1": 103.68
+   },
+   {
+    "text": "The shape of a boot and the shape of Italy could not be forgotten once you had made the association.",
+    "p": 0,
+    "t0": 103.68,
+    "t1": 110.03
+   }
+  ]
  },
  {
   "id": "c1-15",
@@ -132,7 +1414,153 @@
   "audio": "/listening/c1-15.m4a",
   "en": "Dr. Alan Hirsch designs smells for businesses. He says that it doesn't take a whole lot of smell to affect you. Store owners can lure you to the candy aisle even if you don't realize you smell candy. This idea scares a lot of people. Groups that protect the rights of shoppers are upset. They say the stores are using a kind of brainwashing, which they call \"smell-washing.\" \"It's pretty dishonest,\" says Mark Silbergeld. He runs an organization that checks out products for consumers. The scientists hired to design the scents disagree. \"There's soft background music, there's special lighting, there are all sorts of bells being used,\" says Dr. Hirsch. \"Why not smells?\" One reason why not, says Silbergeld, is that some people are allergic to certain scents pumped into products or stores. But there's a whole other side to this debate: do the smells really work? So far there is little proof one way or the other. But Dr. Hirsch has run some interesting experiments. In one of Hirsch's experiments, 31 volunteers were led into a shoe store that smelled slightly like flowers. Later, another group shopped in the same store, but with no floral odor. Dr. Hirsch found that 84% of the shoppers were more likely to buy the shoes in the flower-scented room. But Hirsch found out something even stranger: whether the volunteers liked the flower scent or not didn't matter, Hirsch says. Some reported that they hated the smell, but they still were more likely to buy the shoes in the scented room.",
   "zh": "Alan Hirsch 博士为企业设计气味。他说，不需要很多气味就能影响你。店主甚至能在你还没意识到自己闻到糖果味时，就把你吸引到糖果货架前。这个想法让很多人感到害怕。一些保护消费者权益的组织很不满，他们说商店在用一种「洗脑」，称之为「气味洗脑」（smell-washing）。「这很不诚实，」Mark Silbergeld 说，他经营着一家为消费者检验产品的机构。受雇设计这些气味的科学家们不同意。「有轻柔的背景音乐，有特别的灯光，还有各种各样的铃声，」Hirsch 博士说，「为什么不能有气味呢？」Silbergeld 说，不该有的一个理由是：有些人对注入产品或商店的某些气味过敏。但这场争论还有另一面：这些气味真的有效吗？到目前为止，正反两方面的证据都很少。不过 Hirsch 博士做过一些有趣的实验。在 Hirsch 的一个实验中，31 名志愿者被带进一家略带花香的鞋店。后来，另一组人在同一家店里购物，但没有花香。Hirsch 博士发现，在充满花香的那间店里，84% 的顾客更有可能买鞋。但 Hirsch 还发现了更奇怪的事：Hirsch 说，志愿者是否喜欢那种花香并不重要。有些人说自己讨厌那种气味，但他们仍然更有可能在散发气味的房间里买鞋。",
-  "q": ""
+  "q": "",
+  "segs": [
+   {
+    "text": "Dr.",
+    "p": 0,
+    "t0": 1.61,
+    "t1": 2.48
+   },
+   {
+    "text": "Alan Hirsch designs smells for businesses.",
+    "p": 0,
+    "t0": 2.48,
+    "t1": 4.73
+   },
+   {
+    "text": "He says that it doesn't take a whole lot of smell to affect you.",
+    "p": 0,
+    "t0": 4.73,
+    "t1": 10.73
+   },
+   {
+    "text": "Store owners can lure you to the candy aisle even if you don't realize you smell candy.",
+    "p": 0,
+    "t0": 10.73,
+    "t1": 17.24
+   },
+   {
+    "text": "This idea scares a lot of people.",
+    "p": 0,
+    "t0": 17.24,
+    "t1": 19.44
+   },
+   {
+    "text": "Groups that protect the rights of shoppers are upset.",
+    "p": 0,
+    "t0": 19.44,
+    "t1": 23.29
+   },
+   {
+    "text": "They say the stores are using a kind of brainwashing, which they call \"smell-washing.",
+    "p": 0,
+    "t0": 23.29,
+    "t1": 30.53
+   },
+   {
+    "text": "\" \"It's pretty dishonest,\" says Mark Silbergeld.",
+    "p": 0,
+    "t0": 30.53,
+    "t1": 33.6
+   },
+   {
+    "text": "He runs an organization that checks out products for consumers.",
+    "p": 0,
+    "t0": 33.6,
+    "t1": 39.4
+   },
+   {
+    "text": "The scientists hired to design the scents disagree.",
+    "p": 0,
+    "t0": 39.4,
+    "t1": 43.35
+   },
+   {
+    "text": "\"There's soft background music, there's special lighting, there are all sorts of bells being used,\" says Dr.",
+    "p": 0,
+    "t0": 43.35,
+    "t1": 51.02
+   },
+   {
+    "text": "Hirsch.",
+    "p": 0,
+    "t0": 51.02,
+    "t1": 51.47
+   },
+   {
+    "text": "\"Why not smells?",
+    "p": 0,
+    "t0": 51.47,
+    "t1": 53.87
+   },
+   {
+    "text": "\" One reason why not, says Silbergeld, is that some people are allergic to certain scents pumped into products or stores.",
+    "p": 0,
+    "t0": 53.87,
+    "t1": 62.91
+   },
+   {
+    "text": "But there's a whole other side to this debate: do the smells really work?",
+    "p": 0,
+    "t0": 62.91,
+    "t1": 68.64
+   },
+   {
+    "text": "So far there is little proof one way or the other.",
+    "p": 0,
+    "t0": 68.64,
+    "t1": 73.06
+   },
+   {
+    "text": "But Dr.",
+    "p": 0,
+    "t0": 73.06,
+    "t1": 73.9
+   },
+   {
+    "text": "Hirsch has run some interesting experiments.",
+    "p": 0,
+    "t0": 73.9,
+    "t1": 77.18
+   },
+   {
+    "text": "In one of Hirsch's experiments, 31 volunteers were led into a shoe store that smelled slightly like flowers.",
+    "p": 0,
+    "t0": 77.18,
+    "t1": 86.18
+   },
+   {
+    "text": "Later, another group shopped in the same store, but with no floral odor.",
+    "p": 0,
+    "t0": 86.18,
+    "t1": 91.4
+   },
+   {
+    "text": "Dr.",
+    "p": 0,
+    "t0": 91.4,
+    "t1": 91.8
+   },
+   {
+    "text": "Hirsch found that 84% of the shoppers were more likely to buy the shoes in the flower-scented room.",
+    "p": 0,
+    "t0": 91.8,
+    "t1": 100.21
+   },
+   {
+    "text": "But Hirsch found out something even stranger: whether the volunteers liked the flower scent or not didn't matter, Hirsch says.",
+    "p": 0,
+    "t0": 100.21,
+    "t1": 108.85
+   },
+   {
+    "text": "Some reported that they hated the smell, but they still were more likely to buy the shoes in the scented room.",
+    "p": 0,
+    "t0": 108.85,
+    "t1": 116.91
+   }
+  ]
  },
  {
   "id": "c1-16",
@@ -141,7 +1569,93 @@
   "audio": "/listening/c1-16.m4a",
   "en": "To find out what the weather is going to be, most people go straight to the radio, television or newspaper to get an expert weather forecast. But if you know what to look for, you can use your own senses to make weather predictions. There are many signs that can help you. For example, in fair weather, the air pressure is generally high, the air is still and often full of dust, and faraway objects may look vague. But when the storm is brewing, the pressure drops and you are often able to see things more clearly. Sailors took note of this long ago and came up with the saying, \"The farther the sight, the nearer the rain.\" Your sense of smell can also help you detect weather changes. Just before it rains, odors become stronger. This is because odors are repressed in a fair high-pressure center. When a bad-weather low moves in, air pressure lessens and odors are released. You can also hear an approaching storm: sounds bounce off heavy storm clouds and return to earth with increased force. An old saying describes it this way: \"Sounds traveling far and wide, a stormy day will betide. And don't laugh at your grandmother if she says she can feel a storm coming.\" It is commonly known that many people feel pains in their bones or joints when the humidity rises, the pressure drops and bad weather is on the way.",
   "zh": "要了解天气将会怎样，大多数人都直接去听广播、看电视或翻报纸，获取专家的天气预报。但如果你知道该观察什么，你也可以用自己的感官来做天气预测。有很多迹象能帮到你。例如，在晴朗的天气里，气压通常较高，空气静止、常充满灰尘，远处的物体看起来模糊。但当暴风雨正在酝酿时，气压下降，你往往能把东西看得更清楚。水手们很久以前就注意到了这一点，并总结出谚语：「看得越远，雨来得越近。」你的嗅觉也能帮你察觉天气变化。就在下雨前，气味会变得更浓。这是因为在晴朗的高气压中心，气味被压制住了。当一个恶劣天气的低压移入时，气压减弱，气味就被释放出来。你还能听到逼近的暴风雨：声音撞击厚重的暴风云后，以更强的力量反射回地面。有句老话说：「声音传得又远又广，暴风雨的日子就要来到。如果你奶奶说她能感觉暴风雨要来，可别笑话她。」众所周知，当湿度上升、气压下降、坏天气将至时，许多人会感到骨头或关节疼痛。",
-  "q": ""
+  "q": "",
+  "segs": [
+   {
+    "text": "To find out what the weather is going to be, most people go straight to the radio, television or newspaper to get an expert weather forecast.",
+    "p": 0,
+    "t0": 2.69,
+    "t1": 12.4
+   },
+   {
+    "text": "But if you know what to look for, you can use your own senses to make weather predictions.",
+    "p": 0,
+    "t0": 12.4,
+    "t1": 18.08
+   },
+   {
+    "text": "There are many signs that can help you.",
+    "p": 0,
+    "t0": 18.08,
+    "t1": 20.68
+   },
+   {
+    "text": "For example, in fair weather, the air pressure is generally high, the air is still and often full of dust, and faraway objects may look vague.",
+    "p": 0,
+    "t0": 20.68,
+    "t1": 31.4
+   },
+   {
+    "text": "But when the storm is brewing, the pressure drops and you are often able to see things more clearly.",
+    "p": 0,
+    "t0": 31.4,
+    "t1": 37.98
+   },
+   {
+    "text": "Sailors took note of this long ago and came up with the saying, \"The farther the sight, the nearer the rain.",
+    "p": 0,
+    "t0": 37.98,
+    "t1": 45.36
+   },
+   {
+    "text": "\" Your sense of smell can also help you detect weather changes.",
+    "p": 0,
+    "t0": 45.36,
+    "t1": 49.66
+   },
+   {
+    "text": "Just before it rains, odors become stronger.",
+    "p": 0,
+    "t0": 49.66,
+    "t1": 52.39
+   },
+   {
+    "text": "This is because odors are repressed in a fair high-pressure center.",
+    "p": 0,
+    "t0": 52.39,
+    "t1": 57.84
+   },
+   {
+    "text": "When a bad-weather low moves in, air pressure lessens and odors are released.",
+    "p": 0,
+    "t0": 57.84,
+    "t1": 63.24
+   },
+   {
+    "text": "You can also hear an approaching storm: sounds bounce off heavy storm clouds and return to earth with increased force.",
+    "p": 0,
+    "t0": 63.24,
+    "t1": 71.32
+   },
+   {
+    "text": "An old saying describes it this way: \"Sounds traveling far and wide, a stormy day will betide.",
+    "p": 0,
+    "t0": 71.32,
+    "t1": 77.65
+   },
+   {
+    "text": "And don't laugh at your grandmother if she says she can feel a storm coming.",
+    "p": 0,
+    "t0": 78.7,
+    "t1": 83.0
+   },
+   {
+    "text": "\" It is commonly known that many people feel pains in their bones or joints when the humidity rises, the pressure drops and bad weather is on the way.",
+    "p": 0,
+    "t0": 83.0,
+    "t1": 94.03
+   }
+  ]
  },
  {
   "id": "c1-17",
@@ -150,7 +1664,87 @@
   "audio": "/listening/c1-17.m4a",
   "en": "One of the most common images of an advanced, western-style culture is that of a busy, traffic-filled city. Since their first appearance on American roadways, automobiles have become a symbol of progress, a source of thousands of jobs, and an almost inalienable right for citizens' personal freedom and movement. In recent decades, our love affair with the car is being exported directly to the developing world. And it is increasingly apparent that this transfer is leading to disaster. America's almost complete dependence on automobiles has been a terrible mistake. As late as the 1950s, a large percentage of the American public used mass transit. A combination of public policy decisions and corporate scheming saw to it that countless convenient and efficient urban streetcar and intracity rail systems were dismantled. Our air quality now suffers from the effects of pollutants emitted directly from our cars. Our lives have been planned along a road grid, homes far from work, shopping far from everything, with ugly stretches of concrete and blacktop in between. Developing countries are copying western-style transportation systems down to the last detail. The problems caused by motorized vehicles in the west are often magnified: in developing nations, pollution-control measures are either not strict or nonexistent, leading to choking clouds of smog; gasoline still contains lead, which is extremely poisonous to humans. Movement in some cities comes to a virtual standstill as motorized traffic competes with bicycles and pedestrians. In addition to pollution and traffic jams, auto safety is a critical issue in developing nations.",
   "zh": "先进西方文化最常见的形象之一，就是一座繁忙、车流密集的城市。自从汽车首次出现在美国道路上以来，它就成了进步的象征、成千上万工作岗位的来源，以及公民个人自由与出行几乎不可剥夺的权利。近几十年来，我们对汽车的热爱正被直接出口到发展中世界。而越来越明显的是，这种转移正在导致灾难。美国对汽车几乎完全的依赖是一个可怕的错误。直到 20 世纪 50 年代，很大一部分美国公众还在使用公共交通。公共政策决策与企业算计的共同作用，使得无数便捷高效的城市有轨电车和市内铁路系统被拆除。如今，我们的空气质量深受汽车直接排放的污染物之害。我们的生活被规划在公路网的框架内，家离工作地点很远，购物中心离一切都很远，其间是大片丑陋的混凝土和柏油路面。发展中国家正在逐字逐句地照搬西方风格的交通系统。西方机动车辆造成的问题往往被放大了：在发展中国家，污染控制措施要么不严格、要么根本不存在，导致令人窒息的雾霾；汽油中仍含铅，而铅对人体有剧毒。在一些城市，当机动车辆与自行车、行人争抢道路时，交通几乎陷入停顿。除了污染和交通拥堵，行车安全也是发展中国家的一个关键问题。",
-  "q": ""
+  "q": "",
+  "segs": [
+   {
+    "text": "One of the most common images of an advanced, western-style culture is that of a busy, traffic-filled city.",
+    "p": 0,
+    "t0": 1.17,
+    "t1": 9.86
+   },
+   {
+    "text": "Since their first appearance on American roadways, automobiles have become a symbol of progress, a source of thousands of jobs, and an almost inalienable right for citizens' personal freedom and movement.",
+    "p": 0,
+    "t0": 9.86,
+    "t1": 23.54
+   },
+   {
+    "text": "In recent decades, our love affair with the car is being exported directly to the developing world.",
+    "p": 0,
+    "t0": 23.54,
+    "t1": 30.46
+   },
+   {
+    "text": "And it is increasingly apparent that this transfer is leading to disaster.",
+    "p": 0,
+    "t0": 30.46,
+    "t1": 36.06
+   },
+   {
+    "text": "America's almost complete dependence on automobiles has been a terrible mistake.",
+    "p": 0,
+    "t0": 36.06,
+    "t1": 40.68
+   },
+   {
+    "text": "As late as the 1950s, a large percentage of the American public used mass transit.",
+    "p": 0,
+    "t0": 40.68,
+    "t1": 47.94
+   },
+   {
+    "text": "A combination of public policy decisions and corporate scheming saw to it that countless convenient and efficient urban streetcar and intracity rail systems were dismantled.",
+    "p": 0,
+    "t0": 47.94,
+    "t1": 59.94
+   },
+   {
+    "text": "Our air quality now suffers from the effects of pollutants emitted directly from our cars.",
+    "p": 0,
+    "t0": 59.94,
+    "t1": 65.74
+   },
+   {
+    "text": "Our lives have been planned along a road grid, homes far from work, shopping far from everything, with ugly stretches of concrete and blacktop in between.",
+    "p": 0,
+    "t0": 65.74,
+    "t1": 77.27
+   },
+   {
+    "text": "Developing countries are copying western-style transportation systems down to the last detail.",
+    "p": 0,
+    "t0": 77.27,
+    "t1": 83.82
+   },
+   {
+    "text": "The problems caused by motorized vehicles in the west are often magnified: in developing nations, pollution-control measures are either not strict or nonexistent, leading to choking clouds of smog; gasoline still contains lead, which is extremely poisonous to humans.",
+    "p": 0,
+    "t0": 83.82,
+    "t1": 103.19
+   },
+   {
+    "text": "Movement in some cities comes to a virtual standstill as motorized traffic competes with bicycles and pedestrians.",
+    "p": 0,
+    "t0": 103.19,
+    "t1": 112.42
+   },
+   {
+    "text": "In addition to pollution and traffic jams, auto safety is a critical issue in developing nations.",
+    "p": 0,
+    "t0": 112.42,
+    "t1": 119.42
+   }
+  ]
  },
  {
   "id": "c1-18",
@@ -159,7 +1753,117 @@
   "audio": "/listening/c1-18.m4a",
   "en": "Water scooters are water vehicles that look very much like motorcycles. Nowadays, speedy, colorful water scooters are gaining in popularity. They can travel anywhere a small boat can and are typically popular with young people. The rising popularity of the craft has raised the question of water scooter regulation. In this case, the argument for strict regulation is compelling. Water scooters are a particularly deadly form of water recreation. For example, two women were vacationing in Longboat Key. While they were floating on a rubber boat along the shore, a water scooter crashed into them and killed them. Also, water scooter operators have been killed and seriously injured in collisions with other watercraft. Others have been stranded at sea when their scooters either failed or sank far from shore. Many water scooter operators are inexperienced and ignorant of navigational rules, which increases the potential for accidents. The increasing popularity of the scooter has aggravated the problem. Providing more water vehicles to compete for the same space in crowded waterways is simply an open invitation to disaster. In addition to the inherent operational hazards of water scooters, they are proven to be an environmental nuisance. Beach residents complain of the noise of the scooters. The Pacific Whale Foundation on the west coast expressed the concern that the scooters are frightening away an endangered species of whale that migrates to Hawaii for breeding. Regulations such as minimum operating age, restricted operating areas and compulsory classes in water safety are essential. Without such regulations, tragedies involving water scooters are sure to multiply, which makes many beaches unsafe for recreation.",
   "zh": "水上摩托是一种外形很像摩托车的水上交通工具。如今，速度快、色彩鲜艳的水上摩托越来越受欢迎。它们能开往小船能到的任何地方，尤其受年轻人青睐。这种水上工具的日益流行，引发了是否要对水上摩托进行监管的问题。在这种情况下，严格监管的理由很有说服力。水上摩托是一种特别致命的戏水方式。例如，两名女子正在长船礁（Longboat Key）度假，当她们坐在橡皮艇上沿着岸边漂浮时，一辆水上摩托撞向她们，致其死亡。此外，也有水上摩托驾驶者与其他船只相撞而死亡或重伤；还有人因摩托故障或在远离海岸处沉没而被困海上。许多水上摩托驾驶者缺乏经验、不懂航行规则，这增加了事故发生的可能。水上摩托越来越流行，加剧了这一问题。在拥挤的水域里投入更多水上交通工具去争抢同一片空间，无异于自招灾祸。除了固有的操作风险，水上摩托还被证明是一种环境公害。海滩居民抱怨摩托的噪音。西海岸的太平洋鲸鱼基金会表示担忧：这些摩托正把一种迁徙到夏威夷繁殖的濒危鲸鱼吓跑。诸如最低驾驶年龄、限制活动区域、强制参加水上安全课程等管理规定是必要的。没有这些规定，涉及水上摩托的悲剧必然增多，使许多海滩不再适合休闲娱乐。",
-  "q": ""
+  "q": "",
+  "segs": [
+   {
+    "text": "Water scooters are water vehicles that look very much like motorcycles.",
+    "p": 0,
+    "t0": 3.91,
+    "t1": 9.42
+   },
+   {
+    "text": "Nowadays, speedy, colorful water scooters are gaining in popularity.",
+    "p": 0,
+    "t0": 9.42,
+    "t1": 14.6
+   },
+   {
+    "text": "They can travel anywhere a small boat can and are typically popular with young people.",
+    "p": 0,
+    "t0": 14.6,
+    "t1": 20.7
+   },
+   {
+    "text": "The rising popularity of the craft has raised the question of water scooter regulation.",
+    "p": 0,
+    "t0": 20.7,
+    "t1": 26.92
+   },
+   {
+    "text": "In this case, the argument for strict regulation is compelling.",
+    "p": 0,
+    "t0": 26.92,
+    "t1": 31.86
+   },
+   {
+    "text": "Water scooters are a particularly deadly form of water recreation.",
+    "p": 0,
+    "t0": 31.86,
+    "t1": 36.76
+   },
+   {
+    "text": "For example, two women were vacationing in Longboat Key.",
+    "p": 0,
+    "t0": 36.76,
+    "t1": 41.78
+   },
+   {
+    "text": "While they were floating on a rubber boat along the shore, a water scooter crashed into them and killed them.",
+    "p": 0,
+    "t0": 41.78,
+    "t1": 48.45
+   },
+   {
+    "text": "Also, water scooter operators have been killed and seriously injured in collisions with other watercraft.",
+    "p": 0,
+    "t0": 48.45,
+    "t1": 54.71
+   },
+   {
+    "text": "Others have been stranded at sea when their scooters either failed or sank far from shore.",
+    "p": 0,
+    "t0": 55.12,
+    "t1": 62.55
+   },
+   {
+    "text": "Many water scooter operators are inexperienced and ignorant of navigational rules, which increases the potential for accidents.",
+    "p": 0,
+    "t0": 62.55,
+    "t1": 71.84
+   },
+   {
+    "text": "The increasing popularity of the scooter has aggravated the problem.",
+    "p": 0,
+    "t0": 71.84,
+    "t1": 75.89
+   },
+   {
+    "text": "Providing more water vehicles to compete for the same space in crowded waterways is simply an open invitation to disaster.",
+    "p": 0,
+    "t0": 75.89,
+    "t1": 85.16
+   },
+   {
+    "text": "In addition to the inherent operational hazards of water scooters, they are proven to be an environmental nuisance.",
+    "p": 0,
+    "t0": 85.16,
+    "t1": 92.36
+   },
+   {
+    "text": "Beach residents complain of the noise of the scooters.",
+    "p": 0,
+    "t0": 92.36,
+    "t1": 95.72
+   },
+   {
+    "text": "The Pacific Whale Foundation on the west coast expressed the concern that the scooters are frightening away an endangered species of whale that migrates to Hawaii for breeding.",
+    "p": 0,
+    "t0": 95.72,
+    "t1": 107.55
+   },
+   {
+    "text": "Regulations such as minimum operating age, restricted operating areas and compulsory classes in water safety are essential.",
+    "p": 0,
+    "t0": 107.55,
+    "t1": 116.49
+   },
+   {
+    "text": "Without such regulations, tragedies involving water scooters are sure to multiply, which makes many beaches unsafe for recreation.",
+    "p": 0,
+    "t0": 116.49,
+    "t1": 125.34
+   }
+  ]
  },
  {
   "id": "c1-19",
@@ -168,7 +1872,87 @@
   "audio": "/listening/c1-19.m4a",
   "en": "In January 1989, the Community of European Railways presented their proposal for a high-speed pan-European train network extending from Sweden to Sicily, and from Portugal to Poland, by the year 2020. If their proposal becomes a reality, it will revolutionize train travel in Europe. Journeys between major cities will take half the time they take today. Brussels will be only one and a half hours from Paris. The quickest way to get from Paris to Frankfurt, from Barcelona to Madrid will be by train, not by plane. When the network is complete, it will integrate three types of railway line: totally new high-speed lines with trains operating at speeds of 300 kilometres per hour; upgraded lines which allow for speeds up to 200 to 225 kilometres per hour; and existing lines for local connections and distribution of freight. If business people can choose between a three-hour train journey from city centre to city centre and a one-hour flight, they'll choose the train, says an executive travel consultant. They won't go by plane any more. If you calculate flight time, check-in and travel to and from the airport, you'll find almost no difference. And if your plane arrives late due to bad weather or air traffic jams or strikes, then the train passengers will arrive at their destination first. Since France introduced the first 260-kilometre-per-hour high-speed train service between Paris and Lyons in 1981, the trains have achieved higher and higher speeds. On many routes, airlines have lost up to 90 per cent of their passengers to high-speed trains. If people accept the Community of European Railways' plan, the 21st century will be the new age of the train.",
   "zh": "1989 年 1 月，欧洲铁路共同体提出了他们的方案：到 2020 年建成一个高速泛欧铁路网，从瑞典延伸到西西里，从葡萄牙延伸到波兰。如果他们的方案成为现实，将彻底改变欧洲的火车旅行。主要城市之间的行程时间将缩短为现在的一半。布鲁塞尔到巴黎只需一个半小时。从巴黎到法兰克福、从巴塞罗那到马德里，最快的出行方式将是火车，而不是飞机。网络建成后，它将整合三种铁路线路：运行速度达每小时 300 公里的全新高速线；允许时速提高到 200 至 225 公里的升级线；以及用于本地连接和货运配送的既有线路。一位高管出行顾问说，如果商务人士可以在「市中心到市中心三小时的火车行程」和「一小时的飞行」之间选择，他们会选择火车。他们再也不坐飞机了。如果你把飞行时间、值机以及往返机场的路程都算上，就会发现几乎没什么差别。而且如果你的飞机因恶劣天气、空中交通拥堵或罢工而晚点，那么坐火车的乘客反而会先到达目的地。自从法国于 1981 年在巴黎和里昂之间推出首个时速 260 公里的高速列车服务以来，列车速度越来越高。在许多线路上，航空公司已将多达 90% 的乘客拱手让给了高速列车。如果人们接受欧洲铁路共同体的计划，21 世纪将成为火车的新时代。",
-  "q": ""
+  "q": "",
+  "segs": [
+   {
+    "text": "In January 1989, the Community of European Railways presented their proposal for a high-speed pan-European train network extending from Sweden to Sicily, and from Portugal to Poland, by the year 2020.",
+    "p": 0,
+    "t0": 2.5,
+    "t1": 22.13
+   },
+   {
+    "text": "If their proposal becomes a reality, it will revolutionize train travel in Europe.",
+    "p": 0,
+    "t0": 22.13,
+    "t1": 29.17
+   },
+   {
+    "text": "Journeys between major cities will take half the time they take today.",
+    "p": 0,
+    "t0": 29.17,
+    "t1": 34.52
+   },
+   {
+    "text": "Brussels will be only one and a half hours from Paris.",
+    "p": 0,
+    "t0": 34.52,
+    "t1": 39.17
+   },
+   {
+    "text": "The quickest way to get from Paris to Frankfurt, from Barcelona to Madrid will be by train, not by plane.",
+    "p": 0,
+    "t0": 39.17,
+    "t1": 48.43
+   },
+   {
+    "text": "When the network is complete, it will integrate three types of railway line: totally new high-speed lines with trains operating at speeds of 300 kilometres per hour; upgraded lines which allow for speeds up to 200 to 225 kilometres per hour; and existing lines for local connections and distribution of freight.",
+    "p": 0,
+    "t0": 48.43,
+    "t1": 77.04
+   },
+   {
+    "text": "If business people can choose between a three-hour train journey from city centre to city centre and a one-hour flight, they'll choose the train, says an executive travel consultant.",
+    "p": 0,
+    "t0": 77.04,
+    "t1": 90.14
+   },
+   {
+    "text": "They won't go by plane any more.",
+    "p": 0,
+    "t0": 90.14,
+    "t1": 93.12
+   },
+   {
+    "text": "If you calculate flight time, check-in and travel to and from the airport, you'll find almost no difference.",
+    "p": 0,
+    "t0": 93.12,
+    "t1": 102.34
+   },
+   {
+    "text": "And if your plane arrives late due to bad weather or air traffic jams or strikes, then the train passengers will arrive at their destination first.",
+    "p": 0,
+    "t0": 102.34,
+    "t1": 113.93
+   },
+   {
+    "text": "Since France introduced the first 260-kilometre-per-hour high-speed train service between Paris and Lyons in 1981, the trains have achieved higher and higher speeds.",
+    "p": 0,
+    "t0": 113.93,
+    "t1": 128.71
+   },
+   {
+    "text": "On many routes, airlines have lost up to 90 per cent of their passengers to high-speed trains.",
+    "p": 0,
+    "t0": 128.71,
+    "t1": 136.68
+   },
+   {
+    "text": "If people accept the Community of European Railways' plan, the 21st century will be the new age of the train.",
+    "p": 0,
+    "t0": 136.68,
+    "t1": 145.33
+   }
+  ]
  },
  {
   "id": "c1-20",
@@ -177,7 +1961,111 @@
   "audio": "/listening/c1-20.m4a",
   "en": "Farmers usually use plows to prepare their fields for planting crops. Plows cut into the ground and lift up weeds and other unwanted plants. However, plowing is blamed for causing severe damage to topsoil by removing the plants that protect the soil from being blown or washed away. Many farmers in South Asia are now trying a process called low-till farming. Low-till farming limits the use of plows. In this method of farming, seeds and fertilizer are put into the soil through small cuts made in the surface of the ground. Low-till agriculture leaves much or all of the soil and remains of plants on the ground. They serve as a natural fertilizer and help support the roots of future crops. They take in rain and allow it to flow into the soil instead of running off. It has been proved that low-till farming increases harvests and reduces water use, and this method reduces the need for chemical products because there are fewer unwanted plants. Scientists say low-till farming is becoming popular in South Asia, which is facing a severe water shortage. They say the area will become dependent on imported food unless water is saved through methods like low-till farming. Currently, more than 150 million people in South Asia depend on local rice and wheat crops. Farmers grow rice during wet weather. During the dry season, they grow wheat in the same fields. Farmers are using the low-till method to plant wheat after harvesting rice. Scientists say low-till agriculture is one of the best examples in the world of technologies working for both people and the environment.",
   "zh": "农民通常用犁来整地，为种植作物做准备。犁翻入地下，把杂草和其他不需要的植物翻出来。然而，翻耕也被指责会造成表土的严重破坏，因为它清除了那些保护土壤不被风吹走或被水冲走的植物。南亚的许多农民现在正在尝试一种叫做「少耕农业」的做法。少耕农业限制犁的使用。在这种耕作方式中，种子和肥料通过在地表划出的小口子放入土壤。少耕农业把大量或全部土壤以及植物残体留在地面上。它们充当天然肥料，并帮助支撑未来作物的根系。它们吸收雨水，让雨水渗入土壤而不是流失。事实证明，少耕农业能提高产量、减少用水，而且这种方法因为杂草更少，减少了对化学产品的需求。科学家说，少耕农业在面临严重缺水的南亚正变得越来越受欢迎。他们说，除非通过少耕农业等方法节约用水，否则该地区将依赖进口粮食。目前，南亚有超过 1.5 亿人依靠当地种植的水稻和小麦为生。农民在雨季种水稻。在旱季，他们在同一片田里种小麦。农民在水稻收割后用少耕法种小麦。科学家说，少耕农业是世界上「既造福人类又造福环境」的技术的最佳范例之一。",
-  "q": ""
+  "q": "",
+  "segs": [
+   {
+    "text": "Farmers usually use plows to prepare their fields for planting crops.",
+    "p": 0,
+    "t0": 2.37,
+    "t1": 7.8
+   },
+   {
+    "text": "Plows cut into the ground and lift up weeds and other unwanted plants.",
+    "p": 0,
+    "t0": 7.8,
+    "t1": 13.32
+   },
+   {
+    "text": "However, plowing is blamed for causing severe damage to topsoil by removing the plants that protect the soil from being blown or washed away.",
+    "p": 0,
+    "t0": 13.32,
+    "t1": 24.56
+   },
+   {
+    "text": "Many farmers in South Asia are now trying a process called low-till farming.",
+    "p": 0,
+    "t0": 24.56,
+    "t1": 30.27
+   },
+   {
+    "text": "Low-till farming limits the use of plows.",
+    "p": 0,
+    "t0": 30.27,
+    "t1": 33.53
+   },
+   {
+    "text": "In this method of farming, seeds and fertilizer are put into the soil through small cuts made in the surface of the ground.",
+    "p": 0,
+    "t0": 33.53,
+    "t1": 44.07
+   },
+   {
+    "text": "Low-till agriculture leaves much or all of the soil and remains of plants on the ground.",
+    "p": 0,
+    "t0": 44.07,
+    "t1": 50.77
+   },
+   {
+    "text": "They serve as a natural fertilizer and help support the roots of future crops.",
+    "p": 0,
+    "t0": 50.77,
+    "t1": 56.44
+   },
+   {
+    "text": "They take in rain and allow it to flow into the soil instead of running off.",
+    "p": 0,
+    "t0": 56.44,
+    "t1": 62.97
+   },
+   {
+    "text": "It has been proved that low-till farming increases harvests and reduces water use, and this method reduces the need for chemical products because there are fewer unwanted plants.",
+    "p": 0,
+    "t0": 62.97,
+    "t1": 78.06
+   },
+   {
+    "text": "Scientists say low-till farming is becoming popular in South Asia, which is facing a severe water shortage.",
+    "p": 0,
+    "t0": 78.06,
+    "t1": 86.14
+   },
+   {
+    "text": "They say the area will become dependent on imported food unless water is saved through methods like low-till farming.",
+    "p": 0,
+    "t0": 86.14,
+    "t1": 94.38
+   },
+   {
+    "text": "Currently, more than 150 million people in South Asia depend on local rice and wheat crops.",
+    "p": 0,
+    "t0": 94.38,
+    "t1": 102.84
+   },
+   {
+    "text": "Farmers grow rice during wet weather.",
+    "p": 0,
+    "t0": 102.84,
+    "t1": 105.54
+   },
+   {
+    "text": "During the dry season, they grow wheat in the same fields.",
+    "p": 0,
+    "t0": 105.54,
+    "t1": 109.96
+   },
+   {
+    "text": "Farmers are using the low-till method to plant wheat after harvesting rice.",
+    "p": 0,
+    "t0": 109.96,
+    "t1": 116.4
+   },
+   {
+    "text": "Scientists say low-till agriculture is one of the best examples in the world of technologies working for both people and the environment.",
+    "p": 0,
+    "t0": 116.4,
+    "t1": 125.75
+   }
+  ]
  },
  {
   "id": "c1-21",
@@ -186,7 +2074,93 @@
   "audio": "/listening/c1-21.m4a",
   "en": "Juan Ruiz, a junior geology major, decided to give an informative speech about how earthquakes occur. From his audience analysis, he learned that only two or three of his classmates knew much of anything about geology. Juan realized then that he must present his speech at an elementary level and with a minimum of scientific language. As he prepared the speech, Juan kept asking himself: How can I make this clear and meaningful to someone who knows nothing about earthquakes or geological principles? Since he was speaking in the Midwest, he decided to begin by noting that the most severe earthquake in American history took place not in California or Alaska, but at New Madrid, Missouri, in 1811. If such an earthquake happened today, it would be felt from the Rocky Mountains to the Atlantic Ocean and would flatten most of the cities in the Mississippi Valley. That, he figured, should get his classmates' attention. Throughout the body of the speech, Juan dealt only with the basic mechanics of earthquakes and carefully avoided technical terms. He also prepared visual aids, diagramming fault lines so his classmates wouldn't get confused. To be absolutely safe, Juan asked his roommate, who was not a geology major, to listen to the speech. \"Stop me,\" he said, \"any time I say something you don't understand.\" Juan's roommate stopped him four times. And at each spot, Juan worked out a way to make his point more clearly. Finally, he had a speech that was interesting and perfectly understandable to his audience.",
   "zh": "胡安·鲁伊斯是一名地质专业三年级学生，他决定做一场关于地震如何发生的知识性演讲。通过听众分析，他了解到班上只有两三个人对地质学略知一二。胡安意识到，他必须用初级水平、尽量少用科学术语来讲。准备演讲时，胡安不断问自己：对于完全不懂地震或地质原理的人，我怎样才能把这个讲得清楚而有意义？由于是在中西部演讲，他决定这样开场：美国历史上最严重的地震不是发生在加利福尼亚或阿拉斯加，而是 1811 年发生在密苏里州的新马德里。如果这样的地震发生在今天，从落基山脉到大西洋沿岸都能感觉到，密西西比河谷的大多数城市都会被夷为平地。他估计这应该能引起同学们的注意。在演讲正文中，胡安只讲地震的基本机理，小心避开专业术语。他还准备了视觉辅助材料，画出断层线，免得同学们弄混。为了万无一失，胡安请他的室友——一个非地质专业的人——来听这场演讲。「只要我说了你听不懂的，就打断我，」他说。室友打断了他四次。每处，胡安都想到办法把观点讲得更清楚。最终，他有了一场既有趣、又完全能被听众理解的演讲。",
-  "q": ""
+  "q": "",
+  "segs": [
+   {
+    "text": "Juan Ruiz, a junior geology major, decided to give an informative speech about how earthquakes occur.",
+    "p": 0,
+    "t0": 2.3,
+    "t1": 10.82
+   },
+   {
+    "text": "From his audience analysis, he learned that only two or three of his classmates knew much of anything about geology.",
+    "p": 0,
+    "t0": 10.82,
+    "t1": 18.26
+   },
+   {
+    "text": "Juan realized then that he must present his speech at an elementary level and with a minimum of scientific language.",
+    "p": 0,
+    "t0": 18.26,
+    "t1": 27.26
+   },
+   {
+    "text": "As he prepared the speech, Juan kept asking himself: How can I make this clear and meaningful to someone who knows nothing about earthquakes or geological principles?",
+    "p": 0,
+    "t0": 27.26,
+    "t1": 41.04
+   },
+   {
+    "text": "Since he was speaking in the Midwest, he decided to begin by noting that the most severe earthquake in American history took place not in California or Alaska, but at New Madrid, Missouri, in 1811.",
+    "p": 0,
+    "t0": 41.04,
+    "t1": 57.44
+   },
+   {
+    "text": "If such an earthquake happened today, it would be felt from the Rocky Mountains to the Atlantic Ocean and would flatten most of the cities in the Mississippi Valley.",
+    "p": 0,
+    "t0": 57.44,
+    "t1": 68.12
+   },
+   {
+    "text": "That, he figured, should get his classmates' attention.",
+    "p": 0,
+    "t0": 68.12,
+    "t1": 73.15
+   },
+   {
+    "text": "Throughout the body of the speech, Juan dealt only with the basic mechanics of earthquakes and carefully avoided technical terms.",
+    "p": 0,
+    "t0": 73.15,
+    "t1": 82.22
+   },
+   {
+    "text": "He also prepared visual aids, diagramming fault lines so his classmates wouldn't get confused.",
+    "p": 0,
+    "t0": 82.22,
+    "t1": 90.69
+   },
+   {
+    "text": "To be absolutely safe, Juan asked his roommate, who was not a geology major, to listen to the speech.",
+    "p": 0,
+    "t0": 90.69,
+    "t1": 99.69
+   },
+   {
+    "text": "\"Stop me,\" he said, \"any time I say something you don't understand.",
+    "p": 0,
+    "t0": 99.69,
+    "t1": 105.53
+   },
+   {
+    "text": "\" Juan's roommate stopped him four times.",
+    "p": 0,
+    "t0": 105.53,
+    "t1": 108.96
+   },
+   {
+    "text": "And at each spot, Juan worked out a way to make his point more clearly.",
+    "p": 0,
+    "t0": 108.96,
+    "t1": 114.34
+   },
+   {
+    "text": "Finally, he had a speech that was interesting and perfectly understandable to his audience.",
+    "p": 0,
+    "t0": 114.34,
+    "t1": 120.69
+   }
+  ]
  },
  {
   "id": "c1-22",
@@ -195,7 +2169,117 @@
   "audio": "/listening/c1-22.m4a",
   "en": "Wilma Subra had no intention of becoming a public speaker. After graduating from college with degrees in chemistry and microbiology, she went to work at Gulf South Research Institute in Louisiana. As part of her job, she conducted field research on toxic substances in the environment, often in minority communities located near large industrial polluters. She found many families were being exposed to high, sometimes deadly levels of chemicals and other toxic substances. But she was not allowed to make her information public. Frustrated by these restrictions, Subra left her job in 1981, created her own company, and has devoted the past two decades to helping people fight back against giant industrial polluters. She works with families and community groups to conduct environmental tests, interpret test results, and organize for change. Because of her efforts, dozens of toxic sites across the country have been cleaned up. And one chemical industry spokesperson calls her \"a Top Gun for the environmental movement.\" How has Subra achieved all this? Partly through her scientific training. Partly through her commitment to environmental justice. But just as important is her ability to communicate with people through public speaking. \"Public speaking,\" she says, \"is the primary vehicle I use for reaching people.\" If you had asked Subra before 1981, \"Do you see yourself as a major public speaker?\" she would have laughed at the idea. Yet today she gives more than 100 presentations a year. Along the way, she's lectured at Harvard, testified before Congress, and addressed audiences in 40 states as well as in Mexico, Canada and Japan.",
   "zh": "威尔玛·苏布拉从没想过要成为公共演说家。大学毕业后，她拿到了化学和微生物学学位，随后进入路易斯安那州的墨西哥湾南部研究所工作。作为工作的一部分，她对环境中的有毒物质进行实地研究，地点常常是靠近大型工业污染源的少数族裔社区。她发现许多家庭正暴露在高浓度、有时甚至致命的化学品和其他有毒物质中。但她的上司不允许她把这些信息公开。由于这些限制令她沮丧，苏布拉于 1981 年辞职，创办了自己的公司，并在过去二十年里致力于帮助人们反击大型工业污染者。她与家庭和社区团体合作，开展环境检测、解读检测结果，并组织起来推动改变。由于她的努力，全国数十个有毒场地得到了清理。一位化工行业发言人称她是「环保运动的顶尖高手」。苏布拉是如何做到这一切的？部分靠她的科学训练，部分靠她对环境正义的执着。但同样重要的是，她通过公共演讲与人沟通的能力。「公共演讲，」她说，「是我用来接触人们的首要工具。」如果在 1981 年以前问苏布拉「你觉得自己会成为重要的公共演说家吗？」她会觉得这个想法很好笑。然而今天，她每年发表一百多场演讲。一路走来，她在哈佛大学讲过课、在国会作过证，并在美国 40 个州以及墨西哥、加拿大和日本向听众演讲。",
-  "q": ""
+  "q": "",
+  "segs": [
+   {
+    "text": "Wilma Subra had no intention of becoming a public speaker.",
+    "p": 0,
+    "t0": 2.98,
+    "t1": 8.33
+   },
+   {
+    "text": "After graduating from college with degrees in chemistry and microbiology, she went to work at Gulf South Research Institute in Louisiana.",
+    "p": 0,
+    "t0": 8.33,
+    "t1": 18.76
+   },
+   {
+    "text": "As part of her job, she conducted field research on toxic substances in the environment, often in minority communities located near large industrial polluters.",
+    "p": 0,
+    "t0": 18.76,
+    "t1": 31.57
+   },
+   {
+    "text": "She found many families were being exposed to high, sometimes deadly levels of chemicals and other toxic substances.",
+    "p": 0,
+    "t0": 31.57,
+    "t1": 40.08
+   },
+   {
+    "text": "But she was not allowed to make her information public.",
+    "p": 0,
+    "t0": 40.08,
+    "t1": 44.28
+   },
+   {
+    "text": "Frustrated by these restrictions, Subra left her job in 1981, created her own company, and has devoted the past two decades to helping people fight back against giant industrial polluters.",
+    "p": 0,
+    "t0": 44.28,
+    "t1": 57.35
+   },
+   {
+    "text": "She works with families and community groups to conduct environmental tests, interpret test results, and organize for change.",
+    "p": 0,
+    "t0": 57.35,
+    "t1": 66.7
+   },
+   {
+    "text": "Because of her efforts, dozens of toxic sites across the country have been cleaned up.",
+    "p": 0,
+    "t0": 66.7,
+    "t1": 72.4
+   },
+   {
+    "text": "And one chemical industry spokesperson calls her \"a Top Gun for the environmental movement.",
+    "p": 0,
+    "t0": 72.4,
+    "t1": 79.24
+   },
+   {
+    "text": "\" How has Subra achieved all this?",
+    "p": 0,
+    "t0": 79.24,
+    "t1": 82.09
+   },
+   {
+    "text": "Partly through her scientific training.",
+    "p": 0,
+    "t0": 82.09,
+    "t1": 84.76
+   },
+   {
+    "text": "Partly through her commitment to environmental justice.",
+    "p": 0,
+    "t0": 84.76,
+    "t1": 88.79
+   },
+   {
+    "text": "But just as important is her ability to communicate with people through public speaking.",
+    "p": 0,
+    "t0": 88.79,
+    "t1": 94.76
+   },
+   {
+    "text": "\"Public speaking,\" she says, \"is the primary vehicle I use for reaching people.",
+    "p": 0,
+    "t0": 94.76,
+    "t1": 101.11
+   },
+   {
+    "text": "\" If you had asked Subra before 1981, \"Do you see yourself as a major public speaker?",
+    "p": 0,
+    "t0": 101.11,
+    "t1": 107.43
+   },
+   {
+    "text": "\" she would have laughed at the idea.",
+    "p": 0,
+    "t0": 107.43,
+    "t1": 110.58
+   },
+   {
+    "text": "Yet today she gives more than 100 presentations a year.",
+    "p": 0,
+    "t0": 110.58,
+    "t1": 115.44
+   },
+   {
+    "text": "Along the way, she's lectured at Harvard, testified before Congress, and addressed audiences in 40 states as well as in Mexico, Canada and Japan.",
+    "p": 0,
+    "t0": 115.44,
+    "t1": 126.09
+   }
+  ]
  },
  {
   "id": "c1-23",
@@ -204,7 +2288,111 @@
   "audio": "/listening/c1-23.m4a",
   "en": "25 years ago, Ray Anderson, a single parent with a one-year-old son, witnessed a terrible accident. It took place when the driver of a truck ran a red light and collided with the car of Sandra Jenkins. The impact of the collision killed Sandra instantly, but her three-month-old daughter was left trapped in the burning car. While others looked on in horror, Anderson jumped out of his vehicle and crawled into the car through the shattered rear window to try to free the infant. Seconds later, the car was engulfed in flames, but to everyone's amazement, Anderson was able to pull the baby to safety. While the baby was all right, Anderson was seriously injured. Two days later, he died. But his heroic act was published widely in the media. His son was soon adopted by relatives. The most remarkable part of the story unfolded only last week. Karen and her boyfriend Michael were looking through some old boxes when they came across some old newspaper clippings. \"This is me when I was a newborn baby. I was rescued from a burning car, but my mother died in the accident,\" explained Karen. Although Michael knew Karen's mother had died years earlier, he never fully understood the circumstances until he skimmed over the newspaper article. To Karen's surprise, Michael was absorbed in the details of the accident and he began to cry uncontrollably. Then he revealed that the man who pulled Karen from the flames was the father he never knew. The two embraced and shed many tears, recounting stories told to them about their parents.",
   "zh": "25 年前，雷·安德森——一位带着一岁儿子的单亲父亲——目睹了一场可怕的车祸。当时一辆卡车的司机闯红灯，撞上了桑德拉·詹金斯的汽车。撞击当场夺去了桑德拉的生命，但她三个月大的女儿被困在燃烧的车里。当旁人惊恐地看着时，安德森跳下车，从破碎的后车窗爬进车里，试图救出婴儿。几秒钟后，汽车被火焰吞没，但令所有人惊叹的是，安德森把婴儿拉到了安全的地方。婴儿安然无恙，安德森却身受重伤。两天后，他去世了。但他的英勇事迹被媒体广泛报道。他的儿子很快被亲戚收养。这个故事最令人难忘的部分直到上周才揭开。凯伦和她的男友迈克尔在翻看一些旧箱子时，发现了一些旧报纸剪报。「这是我刚出生时的样子。我从一辆着火的车里被救了出来，但我母亲在那场事故中去世了，」凯伦解释道。虽然迈克尔早就知道凯伦的母亲多年前去世，但直到他浏览那篇报纸文章，才完全明白当时的情形。令凯伦惊讶的是，迈克尔专心读着事故的细节，随后竟失声痛哭起来。接着他吐露：那个把凯伦从火焰中拉出来的人，正是他从未见过的父亲。两人相拥而泣，讲述着别人告诉他们的关于各自父母的故事。",
-  "q": ""
+  "q": "",
+  "segs": [
+   {
+    "text": "25 years ago, Ray Anderson, a single parent with a one-year-old son, witnessed a terrible accident.",
+    "p": 0,
+    "t0": 3.31,
+    "t1": 10.43
+   },
+   {
+    "text": "It took place when the driver of a truck ran a red light and collided with the car of Sandra Jenkins.",
+    "p": 0,
+    "t0": 10.43,
+    "t1": 19.38
+   },
+   {
+    "text": "The impact of the collision killed Sandra instantly, but her three-month-old daughter was left trapped in the burning car.",
+    "p": 0,
+    "t0": 19.38,
+    "t1": 28.0
+   },
+   {
+    "text": "While others looked on in horror, Anderson jumped out of his vehicle and crawled into the car through the shattered rear window to try to free the infant.",
+    "p": 0,
+    "t0": 28.0,
+    "t1": 38.43
+   },
+   {
+    "text": "Seconds later, the car was engulfed in flames, but to everyone's amazement, Anderson was able to pull the baby to safety.",
+    "p": 0,
+    "t0": 38.43,
+    "t1": 48.16
+   },
+   {
+    "text": "While the baby was all right, Anderson was seriously injured.",
+    "p": 0,
+    "t0": 48.16,
+    "t1": 52.39
+   },
+   {
+    "text": "Two days later, he died.",
+    "p": 0,
+    "t0": 52.39,
+    "t1": 55.48
+   },
+   {
+    "text": "But his heroic act was published widely in the media.",
+    "p": 0,
+    "t0": 55.48,
+    "t1": 59.96
+   },
+   {
+    "text": "His son was soon adopted by relatives.",
+    "p": 0,
+    "t0": 59.96,
+    "t1": 63.2
+   },
+   {
+    "text": "The most remarkable part of the story unfolded only last week.",
+    "p": 0,
+    "t0": 63.2,
+    "t1": 68.34
+   },
+   {
+    "text": "Karen and her boyfriend Michael were looking through some old boxes when they came across some old newspaper clippings.",
+    "p": 0,
+    "t0": 68.34,
+    "t1": 77.26
+   },
+   {
+    "text": "\"This is me when I was a newborn baby.",
+    "p": 0,
+    "t0": 77.26,
+    "t1": 79.76
+   },
+   {
+    "text": "I was rescued from a burning car, but my mother died in the accident,\" explained Karen.",
+    "p": 0,
+    "t0": 79.76,
+    "t1": 87.41
+   },
+   {
+    "text": "Although Michael knew Karen's mother had died years earlier, he never fully understood the circumstances until he skimmed over the newspaper article.",
+    "p": 0,
+    "t0": 87.41,
+    "t1": 97.96
+   },
+   {
+    "text": "To Karen's surprise, Michael was absorbed in the details of the accident and he began to cry uncontrollably.",
+    "p": 0,
+    "t0": 97.96,
+    "t1": 106.58
+   },
+   {
+    "text": "Then he revealed that the man who pulled Karen from the flames was the father he never knew.",
+    "p": 0,
+    "t0": 106.58,
+    "t1": 113.68
+   },
+   {
+    "text": "The two embraced and shed many tears, recounting stories told to them about their parents.",
+    "p": 0,
+    "t0": 113.68,
+    "t1": 119.63
+   }
+  ]
  },
  {
   "id": "c1-24",
@@ -213,7 +2401,135 @@
   "audio": "/listening/c1-24.m4a",
   "en": "Edgar Poe, an American writer, was born in 1809. His parents were actors. Edgar was a baby when his father left the family. He was two years old when his mother died. He was taken into the home of a wealthy businessman named John Allan. He then received his new name, Edgar Allan Poe. As a young man, Poe attended the University of Virginia. He was a good student, but he liked to drink alcohol and play card games for money. As an unskilled game player, he often lost money. Since he couldn't pay his gambling losses, he left the university and began working for magazines. He worked hard, yet he was not well paid or well known. At the age of 27, he got married. For a time it seemed that Poe would find happiness, but his wife was sick for most of their marriage and died in 1847. Through all his crises, Poe produced many stories and poems which appeared in different publications. Yet he didn't become famous until 1845, when his poem \"The Raven\" was published. There is a question, however, about Poe's importance in American literature. Some critics say Poe was one of America's best writers and even had a great influence on many French writers. But others disagree. They say Poe's work is difficult to understand and most of his writing describes very unpleasant situations and events. Edgar Allan Poe died in 1849 when he was 40 years old. It is said that he was found dead after days of heavy drinking.",
   "zh": "美国作家埃德加·坡 1809 年出生，父母都是演员。父亲离家时，埃德加还是个婴儿。母亲去世时，他才两岁。他被一个名叫约翰·爱伦的富商收养，随后得到了新名字——埃德加·爱伦·坡。年轻时，坡就读于弗吉尼亚大学。他是个好学生，但喜欢喝酒，还爱打牌赌钱。由于牌技不高，他常常输钱。因为还不起赌债，他离开了大学，开始为杂志工作。他工作努力，却薪水不高、也没什么名气。27 岁那年他结了婚。有一段时间，坡似乎会获得幸福，但妻子在婚后大部分时间里都生病，并于 1847 年去世。在种种危机之中，坡创作了许多小说和诗歌，发表在各类刊物上。但直到 1845 年他的诗《乌鸦》发表，他才成名。不过，关于坡在美国文学中的地位仍有争议。一些评论家说，坡是美国最优秀的作家之一，甚至对许多法国作家产生了巨大影响。但另一些人不同意，他们说坡的作品晦涩难懂，而且他的大部分作品描写的都是非常令人不快的情境和事件。埃德加·爱伦·坡于 1849 年去世，年仅 40 岁。据说他是在连续数日酗酒之后被发现死去的。",
-  "q": ""
+  "q": "",
+  "segs": [
+   {
+    "text": "Edgar Poe, an American writer, was born in 1809.",
+    "p": 0,
+    "t0": 1.51,
+    "t1": 5.81
+   },
+   {
+    "text": "His parents were actors.",
+    "p": 0,
+    "t0": 5.81,
+    "t1": 7.73
+   },
+   {
+    "text": "Edgar was a baby when his father left the family.",
+    "p": 0,
+    "t0": 7.73,
+    "t1": 12.66
+   },
+   {
+    "text": "He was two years old when his mother died.",
+    "p": 0,
+    "t0": 12.66,
+    "t1": 15.66
+   },
+   {
+    "text": "He was taken into the home of a wealthy businessman named John Allan.",
+    "p": 0,
+    "t0": 15.66,
+    "t1": 21.15
+   },
+   {
+    "text": "He then received his new name, Edgar Allan Poe.",
+    "p": 0,
+    "t0": 21.15,
+    "t1": 24.68
+   },
+   {
+    "text": "As a young man, Poe attended the University of Virginia.",
+    "p": 0,
+    "t0": 24.68,
+    "t1": 28.61
+   },
+   {
+    "text": "He was a good student, but he liked to drink alcohol and play card games for money.",
+    "p": 0,
+    "t0": 28.61,
+    "t1": 35.28
+   },
+   {
+    "text": "As an unskilled game player, he often lost money.",
+    "p": 0,
+    "t0": 35.28,
+    "t1": 39.48
+   },
+   {
+    "text": "Since he couldn't pay his gambling losses, he left the university and began working for magazines.",
+    "p": 0,
+    "t0": 39.48,
+    "t1": 45.31
+   },
+   {
+    "text": "He worked hard, yet he was not well paid or well known.",
+    "p": 0,
+    "t0": 45.31,
+    "t1": 49.78
+   },
+   {
+    "text": "At the age of 27, he got married.",
+    "p": 0,
+    "t0": 49.78,
+    "t1": 53.03
+   },
+   {
+    "text": "For a time it seemed that Poe would find happiness, but his wife was sick for most of their marriage and died in 1847.",
+    "p": 0,
+    "t0": 53.03,
+    "t1": 63.66
+   },
+   {
+    "text": "Through all his crises, Poe produced many stories and poems which appeared in different publications.",
+    "p": 0,
+    "t0": 63.66,
+    "t1": 70.3
+   },
+   {
+    "text": "Yet he didn't become famous until 1845, when his poem \"The Raven\" was published.",
+    "p": 0,
+    "t0": 70.3,
+    "t1": 77.35
+   },
+   {
+    "text": "There is a question, however, about Poe's importance in American literature.",
+    "p": 0,
+    "t0": 77.35,
+    "t1": 82.15
+   },
+   {
+    "text": "Some critics say Poe was one of America's best writers and even had a great influence on many French writers.",
+    "p": 0,
+    "t0": 82.15,
+    "t1": 91.09
+   },
+   {
+    "text": "But others disagree.",
+    "p": 0,
+    "t0": 91.09,
+    "t1": 92.43
+   },
+   {
+    "text": "They say Poe's work is difficult to understand and most of his writing describes very unpleasant situations and events.",
+    "p": 0,
+    "t0": 92.43,
+    "t1": 101.66
+   },
+   {
+    "text": "Edgar Allan Poe died in 1849 when he was 40 years old.",
+    "p": 0,
+    "t0": 101.66,
+    "t1": 107.31
+   },
+   {
+    "text": "It is said that he was found dead after days of heavy drinking.",
+    "p": 0,
+    "t0": 107.31,
+    "t1": 112.31
+   }
+  ]
  },
  {
   "id": "c1-25",
@@ -222,7 +2538,81 @@
   "audio": "/listening/c1-25.m4a",
   "en": "One of the biggest challenges facing employers and educators today is the rapid advance of globalization. The marketplace is no longer national or regional, but extends to all corners of the world, and this requires a globally ready workforce. Universities have a large part to play in preparing students for the 21st-century labor market by promoting international educational experiences. The most obvious way universities can help develop a global workforce is by encouraging students to study abroad as part of their course. Students who have experienced another culture firsthand are more likely to be globally ready when they graduate. Global workforce development doesn't always have to involve travel abroad, however. If students learn another language and study other cultures, they will be more globally ready when they graduate. It is important to point out that students also need to have a deep understanding of their own culture before they can begin to observe, analyze, and evaluate other cultures. In multicultural societies, people can study each other's cultures to develop intercultural competencies such as critical and reflective thinking and intellectual flexibility. This can be done both through the curriculum and through activities on campus outside of the classroom, such as art exhibitions and lectures from international experts. Many universities are already embracing this challenge and providing opportunities for students to become global citizens. Students themselves, however, may not realize that when they graduate, they will be competing in a global labor market, and universities need to raise awareness of these issues among undergraduates.",
   "zh": "当今雇主和教育者面临的最大挑战之一，是全球化的迅猛推进。市场不再是全国性或区域性的，而是延伸到世界的每个角落，这就需要一支具备全球视野的劳动力。大学通过推动国际化的教育体验，在为学生进入 21 世纪劳动力市场做准备方面可以发挥很大作用。大学帮助培养全球劳动力最明显的方式，就是鼓励学生把出国留学作为课程的一部分。亲身体验过另一种文化的学生，毕业时更有可能具备全球视野。不过，培养全球劳动力并不一定都要出国。如果学生学习另一门语言、研究其他文化，他们毕业时也会更具全球视野。需要指出的是，学生在开始观察、分析和评价其他文化之前，也需要对本民族文化有深刻的理解。在多元文化社会中，人们可以研究彼此的文化，以培养跨文化能力，比如批判性与反思性思维以及思维灵活性。这既可以通过课程来实现，也可以通过课堂之外的校园活动来实现，比如艺术展览和国际专家的讲座。许多大学已经接受了这一挑战，为学生成为全球公民提供机会。然而，学生自己可能并未意识到，毕业后他们将在一个全球劳动力市场中竞争，因此大学需要提高本科生对这些问题的认识。",
-  "q": ""
+  "q": "",
+  "segs": [
+   {
+    "text": "One of the biggest challenges facing employers and educators today is the rapid advance of globalization.",
+    "p": 0,
+    "t0": 2.61,
+    "t1": 10.72
+   },
+   {
+    "text": "The marketplace is no longer national or regional, but extends to all corners of the world, and this requires a globally ready workforce.",
+    "p": 0,
+    "t0": 10.72,
+    "t1": 20.57
+   },
+   {
+    "text": "Universities have a large part to play in preparing students for the 21st-century labor market by promoting international educational experiences.",
+    "p": 0,
+    "t0": 20.57,
+    "t1": 30.5
+   },
+   {
+    "text": "The most obvious way universities can help develop a global workforce is by encouraging students to study abroad as part of their course.",
+    "p": 0,
+    "t0": 30.5,
+    "t1": 40.04
+   },
+   {
+    "text": "Students who have experienced another culture firsthand are more likely to be globally ready when they graduate.",
+    "p": 0,
+    "t0": 40.04,
+    "t1": 48.47
+   },
+   {
+    "text": "Global workforce development doesn't always have to involve travel abroad, however.",
+    "p": 0,
+    "t0": 48.47,
+    "t1": 54.0
+   },
+   {
+    "text": "If students learn another language and study other cultures, they will be more globally ready when they graduate.",
+    "p": 0,
+    "t0": 54.0,
+    "t1": 61.45
+   },
+   {
+    "text": "It is important to point out that students also need to have a deep understanding of their own culture before they can begin to observe, analyze, and evaluate other cultures.",
+    "p": 0,
+    "t0": 61.45,
+    "t1": 73.74
+   },
+   {
+    "text": "In multicultural societies, people can study each other's cultures to develop intercultural competencies such as critical and reflective thinking and intellectual flexibility.",
+    "p": 0,
+    "t0": 73.74,
+    "t1": 85.93
+   },
+   {
+    "text": "This can be done both through the curriculum and through activities on campus outside of the classroom, such as art exhibitions and lectures from international experts.",
+    "p": 0,
+    "t0": 85.93,
+    "t1": 97.28
+   },
+   {
+    "text": "Many universities are already embracing this challenge and providing opportunities for students to become global citizens.",
+    "p": 0,
+    "t0": 97.28,
+    "t1": 106.0
+   },
+   {
+    "text": "Students themselves, however, may not realize that when they graduate, they will be competing in a global labor market, and universities need to raise awareness of these issues among undergraduates.",
+    "p": 0,
+    "t0": 106.0,
+    "t1": 118.33
+   }
+  ]
  },
  {
   "id": "c1-26",
@@ -231,7 +2621,99 @@
   "audio": "/listening/c1-26.m4a",
   "en": "To see if hair color affects a person's chances of getting a job, researchers at California State University asked 136 college students to review the résumé and photograph of a female applicant for a job as an accountant. Each student was given the same résumé, but the applicant's picture was altered so that in some photos her hair was golden, in some red, and in some brown. The result? With brown hair, the woman was rated more capable, and she was offered a higher salary than when she had golden or red hair. Other studies have found similar results. Many respondents rate women with golden hair as less intelligent than other people, and redheads as more temperamental. Women with red or golden hair are victims of the common practice of stereotyping. A stereotype is a simplistic or exaggerated image that humans carry in their minds about groups of people. For example, \"Lawyers are shrewd and dishonest\" is a popular stereotype. Stereotyping can occur in public speaking classes. When trying to choose a speech topic, some males think that women are uninterested in how to repair cars, while some females think that men are uninterested in creative hobbies such as knitting and needlepoint. We should reject stereotypes because they force all people in a group into the same simple pattern. They fail to account for individual differences and the wide range of characteristics among members of any group. Some lawyers are dishonest, yes, but many are not. Some women are uninterested in repairing cars, yes, but some are enthusiastic mechanics.",
   "zh": "为了弄清头发颜色是否会影响一个人求职的机会，加州州立大学的研究人员请 136 名大学生审阅一位女性会计职位申请者的简历和照片。每个学生拿到的简历都相同，但申请者的照片被做了修改：有的照片里她的头发是金色的，有的是红色，有的是棕色。结果如何？当她是棕色头发时，人们认为她更能干，给她的薪水也比金发或红发时更高。其他研究也发现了相似的结果。许多受访者认为金发女性不如其他人聪明，认为红发女性脾气更大。红发或金发女性成了普遍存在的「刻板印象」的受害者。刻板印象是人们头脑中针对某类群体所持有的简单化或夸张的形象。例如，「律师精明而不诚实」就是一种常见的刻板印象。刻板印象也会出现在演讲课上。在选择演讲话题时，一些男生认为女性对如何修车不感兴趣，而一些女生认为男性对编织、刺绣这类有创造性的爱好不感兴趣。我们应当摒弃刻板印象，因为它把一个群体里的所有人都塞进同一个简单的模子里，忽视了人与人之间的个体差异，也忽视了一个群体成员身上多种多样的特点。有些律师确实不诚实，是的，但很多并非如此；有些女性确实对修车不感兴趣，是的，但有些女性是热情高涨的修车能手。",
-  "q": ""
+  "q": "",
+  "segs": [
+   {
+    "text": "To see if hair color affects a person's chances of getting a job, researchers at California State University asked 136 college students to review the résumé and photograph of a female applicant for a job as an accountant.",
+    "p": 0,
+    "t0": 2.8,
+    "t1": 20.86
+   },
+   {
+    "text": "Each student was given the same résumé, but the applicant's picture was altered so that in some photos her hair was golden, in some red, and in some brown.",
+    "p": 0,
+    "t0": 20.86,
+    "t1": 33.0
+   },
+   {
+    "text": "The result?",
+    "p": 0,
+    "t0": 33.0,
+    "t1": 34.53
+   },
+   {
+    "text": "With brown hair, the woman was rated more capable, and she was offered a higher salary than when she had golden or red hair.",
+    "p": 0,
+    "t0": 34.53,
+    "t1": 43.58
+   },
+   {
+    "text": "Other studies have found similar results.",
+    "p": 0,
+    "t0": 43.58,
+    "t1": 46.55
+   },
+   {
+    "text": "Many respondents rate women with golden hair as less intelligent than other people, and redheads as more temperamental.",
+    "p": 0,
+    "t0": 46.55,
+    "t1": 54.77
+   },
+   {
+    "text": "Women with red or golden hair are victims of the common practice of stereotyping.",
+    "p": 0,
+    "t0": 54.77,
+    "t1": 60.63
+   },
+   {
+    "text": "A stereotype is a simplistic or exaggerated image that humans carry in their minds about groups of people.",
+    "p": 0,
+    "t0": 60.63,
+    "t1": 68.49
+   },
+   {
+    "text": "For example, \"Lawyers are shrewd and dishonest\" is a popular stereotype.",
+    "p": 0,
+    "t0": 68.49,
+    "t1": 74.79
+   },
+   {
+    "text": "Stereotyping can occur in public speaking classes.",
+    "p": 0,
+    "t0": 74.79,
+    "t1": 78.69
+   },
+   {
+    "text": "When trying to choose a speech topic, some males think that women are uninterested in how to repair cars, while some females think that men are uninterested in creative hobbies such as knitting and needlepoint.",
+    "p": 0,
+    "t0": 78.69,
+    "t1": 92.89
+   },
+   {
+    "text": "We should reject stereotypes because they force all people in a group into the same simple pattern.",
+    "p": 0,
+    "t0": 92.89,
+    "t1": 100.14
+   },
+   {
+    "text": "They fail to account for individual differences and the wide range of characteristics among members of any group.",
+    "p": 0,
+    "t0": 100.14,
+    "t1": 107.58
+   },
+   {
+    "text": "Some lawyers are dishonest, yes, but many are not.",
+    "p": 0,
+    "t0": 107.58,
+    "t1": 111.7
+   },
+   {
+    "text": "Some women are uninterested in repairing cars, yes, but some are enthusiastic mechanics.",
+    "p": 0,
+    "t0": 111.7,
+    "t1": 117.67
+   }
+  ]
  },
  {
   "id": "c1-27",
@@ -240,7 +2722,117 @@
   "audio": "/listening/c1-27.m4a",
   "en": "Americans suffer from an overdose of work. Regardless of who they are or what they do, Americans spend more time at work than at any time since World War II. In 1950, the U.S. had fewer working hours than any other industrialized country. Today, it exceeds every country but Japan, where industrial employees log 2,155 hours a year, compared with 1,951 in the U.S. and 1,603 in the former West Germany. Between 1969 and 1989, employed Americans added an average of 138 hours to their yearly work schedules. The workweek has remained at above 40 hours, but people are working more weeks each year. Specifically, paid time off—holidays, vacations, sick leave—shrank by 50% in the 1980s, as corporations have experienced stiff competition and slower growth in productivity. They have pressed employees to work longer. Cost-cutting layoffs in the 1980s reduced the professional and managerial ranks, leaving fewer people to get the job done. In lower-paid occupations, where wages have been reduced, workers have added hours in overtime or extra jobs to preserve their living standard. The government estimates that more than 7 million people hold a second job. For the first time, large numbers of people say they want to cut back on working hours, even if it means earning less money. But most employers are unwilling to let them do so. The government, which has stepped back from its traditional role as a regulator of work time, should take steps to make shorter hours possible.",
   "zh": "美国人饱受过度工作之苦。无论他们是谁、做什么工作，美国人花在工作上的时间比二战以来任何时候都多。1950 年，美国的工作时数比任何其他工业化国家都少。如今，它超过了除日本以外的所有国家——日本产业雇员每年工作 2155 小时，相比之下美国为 1951 小时，前西德为 1603 小时。1969 年至 1989 年间，在职美国人平均每年给自己的工作时间增加了 138 小时。每周工作时长仍保持在 40 小时以上，但人们每年工作的周数更多了。具体来说，带薪假期——节假日、休假、病假——在 20 世纪 80 年代缩减了 50%，因为企业遭遇了激烈的竞争和生产率的增长放缓。它们逼迫员工工作更长时间。80 年代为削减成本而进行的裁员减少了专业和管理岗位，使完成工作的人更少。在工资被削减的低薪职业中，工人们通过加班或兼职来增加工时，以维持生活水平。政府估计有 700 多万人拥有第二份工作。数量众多的人表示，他们想减少工作时间，哪怕这意味着挣得更少。但大多数雇主不愿让他们这样做。政府已从传统上「工作时间监管者」的角色中退出，它应当采取措施，使缩短工时成为可能。",
-  "q": ""
+  "q": "",
+  "segs": [
+   {
+    "text": "Americans suffer from an overdose of work.",
+    "p": 0,
+    "t0": 3.43,
+    "t1": 5.98
+   },
+   {
+    "text": "Regardless of who they are or what they do, Americans spend more time at work than at any time since World War II.",
+    "p": 0,
+    "t0": 5.98,
+    "t1": 14.98
+   },
+   {
+    "text": "In 1950, the U.",
+    "p": 0,
+    "t0": 14.98,
+    "t1": 16.82
+   },
+   {
+    "text": "S.",
+    "p": 0,
+    "t0": 16.36,
+    "t1": 16.82
+   },
+   {
+    "text": "had fewer working hours than any other industrialized country.",
+    "p": 0,
+    "t0": 16.82,
+    "t1": 21.64
+   },
+   {
+    "text": "Today, it exceeds every country but Japan, where industrial employees log 2,155 hours a year, compared with 1,951 in the U.",
+    "p": 0,
+    "t0": 21.64,
+    "t1": 33.45
+   },
+   {
+    "text": "S.",
+    "p": 0,
+    "t0": 32.86,
+    "t1": 33.45
+   },
+   {
+    "text": "and 1,603 in the former West Germany.",
+    "p": 0,
+    "t0": 33.45,
+    "t1": 38.28
+   },
+   {
+    "text": "Between 1969 and 1989, employed Americans added an average of 138 hours to their yearly work schedules.",
+    "p": 0,
+    "t0": 38.28,
+    "t1": 48.5
+   },
+   {
+    "text": "The workweek has remained at above 40 hours, but people are working more weeks each year.",
+    "p": 0,
+    "t0": 48.5,
+    "t1": 55.16
+   },
+   {
+    "text": "Specifically, paid time off—holidays, vacations, sick leave—shrank by 50% in the 1980s, as corporations have experienced stiff competition and slower growth in productivity.",
+    "p": 0,
+    "t0": 55.16,
+    "t1": 68.18
+   },
+   {
+    "text": "They have pressed employees to work longer.",
+    "p": 0,
+    "t0": 68.18,
+    "t1": 70.28
+   },
+   {
+    "text": "Cost-cutting layoffs in the 1980s reduced the professional and managerial ranks, leaving fewer people to get the job done.",
+    "p": 0,
+    "t0": 70.28,
+    "t1": 79.9
+   },
+   {
+    "text": "In lower-paid occupations, where wages have been reduced, workers have added hours in overtime or extra jobs to preserve their living standard.",
+    "p": 0,
+    "t0": 79.9,
+    "t1": 89.4
+   },
+   {
+    "text": "The government estimates that more than 7 million people hold a second job.",
+    "p": 0,
+    "t0": 89.4,
+    "t1": 93.72
+   },
+   {
+    "text": "For the first time, large numbers of people say they want to cut back on working hours, even if it means earning less money.",
+    "p": 0,
+    "t0": 93.72,
+    "t1": 102.48
+   },
+   {
+    "text": "But most employers are unwilling to let them do so.",
+    "p": 0,
+    "t0": 102.48,
+    "t1": 106.9
+   },
+   {
+    "text": "The government, which has stepped back from its traditional role as a regulator of work time, should take steps to make shorter hours possible.",
+    "p": 0,
+    "t0": 106.9,
+    "t1": 115.65
+   }
+  ]
  },
  {
   "id": "c1-28",
@@ -249,7 +2841,87 @@
   "audio": "/listening/c1-28.m4a",
   "en": "In many stressful situations, the body's responses can improve our performance. We become more energetic, more alert, better able to take effective action. But when stress is encountered continually, the body's reactions are more likely to be harmful than helpful to us. The continual speeding up of bodily reactions and the production of stress-related hormones seem to make people more susceptible to heart disease. And stress reactions can reduce the disease-fighting effectiveness of the body's immune system, thereby increasing susceptibility to illnesses ranging from colds to cancer. Stress may also contribute to disease in less direct ways, by influencing moods and behavior. People under stress may become anxious or depressed, and as a result may eat too much or too little, have sleep difficulties, or fail to exercise. These behavioral changes may in turn be harmful to their health. In addition, people are more likely to pay attention to certain bodily sensations, such as aches and pains, when they are under stress, and to think that they are sick. If the person were not under stress, the same bodily sensations might not be perceived as symptoms, and the person might continue to feel well. Some researchers have suggested that assuming the role of a sick person is one way in which certain people try to cope with stress. Instead of dealing with the stressful situation directly, these people fall sick. After all, it is often more acceptable in our society to be sick and to seek medical help than it is to admit that one cannot cope with the stresses of life.",
   "zh": "在许多有压力的情况下，身体的反应能提升我们的表现。我们会变得更有精力、更警觉，也更能采取有效的行动。但当压力持续不断时，身体的反应往往对我们有害而无益。身体反应持续加快，以及与压力相关的激素不断产生，似乎使人们更容易患上心脏病。而且压力反应会降低人体免疫系统抗病的能力，从而使人们更容易患上从感冒到癌症的各种疾病。压力还可能通过影响情绪和行为，以不那么直接的方式导致疾病。处于压力下的人可能变得焦虑或抑郁，结果可能吃得过多或过少、出现睡眠困难，或者不锻炼。这些行为变化反过来可能损害健康。此外，人在压力下更容易关注某些身体感觉，比如疼痛和不适，并认为自己病了。如果这个人没有处于压力之下，同样的身体感觉可能不会被当成症状，他也许会继续保持健康的感觉。一些研究者提出，某些人会通过「扮演病人」来应对压力。他们没有直接去处理有压力的处境，而是病倒了。毕竟，在我们的社会里，「生病并寻求医疗帮助」往往比「承认自己无法应对生活压力」更容易被接受。",
-  "q": ""
+  "q": "",
+  "segs": [
+   {
+    "text": "In many stressful situations, the body's responses can improve our performance.",
+    "p": 0,
+    "t0": 3.16,
+    "t1": 8.46
+   },
+   {
+    "text": "We become more energetic, more alert, better able to take effective action.",
+    "p": 0,
+    "t0": 8.46,
+    "t1": 15.34
+   },
+   {
+    "text": "But when stress is encountered continually, the body's reactions are more likely to be harmful than helpful to us.",
+    "p": 0,
+    "t0": 15.34,
+    "t1": 23.88
+   },
+   {
+    "text": "The continual speeding up of bodily reactions and the production of stress-related hormones seem to make people more susceptible to heart disease.",
+    "p": 0,
+    "t0": 23.88,
+    "t1": 34.36
+   },
+   {
+    "text": "And stress reactions can reduce the disease-fighting effectiveness of the body's immune system, thereby increasing susceptibility to illnesses ranging from colds to cancer.",
+    "p": 0,
+    "t0": 34.36,
+    "t1": 47.96
+   },
+   {
+    "text": "Stress may also contribute to disease in less direct ways, by influencing moods and behavior.",
+    "p": 0,
+    "t0": 47.96,
+    "t1": 55.83
+   },
+   {
+    "text": "People under stress may become anxious or depressed, and as a result may eat too much or too little, have sleep difficulties, or fail to exercise.",
+    "p": 0,
+    "t0": 55.83,
+    "t1": 68.21
+   },
+   {
+    "text": "These behavioral changes may in turn be harmful to their health.",
+    "p": 0,
+    "t0": 68.21,
+    "t1": 73.89
+   },
+   {
+    "text": "In addition, people are more likely to pay attention to certain bodily sensations, such as aches and pains, when they are under stress, and to think that they are sick.",
+    "p": 0,
+    "t0": 73.89,
+    "t1": 85.6
+   },
+   {
+    "text": "If the person were not under stress, the same bodily sensations might not be perceived as symptoms, and the person might continue to feel well.",
+    "p": 0,
+    "t0": 85.6,
+    "t1": 97.0
+   },
+   {
+    "text": "Some researchers have suggested that assuming the role of a sick person is one way in which certain people try to cope with stress.",
+    "p": 0,
+    "t0": 97.0,
+    "t1": 106.39
+   },
+   {
+    "text": "Instead of dealing with the stressful situation directly, these people fall sick.",
+    "p": 0,
+    "t0": 106.39,
+    "t1": 112.87
+   },
+   {
+    "text": "After all, it is often more acceptable in our society to be sick and to seek medical help than it is to admit that one cannot cope with the stresses of life.",
+    "p": 0,
+    "t0": 112.87,
+    "t1": 122.52
+   }
+  ]
  },
  {
   "id": "c1-29",
@@ -258,7 +2930,87 @@
   "audio": "/listening/c1-29.m4a",
   "en": "Western doctors are beginning to understand what traditional healers have always known: that the body and the mind are inseparable. Until recently, modern urban physicians healed the body, psychiatrists the mind, and priests the soul. However, the medical world is now paying more attention to holistic medicine, which is an approach based on the belief that people's state of mind can make them sick or speed their recovery from sickness. Several studies show that the effectiveness of a certain drug often depends on the patient's expectations of it. For example, in one recent study, psychiatrists at a major hospital tried to see how patients could be made calm. They divided them into two groups: one group was given a drug, while the other group received a harmless substance instead of medicine, without their knowledge. Surprisingly, more patients in the second group showed the desired effect than those in the first group. In study after study, there is a positive reaction in almost one-third of the patients taking harmless substances. How is this possible? How can such a substance have an effect on the body? Evidence from a study at the University of California shows that several patients who received such substances were able to produce their own natural drug. That is, as they took the substance, their brains released natural chemicals that act like a drug. Scientists theorize that the amount of these chemicals released by a person's brain quite possibly indicates how much faith the person has in his or her doctor.",
   "zh": "西方的医生开始理解传统治疗师一直就明白的道理：身体与心灵不可分割。直到不久以前，现代城市里的内科医生医治身体，精神科医生医治心灵，牧师则照顾灵魂。然而，医学界如今越来越重视「整体医学」，这种方法的信念是：人的心理状态可以使人患病，也可以加速其康复。多项研究表明，某种药物的疗效往往取决于患者对它的预期。例如，在最近的一项研究中，某大医院的精神科医生想看看如何能让病人平静下来。他们把人分成两组：一组服用药物，另一组则在不知情的情况下服用一种无害的、代替药物的物质。令人惊讶的是，第二组中出现预期效果的患者比第一组还多。在一个又一个研究中，服用无害物质的患者中几乎有三分之一出现了积极反应。这怎么可能？这样一种物质怎么可能对身体产生影响？加州大学一项研究的证据表明，有几位服用这种物质的患者能够自行产生天然的「药物」。也就是说，当他们服用这种物质时，大脑释放出了类似药物的天然化学物质。科学家推测，一个人大脑释放的这类化学物质的数量，很可能表明了他（她）对自己医生的信任程度。",
-  "q": ""
+  "q": "",
+  "segs": [
+   {
+    "text": "Western doctors are beginning to understand what traditional healers have always known: that the body and the mind are inseparable.",
+    "p": 0,
+    "t0": 2.8,
+    "t1": 12.24
+   },
+   {
+    "text": "Until recently, modern urban physicians healed the body, psychiatrists the mind, and priests the soul.",
+    "p": 0,
+    "t0": 12.24,
+    "t1": 18.95
+   },
+   {
+    "text": "However, the medical world is now paying more attention to holistic medicine, which is an approach based on the belief that people's state of mind can make them sick or speed their recovery from sickness.",
+    "p": 0,
+    "t0": 18.95,
+    "t1": 35.82
+   },
+   {
+    "text": "Several studies show that the effectiveness of a certain drug often depends on the patient's expectations of it.",
+    "p": 0,
+    "t0": 35.82,
+    "t1": 44.4
+   },
+   {
+    "text": "For example, in one recent study, psychiatrists at a major hospital tried to see how patients could be made calm.",
+    "p": 0,
+    "t0": 44.4,
+    "t1": 54.52
+   },
+   {
+    "text": "They divided them into two groups: one group was given a drug, while the other group received a harmless substance instead of medicine, without their knowledge.",
+    "p": 0,
+    "t0": 54.52,
+    "t1": 66.01
+   },
+   {
+    "text": "Surprisingly, more patients in the second group showed the desired effect than those in the first group.",
+    "p": 0,
+    "t0": 66.01,
+    "t1": 74.7
+   },
+   {
+    "text": "In study after study, there is a positive reaction in almost one-third of the patients taking harmless substances.",
+    "p": 0,
+    "t0": 74.7,
+    "t1": 84.1
+   },
+   {
+    "text": "How is this possible?",
+    "p": 0,
+    "t0": 84.1,
+    "t1": 85.66
+   },
+   {
+    "text": "How can such a substance have an effect on the body?",
+    "p": 0,
+    "t0": 85.66,
+    "t1": 91.71
+   },
+   {
+    "text": "Evidence from a study at the University of California shows that several patients who received such substances were able to produce their own natural drug.",
+    "p": 0,
+    "t0": 91.71,
+    "t1": 105.22
+   },
+   {
+    "text": "That is, as they took the substance, their brains released natural chemicals that act like a drug.",
+    "p": 0,
+    "t0": 105.22,
+    "t1": 113.47
+   },
+   {
+    "text": "Scientists theorize that the amount of these chemicals released by a person's brain quite possibly indicates how much faith the person has in his or her doctor.",
+    "p": 0,
+    "t0": 113.47,
+    "t1": 125.52
+   }
+  ]
  },
  {
   "id": "c1-30",
@@ -267,7 +3019,93 @@
   "audio": "/listening/c1-30.m4a",
   "en": "Nursing, as a typically female profession, must deal constantly with the false impression that nurses are there to wait on the physician. As nurses, we are licensed to provide nursing care only. We do not have any legal or moral obligation to any physician. We provide health teaching, assess physical as well as emotional problems, coordinate patient-related services, and make all of our nursing decisions based upon what is best or suitable for the patient. If, in any circumstance, we feel that a physician's order is inappropriate or unsafe, we have a legal responsibility to question that order or refuse to carry it out. Nursing is not a nine-to-five job with every weekend off. All nurses are aware of that before they enter the profession. The emotional and physical stress, however, that occurs due to odd working hours is a prime reason for a lot of the career dissatisfaction. It is sometimes required that we work overtime and that we change shifts four or five times a month. That disturbs our personal lives, disrupts our sleeping and eating habits, and isolates us from everything except job-related friends and activities. The quality of nursing care is being affected dramatically by these situations. Most hospitals are now staffed by new graduates, as experienced nurses finally give up trying to change the system. Consumers of medically related services have evidently not been affected enough yet to demand changes in our medical system. But if trends continue as predicted, they will find that most critical hospital care will be provided by new, inexperienced, and sometimes inadequately trained nurses.",
   "zh": "护理作为一个典型的女性职业，必须不断地应对一种错误印象：护士就是来伺候医生的。作为护士，我们获得执照后只负责提供护理服务。我们对任何医生都没有任何法律或道义上的义务。我们提供健康宣教，评估身体和情绪方面的问题，协调与患者相关的服务，并根据对患者最有利或最合适的判断做出所有护理决策。如果在任何情况下，我们觉得医生的医嘱不当或不安全，我们有法律责任对该医嘱提出质疑或拒绝执行。护理不是一份朝九晚五、每个周末都休息的工作。所有护士在进入这个行业之前都清楚这一点。然而，由于工作时间不规律而产生的情绪和身体压力，是许多人职业不满的一个主要原因。有时我们被要求加班，并且每月要倒四五次班。这打乱了我们的个人生活，扰乱了睡眠和饮食习惯，使我们除了与工作相关的朋友和活动之外，与一切都隔绝开来。护理质量正受到这些情况的严重影响。如今，大多数医院配备的都是刚毕业的新人，因为有经验的护士终于放弃了改变这一体制的努力。医疗相关服务的消费者显然还没有受到足够的影响，因而尚未要求改革我们的医疗体制。但如果趋势如人们所预测的那样继续下去，他们将会发现，大多数重症护理将由新的、缺乏经验、有时训练不足的护士来提供。",
-  "q": ""
+  "q": "",
+  "segs": [
+   {
+    "text": "Nursing, as a typically female profession, must deal constantly with the false impression that nurses are there to wait on the physician.",
+    "p": 0,
+    "t0": 2.16,
+    "t1": 12.42
+   },
+   {
+    "text": "As nurses, we are licensed to provide nursing care only.",
+    "p": 0,
+    "t0": 12.42,
+    "t1": 17.36
+   },
+   {
+    "text": "We do not have any legal or moral obligation to any physician.",
+    "p": 0,
+    "t0": 17.36,
+    "t1": 22.6
+   },
+   {
+    "text": "We provide health teaching, assess physical as well as emotional problems, coordinate patient-related services, and make all of our nursing decisions based upon what is best or suitable for the patient.",
+    "p": 0,
+    "t0": 22.6,
+    "t1": 37.3
+   },
+   {
+    "text": "If, in any circumstance, we feel that a physician's order is inappropriate or unsafe, we have a legal responsibility to question that order or refuse to carry it out.",
+    "p": 0,
+    "t0": 37.3,
+    "t1": 51.05
+   },
+   {
+    "text": "Nursing is not a nine-to-five job with every weekend off.",
+    "p": 0,
+    "t0": 51.05,
+    "t1": 56.06
+   },
+   {
+    "text": "All nurses are aware of that before they enter the profession.",
+    "p": 0,
+    "t0": 56.06,
+    "t1": 60.42
+   },
+   {
+    "text": "The emotional and physical stress, however, that occurs due to odd working hours is a prime reason for a lot of the career dissatisfaction.",
+    "p": 0,
+    "t0": 60.42,
+    "t1": 71.34
+   },
+   {
+    "text": "It is sometimes required that we work overtime and that we change shifts four or five times a month.",
+    "p": 0,
+    "t0": 71.34,
+    "t1": 78.76
+   },
+   {
+    "text": "That disturbs our personal lives, disrupts our sleeping and eating habits, and isolates us from everything except job-related friends and activities.",
+    "p": 0,
+    "t0": 78.76,
+    "t1": 90.18
+   },
+   {
+    "text": "The quality of nursing care is being affected dramatically by these situations.",
+    "p": 0,
+    "t0": 90.18,
+    "t1": 96.45
+   },
+   {
+    "text": "Most hospitals are now staffed by new graduates, as experienced nurses finally give up trying to change the system.",
+    "p": 0,
+    "t0": 96.45,
+    "t1": 105.61
+   },
+   {
+    "text": "Consumers of medically related services have evidently not been affected enough yet to demand changes in our medical system.",
+    "p": 0,
+    "t0": 105.61,
+    "t1": 114.82
+   },
+   {
+    "text": "But if trends continue as predicted, they will find that most critical hospital care will be provided by new, inexperienced, and sometimes inadequately trained nurses.",
+    "p": 0,
+    "t0": 114.82,
+    "t1": 127.77
+   }
+  ]
  },
  {
   "id": "c2-01",
