@@ -38,7 +38,8 @@ const groups = computed(() => {
 // ---------- 章节 / 分段筛选 ----------
 const activeChapter = ref(0)
 const activePart = ref(0)
-const playingId = ref(null)
+const playingId = ref(null) // 当前聚焦的音频（暂停时也保留，便于高亮停在暂停处）
+const isPlaying = ref(false)
 const audios = new Map()
 const states = reactive({}) // id -> { time, dur }
 
@@ -102,7 +103,7 @@ function audioFor(it) {
     states[it.id].time = a.currentTime || 0
   })
   a.addEventListener('ended', () => {
-    if (playingId.value === it.id) playingId.value = null
+    if (playingId.value === it.id) isPlaying.value = false
   })
   audios.set(it.id, a)
   return a
@@ -111,15 +112,19 @@ function audioFor(it) {
 function toggle(it) {
   const a = audioFor(it)
   if (playingId.value === it.id) {
-    a.pause()
-    playingId.value = null
+    if (isPlaying.value) {
+      a.pause()
+      isPlaying.value = false
+    } else {
+      a.play().catch(() => {})
+      isPlaying.value = true
+    }
     return
   }
-  audios.forEach((x, id) => {
-    if (id !== it.id) x.pause()
-  })
-  a.play().catch(() => {})
+  audios.forEach((x) => x.pause())
   playingId.value = it.id
+  a.play().catch(() => {})
+  isPlaying.value = true
 }
 
 function seek(it, ev) {
@@ -171,6 +176,52 @@ function toggleQ(id) {
 
 function toggleEn(id) {
   enOpen[id] = !enOpen[id]
+}
+
+// ---------- 逐句跟读高亮 ----------
+function itemById(id) {
+  return bank.value.find((x) => x.id === id)
+}
+
+// 把一段英文拆成「段落 -> 句子」结构，并给每句时间区间
+// 优先用转写 segs（句级精确时间）；否则用 en 文本按句长比例估算
+function paragraphsOf(id) {
+  const it = itemById(id)
+  if (!it) return []
+  if (it.segs && it.segs.length) {
+    // 转写句子（无段落信息），整体作为一段句流
+    return [it.segs.map((s) => ({ text: s.text + ' ', t0: s.t0, t1: s.t1 }))]
+  }
+  const en = it.en || ''
+  const paras = en.split(/\n+/).map((p) => p.trim()).filter(Boolean)
+  if (!paras.length) return []
+  const totalChars = paras.reduce(
+    (a, p) => a + (p.replace(/\s/g, '').length || 1),
+    0
+  )
+  const dur = (states[id] && states[id].dur) || 0
+  let cum = 0
+  return paras.map((p) => {
+    const raw = p.match(/[^.!?]+[.!?]*/g) || [p]
+    return raw.map((r) => {
+      const clean = r.trim()
+      const chars = clean.replace(/\s/g, '').length || 1
+      const t0 = (dur * cum) / totalChars
+      cum += chars
+      const t1 = (dur * cum) / totalChars
+      return { text: clean + ' ', t0, t1 }
+    })
+  })
+}
+
+function sentenceCls(id, s) {
+  if (id !== playingId.value) return ''
+  const st = states[id]
+  if (!st) return ''
+  const t = st.time
+  if (t >= s.t0 && t <= s.t1) return 'sentence-active'
+  if (t > s.t1) return 'sentence-done'
+  return ''
 }
 
 function toggleZh(id) {
@@ -249,7 +300,7 @@ onBeforeUnmount(() => {
               :aria-label="playingId === it.id ? '暂停' : '播放'"
               @click="toggle(it)"
             >
-              <svg v-if="playingId !== it.id" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+              <svg v-if="!(playingId === it.id && isPlaying)" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
               <svg v-else viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
             </button>
             <div class="track" @click="seek(it, $event)">
@@ -277,7 +328,20 @@ onBeforeUnmount(() => {
             <p class="q-body">{{ it.q }}</p>
           </div>
           <p v-show="zhOpen[it.id]" class="zh">{{ it.zh }}</p>
-          <p v-show="enOpen[it.id]" class="en">{{ it.en }}</p>
+          <p v-if="enOpen[it.id]" class="en">
+            <template v-if="paragraphsOf(it.id).length">
+              <template v-for="(para, pi) in paragraphsOf(it.id)" :key="'p' + pi">
+                <span
+                  v-for="(s, si) in para"
+                  :key="si"
+                  class="sentence"
+                  :class="sentenceCls(it.id, s)"
+                  >{{ s.text }}</span
+                ><br v-if="pi < paragraphsOf(it.id).length - 1" />
+              </template>
+            </template>
+            <template v-else>{{ it.en }}</template>
+          </p>
         </article>
       </section>
     </template>
@@ -469,12 +533,25 @@ onBeforeUnmount(() => {
   margin: 10px 0 0;
   padding: 10px 12px;
   font-size: 15px;
-  line-height: 1.75;
+  line-height: 1.9;
   color: var(--vp-c-text-1);
   white-space: pre-wrap;
   background: var(--vp-c-bg);
   border-left: 3px solid var(--vp-c-divider);
   border-radius: 6px;
+}
+.en .sentence {
+  transition: color 0.18s ease, background-color 0.18s ease;
+  border-radius: 3px;
+  padding: 0 1px;
+}
+.en .sentence-done {
+  color: var(--vp-c-text-3);
+}
+.en .sentence-active {
+  font-weight: 700;
+  color: var(--vp-c-brand-1);
+  background: rgba(76, 110, 245, 0.16);
 }
 .zh-btn {
   padding: 5px 12px;
