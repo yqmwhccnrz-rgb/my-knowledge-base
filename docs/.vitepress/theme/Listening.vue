@@ -189,8 +189,20 @@ function paragraphsOf(id) {
   const it = itemById(id)
   if (!it) return []
   if (it.segs && it.segs.length) {
-    // 转写句子（无段落信息），整体作为一段句流
-    return [it.segs.map((s) => ({ text: s.text + ' ', t0: s.t0, t1: s.t1 }))]
+    // 已有精确句时间：按段落分组，句首时间来自转写真实时间
+    const out = []
+    let curP = null
+    let cur = null
+    for (const s of it.segs) {
+      const p = s.p === undefined ? 0 : s.p
+      if (curP !== p) {
+        cur = []
+        out.push(cur)
+        curP = p
+      }
+      cur.push({ text: s.text + ' ', t0: s.t0, t1: s.t1 })
+    }
+    return out
   }
   const en = it.en || ''
   const paras = en.split(/\n+/).map((p) => p.trim()).filter(Boolean)
