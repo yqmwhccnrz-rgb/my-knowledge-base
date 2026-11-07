@@ -97,15 +97,16 @@ export default defineConfig({
       { text: '首页', link: '/' },
       { text: '笔记', link: notes[0]?.link ?? '/' },
       { text: '习题测试', link: '/quiz.html' },
-      { text: '英语听力', link: '/listening.html' }
+      { text: '听力训练', link: '/dictation.html' }
     ],
     sidebar: [
-      { text: '笔记', items: notes },
+      // 英语听力已归入笔记板块
+      { text: '笔记', items: [...notes, { text: '英语听力', link: '/listening' }] },
       {
         text: '练习',
         items: [
           { text: '习题测试', link: '/quiz' },
-          { text: '英语听力', link: '/listening' }
+          { text: '听力训练', link: '/dictation' }
         ]
       }
     ],
