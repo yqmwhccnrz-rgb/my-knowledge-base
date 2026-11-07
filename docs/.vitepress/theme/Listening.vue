@@ -1,12 +1,23 @@
 <script setup>
-import { ref, reactive, computed, onMounted, onBeforeUnmount } from 'vue'
+import { ref, reactive, computed, watch, onMounted, onBeforeUnmount } from 'vue'
 
 const bank = ref([])
 const ready = ref(false)
 
+const STORE_KEY = 'listen:filter'
+
 onMounted(async () => {
   const mod = await import('./data/listening.json')
   bank.value = mod.default
+  // 恢复上次浏览的章节 / 分段
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORE_KEY) || 'null')
+    if (saved && Number.isInteger(saved.c) && saved.c < groups.value.length) {
+      activeChapter.value = saved.c
+      activePart.value =
+        Number.isInteger(saved.p) && saved.p < parts.value.length ? saved.p : 0
+    }
+  } catch (e) {}
   ready.value = true
 })
 
@@ -67,6 +78,15 @@ function pickPart(i) {
   stopAll()
   activePart.value = i
 }
+
+watch([activeChapter, activePart], () => {
+  try {
+    localStorage.setItem(
+      STORE_KEY,
+      JSON.stringify({ c: activeChapter.value, p: activePart.value })
+    )
+  } catch (e) {}
+})
 
 // ---------- 音频播放 ----------
 function audioFor(it) {
