@@ -4,7 +4,8 @@
 
 const SESSION_COOKIE = 'kb_sid'
 const SESSION_TTL = 60 * 60 * 24 * 7 // 7 天（秒）
-const PBKDF2_ITER = 150000
+// Cloudflare Web Crypto 限制 PBKDF2 迭代次数上限为 100000，超过会抛 NotSupportedError。
+const PBKDF2_ITER = 100000
 
 export function json(data, status = 200) {
   return new Response(JSON.stringify(data), {

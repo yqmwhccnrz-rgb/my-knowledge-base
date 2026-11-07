@@ -3,7 +3,6 @@ import { json, getUser, putUser, hashPassword, createSession, sessionCookie } fr
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/
 
 export async function onRequest(context) {
-  try {
   const { request, env } = context
   if (request.method !== 'POST') return json({ error: 'method not allowed' }, 405)
 
@@ -34,7 +33,4 @@ export async function onRequest(context) {
       'set-cookie': sessionCookie(token)
     }
   })
-  } catch (e) {
-    return json({ error: 'DEBUG', message: String(e && e.message), stack: String(e && e.stack) }, 500)
-  }
 }
