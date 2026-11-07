@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="900" height="430" fill="#ffffff"/>
+  <text x="450" y="30" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">监督学习算法选型速查（书中 2.5 节总结）</text>
+
+  <text x="24" y="58" font-size="13" font-weight="700" fill="#1e3a8a">① 起步基线：简单、快、易解释</text>
+  <g font-size="12" fill="#1f2937">
+    <rect x="24" y="68" width="272" height="72" rx="9" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="160" y="90" text-anchor="middle" font-weight="700" fill="#1e3a8a">最近邻 k-NN</text>
+    <text x="160" y="110" text-anchor="middle" font-size="11" fill="#374151">小型数据集 · 很好的基准 · 易解释</text>
+    <text x="160" y="129" text-anchor="middle" font-size="11" fill="#c0392b">需要缩放 · 高维稀疏数据无效</text>
+    <rect x="310" y="68" width="272" height="72" rx="9" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="446" y="90" text-anchor="middle" font-weight="700" fill="#1e3a8a">线性模型（首选）</text>
+    <text x="446" y="110" text-anchor="middle" font-size="11" fill="#374151">非常可靠 · 超大数据 · 高维数据</text>
+    <text x="446" y="129" text-anchor="middle" font-size="11" fill="#374151">Ridge L2 / Lasso L1 / Logistic / LinearSVC</text>
+    <rect x="596" y="68" width="280" height="72" rx="9" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="736" y="90" text-anchor="middle" font-weight="700" fill="#1e3a8a">朴素贝叶斯</text>
+    <text x="736" y="110" text-anchor="middle" font-size="11" fill="#374151">只用于分类 · 比线性模型更快</text>
+    <text x="736" y="129" text-anchor="middle" font-size="11" fill="#92400e">精度通常低于线性模型</text>
+  </g>
+
+  <text x="24" y="174" font-size="13" font-weight="700" fill="#1e3a8a">② 主力模型：树与集成</text>
+  <g font-size="12" fill="#1f2937">
+    <rect x="24" y="184" width="204" height="82" rx="9" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="126" y="206" text-anchor="middle" font-weight="700" fill="#1e3a8a">决策树</text>
+    <text x="126" y="226" text-anchor="middle" font-size="11" fill="#374151">快 · 不需缩放 · 可可视化</text>
+    <text x="126" y="245" text-anchor="middle" font-size="11" fill="#374151">易解释</text>
+    <text x="126" y="260" text-anchor="middle" font-size="11" fill="#c0392b">但常过拟合</text>
+    <rect x="238" y="184" width="314" height="82" rx="9" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="395" y="206" text-anchor="middle" font-weight="700" fill="#1e3a8a">随机森林（几乎总优于单棵树）</text>
+    <text x="395" y="226" text-anchor="middle" font-size="11" fill="#374151">鲁棒 · 强大 · 不需缩放 · 可并行</text>
+    <text x="395" y="245" text-anchor="middle" font-size="11" fill="#c0392b">不适用高维稀疏数据 · 内存大</text>
+    <text x="395" y="260" text-anchor="middle" font-size="11" fill="#6b7280">n_estimators / max_features</text>
+    <rect x="562" y="184" width="314" height="82" rx="9" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="719" y="206" text-anchor="middle" font-weight="700" fill="#1e3a8a">梯度提升决策树</text>
+    <text x="719" y="226" text-anchor="middle" font-size="11" fill="#374151">精度通常略高于随机森林</text>
+    <text x="719" y="245" text-anchor="middle" font-size="11" fill="#374151">训练更慢 · 预测更快 · 内存更省</text>
+    <text x="719" y="260" text-anchor="middle" font-size="11" fill="#92400e">需要更多参数调节</text>
+  </g>
+
+  <text x="24" y="300" font-size="13" font-weight="700" fill="#1e3a8a">③ 强大但「挑数据」的模型</text>
+  <g font-size="12" fill="#1f2937">
+    <rect x="24" y="310" width="414" height="72" rx="9" fill="#fef3c7" stroke="#fcd34d"/>
+    <text x="231" y="332" text-anchor="middle" font-weight="700" fill="#92400e">核支持向量机 SVM</text>
+    <text x="231" y="352" text-anchor="middle" font-size="11" fill="#78350f">对特征含义相似的中等规模数据集很强大</text>
+    <text x="231" y="370" text-anchor="middle" font-size="11" fill="#78350f">需要数据缩放 · 对参数 C 与 gamma 敏感</text>
+    <rect x="452" y="310" width="424" height="72" rx="9" fill="#fef3c7" stroke="#fcd34d"/>
+    <text x="664" y="332" text-anchor="middle" font-weight="700" fill="#92400e">神经网络 MLP</text>
+    <text x="664" y="352" text-anchor="middle" font-size="11" fill="#78350f">能构建极复杂模型，尤其适合大型数据集</text>
+    <text x="664" y="370" text-anchor="middle" font-size="11" fill="#78350f">缩放敏感 · 参数敏感 · 大型网络训练很久</text>
+  </g>
+
+  <rect x="24" y="392" width="852" height="30" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>
+  <text x="450" y="412" text-anchor="middle" font-size="12" fill="#1e3a8a">实践顺序：先线性模型 / 朴素贝叶斯 / 最近邻做基线，理解数据后再尝试集成、SVM、神经网络。</text>
+</svg>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 410" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <marker id="pp" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#94a3b8"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="410" fill="#ffffff"/>
+  <text x="450" y="30" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">预处理与缩放：正确做法 与 常见错误</text>
+
+  <text x="24" y="58" font-size="13" font-weight="700" fill="#1e3a8a">① 正确：只在训练集 fit，训练与测试共用同一变换</text>
+  <g font-size="12" fill="#1f2937">
+    <rect x="24" y="70" width="180" height="56" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="114" y="94" text-anchor="middle" font-weight="600" fill="#1e3a8a">X_train</text>
+    <text x="114" y="113" text-anchor="middle" font-size="11" fill="#374151">scaler.fit(X_train)</text>
+    <rect x="238" y="70" width="180" height="56" rx="8" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="328" y="94" text-anchor="middle" font-weight="600" fill="#1e3a8a">训练集的统计量</text>
+    <text x="328" y="113" text-anchor="middle" font-size="11" fill="#374151">min / max / 均值 / 方差</text>
+    <rect x="452" y="70" width="180" height="56" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="542" y="94" text-anchor="middle" font-weight="600" fill="#1e3a8a">X_train_scaled</text>
+    <text x="542" y="113" text-anchor="middle" font-size="11" fill="#374151">transform 后训练模型</text>
+    <rect x="666" y="70" width="210" height="56" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="771" y="94" text-anchor="middle" font-weight="600" fill="#1e3a8a">X_test_scaled</text>
+    <text x="771" y="113" text-anchor="middle" font-size="11" fill="#374151">用同一 scaler 仅 transform</text>
+    <line x1="206" y1="98" x2="234" y2="98" stroke="#94a3b8" stroke-width="2" marker-end="url(#pp)"/>
+    <line x1="420" y1="98" x2="448" y2="98" stroke="#94a3b8" stroke-width="2" marker-end="url(#pp)"/>
+    <line x1="634" y1="98" x2="662" y2="98" stroke="#94a3b8" stroke-width="2" marker-end="url(#pp)"/>
+  </g>
+  <text x="24" y="148" font-size="11" fill="#6b7280">测试集缩放后可能超出 [0, 1] —— 这是正确结果，说明用的是训练集的统计量，不是 bug。</text>
+
+  <text x="24" y="180" font-size="13" font-weight="700" fill="#c0392b">② 错误：分别 fit 训练集与测试集（数据泄露）</text>
+  <rect x="24" y="192" width="852" height="60" rx="9" fill="#fee2e2" stroke="#fca5a5"/>
+  <text x="44" y="216" font-size="12" fill="#7f1d1d">训练集 fit 一次、测试集再 fit 一次 → 两边各自规整到 [0,1]，但相对位置被改变，模型见到的是错的数据分布。</text>
+  <text x="44" y="238" font-size="12" fill="#7f1d1d">在交叉验证里若先对全部数据缩放再切分，验证折的信息就泄露给了建模过程，结果过于乐观。</text>
+
+  <text x="24" y="286" font-size="13" font-weight="700" fill="#1e3a8a">③ 四种常用变换器</text>
+  <g font-size="12" fill="#1f2937">
+    <rect x="24" y="298" width="204" height="56" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="126" y="320" text-anchor="middle" font-weight="600" fill="#1e3a8a">StandardScaler</text>
+    <text x="126" y="340" text-anchor="middle" font-size="11" fill="#374151">均值 0 / 方差 1（默认首选）</text>
+    <rect x="238" y="298" width="204" height="56" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="340" y="320" text-anchor="middle" font-weight="600" fill="#1e3a8a">MinMaxScaler</text>
+    <text x="340" y="340" text-anchor="middle" font-size="11" fill="#374151">缩放到 [0, 1]</text>
+    <rect x="452" y="298" width="204" height="56" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="554" y="320" text-anchor="middle" font-weight="600" fill="#1e3a8a">RobustScaler</text>
+    <text x="554" y="340" text-anchor="middle" font-size="11" fill="#374151">中位数与四分位，抗离群点</text>
+    <rect x="666" y="298" width="210" height="56" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="771" y="320" text-anchor="middle" font-weight="600" fill="#1e3a8a">Normalizer</text>
+    <text x="771" y="340" text-anchor="middle" font-size="11" fill="#374151">按样本（行）归一化</text>
+  </g>
+
+  <rect x="24" y="366" width="852" height="32" rx="8" fill="#fef3c7" stroke="#fcd34d"/>
+  <text x="450" y="387" text-anchor="middle" font-size="12" fill="#78350f">需要缩放：k-NN、线性模型、SVM、神经网络、PCA；不需要缩放：决策树、随机森林、朴素贝叶斯。</text>
+</svg>

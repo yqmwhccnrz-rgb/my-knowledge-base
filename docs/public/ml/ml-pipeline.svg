@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <marker id="pl" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#94a3b8"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="420" fill="#ffffff"/>
+  <text x="450" y="30" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">Pipeline：把多个处理步骤封装成单个估计器</text>
+
+  <text x="24" y="58" font-size="13" font-weight="700" fill="#1e3a8a">① 管道结构：中间步骤 fit + transform，最后一步只 fit</text>
+  <g font-size="12" fill="#1f2937">
+    <rect x="24" y="72" width="150" height="62" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="99" y="96" text-anchor="middle" font-weight="600" fill="#1e3a8a">('scaler', …)</text>
+    <text x="99" y="116" text-anchor="middle" font-size="11" fill="#374151">StandardScaler</text>
+    <rect x="212" y="72" width="150" height="62" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="287" y="96" text-anchor="middle" font-weight="600" fill="#1e3a8a">('poly', …)</text>
+    <text x="287" y="116" text-anchor="middle" font-size="11" fill="#374151">PolynomialFeatures</text>
+    <rect x="400" y="72" width="150" height="62" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="475" y="96" text-anchor="middle" font-weight="600" fill="#1e3a8a">('select', …)</text>
+    <text x="475" y="116" text-anchor="middle" font-size="11" fill="#374151">SelectFromModel</text>
+    <rect x="588" y="72" width="150" height="62" rx="8" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="663" y="96" text-anchor="middle" font-weight="600" fill="#1e3a8a">('classifier', …)</text>
+    <text x="663" y="116" text-anchor="middle" font-size="11" fill="#374151">SVC / Ridge / …</text>
+    <rect x="776" y="72" width="100" height="62" rx="8" fill="#fef3c7" stroke="#fcd34d"/>
+    <text x="826" y="103" text-anchor="middle" font-weight="700" fill="#92400e">predict</text>
+    <line x1="176" y1="103" x2="208" y2="103" stroke="#94a3b8" stroke-width="2" marker-end="url(#pl)"/>
+    <line x1="364" y1="103" x2="396" y2="103" stroke="#94a3b8" stroke-width="2" marker-end="url(#pl)"/>
+    <line x1="552" y1="103" x2="584" y2="103" stroke="#94a3b8" stroke-width="2" marker-end="url(#pl)"/>
+    <line x1="740" y1="103" x2="772" y2="103" stroke="#94a3b8" stroke-width="2" marker-end="url(#pl)"/>
+  </g>
+  <text x="24" y="154" font-size="11" fill="#6b7280">make_pipeline() 可自动按类名小写命名步骤；pipe.named_steps['svm'] 可取回某一步查看属性。</text>
+
+  <text x="24" y="186" font-size="13" font-weight="700" fill="#c0392b">② 数据泄露：预处理放在交叉验证之外</text>
+  <g font-size="12">
+    <rect x="24" y="198" width="414" height="76" rx="9" fill="#fee2e2" stroke="#fca5a5"/>
+    <text x="231" y="220" text-anchor="middle" font-weight="700" fill="#b91c1c">错误：先在全量数据 fit_transform</text>
+    <text x="231" y="242" text-anchor="middle" font-size="11" fill="#7f1d1d">验证折的信息被缩放 / 特征选择提前使用</text>
+    <text x="231" y="262" text-anchor="middle" font-size="11" fill="#7f1d1d">随机数据上 Ridge 竟得到 R² = 0.91</text>
+    <rect x="452" y="198" width="424" height="76" rx="9" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="664" y="220" text-anchor="middle" font-weight="700" fill="#1e3a8a">正确：预处理放进 Pipeline</text>
+    <text x="664" y="242" text-anchor="middle" font-size="11" fill="#374151">每一折内部重新 fit 预处理步骤</text>
+    <text x="664" y="262" text-anchor="middle" font-size="11" fill="#374151">同一随机数据上 R² = −0.25（模型无效）</text>
+  </g>
+
+  <text x="24" y="308" font-size="13" font-weight="700" fill="#1e3a8a">③ 网格搜索中的参数命名：步骤名__参数名（双下划线）</text>
+  <g font-size="12" fill="#1f2937">
+    <rect x="24" y="320" width="272" height="58" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="160" y="344" text-anchor="middle" font-weight="600" fill="#1e3a8a">svm__C</text>
+    <text x="160" y="364" text-anchor="middle" font-size="11" fill="#374151">第二个步骤 SVC 的 C</text>
+    <rect x="310" y="320" width="272" height="58" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="446" y="344" text-anchor="middle" font-weight="600" fill="#1e3a8a">polynomialfeatures__degree</text>
+    <text x="446" y="364" text-anchor="middle" font-size="11" fill="#374151">同时搜索预处理参数</text>
+    <rect x="596" y="320" width="280" height="58" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="736" y="344" text-anchor="middle" font-weight="600" fill="#1e3a8a">classifier: [SVC(), RF()]</text>
+    <text x="736" y="364" text-anchor="middle" font-size="11" fill="#374151">搜索「用哪个模型」，None 跳过步骤</text>
+  </g>
+
+  <rect x="24" y="388" width="852" height="26" rx="7" fill="#fef3c7" stroke="#fcd34d"/>
+  <text x="450" y="406" text-anchor="middle" font-size="11" fill="#78350f">原则：任何从数据中提取信息的处理，都只应用于当前折的训练部分；交叉验证应位于最外层循环。</text>
+</svg>
