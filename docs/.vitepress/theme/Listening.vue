@@ -35,11 +35,12 @@ const parts = computed(() => {
   const g = groups.value[activeChapter.value]
   if (!g) return []
   const n = g.items.length
-  const size = Math.ceil(n / 3)
+  const size = 3
   const out = []
   for (let i = 0; i < n; i += size) {
     const end = Math.min(i + size, n)
-    out.push({ label: `${i + 1}–${end}`, start: i, items: g.items.slice(i, end) })
+    const label = i + 1 === end ? `${end}` : `${i + 1}–${end}`
+    out.push({ label, start: i, items: g.items.slice(i, end) })
   }
   return out
 })
@@ -124,12 +125,17 @@ function progress(it) {
   return Math.min(100, (st.time / st.dur) * 100)
 }
 
-// ---------- 中文翻译显示/隐藏 ----------
+// ---------- 英文原文 / 中文翻译 显示隐藏 ----------
+const enOpen = reactive({}) // id -> bool，默认全部隐藏
 const zhOpen = reactive({}) // id -> bool
 
 const allZhOn = computed(
   () => currentItems.value.length > 0 && currentItems.value.every((it) => zhOpen[it.id])
 )
+
+function toggleEn(id) {
+  enOpen[id] = !enOpen[id]
+}
 
 function toggleZh(id) {
   zhOpen[id] = !zhOpen[id]
@@ -218,12 +224,16 @@ onBeforeUnmount(() => {
             </span>
           </div>
 
-          <p class="en">{{ it.en }}</p>
-
-          <button class="zh-btn" type="button" @click="toggleZh(it.id)">
-            {{ zhOpen[it.id] ? '隐藏中文翻译' : '显示中文翻译' }}
-          </button>
+          <div class="listen-actions">
+            <button class="zh-btn" type="button" @click="toggleZh(it.id)">
+              {{ zhOpen[it.id] ? '隐藏中文翻译' : '显示中文翻译' }}
+            </button>
+            <button class="zh-btn" type="button" @click="toggleEn(it.id)">
+              {{ enOpen[it.id] ? '隐藏英文原文' : '显示英文原文' }}
+            </button>
+          </div>
           <p v-show="zhOpen[it.id]" class="zh">{{ it.zh }}</p>
+          <p v-show="enOpen[it.id]" class="en">{{ it.en }}</p>
         </article>
       </section>
     </template>
@@ -382,12 +392,21 @@ onBeforeUnmount(() => {
   color: var(--vp-c-text-2);
   font-variant-numeric: tabular-nums;
 }
+.listen-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
 .en {
-  margin: 0 0 10px;
+  margin: 10px 0 0;
+  padding: 10px 12px;
   font-size: 15px;
   line-height: 1.75;
   color: var(--vp-c-text-1);
   white-space: pre-wrap;
+  background: var(--vp-c-bg);
+  border-left: 3px solid var(--vp-c-divider);
+  border-radius: 6px;
 }
 .zh-btn {
   padding: 5px 12px;
