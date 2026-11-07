@@ -47,10 +47,10 @@ export async function onRequest(context) {
 async function resolveAsset(env, url) {
   const path = url.pathname
   const candidates = []
-  if (!/\.[a-z0-9]+$/i.test(path)) {
-    candidates.push(path + '.html', path + '/index.html')
-  } else if (path.endsWith('/')) {
+  if (path === '/' || path.endsWith('/')) {
     candidates.push(path + 'index.html')
+  } else if (!/\.[a-z0-9]+$/i.test(path)) {
+    candidates.push(path + '.html', path + '/index.html')
   }
   for (const c of candidates) {
     const r = await env.ASSETS.fetch(new Request(url.origin + c))
