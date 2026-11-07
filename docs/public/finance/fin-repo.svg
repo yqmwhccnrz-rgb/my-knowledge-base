@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 390" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <marker id="cash" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#1e3a8a"/></marker>
+    <marker id="bond" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#0891b2"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="390" fill="#ffffff"/>
+  <text x="450" y="30" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">回购协议：以证券为质押的短期融资（首期 与 到期）</text>
+
+  <rect x="40" y="56" width="230" height="66" rx="10" fill="#eef2ff" stroke="#c7d2fe"/>
+  <text x="155" y="84" text-anchor="middle" font-size="14" font-weight="700" fill="#1e3a8a">正回购方（资金融入）</text>
+  <text x="155" y="105" text-anchor="middle" font-size="11" fill="#374151">持有证券、需要短期资金</text>
+  <rect x="630" y="56" width="230" height="66" rx="10" fill="#eef2ff" stroke="#c7d2fe"/>
+  <text x="745" y="84" text-anchor="middle" font-size="14" font-weight="700" fill="#1e3a8a">逆回购方（资金融出）</text>
+  <text x="745" y="105" text-anchor="middle" font-size="11" fill="#374151">拥有闲置资金、收取利息</text>
+
+  <text x="40" y="152" font-size="14" font-weight="700" fill="#1e3a8a">① 首期（成交日）</text>
+  <line x1="272" y1="172" x2="626" y2="172" stroke="#0891b2" stroke-width="2.5" marker-end="url(#bond)"/>
+  <text x="450" y="165" text-anchor="middle" font-size="12" fill="#0891b2">交付证券（质押）</text>
+  <line x1="628" y1="204" x2="274" y2="204" stroke="#1e3a8a" stroke-width="2.5" marker-end="url(#cash)"/>
+  <text x="450" y="224" text-anchor="middle" font-size="12" fill="#1e3a8a">支付资金（售价）</text>
+
+  <text x="40" y="262" font-size="14" font-weight="700" fill="#1e3a8a">② 到期（回购日）</text>
+  <line x1="272" y1="282" x2="626" y2="282" stroke="#1e3a8a" stroke-width="2.5" marker-end="url(#cash)"/>
+  <text x="450" y="275" text-anchor="middle" font-size="12" fill="#1e3a8a">归还本金 + 利息（回购价）</text>
+  <line x1="628" y1="314" x2="274" y2="314" stroke="#0891b2" stroke-width="2.5" marker-end="url(#bond)"/>
+  <text x="450" y="334" text-anchor="middle" font-size="12" fill="#0891b2">返还同一笔证券</text>
+
+  <rect x="24" y="350" width="852" height="32" rx="8" fill="#fef3c7" stroke="#fcd34d"/>
+  <text x="450" y="371" text-anchor="middle" font-size="12" fill="#78350f">回购价与售价之差即利息；封闭式回购债券冻结，开放式回购买方可在期内处置债券。同业拆借无质押、凭信用。</text>
+</svg>

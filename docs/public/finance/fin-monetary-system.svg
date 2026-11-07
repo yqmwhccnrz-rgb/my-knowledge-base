@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#94a3b8"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="430" fill="#ffffff"/>
+  <text x="450" y="30" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">货币制度：演变主线 · 构成要素 · 金本位类型</text>
+
+  <text x="24" y="62" font-size="14" font-weight="700" fill="#1e3a8a">① 货币制度的演变主线</text>
+  <g font-size="12" fill="#1f2937">
+    <rect x="24" y="76" width="180" height="46" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="114" y="96" text-anchor="middle" font-weight="600">银本位制</text>
+    <text x="114" y="113" text-anchor="middle" font-size="11" fill="#374151">白银为本位币材料</text>
+    <rect x="246" y="76" width="180" height="46" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="336" y="96" text-anchor="middle" font-weight="600">金银复本位制</text>
+    <text x="336" y="113" text-anchor="middle" font-size="11" fill="#374151">劣币驱逐良币</text>
+    <rect x="468" y="76" width="180" height="46" rx="8" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="558" y="96" text-anchor="middle" font-weight="600">金本位制</text>
+    <text x="558" y="113" text-anchor="middle" font-size="11" fill="#374151">黄金为本位币材料</text>
+    <rect x="690" y="76" width="186" height="46" rx="8" fill="#fef3c7" stroke="#fcd34d"/>
+    <text x="783" y="96" text-anchor="middle" font-weight="600" fill="#92400e">不兑现信用货币</text>
+    <text x="783" y="113" text-anchor="middle" font-size="11" fill="#78350f">现行制度</text>
+    <line x1="206" y1="99" x2="242" y2="99" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar)"/>
+    <line x1="428" y1="99" x2="464" y2="99" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar)"/>
+    <line x1="650" y1="99" x2="686" y2="99" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar)"/>
+  </g>
+
+  <text x="24" y="158" font-size="14" font-weight="700" fill="#1e3a8a">② 货币制度的构成要素</text>
+  <g font-size="12" fill="#1f2937">
+    <rect x="24" y="172" width="164" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="106" y="193" text-anchor="middle" font-weight="600" fill="#1e3a8a">货币材料（币材）</text>
+    <text x="106" y="211" text-anchor="middle" font-size="11" fill="#374151">最基本要素，决定性质</text>
+    <rect x="198" y="172" width="164" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="280" y="193" text-anchor="middle" font-weight="600" fill="#1e3a8a">货币单位</text>
+    <text x="280" y="211" text-anchor="middle" font-size="11" fill="#374151">名称与单位币值</text>
+    <rect x="372" y="172" width="164" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="454" y="193" text-anchor="middle" font-weight="600" fill="#1e3a8a">通货铸造发行流通</text>
+    <text x="454" y="211" text-anchor="middle" font-size="11" fill="#374151">本位币与辅币</text>
+    <rect x="546" y="172" width="164" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="628" y="193" text-anchor="middle" font-weight="600" fill="#1e3a8a">发行准备</text>
+    <text x="628" y="211" text-anchor="middle" font-size="11" fill="#374151">黄金外汇储备</text>
+    <rect x="720" y="172" width="156" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="798" y="193" text-anchor="middle" font-weight="600" fill="#1e3a8a">法定支付能力</text>
+    <text x="798" y="211" text-anchor="middle" font-size="11" fill="#374151">无限与有限法偿</text>
+  </g>
+
+  <text x="24" y="262" font-size="14" font-weight="700" fill="#1e3a8a">③ 金本位制的三种类型</text>
+  <g font-size="12" fill="#1f2937">
+    <rect x="24" y="276" width="272" height="78" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="160" y="298" text-anchor="middle" font-weight="600" fill="#1e3a8a">金币本位制</text>
+    <text x="160" y="318" text-anchor="middle" font-size="11" fill="#374151">金币自由铸造、熔化、输出入</text>
+    <text x="160" y="337" text-anchor="middle" font-size="11" fill="#374151">银行券可自由兑换金币，最稳定</text>
+    <rect x="310" y="276" width="272" height="78" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="446" y="298" text-anchor="middle" font-weight="600" fill="#1e3a8a">金块本位制</text>
+    <text x="446" y="318" text-anchor="middle" font-size="11" fill="#374151">不铸造、不流通金币</text>
+    <text x="446" y="337" text-anchor="middle" font-size="11" fill="#374151">纸币按规定限额兑换金块</text>
+    <rect x="596" y="276" width="280" height="78" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="736" y="298" text-anchor="middle" font-weight="600" fill="#1e3a8a">金汇兑本位制</text>
+    <text x="736" y="318" text-anchor="middle" font-size="11" fill="#374151">本币挂钩另一金本位国货币</text>
+    <text x="736" y="337" text-anchor="middle" font-size="11" fill="#374151">通过外汇间接兑换黄金</text>
+  </g>
+
+  <rect x="24" y="374" width="852" height="38" rx="8" fill="#fef3c7" stroke="#fcd34d"/>
+  <text x="450" y="398" text-anchor="middle" font-size="12" fill="#78350f">记忆点：格雷欣法则（劣币驱逐良币）出现在金银复本位制；现行不兑现信用货币制度由国家垄断发行、无限法偿。</text>
+</svg>

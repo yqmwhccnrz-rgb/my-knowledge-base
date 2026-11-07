@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="900" height="420" fill="#ffffff"/>
+  <text x="450" y="30" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">中央银行：三大职能 与 资产负债表结构</text>
+
+  <text x="24" y="60" font-size="14" font-weight="700" fill="#1e3a8a">① 三大职能</text>
+  <g font-size="12" fill="#1f2937">
+    <rect x="24" y="72" width="272" height="86" rx="9" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="160" y="96" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">发行的银行</text>
+    <text x="160" y="118" text-anchor="middle" font-size="11" fill="#374151">垄断货币发行</text>
+    <text x="160" y="138" text-anchor="middle" font-size="11" fill="#374151">垄断发行 · 经济发行 · 弹性发行</text>
+    <rect x="310" y="72" width="272" height="86" rx="9" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="446" y="96" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">银行的银行</text>
+    <text x="446" y="118" text-anchor="middle" font-size="11" fill="#374151">集中存款准备金 · 最后贷款人</text>
+    <text x="446" y="138" text-anchor="middle" font-size="11" fill="#374151">组织全国清算</text>
+    <rect x="596" y="72" width="280" height="86" rx="9" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="736" y="96" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">政府的银行</text>
+    <text x="736" y="118" text-anchor="middle" font-size="11" fill="#374151">代理国库 · 代理国债 · 保管储备</text>
+    <text x="736" y="138" text-anchor="middle" font-size="11" fill="#374151">制定实施货币政策 · 金融监管</text>
+  </g>
+
+  <text x="24" y="194" font-size="14" font-weight="700" fill="#1e3a8a">② 资产负债表（简化）</text>
+  <g font-size="12" fill="#1f2937">
+    <rect x="24" y="206" width="414" height="150" rx="9" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="231" y="230" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">资产（资金运用）</text>
+    <text x="44" y="254">· 国外资产：外汇、黄金、特别提款权</text>
+    <text x="44" y="278">· 对政府债权（持有的政府证券）</text>
+    <text x="44" y="302">· 对其他存款性公司债权：再贷款、再贴现、MLF / SLF</text>
+    <text x="44" y="326">· 固定资产与其他资产</text>
+    <text x="44" y="346" font-size="11" fill="#6b7280">资产扩张 → 投放基础货币</text>
+
+    <rect x="452" y="206" width="424" height="150" rx="9" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="664" y="230" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">负债（资金来源）</text>
+    <text x="472" y="254">· 储备货币（基础货币）：流通中现金</text>
+    <text x="472" y="278">· 金融机构存款准备金（法定 + 超额）</text>
+    <text x="472" y="302">· 政府存款</text>
+    <text x="472" y="326">· 发行债券、自有资金等</text>
+    <text x="472" y="346" font-size="11" fill="#6b7280">基础货币是中央银行的负债</text>
+  </g>
+
+  <rect x="24" y="370" width="852" height="36" rx="8" fill="#fef3c7" stroke="#fcd34d"/>
+  <text x="450" y="393" text-anchor="middle" font-size="12" fill="#78350f">恒等式：资产 = 负债 + 自有资本；独立性是相对的 —— 既保持自主，又须与财政政策协调。</text>
+</svg>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="900" height="430" fill="#ffffff"/>
+  <text x="450" y="30" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">我国金融机构体系（按职能分层）</text>
+
+  <rect x="24" y="48" width="852" height="66" rx="10" fill="#dbeafe" stroke="#93c5fd"/>
+  <text x="44" y="72" font-size="13" font-weight="700" fill="#1e3a8a">货币当局与监管</text>
+  <g font-size="12" fill="#1f2937">
+    <rect x="200" y="56" width="200" height="46" rx="7" fill="#ffffff" stroke="#c7d2fe"/>
+    <text x="300" y="76" text-anchor="middle" font-weight="600">中国人民银行</text>
+    <text x="300" y="93" text-anchor="middle" font-size="11" fill="#374151">货币政策 · 金融稳定</text>
+    <rect x="414" y="56" width="220" height="46" rx="7" fill="#ffffff" stroke="#c7d2fe"/>
+    <text x="524" y="76" text-anchor="middle" font-weight="600">国家金融监督管理总局</text>
+    <text x="524" y="93" text-anchor="middle" font-size="11" fill="#374151">银行保险业监管</text>
+    <rect x="648" y="56" width="210" height="46" rx="7" fill="#ffffff" stroke="#c7d2fe"/>
+    <text x="753" y="76" text-anchor="middle" font-weight="600">中国证监会</text>
+    <text x="753" y="93" text-anchor="middle" font-size="11" fill="#374151">资本市场监管</text>
+  </g>
+
+  <rect x="24" y="126" width="852" height="60" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="44" y="150" font-size="13" font-weight="700" fill="#1e3a8a">政策性银行</text>
+  <g font-size="12" fill="#1f2937">
+    <rect x="200" y="134" width="200" height="44" rx="7" fill="#eef2ff" stroke="#c7d2fe"/><text x="300" y="161" text-anchor="middle">国家开发银行</text>
+    <rect x="414" y="134" width="220" height="44" rx="7" fill="#eef2ff" stroke="#c7d2fe"/><text x="524" y="161" text-anchor="middle">中国进出口银行</text>
+    <rect x="648" y="134" width="210" height="44" rx="7" fill="#eef2ff" stroke="#c7d2fe"/><text x="753" y="161" text-anchor="middle">中国农业发展银行</text>
+  </g>
+  <text x="44" y="179" font-size="11" fill="#6b7280">政府设立 · 不以盈利为目的 · 不吸收公众存款 · 对货币扩张影响最小</text>
+
+  <rect x="24" y="198" width="852" height="72" rx="10" fill="#fef3c7" stroke="#fcd34d"/>
+  <text x="44" y="222" font-size="13" font-weight="700" fill="#92400e">商业银行（存款货币创造主体）</text>
+  <g font-size="12" fill="#78350f">
+    <rect x="200" y="206" width="150" height="44" rx="7" fill="#ffffff" stroke="#fcd34d"/><text x="275" y="233" text-anchor="middle">大型国有商业银行</text>
+    <rect x="360" y="206" width="140" height="44" rx="7" fill="#ffffff" stroke="#fcd34d"/><text x="430" y="233" text-anchor="middle">股份制银行</text>
+    <rect x="510" y="206" width="140" height="44" rx="7" fill="#ffffff" stroke="#fcd34d"/><text x="580" y="233" text-anchor="middle">城市商业银行</text>
+    <rect x="660" y="206" width="198" height="44" rx="7" fill="#ffffff" stroke="#fcd34d"/><text x="759" y="233" text-anchor="middle">农商行 · 村镇银行</text>
+  </g>
+  <text x="44" y="263" font-size="11" fill="#78350f">唯一可吸收活期存款并派生存款货币的机构</text>
+
+  <rect x="24" y="282" width="852" height="86" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="44" y="306" font-size="13" font-weight="700" fill="#1e3a8a">非银行金融机构（不吸收公众活期存款）</text>
+  <g font-size="12" fill="#1f2937">
+    <rect x="44" y="316" width="128" height="38" rx="7" fill="#eef2ff" stroke="#c7d2fe"/><text x="108" y="340" text-anchor="middle">证券公司</text>
+    <rect x="180" y="316" width="128" height="38" rx="7" fill="#eef2ff" stroke="#c7d2fe"/><text x="244" y="340" text-anchor="middle">保险公司</text>
+    <rect x="316" y="316" width="128" height="38" rx="7" fill="#eef2ff" stroke="#c7d2fe"/><text x="380" y="340" text-anchor="middle">信托公司</text>
+    <rect x="452" y="316" width="128" height="38" rx="7" fill="#eef2ff" stroke="#c7d2fe"/><text x="516" y="340" text-anchor="middle">金融租赁</text>
+    <rect x="588" y="316" width="128" height="38" rx="7" fill="#eef2ff" stroke="#c7d2fe"/><text x="652" y="340" text-anchor="middle">财务公司</text>
+    <rect x="724" y="316" width="134" height="38" rx="7" fill="#eef2ff" stroke="#c7d2fe"/><text x="791" y="340" text-anchor="middle">资产管理公司</text>
+  </g>
+
+  <rect x="24" y="380" width="852" height="34" rx="8" fill="#fef3c7" stroke="#fcd34d"/>
+  <text x="450" y="402" text-anchor="middle" font-size="12" fill="#78350f">分类口径：银行 / 非银行 · 直接 / 间接 · 存款性 / 非存款性；1999 年成立信达、华融、长城、东方四家 AMC。</text>
+</svg>
