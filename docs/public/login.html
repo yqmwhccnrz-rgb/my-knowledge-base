@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>登录 · 我的知识库</title>
+  <style>
+    :root { --brand:#1e3a8a; --brand-soft:#eef2ff; --muted:#64748b; --line:#cbd5e1; }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: linear-gradient(160deg, #eef2ff 0%, #f8fafc 60%);
+      color: #0f172a;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+    .card {
+      width: 100%;
+      max-width: 360px;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 18px 50px rgba(30, 58, 138, 0.14);
+      padding: 32px 28px 28px;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+    .mark {
+      width: 38px; height: 38px; border-radius: 11px;
+      background: var(--brand); color: #fff;
+      display: grid; place-items: center; font-weight: 700; font-size: 20px;
+    }
+    .brand span { font-size: 17px; font-weight: 600; color: var(--brand); }
+    h1 { margin: 0 0 4px; font-size: 21px; }
+    .sub { margin: 0 0 18px; color: var(--muted); font-size: 13px; }
+    .tabs { display: flex; gap: 6px; background: var(--brand-soft); padding: 4px; border-radius: 10px; margin-bottom: 18px; }
+    .tabs button {
+      flex: 1; border: 0; background: transparent; padding: 9px; border-radius: 7px;
+      font-size: 14px; color: var(--muted); cursor: pointer; font-weight: 600;
+    }
+    .tabs button.active { background: #fff; color: var(--brand); box-shadow: 0 2px 8px rgba(30,58,138,.10); }
+    label { display: block; font-size: 13px; color: #334155; margin: 0 0 6px; }
+    .field { margin-bottom: 14px; }
+    input {
+      width: 100%; padding: 11px 12px; border: 1px solid var(--line); border-radius: 9px;
+      font-size: 15px; outline: none; transition: border-color .15s;
+    }
+    input:focus { border-color: var(--brand); }
+    .btn {
+      width: 100%; padding: 12px; border: 0; border-radius: 10px; background: var(--brand);
+      color: #fff; font-size: 15px; font-weight: 600; cursor: pointer; margin-top: 4px;
+    }
+    .btn:disabled { opacity: .6; cursor: default; }
+    .msg { min-height: 18px; margin: 10px 0 0; font-size: 13px; color: #dc2626; text-align: center; }
+    .hint { margin: 14px 0 0; font-size: 12px; color: var(--muted); text-align: center; line-height: 1.6; }
+    .invite { display: none; }
+    .invite.show { display: block; }
+    .toggle-invite { background: none; border: 0; color: var(--brand); font-size: 12px; cursor: pointer; padding: 0; margin-top: 2px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="brand">
+      <div class="mark">K</div>
+      <span>我的知识库</span>
+    </div>
+    <h1 id="title">欢迎回来</h1>
+    <p class="sub" id="sub">登录以继续浏览笔记与习题</p>
+
+    <div class="tabs">
+      <button id="tab-login" class="active" type="button">登录</button>
+      <button id="tab-register" type="button">注册</button>
+    </div>
+
+    <form id="form">
+      <div class="field">
+        <label for="email">邮箱</label>
+        <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+      </div>
+      <div class="field">
+        <label for="password">口令</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" placeholder="至少 6 位" required />
+      </div>
+      <div class="field invite" id="invite-field">
+        <label for="invite">邀请码（站长提供）</label>
+        <input id="invite" name="invite" type="text" autocomplete="off" placeholder="如有邀请码请填写" />
+      </div>
+      <button class="toggle-invite" id="toggle-invite" type="button">有邀请码？</button>
+
+      <button class="btn" id="submit" type="submit">进入站点</button>
+      <p class="msg" id="msg"></p>
+    </form>
+
+    <p class="hint" id="hint">账号与口令请向站点主人索取</p>
+  </div>
+
+  <script>
+    (function () {
+      var mode = 'login'
+      var title = document.getElementById('title')
+      var sub = document.getElementById('sub')
+      var form = document.getElementById('form')
+      var msg = document.getElementById('msg')
+      var submit = document.getElementById('submit')
+      var hint = document.getElementById('hint')
+      var inviteField = document.getElementById('invite-field')
+      var toggleInvite = document.getElementById('toggle-invite')
+
+      // 计算登录后跳转目标（保留原访问路径）
+      var params = new URLSearchParams(location.search)
+      var next = params.get('next')
+      if (!next || next === '/login.html') {
+        next = (location.pathname === '/login.html') ? '/' : location.pathname + location.search
+      }
+
+      function setMode(m) {
+        mode = m
+        document.getElementById('tab-login').classList.toggle('active', m === 'login')
+        document.getElementById('tab-register').classList.toggle('active', m === 'register')
+        if (m === 'login') {
+          title.textContent = '欢迎回来'
+          sub.textContent = '登录以继续浏览笔记与习题'
+          submit.textContent = '进入站点'
+          hint.textContent = '还没有账号？点上方「注册」自助开通'
+          inviteField.classList.remove('show')
+          toggleInvite.style.display = ''
+        } else {
+          title.textContent = '创建账号'
+          sub.textContent = '注册后即刻可用，人数不限'
+          submit.textContent = '注册并进入'
+          hint.textContent = '若站长设置了邀请码，请点「有邀请码？」填写'
+          toggleInvite.style.display = 'none'
+        }
+        msg.textContent = ''
+      }
+
+      document.getElementById('tab-login').onclick = function () { setMode('login') }
+      document.getElementById('tab-register').onclick = function () { setMode('register') }
+      toggleInvite.onclick = function () {
+        inviteField.classList.add('show')
+        toggleInvite.style.display = 'none'
+        document.getElementById('invite').focus()
+      }
+
+      form.onsubmit = function (e) {
+        e.preventDefault()
+        msg.textContent = ''
+        var email = document.getElementById('email').value.trim()
+        var password = document.getElementById('password').value
+        var invite = document.getElementById('invite').value.trim()
+        if (!email || !password) { msg.textContent = '请填写邮箱与口令'; return }
+
+        var endpoint = mode === 'login' ? '/api/auth/login' : '/api/auth/register'
+        submit.disabled = true
+        fetch(endpoint, {
+          method: 'POST',
+          credentials: 'same-origin',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ email: email, password: password, invite: invite })
+        }).then(function (r) {
+          return r.json().then(function (data) { return { ok: r.ok, data: data } })
+        }).then(function (res) {
+          if (res.ok && res.data.ok) {
+            // 会话 cookie 已随响应种下，直接跳回原页面
+            location.href = next || '/'
+            return
+          }
+          msg.textContent = (res.data && res.data.error) || '操作失败，请重试'
+          submit.disabled = false
+        }).catch(function () {
+          msg.textContent = '网络错误，请稍后重试'
+          submit.disabled = false
+        })
+      }
+    })()
+  </script>
+</body>
+</html>

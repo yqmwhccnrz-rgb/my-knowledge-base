@@ -1,10 +1,11 @@
-import { getUserId, readJSON, json } from '../_helpers.js'
+import { getSessionUser, readJSON, json } from '../_helpers.js'
 
 const MAX = 200
 
 export async function onRequest(context) {
   const { request, env } = context
-  const userId = getUserId(request)
+  const userId = await getSessionUser(request, env)
+  if (!userId) return json({ error: 'unauthenticated' }, 401)
   const key = 'fav:' + userId
 
   if (request.method === 'GET') {
