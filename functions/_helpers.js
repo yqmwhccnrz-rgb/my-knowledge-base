@@ -120,6 +120,30 @@ export function timingSafeEqual(a, b) {
   return diff === 0
 }
 
+// ---------- Cloudflare Turnstile 人机校验 ----------
+// 未配置 TURNSTILE_SECRET 时放行（开发 / 尚未接入）；配置后必须由 Cloudflare 校验通过才放行。
+// 失败则关闭（返回 false），避免被绕过。
+export async function verifyTurnstile(token, env, request) {
+  const secret = env.TURNSTILE_SECRET
+  if (!secret) return true
+  if (!token) return false
+  const ip = request.headers.get('CF-Connecting-IP') || ''
+  try {
+    const resp = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'content-type': 'application/x-www-form-urlencoded' },
+      body:
+        'secret=' + encodeURIComponent(secret) +
+        '&response=' + encodeURIComponent(token) +
+        (ip ? '&remoteip=' + encodeURIComponent(ip) : '')
+    })
+    const data = await resp.json().catch(() => ({}))
+    return !!data.success
+  } catch {
+    return false
+  }
+}
+
 // ---------- 兼容旧调用：返回当前用户标识（email 或 null） ----------
 
 export async function getUserId(request, env) {

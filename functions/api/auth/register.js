@@ -1,4 +1,4 @@
-import { json, getUser, putUser, hashPassword, createSession, sessionCookie } from '../../_helpers.js'
+import { json, getUser, putUser, hashPassword, createSession, sessionCookie, verifyTurnstile } from '../../_helpers.js'
 
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/
 
@@ -10,6 +10,12 @@ export async function onRequest(context) {
   const email = (body.email || '').trim().toLowerCase()
   const password = body.password || ''
   const invite = body.invite || ''
+  const turnstile = body.turnstile || ''
+
+  // 人机校验：未配置 Turnstile 时放行；配置后必须在前端通过校验并带上 token。
+  if (!(await verifyTurnstile(turnstile, env, request))) {
+    return json({ error: '人机校验未通过，请重试' }, 403)
+  }
 
   if (!EMAIL_RE.test(email)) return json({ error: '邮箱格式不正确' }, 400)
   if (password.length < 6) return json({ error: '口令至少 6 位' }, 400)

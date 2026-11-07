@@ -57,6 +57,7 @@
     .invite { display: none; }
     .invite.show { display: block; }
     .toggle-invite { background: none; border: 0; color: var(--brand); font-size: 12px; cursor: pointer; padding: 0; margin-top: 2px; }
+    .ts { margin: 4px 0 14px; min-height: 10px; }
   </style>
 </head>
 <body>
@@ -88,6 +89,9 @@
       </div>
       <button class="toggle-invite" id="toggle-invite" type="button">有邀请码？</button>
 
+      <!-- Cloudflare Turnstile 人机校验 widget（仅在已配置 sitekey 时渲染） -->
+      <div class="ts" id="turnstile-widget"></div>
+
       <button class="btn" id="submit" type="submit">进入站点</button>
       <p class="msg" id="msg"></p>
     </form>
@@ -106,6 +110,37 @@
       var hint = document.getElementById('hint')
       var inviteField = document.getElementById('invite-field')
       var toggleInvite = document.getElementById('toggle-invite')
+
+      // ---- Cloudflare Turnstile ----
+      var tsSitekey = ''
+      var tsLoaded = false
+      var tsToken = ''
+      var tsWidgetId = null
+
+      function maybeRenderTurnstile() {
+        if (tsLoaded && tsSitekey && tsWidgetId === null && window.turnstile) {
+          try {
+            tsWidgetId = window.turnstile.render('turnstile-widget', {
+              sitekey: tsSitekey,
+              callback: function (tok) { tsToken = tok },
+              'expired-callback': function () { tsToken = '' },
+              'error-callback': function () { tsToken = '' }
+            })
+          } catch (e) { tsWidgetId = null }
+        }
+      }
+      window.__tsOnLoad = function () { tsLoaded = true; maybeRenderTurnstile() }
+      function resetTurnstile() {
+        if (tsWidgetId !== null && window.turnstile) {
+          try { window.turnstile.reset(tsWidgetId) } catch (e) {}
+        }
+        tsToken = ''
+      }
+      // 拉取 sitekey（未配置 Turnstile 时返回空，前端不显示 widget）
+      fetch('/api/auth/config').then(function (r) { return r.json() }).then(function (d) {
+        tsSitekey = (d && d.turnstileSitekey) || ''
+        maybeRenderTurnstile()
+      }).catch(function () {})
 
       // 计算登录后跳转目标（保留原访问路径）
       var params = new URLSearchParams(location.search)
@@ -157,23 +192,25 @@
           method: 'POST',
           credentials: 'same-origin',
           headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({ email: email, password: password, invite: invite })
+          body: JSON.stringify({ email: email, password: password, invite: invite, turnstile: tsToken })
         }).then(function (r) {
           return r.json().then(function (data) { return { ok: r.ok, data: data } })
         }).then(function (res) {
           if (res.ok && res.data.ok) {
-            // 会话 cookie 已随响应种下，直接跳回原页面
             location.href = next || '/'
             return
           }
           msg.textContent = (res.data && res.data.error) || '操作失败，请重试'
           submit.disabled = false
+          resetTurnstile()
         }).catch(function () {
           msg.textContent = '网络错误，请稍后重试'
           submit.disabled = false
+          resetTurnstile()
         })
       }
     })()
   </script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer onload="window.__tsOnLoad && window.__tsOnLoad()"></script>
 </body>
 </html>

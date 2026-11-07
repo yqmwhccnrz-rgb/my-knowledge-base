@@ -1,4 +1,4 @@
-import { json, getUser, verifyPassword, createSession, sessionCookie } from '../../_helpers.js'
+import { json, getUser, verifyPassword, createSession, sessionCookie, verifyTurnstile } from '../../_helpers.js'
 
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/
 
@@ -12,6 +12,11 @@ export async function onRequest(context) {
 
   if (!EMAIL_RE.test(email)) return json({ error: '邮箱格式不正确' }, 400)
   if (!password) return json({ error: '请输入口令' }, 400)
+
+  // 人机校验：未配置 Turnstile 时放行；配置后必须在前端通过校验并带上 token。
+  if (!(await verifyTurnstile(body.turnstile, env, request))) {
+    return json({ error: '人机校验未通过，请重试' }, 403)
+  }
 
   const user = await getUser(env, email)
   if (!user) return json({ error: '账号不存在，请先注册' }, 401)
