@@ -145,13 +145,20 @@ function progress(it) {
   return Math.min(100, (st.time / st.dur) * 100)
 }
 
-// ---------- 英文原文 / 中文翻译 显示隐藏 ----------
-const enOpen = reactive({}) // id -> bool，默认全部隐藏
-const zhOpen = reactive({}) // id -> bool
+// ---------- 题目 / 听力原文 / 中文翻译 显示隐藏 ----------
+const qOpen = reactive({}) // id -> bool，默认显示（未设置时视为 true）
+const enOpen = reactive({}) // id -> bool，默认隐藏
+const zhOpen = reactive({}) // id -> bool，默认隐藏
+
+const isQOpen = (id) => qOpen[id] !== false
 
 const allZhOn = computed(
   () => currentItems.value.length > 0 && currentItems.value.every((it) => zhOpen[it.id])
 )
+
+function toggleQ(id) {
+  qOpen[id] = !isQOpen(id)
+}
 
 function toggleEn(id) {
   enOpen[id] = !enOpen[id]
@@ -244,18 +251,21 @@ onBeforeUnmount(() => {
             </span>
           </div>
 
-          <div v-if="it.q" class="listen-q">
-            <div class="q-label">Questions</div>
-            <p class="q-body">{{ it.q }}</p>
-          </div>
-
           <div class="listen-actions">
+            <button v-if="it.q" class="zh-btn" type="button" @click="toggleQ(it.id)">
+              {{ isQOpen(it.id) ? '隐藏题目' : '显示题目' }}
+            </button>
             <button class="zh-btn" type="button" @click="toggleZh(it.id)">
               {{ zhOpen[it.id] ? '隐藏中文翻译' : '显示中文翻译' }}
             </button>
             <button class="zh-btn" type="button" @click="toggleEn(it.id)">
               {{ enOpen[it.id] ? '隐藏听力原文' : '显示听力原文' }}
             </button>
+          </div>
+
+          <div v-if="it.q" v-show="isQOpen(it.id)" class="listen-q">
+            <div class="q-label">Questions</div>
+            <p class="q-body">{{ it.q }}</p>
           </div>
           <p v-show="zhOpen[it.id]" class="zh">{{ it.zh }}</p>
           <p v-show="enOpen[it.id]" class="en">{{ it.en }}</p>
