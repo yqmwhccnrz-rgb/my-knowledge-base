@@ -11,7 +11,8 @@ const noteOptions = [
   { key: 'Matlab', label: 'Matlab 笔记' },
   { key: 'Tax', label: '税法笔记（CPA）' },
   { key: 'Accounting', label: '会计笔记（CPA）' },
-  { key: 'Finance', label: '金融学笔记' }
+  { key: 'Finance', label: '金融学笔记' },
+  { key: 'Macro', label: '宏观经济学笔记' }
 ]
 const selectedNote = ref('all')
 const size = ref(5)

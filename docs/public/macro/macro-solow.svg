@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 410" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="900" height="410" fill="#ffffff"/>
+  <text x="450" y="30" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">索洛模型：稳态、储蓄率效应与黄金律</text>
+
+  <rect x="24" y="48" width="450" height="270" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="40" y="70" font-size="13" font-weight="700" fill="#1e3a8a">人均投资与持平投资（横轴人均资本 k）</text>
+  <line x1="70" y1="292" x2="450" y2="292" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="70" y1="292" x2="70" y2="86" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="60" y="94" text-anchor="end" font-size="11" fill="#6b7280">s·f(k)</text>
+  <text x="442" y="310" text-anchor="end" font-size="11" fill="#6b7280">k</text>
+  <line x1="70" y1="292" x2="430" y2="110" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="404" y="106" font-size="11" fill="#c0392b">(n+δ)k 持平投资</text>
+  <path d="M70,292 C140,206 220,172 300,156 C350,147 400,143 430,142" fill="none" stroke="#1e3a8a" stroke-width="3"/>
+  <text x="404" y="136" font-size="11" fill="#1e3a8a">s·f(k)</text>
+  <circle cx="286" cy="159" r="6" fill="#0891b2"/>
+  <text x="296" y="152" font-size="12" font-weight="700" fill="#0891b2">稳态 k*</text>
+  <line x1="286" y1="159" x2="286" y2="292" stroke="#0891b2" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="286" y="310" text-anchor="middle" font-size="11" fill="#0891b2">k*</text>
+  <text x="122" y="200" font-size="11" fill="#1e3a8a">s·f(k) &gt; (n+δ)k → Δk &gt; 0 资本深化</text>
+  <text x="336" y="212" font-size="11" fill="#c0392b">Δk &lt; 0</text>
+  <path d="M70,272 C140,196 220,164 300,148 C350,139 400,135 430,134" fill="none" stroke="#0891b2" stroke-width="2.5" stroke-dasharray="6 4"/>
+  <text x="96" y="262" font-size="11" fill="#0891b2">储蓄率 s↑ → 曲线上移 → k* 右移</text>
+
+  <text x="494" y="70" font-size="13" font-weight="700" fill="#1e3a8a">核心方程与结论</text>
+  <g font-size="12" fill="#1f2937">
+    <rect x="494" y="82" width="382" height="60" rx="9" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="510" y="106" font-size="14" font-weight="700" fill="#1e3a8a">Δk = s·f(k) − (n + δ)·k</text>
+    <text x="510" y="128" font-size="11" fill="#374151">稳态：s·f(k*) = (n+δ)k*，Δk = 0</text>
+    <rect x="494" y="150" width="382" height="76" rx="9" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="510" y="172" font-weight="700" fill="#1e3a8a">稳态增长率（勘误后的正确结论）</text>
+    <text x="510" y="192" font-size="11" fill="#374151">无技术进步：人均产出增长 0，总产出增长 n</text>
+    <text x="510" y="212" font-size="11" fill="#374151">有技术进步 g：人均增长 g，总产出增长 n+g</text>
+    <rect x="494" y="234" width="382" height="76" rx="9" fill="#fef3c7" stroke="#fcd34d"/>
+    <text x="510" y="256" font-weight="700" fill="#92400e">黄金律：人均消费最大</text>
+    <text x="510" y="276" font-size="12" fill="#78350f">c = f(k) − (n+δ)k；MPK = n + δ（含 g 时 n+g+δ）</text>
+    <text x="510" y="296" font-size="11" fill="#78350f">储蓄率只改变稳态水平，不能改变长期人均增长率</text>
+  </g>
+
+  <text x="24" y="348" font-size="13" font-weight="700" fill="#1e3a8a">外生变化的效应</text>
+  <g font-size="12" fill="#1f2937">
+    <rect x="24" y="360" width="272" height="42" rx="7" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="160" y="386" text-anchor="middle" font-size="11" fill="#374151">储蓄率 s ↑ → k*、y* ↑（仅水平效应）</text>
+    <rect x="310" y="360" width="272" height="42" rx="7" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="446" y="386" text-anchor="middle" font-size="11" fill="#374151">人口 n ↑ / 折旧 δ ↑ → k*、y* ↓</text>
+    <rect x="596" y="360" width="280" height="42" rx="7" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="736" y="386" text-anchor="middle" font-size="11" fill="#374151">技术进步 g 是人均增长唯一源泉</text>
+  </g>
+</svg>

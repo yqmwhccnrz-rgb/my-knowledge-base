@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <marker id="gdp" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#94a3b8"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="420" fill="#ffffff"/>
+  <text x="450" y="30" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">GDP 的三种核算方法 与 收入流量循环</text>
+
+  <text x="24" y="60" font-size="14" font-weight="700" fill="#1e3a8a">① 三种方法核算同一个 GDP</text>
+  <g font-size="12" fill="#1f2937">
+    <rect x="24" y="72" width="272" height="86" rx="9" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="160" y="96" text-anchor="middle" font-weight="700" fill="#1e3a8a">生产法（增加值法）</text>
+    <text x="160" y="118" text-anchor="middle" font-size="11" fill="#374151">各部门（总产出 − 中间投入）求和</text>
+    <text x="160" y="140" text-anchor="middle" font-size="11" fill="#374151">避免重复计算中间产品</text>
+    <rect x="310" y="72" width="272" height="86" rx="9" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="446" y="96" text-anchor="middle" font-weight="700" fill="#1e3a8a">支出法 ★</text>
+    <text x="446" y="120" text-anchor="middle" font-size="14" font-weight="700" fill="#1e3a8a">Y = C + I + G + NX</text>
+    <text x="446" y="142" text-anchor="middle" font-size="11" fill="#374151">G 不含转移支付；NX = X − M</text>
+    <rect x="596" y="72" width="280" height="86" rx="9" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="736" y="96" text-anchor="middle" font-weight="700" fill="#1e3a8a">收入法</text>
+    <text x="736" y="118" text-anchor="middle" font-size="11" fill="#374151">劳动者报酬 + 生产税净额</text>
+    <text x="736" y="140" text-anchor="middle" font-size="11" fill="#374151">+ 固定资产折旧 + 营业盈余</text>
+  </g>
+
+  <text x="24" y="194" font-size="14" font-weight="700" fill="#1e3a8a">② 四部门收入流量循环（注入 = 漏出）</text>
+  <g font-size="12" fill="#1f2937">
+    <rect x="24" y="208" width="164" height="60" rx="8" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="106" y="232" text-anchor="middle" font-weight="600" fill="#1e3a8a">家庭</text>
+    <text x="106" y="252" text-anchor="middle" font-size="11" fill="#374151">提供要素 / 获得收入</text>
+    <rect x="212" y="208" width="164" height="60" rx="8" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="294" y="232" text-anchor="middle" font-weight="600" fill="#1e3a8a">企业</text>
+    <text x="294" y="252" text-anchor="middle" font-size="11" fill="#374151">生产最终产品</text>
+    <rect x="400" y="208" width="164" height="60" rx="8" fill="#fef3c7" stroke="#fcd34d"/>
+    <text x="482" y="232" text-anchor="middle" font-weight="600" fill="#92400e">政府</text>
+    <text x="482" y="252" text-anchor="middle" font-size="11" fill="#78350f">税收 T / 购买 G</text>
+    <rect x="588" y="208" width="164" height="60" rx="8" fill="#fef3c7" stroke="#fcd34d"/>
+    <text x="670" y="232" text-anchor="middle" font-weight="600" fill="#92400e">国外部门</text>
+    <text x="670" y="252" text-anchor="middle" font-size="11" fill="#78350f">进口 M / 出口 X</text>
+    <line x1="190" y1="232" x2="208" y2="232" stroke="#94a3b8" stroke-width="2" marker-end="url(#gdp)"/>
+    <line x1="378" y1="232" x2="396" y2="232" stroke="#94a3b8" stroke-width="2" marker-end="url(#gdp)"/>
+    <line x1="566" y1="232" x2="584" y2="232" stroke="#94a3b8" stroke-width="2" marker-end="url(#gdp)"/>
+  </g>
+  <g font-size="12" fill="#1f2937">
+    <rect x="24" y="282" width="204" height="50" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="126" y="304" text-anchor="middle" font-weight="600" fill="#1e3a8a">两部门：I = S</text>
+    <text x="126" y="322" text-anchor="middle" font-size="11" fill="#374151">投资 = 储蓄</text>
+    <rect x="238" y="282" width="204" height="50" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="340" y="304" text-anchor="middle" font-weight="600" fill="#1e3a8a">三部门：I + G = S + T</text>
+    <text x="340" y="322" text-anchor="middle" font-size="11" fill="#374151">T 为净税收</text>
+    <rect x="452" y="282" width="424" height="50" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="664" y="304" text-anchor="middle" font-weight="600" fill="#1e3a8a">四部门：I + G + X = S + T + M</text>
+    <text x="664" y="322" text-anchor="middle" font-size="11" fill="#374151">注入（左）= 漏出（右），这是事后恒等式</text>
+  </g>
+
+  <rect x="24" y="346" width="852" height="56" rx="9" fill="#eef2ff" stroke="#c7d2fe"/>
+  <text x="44" y="368" font-size="12" font-weight="600" fill="#1e3a8a">总量换算链：GDP → +国外要素净收入 = GNI；− 折旧 = NDP；− 间接税 + 补贴 = NI</text>
+  <text x="44" y="390" font-size="12" fill="#374151">NI − 未分配利润 − 社保税 + 转移支付 = PI；PI − 个人所得税 = DPI（个人可支配收入）</text>
+</svg>

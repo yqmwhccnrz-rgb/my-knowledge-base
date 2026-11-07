@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="900" height="420" fill="#ffffff"/>
+  <text x="450" y="30" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">IS-LM 模型：两条曲线、三个区域与一般均衡</text>
+
+  <rect x="24" y="48" width="430" height="272" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="40" y="70" font-size="13" font-weight="700" fill="#1e3a8a">IS–LM 图（横轴 Y，纵轴 r）</text>
+  <line x1="70" y1="292" x2="430" y2="292" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="70" y1="292" x2="70" y2="86" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="60" y="94" text-anchor="end" font-size="11" fill="#6b7280">r</text>
+  <text x="422" y="310" text-anchor="end" font-size="11" fill="#6b7280">Y</text>
+  <line x1="88" y1="106" x2="410" y2="270" stroke="#1e3a8a" stroke-width="3"/>
+  <text x="392" y="262" font-size="12" fill="#1e3a8a">IS</text>
+  <path d="M88,270 L170,270 C210,270 250,250 290,210 C330,170 380,120 414,98" fill="none" stroke="#0891b2" stroke-width="3"/>
+  <text x="398" y="96" font-size="12" fill="#0891b2">LM</text>
+  <text x="100" y="264" font-size="11" fill="#0891b2">凯恩斯区域（水平）</text>
+  <text x="352" y="128" font-size="11" fill="#0891b2">古典区域（垂直）</text>
+  <circle cx="252" cy="216" r="6" fill="#c0392b"/>
+  <text x="262" y="210" font-size="12" font-weight="700" fill="#c0392b">E (Y*, r*)</text>
+  <line x1="252" y1="216" x2="252" y2="292" stroke="#c0392b" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="70" y1="216" x2="252" y2="216" stroke="#c0392b" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="252" y="310" text-anchor="middle" font-size="11" fill="#c0392b">Y*</text>
+  <text x="58" y="220" text-anchor="end" font-size="11" fill="#c0392b">r*</text>
+
+  <text x="474" y="70" font-size="13" font-weight="700" fill="#1e3a8a">两条曲线的方程与斜率</text>
+  <g font-size="12" fill="#1f2937">
+    <rect x="474" y="82" width="402" height="86" rx="9" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="490" y="104" font-weight="700" fill="#1e3a8a">IS：产品市场均衡（I = S）</text>
+    <text x="490" y="126" font-size="12" fill="#374151">r = (a + I₀)/d − [(1−b)/d]·Y，向右下方倾斜</text>
+    <text x="490" y="148" font-size="11" fill="#374151">d 越大 / b 越大 → IS 越平坦；G↑ T↓ → 右移</text>
+    <rect x="474" y="178" width="402" height="86" rx="9" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="490" y="200" font-weight="700" fill="#1e3a8a">LM：货币市场均衡（M/P = kY − hr）</text>
+    <text x="490" y="222" font-size="12" fill="#374151">r = (k/h)·Y − (1/h)·(M/P)，向右上方倾斜</text>
+    <text x="490" y="244" font-size="11" fill="#374151">M↑ P↓ → 右移；h→∞ 水平，h→0 垂直</text>
+    <rect x="474" y="274" width="402" height="46" rx="9" fill="#fef3c7" stroke="#fcd34d"/>
+    <text x="490" y="296" font-weight="700" fill="#92400e">一般均衡：IS 与 LM 交点同时决定 Y* 与 r*</text>
+    <text x="490" y="313" font-size="11" fill="#78350f">产品市场靠产出调整，货币市场靠利率调整（更快）</text>
+  </g>
+
+  <text x="24" y="350" font-size="13" font-weight="700" fill="#1e3a8a">比较静态：曲线移动的结果</text>
+  <g font-size="12" fill="#1f2937">
+    <rect x="24" y="362" width="272" height="44" rx="7" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="160" y="389" text-anchor="middle" font-weight="600" fill="#1e3a8a">IS 右移（财政扩张）→ Y↑、r↑</text>
+    <rect x="310" y="362" width="272" height="44" rx="7" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="446" y="389" text-anchor="middle" font-weight="600" fill="#1e3a8a">LM 右移（货币扩张）→ Y↑、r↓</text>
+    <rect x="596" y="362" width="280" height="44" rx="7" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="736" y="389" text-anchor="middle" font-weight="600" fill="#1e3a8a">两者同时右移 → Y 大幅↑、r 不定</text>
+  </g>
+</svg>
