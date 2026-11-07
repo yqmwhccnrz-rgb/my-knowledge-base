@@ -224,12 +224,17 @@ onBeforeUnmount(() => {
             </span>
           </div>
 
+          <div v-if="it.q" class="listen-q">
+            <div class="q-label">Questions</div>
+            <p class="q-body">{{ it.q }}</p>
+          </div>
+
           <div class="listen-actions">
             <button class="zh-btn" type="button" @click="toggleZh(it.id)">
               {{ zhOpen[it.id] ? '隐藏中文翻译' : '显示中文翻译' }}
             </button>
             <button class="zh-btn" type="button" @click="toggleEn(it.id)">
-              {{ enOpen[it.id] ? '隐藏英文原文' : '显示英文原文' }}
+              {{ enOpen[it.id] ? '隐藏听力原文' : '显示听力原文' }}
             </button>
           </div>
           <p v-show="zhOpen[it.id]" class="zh">{{ it.zh }}</p>
@@ -392,10 +397,34 @@ onBeforeUnmount(() => {
   color: var(--vp-c-text-2);
   font-variant-numeric: tabular-nums;
 }
+.listen-q {
+  margin-top: 14px;
+  padding: 12px 14px;
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-divider);
+  border-left: 3px solid var(--vp-c-brand-1);
+  border-radius: 8px;
+}
+.q-label {
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--vp-c-brand-1);
+}
+.q-body {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.9;
+  color: var(--vp-c-text-1);
+  white-space: pre-wrap;
+}
 .listen-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-top: 14px;
 }
 .en {
   margin: 10px 0 0;
