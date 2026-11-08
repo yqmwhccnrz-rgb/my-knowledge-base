@@ -1,7 +1,14 @@
 <script setup>
-import { ref, onMounted, watch } from 'vue'
+import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
 import { useData } from 'vitepress'
-import { getFavorites, setFavorites, currentVisitorId } from './favoritesApi.js'
+import {
+  getFavorites,
+  setFavorites,
+  currentVisitorId,
+  fetchJson,
+  notifyAuthExpired,
+  LoginExpiredError
+} from './favoritesApi.js'
 
 const { page } = useData()
 const favorited = ref(false)
@@ -30,27 +37,39 @@ async function toggle() {
   if (!noteId.value || loading.value) return
   loading.value = true
   try {
-    const res = await fetch('/api/favorites', {
+    const res = await fetchJson('/api/favorites', {
       method: 'POST',
       headers: { 'content-type': 'application/json', 'x-visitor-id': currentVisitorId() },
       body: JSON.stringify({ id: noteId.value, action: favorited.value ? 'remove' : 'add' })
     })
-    if (res.ok) {
-      const data = await res.json()
-      const list = Array.isArray(data.favorites) ? data.favorites : []
-      favorited.value = list.includes(noteId.value)
-      // 更新共享缓存并通知侧边栏；两者都不需要再打后端
-      setFavorites(list)
-      window.dispatchEvent(new Event('kb-fav-changed'))
-    }
+    const list = Array.isArray(res.favorites) ? res.favorites : []
+    favorited.value = list.includes(noteId.value)
+    // 更新共享缓存并通知侧边栏；两者都不需要再打后端
+    setFavorites(list)
+    window.dispatchEvent(new Event('kb-fav-changed'))
   } catch (e) {
-    /* 忽略 */
+    // 登录过期：给出明确提示；其他网络错误静默（不影响阅读）
+    if (e instanceof LoginExpiredError) {
+      notifyAuthExpired()
+      authExpired.value = true
+    }
   } finally {
     loading.value = false
   }
 }
 
-onMounted(load)
+const authExpired = ref(false)
+function relogin() {
+  window.location.reload()
+}
+function onAuthExpired() {
+  authExpired.value = true
+}
+onMounted(() => {
+  load()
+  window.addEventListener('kb-auth-expired', onAuthExpired)
+})
+onBeforeUnmount(() => window.removeEventListener('kb-auth-expired', onAuthExpired))
 watch(() => page.value.relativePath, load)
 </script>
 
@@ -65,6 +84,9 @@ watch(() => page.value.relativePath, load)
   >
     {{ favorited ? '★ 已收藏' : '☆ 收藏' }}
   </button>
+  <p v-if="authExpired" class="kb-auth-tip">
+    登录已过期，<a href="#" @click.prevent="relogin">点此重新登录</a>后可继续收藏
+  </p>
 </template>
 
 <style scoped>
@@ -99,5 +121,15 @@ watch(() => page.value.relativePath, load)
 .kb-fav-btn:disabled {
   opacity: 0.6;
   cursor: default;
+}
+.kb-auth-tip {
+  margin: 6px 0 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--vp-c-text-2, #626463);
+}
+.kb-auth-tip a {
+  color: var(--vp-c-brand-1, #3f403f);
+  text-decoration: underline;
 }
 </style>

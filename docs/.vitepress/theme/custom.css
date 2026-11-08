@@ -36,6 +36,14 @@
   --kb-font-mono: "SF Mono", SFMono-Regular, ui-monospace, Menlo, Consolas,
     "Liberation Mono", monospace;
 
+  /* 覆盖 VitePress 默认字体变量：站点统一用系统字体栈，不再加载 66KB 的 Inter woff2。
+     必须 !important + 字面量：VitePress 默认的 --vp-font-family-base 声明排在主题样式之
+     后，普通声明会被它盖掉；!important 自定义属性能强制压过后续同名声明。 */
+  --vp-font-family-base: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", "Noto Sans CJK SC", "Segoe UI", Roboto, sans-serif !important;
+  --vp-font-family-mono: "SF Mono", SFMono-Regular, ui-monospace, Menlo, Consolas,
+    "Liberation Mono", monospace !important;
+
   --vp-c-brand-1: #3f403f;
   --vp-c-brand-2: #5d5f5e;
   --vp-c-brand-3: #828482;

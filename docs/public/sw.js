@@ -7,6 +7,9 @@ const MEDIA_RE = /\.(m4a|mp3|wav|ogg|aac|flac|mp4|webm)$/i
 // 不带内容 hash、但会随版本变化的静态资源：必须网络优先，否则「缓存优先」会让
 // 用户永远拿到旧图标/旧 manifest/旧离线页，只能靠手动升 CACHE 版本才能刷新。
 const FRESH_RE = /\/(icon\.svg|icon-192\.png|icon-512\.png|manifest\.webmanifest|offline\.html|register-sw\.js|sw\.js)$/
+// 题库 / 听力 / 听写等数据 JSON：文件名固定无 hash，也走网络优先（在线取最新、
+// 失败后回落旧缓存供离线使用），避免「缓存优先」让用户永远拿到旧数据。
+const DATA_RE = /^\/data\//
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -37,22 +40,41 @@ self.addEventListener('fetch', (event) => {
   // 媒体资源不缓存（大文件 + Range 请求）
   if (MEDIA_RE.test(url.pathname)) return
 
-  // 导航 HTML 与易变静态资源：网络优先，失败回落缓存（离线仍可用）
-  if (req.mode === 'navigate' || FRESH_RE.test(url.pathname)) {
+  // 导航 HTML：网络优先，但【不写缓存】。否则登出后离线访问会回落到已登录的页面
+  // 正文，绕过 Cloudflare Access 登录保护（共享设备 / 离线场景下的隐私泄露）。
+  // 离线时直接回落到预缓存的离线页，宁可看不到内容也绝不泄露已登录数据。
+  if (req.mode === 'navigate') {
+    event.respondWith(
+      fetch(req).catch(async () => {
+        const offline = await caches.match(OFFLINE)
+        return offline || Response.error()
+      })
+    )
+    return
+  }
+
+  // 易变静态资源（图标 / manifest / 离线页 / sw 自身）：网络优先并写缓存，避免旧版本残留
+  if (FRESH_RE.test(url.pathname)) {
     event.respondWith(
       fetch(req)
         .then((res) => {
           putInCache(req, res.clone())
           return res
         })
-        .catch(async () => {
-          const cached = await caches.match(req)
-          if (cached) return cached
-          if (req.mode === 'navigate') {
-            return (await caches.match(OFFLINE)) || Response.error()
-          }
-          return Response.error()
+        .catch(() => caches.match(req))
+    )
+    return
+  }
+
+  // 数据 JSON（/data/*）：网络优先，成功写缓存供离线回退，但永远先问网络拿最新
+  if (DATA_RE.test(url.pathname)) {
+    event.respondWith(
+      fetch(req)
+        .then((res) => {
+          putInCache(req, res.clone())
+          return res
         })
+        .catch(() => caches.match(req))
     )
     return
   }

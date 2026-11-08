@@ -135,6 +135,11 @@ export default defineConfig({
     const desc = pageDescription(rp)
     if (desc) return { description: cleanDescription(desc) }
   },
+  // 去掉 VitePress 默认注入的 Inter 字体 preload 标签：站点已统一用系统字体，
+  // 无需下载 66KB 的 woff2（@font-face 的 Inter 也因字体变量被覆盖而不再被引用）。
+  async transformHtml(html) {
+    return html.replace(/<link rel="preload"[^>]*inter-roman[^>]*>/g, '')
+  },
   // 社交分享卡片（Open Graph / Twitter）
   transformHead({ title, description }) {
     const desc = cleanDescription(description || '笔记与习题测试')

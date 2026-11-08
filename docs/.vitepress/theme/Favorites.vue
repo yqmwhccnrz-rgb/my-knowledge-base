@@ -6,6 +6,13 @@ import { getFavorites } from './favoritesApi.js'
 const { theme } = useData()
 const router = useRouter()
 const favIds = ref([])
+const authExpired = ref(false)
+function relogin() {
+  window.location.reload()
+}
+function onAuthExpired() {
+  authExpired.value = true
+}
 
 // 从主题配置的 sidebar 中提取 笔记ID -> { 标题, 链接 }
 // 这样新增笔记时收藏夹会自动同步，无需手改
@@ -44,8 +51,12 @@ function onChange() {
 onMounted(() => {
   load()
   window.addEventListener('kb-fav-changed', onChange)
+  window.addEventListener('kb-auth-expired', onAuthExpired)
 })
-onBeforeUnmount(() => window.removeEventListener('kb-fav-changed', onChange))
+onBeforeUnmount(() => {
+  window.removeEventListener('kb-fav-changed', onChange)
+  window.removeEventListener('kb-auth-expired', onAuthExpired)
+})
 </script>
 
 <template>
@@ -57,6 +68,7 @@ onBeforeUnmount(() => window.removeEventListener('kb-fav-changed', onChange))
       </li>
     </ul>
     <p v-else class="kb-fav-empty">暂无收藏，点笔记页「☆ 收藏」即可加入</p>
+    <p v-if="authExpired" class="kb-auth-tip">登录已过期，<a href="#" @click.prevent="relogin">点此重新登录</a>后收藏会恢复</p>
   </div>
 </template>
 
@@ -111,5 +123,15 @@ onBeforeUnmount(() => window.removeEventListener('kb-fav-changed', onChange))
   font-size: clamp(11px, calc(7.5px + var(--kb-side-w) * 0.015), 13.5px);
   line-height: 1.5;
   color: var(--vp-c-text-2, #8d8f8d);
+}
+.kb-auth-tip {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--vp-c-text-2, #626463);
+}
+.kb-auth-tip a {
+  color: var(--vp-c-brand-1, #3f403f);
+  text-decoration: underline;
 }
 </style>

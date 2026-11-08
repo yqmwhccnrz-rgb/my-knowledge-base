@@ -6,8 +6,11 @@ const ready = ref(false)
 
 const STORE_KEY = 'listen:filter'
 
-// 模块加载即开始下载听力数据，与页面 JS 并行，避免等 onMounted 的串行瀑布
-const bankPromise = import('./data/listening.json').then((m) => m.default)
+// 组件 setup 阶段就发起下载（仅听力页会实例化），与页面渲染并行；
+// 数据放在 /data/ 下由浏览器原生 fetch + JSON.parse，不再打进 JS chunk。
+const bankPromise = import.meta.env.SSR
+  ? Promise.resolve([])
+  : fetch('/data/listening.json').then((r) => r.json()).catch(() => [])
 
 onMounted(async () => {
   bank.value = await bankPromise

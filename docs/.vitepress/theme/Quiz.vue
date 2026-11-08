@@ -1,8 +1,18 @@
 <script setup>
-import { ref, computed, watch, onMounted } from 'vue'
+import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue'
+import { fetchJson, LoginExpiredError, notifyAuthExpired } from './favoritesApi.js'
 // 题库近 1MB，异步加载：只有真正打开习题页时才拉取，不拖慢其他笔记页
 const bank = ref([])
 const bankReady = ref(false)
+const authExpired = ref(false)
+function relogin() {
+  window.location.reload()
+}
+function onAuthExpired() {
+  authExpired.value = true
+}
+onMounted(() => window.addEventListener('kb-auth-expired', onAuthExpired))
+onBeforeUnmount(() => window.removeEventListener('kb-auth-expired', onAuthExpired))
 
 const noteOptions = [
   { key: 'all', label: '全部笔记' },
@@ -72,8 +82,8 @@ watch([selectedNote, size], start)
 // 组件 setup 阶段（仅习题页会实例化）就发起下载，与页面渲染并行；
 // 比放在 onMounted 少等一次挂载往返。SSR 构建期不发请求。
 const bankPromise = import.meta.env.SSR
-  ? null
-  : import('./data/questions.json').then((m) => m.default)
+  ? Promise.resolve([])
+  : fetch('/data/questions.json').then((r) => r.json()).catch(() => [])
 
 onMounted(async () => {
   bank.value = await bankPromise
@@ -259,9 +269,13 @@ async function saveRecord() {
 
 async function loadRecords() {
   try {
-    const res = await fetch('/api/records', { headers: { 'x-visitor-id': visitorId() } })
-    if (res.ok) recordsList.value = await res.json()
+    recordsList.value = await fetchJson('/api/records', { headers: { 'x-visitor-id': visitorId() } })
   } catch (e) {
+    // 登录过期：给出明确提示，而不是让成绩区默默空白
+    if (e instanceof LoginExpiredError) {
+      notifyAuthExpired()
+      authExpired.value = true
+    }
     recordsList.value = []
   }
 }
@@ -280,8 +294,9 @@ function fmtDate(iso) {
 </script>
 
 <template>
-  <div class="quiz">
-    <div class="quiz-bar">
+    <div class="quiz">
+      <p v-if="authExpired" style="font-size:12px;line-height:1.5;color:var(--vp-c-text-2,#626463);margin:8px 0 12px">登录已过期，<a href="#" @click.prevent="relogin" style="color:var(--vp-c-brand-1,#3f403f);text-decoration:underline">点此重新登录</a>后成绩与收藏会恢复</p>
+      <div class="quiz-bar">
       <label>
         选择笔记
         <select v-model="selectedNote">
