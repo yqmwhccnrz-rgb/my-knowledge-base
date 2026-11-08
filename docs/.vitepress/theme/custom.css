@@ -573,8 +573,8 @@ body.kb-resizing .vp-doc h3 {
   /* ---- 3. 正文字号 / 行距 / 颜色（A4 阅读密度适中）---- */
   .vp-doc {
     font-size: 10.5pt !important;
-    /* 正文行距略放松（1.65 → 1.72）；表格/代码块另有紧凑行距，不受影响 */
-    line-height: 1.72 !important;
+    /* 正文行距取 1.65（偏紧）与 1.72（偏松）的中间值；表格/代码块另有紧凑行距，不受影响 */
+    line-height: 1.68 !important;
     color: #111 !important;
     max-width: none !important;
   }

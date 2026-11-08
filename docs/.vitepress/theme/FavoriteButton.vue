@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted, watch } from 'vue'
 import { useData } from 'vitepress'
+import { getFavorites, setFavorites, currentVisitorId } from './favoritesApi.js'
 
 const { page } = useData()
 const favorited = ref(false)
@@ -16,28 +17,13 @@ function currentNoteId() {
     .replace(/\.html$/, '')
 }
 
-function visitorId() {
-  let id = localStorage.getItem('kb_visitor_id')
-  if (!id) {
-    id = 'v_' + (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2))
-    localStorage.setItem('kb_visitor_id', id)
-  }
-  return id
-}
-
+// 先同步确定 noteId 让按钮立即出现，再异步取收藏状态（命中共享缓存时几乎无等待）
 async function load() {
   const id = currentNoteId()
   noteId.value = id
   if (!id) return
-  try {
-    const res = await fetch('/api/favorites', { headers: { 'x-visitor-id': visitorId() } })
-    if (res.ok) {
-      const data = await res.json()
-      favorited.value = Array.isArray(data) && data.includes(id)
-    }
-  } catch (e) {
-    /* 离线或后端未绑定时静默忽略 */
-  }
+  const list = await getFavorites()
+  favorited.value = list.includes(id)
 }
 
 async function toggle() {
@@ -46,13 +32,15 @@ async function toggle() {
   try {
     const res = await fetch('/api/favorites', {
       method: 'POST',
-      headers: { 'content-type': 'application/json', 'x-visitor-id': visitorId() },
+      headers: { 'content-type': 'application/json', 'x-visitor-id': currentVisitorId() },
       body: JSON.stringify({ id: noteId.value, action: favorited.value ? 'remove' : 'add' })
     })
     if (res.ok) {
       const data = await res.json()
-      favorited.value = Array.isArray(data.favorites) && data.favorites.includes(noteId.value)
-      // 通知侧边栏收藏夹刷新
+      const list = Array.isArray(data.favorites) ? data.favorites : []
+      favorited.value = list.includes(noteId.value)
+      // 更新共享缓存并通知侧边栏；两者都不需要再打后端
+      setFavorites(list)
       window.dispatchEvent(new Event('kb-fav-changed'))
     }
   } catch (e) {

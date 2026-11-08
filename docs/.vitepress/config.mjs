@@ -115,10 +115,14 @@ export default defineConfig({
     ['meta', { name: 'apple-mobile-web-app-title', content: '我的知识库' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'default' }],
     ['link', { rel: 'apple-touch-icon', href: '/icon-192.png' }],
-    ['script', { src: '/register-sw.js' }]
+    ['script', { src: '/register-sw.js', defer: '' }]
   ],
   // 固定灰白浅色主调，不跟随访客系统的深色模式
   appearance: false,
+  // 关掉 VitePress 的全站自动预取：侧栏 8 篇笔记链接都在视口内，会一次性预取
+  // 约 1.4MB 的完整页面 chunk，与题库/听力数据争抢带宽。站内导航由浏览器 HTTP
+  // 缓存与 Service Worker 缓存保障，点击时按需加载即可。
+  router: { prefetchLinks: false },
   ignoreDeadLinks: true,
   srcExclude: ['public/**'],
   // 首页卡片由 docs/notes 自动生成，新增笔记后无需手改首页；

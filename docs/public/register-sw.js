@@ -33,10 +33,14 @@ if (!isLocal && 'serviceWorker' in navigator) {
             })
           }
         })
-        // Service Worker 接管控制权后，刷新一次以使用最新资源
+        // 仅当「已有旧 SW 被新版本替换」时才刷新；首次接管（原本没有 controller）
+        // 页面用的就是最新资源，无需刷新——以前这里会在首次进入时整页 reload 一次，
+        // 造成「登进去慢/闪一下」。另外在答题/听写页不自动刷新，避免丢失未保存的作答。
         let reloaded = false
+        const hadController = !!navigator.serviceWorker.controller
         navigator.serviceWorker.addEventListener('controllerchange', function () {
-          if (reloaded) return
+          if (reloaded || !hadController) return
+          if (document.querySelector('.quiz, .dict-wrap, .listen')) return
           reloaded = true
           window.location.reload()
         })

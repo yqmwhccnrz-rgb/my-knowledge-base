@@ -69,9 +69,14 @@ function start() {
 // 切换笔记或题量时自动重新抽题
 watch([selectedNote, size], start)
 
+// 组件 setup 阶段（仅习题页会实例化）就发起下载，与页面渲染并行；
+// 比放在 onMounted 少等一次挂载往返。SSR 构建期不发请求。
+const bankPromise = import.meta.env.SSR
+  ? null
+  : import('./data/questions.json').then((m) => m.default)
+
 onMounted(async () => {
-  const mod = await import('./data/questions.json')
-  bank.value = mod.default
+  bank.value = await bankPromise
   bankReady.value = true
   start()
 })

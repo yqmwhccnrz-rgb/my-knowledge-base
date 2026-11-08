@@ -10,9 +10,11 @@ const answerOpen = reactive({})
 
 let saveTimer = null
 
+// 模块加载即开始下载听写数据，与页面 JS 并行，避免等 onMounted 的串行瀑布
+const bankPromise = import('./data/dictation.json').then((m) => m.default)
+
 onMounted(async () => {
-  const mod = await import('./data/dictation.json')
-  bank.value = mod.default
+  bank.value = await bankPromise
   try {
     Object.assign(drafts, JSON.parse(localStorage.getItem('dictation_drafts') || '{}'))
     const pos = JSON.parse(localStorage.getItem('dictation_pos') || '{}')

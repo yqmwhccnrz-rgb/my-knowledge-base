@@ -1,19 +1,11 @@
 <script setup>
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { useData, useRouter } from 'vitepress'
+import { getFavorites } from './favoritesApi.js'
 
 const { theme } = useData()
 const router = useRouter()
 const favIds = ref([])
-
-function visitorId() {
-  let id = localStorage.getItem('kb_visitor_id')
-  if (!id) {
-    id = 'v_' + (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2))
-    localStorage.setItem('kb_visitor_id', id)
-  }
-  return id
-}
 
 // 从主题配置的 sidebar 中提取 笔记ID -> { 标题, 链接 }
 // 这样新增笔记时收藏夹会自动同步，无需手改
@@ -37,17 +29,8 @@ const favList = computed(() =>
 )
 
 async function load() {
-  try {
-    const res = await fetch('/api/favorites', {
-      headers: { 'x-visitor-id': visitorId() }
-    })
-    if (res.ok) {
-      const data = await res.json()
-      favIds.value = Array.isArray(data) ? data : []
-    }
-  } catch (e) {
-    /* 离线或后端未绑定时忽略，列表为空 */
-  }
+  // 与收藏按钮共用一份缓存/请求，避免同一页面重复打后端
+  favIds.value = await getFavorites()
 }
 
 function go(link) {

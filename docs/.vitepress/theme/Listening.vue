@@ -6,9 +6,11 @@ const ready = ref(false)
 
 const STORE_KEY = 'listen:filter'
 
+// 模块加载即开始下载听力数据，与页面 JS 并行，避免等 onMounted 的串行瀑布
+const bankPromise = import('./data/listening.json').then((m) => m.default)
+
 onMounted(async () => {
-  const mod = await import('./data/listening.json')
-  bank.value = mod.default
+  bank.value = await bankPromise
   // 恢复上次浏览的章节 / 分段
   try {
     const saved = JSON.parse(localStorage.getItem(STORE_KEY) || 'null')
