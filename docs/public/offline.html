@@ -6,19 +6,22 @@
   <title>离线 - 我的知识库</title>
   <style>
     body { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
-           background:#f6f8fa; color:#3451b2; display:flex; min-height:100vh;
+           background:#fafaf9; color:#2e2f2e; display:flex; min-height:100vh;
            align-items:center; justify-content:center; margin:0; padding:24px; text-align:center; }
-    .card { background:#fff; border-radius:16px; padding:40px 32px; box-shadow:0 8px 30px rgba(0,0,0,.08); max-width:380px; }
-    .icon { font-size:48px; margin-bottom:12px; }
-    h1 { font-size:20px; margin:0 0 8px; }
-    p { font-size:14px; color:#555; line-height:1.6; margin:0; }
+    .card { background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:16px; padding:40px 32px; box-shadow:0 8px 30px rgba(0,0,0,.06); max-width:380px; }
+    .icon { width:56px; height:56px; margin:0 auto 16px; display:block; }
+    h1 { font-size:20px; margin:0 0 8px; font-weight:600; }
+    p { font-size:14px; color:#626463; line-height:1.6; margin:0; }
+    .retry { display:inline-block; margin-top:20px; padding:9px 18px; font-size:14px;
+             color:#fff; background:#3f403f; border:0; border-radius:8px; cursor:pointer; }
   </style>
 </head>
 <body>
   <div class="card">
-    <div class="icon">📚</div>
+    <img class="icon" src="/icon.svg" alt="" />
     <h1>当前处于离线状态</h1>
-    <p>你之前打开过的页面仍然可以查看。恢复网络后刷新即可访问全部内容。</p>
+    <p>你之前打开过的页面仍然可以查看。恢复网络后点下方按钮重新加载即可访问全部内容。</p>
+    <button class="retry" type="button" onclick="location.reload()">重新加载</button>
   </div>
 </body>
 </html>

@@ -87,19 +87,19 @@ watch(() => page.value.relativePath, load)
   margin: 4px 0 12px;
   padding: 5px 14px;
   font-size: 13px;
-  color: var(--vp-c-brand-1, #3451b2);
-  background: var(--vp-c-default-soft, #f0f3fb);
-  border: 1px solid var(--vp-c-brand-1, #3451b2);
+  color: var(--vp-c-brand-1, #3f403f);
+  background: var(--vp-c-default-soft, #f4f4f2);
+  border: 1px solid var(--vp-c-brand-1, #3f403f);
   border-radius: 999px;
   cursor: pointer;
   transition: all 0.15s ease;
 }
 .kb-fav-btn:hover {
-  background: var(--vp-c-brand-1, #3451b2);
+  background: var(--vp-c-brand-1, #3f403f);
   color: #fff;
 }
 .kb-fav-btn.active {
-  background: var(--vp-c-brand-1, #3451b2);
+  background: var(--vp-c-brand-1, #3f403f);
   color: #fff;
 }
 .kb-fav-btn:disabled {

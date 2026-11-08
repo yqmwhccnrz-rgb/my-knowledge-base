@@ -1,9 +1,12 @@
-const CACHE = 'kb-cache-v3'
+const CACHE = 'kb-cache-v4'
 const OFFLINE = '/offline.html'
 const PRECACHE = ['/', '/offline.html', '/manifest.webmanifest', '/icon.svg']
 // 音频/视频体积大且浏览器会用 Range 分段请求：不进离线缓存，交给网络原生处理，
 // 否则会把 Cache Storage 撑满，还可能导致 206 分片播放异常。
 const MEDIA_RE = /\.(m4a|mp3|wav|ogg|aac|flac|mp4|webm)$/i
+// 不带内容 hash、但会随版本变化的静态资源：必须网络优先，否则「缓存优先」会让
+// 用户永远拿到旧图标/旧 manifest/旧离线页，只能靠手动升 CACHE 版本才能刷新。
+const FRESH_RE = /\/(icon\.svg|icon-192\.png|icon-512\.png|manifest\.webmanifest|offline\.html|register-sw\.js|sw\.js)$/
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -34,19 +37,27 @@ self.addEventListener('fetch', (event) => {
   // 媒体资源不缓存（大文件 + Range 请求）
   if (MEDIA_RE.test(url.pathname)) return
 
-  if (req.mode === 'navigate') {
+  // 导航 HTML 与易变静态资源：网络优先，失败回落缓存（离线仍可用）
+  if (req.mode === 'navigate' || FRESH_RE.test(url.pathname)) {
     event.respondWith(
       fetch(req)
         .then((res) => {
           putInCache(req, res.clone())
           return res
         })
-        .catch(() => caches.match(req).then((r) => r || caches.match(OFFLINE)))
+        .catch(async () => {
+          const cached = await caches.match(req)
+          if (cached) return cached
+          if (req.mode === 'navigate') {
+            return (await caches.match(OFFLINE)) || Response.error()
+          }
+          return Response.error()
+        })
     )
     return
   }
 
-  // 静态资源：缓存优先，回退网络并写入缓存
+  // 带内容 hash 的构建资源：缓存优先，回退网络并写入缓存
   event.respondWith(
     caches.match(req).then(
       (cached) =>

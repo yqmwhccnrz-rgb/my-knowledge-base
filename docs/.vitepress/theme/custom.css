@@ -1,123 +1,4 @@
-:root {
-  --vp-c-brand-1: #2f6f5f;
-  --vp-c-brand-2: #3d8572;
-  --vp-c-brand-3: #4f9a86;
-  --vp-c-brand-soft: rgba(47, 111, 95, 0.14);
-}
-
-.gate-screen {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  background: var(--vp-c-bg);
-}
-.gate-card {
-  width: 100%;
-  max-width: 400px;
-  padding: 36px 32px;
-  background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 16px;
-  box-sizing: border-box;
-}
-.gate-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--vp-c-text-1);
-}
-.gate-mark {
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  background: var(--vp-c-brand-1);
-  color: #fff;
-  font-size: 14px;
-}
-.gate-title {
-  margin: 28px 0 8px;
-  font-size: 24px;
-  font-weight: 500;
-  color: var(--vp-c-text-1);
-}
-.gate-desc {
-  margin: 0 0 24px;
-  font-size: 13px;
-  line-height: 1.7;
-  color: var(--vp-c-text-2);
-}
-.gate-form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.gate-form label {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  font-size: 13px;
-  color: var(--vp-c-text-2);
-}
-.gate-form input {
-  padding: 10px 12px;
-  font-size: 14px;
-  color: var(--vp-c-text-1);
-  background: var(--vp-c-bg);
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 8px;
-  outline: none;
-  box-sizing: border-box;
-}
-.gate-form input:focus {
-  border-color: var(--vp-c-brand-1);
-}
-.gate-btn {
-  margin-top: 4px;
-  padding: 11px 16px;
-  font-size: 14px;
-  color: #fff;
-  background: var(--vp-c-brand-1);
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-.gate-btn:hover {
-  background: var(--vp-c-brand-2);
-}
-.gate-error {
-  margin: 0;
-  font-size: 12px;
-  color: #c0392b;
-}
-.gate-foot {
-  margin: 20px 0 0;
-  font-size: 12px;
-  color: var(--vp-c-text-2);
-  text-align: center;
-}
-.gate-logout {
-  position: fixed;
-  right: 16px;
-  bottom: 16px;
-  z-index: 60;
-  padding: 6px 12px;
-  font-size: 12px;
-  color: var(--vp-c-text-2);
-  background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 20px;
-  cursor: pointer;
-}
-.gate-logout:hover {
-  color: var(--vp-c-text-1);
-}
+/* 站点自定义样式：灰白主调 / 双级目录 / 打印导出 / 无障碍 */
 
 .logout-btn {
   position: fixed;
@@ -776,7 +657,7 @@ body.kb-resizing .vp-doc h3 {
     margin: 8pt 0 !important;
     padding: 8pt 12pt !important;
     max-width: 100% !important;
-    border-left: 3px solid var(--vp-c-brand-1, #2f6f5f) !important;
+    border-left: 3px solid var(--vp-c-brand-1, #3f403f) !important;
   }
 
   /* ---- 8. 链接：打印版补上外部 URL，站内链接保持干净 ---- */
@@ -793,4 +674,120 @@ body.kb-resizing .vp-doc h3 {
   /* 去掉锚点与外链小图标的 ::after 干扰 */
   .vp-doc a.header-anchor::before, .vp-doc .header-anchor { content: none !important; }
   .vp-doc hr { margin: 10pt 0 !important; border-top: 1px solid #d8dee7 !important; }
+}
+
+/* ==========================================================================
+   无障碍：键盘焦点可见、减少动态效果、触控目标
+   VitePress 默认主题与本站多个组件用了 outline:none，键盘用户会看不到焦点，
+   这里用 :focus-visible 统一补回（只在键盘操作时出现，不干扰鼠标点击）。
+   ========================================================================== */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--vp-c-brand-1, #3f403f) !important;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+/* 组件内 scoped 样式权重较高，单独兜住几个会被 outline:none 覆盖的输入控件 */
+.quiz-fill:focus-visible,
+.quiz-essay:focus-visible,
+.quiz-blank:focus-visible,
+.dictation-input:focus-visible,
+textarea:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--vp-c-brand-1, #3f403f) !important;
+  outline-offset: 2px;
+}
+/* 拖拽分隔条获得焦点时给足可见反馈 */
+.kb-resizer:focus-visible {
+  outline: 2px solid var(--vp-c-brand-2, #5d5f5e) !important;
+  outline-offset: -2px;
+}
+
+/* 尊重系统「减少动态效果」：关闭所有过渡、动画与位移 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .VPFeatures .VPFeature.link:hover,
+  .kb-export-btn:hover {
+    transform: none !important;
+  }
+}
+
+/* 「跳到正文」在键盘聚焦时真正可见，便于跳过导航 */
+.VPSkipLink:focus-visible {
+  top: 8px !important;
+  left: 8px !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 10px 16px;
+  clip: auto !important;
+  clip-path: none !important;
+  white-space: nowrap;
+  z-index: 999;
+  background: var(--vp-c-bg-elv, #fff);
+  border: 1px solid var(--vp-c-brand-1, #3f403f);
+  border-radius: 8px;
+  color: var(--vp-c-text-1, #2e2f2e);
+}
+
+/* ==========================================================================
+   首页 hero 排版：VitePress 默认把 name 与 text 都设为 56px/700 + pre-wrap，
+   中文长副标题在 576px 宽度下会被挤成「…听 / 练」这种孤字换行。
+   让 text 降一档、拉开层级，并放宽行宽与行高。
+   ========================================================================== */
+.VPHero .name {
+  white-space: nowrap !important;
+}
+.VPHero .text {
+  max-width: 760px !important;
+  font-size: clamp(24px, 3vw, 34px) !important;
+  line-height: 1.4 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  white-space: normal !important;
+  color: var(--vp-c-text-2, #626463) !important;
+}
+.VPHero .tagline {
+  max-width: 760px !important;
+  font-size: clamp(16px, 1.8vw, 20px) !important;
+  line-height: 1.6 !important;
+  white-space: normal !important;
+}
+@media (max-width: 640px) {
+  .VPHero .text { font-size: 24px !important; }
+  .VPHero .name { white-space: normal !important; }
+}
+
+/* ==========================================================================
+   首页 hero 排版：VitePress 默认把 name 与 text 都设为 56px/700 + pre-wrap，
+   中文长副标题在 576px 宽度下会被挤成「…听 / 练」这种孤字换行。
+   让 text 降一档、拉开层级，并放宽行宽与行高。
+   ========================================================================== */
+.VPHero .name {
+  white-space: nowrap !important;
+}
+.VPHero .text {
+  max-width: 760px !important;
+  font-size: clamp(24px, 3vw, 34px) !important;
+  line-height: 1.4 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  white-space: normal !important;
+  color: var(--vp-c-text-2, #626463) !important;
+}
+.VPHero .tagline {
+  max-width: 760px !important;
+  font-size: clamp(16px, 1.8vw, 20px) !important;
+  line-height: 1.6 !important;
+  white-space: normal !important;
+}
+@media (max-width: 640px) {
+  .VPHero .text { font-size: 24px !important; }
+  .VPHero .name { white-space: normal !important; }
 }

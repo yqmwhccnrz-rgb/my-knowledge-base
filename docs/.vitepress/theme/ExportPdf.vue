@@ -113,29 +113,29 @@ watch(() => page.value.relativePath, () => { savedTitle = '' })
   margin: 4px 0 12px;
   padding: 5px 14px;
   font-size: 13px;
-  color: var(--vp-c-brand-1, #2f6f5f);
-  background: var(--vp-c-default-soft, #f0f3fb);
-  border: 1px solid var(--vp-c-brand-1, #2f6f5f);
+  color: var(--vp-c-brand-1, #3f403f);
+  background: var(--vp-c-default-soft, #f4f4f2);
+  border: 1px solid var(--vp-c-brand-1, #3f403f);
   border-radius: 999px;
   cursor: pointer;
   transition: all 0.15s ease;
   white-space: nowrap;
 }
 .kb-export-btn:hover {
-  background: var(--vp-c-brand-1, #2f6f5f);
+  background: var(--vp-c-brand-1, #3f403f);
   color: #fff;
 }
 .kb-export-hint {
   margin: 0 0 12px;
   font-size: 12px;
   line-height: 1.5;
-  color: var(--vp-c-text-2, #64748b);
-  background: var(--vp-c-bg-soft, #f6f8fa);
-  border: 1px solid var(--vp-c-divider, #e2e8f0);
+  color: var(--vp-c-text-2, #626463);
+  background: var(--vp-c-bg-soft, #f4f4f2);
+  border: 1px solid var(--vp-c-divider, rgba(0,0,0,0.085));
   border-radius: 8px;
   padding: 6px 10px;
 }
 .kb-export-hint b {
-  color: var(--vp-c-brand-1, #2f6f5f);
+  color: var(--vp-c-brand-1, #3f403f);
 }
 </style>

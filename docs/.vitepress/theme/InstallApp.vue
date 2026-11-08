@@ -31,8 +31,13 @@ function closeHelp() {
   showHelp.value = false
 }
 
+function onKeydown(e) {
+  if (e.key === 'Escape' && showHelp.value) closeHelp()
+}
+
 onMounted(() => {
   window.addEventListener('beforeinstallprompt', onBeforeInstallPrompt)
+  window.addEventListener('keydown', onKeydown)
   // 若已经以独立应用（standalone）模式运行，则隐藏安装入口
   const standalone =
     (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) ||
@@ -43,6 +48,7 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   window.removeEventListener('beforeinstallprompt', onBeforeInstallPrompt)
+  window.removeEventListener('keydown', onKeydown)
 })
 </script>
 
@@ -59,7 +65,7 @@ onBeforeUnmount(() => {
     </button>
 
     <div v-if="showHelp" class="install-mask" @click="closeHelp">
-      <div class="install-modal" @click.stop>
+      <div class="install-modal" role="dialog" aria-modal="true" aria-label="将本站安装到设备" @click.stop>
         <h3 class="install-title">将本站安装到设备</h3>
         <p class="install-desc">
           本站是 PWA 应用，<strong>无需从应用商店下载</strong>。按下列方式即可像 App 一样使用：
@@ -105,7 +111,7 @@ onBeforeUnmount(() => {
   font-size: 13px;
   font-weight: 500;
   color: #fff;
-  background: var(--vp-c-brand-1, #3451b2);
+  background: var(--vp-c-brand-1, #3f403f);
   border: none;
   border-radius: 16px;
   cursor: pointer;
@@ -113,7 +119,7 @@ onBeforeUnmount(() => {
 }
 
 .install-btn:hover {
-  background: var(--vp-c-brand-2, #3a5ccc);
+  background: var(--vp-c-brand-2, #5d5f5e);
 }
 
 .install-btn:active {
@@ -143,7 +149,7 @@ onBeforeUnmount(() => {
   border-radius: 12px;
   padding: 22px 22px 18px;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
-  color: #1f2328;
+  color: #2e2f2e;
 }
 
 .install-title {
@@ -162,7 +168,7 @@ onBeforeUnmount(() => {
 .install-block {
   margin-bottom: 12px;
   padding: 10px 12px;
-  background: #f5f7fb;
+  background: #f4f4f2;
   border-radius: 8px;
 }
 
@@ -176,7 +182,7 @@ onBeforeUnmount(() => {
 .install-sub {
   font-size: 14px;
   font-weight: 600;
-  color: var(--vp-c-brand-1, #3451b2);
+  color: var(--vp-c-brand-1, #3f403f);
 }
 
 .install-close {
@@ -187,14 +193,14 @@ onBeforeUnmount(() => {
   font-size: 14px;
   font-weight: 500;
   color: #fff;
-  background: var(--vp-c-brand-1, #3451b2);
+  background: var(--vp-c-brand-1, #3f403f);
   border: none;
   border-radius: 8px;
   cursor: pointer;
 }
 
 .install-close:hover {
-  background: var(--vp-c-brand-2, #3a5ccc);
+  background: var(--vp-c-brand-2, #5d5f5e);
 }
 
 /* 窄屏：按钮文字隐藏，仅留图标，避免挤压导航 */

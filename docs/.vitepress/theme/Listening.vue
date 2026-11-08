@@ -526,7 +526,7 @@ onBeforeUnmount(() => {
   cursor: pointer;
 }
 .play-btn.playing {
-  background: var(--vp-c-brand-2, #4c6ef5);
+  background: var(--vp-c-brand-2, #5d5f5e);
 }
 .track {
   flex: 1;

@@ -51,7 +51,17 @@ function shuffle(list) {
 
 function start() {
   const n = Math.min(Number(size.value), bankForNote.value.length)
-  picked.value = shuffle(bankForNote.value).slice(0, n)
+  // 题库里存在少量「题干相同、选项/考点不同」的变体题。同一组练习若同时抽到，
+  // 用户会误以为是重复出错题，这里按题干去重；若去重后不足 n 题，再用剩余题补足。
+  const seen = new Set()
+  const unique = []
+  const rest = []
+  for (const item of shuffle(bankForNote.value)) {
+    const key = String(item.question || '').trim()
+    if (seen.has(key)) rest.push(item)
+    else { seen.add(key); unique.push(item) }
+  }
+  picked.value = unique.concat(rest).slice(0, n)
   answers.value = {}
   submitted.value = false
 }
@@ -589,7 +599,7 @@ function fmtDate(iso) {
 .quiz-text.is-code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 13px;
-  background: var(--vp-c-bg-alt, #f6f8fa);
+  background: var(--vp-c-bg-alt, #f4f4f2);
   border: 1px solid var(--vp-c-divider);
   border-radius: 8px;
   padding: 12px 14px;

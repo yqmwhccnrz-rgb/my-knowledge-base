@@ -1,7 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-  <rect width="512" height="512" rx="96" fill="#3451b2"/>
-  <rect x="174" y="156" width="164" height="200" rx="20" fill="#ffffff"/>
-  <rect x="194" y="200" width="124" height="16" rx="8" fill="#3451b2"/>
-  <rect x="194" y="240" width="124" height="16" rx="8" fill="#3451b2"/>
-  <rect x="194" y="280" width="88"  height="16" rx="8" fill="#3451b2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="我的知识库">
+  <rect width="512" height="512" rx="96" fill="#3f403f"/>
+  <!-- 打开的书页 -->
+  <path d="M256 158c-30-20-70-26-108-20v192c38-6 78 0 108 20 30-20 70-26 108-20V138c-38-6-78 0-108 20Z" fill="#ffffff"/>
+  <path d="M256 158v192" stroke="#c9cbc9" stroke-width="6" stroke-linecap="round"/>
+  <!-- 左页文字线 -->
+  <rect x="170" y="196" width="66" height="13" rx="6.5" fill="#8d908d"/>
+  <rect x="170" y="228" width="66" height="13" rx="6.5" fill="#b4b7b4"/>
+  <rect x="170" y="260" width="46" height="13" rx="6.5" fill="#b4b7b4"/>
+  <!-- 右页文字线 -->
+  <rect x="276" y="196" width="66" height="13" rx="6.5" fill="#8d908d"/>
+  <rect x="276" y="228" width="66" height="13" rx="6.5" fill="#b4b7b4"/>
+  <rect x="276" y="260" width="46" height="13" rx="6.5" fill="#b4b7b4"/>
 </svg>
