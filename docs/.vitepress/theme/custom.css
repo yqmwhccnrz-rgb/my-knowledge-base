@@ -612,3 +612,185 @@ body.kb-resizing .vp-doc h2,
 body.kb-resizing .vp-doc h3 {
   transition: none !important;
 }
+
+/* ==========================================================================
+   导出 PDF / 打印排版（浏览器打印 → 另存为 PDF）
+   目标：中文矢量文字、SVG 矢量图、表格与代码块完整不裁切、分页自然。
+   逐个化解 VitePress 默认样式在打印时的坑。
+   ========================================================================== */
+@page {
+  size: A4;
+  margin: 14mm 12mm 16mm;
+}
+
+@media print {
+  /* 背景色/图形照常打印（表格斑马纹、代码块底色、SVG 配色块） */
+  html, body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* ---- 1. 隐藏所有与正文无关的界面元素 ---- */
+  .VPNav, .VPLocalNav, .VPSidebar, .VPBackdrop, .VPSkipLink,
+  .VPFooter, .VPDocFooter, .VPDocAside, .aside, .aside-curtain,
+  .VPDocOutlineDropdown, .VPSidebarItem,
+  .kb-fav-btn, .kb-fav-box, .kb-export-wrap, .kb-export-hint,
+  .kb-resizers, .kb-resizer, .kb-resizer-outline, .kb-width-tip,
+  .install-app, .install-mask, .logout-btn,
+  .header-anchor, .vp-external-link-icon,
+  .edit-link, .last-updated, .prev-next, .pager,
+  .VPDocFooter .edit-info, .back-to-top, .VPReturnToTop {
+    display: none !important;
+  }
+
+  /* ---- 2. 正文铺满纸张：清掉侧栏占位、导航高度、限宽与大留白 ---- */
+  html, body {
+    background: #fff !important;
+    color: #000 !important;
+    min-height: 0 !important;
+  }
+  .Layout { min-height: 0 !important; }
+  .VPContent, .VPContent.has-sidebar {
+    padding: 0 !important;
+    margin: 0 !important;
+    padding-top: 0 !important;
+  }
+  .VPDoc {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+  .VPDoc .container {
+    display: block !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+  .VPDoc .content,
+  .VPDoc .content-container,
+  .VPDoc.has-aside .content-container {
+    max-width: none !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+  .VPDoc .main { padding: 0 !important; margin: 0 !important; }
+
+  /* ---- 3. 正文字号 / 行距 / 颜色（A4 阅读密度适中）---- */
+  .vp-doc {
+    font-size: 10.5pt !important;
+    line-height: 1.65 !important;
+    color: #111 !important;
+    max-width: none !important;
+  }
+  .vp-doc h1 { font-size: 19pt !important; margin: 0 0 12pt !important; padding: 0 !important; }
+  .vp-doc h2 { font-size: 14pt !important; margin: 16pt 0 8pt !important; padding-top: 8pt !important; border-top: 1px solid #d8dee7 !important; }
+  .vp-doc h3 { font-size: 12pt !important; margin: 12pt 0 6pt !important; }
+  .vp-doc h4, .vp-doc h5, .vp-doc h6 { font-size: 11pt !important; margin: 10pt 0 5pt !important; }
+  .vp-doc p, .vp-doc li { orphans: 3; widows: 3; }
+  .vp-doc blockquote { margin: 8pt 0 !important; }
+
+  /* 标题不落在页底、图片/信息块/表格行不跨页断裂 */
+  .vp-doc h1, .vp-doc h2, .vp-doc h3, .vp-doc h4 {
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+  .vp-doc img, .vp-doc .custom-block, .vp-doc blockquote, .vp-doc tr, .vp-doc figure {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* ---- 4. 矢量插图：等比缩放、不溢出、不裁切 ---- */
+  .vp-doc img {
+    max-width: 100% !important;
+    height: auto !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* ---- 5. 表格：恢复为真正的 table，允许跨页并重复表头 ----
+     VitePress 默认 `display:block; overflow-x:auto` 会让宽表在打印时被横向裁掉 */
+  .vp-doc table {
+    display: table !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    table-layout: auto !important;
+    border-collapse: collapse !important;
+    margin: 8pt 0 !important;
+    font-size: 9pt !important;
+  }
+  .vp-doc thead { display: table-header-group !important; }
+  .vp-doc tr { background: transparent !important; }
+  .vp-doc tr:nth-child(2n) { background: #f6f8fb !important; }
+  .vp-doc th, .vp-doc td {
+    padding: 4pt 6pt !important;
+    font-size: 9pt !important;
+    line-height: 1.45 !important;
+    border: 1px solid #cbd5e1 !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+    white-space: normal !important;
+  }
+  .vp-doc th { background: #eef2f7 !important; color: #111 !important; }
+
+  /* ---- 6. 代码块：长行自动换行，不再横向裁切 ----
+     默认 `white-space:pre; overflow-x:auto` 在纸上会把超长行直接截断 */
+  .vp-doc div[class*='language-'], .vp-block {
+    overflow: visible !important;
+    margin: 8pt 0 !important;
+    max-width: 100% !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 4px !important;
+    background: #f6f8fa !important;
+  }
+  .vp-doc [class*='language-'] pre,
+  .vp-doc [class*='language-'] code {
+    white-space: pre-wrap !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+    overflow: visible !important;
+    max-width: 100% !important;
+  }
+  .vp-doc [class*='language-'] pre { padding: 8pt 10pt !important; margin: 0 !important; background: transparent !important; }
+  .vp-doc [class*='language-'] code {
+    display: block !important;
+    width: auto !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    font-size: 8.5pt !important;
+    line-height: 1.45 !important;
+    color: #1f2937 !important;
+  }
+  .vp-doc :not(pre) > code {
+    white-space: pre-wrap !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
+  .vp-doc .line-numbers-wrapper, .vp-doc .copy-code-button, .vp-doc .lang { display: none !important; }
+
+  /* ---- 7. 自定义容器（::: info 笔记概要）---- */
+  .vp-doc .custom-block {
+    margin: 8pt 0 !important;
+    padding: 8pt 12pt !important;
+    max-width: 100% !important;
+    border-left: 3px solid var(--vp-c-brand-1, #2f6f5f) !important;
+  }
+
+  /* ---- 8. 链接：打印版补上外部 URL，站内链接保持干净 ---- */
+  .vp-doc a { color: #1d4ed8 !important; text-decoration: none !important; }
+  .vp-doc a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-size: 8pt;
+    color: #64748b;
+    overflow-wrap: anywhere;
+    word-break: break-all;
+  }
+  .vp-doc a[href^='http'][href$='.svg']::after { content: none !important; }
+
+  /* 去掉锚点与外链小图标的 ::after 干扰 */
+  .vp-doc a.header-anchor::before, .vp-doc .header-anchor { content: none !important; }
+  .vp-doc hr { margin: 10pt 0 !important; border-top: 1px solid #d8dee7 !important; }
+}
