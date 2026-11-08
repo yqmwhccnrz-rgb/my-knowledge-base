@@ -24,13 +24,6 @@ self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') self.skipWaiting()
 })
 
-// 只有带会话 cookie 的请求才允许读写缓存，避免未登录/已登出用户
-// 从 Service Worker 缓存里读到已登录时才有的内容（内容泄露）。
-function hasSession(req) {
-  const c = req.headers.get('Cookie') || ''
-  return /(^|;\s*)kb_sid=/.test(c)
-}
-
 self.addEventListener('fetch', (event) => {
   const req = event.request
   if (req.method !== 'GET') return
@@ -40,12 +33,6 @@ self.addEventListener('fetch', (event) => {
   if (url.pathname.startsWith('/api/')) return
   // 媒体资源不缓存（大文件 + Range 请求）
   if (MEDIA_RE.test(url.pathname)) return
-
-  // 无会话：纯网络，不读不写缓存（安全优先）
-  if (!hasSession(req)) {
-    event.respondWith(fetch(req).catch(() => caches.match(OFFLINE)))
-    return
-  }
 
   if (req.mode === 'navigate') {
     event.respondWith(
