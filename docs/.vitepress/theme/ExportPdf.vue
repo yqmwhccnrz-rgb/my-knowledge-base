@@ -78,7 +78,9 @@ watch(() => page.value.relativePath, () => { savedTitle = '' })
 </script>
 
 <template>
-  <span v-if="isNote" class="kb-export-wrap">
+  <!-- 多根片段：按钮与提示条直接成为外层 .kb-doc-actions 的 flex 项，
+       与「收藏」按钮共享同一基线行，避免嵌套容器导致错位 -->
+  <template v-if="isNote">
     <button
       class="kb-export-btn"
       type="button"
@@ -95,24 +97,22 @@ watch(() => page.value.relativePath, () => { savedTitle = '' })
     <span v-if="hint" class="kb-export-hint" role="status">
       在打印窗口把「目标」选为 <b>另存为 PDF</b>；可取消勾选「页眉和页脚」让版面更干净
     </span>
-  </span>
+  </template>
 </template>
 
 <style scoped>
-.kb-export-wrap {
-  display: inline-flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  vertical-align: middle;
-}
 .kb-export-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 5px;
-  margin: 4px 0 12px;
-  padding: 5px 14px;
+  /* 尺寸交给外层 .kb-doc-actions 统一，与「收藏」按钮完全一致 */
+  margin: 0;
+  height: 32px;
+  box-sizing: border-box;
+  padding: 0 14px;
   font-size: 13px;
+  line-height: 1;
   color: var(--vp-c-brand-1, #3f403f);
   background: var(--vp-c-default-soft, #f4f4f2);
   border: 1px solid var(--vp-c-brand-1, #3f403f);
@@ -126,7 +126,9 @@ watch(() => page.value.relativePath, () => { savedTitle = '' })
   color: #fff;
 }
 .kb-export-hint {
-  margin: 0 0 12px;
+  /* 提示条占满整行，自动换到按钮下方，不挤歪按钮行 */
+  flex-basis: 100%;
+  margin: 0;
   font-size: 12px;
   line-height: 1.5;
   color: var(--vp-c-text-2, #626463);

@@ -83,10 +83,16 @@ watch(() => page.value.relativePath, load)
 .kb-fav-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 4px;
-  margin: 4px 0 12px;
-  padding: 5px 14px;
+  /* 尺寸交给外层 .kb-doc-actions 统一，这里不设 margin，避免与导出按钮基线错位 */
+  margin: 0;
+  height: 32px;
+  box-sizing: border-box;
+  padding: 0 14px;
   font-size: 13px;
+  line-height: 1;
+  white-space: nowrap;
   color: var(--vp-c-brand-1, #3f403f);
   background: var(--vp-c-default-soft, #f4f4f2);
   border: 1px solid var(--vp-c-brand-1, #3f403f);

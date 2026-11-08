@@ -23,7 +23,8 @@ export default {
     app.component('Favorites', Favorites)
   },
   Layout: () => h(DefaultTheme.Layout, null, {
-    'doc-top': () => [h(FavoriteButton), h(ExportPdf)],
+    // 收藏与导出共用一个 flex 行，保证两个按钮高度、基线、间距完全一致
+    'doc-top': () => h('div', { class: 'kb-doc-actions' }, [h(FavoriteButton), h(ExportPdf)]),
     // 左侧边栏顶部：收藏夹（VitePress 侧边栏槽位名为 sidebar-nav-before）
     'sidebar-nav-before': () => h(Favorites),
     // 右上角导航区：在「首页/笔记/习题测试」右侧加「安装 App」入口

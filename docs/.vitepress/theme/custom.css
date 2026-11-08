@@ -515,7 +515,7 @@ body.kb-resizing .vp-doc h3 {
   .VPNav, .VPLocalNav, .VPSidebar, .VPBackdrop, .VPSkipLink,
   .VPFooter, .VPDocFooter, .VPDocAside, .aside, .aside-curtain,
   .VPDocOutlineDropdown, .VPSidebarItem,
-  .kb-fav-btn, .kb-fav-box, .kb-export-wrap, .kb-export-hint,
+  .kb-doc-actions, .kb-fav-btn, .kb-fav-box, .kb-export-btn, .kb-export-hint,
   .kb-resizers, .kb-resizer, .kb-resizer-outline, .kb-width-tip,
   .install-app, .install-mask, .logout-btn,
   .header-anchor, .vp-external-link-icon,
@@ -790,4 +790,22 @@ select:focus-visible {
 @media (max-width: 640px) {
   .VPHero .text { font-size: 24px !important; }
   .VPHero .name { white-space: normal !important; }
+}
+
+/* ==========================================================================
+   笔记页顶部操作行：收藏 + 导出 PDF 统一对齐
+   两个按钮来自不同组件，之前各自带 margin / vertical-align，基线不一致导致错位。
+   统一放进 flex 行，尺寸由组件内部固定为 32px，这里只管间距与换行。
+   ========================================================================== */
+.kb-doc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 4px 0 12px;
+  min-height: 0;
+}
+/* 非笔记页两个按钮都不渲染，容器不应留下任何空白 */
+.kb-doc-actions:empty {
+  display: none;
 }
