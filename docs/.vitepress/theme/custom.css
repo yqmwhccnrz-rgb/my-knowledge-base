@@ -501,8 +501,17 @@ body.kb-resizing .vp-doc h3 {
    ========================================================================== */
 @page {
   size: A4;
-  /* 左右留白：12mm 偏紧、20mm 以上偏空，18mm 是「不紧凑也不宽松」的折中；上下保持不变 */
-  margin: 14mm 18mm 16mm;
+  /* 上下 18mm、左右 19mm：比原来的 14/18/16 略松，仍不空旷 */
+  margin: 18mm 19mm;
+  /* 关键：用空内容占用页眉页脚的 margin boxes，压掉浏览器打印时自动加的
+     日期、页面标题、网址、页码。注意必须用 content: ""，content: none 不生效。
+     实测 Edge/Chrome 157 有效，无需用户手动在打印窗口取消「页眉和页脚」。 */
+  @top-left { content: "" }
+  @top-center { content: "" }
+  @top-right { content: "" }
+  @bottom-left { content: "" }
+  @bottom-center { content: "" }
+  @bottom-right { content: "" }
 }
 
 @media print {
@@ -564,7 +573,8 @@ body.kb-resizing .vp-doc h3 {
   /* ---- 3. 正文字号 / 行距 / 颜色（A4 阅读密度适中）---- */
   .vp-doc {
     font-size: 10.5pt !important;
-    line-height: 1.65 !important;
+    /* 正文行距略放松（1.65 → 1.72）；表格/代码块另有紧凑行距，不受影响 */
+    line-height: 1.72 !important;
     color: #111 !important;
     max-width: none !important;
   }

@@ -28,10 +28,16 @@ function onPrintChange(e) {
   if (e.matches) cleanTitle()
   else restoreTitle()
 }
-function showHint() {
+function showHint(ms = 15000) {
   hint.value = true
   clearTimeout(hintTimer)
-  hintTimer = setTimeout(() => { hint.value = false }, 7000)
+  hintTimer = setTimeout(() => { hint.value = false }, ms)
+}
+
+// 打印对话框关闭后再提示一次——打印时页面被遮住，用户很可能没看到点击时的提示
+function onAfterPrint() {
+  restoreTitle()
+  showHint(12000)
 }
 
 // 打印前确保所有矢量插图已解码，避免 PDF 中出现空白图
@@ -62,13 +68,13 @@ async function exportPdf() {
 
 onMounted(() => {
   window.addEventListener('beforeprint', cleanTitle)
-  window.addEventListener('afterprint', restoreTitle)
+  window.addEventListener('afterprint', onAfterPrint)
   printMQ = window.matchMedia && window.matchMedia('print')
   if (printMQ && printMQ.addEventListener) printMQ.addEventListener('change', onPrintChange)
 })
 onBeforeUnmount(() => {
   window.removeEventListener('beforeprint', cleanTitle)
-  window.removeEventListener('afterprint', restoreTitle)
+  window.removeEventListener('afterprint', onAfterPrint)
   if (printMQ && printMQ.removeEventListener) printMQ.removeEventListener('change', onPrintChange)
   clearTimeout(hintTimer)
   restoreTitle()
@@ -85,7 +91,7 @@ watch(() => page.value.relativePath, () => { savedTitle = '' })
       class="kb-export-btn"
       type="button"
       @click="exportPdf"
-      title="把这篇笔记导出为 PDF（在打印窗口选择「另存为 PDF」）"
+      title="把这篇笔记导出为 PDF（在打印窗口选择「另存为 PDF」；日期、网址、页码已自动去除）"
     >
       <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M6 9V2h12v7" />
@@ -95,7 +101,8 @@ watch(() => page.value.relativePath, () => { savedTitle = '' })
       导出 PDF
     </button>
     <span v-if="hint" class="kb-export-hint" role="status">
-      在打印窗口把「目标」选为 <b>另存为 PDF</b>；可取消勾选「页眉和页脚」让版面更干净
+      在打印窗口把<b>目标选为「另存为 PDF」</b>即可保存；日期、网址、页码已由站点自动去除。
+      若所用浏览器仍显示，展开「更多设置」取消勾选「页眉和页脚」即可。
     </span>
   </template>
 </template>
