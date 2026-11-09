@@ -51,8 +51,8 @@ function readSummary(file) {
 }
 
 // 首页卡片覆盖全部笔记，避免只有按字母序的前三篇能被首页直达。
-// 顺序与侧栏一致（welcome.md 导读排最前，其余按文件名），VitePress home
-// features 网格会自适应换行，8 张卡片仍保持整齐。
+// 顺序与侧栏一致（welcome.md 导读排最前，其余按文件名）。生成的卡片由
+// HomeNotes 组件以左右滑动轮播展示（一次一张），不再走 VitePress 默认网格。
 function featureCards() {
   if (!fs.existsSync(notesDir)) return []
   const files = fs.readdirSync(notesDir)
@@ -130,12 +130,14 @@ export default defineConfig({
   router: { prefetchLinks: false },
   ignoreDeadLinks: true,
   srcExclude: ['public/**'],
-  // 首页卡片由 docs/notes 自动生成，新增笔记后无需手改首页；
+  // 首页笔记卡片由 docs/notes 自动生成，新增笔记后无需手改首页；
+  // 数据写入 noteCards（而非默认的 features），这样 VitePress 默认网格不渲染，
+  // 改由自定义 HomeNotes 组件以左右滑动轮播形式展示，一次显示一张。
   // 同时为每页写入独立 description（SSR 与客户端路由都会用到）
   transformPageData(pageData) {
     const rp = pageData.relativePath || ''
     if (rp === 'index.md' && pageData.frontmatter.layout === 'home') {
-      pageData.frontmatter.features = featureCards()
+      pageData.frontmatter.noteCards = featureCards()
     }
     const desc = pageDescription(rp)
     if (desc) return { description: cleanDescription(desc) }

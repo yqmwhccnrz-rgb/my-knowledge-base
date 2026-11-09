@@ -19,6 +19,5 @@ hero:
       text: 听力训练
       link: /dictation.html
 
-# 下面三个方框由 config.mjs 从 docs/notes 自动生成：一篇笔记一个，笔记不足时留空
-features: []
+# 首页笔记卡片由 config.mjs 自动生成（noteCards），以左右滑动轮播展示，无需手改
 ---
