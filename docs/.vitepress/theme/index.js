@@ -3,6 +3,7 @@ import { h } from 'vue'
 import Quiz from './Quiz.vue'
 import Listening from './Listening.vue'
 import Dictation from './Dictation.vue'
+import Reading from './Reading.vue'
 import LogoutButton from './LogoutButton.vue'
 import LayoutFix from './LayoutFix.vue'
 import ColumnResizer from './ColumnResizer.vue'
@@ -18,6 +19,7 @@ export default {
     app.component('Quiz', Quiz)
     app.component('Listening', Listening)
     app.component('Dictation', Dictation)
+    app.component('Reading', Reading)
     app.component('FavoriteButton', FavoriteButton)
     app.component('InstallApp', InstallApp)
     app.component('Favorites', Favorites)

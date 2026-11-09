@@ -33,17 +33,22 @@ export class LoginExpiredError extends Error {
   }
 }
 
-// 统一封装需要登录的接口请求：自动识别 Access 302（重定向到登录页）与非 JSON 响应，
-// 抛出 LoginExpiredError 让上层给出明确提示，而不是默默失败。
+// 统一封装需要登录的接口请求：识别 Cloudflare Access 会话过期并抛出
+// LoginExpiredError 让上层给出明确提示，而不是默默失败。
+//
+// 判定必须严格，避免误报：只有「被重定向到站外（Access 登录页在 cloudflareaccess.com）」
+// 或服务器明确返回 401/403，才算登录过期。其它非 JSON 响应（本地预览的 404、
+// Functions 冷启动报错页、KV 未绑定、离线失败等）都属于普通失败，静默降级即可。
 export async function fetchJson(url, init = {}) {
   const res = await fetch(url, init)
-  // 两种可靠信号：① 跟随重定向后 res.redirected 为 true（被 Access 拦截）；
-  // ② content-type 不是 application/json（拿到的是登录页 HTML）。
-  const ct = res.headers.get('content-type') || ''
-  if (res.redirected || !ct.includes('application/json')) {
+  const origin = typeof window !== 'undefined' ? window.location.origin : ''
+  const redirectedOffsite = res.redirected && (!origin || !res.url.startsWith(origin))
+  if (redirectedOffsite || res.status === 401 || res.status === 403) {
     throw new LoginExpiredError(url)
   }
   if (!res.ok) throw new Error('HTTP ' + res.status)
+  const ct = res.headers.get('content-type') || ''
+  if (!ct.includes('application/json')) throw new Error('Unexpected content-type: ' + ct)
   return res.json()
 }
 
