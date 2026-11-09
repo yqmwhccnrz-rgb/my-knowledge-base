@@ -50,27 +50,29 @@ function readSummary(file) {
   return text.length > 78 ? `${text.slice(0, 76)}…` : text
 }
 
-// 首页三个方框：hero 的「开始阅读」已经指向 welcome.md，
-// 卡片就不再重复它，改展示随后三篇，让首页一次露出四个不同入口。
+// 首页卡片覆盖全部笔记，避免只有按字母序的前三篇能被首页直达。
+// 顺序与侧栏一致（welcome.md 导读排最前，其余按文件名），VitePress home
+// features 网格会自适应换行，8 张卡片仍保持整齐。
 function featureCards() {
   if (!fs.existsSync(notesDir)) return []
   const files = fs.readdirSync(notesDir)
-    .filter((f) => f.endsWith('.md') && f !== 'library.md' && f !== 'welcome.md')
-    .sort((a, b) => a.localeCompare(b))
-  const cards = files.slice(0, 3).map((f) => ({
+    .filter((f) => f.endsWith('.md') && f !== 'library.md')
+    .sort((a, b) => {
+      const rank = (x) => (x === 'welcome.md' ? 0 : 1)
+      return rank(a) - rank(b) || a.localeCompare(b)
+    })
+  return files.map((f) => ({
     title: readTitle(f),
     details: readSummary(f),
     link: `/notes/${f.replace(/\.md$/, '')}.html`,
     linkText: '阅读笔记'
   }))
-  while (cards.length < 3) cards.push({ title: '', details: '' })
-  return cards
 }
 
 // 每页独立的 description，避免全站共用一句站点描述（利于搜索结果与分享卡片）
 const PAGE_DESCRIPTIONS = {
-  'index.md': '个人知识库：8 门课程精要笔记、1479 道习题、四六级英语阅读、75 段英语听力与 200 题听写训练，能读、能查、能练。',
-  'quiz.md': '按科目随机抽题，覆盖单选、多选、判断、填空、程序设计与计算分析题，提交后即时判分并查看解析。',
+  'index.md': '个人知识库：8 门课程精要笔记、1547 道习题、四六级英语阅读、75 段英语听力与 200 题听写训练，能读、能查、能练。',
+  'quiz.md': '按 8 门科目随机抽题，覆盖单选、多选、判断、填空、程序设计与计算分析题，提交后即时判分并查看解析。',
   'listening.md': '75 段英语听力真题，按章节与分段筛选，支持逐句高亮对照英文原文与中文翻译。',
   'dictation.md': '200 个听写片段，盲听打字后逐词比对，可逐题查看英文原文与中文翻译。',
   'reading.md': '英语阅读练习：四六级词组填空与短篇阅读选择，含中文释义与逐题解析，可按 CET-4 / CET-6 难度切换。'
@@ -105,7 +107,9 @@ export default defineConfig({
   title: '我的知识库',
   description: '笔记与习题测试',
   lang: 'zh-CN',
-  lastUpdated: true,
+  // 关掉「Last updated」：Cloudflare Pages 用浅克隆构建，git 时间等于构建时间，
+  // 各页显示的日期都相同且失真，英文文案也与全站中文不一致，容易误导。
+  lastUpdated: false,
   // PWA：可安装为 App + 离线缓存已访问页面
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/icon.svg' }],

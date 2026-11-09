@@ -394,3 +394,161 @@ with open('文件.json', encoding='utf-8') as f:
 ::: danger 易错点 · dropna / fillna 默认不改原表
 `dropna()`、`fillna()` 等**默认返回新对象，不会修改原 DataFrame**。如果想像「就地修改」一样，要么把结果赋回原变量 `df = df.dropna()`，要么加 `inplace=True`（如 `df.dropna(inplace=True)`）。
 :::
+
+### 6.2 缺失值与重复值
+
+```python
+df.isna()                      # 布尔表：每个格子是否为缺失值
+df.isna().sum()                # 按列统计缺失个数
+df.dropna()                    # 删掉含缺失的行（默认 axis=0）
+df.dropna(subset=['列'])       # 只看指定列
+df.fillna(0)                   # 缺失填 0；也可传字典按列分别填
+df.drop_duplicates()           # 删除完全重复的行
+df.duplicated()                # 返回布尔 Series：该行是否与前面某行重复
+```
+
+| 需求 | 写法 |
+| --- | --- |
+| 判断是否缺失 | `pd.isna(x)` / `df.isna()`（`NaN` 不等于任何值，含它自身，所以 `x == np.nan` 永远为 False） |
+| 删缺失 | `df.dropna()` |
+| 填缺失 | `df.fillna(value)` |
+| 删重复 | `df.drop_duplicates()` |
+| 查重复 | `df.duplicated()` |
+
+::: danger 易错点 · NaN 不能用 == 判断
+`NaN != NaN`，所以 `x == np.nan` 恒为 `False`，检测缺失必须用 `pd.isna()` / `isnull()`。另外 `dropna()` 用于**删除**缺失、`fillna()` 用于**填充**缺失，两者不要写反。
+:::
+
+### 6.3 数据变形与表合并
+
+```python
+pd.concat([df1, df2])                 # 纵向拼接（行方向）
+pd.merge(df1, df2, on='键')           # 按共同列做数据库连接
+df1.join(df2)                          # 按索引拼接
+df.groupby('列')['值'].mean()          # 分组后聚合
+df.pivot_table(index='行', columns='列', values='值', aggfunc='mean')  # 透视表
+df.sort_values(by='列', ascending=False)  # 按值排序
+```
+
+| 方法 | 作用 |
+| --- | --- |
+| `pd.concat` | 沿轴拼接多个 DataFrame（默认按行堆叠） |
+| `pd.merge` | 类似 SQL JOIN，按一个或多个键合并列 |
+| `df.groupby` | 拆分—应用—合并，常接 `mean/sum/count/agg` |
+| `df.pivot_table` | 生成透视表，可指定 `aggfunc` |
+| `df.apply` | 对行或列应用函数 |
+| `df.append` | 旧版追加行，pandas 2.0 起已移除，应改用 `pd.concat` |
+
+### 6.4 时间数据与分组聚合
+
+```python
+pd.to_datetime(df['日期'])            # 字符串转时间类型
+df['年'] = df['日期'].dt.year        # 通过 .dt 取年月日、星期等
+df.set_index('日期').resample('M').sum()   # 按时间频率重采样
+df.groupby('类别')['销售额'].agg(['sum', 'mean', 'count'])
+```
+
+> `pd.to_numeric()` 是把字符串转数值，`pd.to_datetime()` 才是转时间，两者别混。
+
+---
+
+## 第7章 matplotlib 与 seaborn 可视化
+
+### 7.1 基本绘图
+
+```python
+import matplotlib.pyplot as plt
+plt.rcParams['font.sans-serif'] = ['SimHei']   # 让中文正常显示
+plt.rcParams['axes.unicode_minus'] = False     # 让负号正常显示
+
+plt.plot(x, y, label='曲线')
+plt.xlabel('横轴'); plt.ylabel('纵轴')
+plt.title('标题'); plt.legend()
+plt.show()
+```
+
+| 图形 | 写法 |
+| --- | --- |
+| 折线图 | `plt.plot(x, y)` |
+| 散点图 | `plt.scatter(x, y)` |
+| 柱状图 | `plt.bar(x, y)` |
+| 直方图 | `plt.hist(data, bins=10)` |
+| 饼图 | `plt.pie(sizes, labels=...)` |
+| pandas 快捷绘图 | `df.plot()` / `df['列'].plot(kind='bar')` |
+
+::: danger 易错点 · 中文显示为方框
+matplotlib 默认字体不含中文，直接写中文标题会出现方框。需设置 `plt.rcParams['font.sans-serif']`，Mac 上常用 `Arial Unicode MS`，Windows 上常用 `SimHei`；同时设 `axes.unicode_minus=False` 避免负号变方块。
+:::
+
+### 7.2 子图、双轴与 seaborn
+
+```python
+fig, axes = plt.subplots(2, 2, figsize=(10, 8))   # 2×2 子图
+axes[0, 0].plot(x, y)
+plt.tight_layout()                                 # 自动调整间距
+
+ax2 = axes[0, 1].twinx()      # 双 y 轴：共享 x 轴、右侧独立的 y 轴
+ax2.plot(x, y2, color='red')
+
+import seaborn as sns
+sns.histplot(df['列'], kde=True)   # 分布直方图 + 核密度
+sns.heatmap(df.corr(), annot=True) # 相关性热力图
+sns.pairplot(df)                   # 两两散点图矩阵
+```
+
+> `plt.subplots()` 返回 `(fig, axes)`，`axes` 是二维数组；`twinx()` 用于在同一张图里画量纲不同的两条曲线。seaborn 基于 matplotlib，能直接用 DataFrame 列名绘图，统计图形更省代码。
+
+---
+
+## 第8章 易错点汇总
+
+| 易错点 | 正确做法 |
+| --- | --- |
+| 数组切片是**视图**，改它会改原数组 | 要副本用 `a[1:4].copy()` |
+| `df[['列']]` 双括号返回 **DataFrame**，单括号返回 **Series** | 链式调用保持二维结构时用双括号 |
+| `NaN == NaN` 为 False | 用 `pd.isna()` 判断 |
+| `x == np.nan` 永远为 False | 同上 |
+| `dropna` / `fillna` 默认不改原表 | 赋回变量或 `inplace=True` |
+| `dropna` 是删除、`fillna` 是填充 | 别写反 |
+| `drop_duplicates()` 删除、`duplicated()` 只查看 | 别写反 |
+| `np.std` 是标准差、`np.var` 是方差、`np.mean` 是均值 | 都可用 `axis` 指定行列 |
+| `pd.concat` 拼接、`pd.merge` 按键合并、`groupby` 分组 | 三者用途不同 |
+| `df.append` 已弃用 | 用 `pd.concat` |
+| 布尔转换中 `0` 为 False、非 0 为 True | `bool(2)` 为 True |
+| 广播要求对应维度相等或其一为 1 | 否则报 `ValueError` |
+
+---
+
+## 第9章 知识点速查总结
+
+### 9.1 numpy 速查
+
+| 目的 | 写法 |
+| --- | --- |
+| 创建 | `np.array()` / `np.arange()` / `np.zeros((3,3))` / `np.ones((3,3))` / `np.eye(3)` / `np.linspace(0, np.pi, 5)` |
+| 形状 | `a.shape` / `a.reshape(-1)` / `a.T` |
+| 统计 | `np.max` / `np.min` / `np.mean` / `np.std` / `np.sum`（可加 `axis`） |
+| 运算 | `+ - * /` 逐元素；矩阵乘用 `@` 或 `np.dot`；转置用 `.T` |
+| 筛选 | `a[a > 4]` 布尔索引；`a[a > 4] = 0` 批量赋值 |
+| 去重 / 唯一 | `np.unique(a)` |
+
+### 9.2 pandas 速查
+
+| 目的 | 写法 |
+| --- | --- |
+| 建对象 | `pd.Series([...])` / `pd.DataFrame({...})` |
+| 看数据 | `head()` / `tail()` / `info()` / `describe()` / `shape` |
+| 取列 | `df['列']`（Series）/ `df[['列']]`（DataFrame） |
+| 按位置 / 标签 | `iloc[...]` / `loc[...]` |
+| 缺失 | `isna()` / `dropna()` / `fillna()` |
+| 重复 | `duplicated()` / `drop_duplicates()` |
+| 排序 | `sort_values()` / `sort_index()` |
+| 分组 | `groupby('列')['值'].mean()` |
+| 合并 | `pd.concat` / `pd.merge` / `join` |
+| 透视 | `pivot_table` |
+| 读写 | `read_csv` / `to_csv` / `read_json` / `read_excel` |
+| 类型转换 | `pd.to_numeric()` / `pd.to_datetime()` |
+
+### 9.3 一句话记忆
+
+> numpy 管「同类型的多维数组 + 向量化计算」，pandas 管「带标签的表格 + 清洗与聚合」；切片多是视图、索引分 `loc`/`iloc`、缺失用 `isna`、合并分 `concat`/`merge`——把这几个分界记牢，绝大多数易错点都能避开。

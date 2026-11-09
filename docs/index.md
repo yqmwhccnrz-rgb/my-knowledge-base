@@ -3,7 +3,7 @@ layout: home
 
 hero:
   name: 我的知识库
-  text: 笔记 · 习题测试 · 听力训练
+  text: 笔记 · 习题测试 · 英语阅读 · 听力训练
   tagline: 把散落的资料排成能读、能查、能练的样子
   actions:
     - theme: brand
@@ -12,6 +12,9 @@ hero:
     - theme: alt
       text: 习题测试
       link: /quiz.html
+    - theme: alt
+      text: 英语阅读
+      link: /reading.html
     - theme: alt
       text: 听力训练
       link: /dictation.html

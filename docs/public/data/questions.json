@@ -413,10 +413,10 @@
    "1",
    "100",
    "0",
-   "不变，仍为 1"
+   "4"
   ],
   "answer": 1,
-  "explanation": "切片返回的是原数组的视图，与 a 共享内存，修改 b 会影响 a。要独立副本需 a[1:4].copy()。",
+  "explanation": "切片返回的是原数组的视图，与 a 共享内存；b[0] = 100 会同步改到 a[1]，故 a[1] 为 100。要独立副本需 a[1:4].copy()。",
   "type": "choice"
  },
  {
@@ -7789,7 +7789,7 @@
   ],
   "type": "choice",
   "answer": 3,
-  "explanation": "选项D 正确。飞机、火车、轮船以外的运输工具，为4 年。"
+  "explanation": "选项 D 的说法错误：飞机、火车、轮船以外的运输工具，最低折旧年限为 4 年（而非 3 年），故选 D。房屋建筑物 20 年、飞机火车轮船机器机械 10 年、器具工具家具 5 年、电子设备 3 年。"
  },
  {
   "id": "tax227",
@@ -14497,10 +14497,10 @@
    "离职后福利",
    "短期薪酬",
    "长期利润分享计划",
-   "长期带薪缺勤"
+   "辞退福利"
   ],
   "answer": 2,
-  "explanation": "长期利润分享计划属其他长期职工福利（长期带薪缺勤亦属，但本题单选取长期利润分享计划）。",
+  "explanation": "长期利润分享计划属于其他长期职工福利。离职后福利、短期薪酬、辞退福利各自单独成类，不属于其他长期职工福利。",
   "type": "choice"
  },
  {
@@ -21531,9 +21531,9 @@
   "type": "choice",
   "question": "边际消费倾向与边际储蓄倾向之和( )。",
   "options": [
-   "是大于的正数",
-   "是小于的正数",
-   "等于",
+   "是大于 1 的正数",
+   "是小于 1 的正数",
+   "等于 1",
    "等于零"
   ],
   "answer": 2,
@@ -23261,5 +23261,1009 @@
   "question": "简答题：用乘数—加速数模型说明经济周期是如何内生形成的。",
   "answer": "乘数原理：投资变动引起收入成倍变动；加速原理：收入的**变化量**决定投资（I_t = v(Y_{t−1} − Y_{t−2})）。\n投资增加 → 经乘数使收入更大增加 → 经加速数使投资进一步增加 → 繁荣；受资源与需求约束后收入增速放缓 → 加速数使投资下降 → 经乘数使收入继续下降 → 衰退；衰退一段时期后固定资产更新触发新一轮投资 → 复苏。二者相互作用形成繁荣与衰退交替的内生周期，也解释了投资波动远大于消费波动。政府可用逆周期干预减轻波动。",
   "explanation": "评分：乘数与加速原理各 2 分、繁荣与衰退的传导链 4 分、投资波动与政策含义 2 分。"
+ },
+ {
+  "id": "mlq001",
+  "note": "ML",
+  "topic": "第1章 引言 · 监督与无监督",
+  "question": "下列任务中，属于无监督学习的是（ ）。",
+  "answer": 1,
+  "explanation": "客户分群只有输入、没有预先给出的标签，是典型的无监督学习（聚类）。其余三项都是「输入+预期输出」的监督学习。",
+  "type": "choice",
+  "options": [
+   "根据历史房价预测新房价格",
+   "把客户按消费行为分成若干群体",
+   "判断邮件是否为垃圾邮件",
+   "识别手写数字"
+  ]
+ },
+ {
+  "id": "mlq002",
+  "note": "ML",
+  "topic": "第1章 引言 · 样本与特征",
+  "question": "在 scikit-learn 中，数据表格里的「一行」「一列」分别对应（ ）。",
+  "answer": 1,
+  "explanation": "表格中每一行是一个样本（sample / 数据点），每一列是一个特征（feature）；目标值单独放在一维数组 y 中。",
+  "type": "choice",
+  "options": [
+   "特征 / 样本",
+   "样本 / 特征",
+   "标签 / 特征",
+   "特征 / 标签"
+  ]
+ },
+ {
+  "id": "mlq003",
+  "note": "ML",
+  "topic": "第1章 引言 · 生态",
+  "question": "scikit-learn 最基本的数据结构是（ ）。",
+  "answer": 2,
+  "explanation": "所有数据都要转成二维 NumPy 数组 X（元素同类型）；scipy.sparse 用于大部分元素为 0 的数据（如词袋），是补充而非基本结构。",
+  "type": "choice",
+  "options": [
+   "pandas DataFrame",
+   "Python 列表",
+   "二维 NumPy 数组 ndarray",
+   "scipy.sparse 稀疏矩阵"
+  ]
+ },
+ {
+  "id": "mlq004",
+  "note": "ML",
+  "topic": "第1章 引言 · 估计器接口",
+  "question": "关于 scikit-learn 估计器接口，下列说法错误的是（ ）。",
+  "answer": 3,
+  "explanation": "score 的默认指标：分类是精度 accuracy，回归才是 R²。故 D 错误。",
+  "type": "choice",
+  "options": [
+   "fit(X, y) 用训练数据学习模型",
+   "predict(X) 产生新输出的预测",
+   "transform(X) 产生输入数据的新表示",
+   "score(X, y) 对所有模型都默认返回 R²"
+  ]
+ },
+ {
+  "id": "mlq005",
+  "note": "ML",
+  "topic": "第1章 引言 · 估计器接口",
+  "question": "对同一个估计器对象再次调用 fit()，会发生什么（ ）。",
+  "answer": 1,
+  "explanation": "笔记明确强调：调用 fit 会重置模型之前学到的全部内容，等同于在一个全新模型上 fit。",
+  "type": "choice",
+  "options": [
+   "在原模型上继续增量学习",
+   "重置之前学到的全部内容，等同全新模型重新 fit",
+   "报错",
+   "自动保存两个版本的模型"
+  ]
+ },
+ {
+  "id": "mlq006",
+  "note": "ML",
+  "topic": "第1章 引言 · 数据划分",
+  "question": "train_test_split 默认划分比例与必须先做的一步分别是（ ）。",
+  "answer": 1,
+  "explanation": "默认 75% 训练 / 25% 测试；必须先用伪随机数打乱再切分，否则按标签排序的数据会让测试集只剩一个类别。",
+  "type": "choice",
+  "options": [
+   "80%/20%，先归一化",
+   "75%/25%，先用伪随机数打乱再切分",
+   "50%/50%，先排序",
+   "90%/10%，先删除重复值"
+  ]
+ },
+ {
+  "id": "mlq007",
+  "note": "ML",
+  "topic": "第1章 引言 · 预测输入形状",
+  "question": "用训练好的模型预测单条新样本时，输入必须是（ ）。",
+  "answer": 1,
+  "explanation": "scikit-learn 不接受一维输入；单条样本也要构造成二维数组（reshape(1, -1) 或 [[...]]）。",
+  "type": "choice",
+  "options": [
+   "一维列表，如 [1.2, 3.4]",
+   "二维数组，如 X_new.reshape(1, -1)",
+   "字符串",
+   "标量"
+  ]
+ },
+ {
+  "id": "mlq008",
+  "note": "ML",
+  "topic": "第1章 引言 · 鸢尾花",
+  "question": "load_iris() 数据集是 150 个样本、4 个特征、3 个类别的三分类监督问题。",
+  "answer": 0,
+  "explanation": "笔记第 1.4 节：鸢尾花数据集含 150 朵花、4 个特征（花萼/花瓣长宽）、3 个类别，是三分类监督问题。",
+  "type": "judge",
+  "options": [
+   "正确",
+   "错误"
+  ]
+ },
+ {
+  "id": "mlq009",
+  "note": "ML",
+  "topic": "第1章 引言 · 泛化",
+  "question": "可以用训练集上的精度来评估模型的泛化能力，因为模型已经见过这些数据。",
+  "answer": 1,
+  "explanation": "不能用训练数据评估模型，模型会「记住」整个训练集，这种记忆无法说明泛化能力；必须留出独立的测试集。",
+  "type": "judge",
+  "options": [
+   "正确",
+   "错误"
+  ]
+ },
+ {
+  "id": "mlq010",
+  "note": "ML",
+  "topic": "第1章 引言 · random_state",
+  "question": "设置 random_state 的主要作用是（ ）。",
+  "answer": 1,
+  "explanation": "random_state 固定伪随机序列以保证结果可复现；打乱是 train_test_split 本身的行为，与 random_state 是否设置无关。",
+  "type": "choice",
+  "options": [
+   "提高模型精度",
+   "固定随机种子以保证结果可复现",
+   "加快训练速度",
+   "自动打乱数据"
+  ]
+ },
+ {
+  "id": "mlq011",
+  "note": "ML",
+  "topic": "第2章 监督学习 · 分类与回归",
+  "question": "下列任务中属于回归的是（ ）。",
+  "answer": 1,
+  "explanation": "房价是连续值，属回归；其余为离散类别，属分类。回归模型 score 默认指标是 R²。",
+  "type": "choice",
+  "options": [
+   "判断肿瘤良恶性",
+   "预测房屋价格",
+   "识别鸢尾花品种",
+   "判断邮件是否垃圾"
+  ]
+ },
+ {
+  "id": "mlq012",
+  "note": "ML",
+  "topic": "第2章 监督学习 · 过拟合与欠拟合",
+  "question": "某模型训练集分数 0.99、测试集分数 0.62，最可能是（ ）。",
+  "answer": 1,
+  "explanation": "训练很高、测试明显更低是过拟合的典型信号；训练集与测试集分数都低且接近才是欠拟合。",
+  "type": "choice",
+  "options": [
+   "欠拟合",
+   "过拟合",
+   "数据泄露导致的完美泛化",
+   "欠采样"
+  ]
+ },
+ {
+  "id": "mlq013",
+  "note": "ML",
+  "topic": "第2章 监督学习 · 过拟合与欠拟合",
+  "question": "训练集与测试集分数都很低且彼此接近，通常说明（ ）。",
+  "answer": 1,
+  "explanation": "两者都低且接近说明模型太简单，连训练数据中的变化都抓不住，即欠拟合。",
+  "type": "choice",
+  "options": [
+   "过拟合",
+   "欠拟合",
+   "数据泄露",
+   "类别不平衡"
+  ]
+ },
+ {
+  "id": "mlq014",
+  "note": "ML",
+  "topic": "第2章 监督学习 · 模型选择",
+  "question": "面对全新的数据集，书中的实践顺序建议（ ）。",
+  "answer": 1,
+  "explanation": "先从简单模型起步作为基线、理解数据后再尝试随机森林、梯度提升、SVM、神经网络。",
+  "type": "choice",
+  "options": [
+   "直接上神经网络",
+   "先用线性模型 / 朴素贝叶斯 / 最近邻做基线，再尝试复杂模型",
+   "先做网格搜索调参",
+   "先随机森林，永不换模型"
+  ]
+ },
+ {
+  "id": "mlq015",
+  "note": "ML",
+  "topic": "第2章 监督学习 · 正则化方向",
+  "question": "关于正则化参数，下列说法正确的是（ ）。",
+  "answer": 2,
+  "explanation": "C 是正则化强度的倒数：C 越大约束越弱、模型越复杂；Ridge/Lasso 的 alpha 越大正则越强、模型越简单，方向相反。",
+  "type": "choice",
+  "options": [
+   "C 越大模型越简单",
+   "alpha 越大模型越复杂",
+   "C 越大模型越复杂、alpha 越大模型越简单",
+   "两者方向相同"
+  ]
+ },
+ {
+  "id": "mlq016",
+  "note": "ML",
+  "topic": "第2章 监督学习 · 需要缩放的模型",
+  "question": "下列模型中，通常需要做特征缩放的有（ ）。",
+  "answer": [
+   0,
+   1,
+   3
+  ],
+  "explanation": "k-NN、线性模型、SVM、神经网络、PCA 依赖距离或尺度，需要缩放；决策树与随机森林按特征阈值切分，不需要缩放。",
+  "type": "multi",
+  "options": [
+   "k 近邻",
+   "线性模型 / SVM / 神经网络",
+   "决策树",
+   "PCA"
+  ]
+ },
+ {
+  "id": "mlq017",
+  "note": "ML",
+  "topic": "第2章 监督学习 · 随机森林",
+  "question": "随机森林不适用于下列哪类数据（ ）。",
+  "answer": 1,
+  "explanation": "笔记指出随机森林鲁棒、强大、不需缩放，但不适用于高维稀疏数据；这类数据更适合线性模型或朴素贝叶斯。",
+  "type": "choice",
+  "options": [
+   "中等规模表格数据",
+   "高维稀疏数据（如词袋）",
+   "含数值与类别混合特征的数据",
+   "需要鲁棒基线的数据"
+  ]
+ },
+ {
+  "id": "mlq018",
+  "note": "ML",
+  "topic": "第2章 监督学习 · 朴素贝叶斯",
+  "question": "关于朴素贝叶斯，下列说法正确的是（ ）。",
+  "answer": 1,
+  "explanation": "朴素贝叶斯只用于分类、速度快、适合超大数据与高维数据，但精度通常低于线性模型；它不需要缩放。",
+  "type": "choice",
+  "options": [
+   "既能分类也能回归",
+   "只用于分类，比线性模型更快，适合超大数据与高维数据",
+   "精度通常高于线性模型",
+   "必须做特征缩放"
+  ]
+ },
+ {
+  "id": "mlq019",
+  "note": "ML",
+  "topic": "第2章 监督学习 · 树模型外推",
+  "question": "决策树与随机森林可以很好地外推到训练特征范围之外，因此可直接用原始时间戳整数预测未来。",
+  "answer": 1,
+  "explanation": "树与随机森林无法外推到训练特征范围之外；时间序列/未来预测应把时间拆成周期特征或 one-hot，别直接喂时间戳整数。",
+  "type": "judge",
+  "options": [
+   "正确",
+   "错误"
+  ]
+ },
+ {
+  "id": "mlq020",
+  "note": "ML",
+  "topic": "第2章 监督学习 · predict_proba",
+  "question": "predict_proba 返回各列的类别顺序来自（ ）。",
+  "answer": 1,
+  "explanation": "列顺序来自 classes_，不能凭直觉按 0/1 解读，这是笔记列出的易错点。",
+  "type": "choice",
+  "options": [
+   "固定的 0/1/2 直觉顺序",
+   "估计器的 classes_ 属性",
+   "训练数据文件名",
+   "随机排列"
+  ]
+ },
+ {
+  "id": "mlq021",
+  "note": "ML",
+  "topic": "第2章 监督学习 · k-NN",
+  "question": "k 近邻分类做预测时采用的主要机制是（ ）。",
+  "answer": 0,
+  "explanation": "k-NN 取训练集中距离最近的 k 个邻居，用多数类别投票决定分类结果；回归时则取邻居目标值的平均。",
+  "type": "choice",
+  "options": [
+   "对 k 个最近邻居的类别多数投票",
+   "拟合一条最优超平面",
+   "计算特征的条件概率",
+   "构建一棵决策树"
+  ]
+ },
+ {
+  "id": "mlq022",
+  "note": "ML",
+  "topic": "第3章 预处理 · 缩放铁律",
+  "question": "关于预处理的正确做法是（ ）。",
+  "answer": 1,
+  "explanation": "必须只在训练集上 fit，训练与测试用同一变换；在测试集重新 fit 会造成数据泄露。测试集缩放结果可以超出 [0,1]，这是正常的。",
+  "type": "choice",
+  "options": [
+   "在整个数据集上 fit 后再划分",
+   "只在训练集上 fit，训练与测试用同一个 scaler 的 transform",
+   "训练集与测试集各自单独 fit",
+   "只对测试集缩放"
+  ]
+ },
+ {
+  "id": "mlq023",
+  "note": "ML",
+  "topic": "第3章 预处理 · 变换器选择",
+  "question": "数据中含有明显离群点时，较合适的缩放器是（ ）。",
+  "answer": 2,
+  "explanation": "RobustScaler 用中位数与四分位数，忽略离群点；MinMaxScaler 会被极端值压缩到很窄区间。",
+  "type": "choice",
+  "options": [
+   "StandardScaler",
+   "MinMaxScaler",
+   "RobustScaler",
+   "Normalizer"
+  ]
+ },
+ {
+  "id": "mlq024",
+  "note": "ML",
+  "topic": "第3章 预处理 · 变换器选择",
+  "question": "把每个样本（按行）缩放到单位范数，应使用（ ）。",
+  "answer": 3,
+  "explanation": "Normalizer 按样本（行）缩放到单位范数，常用于文本 / 方向型数据；其余三个都是按特征（列）处理。",
+  "type": "choice",
+  "options": [
+   "StandardScaler",
+   "MinMaxScaler",
+   "RobustScaler",
+   "Normalizer"
+  ]
+ },
+ {
+  "id": "mlq025",
+  "note": "ML",
+  "topic": "第3章 预处理 · StandardScaler",
+  "question": "StandardScaler 处理后每个特征满足（ ）。",
+  "answer": 1,
+  "explanation": "StandardScaler 做标准化：均值 0、方差 1，不限制范围；它是线性模型、SVM、神经网络的默认首选。",
+  "type": "choice",
+  "options": [
+   "取值被限制在 [0, 1]",
+   "均值为 0、方差为 1（不限制取值范围）",
+   "中位数为 0、四分位距为 1",
+   "每个样本范数为 1"
+  ]
+ },
+ {
+  "id": "mlq026",
+  "note": "ML",
+  "topic": "第3章 聚类 · KMeans",
+  "question": "k 均值算法在每轮迭代中把簇中心更新为（ ）。",
+  "answer": 1,
+  "explanation": "流程为：随机选 k 个中心 → 每点分配给最近中心 → 中心更新为所分配点的均值 → 重复直到分配不再变化。",
+  "type": "choice",
+  "options": [
+   "所分配点的中位数",
+   "所分配点的均值",
+   "随机选一个新点",
+   "距离最远的点"
+  ]
+ },
+ {
+  "id": "mlq027",
+  "note": "ML",
+  "topic": "第3章 聚类 · 聚类评估",
+  "question": "评估聚类结果时，下列说法正确的是（ ）。",
+  "answer": 1,
+  "explanation": "聚类不用 accuracy；有标签用 ARI/NMI，无标签用轮廓系数 + 人工检查簇的含义。",
+  "type": "choice",
+  "options": [
+   "直接用 accuracy 最准确",
+   "有真实标签可用 ARI / NMI，无标签可用轮廓系数并辅以人工检查",
+   "只能看损失函数",
+   "必须和分类一样用 F1"
+  ]
+ },
+ {
+  "id": "mlq028",
+  "note": "ML",
+  "topic": "第3章 聚类 · 算法特性",
+  "question": "关于 DBSCAN，笔记中提到的关键特点是（ ）。",
+  "answer": 1,
+  "explanation": "DBSCAN 基于密度，不需要预先指定簇数、能标记噪声点、可发现任意形状簇；k 均值则需要指定 k 且偏好球形簇。",
+  "type": "choice",
+  "options": [
+   "必须事先指定簇个数",
+   "能识别噪声点、可发现任意形状簇",
+   "只能处理凸形簇",
+   "属于监督学习"
+  ]
+ },
+ {
+  "id": "mlq029",
+  "note": "ML",
+  "topic": "第3章 降维 · PCA",
+  "question": "关于 PCA 与主成分，下列说法正确的是（ ）。",
+  "answer": 1,
+  "explanation": "PCA 找方差最大的正交方向，是无监督降维；常用于高维数据可视化与去噪，但不保证提升分类精度。",
+  "type": "choice",
+  "options": [
+   "主成分之间通常仍高度相关",
+   "主成分彼此正交，可用于可视化与降维",
+   "PCA 是有监督方法",
+   "PCA 一定提高分类精度"
+  ]
+ },
+ {
+  "id": "mlq030",
+  "note": "ML",
+  "topic": "第3章 预处理 · 测试集范围",
+  "question": "用训练集的 MinMaxScaler 去 transform 测试集时，测试集缩放后的值可能小于 0 或大于 1，这属于正常现象。",
+  "answer": 0,
+  "explanation": "缩放参数来自训练集，测试集可能出现超出训练范围的值，因此结果超出 [0,1] 是正常的，绝不能为此在测试集重新 fit。",
+  "type": "judge",
+  "options": [
+   "正确",
+   "错误"
+  ]
+ },
+ {
+  "id": "mlq031",
+  "note": "ML",
+  "topic": "第4章 特征工程 · One-Hot",
+  "question": "对无序的类别变量做 One-Hot 编码，主要目的是（ ）。",
+  "answer": 1,
+  "explanation": "直接把「红/绿/蓝」编成 0/1/2 会引入虚假的大小关系；One-Hot 用哑变量消除这种顺序。",
+  "type": "choice",
+  "options": [
+   "减少特征数量",
+   "避免引入类别之间并不存在的大小顺序",
+   "自动填补缺失值",
+   "把连续变量离散化"
+  ]
+ },
+ {
+  "id": "mlq032",
+  "note": "ML",
+  "topic": "第4章 特征工程 · 分箱",
+  "question": "对连续特征做分箱（离散化）后喂给线性模型，主要收益是（ ）。",
+  "answer": 1,
+  "explanation": "分箱把连续特征转成若干区间指示，使线性模型可以对不同区间取不同系数，从而表达非线性。",
+  "type": "choice",
+  "options": [
+   "一定降低训练时间",
+   "让线性模型能拟合非线性关系",
+   "自动完成特征缩放",
+   "减少样本数量"
+  ]
+ },
+ {
+  "id": "mlq033",
+  "note": "ML",
+  "topic": "第4章 特征工程 · 交互与多项式",
+  "question": "PolynomialFeatures 的作用是（ ）。",
+  "answer": 1,
+  "explanation": "它生成交互项与多项式特征，让线性模型能表达特征间的组合效应，常与 Ridge/Lasso 配合防过拟合。",
+  "type": "choice",
+  "options": [
+   "删除不重要的特征",
+   "生成特征之间的乘积与高次项",
+   "把文本转成词袋",
+   "对特征做标准化"
+  ]
+ },
+ {
+  "id": "mlq034",
+  "note": "ML",
+  "topic": "第4章 特征工程 · 自动化特征选择",
+  "question": "关于单变量特征选择，下列说法正确的是（ ）。",
+  "answer": 1,
+  "explanation": "单变量选择（如 SelectKBest / SelectPercentile）逐特征独立打分，速度快但忽略特征间交互；正因如此才容易在交叉验证外造成泄露。",
+  "type": "choice",
+  "options": [
+   "它考虑特征之间的组合效应",
+   "它逐个特征独立地与目标的关系统计检验来打分",
+   "它必须使用递归特征消除",
+   "它属于模型内部的 L1 正则"
+  ]
+ },
+ {
+  "id": "mlq035",
+  "note": "ML",
+  "topic": "第4章 特征工程 · 专家知识",
+  "question": "有了自动化特征选择，专家知识就不再重要，因为算法总能从原始数据中找出所有有用信息。",
+  "answer": 1,
+  "explanation": "笔记以 Citi Bike 案例说明专家知识（把时间拆成小时/星期、加入节假日等）常比盲目调算法更有效；若数据里根本不含某信息，任何算法都无能为力。",
+  "type": "judge",
+  "options": [
+   "正确",
+   "错误"
+  ]
+ },
+ {
+  "id": "mlq036",
+  "note": "ML",
+  "topic": "第4章 特征工程 · 树与时间",
+  "question": "用树模型做未来时间预测时，笔记建议（ ）。",
+  "answer": 1,
+  "explanation": "树模型无法外推到训练范围之外，直接喂原始时间戳会让未来全部落入同一个叶子；应拆成可复现的周期特征。",
+  "type": "choice",
+  "options": [
+   "直接把时间戳整数作为一个特征喂进去",
+   "把时间拆成年/月/星期/小时等周期特征，必要时 one-hot",
+   "删除所有时间相关列",
+   "只用最后一个时间点训练"
+  ]
+ },
+ {
+  "id": "mlq037",
+  "note": "ML",
+  "topic": "第5章 评估 · 交叉验证",
+  "question": "5 折交叉验证的含义是（ ）。",
+  "answer": 1,
+  "explanation": "k 折：分成 k 份，轮流 k−1 份训练、1 份验证，取 k 个分数的平均；分类默认用分层 k 折保持类别比例。",
+  "type": "choice",
+  "options": [
+   "训练 5 个不同算法取最优",
+   "数据分成 5 份，轮流用 4 份训练、1 份验证，取 5 个分数平均",
+   "重复随机划分 5 次",
+   "每次留 5 个样本做验证"
+  ]
+ },
+ {
+  "id": "mlq038",
+  "note": "ML",
+  "topic": "第5章 评估 · 分层 k 折",
+  "question": "分类任务默认使用 StratifiedKFold 的原因是（ ）。",
+  "answer": 1,
+  "explanation": "分层 k 折保持各类别比例，特别适合按标签排序或类别不平衡的数据。",
+  "type": "choice",
+  "options": [
+   "训练更快",
+   "保证每折中各类别比例与整体一致，避免某折只剩一个类别",
+   "可以自动增加样本",
+   "不需要打乱数据"
+  ]
+ },
+ {
+  "id": "mlq039",
+  "note": "ML",
+  "topic": "第5章 评估 · GroupKFold",
+  "question": "同一患者有多次检查记录，为避免同一人同时出现在训练和验证折，应使用（ ）。",
+  "answer": 2,
+  "explanation": "GroupKFold 按 groups 分组切分，同一组不会跨训练与验证折；groups 是分组标识，不是标签。",
+  "type": "choice",
+  "options": [
+   "KFold",
+   "StratifiedKFold",
+   "GroupKFold",
+   "LeaveOneOut"
+  ]
+ },
+ {
+  "id": "mlq040",
+  "note": "ML",
+  "topic": "第5章 评估 · 三分数据",
+  "question": "关于训练 / 验证 / 测试三分，下列说法正确的是（ ）。",
+  "answer": 0,
+  "explanation": "训练集建模型、验证集选模型与参数、测试集只在最后用一次。若用测试集选参数，会「用完」测试数据并得到过于乐观的估计。",
+  "type": "choice",
+  "options": [
+   "验证集用于选模型与调参，测试集只在最后评估一次",
+   "测试集可以用来反复调参",
+   "只需训练集和测试集",
+   "验证集就是测试集"
+  ]
+ },
+ {
+  "id": "mlq041",
+  "note": "ML",
+  "topic": "第5章 评估 · best_score_",
+  "question": "GridSearchCV 的 best_score_ 表示（ ）。",
+  "answer": 1,
+  "explanation": "best_score_ 是验证集上的平均分数，不能直接当作测试集泛化性能报告，这是笔记明确列出的易错点。",
+  "type": "choice",
+  "options": [
+   "模型在测试集上的泛化性能",
+   "交叉验证中各验证折的平均分数",
+   "训练集上的精度",
+   "最终上线后的业务指标"
+  ]
+ },
+ {
+  "id": "mlq042",
+  "note": "ML",
+  "topic": "第5章 评估 · 类别不平衡",
+  "question": "在 9:1 的不平衡数据上，一个「永远预测多数类」的假模型可得到约 90% accuracy，说明（ ）。",
+  "answer": 1,
+  "explanation": "笔记用 DummyClassifier 说明：同一精度下模型可能有天壤之别，不平衡数据必须看 precision/recall/F1、PR 曲线、AUC 与 classification_report。",
+  "type": "choice",
+  "options": [
+   "模型已经学得很好",
+   "单看 accuracy 会骗人，应结合 precision / recall / F1、PR 曲线与 AUC",
+   "应增大训练轮数",
+   "数据必须重新采集"
+  ]
+ },
+ {
+  "id": "mlq043",
+  "note": "ML",
+  "topic": "第5章 评估 · 指标含义",
+  "question": "癌症筛查希望「尽量不漏诊」，应重点关注的指标是（ ）。",
+  "answer": 1,
+  "explanation": "召回率 = TP/(TP+FN)，衡量正类被找出的比例，对应限制假反例（漏诊）；精确率则用于限制假正例。",
+  "type": "choice",
+  "options": [
+   "精确率 precision",
+   "召回率 recall",
+   "FPR",
+   "accuracy"
+  ]
+ },
+ {
+  "id": "mlq044",
+  "note": "ML",
+  "topic": "第5章 评估 · 曲线",
+  "question": "关于 ROC / AUC 与 PR 曲线，下列说法错误的是（ ）。",
+  "answer": 3,
+  "explanation": "AUC=1.0 表示存在阈值可完美分类，0.5 相当于随机排序，故 D 错误。",
+  "type": "choice",
+  "options": [
+   "ROC 以 FPR 为横轴、TPR 为纵轴",
+   "AUC 衡量正类样本排名高于反类的程度",
+   "PR 曲线下面积对应 average precision",
+   "AUC 越接近 0.5 说明模型排序能力越强"
+  ]
+ },
+ {
+  "id": "mlq045",
+  "note": "ML",
+  "topic": "第5章 评估 · scoring",
+  "question": "想让 GridSearchCV 按 AUC 选参数，应（ ）。",
+  "answer": 0,
+  "explanation": "GridSearchCV(..., scoring='roc_auc')；分类默认 accuracy、回归默认 R²，指标必须回到最终业务目标来选。",
+  "type": "choice",
+  "options": [
+   "设置 scoring='roc_auc'",
+   "设置 scoring='accuracy'",
+   "改用 cross_val_score",
+   "修改 y 的标签顺序"
+  ]
+ },
+ {
+  "id": "mlq046",
+  "note": "ML",
+  "topic": "第5章 评估 · 交叉验证优点",
+  "question": "相比单次 train_test_split，交叉验证更稳健、能看出分数方差、训练数据利用率更高。",
+  "answer": 0,
+  "explanation": "笔记第 5.1 节列出三条优点：避免碰巧分到「幸运」测试集、每折都给分数可看方差、每个样本都参与过训练，数据利用率更高。",
+  "type": "judge",
+  "options": [
+   "正确",
+   "错误"
+  ]
+ },
+ {
+  "id": "mlq047",
+  "note": "ML",
+  "topic": "第6章 管道 · 数据泄露",
+  "question": "先在交叉验证之外对训练集整体做特征选择，再跑 GridSearchCV，会导致（ ）。",
+  "answer": 1,
+  "explanation": "缩放/特征选择若在交叉验证之外 fit，就用到了验证折的信息，使验证折不再独立，结果过于乐观，可能选到次优参数。",
+  "type": "choice",
+  "options": [
+   "结果偏低、过于保守",
+   "验证折不再「前所未见」，交叉验证结果过于乐观",
+   "训练速度变慢但不影响结果",
+   "无法收敛"
+  ]
+ },
+ {
+  "id": "mlq048",
+  "note": "ML",
+  "topic": "第6章 管道 · 泄露示例",
+  "question": "笔记中「100 样本、10000 个随机特征」的例子，改用 Pipeline 后交叉验证 R² 从 0.91 变为（ ）。",
+  "answer": 2,
+  "explanation": "把特征选择放进 Pipeline 循环内后 R² = −0.25，说明模型根本无效；结论从「表现很好」直接翻转为「没有效果」。",
+  "type": "choice",
+  "options": [
+   "0.95",
+   "0.50",
+   "−0.25",
+   "仍为 0.91"
+  ]
+ },
+ {
+  "id": "mlq049",
+  "note": "ML",
+  "topic": "第6章 管道 · 正确原则",
+  "question": "防止数据泄露的正确原则是（ ）。",
+  "answer": 0,
+  "explanation": "任何从数据中提取信息的处理都必须只作用于当前折的训练部分，交叉验证应位于整个处理过程的最外层循环。",
+  "type": "choice",
+  "options": [
+   "交叉验证放在整个处理过程的最外层循环",
+   "先缩放再划分折",
+   "把测试集并入训练集一起 fit",
+   "只在使用 SVM 时才需要"
+  ]
+ },
+ {
+  "id": "mlq050",
+  "note": "ML",
+  "topic": "第6章 管道 · 参数名",
+  "question": "在 Pipeline 中用网格搜索同时调预处理与模型参数，参数名应写成（ ）。",
+  "answer": 1,
+  "explanation": "管道内参数用「步骤名__参数」双下划线语法，如 logisticregression__C；这也是搜索「用哪个模型」的基础。",
+  "type": "choice",
+  "options": [
+   "直接写参数原名，如 C",
+   "步骤名__参数名，如 scaler__with_mean",
+   "用逗号拼接",
+   "无法同时搜索"
+  ]
+ },
+ {
+  "id": "mlq051",
+  "note": "ML",
+  "topic": "第6章 管道 · 必须放进管道的步骤",
+  "question": "为防止交叉验证中的数据泄露，下列处理应放进 Pipeline 的有（ ）。",
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "任何依赖数据统计量的步骤（缩放、特征选择、tf-idf）都要放进管道；人工写死的规则不依赖数据分布，无需放入。",
+  "type": "multi",
+  "options": [
+   "特征缩放",
+   "特征选择",
+   "tf-idf 向量化",
+   "在训练前人工写死的领域规则"
+  ]
+ },
+ {
+  "id": "mlq052",
+  "note": "ML",
+  "topic": "第6章 管道 · 泄露影响",
+  "question": "特征选择与特征提取在交叉验证之外进行，对结果影响很小，可以忽略。",
+  "answer": 1,
+  "explanation": "缩放类泄露通常影响有限，但特征选择与特征提取的泄露会造成显著差异（书中 R² 从 0.91 翻转为 −0.25），必须用 Pipeline 修正。",
+  "type": "judge",
+  "options": [
+   "正确",
+   "错误"
+  ]
+ },
+ {
+  "id": "mlq053",
+  "note": "ML",
+  "topic": "第7章 文本 · 词袋",
+  "question": "词袋（Bag of Words）表示的主要局限是（ ）。",
+  "answer": 1,
+  "explanation": "词袋只统计词出现次数，丢弃词序；词汇表巨大且稀疏，因此常用 scipy.sparse 存储，并用 min_df 去稀有词。",
+  "type": "choice",
+  "options": [
+   "无法统计词频",
+   "丢弃词序与上下文，且词汇表可能非常大而稀疏",
+   "只能处理中文",
+   "必须依赖预训练模型"
+  ]
+ },
+ {
+  "id": "mlq054",
+  "note": "ML",
+  "topic": "第7章 文本 · tf-idf",
+  "question": "tf-idf 会给下列哪类词更高权重（ ）。",
+  "answer": 1,
+  "explanation": "tf-idf = tf × idf，对「文档内高频、语料内罕见」的词加权，抑制到处都出现的高频词；之后通常再做 L2 归一化。",
+  "type": "choice",
+  "options": [
+   "在语料库几乎所有文档都出现的词",
+   "在某文档中频繁出现、但在语料库多数文档中少见的词",
+   "只出现一次的生僻字",
+   "停用词"
+  ]
+ },
+ {
+  "id": "mlq055",
+  "note": "ML",
+  "topic": "第7章 文本 · min_df",
+  "question": "CountVectorizer / TfidfVectorizer 中 min_df 的作用是（ ）。",
+  "answer": 1,
+  "explanation": "min_df 要求一个词至少出现在若干文档中才纳入词汇表，可显著缩小词汇表并去掉拼写错误等噪声。",
+  "type": "choice",
+  "options": [
+   "限制最大词频",
+   "丢弃出现文档数少于阈值的词，去掉稀有词与噪声",
+   "把词转为小写",
+   "限制 n-gram 长度"
+  ]
+ },
+ {
+  "id": "mlq056",
+  "note": "ML",
+  "topic": "第7章 文本 · n-gram",
+  "question": "使用 ngram_range=(1, 2) 的效果是（ ）。",
+  "answer": 1,
+  "explanation": "n-gram 把连续 n 个词作为特征，(1,2) 会同时保留 unigram 与 bigram，从而能捕捉「not good」这类否定搭配。",
+  "type": "choice",
+  "options": [
+   "只用单个词",
+   "同时考虑单个词与相邻两个词组成的二元词组",
+   "只统计词频最高的 2 个词",
+   "把文档切成 2 段"
+  ]
+ },
+ {
+  "id": "mlq057",
+  "note": "ML",
+  "topic": "第7章 文本 · 主题建模",
+  "question": "对大量无标签文档做主题归纳，笔记提到的方法是（ ）。",
+  "answer": 0,
+  "explanation": "LDA 是无监督主题模型，把每篇文档表示为主题混合、每个主题表示为词的分布；主题数通常需要人工设定并检查可读性。",
+  "type": "choice",
+  "options": [
+   "LDA（潜在狄利克雷分配）",
+   "逻辑回归",
+   "k 近邻",
+   "梯度提升树"
+  ]
+ },
+ {
+  "id": "mlq058",
+  "note": "ML",
+  "topic": "第7章 文本 · 停用词",
+  "question": "关于停用词，下列说法正确的是（ ）。",
+  "answer": 1,
+  "explanation": "停用词能减小词汇表与噪声，但「not」等词在情感分析中很关键，需按任务判断，不能一概而论。",
+  "type": "choice",
+  "options": [
+   "停用词越多模型一定越好",
+   "去掉极常见词可降维降噪，但对某些任务可能损失有用信息",
+   "停用词表对所有语言通用",
+   "tf-idf 不能与停用词同时使用"
+  ]
+ },
+ {
+  "id": "mlq059",
+  "note": "ML",
+  "topic": "第8章 总结 · 先想清问题",
+  "question": "建模前最应优先回答的是（ ）。",
+  "answer": 1,
+  "explanation": "笔记强调先想清楚问题与数据关系，再选算法；理解数据与任务的关系比随机挑一个算法重要得多。",
+  "type": "choice",
+  "options": [
+   "用哪个神经网络结构",
+   "想回答什么问题、已有数据能否回答、如何表述成机器学习问题",
+   "学习率设多少",
+   "服务器配置"
+  ]
+ },
+ {
+  "id": "mlq060",
+  "note": "ML",
+  "topic": "第8章 总结 · 自定义估计器",
+  "question": "要让自写类能被 GridSearchCV / Pipeline 使用，通常应（ ）。",
+  "answer": 1,
+  "explanation": "sklearn 通过 get_params/set_params 克隆与调参，自定义估计器需继承 BaseEstimator（及 ClassifierMixin 等）并实现约定方法。",
+  "type": "choice",
+  "options": [
+   "只实现 predict 即可",
+   "继承 BaseEstimator 与相应 Mixin，实现 fit / predict / transform 等接口并遵守 get_params/set_params 约定",
+   "改写成函数",
+   "把所有参数写死在类里"
+  ]
+ },
+ {
+  "id": "mlq061",
+  "note": "ML",
+  "topic": "期末速记 · 三接口",
+  "question": "关于 fit / predict / transform，下列说法正确的有（ ）。",
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "fit_transform 是 fit 与 transform 的合并，与 predict 无关，故 D 错误。",
+  "type": "multi",
+  "options": [
+   "fit 学习模型参数",
+   "predict 输出预测标签或回归值",
+   "transform 产生输入数据的新表示",
+   "fit_transform 等价于先 predict 再 fit"
+  ]
+ },
+ {
+  "id": "mlq062",
+  "note": "ML",
+  "topic": "期末速记 · 防泄露与评估",
+  "question": "下列说法正确的有（ ）。",
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "树与随机森林无法外推到训练特征范围之外，故 D 错误。",
+  "type": "multi",
+  "options": [
+   "测试集应在最后只用于一次评估",
+   "类别不平衡时应看 precision/recall/F1 而非只看 accuracy",
+   "有标签时聚类可用 ARI/NMI 评估",
+   "树模型能可靠外推到训练范围之外"
+  ]
+ },
+ {
+  "id": "mlq063",
+  "note": "ML",
+  "topic": "期末速记 · 复杂度方向",
+  "question": "下列关于模型复杂度参数方向的说法，正确的是（ ）。",
+  "answer": 1,
+  "explanation": "C 越大正则越弱→更复杂；alpha 越大正则越强→更简单；max_depth 越大树越深→更复杂。",
+  "type": "choice",
+  "options": [
+   "C 越大越简单、alpha 越大越复杂、max_depth 越大越简单",
+   "C 越大越复杂、alpha 越大越简单、max_depth 越大越复杂",
+   "三者越大都越复杂",
+   "三者越大都越简单"
+  ]
+ },
+ {
+  "id": "mlq064",
+  "note": "ML",
+  "topic": "期末速记 · 文本主线",
+  "question": "笔记给出的文本处理主线顺序是（ ）。",
+  "answer": 1,
+  "explanation": "主线为：词袋 → min_df 去稀有词 → tf-idf → n-gram → 线性模型看系数，主题建模用 LDA。",
+  "type": "choice",
+  "options": [
+   "tf-idf → 词袋 → 线性模型 → n-gram",
+   "词袋 → min_df 去稀有词 → tf-idf → n-gram → 线性模型看系数；主题用 LDA",
+   "先 LDA 再词袋",
+   "直接 Word2Vec 后接 SVM"
+  ]
+ },
+ {
+  "id": "mlq065",
+  "note": "ML",
+  "topic": "第1章 引言 · 接口",
+  "question": "scikit-learn 中用于「产生输入数据新表示（如缩放、降维）」的方法名是________。",
+  "answer": [
+   "transform"
+  ],
+  "explanation": "transform 产生新表示；fit_transform 是 fit + transform 的合并。predict 是产生预测输出，不要混淆。",
+  "type": "fill"
+ },
+ {
+  "id": "mlq066",
+  "note": "ML",
+  "topic": "第5章 评估 · 指标",
+  "question": "二分类中，precision（精确率）的计算公式为________（用 TP / FP / FN 表示）。",
+  "answer": [
+   "TP/(TP+FP)",
+   "TP / (TP + FP)",
+   "TP/(TP＋FP)"
+  ],
+  "explanation": "precision = TP/(TP+FP)，关心「预测为正的里面有多少是真的」，用于限制假正例；recall = TP/(TP+FN) 用于限制假反例。",
+  "type": "fill"
+ },
+ {
+  "id": "mlq067",
+  "note": "ML",
+  "topic": "第2章 监督学习 · 泛化",
+  "question": "简述过拟合与欠拟合在「训练集分数 / 测试集分数」上的典型差异，并各给一种应对思路。",
+  "answer": "过拟合：训练集分数很高、测试集明显更低，说明模型把噪声也拟合进去；可增加数据、降低复杂度（减小 C / max_depth、增大 alpha）、加正则、用更多交叉验证。欠拟合：训练集与测试集分数都低且接近，说明模型太简单；可增加特征/多项式特征、提高复杂度、换更强模型、减少正则。",
+  "explanation": "关键在于两条曲线的「差距」与「绝对水平」：差距大且训练高是过拟合，两者都低且接近是欠拟合。增大数据量往往比反复调参更有效。",
+  "type": "essay"
+ },
+ {
+  "id": "mlq068",
+  "note": "ML",
+  "topic": "第6章 管道 · 数据泄露",
+  "question": "为什么「先在整个训练集上做特征选择，再跑交叉验证」会导致结果过于乐观？应如何改正？",
+  "answer": "因为特征选择用到了全部训练数据的标签/统计信息，交叉验证的每一折又把训练集切成训练部分与验证部分，此时验证部分的信息已被提前用于挑选特征，验证折不再「前所未见」，分数被高估，可能选到次优参数。改正：把特征选择（以及缩放、tf-idf 等所有依赖数据的步骤）放进 Pipeline，让交叉验证位于最外层循环，参数名用「步骤名__参数」。",
+  "explanation": "原则：任何从数据中提取信息的处理都必须只作用于当前折的训练部分；书中示例中 R² 从 0.91 翻转为 −0.25，说明这类泄露会彻底改变结论。",
+  "type": "essay"
  }
 ]

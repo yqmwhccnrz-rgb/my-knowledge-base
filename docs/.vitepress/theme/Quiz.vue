@@ -18,6 +18,7 @@ const noteOptions = [
   { key: 'all', label: '全部笔记' },
   { key: 'C', label: 'C 语言笔记' },
   { key: 'Python', label: 'Python 数据分析笔记' },
+  { key: 'ML', label: 'Python 机器学习笔记' },
   { key: 'Matlab', label: 'Matlab 笔记' },
   { key: 'Tax', label: '税法笔记（CPA）' },
   { key: 'Accounting', label: '会计笔记（CPA）' },
