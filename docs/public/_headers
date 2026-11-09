@@ -1,0 +1,6 @@
+# 首页与所有 HTML 页面：禁止缓存，每次都向服务器确认最新版本。
+# 避免 Cloudflare 边缘 / 浏览器缓存旧版首页，导致新部署后页面迟迟不更新。
+/
+  Cache-Control: no-cache
+/*.html
+  Cache-Control: no-cache

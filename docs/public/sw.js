@@ -1,4 +1,4 @@
-const CACHE = 'kb-cache-v4'
+const CACHE = 'kb-cache-v5'
 const OFFLINE = '/offline.html'
 const PRECACHE = ['/', '/offline.html', '/manifest.webmanifest', '/icon.svg']
 // 音频/视频体积大且浏览器会用 Range 分段请求：不进离线缓存，交给网络原生处理，
