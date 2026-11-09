@@ -186,7 +186,22 @@ onBeforeUnmount(stopAll)
 // ---------- 答案 ----------
 function toggleAnswer(id) {
   answerOpen[id] = !answerOpen[id]
+  // v-show 重新显示后需重新判断渐隐状态
+  nextTick(refreshHints)
 }
+// 答案区限高滚动：内容不足一屏或滚到底时去掉底部渐隐
+function updateHint(el) {
+  const noScroll = el.scrollHeight <= el.clientHeight + 2
+  const atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 2
+  el.classList.toggle('is-bottom', noScroll || atBottom)
+}
+function refreshHints() {
+  document.querySelectorAll('.dict-scroll').forEach((el) => {
+    if (el.offsetParent !== null) updateHint(el)
+  })
+}
+// 切换单元/分组、首次渲染答案时都刷新一次渐隐状态
+watch([activeUnit, activeGroup, answerOpen, ready], () => nextTick(refreshHints), { deep: true })
 
 // ---------- 听写比对（显示答案时给出正确率与漏词） ----------
 function tokens(s) {
@@ -336,9 +351,9 @@ const scores = computed(() => {
           </template>
 
           <div class="ans-label">参考答案 · English</div>
-          <p class="ans-en">{{ it.en }}</p>
+          <p class="ans-en dict-scroll" @scroll="updateHint($event.target)">{{ it.en }}</p>
           <div class="ans-label">中文翻译</div>
-          <p class="ans-zh">{{ it.zh }}</p>
+          <p class="ans-zh dict-scroll" @scroll="updateHint($event.target)">{{ it.zh }}</p>
         </div>
       </article>
     </template>
@@ -477,6 +492,26 @@ const scores = computed(() => {
   color: var(--vp-c-text-1); white-space: pre-wrap;
 }
 .ans-zh { color: var(--vp-c-text-2); }
+
+/* 参考答案 / 中文翻译：限制高度在框内滚动，避免「显示答案」后整段撑满屏幕 */
+.dict-scroll {
+  max-height: 200px; overflow-y: auto; overscroll-behavior: contain;
+  padding-right: 14px;
+  scrollbar-width: thin; scrollbar-color: var(--vp-c-text-3, #8d8f8d) transparent;
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 12px), rgba(0, 0, 0, 0.82));
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 12px), rgba(0, 0, 0, 0.82));
+}
+.dict-scroll::-webkit-scrollbar { width: 8px; }
+.dict-scroll::-webkit-scrollbar-track { background: var(--vp-c-bg-soft, #f4f4f2); border-radius: 4px; }
+.dict-scroll::-webkit-scrollbar-thumb { background: var(--vp-c-text-3, #8d8f8d); border-radius: 4px; opacity: .55; }
+.dict-scroll.is-bottom { -webkit-mask-image: none; mask-image: none; }
+@media (max-width: 640px) { .dict-scroll { max-height: 160px; } }
+@media print {
+  .dict-scroll {
+    max-height: none !important; overflow: visible !important;
+    -webkit-mask-image: none !important; mask-image: none !important;
+  }
+}
 
 .dict-score {
   display: flex; align-items: baseline; gap: 8px;

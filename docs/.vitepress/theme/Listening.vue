@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive, computed, watch, onMounted, onBeforeUnmount } from 'vue'
+import { ref, reactive, computed, watch, onMounted, onBeforeUnmount, nextTick } from 'vue'
 
 const bank = ref([])
 const ready = ref(false)
@@ -107,6 +107,8 @@ function audioFor(it) {
   })
   a.addEventListener('timeupdate', () => {
     states[it.id].time = a.currentTime || 0
+    // 原文区域限高后，让正在朗读的句子保持在可视范围内
+    nextTick(() => followActive(it.id))
   })
   a.addEventListener('ended', () => {
     if (playingId.value === it.id) isPlaying.value = false
@@ -265,6 +267,49 @@ function sentenceCls(id, s) {
   return ''
 }
 
+// ---------- 长文本限高后的可视区跟随 ----------
+// 中文翻译 / 英文原文 / 题目都改成固定高度的内部滚动区，避免整段撑满屏幕。
+// 播放时若高亮句滚出了可视区，自动把它带回视野；用户自己手动滚动后 6 秒内不打扰。
+const textBoxes = new Map()       // key -> DOM
+const manualScrollAt = {}         // key -> 时间戳
+const lastFollowed = {}           // key -> 上次跟随的句子文本
+function setTextBox(key, el) {
+  if (el) {
+    textBoxes.set(key, el)
+    nextTick(() => updateScrollHint(el))
+  } else {
+    textBoxes.delete(key)
+  }
+}
+function markManual(key) {
+  manualScrollAt[key] = Date.now()
+}
+// 内容不足一屏或已滚到底时去掉底部渐隐，避免文字发灰或产生"还有内容"的误导
+function updateScrollHint(el) {
+  const noScroll = el.scrollHeight <= el.clientHeight + 2
+  const atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 2
+  el.classList.toggle('is-bottom', noScroll || atBottom)
+}
+function followActive(id) {
+  if (playingId.value !== id || !isPlaying.value) return
+  if (Date.now() - (manualScrollAt[id] || 0) < 6000) return
+  const box = textBoxes.get(id)
+  if (!box || box.scrollHeight <= box.clientHeight + 4) return
+  const cur = box.querySelector('.sentence-active')
+  if (!cur) return
+  const text = cur.textContent
+  if (lastFollowed[id] === text) return // 同一句只跟随一次，避免抖动
+  const br = box.getBoundingClientRect()
+  const cr = cur.getBoundingClientRect()
+  if (cr.top >= br.top + 6 && cr.bottom <= br.bottom - 6) {
+    lastFollowed[id] = text
+    return // 已在可视区内
+  }
+  lastFollowed[id] = text
+  const target = box.scrollTop + (cr.top - br.top) - box.clientHeight / 3
+  box.scrollTop = Math.max(0, target)
+}
+
 function toggleZh(id) {
   zhOpen[id] = !zhOpen[id]
 }
@@ -272,7 +317,16 @@ function toggleZh(id) {
 function toggleAllZh() {
   const on = !allZhOn.value
   for (const it of currentItems.value) zhOpen[it.id] = on
+  nextTick(refreshAllHints)
 }
+
+// v-show 的元素隐藏时高度为 0，重新显示后需再判断一次是否该显示渐隐
+function refreshAllHints() {
+  textBoxes.forEach((el) => {
+    if (el && el.offsetParent !== null) updateScrollHint(el)
+  })
+}
+watch([zhOpen, enOpen, qOpen, currentItems], () => nextTick(refreshAllHints), { deep: true })
 
 onBeforeUnmount(() => {
   audios.forEach((a) => a.pause())
@@ -376,10 +430,10 @@ onBeforeUnmount(() => {
 
           <div v-if="it.q" v-show="isQOpen(it.id)" class="listen-q">
             <div class="q-label">Questions</div>
-            <p class="q-body">{{ it.q }}</p>
+            <p class="q-body listen-scroll" :ref="el => setTextBox('q:' + it.id, el)" @scroll="updateScrollHint($event.target)" @wheel="markManual('q:' + it.id)" @touchmove="markManual('q:' + it.id)">{{ it.q }}</p>
           </div>
-          <p v-show="zhOpen[it.id]" class="zh">{{ it.zh }}</p>
-          <p v-if="enOpen[it.id]" class="en">
+          <p v-show="zhOpen[it.id]" class="zh listen-scroll" :ref="el => setTextBox('zh:' + it.id, el)" @scroll="updateScrollHint($event.target)" @wheel="markManual('zh:' + it.id)" @touchmove="markManual('zh:' + it.id)">{{ it.zh }}</p>
+          <p v-if="enOpen[it.id]" class="en listen-scroll" :ref="el => setTextBox(it.id, el)" @scroll="updateScrollHint($event.target)" @wheel="markManual(it.id)" @touchmove="markManual(it.id)">
             <template v-if="paragraphsOf(it.id).length">
               <template v-for="(para, pi) in paragraphsOf(it.id)" :key="'p' + pi">
                 <span
@@ -629,5 +683,51 @@ onBeforeUnmount(() => {
   background: var(--vp-c-bg);
   border-left: 3px solid var(--vp-c-brand-1);
   border-radius: 6px;
+}
+
+/* 中文翻译 / 英文原文 / 题目：限制高度，在框内滚动，
+   避免一大段文字一次性撑满屏幕。短内容不浪费空间（max-height 而非固定 height）。 */
+.listen-scroll {
+  max-height: 200px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  /* 右侧留一点内边距，避免滚动条压住文字 */
+  padding-right: 14px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--vp-c-text-3, #8d8f8d) transparent;
+  /* 底部轻微渐隐，暗示下方还有内容；只在最末 12px 且降到 0.82，
+     尽量不牺牲正文可读性 */
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 12px), rgba(0, 0, 0, 0.82));
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 12px), rgba(0, 0, 0, 0.82));
+}
+.listen-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.listen-scroll::-webkit-scrollbar-track {
+  background: var(--vp-c-bg-soft, #f4f4f2);
+  border-radius: 4px;
+}
+.listen-scroll::-webkit-scrollbar-thumb {
+  background: var(--vp-c-text-3, #8d8f8d);
+  border-radius: 4px;
+  opacity: 0.55;
+}
+/* 滚到底时取消渐隐，避免最后一行发灰 */
+.listen-scroll.is-bottom {
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+/* 手机端稍矮一点，给播放器留出更多空间 */
+@media (max-width: 640px) {
+  .listen-scroll { max-height: 160px; }
+}
+/* 打印时展开全文，不截断内容 */
+@media print {
+  .listen-scroll {
+    max-height: none !important;
+    overflow: visible !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
 }
 </style>
