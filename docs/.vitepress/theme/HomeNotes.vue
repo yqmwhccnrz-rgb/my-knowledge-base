@@ -1,5 +1,5 @@
 <template>
-  <section class="hn">
+  <section class="hn" @mouseenter="onEnter" @mouseleave="onLeave">
     <div class="hn-head">
       <h2 class="hn-title">课程笔记</h2>
       <p class="hn-sub">左右滑动浏览，或点箭头 / 圆点切换（首尾相接循环）</p>
@@ -71,6 +71,30 @@ let settleTimer = null
 
 const realCount = computed(() => props.cards.length)
 
+// 慢速自动循环播放：默认 5 秒切一张；悬停 / 拖拽 / 系统减少动态 / 标签页隐藏时暂停
+const AUTO_MS = 5000
+let autoTimer = null
+const hovering = ref(false)
+function prefersReduced() {
+  return typeof window !== 'undefined' && window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
+}
+function stopAuto() { if (autoTimer) { clearInterval(autoTimer); autoTimer = null } }
+function scheduleAuto() {
+  stopAuto()
+  autoTimer = setInterval(() => {
+    if (hovering.value || dragged.value || prefersReduced()) return
+    scrollToPos(extPos.value + 1, true)
+  }, AUTO_MS)
+}
+function onEnter() { hovering.value = true }
+function onLeave() { hovering.value = false; scheduleAuto() }
+function onVisibility() {
+  if (typeof document === 'undefined') return
+  if (document.hidden) stopAuto()
+  else scheduleAuto()
+}
+
 // 扩展序列：[末张克隆, 0, 1, ..., n-1, 首张克隆]；单张时不克隆
 const extended = computed(() => {
   const c = props.cards
@@ -102,14 +126,17 @@ function scrollToPos(p, smooth = true) {
 function next() {
   if (realCount.value <= 1) return
   scrollToPos(extPos.value + 1, true)
+  if (!hovering.value) scheduleAuto()
 }
 function prev() {
   if (realCount.value <= 1) return
   scrollToPos(extPos.value - 1, true)
+  if (!hovering.value) scheduleAuto()
 }
 function goDot(i) {
   if (realCount.value <= 1) return
   scrollToPos(i + 1, true)
+  if (!hovering.value) scheduleAuto()
 }
 
 function onScroll() {
@@ -161,9 +188,19 @@ onMounted(() => {
       index.value = 0
     }
   })
+  scheduleAuto()
+  if (typeof document !== 'undefined') {
+    document.addEventListener('visibilitychange', onVisibility)
+  }
 })
 
-onBeforeUnmount(() => clearTimeout(settleTimer))
+onBeforeUnmount(() => {
+  clearTimeout(settleTimer)
+  stopAuto()
+  if (typeof document !== 'undefined') {
+    document.removeEventListener('visibilitychange', onVisibility)
+  }
+})
 </script>
 
 <style scoped>
@@ -296,22 +333,27 @@ onBeforeUnmount(() => clearTimeout(settleTimer))
 .hn-dots {
   display: flex;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   margin-top: 18px;
 }
 .hn-dot {
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
   padding: 0;
   border: none;
   border-radius: 50%;
   background: var(--vp-c-divider);
   cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
+  transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+.hn-dot:hover {
+  background: var(--vp-c-brand-1);
+  opacity: 0.7;
 }
 .hn-dot.active {
   background: var(--vp-c-brand-1);
-  transform: scale(1.25);
+  transform: scale(1.5);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--vp-c-brand-1) 22%, transparent);
 }
 
 @media (max-width: 480px) {
