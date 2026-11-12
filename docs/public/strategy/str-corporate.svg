@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="900" height="400" fill="#ffffff"/>
+  <text x="450" y="28" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">总体战略体系：发展 / 稳定 / 收缩 与三大发展途径</text>
+
+  <g font-size="12">
+    <rect x="24" y="48" width="274" height="44" rx="9" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="161" y="76" text-anchor="middle" font-size="14" font-weight="700" fill="#1e3a8a">发展战略（一体化·密集型·多元化）</text>
+    <rect x="313" y="48" width="274" height="44" rx="9" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="450" y="76" text-anchor="middle" font-size="14" font-weight="700" fill="#475569">稳定战略</text>
+    <rect x="602" y="48" width="274" height="44" rx="9" fill="#fef3c7" stroke="#fcd34d"/>
+    <text x="739" y="76" text-anchor="middle" font-size="14" font-weight="700" fill="#92400e">收缩战略（紧缩集中·转向·放弃）</text>
+
+    <rect x="24" y="106" width="274" height="128" rx="9" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="36" y="128" font-weight="700" fill="#1e3a8a">一体化：纵向（前/后）+ 横向</text>
+    <text x="36" y="148" fill="#374151">前向 = 控制分销商/零售商（靠近客户）</text>
+    <text x="36" y="166" fill="#374151">后向 = 控制供应商（靠近原材料）</text>
+    <text x="36" y="184" fill="#374151">横向 = 产业价值链相同阶段扩张</text>
+    <text x="36" y="206" fill="#b91c1c">风险：不熟悉新业务；投资大、退出成本高</text>
+    <text x="36" y="224" fill="#64748b">易错：规模经济显著 → 横向一体化适用条件</text>
+
+    <rect x="313" y="106" width="274" height="128" rx="9" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="325" y="128" font-weight="700" fill="#1e3a8a">密集型（安索夫 2×2）</text>
+    <text x="325" y="148" fill="#374151">市场渗透 = 现有产品 × 现有市场</text>
+    <text x="325" y="166" fill="#374151">市场开发 = 现有产品 × 新市场</text>
+    <text x="325" y="184" fill="#374151">产品开发 = 新产品 × 现有市场</text>
+    <text x="325" y="206" fill="#b91c1c">多元化 = 新产品 × 新市场（另立一类）</text>
+    <text x="325" y="224" fill="#64748b">易错：促销/增加使用频率 → 市场渗透</text>
+
+    <rect x="602" y="106" width="274" height="128" rx="9" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="614" y="128" font-weight="700" fill="#1e3a8a">多元化：相关（同心）/ 非相关（离心）</text>
+    <text x="614" y="148" fill="#374151">三大原因：目标未达 / 资金富余 / 更高利润</text>
+    <text x="614" y="166" fill="#374151">七条优点：分散风险、新增长点…</text>
+    <text x="614" y="184" fill="#374151">五条风险：原产业 / 整体 / 进入 / 退出 / 整合</text>
+    <text x="614" y="206" fill="#b91c1c">易错：减少竞争、规模经济 → 横向一体化优点</text>
+    <text x="614" y="224" fill="#64748b">非相关：与当前产业和市场均不相关</text>
+  </g>
+
+  <text x="24" y="266" font-size="14" font-weight="700" fill="#1e3a8a">发展战略的三大途径（主观题高频）</text>
+  <g font-size="12">
+    <rect x="24" y="278" width="274" height="96" rx="9" fill="#eef2ff" stroke="#a5b4fc"/>
+    <text x="36" y="300" font-weight="700" fill="#1e3a8a">外部发展（并购）</text>
+    <text x="36" y="320" fill="#374151">动机：避开进入壁垒 / 协同效应 /</text>
+    <text x="36" y="338" fill="#374151">克服负外部性、减少竞争</text>
+    <text x="36" y="358" fill="#b91c1c">失败原因：决策不当、整合不力、</text>
+    <text x="36" y="370" fill="#b91c1c">费用过高、跨国政治风险</text>
+
+    <rect x="313" y="278" width="274" height="96" rx="9" fill="#eef2ff" stroke="#a5b4fc"/>
+    <text x="325" y="300" font-weight="700" fill="#1e3a8a">内部发展（新建）</text>
+    <text x="325" y="320" fill="#374151">缺点：增加竞争者 / 接触不到他企知识 /</text>
+    <text x="325" y="338" fill="#374151">缺规模经济与经验曲线 / 过慢 / 障碍高</text>
+    <text x="325" y="358" fill="#64748b">适用：产业处于不均衡、进入障碍低、</text>
+    <text x="325" y="370" fill="#64748b">有能力抗衡、可获得协同</text>
+
+    <rect x="602" y="278" width="274" height="96" rx="9" fill="#eef2ff" stroke="#a5b4fc"/>
+    <text x="614" y="300" font-weight="700" fill="#1e3a8a">战略联盟</text>
+    <text x="614" y="320" fill="#374151">动因：技术创新 / 避免风险 / 减少竞争 /</text>
+    <text x="614" y="338" fill="#374151">资源互补 / 开拓市场 / 降低协调成本</text>
+    <text x="614" y="358" fill="#b91c1c">契约式更灵活，但沟通不充分、</text>
+    <text x="614" y="370" fill="#b91c1c">易生争议；股权式更稳定但灵活性差</text>
+  </g>
+</svg>

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 390" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="900" height="390" fill="#ffffff"/>
+  <text x="450" y="28" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">战略钟（克利夫·鲍曼）：八条路径与三种「失败战略」</text>
+  <text x="450" y="47" text-anchor="middle" font-size="12" fill="#64748b">横轴＝价格，纵轴＝顾客认可价值；把成本领先、差异化、混合战略放在同一张图上</text>
+
+  <line x1="70" y1="310" x2="440" y2="310" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="70" y1="310" x2="70" y2="70" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="62" y="76" text-anchor="end" font-size="11" fill="#6b7280">认可价值 ↑</text>
+  <text x="436" y="328" text-anchor="end" font-size="11" fill="#6b7280">价格 →</text>
+
+  <g font-size="11">
+    <rect x="88" y="256" width="150" height="46" rx="8" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="163" y="275" text-anchor="middle" font-weight="700" fill="#1d4ed8">1 低价低值</text>
+    <text x="163" y="293" text-anchor="middle" fill="#1e40af">成本领先（低值也低价）</text>
+
+    <rect x="88" y="196" width="150" height="46" rx="8" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="163" y="215" text-anchor="middle" font-weight="700" fill="#1d4ed8">2 低价</text>
+    <text x="163" y="233" text-anchor="middle" fill="#1e40af">成本领先（核心路径）</text>
+
+    <rect x="252" y="130" width="150" height="46" rx="8" fill="#eef2ff" stroke="#a5b4fc"/>
+    <text x="327" y="149" text-anchor="middle" font-weight="700" fill="#1e3a8a">3 混合战略</text>
+    <text x="327" y="167" text-anchor="middle" fill="#374151">高认可价值 + 成本优势</text>
+
+    <rect x="252" y="72" width="150" height="46" rx="8" fill="#dcfce7" stroke="#86efac"/>
+    <text x="327" y="91" text-anchor="middle" font-weight="700" fill="#15803d">4 高值</text>
+    <text x="327" y="109" text-anchor="middle" fill="#166534">差异化（不加价）</text>
+
+    <rect x="88" y="72" width="150" height="46" rx="8" fill="#dcfce7" stroke="#86efac"/>
+    <text x="163" y="91" text-anchor="middle" font-weight="700" fill="#15803d">5 高价高值</text>
+    <text x="163" y="109" text-anchor="middle" fill="#166534">差异化（高值高价）</text>
+
+    <rect x="88" y="130" width="150" height="46" rx="8" fill="#fee2e2" stroke="#f87171"/>
+    <text x="163" y="149" text-anchor="middle" font-weight="700" fill="#b91c1c">6 提价不提值</text>
+    <text x="163" y="167" text-anchor="middle" fill="#991b1b">失败战略①</text>
+
+    <rect x="252" y="256" width="150" height="46" rx="8" fill="#fee2e2" stroke="#f87171"/>
+    <text x="327" y="275" text-anchor="middle" font-weight="700" fill="#b91c1c">7 降值又提价</text>
+    <text x="327" y="293" text-anchor="middle" fill="#991b1b">失败战略②</text>
+
+    <rect x="252" y="196" width="150" height="46" rx="8" fill="#fee2e2" stroke="#f87171"/>
+    <text x="327" y="215" text-anchor="middle" font-weight="700" fill="#b91c1c">8 价格不变降值</text>
+    <text x="327" y="233" text-anchor="middle" fill="#991b1b">失败战略③</text>
+  </g>
+
+  <rect x="470" y="66" width="406" height="256" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="486" y="90" font-size="13" font-weight="700" fill="#1e3a8a">三种基本竞争战略与战略钟的对应</text>
+  <g font-size="12" fill="#374151">
+    <text x="486" y="116">· 成本领先 = 路径 1、2（低价低值 / 低价）</text>
+    <text x="486" y="138">· 差异化 = 路径 4、5（高值 / 高价高值）</text>
+    <text x="486" y="160">· 混合战略 = 路径 3（同时追求差异化与低成本）</text>
+    <text x="486" y="182">· 集中化 = 在特定细分市场实施 1/2 或 4/5</text>
+  </g>
+  <rect x="484" y="196" width="378" height="112" rx="8" fill="#fef3c7" stroke="#fcd34d"/>
+  <text x="496" y="218" font-size="12" font-weight="700" fill="#92400e">易错点</text>
+  <text x="496" y="240" font-size="11" fill="#78350f">① 战略钟由克利夫·鲍曼提出，不是波特。</text>
+  <text x="496" y="260" font-size="11" fill="#78350f">② 低价低值看似没吸引力，但很多公司靠它成功。</text>
+  <text x="496" y="280" font-size="11" fill="#78350f">③ 混合战略不是「既高价又低值」，而是高价值+低成本。</text>
+  <text x="496" y="300" font-size="11" fill="#78350f">④ 失败战略共同点：顾客认可价值与价格不匹配。</text>
+
+  <text x="24" y="352" font-size="12" fill="#64748b">资料原题中「降低顾客认可价值同时提高响应价格」系笔误，应为「相应提高价格」；本图按教材正确表述绘制。</text>
+  <text x="24" y="372" font-size="12" fill="#64748b">另：蓝海战略「打破价值与成本互替定律」，资料解析误写为「价值与战术互替定律」。</text>
+</svg>

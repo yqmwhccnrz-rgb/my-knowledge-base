@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="900" height="440" fill="#ffffff"/>
+  <text x="450" y="28" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">波特五力模型：产业竞争强度与利润空间的来源</text>
+
+  <rect x="330" y="168" width="240" height="86" rx="10" fill="#fee2e2" stroke="#f87171" stroke-width="2"/>
+  <text x="450" y="197" text-anchor="middle" font-size="14" font-weight="700" fill="#991b1b">产业内现有企业的竞争</text>
+  <text x="450" y="218" text-anchor="middle" font-size="11" fill="#7f1d1d">竞争者众多/势均力敌、增长缓慢、</text>
+  <text x="450" y="236" text-anchor="middle" font-size="11" fill="#7f1d1d">同质化、产能过剩、退出障碍高</text>
+
+  <g font-size="12">
+    <rect x="330" y="52" width="240" height="76" rx="10" fill="#eef2ff" stroke="#a5b4fc"/>
+    <text x="450" y="76" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">潜在进入者的进入威胁</text>
+    <text x="450" y="96" text-anchor="middle" fill="#374151">结构性障碍：规模经济 / 关键资源 / 市场优势</text>
+    <text x="450" y="114" text-anchor="middle" fill="#374151">行为性障碍：限制进入定价 / 进入对方领域</text>
+
+    <rect x="20" y="168" width="240" height="86" rx="10" fill="#eef2ff" stroke="#a5b4fc"/>
+    <text x="140" y="192" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">供应者讨价还价能力</text>
+    <text x="140" y="212" text-anchor="middle" fill="#374151">供应商集中、投入品差异化、</text>
+    <text x="140" y="230" text-anchor="middle" fill="#374151">转换成本、前向一体化能力</text>
+
+    <rect x="640" y="168" width="240" height="86" rx="10" fill="#eef2ff" stroke="#a5b4fc"/>
+    <text x="760" y="192" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">购买者讨价还价能力</text>
+    <text x="760" y="212" text-anchor="middle" fill="#374151">集中采购、产品标准化、</text>
+    <text x="760" y="230" text-anchor="middle" fill="#374151">转换成本低、后向一体化能力</text>
+
+    <rect x="330" y="290" width="240" height="76" rx="10" fill="#eef2ff" stroke="#a5b4fc"/>
+    <text x="450" y="314" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">替代品的替代威胁</text>
+    <text x="450" y="334" text-anchor="middle" fill="#374151">指「间接产品替代」；取决于性价比，</text>
+    <text x="450" y="352" text-anchor="middle" fill="#374151">替代品可长期共存，不必然取代</text>
+  </g>
+
+  <g stroke="#6366f1" stroke-width="2" fill="none">
+    <path d="M450,128 L450,164"/>
+    <path d="M260,211 L326,211"/>
+    <path d="M574,211 L636,211"/>
+    <path d="M450,254 L450,286"/>
+  </g>
+  <g fill="#6366f1">
+    <path d="M450,166 l-5,-9 h10 z"/><path d="M328,211 l-9,-5 v10 z"/>
+    <path d="M636,211 l9,-5 v10 z"/><path d="M450,288 l-5,-9 h10 z"/>
+  </g>
+
+  <rect x="20" y="382" width="860" height="46" rx="9" fill="#fef3c7" stroke="#fcd34d"/>
+  <text x="34" y="402" font-size="12" font-weight="700" fill="#92400e">对付五力的三种战略（易考主观题冷门点）</text>
+  <text x="34" y="420" font-size="11" fill="#78350f">① 自我定位，用成本优势或差异优势把公司与五力隔离　② 识别五力影响最小的细分市场　③ 改进五力：与供/买建立长期战略联盟、寻求进入阻绝战略</text>
+</svg>

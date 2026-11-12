@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="900" height="400" fill="#ffffff"/>
+  <text x="450" y="28" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">风险管理体系：组织职能、内控五要素与 11 种技术方法</text>
+
+  <text x="24" y="58" font-size="14" font-weight="700" fill="#1e3a8a">一、风险管理组织职能体系（六级）</text>
+  <g font-size="11" fill="#1e3a8a">
+    <rect x="24" y="70" width="136" height="46" rx="8" fill="#eef2ff" stroke="#a5b4fc"/>
+    <text x="92" y="96" text-anchor="middle">规范的公司法人治理结构</text>
+    <rect x="170" y="70" width="136" height="46" rx="8" fill="#eef2ff" stroke="#a5b4fc"/>
+    <text x="238" y="96" text-anchor="middle">风险管理委员会</text>
+    <rect x="316" y="70" width="136" height="46" rx="8" fill="#eef2ff" stroke="#a5b4fc"/>
+    <text x="384" y="96" text-anchor="middle">风险管理职能部门</text>
+    <rect x="462" y="70" width="136" height="46" rx="8" fill="#eef2ff" stroke="#a5b4fc"/>
+    <text x="530" y="96" text-anchor="middle">审计委员会</text>
+    <rect x="608" y="70" width="136" height="46" rx="8" fill="#eef2ff" stroke="#a5b4fc"/>
+    <text x="676" y="96" text-anchor="middle">其他职能部门及业务单位</text>
+    <rect x="754" y="70" width="122" height="46" rx="8" fill="#eef2ff" stroke="#a5b4fc"/>
+    <text x="815" y="96" text-anchor="middle">下属公司</text>
+  </g>
+
+  <text x="24" y="146" font-size="14" font-weight="700" fill="#1e3a8a">二、内部控制五要素（我国内控规范体系 / 美国 COSO 框架）</text>
+  <g font-size="11" fill="#1e3a8a">
+    <rect x="24" y="158" width="164" height="46" rx="8" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="106" y="184" text-anchor="middle" font-weight="700">控制（内部）环境</text>
+    <rect x="198" y="158" width="164" height="46" rx="8" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="280" y="184" text-anchor="middle" font-weight="700">风险评估</text>
+    <rect x="372" y="158" width="164" height="46" rx="8" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="454" y="184" text-anchor="middle" font-weight="700">控制活动</text>
+    <rect x="546" y="158" width="164" height="46" rx="8" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="628" y="184" text-anchor="middle" font-weight="700">信息与沟通</text>
+    <rect x="720" y="158" width="156" height="46" rx="8" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="798" y="184" text-anchor="middle" font-weight="700">内部监督</text>
+  </g>
+  <text x="24" y="222" font-size="11" fill="#64748b">常见控制活动：不相容职务分离、授权审批、会计系统、财产保护、预算、运营分析、绩效考评（决策审批与监督检查不得由一人兼任）</text>
+
+  <text x="24" y="252" font-size="14" font-weight="700" fill="#1e3a8a">三、风险管理技术与方法（11 种：理解含义、适用范围、优缺点）</text>
+  <g font-size="11">
+    <rect x="24" y="264" width="204" height="40" rx="7" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="36" y="289" fill="#374151">头脑风暴法（智力激励/BS 法）</text>
+    <rect x="240" y="264" width="204" height="40" rx="7" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="252" y="289" fill="#374151">德尔菲法（背对背、反复问卷）</text>
+    <rect x="456" y="264" width="204" height="40" rx="7" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="468" y="289" fill="#374151">失效模式影响与危害度分析</text>
+    <rect x="672" y="264" width="204" height="40" rx="7" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="684" y="289" fill="#374151">流程图分析法</text>
+
+    <rect x="24" y="312" width="204" height="40" rx="7" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="36" y="337" fill="#374151">马尔科夫分析法</text>
+    <rect x="240" y="312" width="204" height="40" rx="7" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="252" y="337" fill="#374151">风险评估系图法（风险坐标图）</text>
+    <rect x="456" y="312" width="204" height="40" rx="7" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="468" y="337" fill="#374151">情景分析法</text>
+    <rect x="672" y="312" width="204" height="40" rx="7" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="684" y="337" fill="#374151">敏感性分析法</text>
+
+    <rect x="24" y="360" width="274" height="30" rx="7" fill="#fef3c7" stroke="#fcd34d"/>
+    <text x="36" y="380" fill="#78350f">事件树分析法 ETA（由因推果、正向）</text>
+    <rect x="313" y="360" width="274" height="30" rx="7" fill="#fef3c7" stroke="#fcd34d"/>
+    <text x="325" y="380" fill="#78350f">决策树法（含概率与收益的定量选择）</text>
+    <rect x="602" y="360" width="274" height="30" rx="7" fill="#fef3c7" stroke="#fcd34d"/>
+    <text x="614" y="380" fill="#78350f">统计推论法（前推/后推/旁推）</text>
+  </g>
+</svg>
