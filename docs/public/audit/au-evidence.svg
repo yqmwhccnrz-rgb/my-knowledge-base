@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 450" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="900" height="450" fill="#ffffff"/>
+  <text x="450" y="28" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">审计证据：充分性与适当性</text>
+  <text x="450" y="48" text-anchor="middle" font-size="12" fill="#64748b">数量与质量是两个不同维度；证据的可靠性决定其说服力</text>
+
+  <rect x="20" y="64" width="420" height="140" rx="10" fill="#dbeafe" stroke="#93c5fd"/>
+  <text x="36" y="90" font-size="14" font-weight="700" fill="#1d4ed8">充分性：审计证据的数量</text>
+  <g font-size="11.5" fill="#1e40af">
+    <text x="36" y="116">与评估的重大错报风险同向变动（风险越高越多）</text>
+    <text x="36" y="140">与证据质量反向变动（质量越高，所需数量越少）</text>
+    <text x="36" y="164">但仅靠增加数量，不能弥补质量上的缺陷</text>
+    <text x="36" y="188">判断时考虑：重要性、风险、成本效益、可获取性</text>
+  </g>
+
+  <rect x="460" y="64" width="420" height="140" rx="10" fill="#dcfce7" stroke="#86efac"/>
+  <text x="476" y="90" font-size="14" font-weight="700" fill="#166534">适当性：质量 ＝ 相关性 ＋ 可靠性</text>
+  <g font-size="11.5" fill="#14532d">
+    <text x="476" y="116">相关性：与所测试认定的审计目标直接相关</text>
+    <text x="476" y="140">外部独立来源 ＞ 内部来源（内控有效时内部更可靠）</text>
+    <text x="476" y="164">直接获取 ＞ 间接获取或推论；文件原件 ＞ 口头／复印件</text>
+    <text x="476" y="188">不同来源、不同性质证据相互印证时更可靠；不一致须追查</text>
+  </g>
+
+  <rect x="20" y="218" width="860" height="92" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="36" y="242" font-size="13" font-weight="700" fill="#334155">七种审计程序（按证据力与适用对象选择，可单独或组合使用）</text>
+  <g>
+    <rect x="32" y="256" width="115" height="40" rx="7" fill="#e0e7ff" stroke="#818cf8"/>
+    <text x="89" y="281" text-anchor="middle" font-size="11.5" fill="#3730a3">检查记录／实物</text>
+    <rect x="155" y="256" width="115" height="40" rx="7" fill="#e0e7ff" stroke="#818cf8"/>
+    <text x="212" y="281" text-anchor="middle" font-size="11.5" fill="#3730a3">观察</text>
+    <rect x="278" y="256" width="115" height="40" rx="7" fill="#e0e7ff" stroke="#818cf8"/>
+    <text x="335" y="281" text-anchor="middle" font-size="11.5" fill="#3730a3">询问</text>
+    <rect x="401" y="256" width="115" height="40" rx="7" fill="#c7d2fe" stroke="#6366f1"/>
+    <text x="458" y="281" text-anchor="middle" font-size="11.5" font-weight="700" fill="#312e81">函证</text>
+    <rect x="524" y="256" width="115" height="40" rx="7" fill="#e0e7ff" stroke="#818cf8"/>
+    <text x="581" y="281" text-anchor="middle" font-size="11.5" fill="#3730a3">重新计算</text>
+    <rect x="647" y="256" width="115" height="40" rx="7" fill="#e0e7ff" stroke="#818cf8"/>
+    <text x="704" y="281" text-anchor="middle" font-size="11.5" fill="#3730a3">重新执行</text>
+    <rect x="770" y="256" width="98" height="40" rx="7" fill="#c7d2fe" stroke="#6366f1"/>
+    <text x="819" y="281" text-anchor="middle" font-size="11.5" font-weight="700" fill="#312e81">分析程序</text>
+  </g>
+
+  <rect x="20" y="324" width="420" height="108" rx="10" fill="#fef3c7" stroke="#fcd34d"/>
+  <text x="36" y="348" font-size="13" font-weight="700" fill="#92400e">函证（第 4 章）</text>
+  <g font-size="11" fill="#78350f">
+    <text x="36" y="370">第三方直接书面答复，可靠性较高；应收、银行存款、</text>
+    <text x="36" y="388">借款、第三方保管存货、担保与或有事项等常用</text>
+    <text x="36" y="406">积极式（须回函确认）／消极式（仅不符时回函，条件严格）</text>
+    <text x="36" y="424">注册会计师须对发函、跟函与回函全过程保持控制</text>
+  </g>
+
+  <rect x="460" y="324" width="420" height="108" rx="10" fill="#fce7f3" stroke="#f9a8d4"/>
+  <text x="476" y="348" font-size="13" font-weight="700" fill="#9d174d">分析程序（第 4 章）</text>
+  <g font-size="11" fill="#831843">
+    <text x="476" y="370">风险评估阶段：必须实施，了解业务、识别异常关系</text>
+    <text x="476" y="388">实质性程序：可选，用作实质性分析程序</text>
+    <text x="476" y="406">临近审计结束总体复核：必须实施</text>
+    <text x="476" y="424">不适用于控制测试；数据关系不稳定时不宜单独依赖</text>
+  </g>
+</svg>

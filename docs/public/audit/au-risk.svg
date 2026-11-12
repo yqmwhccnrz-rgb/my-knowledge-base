@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="900" height="420" fill="#ffffff"/>
+  <text x="450" y="28" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">审计风险模型与重大错报风险分解</text>
+  <text x="450" y="48" text-anchor="middle" font-size="12" fill="#64748b">审计风险取决于重大错报风险和检查风险；前者只能评估，后者才能由审计程序控制</text>
+
+  <rect x="240" y="62" width="420" height="64" rx="11" fill="#e0e7ff" stroke="#818cf8"/>
+  <text x="450" y="90" text-anchor="middle" font-size="16" font-weight="700" fill="#3730a3">审计风险 AR ＝ 重大错报风险 RMM × 检查风险 DR</text>
+  <text x="450" y="112" text-anchor="middle" font-size="11" fill="#4338ca">在既定的可接受审计风险下，RMM 与可接受的 DR 反向变动</text>
+
+  <rect x="20" y="144" width="410" height="152" rx="10" fill="#dbeafe" stroke="#93c5fd"/>
+  <text x="36" y="170" font-size="14" font-weight="700" fill="#1d4ed8">重大错报风险 RMM（被审计单位固有）</text>
+  <g font-size="11.5" fill="#1e40af">
+    <text x="36" y="196">注册会计师只能识别和评估，不能控制或降低</text>
+    <text x="36" y="220">① 财务报表层次：广泛影响、与财务报表整体相关</text>
+    <text x="36" y="244">② 认定层次 ＝ 固有风险 IR × 控制风险 CR</text>
+    <text x="36" y="268">固有风险因素：不确定性、复杂性、主观性、变化、</text>
+    <text x="36" y="286">管理层偏向或其他舞弊风险因素</text>
+  </g>
+
+  <rect x="470" y="144" width="410" height="152" rx="10" fill="#dcfce7" stroke="#86efac"/>
+  <text x="486" y="170" font-size="14" font-weight="700" fill="#166534">检查风险 DR（注册会计师可控制）</text>
+  <g font-size="11.5" fill="#14532d">
+    <text x="486" y="196">程序未能发现单项或汇总重大错报的可能性</text>
+    <text x="486" y="220">性质：选择更有效、更有针对性的审计程序</text>
+    <text x="486" y="244">时间：接近或在资产负债表日实施程序</text>
+    <text x="486" y="268">范围：扩大样本量、增加不可预见性</text>
+    <text x="486" y="286">人员：指派经验更丰富者、加强督导复核</text>
+  </g>
+
+  <rect x="20" y="312" width="860" height="90" rx="10" fill="#fef3c7" stroke="#fcd34d"/>
+  <text x="36" y="336" font-size="13" font-weight="700" fill="#92400e">风险导向的核心推论与审计固有限制</text>
+  <text x="36" y="360" font-size="11.5" fill="#78350f">RMM 评估越高 → 可接受的 DR 越低 → 获取越多、越有效的审计证据；但任何重大类别的交易、账户余额和披露都必须实施实质性程序。</text>
+  <text x="36" y="384" font-size="11.5" fill="#78350f">固有限制：财务报告性质、审计程序性质、抽样与内控局限、证据多为说服性而非结论性、管理层舞弊或串通 → 只能提供合理保证。</text>
+</svg>

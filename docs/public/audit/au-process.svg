@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="900" height="440" fill="#ffffff"/>
+  <text x="450" y="28" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">风险导向审计全流程（贯穿全书 24 章）</text>
+  <text x="450" y="48" text-anchor="middle" font-size="12" fill="#64748b">承接 → 计划 → 风险评估 → 风险应对 → 完成工作 → 出具报告；提供合理保证而非绝对保证</text>
+
+  <g>
+    <rect x="18" y="70" width="135" height="214" rx="9" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="85" y="93" text-anchor="middle" font-size="13" font-weight="700" fill="#1d4ed8">① 业务承接</text>
+    <line x1="30" y1="103" x2="141" y2="103" stroke="#93c5fd"/>
+    <text x="28" y="124" font-size="11" fill="#1e40af">客户关系和业务的</text>
+    <text x="28" y="141" font-size="11" fill="#1e40af">接受与保持</text>
+    <text x="28" y="166" font-size="11" fill="#1e40af">独立性、胜任能力</text>
+    <text x="28" y="191" font-size="11" fill="#1e40af">审计业务约定条款</text>
+    <text x="28" y="216" font-size="11" fill="#1e40af">签订业务约定书</text>
+    <text x="28" y="246" font-size="10.5" fill="#64748b">对应第 6 章</text>
+  </g>
+  <text x="158" y="182" text-anchor="middle" font-size="16" fill="#94a3b8">→</text>
+  <g>
+    <rect x="163" y="70" width="135" height="214" rx="9" fill="#e0e7ff" stroke="#818cf8"/>
+    <text x="230" y="93" text-anchor="middle" font-size="13" font-weight="700" fill="#3730a3">② 审计计划</text>
+    <line x1="175" y1="103" x2="286" y2="103" stroke="#818cf8"/>
+    <text x="173" y="124" font-size="11" fill="#3730a3">总体审计策略</text>
+    <text x="173" y="149" font-size="11" fill="#3730a3">具体审计计划</text>
+    <text x="173" y="174" font-size="11" fill="#3730a3">重要性：整体 /</text>
+    <text x="173" y="191" font-size="11" fill="#3730a3">实际执行 / 明显微小</text>
+    <text x="173" y="216" font-size="11" fill="#3730a3">项目组讨论分工</text>
+    <text x="173" y="246" font-size="10.5" fill="#64748b">对应第 6 章</text>
+  </g>
+  <text x="303" y="182" text-anchor="middle" font-size="16" fill="#94a3b8">→</text>
+  <g>
+    <rect x="308" y="70" width="135" height="214" rx="9" fill="#fef3c7" stroke="#fcd34d"/>
+    <text x="375" y="93" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">③ 风险评估</text>
+    <line x1="320" y1="103" x2="431" y2="103" stroke="#fcd34d"/>
+    <text x="318" y="124" font-size="11" fill="#78350f">了解单位及其环境、</text>
+    <text x="318" y="141" font-size="11" fill="#78350f">适用的编制基础</text>
+    <text x="318" y="166" font-size="11" fill="#78350f">了解内控体系要素</text>
+    <text x="318" y="191" font-size="11" fill="#78350f">识别评估重大错报</text>
+    <text x="318" y="208" font-size="11" fill="#78350f">风险、特别风险</text>
+    <text x="318" y="246" font-size="10.5" fill="#64748b">对应第 7 章</text>
+  </g>
+  <text x="448" y="182" text-anchor="middle" font-size="16" fill="#94a3b8">→</text>
+  <g>
+    <rect x="453" y="70" width="135" height="214" rx="9" fill="#fce7f3" stroke="#f9a8d4"/>
+    <text x="520" y="93" text-anchor="middle" font-size="13" font-weight="700" fill="#9d174d">④ 风险应对</text>
+    <line x1="465" y1="103" x2="576" y2="103" stroke="#f9a8d4"/>
+    <text x="463" y="124" font-size="11" fill="#831843">报表层次：总体</text>
+    <text x="463" y="141" font-size="11" fill="#831843">应对措施</text>
+    <text x="463" y="166" font-size="11" fill="#831843">认定层次：进一步</text>
+    <text x="463" y="183" font-size="11" fill="#831843">审计程序</text>
+    <text x="463" y="208" font-size="11" fill="#831843">控制测试（拟依赖）</text>
+    <text x="463" y="233" font-size="11" fill="#831843">实质性程序（必做）</text>
+    <text x="463" y="260" font-size="10.5" fill="#64748b">对应第 8 章</text>
+  </g>
+  <text x="593" y="182" text-anchor="middle" font-size="16" fill="#94a3b8">→</text>
+  <g>
+    <rect x="598" y="70" width="135" height="214" rx="9" fill="#dcfce7" stroke="#86efac"/>
+    <text x="665" y="93" text-anchor="middle" font-size="13" font-weight="700" fill="#166534">⑤ 完成工作</text>
+    <line x1="610" y1="103" x2="721" y2="103" stroke="#86efac"/>
+    <text x="608" y="124" font-size="11" fill="#14532d">汇总并评价错报</text>
+    <text x="608" y="149" font-size="11" fill="#14532d">期后事项、书面声明</text>
+    <text x="608" y="174" font-size="11" fill="#14532d">持续经营、关联方</text>
+    <text x="608" y="199" font-size="11" fill="#14532d">底稿复核、治理层</text>
+    <text x="608" y="216" font-size="11" fill="#14532d">沟通</text>
+    <text x="608" y="246" font-size="10.5" fill="#64748b">第 14–19、21 章</text>
+  </g>
+  <text x="738" y="182" text-anchor="middle" font-size="16" fill="#94a3b8">→</text>
+  <g>
+    <rect x="743" y="70" width="135" height="214" rx="9" fill="#fee2e2" stroke="#fca5a5"/>
+    <text x="810" y="93" text-anchor="middle" font-size="13" font-weight="700" fill="#991b1b">⑥ 出具报告</text>
+    <line x1="755" y1="103" x2="866" y2="103" stroke="#fca5a5"/>
+    <text x="753" y="124" font-size="11" fill="#7f1d1d">形成审计意见</text>
+    <text x="753" y="149" font-size="11" fill="#7f1d1d">关键审计事项</text>
+    <text x="753" y="174" font-size="11" fill="#7f1d1d">非无保留意见 /</text>
+    <text x="753" y="191" font-size="11" fill="#7f1d1d">强调事项段</text>
+    <text x="753" y="216" font-size="11" fill="#7f1d1d">其他信息、报告日期</text>
+    <text x="753" y="246" font-size="10.5" fill="#64748b">对应第 20 章</text>
+  </g>
+
+  <rect x="18" y="302" width="860" height="118" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="34" y="326" font-size="13" font-weight="700" fill="#334155">贯穿全程的四条主线</text>
+  <g font-size="11" fill="#334155">
+    <rect x="32" y="338" width="200" height="66" rx="8" fill="#e0f2fe" stroke="#7dd3fc"/>
+    <text x="44" y="360" font-weight="600" fill="#075985">职业怀疑与专业胜任</text>
+    <text x="44" y="380" font-size="10.5">合理保证 · 审计固有限制 · 管理层声明</text>
+    <text x="44" y="396" font-size="10.5">不能替代本应获取的证据</text>
+    <rect x="246" y="338" width="200" height="66" rx="8" fill="#ede9fe" stroke="#c4b5fd"/>
+    <text x="258" y="360" font-weight="600" fill="#5b21b6">充分适当的审计证据</text>
+    <text x="258" y="380" font-size="10.5">七种程序 · 函证 · 分析程序 · 抽样</text>
+    <text x="258" y="396" font-size="10.5">审计工作底稿完整记录</text>
+    <rect x="460" y="338" width="200" height="66" rx="8" fill="#fef9c3" stroke="#fde047"/>
+    <text x="472" y="360" font-weight="600" fill="#854d0e">质量管理与独立性</text>
+    <text x="472" y="380" font-size="10.5">事务所体系 · 项目质量复核</text>
+    <text x="472" y="396" font-size="10.5">第 3、24 章全程约束</text>
+    <rect x="674" y="338" width="200" height="66" rx="8" fill="#dcfce7" stroke="#86efac"/>
+    <text x="686" y="360" font-weight="600" fill="#166534">沟通与利用他人工作</text>
+    <text x="686" y="380" font-size="10.5">治理层 · 前任后任注册会计师</text>
+    <text x="686" y="396" font-size="10.5">内部审计、专家、组成部分</text>
+  </g>
+</svg>

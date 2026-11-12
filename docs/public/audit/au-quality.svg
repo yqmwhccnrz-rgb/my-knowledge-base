@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="900" height="470" fill="#ffffff"/>
+  <text x="450" y="28" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">质量管理体系、项目质量复核与独立性</text>
+  <text x="450" y="48" text-anchor="middle" font-size="12" fill="#64748b">第 3 章（独立性）与第 24 章（质量管理）对全部业务形成全程约束</text>
+
+  <rect x="20" y="64" width="520" height="242" rx="10" fill="#e0e7ff" stroke="#818cf8"/>
+  <text x="36" y="90" font-size="14" font-weight="700" fill="#3730a3">质量管理体系八要素（质量管理准则第 5101 号）</text>
+  <g font-size="11.5" fill="#3730a3">
+    <rect x="32" y="104" width="242" height="42" rx="7" fill="#c7d2fe"/>
+    <text x="44" y="130">① 事务所的风险评估程序</text>
+    <rect x="282" y="104" width="242" height="42" rx="7" fill="#c7d2fe"/>
+    <text x="294" y="130">⑤ 业务执行</text>
+    <rect x="32" y="152" width="242" height="42" rx="7" fill="#e0e7ff" stroke="#a5b4fc"/>
+    <text x="44" y="178">② 治理和领导层</text>
+    <rect x="282" y="152" width="242" height="42" rx="7" fill="#e0e7ff" stroke="#a5b4fc"/>
+    <text x="294" y="178">⑥ 资源（人力、技术、知识）</text>
+    <rect x="32" y="200" width="242" height="42" rx="7" fill="#c7d2fe"/>
+    <text x="44" y="226">③ 相关职业道德要求</text>
+    <rect x="282" y="200" width="242" height="42" rx="7" fill="#c7d2fe"/>
+    <text x="294" y="226">⑦ 信息与沟通</text>
+    <rect x="32" y="248" width="242" height="42" rx="7" fill="#e0e7ff" stroke="#a5b4fc"/>
+    <text x="44" y="274">④ 客户关系与业务的接受与保持</text>
+    <rect x="282" y="248" width="242" height="42" rx="7" fill="#e0e7ff" stroke="#a5b4fc"/>
+    <text x="294" y="274">⑧ 监控和整改过程</text>
+  </g>
+
+  <rect x="560" y="64" width="320" height="242" rx="10" fill="#dcfce7" stroke="#86efac"/>
+  <text x="576" y="90" font-size="14" font-weight="700" fill="#166534">项目质量复核（5101 号体系）</text>
+  <g font-size="11" fill="#14532d">
+    <text x="576" y="116">适用：上市实体财务报表审计等规定情形</text>
+    <text x="576" y="140">复核人：项目组之外、具备适当资格与</text>
+    <text x="576" y="158">时间且保持客观，不得由项目合伙人担任</text>
+    <text x="576" y="182">时点：项目合伙人签署审计报告之前完成</text>
+    <text x="576" y="206">内容：重大判断、疑难或争议事项、</text>
+    <text x="576" y="224">底稿与结论的一致性</text>
+    <text x="576" y="248">复核未完成不得出具报告；复核不减轻</text>
+    <text x="576" y="266">项目组的责任；复核意见须记录于底稿</text>
+    <text x="576" y="290">适用上市实体等三类业务；1121 号规范项目层面质量管理</text>
+  </g>
+
+  <rect x="20" y="320" width="860" height="132" rx="10" fill="#fef3c7" stroke="#fcd34d"/>
+  <text x="36" y="346" font-size="13" font-weight="700" fill="#92400e">独立性：五类威胁与典型红线（第 3 章）</text>
+  <g font-size="11.5" fill="#78350f">
+    <text x="36" y="370">自身利益 · 自我评价 · 过度推介 · 密切关系 · 外在压力 —— 用职业道德概念框架识别、评价，并消除或降低至可接受水平。</text>
+    <text x="36" y="394">红线一：不得为审计客户承担管理层职责；不得提供对财务报表有重大影响的非鉴证服务（如代为编制报表、设计内控、内部审计外包、估值服务）。</text>
+    <text x="36" y="418">红线二：贷款担保、重大经济利益、与审计客户的人员交流、长期业务关系、收费依赖，均须按守则采取防范措施或拒绝／解除业务。</text>
+    <text x="36" y="442">违反独立性：立即终止相关利益关系或解除业务，向治理层沟通并完整记录；关键审计合伙人须按规定轮换并遵守冷却期。</text>
+  </g>
+</svg>

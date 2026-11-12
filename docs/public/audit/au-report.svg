@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="900" height="470" fill="#ffffff"/>
+  <text x="450" y="28" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">审计意见类型判断与审计报告要素</text>
+  <text x="450" y="48" text-anchor="middle" font-size="12" fill="#64748b">两个判断维度：错报是否重大且广泛 · 是否无法获取充分适当的审计证据</text>
+
+  <rect x="230" y="62" width="440" height="42" rx="9" fill="#e2e8f0" stroke="#cbd5e1"/>
+  <text x="450" y="89" text-anchor="middle" font-size="12.5" font-weight="700" fill="#334155">判断一：财务报表是否存在重大错报？　判断二：审计范围是否受限？</text>
+
+  <g>
+    <rect x="20" y="124" width="205" height="122" rx="10" fill="#dcfce7" stroke="#86efac"/>
+    <text x="122" y="150" text-anchor="middle" font-size="14" font-weight="700" fill="#166534">无保留意见</text>
+    <text x="32" y="176" font-size="11" fill="#14532d">不存在重大错报，且已获取</text>
+    <text x="32" y="194" font-size="11" fill="#14532d">充分适当的审计证据</text>
+    <text x="32" y="218" font-size="11" fill="#14532d">可按准则增加关键审计事项、</text>
+    <text x="32" y="236" font-size="11" fill="#14532d">强调事项段或其他事项段</text>
+  </g>
+  <g>
+    <rect x="240" y="124" width="205" height="122" rx="10" fill="#fef3c7" stroke="#fcd34d"/>
+    <text x="342" y="150" text-anchor="middle" font-size="14" font-weight="700" fill="#92400e">保留意见</text>
+    <text x="252" y="176" font-size="11" fill="#78350f">错报重大但不具有广泛性；</text>
+    <text x="252" y="194" font-size="11" fill="#78350f">或范围受限可能重大但不广泛</text>
+    <text x="252" y="218" font-size="11" fill="#78350f">用「除……可能产生的影响外」</text>
+    <text x="252" y="236" font-size="11" fill="#78350f">表述，并在基础段说明原因</text>
+  </g>
+  <g>
+    <rect x="460" y="124" width="205" height="122" rx="10" fill="#fee2e2" stroke="#fca5a5"/>
+    <text x="562" y="150" text-anchor="middle" font-size="14" font-weight="700" fill="#991b1b">否定意见</text>
+    <text x="472" y="176" font-size="11" fill="#7f1d1d">错报重大且具有广泛性</text>
+    <text x="472" y="194" font-size="11" fill="#7f1d1d">财务报表整体未公允反映</text>
+    <text x="472" y="218" font-size="11" fill="#7f1d1d">常见于报表编制基础不当、</text>
+    <text x="472" y="236" font-size="11" fill="#7f1d1d">重大事项未恰当确认披露</text>
+  </g>
+  <g>
+    <rect x="680" y="124" width="200" height="122" rx="10" fill="#f3e8ff" stroke="#d8b4fe"/>
+    <text x="780" y="150" text-anchor="middle" font-size="14" font-weight="700" fill="#6b21a8">无法表示意见</text>
+    <text x="692" y="176" font-size="11" fill="#581c87">范围受限重大且广泛，未能</text>
+    <text x="692" y="194" font-size="11" fill="#581c87">获取充分适当证据</text>
+    <text x="692" y="218" font-size="11" fill="#581c87">不发表意见，报告中不沟通</text>
+    <text x="692" y="236" font-size="11" fill="#581c87">关键审计事项</text>
+  </g>
+
+  <rect x="20" y="262" width="860" height="34" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="36" y="284" font-size="11.5" fill="#475569">「广泛性」指影响不限于特定要素、账户或项目，或虽限于特定项目但代表了财务报表相当大比例，或对披露至关重要。</text>
+
+  <rect x="20" y="310" width="420" height="142" rx="10" fill="#dbeafe" stroke="#93c5fd"/>
+  <text x="36" y="336" font-size="13" font-weight="700" fill="#1d4ed8">不影响意见的报告段落</text>
+  <g font-size="11" fill="#1e40af">
+    <text x="36" y="358">关键审计事项：上市实体强制，从与治理层沟通的</text>
+    <text x="36" y="376">事项中选出最为重要者；不能替代非无保留意见</text>
+    <text x="36" y="398">强调事项段：已在报表中充分披露、对使用者理解</text>
+    <text x="36" y="416">报表至关重要；其他事项段：与理解审计工作相关</text>
+    <text x="36" y="440">其他信息：其重大错报不导致对报表发表非无保留意见</text>
+  </g>
+
+  <rect x="460" y="310" width="420" height="142" rx="10" fill="#fef3c7" stroke="#fcd34d"/>
+  <text x="476" y="336" font-size="13" font-weight="700" fill="#92400e">审计报告基本要素（第 20 章）</text>
+  <g font-size="11" fill="#78350f">
+    <text x="476" y="358">标题（含「独立」）、收件人、审计意见、形成意见基础</text>
+    <text x="476" y="376">关键审计事项、其他信息</text>
+    <text x="476" y="398">管理层与治理层对财务报表的责任</text>
+    <text x="476" y="416">注册会计师责任、项目合伙人签名与事务所盖章地址</text>
+    <text x="476" y="440">报告日期不早于获取充分适当证据并完成复核之日</text>
+  </g>
+</svg>

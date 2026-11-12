@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 450" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="900" height="450" fill="#ffffff"/>
+  <text x="450" y="28" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">审计抽样：控制测试与细节测试</text>
+  <text x="450" y="48" text-anchor="middle" font-size="12" fill="#64748b">适用于「对某类交易或账户余额中低于百分之百的项目实施测试」并据样本推断总体</text>
+
+  <rect x="20" y="64" width="860" height="66" rx="10" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="36" y="86" font-size="12" font-weight="700" fill="#334155">通用步骤</text>
+  <g font-size="11" fill="#334155">
+    <text x="36" y="112">① 明确目标、定义总体与抽样单元（总体须适当、完整）</text>
+    <text x="252" y="112">② 确定样本规模（风险 / 可容忍误差 / 预期误差）</text>
+    <text x="496" y="112">③ 选取样本并实施测试（随机／系统／随意／分层）</text>
+    <text x="720" y="112">④ 评价结果、推断总体、调查原因</text>
+  </g>
+
+  <rect x="20" y="146" width="420" height="182" rx="10" fill="#e0e7ff" stroke="#818cf8"/>
+  <text x="36" y="172" font-size="14" font-weight="700" fill="#3730a3">控制测试 · 属性抽样</text>
+  <g font-size="11.5" fill="#3730a3">
+    <text x="36" y="198">目标：内部控制在整个期间运行的有效性</text>
+    <text x="36" y="222">计量：偏差率（发生次数），不计量金额</text>
+    <text x="36" y="246">抽样风险：信赖过度（影响效果，更危险）、</text>
+    <text x="36" y="264">　　　　　信赖不足（影响效率）</text>
+    <text x="36" y="288">样本规模：可接受的信赖过度风险越低、预期偏差率</text>
+    <text x="36" y="306">越高，样本越大；总体规模影响很小</text>
+    <text x="36" y="320">偏差须调查性质与原因，不能只看比率</text>
+  </g>
+
+  <rect x="460" y="146" width="420" height="182" rx="10" fill="#fef3c7" stroke="#fcd34d"/>
+  <text x="476" y="172" font-size="14" font-weight="700" fill="#92400e">细节测试 · 变量抽样 / PPS 抽样</text>
+  <g font-size="11.5" fill="#78350f">
+    <text x="476" y="198">目标：账户余额或交易金额是否存在错报</text>
+    <text x="476" y="222">计量：错报金额，可推断总体错报</text>
+    <text x="476" y="246">抽样风险：误受（影响效果，更危险）、</text>
+    <text x="476" y="264">　　　　　误拒（影响效率）</text>
+    <text x="476" y="288">分层可降低总体变异性、提高效率；</text>
+    <text x="476" y="306">PPS（概率比例规模）抽样适合测试高估</text>
+    <text x="476" y="320">推断错报接近或超过可容忍错报 → 不能接受总体</text>
+  </g>
+
+  <rect x="20" y="342" width="860" height="90" rx="10" fill="#dcfce7" stroke="#86efac"/>
+  <text x="36" y="366" font-size="13" font-weight="700" fill="#166534">抽样风险 与 非抽样风险（第 5 章）</text>
+  <text x="36" y="390" font-size="11.5" fill="#14532d">抽样风险：样本不能代表总体的风险，可通过扩大样本量、分层降低，并可量化；无论哪种测试，影响「效果」的一类风险更重要。</text>
+  <text x="36" y="412" font-size="11.5" fill="#14532d">非抽样风险：选错程序、误解证据、粗心疏漏、舞弊串通，与样本量无关，只能靠督导、培训与质量控制降低；不适用抽样：100% 检查、仅询问观察、分析程序。</text>
+</svg>
