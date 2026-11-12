@@ -5,3 +5,7 @@ docs/.vitepress/cache/
 .DS_Store
 __pycache__/
 *.pyc
+
+# CPA 原始资料及其文本提取件：用户要求一律不入库
+cpa_pdf_text/
+*谦达*
