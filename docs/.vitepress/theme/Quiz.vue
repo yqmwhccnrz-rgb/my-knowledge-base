@@ -26,6 +26,7 @@ const noteOptions = [
   { key: 'EconLaw', label: '经济法笔记（CPA）' },
   { key: 'Audit', label: '审计笔记（CPA）' },
   { key: 'Finance', label: '金融学笔记' },
+  { key: 'FCM', label: '财务成本管理笔记（CPA）' },
   { key: 'Macro', label: '宏观经济学笔记' }
 ]
 const selectedNote = ref('all')

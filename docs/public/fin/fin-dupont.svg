@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 360" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect width="680" height="360" fill="#f8fafc"/>
+  <text x="340" y="30" text-anchor="middle" font-size="18" font-weight="700" fill="#1f2937">杜邦分析体系（权益净利率分解）</text>
+
+  <rect x="250" y="50" width="180" height="40" rx="8" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+  <text x="340" y="75" text-anchor="middle" font-size="14" fill="#1e3a8a">权益净利率 = 净利率 × 周转率 × 权益乘数</text>
+
+  <line x1="340" y1="90" x2="110" y2="135" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="340" y1="90" x2="340" y2="135" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="340" y1="90" x2="570" y2="135" stroke="#94a3b8" stroke-width="1.5"/>
+
+  <rect x="20" y="135" width="180" height="40" rx="8" fill="#eff6ff" stroke="#1d4ed8"/>
+  <text x="110" y="160" text-anchor="middle" font-size="13" fill="#1e3a8a">营业净利率</text>
+  <rect x="250" y="135" width="180" height="40" rx="8" fill="#ecfdf5" stroke="#15803d"/>
+  <text x="340" y="160" text-anchor="middle" font-size="13" fill="#14532d">总资产周转率</text>
+  <rect x="480" y="135" width="180" height="40" rx="8" fill="#fef2f2" stroke="#b91c1c"/>
+  <text x="570" y="160" text-anchor="middle" font-size="13" fill="#7f1d1d">权益乘数（1/（1-资产负债率））</text>
+
+  <text x="110" y="205" text-anchor="middle" font-size="12" fill="#475569">= 净利润 / 营业收入</text>
+  <text x="340" y="205" text-anchor="middle" font-size="12" fill="#475569">= 营业收入 / 总资产</text>
+  <text x="570" y="205" text-anchor="middle" font-size="12" fill="#475569">反映财务杠杆</text>
+
+  <line x1="110" y1="175" x2="110" y2="235" stroke="#94a3b8" stroke-width="1.2"/>
+  <line x1="340" y1="175" x2="340" y2="235" stroke="#94a3b8" stroke-width="1.2"/>
+  <line x1="570" y1="175" x2="570" y2="235" stroke="#94a3b8" stroke-width="1.2"/>
+  <rect x="20" y="235" width="580" height="40" rx="8" fill="#fffbeb" stroke="#b45309"/>
+  <text x="310" y="260" text-anchor="middle" font-size="13" fill="#78350f">传统杜邦：重点考察营业净利率、资产周转速度与财务杠杆的驱动关系；</text>
+  <text x="310" y="282" text-anchor="middle" font-size="13" fill="#78350f">管理用财务报表下的「改进的杜邦分析」以净经营资产净利率为核心。</text>
+
+  <text x="340" y="335" text-anchor="middle" font-size="12" fill="#64748b">注：「营业净利率×总资产周转率 = 总资产净利率」，再×权益乘数 = 权益净利率。</text>
+</svg>

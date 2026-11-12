@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 360" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect width="680" height="360" fill="#f8fafc"/>
+  <text x="340" y="30" text-anchor="middle" font-size="18" font-weight="700" fill="#1f2937">本量利分析（CVP）基本关系</text>
+
+  <!-- 坐标 -->
+  <line x1="60" y1="310" x2="620" y2="310" stroke="#475569" stroke-width="1.5"/>
+  <line x1="60" y1="40" x2="60" y2="310" stroke="#475569" stroke-width="1.5"/>
+  <text x="635" y="314" font-size="12" fill="#475569">销量</text>
+  <text x="40" y="50" font-size="12" fill="#475569">金额</text>
+
+  <!-- 固定成本线 -->
+  <line x1="60" y1="230" x2="620" y2="230" stroke="#b91c1c" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="500" y="222" font-size="12" fill="#b91c1c">固定成本（不随销量变）</text>
+
+  <!-- 总成本线 -->
+  <line x1="60" y1="230" x2="620" y2="100" stroke="#b45309" stroke-width="2"/>
+  <text x="470" y="120" font-size="12" fill="#b45309">总成本 = 固定 + 单位变动×销量</text>
+
+  <!-- 销售收入线 -->
+  <line x1="60" y1="310" x2="620" y2="60" stroke="#15803d" stroke-width="2"/>
+  <text x="430" y="300" font-size="12" fill="#15803d">销售收入 = 单价×销量</text>
+
+  <!-- 盈亏临界点 -->
+  <circle cx="290" cy="218" r="5" fill="#1d4ed8"/>
+  <line x1="290" y1="218" x2="290" y2="310" stroke="#1d4ed8" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="295" y="335" font-size="12" font-weight="600" fill="#1d4ed8">盈亏临界点（BEP）销量</text>
+
+  <text x="340" y="350" text-anchor="middle" font-size="12" fill="#64748b">盈亏临界点销量 = 固定成本 /（单价 − 单位变动成本）；边际贡献率 = 边际贡献 / 销售收入</text>
+</svg>

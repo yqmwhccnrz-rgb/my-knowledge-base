@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 360" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect width="680" height="360" fill="#f8fafc"/>
+  <text x="340" y="30" text-anchor="middle" font-size="18" font-weight="700" fill="#1f2937">成本计算基本方法（第 12 章）</text>
+
+  <rect x="30" y="55" width="200" height="45" rx="8" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+  <text x="130" y="82" text-anchor="middle" font-size="13" fill="#1e3a8a">品种法</text>
+  <rect x="240" y="55" width="200" height="45" rx="8" fill="#ecfdf5" stroke="#15803d" stroke-width="1.5"/>
+  <text x="340" y="82" text-anchor="middle" font-size="13" fill="#14532d">分批法</text>
+  <rect x="450" y="55" width="200" height="45" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.5"/>
+  <text x="550" y="82" text-anchor="middle" font-size="13" fill="#7f1d1d">分步法</text>
+
+  <text x="130" y="130" text-anchor="middle" font-size="12" fill="#334155">大量大批单步骤</text>
+  <text x="340" y="130" text-anchor="middle" font-size="12" fill="#334155">按批别（订单）</text>
+  <text x="550" y="130" text-anchor="middle" font-size="12" fill="#334155">大量大批多步骤</text>
+
+  <line x1="130" y1="100" x2="130" y2="150" stroke="#94a3b8"/>
+  <line x1="340" y1="100" x2="340" y2="150" stroke="#94a3b8"/>
+  <line x1="550" y1="100" x2="550" y2="150" stroke="#94a3b8"/>
+
+  <rect x="30" y="150" width="620" height="40" rx="8" fill="#fffbeb" stroke="#b45309"/>
+  <text x="340" y="175" text-anchor="middle" font-size="12.5" fill="#78350f">分步法进一步区分：逐步结转分步法（综合结转 / 分项结转）与平行结转分步法（不计算半成品成本）。</text>
+
+  <text x="340" y="225" text-anchor="middle" font-size="14" font-weight="600" fill="#1f2937">辅助生产费用的分配方法</text>
+  <rect x="40" y="240" width="290" height="90" rx="8" fill="#eff6ff" stroke="#cbd5e1"/>
+  <text x="55" y="265" font-size="12" fill="#334155">· 直接分配法（对外分配，不互分）</text>
+  <text x="55" y="287" font-size="12" fill="#334155">· 交互分配法（先内后外）</text>
+  <text x="55" y="309" font-size="12" fill="#334155">· 计划成本分配法</text>
+  <text x="55" y="331" font-size="12" fill="#334155">· 顺序分配法 / 代数分配法</text>
+
+  <rect x="350" y="240" width="290" height="90" rx="8" fill="#ecfdf5" stroke="#cbd5e1"/>
+  <text x="365" y="265" font-size="12" fill="#334155">完工与在产品分配：</text>
+  <text x="365" y="287" font-size="12" fill="#334155">· 约当产量法（常用）</text>
+  <text x="365" y="309" font-size="12" fill="#334155">· 定额成本 / 定额比例法</text>
+  <text x="365" y="331" font-size="12" fill="#334155">· 在产品按固定成本计价</text>
+</svg>
