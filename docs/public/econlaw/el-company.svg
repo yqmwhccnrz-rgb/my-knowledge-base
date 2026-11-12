@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="900" height="420" fill="#ffffff"/>
+  <text x="450" y="28" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">公司组织机构与决议规则（2024 年新《公司法》）</text>
+  <text x="450" y="48" text-anchor="middle" font-size="12" fill="#64748b">股东会 → 董事会 → 经理；审计委员会可替代监事会；注册资本限期缴足</text>
+
+  <rect x="330" y="62" width="240" height="48" rx="9" fill="#e0e7ff" stroke="#818cf8"/>
+  <text x="450" y="82" text-anchor="middle" font-size="14" font-weight="700" fill="#3730a3">股东会（权力机构）</text>
+  <text x="450" y="100" text-anchor="middle" font-size="11" fill="#4338ca">选举董事监事 · 审议重大事项</text>
+
+  <line x1="450" y1="110" x2="450" y2="128" stroke="#94a3b8"/>
+  <line x1="160" y1="128" x2="740" y2="128" stroke="#94a3b8"/>
+  <g stroke="#94a3b8"><line x1="160" y1="128" x2="160" y2="142"/><line x1="450" y1="128" x2="450" y2="142"/><line x1="740" y1="128" x2="740" y2="142"/></g>
+
+  <rect x="30" y="142" width="260" height="106" rx="9" fill="#dbeafe" stroke="#93c5fd"/>
+  <text x="160" y="166" text-anchor="middle" font-size="13" font-weight="700" fill="#1d4ed8">董事会 / 执行董事</text>
+  <text x="44" y="190" font-size="11.5" fill="#1e40af">经营决策与执行；成员 ≥ 3 人</text>
+  <text x="44" y="212" font-size="11.5" fill="#1e40af">规模较小公司可设 1 名董事</text>
+  <text x="44" y="234" font-size="11" fill="#1e3a8a">法定代表人由执行事务的董事或经理担任</text>
+
+  <rect x="320" y="142" width="260" height="106" rx="9" fill="#fef3c7" stroke="#fcd34d"/>
+  <text x="450" y="166" text-anchor="middle" font-size="13" font-weight="700" fill="#b45309">经理（执行层）</text>
+  <text x="334" y="190" font-size="11.5" fill="#78350f">由董事会决定聘任 / 解聘</text>
+  <text x="334" y="212" font-size="11.5" fill="#78350f">主持日常经营、组织实施决议</text>
+  <text x="334" y="234" font-size="11" fill="#92400e">可依章程规定担任法定代表人</text>
+
+  <rect x="610" y="142" width="260" height="106" rx="9" fill="#dcfce7" stroke="#86efac"/>
+  <text x="740" y="166" text-anchor="middle" font-size="13" font-weight="700" fill="#15803d">监督机构（二选一）</text>
+  <text x="624" y="190" font-size="11.5" fill="#166534">监事会（成员 ≥ 3 人）</text>
+  <text x="624" y="212" font-size="11.5" fill="#166534">或董事会内设审计委员会</text>
+  <text x="624" y="234" font-size="11" fill="#14532d">设审计委员会的可不设监事会</text>
+
+  <text x="450" y="278" text-anchor="middle" font-size="14" font-weight="700" fill="#334155">决议表决与出资要点</text>
+  <rect x="30" y="290" width="410" height="112" rx="9" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="46" y="313" font-size="12" font-weight="700" fill="#334155">股东会决议</text>
+  <text x="46" y="335" font-size="11.5" fill="#475569">普通决议：代表过半数表决权的股东通过</text>
+  <text x="46" y="357" font-size="11.5" fill="#475569">特别决议：≥ 2/3 表决权（改章程、增减资、</text>
+  <text x="58" y="375" font-size="11.5" fill="#475569">合并、分立、解散、变更公司形式）</text>
+  <text x="46" y="395" font-size="11" fill="#64748b">有限公司按出资比例行使表决权，章程另有约定除外</text>
+
+  <rect x="460" y="290" width="410" height="112" rx="9" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="476" y="313" font-size="12" font-weight="700" fill="#334155">出资与责任</text>
+  <text x="476" y="335" font-size="11.5" fill="#475569">有限公司注册资本 = 全体认缴出资额</text>
+  <text x="476" y="357" font-size="11.5" fill="#475569">全体股东应自公司成立之日起 5 年内缴足</text>
+  <text x="476" y="379" font-size="11.5" fill="#475569">股东以认缴出资额为限承担有限责任</text>
+  <text x="476" y="399" font-size="11" fill="#64748b">法人人格否认：滥用人格逃避债务 → 连带责任</text>
+</svg>

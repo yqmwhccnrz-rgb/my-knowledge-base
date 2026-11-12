@@ -23,6 +23,7 @@ const noteOptions = [
   { key: 'Tax', label: '税法笔记（CPA）' },
   { key: 'Accounting', label: '会计笔记（CPA）' },
   { key: 'Strategy', label: '公司战略笔记（CPA）' },
+  { key: 'EconLaw', label: '经济法笔记（CPA）' },
   { key: 'Finance', label: '金融学笔记' },
   { key: 'Macro', label: '宏观经济学笔记' }
 ]

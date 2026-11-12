@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="900" height="430" fill="#ffffff"/>
+  <text x="450" y="28" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">破产程序全流程与清偿顺序</text>
+  <text x="450" y="48" text-anchor="middle" font-size="12" fill="#64748b">申请 → 受理 → 管理人 → 债权申报 → 债权人会议 → 重整 / 和解 / 清算 → 分配终结</text>
+
+  <g font-size="11.5">
+    <rect x="20" y="66" width="128" height="56" rx="8" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="84" y="88" text-anchor="middle" font-weight="700" fill="#1d4ed8">① 破产申请</text>
+    <text x="84" y="108" text-anchor="middle" fill="#1e40af">债务人 / 债权人 /</text>
+    <text x="84" y="119" text-anchor="middle" fill="#1e40af">清算责任人</text>
+
+    <rect x="168" y="66" width="128" height="56" rx="8" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="232" y="88" text-anchor="middle" font-weight="700" fill="#1d4ed8">② 受理裁定</text>
+    <text x="232" y="108" text-anchor="middle" fill="#1e40af">债权人申请 15 日 /</text>
+    <text x="232" y="119" text-anchor="middle" fill="#1e40af">特殊情况延长 15 日</text>
+
+    <rect x="316" y="66" width="128" height="56" rx="8" fill="#eef2ff" stroke="#a5b4fc"/>
+    <text x="380" y="88" text-anchor="middle" font-weight="700" fill="#3730a3">③ 指定管理人</text>
+    <text x="380" y="108" text-anchor="middle" fill="#4338ca">接管财产、印章、</text>
+    <text x="380" y="119" text-anchor="middle" fill="#4338ca">账册；决定内部事务</text>
+
+    <rect x="464" y="66" width="128" height="56" rx="8" fill="#eef2ff" stroke="#a5b4fc"/>
+    <text x="528" y="88" text-anchor="middle" font-weight="700" fill="#3730a3">④ 债权申报</text>
+    <text x="528" y="108" text-anchor="middle" fill="#4338ca">公告日起 30 日</text>
+    <text x="528" y="119" text-anchor="middle" fill="#4338ca">至 3 个月内</text>
+
+    <rect x="612" y="66" width="128" height="56" rx="8" fill="#eef2ff" stroke="#a5b4fc"/>
+    <text x="676" y="88" text-anchor="middle" font-weight="700" fill="#3730a3">⑤ 债权人会议</text>
+    <text x="676" y="108" text-anchor="middle" fill="#4338ca">核查债权、通过</text>
+    <text x="676" y="119" text-anchor="middle" fill="#4338ca">分配 / 重整计划</text>
+
+    <rect x="760" y="66" width="120" height="56" rx="8" fill="#fef3c7" stroke="#fcd34d"/>
+    <text x="820" y="88" text-anchor="middle" font-weight="700" fill="#b45309">⑥ 三条路径</text>
+    <text x="820" y="108" text-anchor="middle" fill="#78350f">重整 / 和解 /</text>
+    <text x="820" y="119" text-anchor="middle" fill="#78350f">破产清算</text>
+  </g>
+  <g stroke="#94a3b8" stroke-width="1.5" fill="none">
+    <path d="M148 94 H168"/><path d="M296 94 H316"/><path d="M444 94 H464"/><path d="M592 94 H612"/><path d="M740 94 H760"/>
+  </g>
+
+  <text x="450" y="152" text-anchor="middle" font-size="13" font-weight="700" fill="#334155">三条路径的要点</text>
+  <rect x="20" y="162" width="278" height="94" rx="9" fill="#dcfce7" stroke="#86efac"/>
+  <text x="159" y="184" text-anchor="middle" font-size="12.5" font-weight="700" fill="#15803d">重整</text>
+  <text x="34" y="206" font-size="11.5" fill="#166534">债务人 / 债权人 / 出资人可申请；</text>
+  <text x="34" y="226" font-size="11.5" fill="#166534">分组表决（担保 / 职工 / 税款 / 普通）；</text>
+  <text x="34" y="246" font-size="11" fill="#14532d">法院可强制批准；重整期间担保权暂停行使</text>
+
+  <rect x="311" y="162" width="278" height="94" rx="9" fill="#fef3c7" stroke="#fcd34d"/>
+  <text x="450" y="184" text-anchor="middle" font-size="12.5" font-weight="700" fill="#b45309">和解</text>
+  <text x="325" y="206" font-size="11.5" fill="#78350f">仅债务人可申请并提出和解协议；</text>
+  <text x="325" y="226" font-size="11.5" fill="#78350f">出席会议过半数且债权额 ≥ 2/3 通过；</text>
+  <text x="325" y="246" font-size="11" fill="#92400e">对债务人的特定财产享有担保权者不受约束</text>
+
+  <rect x="602" y="162" width="278" height="94" rx="9" fill="#fee2e2" stroke="#fca5a5"/>
+  <text x="741" y="184" text-anchor="middle" font-size="12.5" font-weight="700" fill="#b91c1c">破产清算</text>
+  <text x="616" y="206" font-size="11.5" fill="#7f1d1d">宣告破产 → 变价 → 分配 → 终结；</text>
+  <text x="616" y="226" font-size="11.5" fill="#7f1d1d">管理人拟订分配方案经法院认可后执行；</text>
+  <text x="616" y="246" font-size="11" fill="#991b1b">追加分配：终结后 2 年内发现可供分配财产</text>
+
+  <text x="450" y="286" text-anchor="middle" font-size="13" font-weight="700" fill="#334155">破产财产清偿顺序（前一顺位足额后才有后一顺位）</text>
+  <g font-size="11.5">
+    <rect x="20" y="298" width="164" height="50" rx="8" fill="#e0e7ff" stroke="#818cf8"/>
+    <text x="102" y="319" text-anchor="middle" font-weight="700" fill="#3730a3">破产费用 +</text>
+    <text x="102" y="337" text-anchor="middle" fill="#4338ca">共益债务（随时清偿）</text>
+    <rect x="196" y="298" width="164" height="50" rx="8" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="278" y="319" text-anchor="middle" font-weight="700" fill="#1d4ed8">职工债权</text>
+    <text x="278" y="337" text-anchor="middle" fill="#1e40af">工资 / 医疗 / 补偿金</text>
+    <rect x="372" y="298" width="164" height="50" rx="8" fill="#dcfce7" stroke="#86efac"/>
+    <text x="454" y="319" text-anchor="middle" font-weight="700" fill="#15803d">社保费 + 欠税</text>
+    <text x="454" y="337" text-anchor="middle" fill="#166534">（职工债权之外部分）</text>
+    <rect x="548" y="298" width="164" height="50" rx="8" fill="#fef3c7" stroke="#fcd34d"/>
+    <text x="630" y="319" text-anchor="middle" font-weight="700" fill="#b45309">普通破产债权</text>
+    <text x="630" y="337" text-anchor="middle" fill="#78350f">不足则按比例分配</text>
+    <rect x="724" y="298" width="156" height="50" rx="8" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="802" y="319" text-anchor="middle" font-weight="700" fill="#334155">剩余财产</text>
+    <text x="802" y="337" text-anchor="middle" fill="#475569">归股东分配</text>
+  </g>
+  <rect x="20" y="362" width="860" height="52" rx="9" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="36" y="383" font-size="12" font-weight="700" fill="#334155">别除权与抵销权</text>
+  <text x="36" y="404" font-size="11.5" fill="#475569">对特定财产享有担保权的债权人就该财产优先受偿（别除权）；债权人在破产申请受理前对债务人负有债务的，可向管理人主张抵销。</text>
+</svg>

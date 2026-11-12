@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="900" height="400" fill="#ffffff"/>
+  <text x="450" y="28" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">票据行为、提示期限与权利时效</text>
+  <text x="450" y="48" text-anchor="middle" font-size="12" fill="#64748b">数字是客观题高频考点：提示付款期限 ≠ 票据权利时效 ≠ 追索权期限</text>
+
+  <text x="450" y="76" text-anchor="middle" font-size="13" font-weight="700" fill="#334155">票据行为链条</text>
+  <g font-size="11.5">
+    <rect x="30" y="86" width="150" height="48" rx="8" fill="#e0e7ff" stroke="#818cf8"/>
+    <text x="105" y="106" text-anchor="middle" font-weight="700" fill="#3730a3">出票</text>
+    <text x="105" y="124" text-anchor="middle" fill="#4338ca">作成并交付，创设票据权利</text>
+    <rect x="204" y="86" width="150" height="48" rx="8" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="279" y="106" text-anchor="middle" font-weight="700" fill="#1d4ed8">背书</text>
+    <text x="279" y="124" text-anchor="middle" fill="#1e40af">转让权利，背书连续推定权利</text>
+    <rect x="378" y="86" width="150" height="48" rx="8" fill="#dcfce7" stroke="#86efac"/>
+    <text x="453" y="106" text-anchor="middle" font-weight="700" fill="#15803d">承兑</text>
+    <text x="453" y="124" text-anchor="middle" fill="#166534">汇票付款人承诺付款</text>
+    <rect x="552" y="86" width="150" height="48" rx="8" fill="#fef3c7" stroke="#fcd34d"/>
+    <text x="627" y="106" text-anchor="middle" font-weight="700" fill="#b45309">保证</text>
+    <text x="627" y="124" text-anchor="middle" fill="#78350f">与被保证人承担连带责任</text>
+    <rect x="726" y="86" width="150" height="48" rx="8" fill="#fee2e2" stroke="#fca5a5"/>
+    <text x="801" y="106" text-anchor="middle" font-weight="700" fill="#b91c1c">付款 / 追索</text>
+    <text x="801" y="124" text-anchor="middle" fill="#7f1d1d">到期不获付款可行使追索权</text>
+  </g>
+  <g stroke="#94a3b8" stroke-width="1.5"><path d="M180 110 H204"/><path d="M354 110 H378"/><path d="M528 110 H552"/><path d="M702 110 H726"/></g>
+
+  <text x="230" y="164" text-anchor="middle" font-size="13" font-weight="700" fill="#334155">提示付款期限（自出票日 / 到期日起算）</text>
+  <rect x="20" y="174" width="420" height="126" rx="9" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="36" y="198" font-size="11.5" fill="#475569">支票：自出票日起 <tspan font-weight="700" fill="#b91c1c">10 日</tspan> 内提示付款</text>
+  <text x="36" y="220" font-size="11.5" fill="#475569">银行汇票：自出票日起 <tspan font-weight="700" fill="#b91c1c">1 个月</tspan> 内提示付款</text>
+  <text x="36" y="242" font-size="11.5" fill="#475569">银行本票：自出票日起 <tspan font-weight="700" fill="#b91c1c">2 个月</tspan> 内提示付款</text>
+  <text x="36" y="264" font-size="11.5" fill="#475569">商业汇票（定日 / 出票后定期）：到期日起 <tspan font-weight="700" fill="#b91c1c">10 日</tspan></text>
+  <text x="36" y="286" font-size="11" fill="#64748b">见票即付汇票：出票日起 1 个月；见票后定期汇票：出票日起 1 个月提示承兑</text>
+
+  <text x="670" y="164" text-anchor="middle" font-size="13" font-weight="700" fill="#334155">票据权利时效与追索期限</text>
+  <rect x="460" y="174" width="420" height="126" rx="9" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="476" y="198" font-size="11.5" fill="#475569">持票人对汇票出票人 / 承兑人、本票出票人：<tspan font-weight="700" fill="#b91c1c">2 年</tspan></text>
+  <text x="476" y="220" font-size="11.5" fill="#475569">持票人对支票出票人：<tspan font-weight="700" fill="#b91c1c">6 个月</tspan>（自出票日起）</text>
+  <text x="476" y="242" font-size="11.5" fill="#475569">持票人对前手的追索权：<tspan font-weight="700" fill="#b91c1c">6 个月</tspan>（被拒之日起）</text>
+  <text x="476" y="264" font-size="11.5" fill="#475569">被追索人清偿后对前手再追索：<tspan font-weight="700" fill="#b91c1c">3 个月</tspan></text>
+  <text x="476" y="286" font-size="11" fill="#64748b">时效自票据到期日 / 出票日 / 被拒绝承兑或被拒绝付款之日起算</text>
+
+  <rect x="20" y="314" width="860" height="70" rx="9" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="36" y="336" font-size="12" font-weight="700" fill="#1e3a8a">易错辨析</text>
+  <text x="36" y="356" font-size="11.5" fill="#1e40af">① 票据权利时效届满后，持票人仍可依民事法律关系请求出票人或承兑人返还与未支付票据金额相当的利益。</text>
+  <text x="36" y="376" font-size="11.5" fill="#1e40af">② 背书不得附条件（所附条件不具有票据效力）；背书「不得转让」后手再背书，原背书人对后手被背书人不承担保证责任。</text>
+</svg>

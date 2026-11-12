@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="900" height="430" fill="#ffffff"/>
+  <text x="450" y="28" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">民事法律行为的效力体系</text>
+  <text x="450" y="48" text-anchor="middle" font-size="12" fill="#64748b">先判断「是否成立」，再依次判断「有效 / 无效 / 可撤销 / 效力待定」；撤销权受除斥期间限制</text>
+
+  <rect x="350" y="62" width="200" height="44" rx="9" fill="#e0e7ff" stroke="#818cf8"/>
+  <text x="450" y="82" text-anchor="middle" font-size="14" font-weight="700" fill="#3730a3">民事法律行为</text>
+  <text x="450" y="99" text-anchor="middle" font-size="11" fill="#4338ca">意思表示 + 主体资格 + 内容合法</text>
+
+  <line x1="450" y1="106" x2="450" y2="128" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="115" y1="128" x2="785" y2="128" stroke="#94a3b8" stroke-width="1.5"/>
+  <g stroke="#94a3b8" stroke-width="1.5">
+    <line x1="115" y1="128" x2="115" y2="146"/><line x1="335" y1="128" x2="335" y2="146"/>
+    <line x1="565" y1="128" x2="565" y2="146"/><line x1="785" y1="128" x2="785" y2="146"/>
+  </g>
+
+  <rect x="20" y="146" width="190" height="196" rx="10" fill="#dcfce7" stroke="#86efac"/>
+  <text x="115" y="170" text-anchor="middle" font-size="14" font-weight="700" fill="#15803d">有效</text>
+  <text x="115" y="190" text-anchor="middle" font-size="11" fill="#166534">同时具备三项要件</text>
+  <text x="34" y="214" font-size="11.5" fill="#14532d">① 行为人有相应行为能力</text>
+  <text x="34" y="238" font-size="11.5" fill="#14532d">② 意思表示真实</text>
+  <text x="34" y="262" font-size="11.5" fill="#14532d">③ 不违反强制性规定、</text>
+  <text x="46" y="280" font-size="11.5" fill="#14532d">不违背公序良俗</text>
+  <text x="34" y="310" font-size="11" fill="#166534">附条件 / 附期限：条件成就</text>
+  <text x="34" y="328" font-size="11" fill="#166534">或期限届至时生效</text>
+
+  <rect x="240" y="146" width="190" height="196" rx="10" fill="#fee2e2" stroke="#fca5a5"/>
+  <text x="335" y="170" text-anchor="middle" font-size="14" font-weight="700" fill="#b91c1c">无效（自始无效）</text>
+  <text x="254" y="194" font-size="11.5" fill="#7f1d1d">① 无民事行为能力人实施</text>
+  <text x="254" y="218" font-size="11.5" fill="#7f1d1d">② 虚假意思表示</text>
+  <text x="254" y="242" font-size="11.5" fill="#7f1d1d">③ 违反强制性规定 / 公序良俗</text>
+  <text x="254" y="266" font-size="11.5" fill="#7f1d1d">④ 恶意串通损害他人权益</text>
+  <text x="254" y="296" font-size="11" fill="#991b1b">后果：返还财产、折价补偿、</text>
+  <text x="254" y="314" font-size="11" fill="#991b1b">赔偿损失；不影响结算条款</text>
+
+  <rect x="470" y="146" width="190" height="196" rx="10" fill="#fef3c7" stroke="#fcd34d"/>
+  <text x="565" y="170" text-anchor="middle" font-size="14" font-weight="700" fill="#b45309">可撤销</text>
+  <text x="484" y="194" font-size="11.5" fill="#78350f">重大误解 / 欺诈 / 胁迫 /</text>
+  <text x="484" y="212" font-size="11.5" fill="#78350f">显失公平（乘危致困）</text>
+  <text x="484" y="240" font-size="11" font-weight="700" fill="#92400e">除斥期间（不变期间）</text>
+  <text x="484" y="262" font-size="11.5" fill="#78350f">重大误解：90 日内</text>
+  <text x="484" y="284" font-size="11.5" fill="#78350f">欺诈 / 显失公平：1 年</text>
+  <text x="484" y="306" font-size="11.5" fill="#78350f">胁迫：胁迫终止起 1 年</text>
+  <text x="484" y="328" font-size="11.5" fill="#78350f">最长：行为发生起 5 年</text>
+
+  <rect x="690" y="146" width="190" height="196" rx="10" fill="#dbeafe" stroke="#93c5fd"/>
+  <text x="785" y="170" text-anchor="middle" font-size="14" font-weight="700" fill="#1d4ed8">效力待定</text>
+  <text x="704" y="194" font-size="11.5" fill="#1e40af">① 限制民事行为能力人</text>
+  <text x="716" y="212" font-size="11.5" fill="#1e40af">  超越能力范围实施</text>
+  <text x="704" y="236" font-size="11.5" fill="#1e40af">② 无权代理 / 超越代理权</text>
+  <text x="704" y="264" font-size="11" fill="#1e3a8a">法定代理人 / 被代理人追认</text>
+  <text x="704" y="282" font-size="11" fill="#1e3a8a">→ 有效；拒绝追认 → 无效</text>
+  <text x="704" y="310" font-size="11" fill="#1e3a8a">相对人可催告（30 日）</text>
+  <text x="704" y="328" font-size="11" fill="#1e3a8a">善意相对人有撤销权</text>
+
+  <rect x="20" y="356" width="860" height="58" rx="9" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="36" y="378" font-size="12" font-weight="700" fill="#334155">易错提示</text>
+  <text x="36" y="400" font-size="11.5" fill="#475569">无效与可撤销的关键区别：无效自始、当然、确定无效，任何人可主张；可撤销在撤销前有效，仅撤销权人可请求法院或仲裁机构撤销，且受除斥期间限制。</text>
+</svg>
