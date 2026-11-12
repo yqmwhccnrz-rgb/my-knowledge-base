@@ -185,6 +185,10 @@ body {
    点击目录右边缘的圆钮把「本页目录」收起，正文列随即变宽；正文字号由下方
    cqw 规则跟随正文列宽度连续变化。状态 class 由 OutlineToggle.vue 写在 <html> 上。 */
 @media (min-width: 1280px) {
+  :root {
+    --kb-ease: cubic-bezier(0.4, 0, 0.2, 1);
+    --kb-dur: 0.34s;
+  }
   .kb-outline-toggle {
     position: fixed;
     top: 50%;
@@ -205,7 +209,7 @@ body {
     clip-path: polygon(0 0, 100% 13%, 100% 87%, 0 100%);
     filter: drop-shadow(2px 0 4px rgba(0, 0, 0, 0.1));
     cursor: pointer;
-    transition: left 0.24s ease, background-color 0.2s ease, color 0.2s ease;
+    transition: left var(--kb-dur) var(--kb-ease), background-color 0.2s ease, color 0.2s ease;
   }
   .kb-outline-toggle:hover {
     color: var(--vp-c-text-1);
@@ -228,17 +232,29 @@ body {
     display: none;
   }
 
-  .VPDoc.has-aside .aside,
+  .VPDoc.has-aside .aside {
+    transition: opacity var(--kb-dur) var(--kb-ease), transform var(--kb-dur) var(--kb-ease);
+    will-change: transform, opacity;
+  }
   .VPContent.has-sidebar {
-    transition: opacity 0.24s ease, transform 0.24s ease, padding-left 0.24s ease;
+    transition: padding-left var(--kb-dur) var(--kb-ease);
+  }
+  /* 收起/展开时正文块平滑滑向剩余空间中央（纯 transform，GPU 加速不触发重排） */
+  .VPDoc.has-aside .main {
+    transform: translateX(0);
+    transition: transform var(--kb-dur) var(--kb-ease);
+    will-change: transform;
   }
   html.kb-outline-collapsed .VPDoc.has-aside .aside {
     opacity: 0;
-    transform: translateX(-14px);
+    transform: translateX(-32px);
     pointer-events: none;
   }
   html.kb-outline-collapsed .VPContent.has-sidebar {
     padding-left: var(--kb-side-w) !important;
+  }
+  html.kb-outline-collapsed .VPDoc.has-aside .main {
+    transform: translateX(max(0px, calc((100vw - var(--kb-side-w) - 816px) / 2)));
   }
   html.kb-outline-collapsed .kb-resizer-outline {
     display: none;
@@ -248,7 +264,8 @@ body {
   .kb-outline-toggle { display: none; }
 }
 body.kb-resizing .VPContent.has-sidebar,
-body.kb-resizing .VPDoc.has-aside .aside {
+body.kb-resizing .VPDoc.has-aside .aside,
+body.kb-resizing .VPDoc.has-aside .main {
   transition: none !important;
 }
 
@@ -342,7 +359,7 @@ body.kb-resizing .VPDoc.has-aside .aside {
   .vp-doc,
   .vp-doc .custom-block,
   .vp-doc .custom-block .custom-block-title {
-    transition: font-size 0.24s ease;
+    transition: font-size var(--kb-dur) var(--kb-ease);
   }
   body.kb-resizing .vp-doc,
   body.kb-resizing .vp-doc .custom-block,
