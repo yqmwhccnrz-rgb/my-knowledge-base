@@ -181,6 +181,67 @@ body {
   }
 }
 
+/* ===== 二级目录收起 / 展开 =====
+   点击目录右边缘的圆钮把「本页目录」收起，正文列随即变宽；正文字号由下方
+   cqw 规则跟随正文列宽度连续变化。状态 class 由 OutlineToggle.vue 写在 <html> 上。 */
+@media (min-width: 1280px) {
+  .kb-outline-toggle {
+    position: fixed;
+    top: calc(var(--vp-nav-height) + 16px);
+    left: calc(var(--kb-side-w) + var(--kb-outline-w) - 13px);
+    z-index: 12;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    padding: 0;
+    font: 18px/1 var(--kb-font-sans);
+    color: var(--vp-c-text-2);
+    background: var(--vp-c-bg-elv);
+    border: 1px solid var(--vp-c-divider);
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: left 0.24s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+  .kb-outline-toggle:hover {
+    color: var(--vp-c-text-1);
+    border-color: var(--vp-c-brand-1);
+  }
+  html.kb-outline-collapsed .kb-outline-toggle {
+    left: calc(var(--kb-side-w) - 13px);
+  }
+  /* 首页与没有本页目录的页面不显示开关 */
+  body:has(.VPHome) .kb-outline-toggle,
+  body:not(:has(.VPDoc.has-aside)) .kb-outline-toggle {
+    display: none;
+  }
+
+  .VPDoc.has-aside .aside,
+  .VPContent.has-sidebar {
+    transition: opacity 0.24s ease, transform 0.24s ease, padding-left 0.24s ease;
+  }
+  html.kb-outline-collapsed .VPDoc.has-aside .aside {
+    opacity: 0;
+    transform: translateX(-14px);
+    pointer-events: none;
+  }
+  html.kb-outline-collapsed .VPContent.has-sidebar {
+    padding-left: var(--kb-side-w) !important;
+  }
+  html.kb-outline-collapsed .kb-resizer-outline {
+    display: none;
+  }
+}
+@media (max-width: 1279px) {
+  .kb-outline-toggle { display: none; }
+}
+body.kb-resizing .VPContent.has-sidebar,
+body.kb-resizing .VPDoc.has-aside .aside {
+  transition: none !important;
+}
+
 /* 层级靠字号与字重表达。字号随目录宽度线性收敛：拖宽变大、拖窄变小，
    clamp 给出可读性上下限，保证任何宽度下都不裁切、不缩到看不清 */
 .VPSidebar .VPSidebarItem .text {
@@ -253,6 +314,31 @@ body {
   .vp-doc h1 { font-size: clamp(26px, 5cqw, 36px); }
   .vp-doc h2 { font-size: clamp(21px, 3.4cqw, 28px); }
   .vp-doc h3 { font-size: clamp(17px, 2.6cqw, 22px); }
+}
+
+/* 正文随可用宽度连续缩放：二级目录收起、或拖拽把目录变窄，正文列变宽时
+   段落 / 列表 / 表格 / 提示框字号同步增大；标题沿用上面已有的 cqw 规则。
+   container 是 .VPDoc .content（已设 container-type: inline-size）。 */
+@media (min-width: 1280px) {
+  .vp-doc {
+    font-size: clamp(15.5px, calc(9.5px + 0.72cqw), 18px);
+  }
+  .vp-doc .custom-block {
+    font-size: clamp(13px, calc(8px + 0.56cqw), 15.5px);
+  }
+  .vp-doc .custom-block .custom-block-title {
+    font-size: clamp(12.5px, calc(7.5px + 0.5cqw), 14.5px);
+  }
+  .vp-doc,
+  .vp-doc .custom-block,
+  .vp-doc .custom-block .custom-block-title {
+    transition: font-size 0.24s ease;
+  }
+  body.kb-resizing .vp-doc,
+  body.kb-resizing .vp-doc .custom-block,
+  body.kb-resizing .vp-doc .custom-block .custom-block-title {
+    transition: none !important;
+  }
 }
 
 /* 拖拽改变 padding-left 时正文容器同步收缩；min-width:0 保证不会被固定目录栏压住或撑出横向滚动 */
@@ -535,6 +621,7 @@ body.kb-resizing .vp-doc h3 {
   .VPDocOutlineDropdown, .VPSidebarItem,
   .kb-doc-actions, .kb-fav-btn, .kb-fav-box, .kb-export-btn, .kb-export-hint,
   .kb-resizers, .kb-resizer, .kb-resizer-outline, .kb-width-tip,
+  .kb-outline-toggle,
   .install-app, .install-mask, .logout-btn,
   .header-anchor, .vp-external-link-icon,
   .edit-link, .last-updated, .prev-next, .pager,

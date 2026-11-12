@@ -8,6 +8,7 @@ import Reading from './Reading.vue'
 import LogoutButton from './LogoutButton.vue'
 import LayoutFix from './LayoutFix.vue'
 import ColumnResizer from './ColumnResizer.vue'
+import OutlineToggle from './OutlineToggle.vue'
 import FavoriteButton from './FavoriteButton.vue'
 import ExportPdf from './ExportPdf.vue'
 import InstallApp from './InstallApp.vue'
@@ -45,7 +46,7 @@ export default {
       // 手机端：放进展开菜单的底部
       'nav-screen-content-after': () => h(InstallApp),
       // 两根分隔条：分别拖拽一级目录与二级目录宽度
-      'layout-bottom': () => [h(LogoutButton), h(LayoutFix), h(ColumnResizer)]
+      'layout-bottom': () => [h(LogoutButton), h(LayoutFix), h(ColumnResizer), h(OutlineToggle)]
     })
   }
 }
