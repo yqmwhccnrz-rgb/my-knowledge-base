@@ -8,7 +8,7 @@
 运行：python3 scripts/gen_reading_part2.py
   - 读取现有 docs/public/data/reading.json
   - 严格校验新增题目（id 不冲突 / 空格与答案一致 / 答案索引 / 选项数 / 词数 / 解析完整）
-  - 合并写回，并打印统计
+  - 合并写回、随机化词组填空的答案位置（避免按顺序猜答案），并打印统计
 """
 import json
 import os
@@ -776,6 +776,31 @@ def balance_options(data):
             qq["answer"] = target
 
 
+
+def shuffle_phrase_banks(data):
+    """打乱每段词组填空的 Word Bank，使答案不再是「第1空 A、第2空 B…」的顺序。
+
+    先用答案对应的英文词组**内容**记住每个空格的正确项，再把 bank 按 en 排序还原成
+    规范态（与当前字母无关），用固定种子洗牌后重新赋 A/B/C/… 字母，最后按内容把
+    答案映射到新字母。解析按空号索引且描述词组内容，不引用字母，故不受影响；
+    前端按 bank 数组顺序渲染，界面字母仍然整齐。
+
+    幂等：每次都从「按 en 排序」的规范态出发，固定种子决定排列，重跑结果一致。
+    """
+    letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    for idx, item in enumerate(data["phrase"]):
+        by_key = {b["key"]: b for b in item["bank"]}
+        correct_en = {n: by_key[k]["en"] for n, k in item["answers"].items()}
+        canonical = sorted(item["bank"], key=lambda b: b["en"])
+        random.Random(20261112 + idx).shuffle(canonical)
+        en_to_key = {}
+        for i, b in enumerate(canonical):
+            b["key"] = letters[i]
+            en_to_key[b["en"]] = b["key"]
+        assert set(correct_en.values()) <= set(en_to_key), item["id"] + " 正确词丢失"
+        item["bank"] = canonical
+        item["answers"] = {n: en_to_key[en] for n, en in correct_en.items()}
+
 def main():
     with open(OUT, encoding="utf-8") as f:
         existing = json.load(f)
@@ -793,6 +818,7 @@ def main():
     # 均衡选项位置（对全题库，含第一批），使答案分布均匀且不可猜。
     # 幂等：目标位置由固定种子+题目顺序决定，重跑时正确选项已在目标位，故不再交换。
     balance_options(existing)
+    shuffle_phrase_banks(existing)
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump(existing, f, ensure_ascii=False, indent=2)
     print("校验通过 ✓")

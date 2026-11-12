@@ -9,18 +9,18 @@
       "bank": [
         {
           "key": "A",
-          "en": "adapt to",
-          "zh": "适应"
+          "en": "run out of",
+          "zh": "用完，耗尽"
         },
         {
           "key": "B",
-          "en": "cope with",
-          "zh": "妥善处理，应对"
+          "en": "above all",
+          "zh": "首先，尤其是"
         },
         {
           "key": "C",
-          "en": "set up",
-          "zh": "建立，设立"
+          "en": "be aware of",
+          "zh": "意识到，知道"
         },
         {
           "key": "D",
@@ -29,18 +29,18 @@
         },
         {
           "key": "E",
-          "en": "be aware of",
-          "zh": "意识到，知道"
+          "en": "adapt to",
+          "zh": "适应"
         },
         {
           "key": "F",
-          "en": "above all",
-          "zh": "首先，尤其是"
+          "en": "cope with",
+          "zh": "妥善处理，应对"
         },
         {
           "key": "G",
-          "en": "run out of",
-          "zh": "用完，耗尽"
+          "en": "set up",
+          "zh": "建立，设立"
         },
         {
           "key": "H",
@@ -49,12 +49,12 @@
         }
       ],
       "answers": {
-        "1": "A",
-        "2": "B",
-        "3": "C",
+        "1": "E",
+        "2": "F",
+        "3": "G",
         "4": "D",
-        "5": "E",
-        "6": "F"
+        "5": "C",
+        "6": "B"
       },
       "explain": {
         "1": "adapt to 意为「适应」，后接名词 campus life；find it hard to 后须用动词原形。",
@@ -88,8 +88,8 @@
       "bank": [
         {
           "key": "A",
-          "en": "result from",
-          "zh": "由…产生（区别于 result in 导致）"
+          "en": "give rise to",
+          "zh": "引起，导致"
         },
         {
           "key": "B",
@@ -98,43 +98,43 @@
         },
         {
           "key": "C",
-          "en": "carry out",
-          "zh": "执行，开展"
-        },
-        {
-          "key": "D",
           "en": "in the long run",
           "zh": "从长远来看"
         },
         {
-          "key": "E",
-          "en": "be aware of",
-          "zh": "意识到"
-        },
-        {
-          "key": "F",
+          "key": "D",
           "en": "pay attention to",
           "zh": "注意，重视"
         },
         {
-          "key": "G",
+          "key": "E",
+          "en": "result from",
+          "zh": "由…产生（区别于 result in 导致）"
+        },
+        {
+          "key": "F",
           "en": "bring about",
           "zh": "带来，引起"
         },
         {
+          "key": "G",
+          "en": "be aware of",
+          "zh": "意识到"
+        },
+        {
           "key": "H",
-          "en": "give rise to",
-          "zh": "引起，导致"
+          "en": "carry out",
+          "zh": "执行，开展"
         }
       ],
       "answers": {
-        "1": "A",
+        "1": "E",
         "2": "B",
-        "3": "C",
-        "4": "D",
-        "5": "E",
-        "6": "F",
-        "7": "G"
+        "3": "H",
+        "4": "C",
+        "5": "G",
+        "6": "D",
+        "7": "F"
       },
       "explain": {
         "1": "result from 意为「源于」，此处指好成绩很少「来自」运气；注意 result in 是「导致」，方向相反。",
@@ -165,53 +165,53 @@
       "bank": [
         {
           "key": "A",
-          "en": "give rise to",
-          "zh": "引起，导致"
-        },
-        {
-          "key": "B",
-          "en": "run out of",
-          "zh": "用完，耗尽"
-        },
-        {
-          "key": "C",
-          "en": "bring about",
-          "zh": "带来，引起"
-        },
-        {
-          "key": "D",
-          "en": "be aware of",
-          "zh": "意识到"
-        },
-        {
-          "key": "E",
-          "en": "be in need of",
-          "zh": "需要"
-        },
-        {
-          "key": "F",
           "en": "object to",
           "zh": "反对"
         },
         {
-          "key": "G",
+          "key": "B",
           "en": "above all",
           "zh": "首先，尤其是"
         },
         {
-          "key": "H",
+          "key": "C",
+          "en": "be in need of",
+          "zh": "需要"
+        },
+        {
+          "key": "D",
+          "en": "bring about",
+          "zh": "带来，引起"
+        },
+        {
+          "key": "E",
           "en": "in addition",
           "zh": "另外"
+        },
+        {
+          "key": "F",
+          "en": "give rise to",
+          "zh": "引起，导致"
+        },
+        {
+          "key": "G",
+          "en": "run out of",
+          "zh": "用完，耗尽"
+        },
+        {
+          "key": "H",
+          "en": "be aware of",
+          "zh": "意识到"
         }
       ],
       "answers": {
-        "1": "A",
-        "2": "B",
-        "3": "C",
-        "4": "D",
-        "5": "E",
-        "6": "F",
-        "7": "G"
+        "1": "F",
+        "2": "G",
+        "3": "D",
+        "4": "H",
+        "5": "C",
+        "6": "A",
+        "7": "B"
       },
       "explain": {
         "1": "give rise to 意为「引起、导致」，接抽象结果 poor concentration。",
@@ -242,52 +242,52 @@
       "bank": [
         {
           "key": "A",
-          "en": "set up",
-          "zh": "建立，设立"
-        },
-        {
-          "key": "B",
           "en": "carry out",
           "zh": "开展，执行"
         },
         {
+          "key": "B",
+          "en": "set up",
+          "zh": "建立，设立"
+        },
+        {
           "key": "C",
-          "en": "account for",
-          "zh": "（比例上）占；解释"
-        },
-        {
-          "key": "D",
-          "en": "make up",
-          "zh": "构成，占"
-        },
-        {
-          "key": "E",
-          "en": "bring about",
-          "zh": "带来，引起"
-        },
-        {
-          "key": "F",
           "en": "result in",
           "zh": "导致，结果是"
         },
         {
-          "key": "G",
+          "key": "D",
+          "en": "bring about",
+          "zh": "带来，引起"
+        },
+        {
+          "key": "E",
+          "en": "turn out",
+          "zh": "结果是；生产"
+        },
+        {
+          "key": "F",
           "en": "deal with",
           "zh": "处理"
         },
         {
+          "key": "G",
+          "en": "account for",
+          "zh": "（比例上）占；解释"
+        },
+        {
           "key": "H",
-          "en": "turn out",
-          "zh": "结果是；生产"
+          "en": "make up",
+          "zh": "构成，占"
         }
       ],
       "answers": {
-        "1": "A",
-        "2": "B",
-        "3": "C",
-        "4": "D",
-        "5": "E",
-        "6": "F"
+        "1": "B",
+        "2": "A",
+        "3": "G",
+        "4": "H",
+        "5": "D",
+        "6": "C"
       },
       "explain": {
         "1": "set up 意为「建立、设立」，与 scheme（方案/机制）搭配。",
@@ -317,52 +317,52 @@
       "bank": [
         {
           "key": "A",
-          "en": "keep in touch with",
-          "zh": "与…保持联系"
-        },
-        {
-          "key": "B",
-          "en": "give rise to",
-          "zh": "引起，导致"
-        },
-        {
-          "key": "C",
-          "en": "deal with",
-          "zh": "处理，应对"
-        },
-        {
-          "key": "D",
-          "en": "put away",
-          "zh": "收起，放好"
-        },
-        {
-          "key": "E",
           "en": "after all",
           "zh": "毕竟"
         },
         {
-          "key": "F",
+          "key": "B",
           "en": "make use of",
           "zh": "利用"
         },
         {
-          "key": "G",
+          "key": "C",
+          "en": "give rise to",
+          "zh": "引起，导致"
+        },
+        {
+          "key": "D",
           "en": "be subject to",
           "zh": "易受…的"
         },
         {
-          "key": "H",
+          "key": "E",
+          "en": "put away",
+          "zh": "收起，放好"
+        },
+        {
+          "key": "F",
+          "en": "keep in touch with",
+          "zh": "与…保持联系"
+        },
+        {
+          "key": "G",
           "en": "ahead of schedule",
           "zh": "提前"
+        },
+        {
+          "key": "H",
+          "en": "deal with",
+          "zh": "处理，应对"
         }
       ],
       "answers": {
-        "1": "A",
-        "2": "B",
-        "3": "C",
-        "4": "D",
-        "5": "E",
-        "6": "F"
+        "1": "F",
+        "2": "C",
+        "3": "H",
+        "4": "E",
+        "5": "A",
+        "6": "B"
       },
       "explain": {
         "1": "keep in touch with 意为「与…保持联系」，此处指与朋友和信息保持连接。",
@@ -392,23 +392,23 @@
       "bank": [
         {
           "key": "A",
-          "en": "carry out",
-          "zh": "开展，执行"
-        },
-        {
-          "key": "B",
-          "en": "come up with",
-          "zh": "想出，提出"
-        },
-        {
-          "key": "C",
           "en": "divide up",
           "zh": "分配"
         },
         {
+          "key": "B",
+          "en": "in addition",
+          "zh": "另外"
+        },
+        {
+          "key": "C",
+          "en": "carry out",
+          "zh": "开展，执行"
+        },
+        {
           "key": "D",
-          "en": "be responsible for",
-          "zh": "负责"
+          "en": "come up with",
+          "zh": "想出，提出"
         },
         {
           "key": "E",
@@ -427,15 +427,15 @@
         },
         {
           "key": "H",
-          "en": "in addition",
-          "zh": "另外"
+          "en": "be responsible for",
+          "zh": "负责"
         }
       ],
       "answers": {
-        "1": "A",
-        "2": "B",
-        "3": "C",
-        "4": "D",
+        "1": "C",
+        "2": "D",
+        "3": "A",
+        "4": "H",
         "5": "E",
         "6": "F",
         "7": "G"
@@ -469,53 +469,53 @@
       "bank": [
         {
           "key": "A",
-          "en": "take into account",
-          "zh": "把…考虑进去"
-        },
-        {
-          "key": "B",
-          "en": "at the expense of",
-          "zh": "以…为代价"
-        },
-        {
-          "key": "C",
-          "en": "in excess of",
-          "zh": "超过"
-        },
-        {
-          "key": "D",
           "en": "in terms of",
           "zh": "就…而言，根据"
         },
         {
-          "key": "E",
-          "en": "abide by",
-          "zh": "遵守（法律、规则）"
-        },
-        {
-          "key": "F",
+          "key": "B",
           "en": "adhere to",
           "zh": "坚持，遵守"
         },
         {
+          "key": "C",
+          "en": "take into account",
+          "zh": "把…考虑进去"
+        },
+        {
+          "key": "D",
+          "en": "at the expense of",
+          "zh": "以…为代价"
+        },
+        {
+          "key": "E",
+          "en": "in excess of",
+          "zh": "超过"
+        },
+        {
+          "key": "F",
+          "en": "abide by",
+          "zh": "遵守（法律、规则）"
+        },
+        {
           "key": "G",
-          "en": "answer for",
-          "zh": "对…负责"
+          "en": "allow for",
+          "zh": "考虑到，预留"
         },
         {
           "key": "H",
-          "en": "allow for",
-          "zh": "考虑到，预留"
+          "en": "answer for",
+          "zh": "对…负责"
         }
       ],
       "answers": {
-        "1": "A",
-        "2": "B",
-        "3": "C",
-        "4": "D",
-        "5": "E",
-        "6": "F",
-        "7": "G"
+        "1": "C",
+        "2": "D",
+        "3": "E",
+        "4": "A",
+        "5": "F",
+        "6": "B",
+        "7": "H"
       },
       "explain": {
         "1": "take into account 意为「把…考虑进去」，宾语是 several objections。",
@@ -555,13 +555,13 @@
         },
         {
           "key": "B",
-          "en": "give rise to",
-          "zh": "引起，导致"
+          "en": "be aware",
+          "zh": "意识到（be aware that…）"
         },
         {
           "key": "C",
-          "en": "in the wake of",
-          "zh": "紧随…之后"
+          "en": "act on",
+          "zh": "按照…行事"
         },
         {
           "key": "D",
@@ -570,8 +570,8 @@
         },
         {
           "key": "E",
-          "en": "be aware",
-          "zh": "意识到（be aware that…）"
+          "en": "in the wake of",
+          "zh": "紧随…之后"
         },
         {
           "key": "F",
@@ -580,22 +580,22 @@
         },
         {
           "key": "G",
-          "en": "stem from",
-          "zh": "源于"
+          "en": "give rise to",
+          "zh": "引起，导致"
         },
         {
           "key": "H",
-          "en": "act on",
-          "zh": "按照…行事"
+          "en": "stem from",
+          "zh": "源于"
         }
       ],
       "answers": {
         "1": "A",
-        "2": "B",
-        "3": "B",
-        "4": "C",
+        "2": "G",
+        "3": "G",
+        "4": "E",
         "5": "D",
-        "6": "E",
+        "6": "B",
         "7": "F"
       },
       "explain": {
@@ -631,13 +631,13 @@
       "bank": [
         {
           "key": "A",
-          "en": "in the wake of",
-          "zh": "紧随…之后"
+          "en": "above all",
+          "zh": "尤其是"
         },
         {
           "key": "B",
-          "en": "be susceptible",
-          "zh": "易受…影响的（be susceptible to）"
+          "en": "abide by",
+          "zh": "遵守"
         },
         {
           "key": "C",
@@ -646,18 +646,18 @@
         },
         {
           "key": "D",
-          "en": "ward off",
-          "zh": "避开，防止"
+          "en": "be accustomed",
+          "zh": "习惯于（be accustomed to）"
         },
         {
           "key": "E",
-          "en": "abide by",
-          "zh": "遵守"
+          "en": "be susceptible",
+          "zh": "易受…影响的（be susceptible to）"
         },
         {
           "key": "F",
-          "en": "be accustomed",
-          "zh": "习惯于（be accustomed to）"
+          "en": "in the wake of",
+          "zh": "紧随…之后"
         },
         {
           "key": "G",
@@ -666,18 +666,18 @@
         },
         {
           "key": "H",
-          "en": "above all",
-          "zh": "尤其是"
+          "en": "ward off",
+          "zh": "避开，防止"
         }
       ],
       "answers": {
-        "1": "A",
-        "2": "B",
+        "1": "F",
+        "2": "E",
         "3": "C",
-        "4": "D",
-        "5": "E",
-        "6": "F",
-        "7": "H"
+        "4": "H",
+        "5": "B",
+        "6": "D",
+        "7": "A"
       },
       "explain": {
         "1": "in the wake of 意为「紧随…之后」，指洪水过后。",
@@ -712,53 +712,53 @@
       "bank": [
         {
           "key": "A",
-          "en": "by virtue of",
-          "zh": "凭借，由于"
+          "en": "in the long run",
+          "zh": "从长远来看"
         },
         {
           "key": "B",
-          "en": "be exempt from",
-          "zh": "被免除"
-        },
-        {
-          "key": "C",
-          "en": "allow for",
-          "zh": "考虑到，顾及"
-        },
-        {
-          "key": "D",
           "en": "do away with",
           "zh": "消除，废除"
         },
         {
+          "key": "C",
+          "en": "be exempt from",
+          "zh": "被免除"
+        },
+        {
+          "key": "D",
+          "en": "allow for",
+          "zh": "考虑到，顾及"
+        },
+        {
           "key": "E",
-          "en": "object to",
-          "zh": "反对"
-        },
-        {
-          "key": "F",
-          "en": "take precedence",
-          "zh": "优先（take precedence over）"
-        },
-        {
-          "key": "G",
           "en": "in terms of",
           "zh": "就…而言"
         },
         {
+          "key": "F",
+          "en": "object to",
+          "zh": "反对"
+        },
+        {
+          "key": "G",
+          "en": "take precedence",
+          "zh": "优先（take precedence over）"
+        },
+        {
           "key": "H",
-          "en": "in the long run",
-          "zh": "从长远来看"
+          "en": "by virtue of",
+          "zh": "凭借，由于"
         }
       ],
       "answers": {
-        "1": "A",
-        "2": "B",
-        "3": "C",
-        "4": "D",
-        "5": "E",
-        "6": "F",
-        "7": "G"
+        "1": "H",
+        "2": "C",
+        "3": "D",
+        "4": "B",
+        "5": "F",
+        "6": "G",
+        "7": "E"
       },
       "explain": {
         "1": "by virtue of 意为「凭借、由于」，引出政策依据。",
@@ -793,53 +793,53 @@
       "bank": [
         {
           "key": "A",
-          "en": "be prone",
-          "zh": "易于…的（be prone to）"
+          "en": "be capable of",
+          "zh": "能够"
         },
         {
           "key": "B",
-          "en": "crave",
-          "zh": "渴望"
-        },
-        {
-          "key": "C",
           "en": "attribute",
           "zh": "把…归因于（attribute A to B）"
         },
         {
-          "key": "D",
+          "key": "C",
           "en": "entail",
           "zh": "带来，使必要"
         },
         {
-          "key": "E",
+          "key": "D",
           "en": "abstain from",
           "zh": "戒除，避开"
         },
         {
-          "key": "F",
+          "key": "E",
           "en": "break down",
           "zh": "分解"
         },
         {
-          "key": "G",
+          "key": "F",
           "en": "set",
           "zh": "设定（set a goal）"
         },
         {
+          "key": "G",
+          "en": "crave",
+          "zh": "渴望"
+        },
+        {
           "key": "H",
-          "en": "be capable of",
-          "zh": "能够"
+          "en": "be prone",
+          "zh": "易于…的（be prone to）"
         }
       ],
       "answers": {
-        "1": "A",
-        "2": "B",
-        "3": "C",
-        "4": "D",
-        "5": "E",
-        "6": "F",
-        "7": "G"
+        "1": "H",
+        "2": "G",
+        "3": "B",
+        "4": "C",
+        "5": "D",
+        "6": "E",
+        "7": "F"
       },
       "explain": {
         "1": "be prone to 意为「易于、倾向于」，句中已有 to，填 prone。",
@@ -874,33 +874,33 @@
       "bank": [
         {
           "key": "A",
-          "en": "demographics",
-          "zh": "人口结构（数据）"
+          "en": "in excess of",
+          "zh": "超过"
         },
         {
           "key": "B",
-          "en": "substantially",
-          "zh": "大幅地"
-        },
-        {
-          "key": "C",
-          "en": "take into account",
-          "zh": "把…考虑进去"
-        },
-        {
-          "key": "D",
-          "en": "too",
-          "zh": "太…（too … to）"
-        },
-        {
-          "key": "E",
           "en": "such as",
           "zh": "例如"
         },
         {
+          "key": "C",
+          "en": "demographics",
+          "zh": "人口结构（数据）"
+        },
+        {
+          "key": "D",
+          "en": "be correlated",
+          "zh": "相关（be correlated with）"
+        },
+        {
+          "key": "E",
+          "en": "substantially",
+          "zh": "大幅地"
+        },
+        {
           "key": "F",
-          "en": "in excess of",
-          "zh": "超过"
+          "en": "take into account",
+          "zh": "把…考虑进去"
         },
         {
           "key": "G",
@@ -909,17 +909,17 @@
         },
         {
           "key": "H",
-          "en": "be correlated",
-          "zh": "相关（be correlated with）"
+          "en": "too",
+          "zh": "太…（too … to）"
         }
       ],
       "answers": {
-        "1": "A",
-        "2": "B",
-        "3": "C",
-        "4": "D",
-        "5": "E",
-        "6": "F",
+        "1": "C",
+        "2": "E",
+        "3": "F",
+        "4": "H",
+        "5": "B",
+        "6": "A",
         "7": "G"
       },
       "explain": {
@@ -955,52 +955,52 @@
       "bank": [
         {
           "key": "A",
-          "en": "take part in",
-          "zh": "参加，参与"
+          "en": "in the end",
+          "zh": "最后，终于"
         },
         {
           "key": "B",
-          "en": "look after",
-          "zh": "照顾，照料"
-        },
-        {
-          "key": "C",
-          "en": "get along with",
-          "zh": "与…友好相处"
-        },
-        {
-          "key": "D",
-          "en": "hand in",
-          "zh": "交上，递交"
-        },
-        {
-          "key": "E",
           "en": "in charge of",
           "zh": "负责，总管"
         },
         {
-          "key": "F",
+          "key": "C",
+          "en": "take part in",
+          "zh": "参加，参与"
+        },
+        {
+          "key": "D",
           "en": "give up",
           "zh": "放弃"
         },
         {
-          "key": "G",
+          "key": "E",
           "en": "on purpose",
           "zh": "故意地"
         },
         {
+          "key": "F",
+          "en": "get along with",
+          "zh": "与…友好相处"
+        },
+        {
+          "key": "G",
+          "en": "look after",
+          "zh": "照顾，照料"
+        },
+        {
           "key": "H",
-          "en": "in the end",
-          "zh": "最后，终于"
+          "en": "hand in",
+          "zh": "交上，递交"
         }
       ],
       "answers": {
-        "1": "A",
-        "2": "E",
-        "3": "B",
-        "4": "C",
-        "5": "D",
-        "6": "F"
+        "1": "C",
+        "2": "B",
+        "3": "G",
+        "4": "F",
+        "5": "H",
+        "6": "D"
       },
       "explain": {
         "1": "want to 后接动词原形；take part in 意为「参加」，与 the club 搭配。",
@@ -1030,33 +1030,33 @@
       "bank": [
         {
           "key": "A",
+          "en": "turn down",
+          "zh": "关小；拒绝"
+        },
+        {
+          "key": "B",
           "en": "set off",
           "zh": "动身，出发"
         },
         {
-          "key": "B",
-          "en": "pick up",
-          "zh": "（车辆）中途搭载"
-        },
-        {
           "key": "C",
-          "en": "in a hurry",
-          "zh": "匆忙，急于"
-        },
-        {
-          "key": "D",
-          "en": "run into",
-          "zh": "偶然遇到"
-        },
-        {
-          "key": "E",
           "en": "work out",
           "zh": "算出；弄明白"
         },
         {
+          "key": "D",
+          "en": "in a hurry",
+          "zh": "匆忙，急于"
+        },
+        {
+          "key": "E",
+          "en": "run into",
+          "zh": "偶然遇到"
+        },
+        {
           "key": "F",
-          "en": "at least",
-          "zh": "至少"
+          "en": "pick up",
+          "zh": "（车辆）中途搭载"
         },
         {
           "key": "G",
@@ -1065,17 +1065,17 @@
         },
         {
           "key": "H",
-          "en": "turn down",
-          "zh": "关小；拒绝"
+          "en": "at least",
+          "zh": "至少"
         }
       ],
       "answers": {
-        "1": "A",
-        "2": "B",
-        "3": "C",
-        "4": "D",
-        "5": "E",
-        "6": "F"
+        "1": "B",
+        "2": "F",
+        "3": "D",
+        "4": "E",
+        "5": "C",
+        "6": "H"
       },
       "explain": {
         "1": "set off for… 意为「动身去…」，与 at seven 呼应。",
@@ -1105,8 +1105,8 @@
       "bank": [
         {
           "key": "A",
-          "en": "be fond of",
-          "zh": "爱好，喜欢"
+          "en": "put off",
+          "zh": "推迟，拖延"
         },
         {
           "key": "B",
@@ -1115,42 +1115,42 @@
         },
         {
           "key": "C",
-          "en": "take advantage of",
-          "zh": "利用"
+          "en": "be fond of",
+          "zh": "爱好，喜欢"
         },
         {
           "key": "D",
-          "en": "go over",
-          "zh": "检查；从头至尾温习"
-        },
-        {
-          "key": "E",
           "en": "leave out",
           "zh": "遗漏，省略"
         },
         {
-          "key": "F",
+          "key": "E",
           "en": "in the end",
           "zh": "最后，终于"
         },
         {
+          "key": "F",
+          "en": "at least",
+          "zh": "至少"
+        },
+        {
           "key": "G",
-          "en": "put off",
-          "zh": "推迟，拖延"
+          "en": "go over",
+          "zh": "检查；从头至尾温习"
         },
         {
           "key": "H",
-          "en": "at least",
-          "zh": "至少"
+          "en": "take advantage of",
+          "zh": "利用"
         }
       ],
       "answers": {
-        "1": "A",
+        "1": "C",
         "2": "B",
-        "3": "C",
-        "4": "D",
-        "5": "E",
-        "6": "G"
+        "3": "H",
+        "4": "G",
+        "5": "D",
+        "6": "A"
       },
       "explain": {
         "1": "be fond of 意为「喜欢」；are not always fond of 指起初并不总喜欢。",
@@ -1180,52 +1180,52 @@
       "bank": [
         {
           "key": "A",
-          "en": "come across",
-          "zh": "偶然发现，偶然遇见"
-        },
-        {
-          "key": "B",
-          "en": "look into",
-          "zh": "调查，观察"
-        },
-        {
-          "key": "C",
           "en": "point out",
           "zh": "指出，指明"
         },
         {
-          "key": "D",
-          "en": "make out",
-          "zh": "辨认出，看清楚"
-        },
-        {
-          "key": "E",
+          "key": "B",
           "en": "hold on",
           "zh": "握住不放；坚持下去"
         },
         {
-          "key": "F",
+          "key": "C",
           "en": "take place",
           "zh": "发生；举行"
         },
         {
+          "key": "D",
+          "en": "by accident",
+          "zh": "偶然"
+        },
+        {
+          "key": "E",
+          "en": "make out",
+          "zh": "辨认出，看清楚"
+        },
+        {
+          "key": "F",
+          "en": "come across",
+          "zh": "偶然发现，偶然遇见"
+        },
+        {
           "key": "G",
-          "en": "be good at",
-          "zh": "善于，擅长于"
+          "en": "look into",
+          "zh": "调查，观察"
         },
         {
           "key": "H",
-          "en": "by accident",
-          "zh": "偶然"
+          "en": "be good at",
+          "zh": "善于，擅长于"
         }
       ],
       "answers": {
-        "1": "A",
-        "2": "H",
-        "3": "B",
-        "4": "C",
-        "5": "D",
-        "6": "F"
+        "1": "F",
+        "2": "D",
+        "3": "G",
+        "4": "A",
+        "5": "E",
+        "6": "C"
       },
       "explain": {
         "1": "come across 意为「偶然发现」，与 While looking for… 的语境一致。",
@@ -1255,52 +1255,52 @@
       "bank": [
         {
           "key": "A",
-          "en": "at least",
-          "zh": "至少"
-        },
-        {
-          "key": "B",
-          "en": "in the end",
-          "zh": "最后，终于"
-        },
-        {
-          "key": "C",
-          "en": "work out",
-          "zh": "算出；想出"
-        },
-        {
-          "key": "D",
           "en": "give up",
           "zh": "放弃"
         },
         {
-          "key": "E",
-          "en": "fall behind",
-          "zh": "落在…后面，跟不上"
-        },
-        {
-          "key": "F",
+          "key": "B",
           "en": "carry on",
           "zh": "继续开展，坚持下去"
         },
         {
-          "key": "G",
+          "key": "C",
+          "en": "fall behind",
+          "zh": "落在…后面，跟不上"
+        },
+        {
+          "key": "D",
+          "en": "in the end",
+          "zh": "最后，终于"
+        },
+        {
+          "key": "E",
           "en": "turn down",
           "zh": "关小；拒绝"
         },
         {
-          "key": "H",
+          "key": "F",
           "en": "on purpose",
           "zh": "故意地"
+        },
+        {
+          "key": "G",
+          "en": "at least",
+          "zh": "至少"
+        },
+        {
+          "key": "H",
+          "en": "work out",
+          "zh": "算出；想出"
         }
       ],
       "answers": {
-        "1": "C",
-        "2": "A",
-        "3": "E",
-        "4": "G",
-        "5": "F",
-        "6": "B"
+        "1": "H",
+        "2": "G",
+        "3": "C",
+        "4": "E",
+        "5": "B",
+        "6": "D"
       },
       "explain": {
         "1": "work out 意为「算出」，work out how much they can save。",
@@ -1330,18 +1330,18 @@
       "bank": [
         {
           "key": "A",
+          "en": "in charge of",
+          "zh": "负责，总管"
+        },
+        {
+          "key": "B",
           "en": "take part in",
           "zh": "参加，参与"
         },
         {
-          "key": "B",
-          "en": "be good at",
-          "zh": "善于，擅长于"
-        },
-        {
           "key": "C",
-          "en": "fall behind",
-          "zh": "落在…后面，跟不上"
+          "en": "take place",
+          "zh": "发生；举行"
         },
         {
           "key": "D",
@@ -1350,31 +1350,31 @@
         },
         {
           "key": "E",
-          "en": "take place",
-          "zh": "发生；举行"
+          "en": "fall behind",
+          "zh": "落在…后面，跟不上"
         },
         {
           "key": "F",
+          "en": "on purpose",
+          "zh": "故意地"
+        },
+        {
+          "key": "G",
           "en": "get along with",
           "zh": "与…友好相处"
         },
         {
-          "key": "G",
-          "en": "in charge of",
-          "zh": "负责，总管"
-        },
-        {
           "key": "H",
-          "en": "on purpose",
-          "zh": "故意地"
+          "en": "be good at",
+          "zh": "善于，擅长于"
         }
       ],
       "answers": {
-        "1": "E",
-        "2": "A",
-        "3": "B",
-        "4": "G",
-        "5": "C",
+        "1": "C",
+        "2": "B",
+        "3": "H",
+        "4": "A",
+        "5": "E",
         "6": "D"
       },
       "explain": {
@@ -1405,28 +1405,28 @@
       "bank": [
         {
           "key": "A",
-          "en": "turn up",
-          "zh": "出现，到达"
-        },
-        {
-          "key": "B",
-          "en": "pick up",
-          "zh": "取（件）；中途搭载"
-        },
-        {
-          "key": "C",
-          "en": "get rid of",
-          "zh": "摆脱，除去"
-        },
-        {
-          "key": "D",
           "en": "on purpose",
           "zh": "故意地"
         },
         {
-          "key": "E",
+          "key": "B",
+          "en": "put off",
+          "zh": "推迟，拖延"
+        },
+        {
+          "key": "C",
           "en": "by accident",
           "zh": "偶然"
+        },
+        {
+          "key": "D",
+          "en": "turn up",
+          "zh": "出现，到达"
+        },
+        {
+          "key": "E",
+          "en": "work out",
+          "zh": "解决；算出"
         },
         {
           "key": "F",
@@ -1435,22 +1435,22 @@
         },
         {
           "key": "G",
-          "en": "work out",
-          "zh": "解决；算出"
+          "en": "pick up",
+          "zh": "取（件）；中途搭载"
         },
         {
           "key": "H",
-          "en": "put off",
-          "zh": "推迟，拖延"
+          "en": "get rid of",
+          "zh": "摆脱，除去"
         }
       ],
       "answers": {
-        "1": "A",
-        "2": "B",
-        "3": "G",
+        "1": "D",
+        "2": "G",
+        "3": "E",
         "4": "F",
-        "5": "D",
-        "6": "E"
+        "5": "A",
+        "6": "C"
       },
       "explain": {
         "1": "turn up 意为「出现、到达」，指包裹不一定按承诺日期送到。",
@@ -1480,13 +1480,13 @@
       "bank": [
         {
           "key": "A",
-          "en": "set off",
-          "zh": "动身，出发"
+          "en": "put off",
+          "zh": "推迟，拖延"
         },
         {
           "key": "B",
-          "en": "put off",
-          "zh": "推迟，拖延"
+          "en": "in a hurry",
+          "zh": "匆忙，急于"
         },
         {
           "key": "C",
@@ -1495,37 +1495,37 @@
         },
         {
           "key": "D",
-          "en": "hold on",
-          "zh": "握住不放；等一下，坚持"
-        },
-        {
-          "key": "E",
-          "en": "in a hurry",
-          "zh": "匆忙，急于"
-        },
-        {
-          "key": "F",
           "en": "take place",
           "zh": "发生；举行"
         },
         {
-          "key": "G",
+          "key": "E",
+          "en": "hold on",
+          "zh": "握住不放；等一下，坚持"
+        },
+        {
+          "key": "F",
           "en": "in the end",
           "zh": "最后，终于"
         },
         {
-          "key": "H",
+          "key": "G",
           "en": "look after",
           "zh": "照顾，照料"
+        },
+        {
+          "key": "H",
+          "en": "set off",
+          "zh": "动身，出发"
         }
       ],
       "answers": {
         "1": "C",
-        "2": "B",
-        "3": "A",
-        "4": "D",
-        "5": "F",
-        "6": "G"
+        "2": "A",
+        "3": "H",
+        "4": "E",
+        "5": "D",
+        "6": "F"
       },
       "explain": {
         "1": "break out 意为「（暴风雨等）突然发生」，主语是 a storm。",
@@ -1560,28 +1560,28 @@
         },
         {
           "key": "B",
-          "en": "conform to",
-          "zh": "符合，遵守"
-        },
-        {
-          "key": "C",
-          "en": "make allowance for",
-          "zh": "考虑到，顾及"
-        },
-        {
-          "key": "D",
           "en": "in conjunction with",
           "zh": "与…结合／协同"
         },
         {
+          "key": "C",
+          "en": "in retrospect",
+          "zh": "回想起来"
+        },
+        {
+          "key": "D",
+          "en": "conform to",
+          "zh": "符合，遵守"
+        },
+        {
           "key": "E",
-          "en": "with a view to",
-          "zh": "为了，着眼于"
+          "en": "be liable to",
+          "zh": "易于，往往会"
         },
         {
           "key": "F",
-          "en": "be liable to",
-          "zh": "易于，往往会"
+          "en": "with a view to",
+          "zh": "为了，着眼于"
         },
         {
           "key": "G",
@@ -1590,16 +1590,16 @@
         },
         {
           "key": "H",
-          "en": "in retrospect",
-          "zh": "回想起来"
+          "en": "make allowance for",
+          "zh": "考虑到，顾及"
         }
       ],
       "answers": {
         "1": "A",
-        "2": "B",
-        "3": "C",
-        "4": "D",
-        "5": "E",
+        "2": "D",
+        "3": "H",
+        "4": "B",
+        "5": "F",
         "6": "G"
       },
       "explain": {
@@ -1630,23 +1630,23 @@
       "bank": [
         {
           "key": "A",
-          "en": "at odds with",
-          "zh": "与…不一致，与…相抵触"
+          "en": "be apt to",
+          "zh": "易于，倾向于"
         },
         {
           "key": "B",
-          "en": "in retrospect",
-          "zh": "回想起来"
+          "en": "prior to",
+          "zh": "在…之前"
         },
         {
           "key": "C",
-          "en": "on the grounds of",
-          "zh": "根据，以…为由"
+          "en": "come to terms with",
+          "zh": "接受，与…妥协"
         },
         {
           "key": "D",
-          "en": "come to terms with",
-          "zh": "接受，与…妥协"
+          "en": "in retrospect",
+          "zh": "回想起来"
         },
         {
           "key": "E",
@@ -1655,27 +1655,27 @@
         },
         {
           "key": "F",
-          "en": "in pursuit of",
-          "zh": "追求"
+          "en": "at odds with",
+          "zh": "与…不一致，与…相抵触"
         },
         {
           "key": "G",
-          "en": "prior to",
-          "zh": "在…之前"
+          "en": "on the grounds of",
+          "zh": "根据，以…为由"
         },
         {
           "key": "H",
-          "en": "be apt to",
-          "zh": "易于，倾向于"
+          "en": "in pursuit of",
+          "zh": "追求"
         }
       ],
       "answers": {
-        "1": "G",
-        "2": "B",
-        "3": "A",
-        "4": "C",
+        "1": "B",
+        "2": "D",
+        "3": "F",
+        "4": "G",
         "5": "E",
-        "6": "D"
+        "6": "C"
       },
       "explain": {
         "1": "prior to 意为「在…之前」，Prior to the launch 作时间状语。",
@@ -1709,8 +1709,8 @@
       "bank": [
         {
           "key": "A",
-          "en": "stem from",
-          "zh": "源于，来自"
+          "en": "in accordance with",
+          "zh": "与…一致，按照"
         },
         {
           "key": "B",
@@ -1719,42 +1719,42 @@
         },
         {
           "key": "C",
-          "en": "in accordance with",
-          "zh": "与…一致，按照"
-        },
-        {
-          "key": "D",
           "en": "dispose of",
           "zh": "处理掉，清除"
         },
         {
+          "key": "D",
+          "en": "stem from",
+          "zh": "源于，来自"
+        },
+        {
           "key": "E",
-          "en": "on behalf of",
-          "zh": "代表"
-        },
-        {
-          "key": "F",
-          "en": "be devoid of",
-          "zh": "缺乏，毫无"
-        },
-        {
-          "key": "G",
           "en": "prior to",
           "zh": "在…之前"
         },
         {
-          "key": "H",
+          "key": "F",
           "en": "owing to",
           "zh": "由于，因为"
+        },
+        {
+          "key": "G",
+          "en": "be devoid of",
+          "zh": "缺乏，毫无"
+        },
+        {
+          "key": "H",
+          "en": "on behalf of",
+          "zh": "代表"
         }
       ],
       "answers": {
         "1": "B",
-        "2": "A",
-        "3": "C",
-        "4": "G",
-        "5": "D",
-        "6": "F"
+        "2": "D",
+        "3": "A",
+        "4": "E",
+        "5": "C",
+        "6": "G"
       },
       "explain": {
         "1": "be attributed to 意为「归因于」；can rarely be attributed to a single event。",
@@ -1793,47 +1793,47 @@
         },
         {
           "key": "B",
-          "en": "in excess of",
-          "zh": "超过"
-        },
-        {
-          "key": "C",
           "en": "by virtue of",
           "zh": "凭借，由于"
         },
         {
-          "key": "D",
-          "en": "be subject to",
-          "zh": "受…支配；易受…的"
+          "key": "C",
+          "en": "in addition to",
+          "zh": "除…之外（还）"
         },
         {
-          "key": "E",
+          "key": "D",
           "en": "with regard to",
           "zh": "关于，至于"
         },
         {
-          "key": "F",
-          "en": "in view of",
-          "zh": "鉴于，考虑到"
-        },
-        {
-          "key": "G",
+          "key": "E",
           "en": "for the sake of",
           "zh": "为了，为了…的利益"
         },
         {
+          "key": "F",
+          "en": "in excess of",
+          "zh": "超过"
+        },
+        {
+          "key": "G",
+          "en": "be subject to",
+          "zh": "受…支配；易受…的"
+        },
+        {
           "key": "H",
-          "en": "in addition to",
-          "zh": "除…之外（还）"
+          "en": "in view of",
+          "zh": "鉴于，考虑到"
         }
       ],
       "answers": {
-        "1": "E",
+        "1": "D",
         "2": "A",
-        "3": "H",
-        "4": "B",
-        "5": "F",
-        "6": "D"
+        "3": "C",
+        "4": "F",
+        "5": "H",
+        "6": "G"
       },
       "explain": {
         "1": "with regard to 意为「关于、就…而言」，句首引出规划的范围。",
@@ -1867,18 +1867,18 @@
       "bank": [
         {
           "key": "A",
-          "en": "be composed of",
-          "zh": "由…组成"
-        },
-        {
-          "key": "B",
           "en": "be concerned with",
           "zh": "关心，涉及"
         },
         {
+          "key": "B",
+          "en": "approve of",
+          "zh": "赞成，满意"
+        },
+        {
           "key": "C",
-          "en": "be cautious of",
-          "zh": "留心…，谨防…"
+          "en": "appeal to",
+          "zh": "呼吁；对…有吸引力"
         },
         {
           "key": "D",
@@ -1887,32 +1887,32 @@
         },
         {
           "key": "E",
-          "en": "appeal to",
-          "zh": "呼吁；对…有吸引力"
+          "en": "be cautious of",
+          "zh": "留心…，谨防…"
         },
         {
           "key": "F",
-          "en": "approve of",
-          "zh": "赞成，满意"
+          "en": "be addicted to",
+          "zh": "沉溺于"
         },
         {
           "key": "G",
-          "en": "back up",
-          "zh": "支持，援助"
+          "en": "be composed of",
+          "zh": "由…组成"
         },
         {
           "key": "H",
-          "en": "be addicted to",
-          "zh": "沉溺于"
+          "en": "back up",
+          "zh": "支持，援助"
         }
       ],
       "answers": {
-        "1": "A",
-        "2": "F",
-        "3": "B",
-        "4": "G",
+        "1": "G",
+        "2": "B",
+        "3": "A",
+        "4": "H",
         "5": "D",
-        "6": "C"
+        "6": "E"
       },
       "explain": {
         "1": "be composed of 意为「由…组成」；is composed of seven members。",
@@ -1946,52 +1946,52 @@
       "bank": [
         {
           "key": "A",
-          "en": "be subject to",
-          "zh": "受…支配；须经…"
-        },
-        {
-          "key": "B",
-          "en": "in excess of",
-          "zh": "超过"
-        },
-        {
-          "key": "C",
           "en": "make allowance for",
           "zh": "考虑到，体谅"
         },
         {
-          "key": "D",
-          "en": "in the wake of",
-          "zh": "紧随…之后"
-        },
-        {
-          "key": "E",
-          "en": "be attributed to",
-          "zh": "把…归因于"
-        },
-        {
-          "key": "F",
+          "key": "B",
           "en": "in view of",
           "zh": "鉴于，考虑到"
         },
         {
-          "key": "G",
+          "key": "C",
+          "en": "in excess of",
+          "zh": "超过"
+        },
+        {
+          "key": "D",
           "en": "conform to",
           "zh": "符合，遵守"
         },
         {
-          "key": "H",
+          "key": "E",
+          "en": "in the wake of",
+          "zh": "紧随…之后"
+        },
+        {
+          "key": "F",
           "en": "in accordance with",
           "zh": "与…一致，按照"
+        },
+        {
+          "key": "G",
+          "en": "be attributed to",
+          "zh": "把…归因于"
+        },
+        {
+          "key": "H",
+          "en": "be subject to",
+          "zh": "受…支配；须经…"
         }
       ],
       "answers": {
-        "1": "A",
-        "2": "B",
-        "3": "C",
-        "4": "D",
-        "5": "A",
-        "6": "F"
+        "1": "H",
+        "2": "C",
+        "3": "A",
+        "4": "E",
+        "5": "H",
+        "6": "B"
       },
       "explain": {
         "1": "be subject to 意为「须经、受…约束」；are subject to seasonal review（须按季复核）。",
@@ -2025,23 +2025,23 @@
       "bank": [
         {
           "key": "A",
-          "en": "be attributed to",
-          "zh": "把…归因于"
+          "en": "be capable of",
+          "zh": "有能力…"
         },
         {
           "key": "B",
-          "en": "in the course of",
-          "zh": "在…过程中"
+          "en": "set out",
+          "zh": "陈列，列明"
         },
         {
           "key": "C",
-          "en": "in accordance with",
-          "zh": "与…一致，按照"
+          "en": "be apt to",
+          "zh": "易于，倾向于"
         },
         {
           "key": "D",
-          "en": "be apt to",
-          "zh": "易于，倾向于"
+          "en": "in accordance with",
+          "zh": "与…一致，按照"
         },
         {
           "key": "E",
@@ -2050,26 +2050,26 @@
         },
         {
           "key": "F",
-          "en": "be capable of",
-          "zh": "有能力…"
+          "en": "be attributed to",
+          "zh": "把…归因于"
         },
         {
           "key": "G",
-          "en": "in view of",
-          "zh": "鉴于，考虑到"
+          "en": "in the course of",
+          "zh": "在…过程中"
         },
         {
           "key": "H",
-          "en": "set out",
-          "zh": "陈列，列明"
+          "en": "in view of",
+          "zh": "鉴于，考虑到"
         }
       ],
       "answers": {
-        "1": "A",
-        "2": "B",
-        "3": "C",
-        "4": "H",
-        "5": "D",
+        "1": "F",
+        "2": "G",
+        "3": "D",
+        "4": "B",
+        "5": "C",
         "6": "E"
       },
       "explain": {
@@ -2104,23 +2104,23 @@
       "bank": [
         {
           "key": "A",
-          "en": "prior to",
-          "zh": "在…之前"
-        },
-        {
-          "key": "B",
           "en": "in the course of",
           "zh": "在…过程中"
         },
         {
+          "key": "B",
+          "en": "on the verge of",
+          "zh": "濒于，即将"
+        },
+        {
           "key": "C",
-          "en": "in view of",
-          "zh": "鉴于，考虑到"
+          "en": "in the light of",
+          "zh": "根据，鉴于"
         },
         {
           "key": "D",
-          "en": "approve of",
-          "zh": "赞成，满意"
+          "en": "prior to",
+          "zh": "在…之前"
         },
         {
           "key": "E",
@@ -2129,27 +2129,27 @@
         },
         {
           "key": "F",
-          "en": "in the light of",
-          "zh": "根据，鉴于"
+          "en": "approve of",
+          "zh": "赞成，满意"
         },
         {
           "key": "G",
-          "en": "on the verge of",
-          "zh": "濒于，即将"
+          "en": "appeal to",
+          "zh": "呼吁；对…有吸引力"
         },
         {
           "key": "H",
-          "en": "appeal to",
-          "zh": "呼吁；对…有吸引力"
+          "en": "in view of",
+          "zh": "鉴于，考虑到"
         }
       ],
       "answers": {
-        "1": "A",
-        "2": "B",
-        "3": "C",
-        "4": "D",
+        "1": "D",
+        "2": "A",
+        "3": "H",
+        "4": "F",
         "5": "E",
-        "6": "F"
+        "6": "C"
       },
       "explain": {
         "1": "prior to 意为「在…之前」，Prior to the trial（试点开始前）。",
