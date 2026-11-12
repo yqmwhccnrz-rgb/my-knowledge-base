@@ -40,6 +40,6 @@ onMounted(() => {
     :title="collapsed ? '展开本页目录' : '收起本页目录'"
     @click="toggle"
   >
-    <span aria-hidden="true">{{ collapsed ? '›' : '‹' }}</span>
+    <span class="kb-outline-toggle-text" aria-hidden="true">{{ collapsed ? '展开' : '收起' }}</span>
   </button>
 </template>

@@ -187,30 +187,40 @@ body {
 @media (min-width: 1280px) {
   .kb-outline-toggle {
     position: fixed;
-    top: calc(var(--vp-nav-height) + 16px);
-    left: calc(var(--kb-side-w) + var(--kb-outline-w) - 13px);
+    top: 50%;
+    /* 长边（梯形底）完整贴在二级目录右边缘，向右收窄成把手 */
+    left: calc(var(--kb-side-w) + var(--kb-outline-w));
+    transform: translateY(-50%);
     z-index: 12;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 26px;
-    height: 26px;
-    padding: 0;
-    font: 18px/1 var(--kb-font-sans);
+    height: 92px;
+    padding: 0 0 0 2px;
     color: var(--vp-c-text-2);
-    background: var(--vp-c-bg-elv);
-    border: 1px solid var(--vp-c-divider);
-    border-radius: 50%;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    background: rgba(127, 127, 127, 0.14);
+    border: 0;
+    /* 左边全高、右边上下各收 13%，形成左侧长底贴边的梯形 */
+    clip-path: polygon(0 0, 100% 13%, 100% 87%, 0 100%);
+    filter: drop-shadow(2px 0 4px rgba(0, 0, 0, 0.1));
     cursor: pointer;
-    transition: left 0.24s ease, color 0.2s ease, border-color 0.2s ease;
+    transition: left 0.24s ease, background-color 0.2s ease, color 0.2s ease;
   }
   .kb-outline-toggle:hover {
     color: var(--vp-c-text-1);
-    border-color: var(--vp-c-brand-1);
+    background: rgba(127, 127, 127, 0.24);
+  }
+  .kb-outline-toggle-text {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font: 600 12px/1 var(--kb-font-sans);
+    letter-spacing: 3px;
+    user-select: none;
+    pointer-events: none;
   }
   html.kb-outline-collapsed .kb-outline-toggle {
-    left: calc(var(--kb-side-w) - 13px);
+    left: var(--kb-side-w);
   }
   /* 首页与没有本页目录的页面不显示开关 */
   body:has(.VPHome) .kb-outline-toggle,
