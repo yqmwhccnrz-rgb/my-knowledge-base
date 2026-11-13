@@ -103,7 +103,7 @@ function cleanDescription(text) {
 
 const notes = noteLinks()
 
-// CPA 笔记收进「下拉选单」折叠分组，其余笔记保持扁平
+// CPA 笔记收进「CPA」折叠分组，其余笔记保持扁平
 const isCPA = (n) => n.text.includes('（CPA）')
 const cpaNotes = notes.filter(isCPA)
 const otherNotes = notes.filter((n) => !isCPA(n))
@@ -187,9 +187,9 @@ export default defineConfig({
         items: [
           ...otherNotes,
           { text: '英语听力', link: '/listening.html' },
-          // 「下拉选单」折叠分组：集中收纳全部 CPA 笔记，点击展开/收起
+          // 「CPA」折叠分组：集中收纳全部 CPA 笔记，点击展开/收起
           {
-            text: '下拉选单',
+            text: 'CPA',
             collapsible: true,
             collapsed: false,
             items: cpaNotes

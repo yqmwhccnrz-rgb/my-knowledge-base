@@ -942,3 +942,20 @@ select:focus-visible {
 .kb-doc-actions:empty {
   display: none;
 }
+
+/* ==========================================================================
+   侧边栏「CPA」折叠分组标题前的小圆点
+   CPA 分组是唯一 collapsible 的 sidebar item，故该规则只作用于它。
+   ========================================================================== */
+.VPSidebarItem.collapsible > .item > .link > .text::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: var(--vp-c-brand-1, #3451b2);
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
