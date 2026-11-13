@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="420" fill="#fbfdff"/>
+  <text x="340" y="28" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">存储器分层体系结构与平均访问时间</text>
+
+  <!-- 金字塔 -->
+  <text x="20" y="52" font-size="11.5" font-weight="700" fill="#334155">① 存储层次金字塔（越往上越快、越小、越贵）</text>
+  <rect x="210" y="60" width="240" height="26" rx="4" fill="#fee2e2" stroke="#b91c1c"/>
+  <text x="330" y="78" text-anchor="middle" font-size="10" fill="#7f1d1d">寄存器（几百 B，&lt;1 ns，1 周期）</text>
+  <rect x="190" y="92" width="280" height="26" rx="4" fill="#fef3c7" stroke="#b45309"/>
+  <text x="330" y="110" text-anchor="middle" font-size="10" fill="#78350f">L1 Cache（32~64 KB，约 1 ns，3~4 周期）</text>
+  <rect x="170" y="124" width="320" height="26" rx="4" fill="#fef9c3" stroke="#a16207"/>
+  <text x="330" y="142" text-anchor="middle" font-size="10" fill="#713f12">L2 Cache（256 KB~1 MB，约 4 ns，10+ 周期）</text>
+  <rect x="150" y="156" width="360" height="26" rx="4" fill="#dcfce7" stroke="#15803d"/>
+  <text x="330" y="174" text-anchor="middle" font-size="10" fill="#14532d">L3 Cache（数 MB~数十 MB，约 10~20 ns，共享）</text>
+  <rect x="130" y="188" width="400" height="26" rx="4" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="330" y="206" text-anchor="middle" font-size="10" fill="#1e3a8a">主存 DRAM（GB，约 50~100 ns，100~200 周期）</text>
+  <rect x="110" y="220" width="440" height="26" rx="4" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="330" y="238" text-anchor="middle" font-size="10" fill="#4c1d95">SSD / NVMe（TB，约 50~100 μs）</text>
+  <rect x="90" y="252" width="480" height="26" rx="4" fill="#f1f5f9" stroke="#64748b"/>
+  <text x="330" y="270" text-anchor="middle" font-size="10" fill="#334155">HDD 机械盘（TB，约 5~10 ms）／磁带、光盘归档（秒~分）</text>
+
+  <!-- 右侧公式 -->
+  <rect x="16" y="290" width="318" height="116" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="28" y="310" font-size="11" font-weight="700" fill="#334155">② 局部性原理</text>
+  <text x="28" y="330" font-size="10" fill="#1e293b">• <tspan font-weight="700">时间局部性</tspan>：刚被访问的单元很可能再被访问（循环、变量复用）</text>
+  <text x="28" y="348" font-size="10" fill="#1e293b">• <tspan font-weight="700">空间局部性</tspan>：相邻单元很可能被一起访问（顺序执行、数组遍历）</text>
+  <text x="28" y="368" font-size="10" fill="#1e293b">Cache 以「块 block/行 line」为单位搬运，正是利用空间局部性</text>
+  <text x="28" y="390" font-size="9.5" fill="#64748b">层次结构目标：整体速度接近最快层，容量/成本接近最慢层</text>
+
+  <rect x="346" y="290" width="318" height="116" rx="8" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="358" y="310" font-size="11" font-weight="700" fill="#1e3a8a">③ 平均访问时间 AMAT</text>
+  <text x="358" y="332" font-size="10.5" fill="#1e293b">AMAT = 命中时间 + 缺失率 × 缺失代价</text>
+  <text x="358" y="352" font-size="10" fill="#1e293b">CPU 时间 = 指令数 × CPI × 时钟周期</text>
+  <text x="358" y="370" font-size="10" fill="#1e293b">CPI = 理想 CPI + 每条指令访存缺失停顿</text>
+  <text x="358" y="390" font-size="9.5" fill="#64748b">多级 Cache 时逐级嵌套累加各层的缺失代价</text>
+
+  <text x="16" y="416" font-size="9.5" fill="#64748b">补充：DDR4/DDR5 与 HBM 提升带宽；3D NAND / NVMe 取代机械盘；NVM（持久内存）模糊了主存与外存边界。</text>
+</svg>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 430" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="430" fill="#fbfdff"/>
+  <text x="340" y="28" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">冯·诺依曼结构与计算机系统层次</text>
+
+  <!-- 结构框图 -->
+  <text x="20" y="52" font-size="11.5" font-weight="700" fill="#334155">① 五大部件与三条信息流（存储程序、指令驱动）</text>
+  <rect x="20" y="66" width="110" height="42" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="75" y="92" text-anchor="middle" font-size="11" fill="#1e3a8a">输入设备</text>
+  <rect x="20" y="130" width="110" height="42" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="75" y="156" text-anchor="middle" font-size="11" fill="#1e3a8a">输出设备</text>
+  <rect x="170" y="66" width="130" height="106" rx="6" fill="#dcfce7" stroke="#15803d"/>
+  <text x="235" y="106" text-anchor="middle" font-size="12" font-weight="700" fill="#15803d">运算器 ALU</text>
+  <text x="235" y="128" text-anchor="middle" font-size="10" fill="#14532d">算术 / 逻辑运算</text>
+  <text x="235" y="148" text-anchor="middle" font-size="10" fill="#14532d">通用寄存器组</text>
+  <rect x="330" y="66" width="130" height="106" rx="6" fill="#fef3c7" stroke="#b45309"/>
+  <text x="395" y="106" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">控制器 CU</text>
+  <text x="395" y="128" text-anchor="middle" font-size="10" fill="#78350f">PC / IR / 时序</text>
+  <text x="395" y="148" text-anchor="middle" font-size="10" fill="#78350f">译码 → 微命令</text>
+  <rect x="490" y="66" width="170" height="106" rx="6" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="575" y="100" text-anchor="middle" font-size="12" font-weight="700" fill="#5b21b6">存储器 M</text>
+  <text x="575" y="122" text-anchor="middle" font-size="10" fill="#4c1d95">指令与数据同等存放</text>
+  <text x="575" y="142" text-anchor="middle" font-size="10" fill="#4c1d95">按地址访问（一维编址）</text>
+
+  <line x1="130" y1="87" x2="168" y2="87" stroke="#2563eb" stroke-width="1.6"/>
+  <line x1="300" y1="100" x2="328" y2="100" stroke="#15803d" stroke-width="1.6"/>
+  <line x1="460" y1="100" x2="488" y2="100" stroke="#b45309" stroke-width="1.6"/>
+  <line x1="300" y1="150" x2="130" y2="150" stroke="#15803d" stroke-width="1.6"/>
+  <text x="140" y="60" font-size="9" fill="#64748b">数据流</text>
+  <text x="304" y="94" font-size="9" fill="#64748b">数据流</text>
+  <text x="462" y="94" font-size="9" fill="#64748b">地址/指令流</text>
+  <text x="20" y="192" font-size="9.5" fill="#64748b">控制器按 PC 取指令 → 译码 → 发控制信号；运算器结果写回存储器/寄存器；输入、输出经运算器或总线与主存交换。</text>
+
+  <!-- 层次结构 -->
+  <text x="20" y="222" font-size="11.5" font-weight="700" fill="#334155">② 计算机系统的层次化结构（自顶向下，越往下越靠近硬件）</text>
+  <rect x="20" y="234" width="640" height="132" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <rect x="34" y="244" width="612" height="21" rx="3" fill="#eff6ff"/><text x="340" y="259" text-anchor="middle" font-size="10" fill="#1e3a8a">L6 应用程序 / 最终用户（问题求解）</text>
+  <rect x="34" y="267" width="612" height="21" rx="3" fill="#f0fdf4"/><text x="340" y="282" text-anchor="middle" font-size="10" fill="#14532d">L5 高级语言 → 编译 → 汇编语言 → 汇编（应用程序员视角）</text>
+  <rect x="34" y="290" width="612" height="21" rx="3" fill="#fefce8"/><text x="340" y="305" text-anchor="middle" font-size="10" fill="#92400e">L4 操作系统 / 系统程序员（进程、虚存、文件、设备驱动）</text>
+  <rect x="34" y="313" width="612" height="21" rx="3" fill="#fdf2f8"/><text x="340" y="328" text-anchor="middle" font-size="10" font-weight="700" fill="#9d174d">L3 指令集体系结构 ISA ← 软硬件交界面（机器语言程序员所见）</text>
+  <rect x="34" y="336" width="612" height="21" rx="3" fill="#f3e8ff"/><text x="340" y="351" text-anchor="middle" font-size="10" fill="#6b21a8">L2 微体系结构：数据通路 / 控制器 / Cache / 流水线（组成）</text>
+  <text x="20" y="382" font-size="10" fill="#334155">L1 数字逻辑电路（门 / 触发器） → L0 器件物理（晶体管、连线）。上层是下层的抽象，下层是上层的实现。</text>
+  <text x="20" y="402" font-size="10" fill="#334155">• <tspan font-weight="700">ISA</tspan> 定义：数据类型与格式、指令格式、寻址方式、可访问寄存器、存储空间、中断结构、I/O 编址、工作状态与保护。</text>
+  <text x="20" y="420" font-size="10" fill="#64748b">• 现代结构以「存储器 + 互连总线」为中心（而非运算器），并用多级 Cache、多核与 DMA 缓解冯·诺依曼瓶颈。</text>
+</svg>

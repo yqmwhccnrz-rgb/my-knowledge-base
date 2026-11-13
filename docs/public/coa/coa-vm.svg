@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 440" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="440" fill="#fbfdff"/>
+  <text x="340" y="28" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">虚拟存储器：地址变换、页表与 TLB</text>
+
+  <!-- 流程 -->
+  <text x="20" y="52" font-size="11.5" font-weight="700" fill="#334155">① 虚拟地址 → 物理地址</text>
+  <rect x="20" y="62" width="120" height="40" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="80" y="80" text-anchor="middle" font-size="10" fill="#1e3a8a">CPU 给出 VA</text>
+  <text x="80" y="95" text-anchor="middle" font-size="9" fill="#1e3a8a">VPN | 页内偏移</text>
+  <line x1="140" y1="82" x2="164" y2="82" stroke="#2563eb" stroke-width="1.5"/>
+  <rect x="166" y="62" width="120" height="40" rx="6" fill="#fef3c7" stroke="#b45309"/>
+  <text x="226" y="80" text-anchor="middle" font-size="10" fill="#92400e">TLB 快表查询</text>
+  <text x="226" y="95" text-anchor="middle" font-size="9" fill="#92400e">命中直接得 PFN</text>
+  <line x1="286" y1="82" x2="310" y2="82" stroke="#b45309" stroke-width="1.5"/>
+  <text x="292" y="74" font-size="8.5" fill="#64748b">未命中</text>
+  <rect x="312" y="62" width="130" height="40" rx="6" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="377" y="80" text-anchor="middle" font-size="10" fill="#5b21b6">查页表 PTE</text>
+  <text x="377" y="95" text-anchor="middle" font-size="9" fill="#5b21b6">VPN 作索引</text>
+  <line x1="442" y1="82" x2="466" y2="82" stroke="#7c3aed" stroke-width="1.5"/>
+  <rect x="468" y="62" width="196" height="40" rx="6" fill="#dcfce7" stroke="#15803d"/>
+  <text x="566" y="80" text-anchor="middle" font-size="10" fill="#14532d">合成 PA = PFN | 页内偏移</text>
+  <text x="566" y="95" text-anchor="middle" font-size="9" fill="#14532d">再访问 Cache / 主存</text>
+
+  <rect x="312" y="112" width="352" height="36" rx="6" fill="#fee2e2" stroke="#b91c1c"/>
+  <text x="322" y="128" font-size="9.5" fill="#7f1d1d">PTE 有效位 = 0 → <tspan font-weight="700">缺页异常</tspan>：OS 从磁盘调入页面、更新 PTE 与 TLB、重新执行该指令</text>
+  <text x="322" y="142" font-size="9.5" fill="#7f1d1d">有效位 = 1 → 取 PFN，并检查读/写/执行/用户态权限（存储保护）</text>
+
+  <!-- PTE 字段 -->
+  <text x="20" y="122" font-size="11" font-weight="700" fill="#334155">② 页表项 PTE</text>
+  <rect x="20" y="132" width="278" height="34" rx="5" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="28" y="153" font-size="9.5" fill="#1e293b">PFN 物理页号 | 有效位 | 脏位 | 访问位 | 权限(R/W/X/U) | 缓存控制</text>
+  <text x="20" y="184" font-size="9.5" fill="#64748b">页表基址寄存器 PTBR 指向当前进程页表；上下文切换时换页表并刷新 TLB（或用 ASID 避免全刷）。</text>
+
+  <!-- 工作示例 -->
+  <rect x="20" y="198" width="648" height="112" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="32" y="218" font-size="11" font-weight="700" fill="#334155">工作示例 · 32 位虚拟地址、页大小 4 KB、物理内存 256 MB</text>
+  <text x="32" y="238" font-size="10" fill="#1e293b">页内偏移 = log₂(4096) = <tspan font-weight="700">12 bit</tspan>；VPN = 32 − 12 = <tspan font-weight="700">20 bit</tspan>；PFN = 28 − 12 = <tspan font-weight="700">16 bit</tspan>。</text>
+  <text x="32" y="256" font-size="10" fill="#1e293b">页表项数 = 2²⁰ = 1 M 项，每项 4 B → <tspan font-weight="700">单级页表 4 MB/进程</tspan>（太浪费，故用多级页表 + 按需分配）。</text>
+  <text x="32" y="274" font-size="10" fill="#1e293b">VA = 0x1234 5678：VPN = 0x12345、offset = 0x678；若页表查得 PFN = 0xABCD → PA = 0xABCD 678。</text>
+  <text x="32" y="292" font-size="10" fill="#1e293b">两级页表：VA = 页目录号(10) | 页表号(10) | offset(12)；只有用到的二级页表才分配，空目录项不占内存。</text>
+
+  <!-- 性能与保护 -->
+  <rect x="20" y="320" width="648" height="106" rx="8" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="32" y="340" font-size="11" font-weight="700" fill="#1e3a8a">③ 有效访问时间与存储保护</text>
+  <text x="32" y="360" font-size="10" fill="#1e293b">设 TLB 命中时间 1 ns、页表访存 100 ns、缺页处理 10 ms、缺页率 p：EAT ≈ (1−p)×(TLB 命中时间 + 主存时间) + p×10 ms。</text>
+  <text x="32" y="378" font-size="10" fill="#1e293b">若 p = 0.001（千分之一），仅缺页项就贡献 10 μs，性能下降约百倍 → 故缺页率必须极低，靠局部性、页面预取与合理驻留集控制。</text>
+  <text x="32" y="396" font-size="10" fill="#1e293b">存储保护：每进程独立虚拟地址空间、PTE 权限位 + 用户/内核态、分段/分页与越界检查，防止进程互相改写或访问内核。</text>
+  <text x="32" y="414" font-size="9.5" fill="#64748b">补充：多级页表（x86-64 常 4~5 级）、大页 2 MB/1 GB 降低 TLB 压力、反向页表、ASID、页表遍历缓存；虚存 ≠ Cache，前者解决容量与保护，后者解决速度。</text>
+</svg>

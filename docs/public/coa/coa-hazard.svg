@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="420" fill="#fbfdff"/>
+  <text x="340" y="28" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">流水线冒险：结构、数据与控制相关</text>
+
+  <!-- 三类 -->
+  <rect x="16" y="44" width="208" height="132" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="28" y="64" font-size="11" font-weight="700" fill="#b45309">① 结构冒险（资源冲突）</text>
+  <text x="28" y="84" font-size="9.5" fill="#1e293b">多条指令同时要用同一硬件</text>
+  <text x="28" y="102" font-size="9.5" fill="#1e293b">例：IF 取指与 MEM 读数据</text>
+  <text x="28" y="120" font-size="9.5" fill="#1e293b">争用同一个存储器端口</text>
+  <text x="28" y="142" font-size="9.5" fill="#15803d">对策：分离指令/数据 Cache、</text>
+  <text x="28" y="160" font-size="9.5" fill="#15803d">增加部件、插入停顿气泡</text>
+
+  <rect x="236" y="44" width="208" height="132" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="248" y="64" font-size="11" font-weight="700" fill="#15803d">② 数据冒险（数据相关）</text>
+  <text x="248" y="84" font-size="9.5" fill="#1e293b">RAW 写后读（真相关，最常见）</text>
+  <text x="248" y="102" font-size="9.5" fill="#1e293b">WAR 读后写 / WAW 写后写</text>
+  <text x="248" y="120" font-size="9.5" fill="#1e293b">（乱序执行时才需寄存器重命名）</text>
+  <text x="248" y="142" font-size="9.5" fill="#15803d">对策：<tspan font-weight="700">转发/旁路</tspan>、停顿、</text>
+  <text x="248" y="160" font-size="9.5" fill="#15803d">编译器指令调度、Load 延迟槽</text>
+
+  <rect x="456" y="44" width="208" height="132" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="468" y="64" font-size="11" font-weight="700" fill="#7c3aed">③ 控制冒险（分支）</text>
+  <text x="468" y="84" font-size="9.5" fill="#1e293b">分支结果与目标地址晚到，</text>
+  <text x="468" y="102" font-size="9.5" fill="#1e293b">后续已取进流水线的指令可能作废</text>
+  <text x="468" y="124" font-size="9.5" fill="#15803d">对策：预测（静态/动态 BHT/BTB）、</text>
+  <text x="468" y="142" font-size="9.5" fill="#15803d">尽早计算分支、延迟槽、</text>
+  <text x="468" y="160" font-size="9.5" fill="#15803d">预测失败时冲刷流水线</text>
+
+  <!-- RAW 示例 -->
+  <rect x="16" y="186" width="648" height="112" rx="8" fill="#fefce8" stroke="#b45309"/>
+  <text x="28" y="206" font-size="11" font-weight="700" fill="#92400e">工作示例 · RAW 相关与转发（MIPS 风格）</text>
+  <text x="28" y="226" font-size="10" fill="#1e293b">I1: add $t0, $t1, $t2　（WB 阶段才把结果写回 $t0）</text>
+  <text x="28" y="244" font-size="10" fill="#1e293b">I2: sub $t3, $t0, $t4　（EX 阶段就需要新的 $t0，此时 I1 才到 EX/MEM）</text>
+  <text x="28" y="264" font-size="10" fill="#1e293b">不转发：必须插入 2 个气泡；<tspan font-weight="700">转发</tspan>：把 I1 的 ALU 结果从流水线寄存器直接引到 I2 的 ALU 输入，0 停顿。</text>
+  <text x="28" y="284" font-size="10" fill="#1e293b">但 Load-Use 情形（lw 后紧跟要用该寄存器的指令）数据要到 MEM 结束才可用，转发后仍需 <tspan font-weight="700">1 个停顿</tspan>。</text>
+
+  <!-- 高级流水线 -->
+  <rect x="16" y="308" width="648" height="98" rx="8" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="28" y="328" font-size="11" font-weight="700" fill="#1e3a8a">高级流水线与 CPI</text>
+  <text x="28" y="348" font-size="10" fill="#1e293b">• 静态多发射（VLIW）：编译器在一条超长指令字中打包多个可并行操作，硬件按约定同时发射。</text>
+  <text x="28" y="366" font-size="10" fill="#1e293b">• 动态多发射（超标量）：硬件每周期发射多条；配合乱序执行、寄存器重命名、ROB 保证精确异常与顺序提交。</text>
+  <text x="28" y="384" font-size="10" fill="#1e293b">• 超流水线：把段数 k 增大、每段更短以提高主频；代价是冒险停顿变贵、分支预测失败惩罚增大。</text>
+  <text x="28" y="400" font-size="9.5" fill="#64748b">• 实际 CPI = 理想 CPI(1) + 结构停顿 + 数据相关停顿 + 控制相关停顿；IPC = 1/CPI（多发射时理想 CPI 可小于 1）。</text>
+</svg>

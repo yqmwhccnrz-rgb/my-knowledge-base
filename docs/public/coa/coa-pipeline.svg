@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 430" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="430" fill="#fbfdff"/>
+  <text x="340" y="28" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">五级指令流水线时空图、吞吐率与加速比</text>
+
+  <!-- 列标题 -->
+  <text x="24" y="66" font-size="10" font-weight="700" fill="#334155">指令＼时钟</text>
+  <text x="112" y="66" font-size="9.5" fill="#64748b">t1</text>
+  <text x="172" y="66" font-size="9.5" fill="#64748b">t2</text>
+  <text x="232" y="66" font-size="9.5" fill="#64748b">t3</text>
+  <text x="292" y="66" font-size="9.5" fill="#64748b">t4</text>
+  <text x="352" y="66" font-size="9.5" fill="#64748b">t5</text>
+  <text x="412" y="66" font-size="9.5" fill="#64748b">t6</text>
+  <text x="472" y="66" font-size="9.5" fill="#64748b">t7</text>
+  <text x="532" y="66" font-size="9.5" fill="#64748b">t8</text>
+  <text x="592" y="66" font-size="9.5" fill="#64748b">t9</text>
+
+  <!-- I1 -->
+  <text x="30" y="94" font-size="10" fill="#334155">I1</text>
+  <rect x="100" y="74" width="56" height="26" fill="#bfdbfe" stroke="#2563eb"/><text x="128" y="92" text-anchor="middle" font-size="9" fill="#1e3a8a">IF</text>
+  <rect x="160" y="74" width="56" height="26" fill="#fde68a" stroke="#b45309"/><text x="188" y="92" text-anchor="middle" font-size="9" fill="#78350f">ID</text>
+  <rect x="220" y="74" width="56" height="26" fill="#86efac" stroke="#15803d"/><text x="248" y="92" text-anchor="middle" font-size="9" fill="#14532d">EX</text>
+  <rect x="280" y="74" width="56" height="26" fill="#ddd6fe" stroke="#7c3aed"/><text x="308" y="92" text-anchor="middle" font-size="9" fill="#4c1d95">MEM</text>
+  <rect x="340" y="74" width="56" height="26" fill="#fed7aa" stroke="#c2410c"/><text x="368" y="92" text-anchor="middle" font-size="9" fill="#7c2d12">WB</text>
+
+  <!-- I2 -->
+  <text x="30" y="128" font-size="10" fill="#334155">I2</text>
+  <rect x="160" y="108" width="56" height="26" fill="#bfdbfe" stroke="#2563eb"/><text x="188" y="126" text-anchor="middle" font-size="9" fill="#1e3a8a">IF</text>
+  <rect x="220" y="108" width="56" height="26" fill="#fde68a" stroke="#b45309"/><text x="248" y="126" text-anchor="middle" font-size="9" fill="#78350f">ID</text>
+  <rect x="280" y="108" width="56" height="26" fill="#86efac" stroke="#15803d"/><text x="308" y="126" text-anchor="middle" font-size="9" fill="#14532d">EX</text>
+  <rect x="340" y="108" width="56" height="26" fill="#ddd6fe" stroke="#7c3aed"/><text x="368" y="126" text-anchor="middle" font-size="9" fill="#4c1d95">MEM</text>
+  <rect x="400" y="108" width="56" height="26" fill="#fed7aa" stroke="#c2410c"/><text x="428" y="126" text-anchor="middle" font-size="9" fill="#7c2d12">WB</text>
+
+  <!-- I3 -->
+  <text x="30" y="162" font-size="10" fill="#334155">I3</text>
+  <rect x="220" y="142" width="56" height="26" fill="#bfdbfe" stroke="#2563eb"/><text x="248" y="160" text-anchor="middle" font-size="9" fill="#1e3a8a">IF</text>
+  <rect x="280" y="142" width="56" height="26" fill="#fde68a" stroke="#b45309"/><text x="308" y="160" text-anchor="middle" font-size="9" fill="#78350f">ID</text>
+  <rect x="340" y="142" width="56" height="26" fill="#86efac" stroke="#15803d"/><text x="368" y="160" text-anchor="middle" font-size="9" fill="#14532d">EX</text>
+  <rect x="400" y="142" width="56" height="26" fill="#ddd6fe" stroke="#7c3aed"/><text x="428" y="160" text-anchor="middle" font-size="9" fill="#4c1d95">MEM</text>
+  <rect x="460" y="142" width="56" height="26" fill="#fed7aa" stroke="#c2410c"/><text x="488" y="160" text-anchor="middle" font-size="9" fill="#7c2d12">WB</text>
+
+  <!-- I4 -->
+  <text x="30" y="196" font-size="10" fill="#334155">I4</text>
+  <rect x="280" y="176" width="56" height="26" fill="#bfdbfe" stroke="#2563eb"/><text x="308" y="194" text-anchor="middle" font-size="9" fill="#1e3a8a">IF</text>
+  <rect x="340" y="176" width="56" height="26" fill="#fde68a" stroke="#b45309"/><text x="368" y="194" text-anchor="middle" font-size="9" fill="#78350f">ID</text>
+  <rect x="400" y="176" width="56" height="26" fill="#86efac" stroke="#15803d"/><text x="428" y="194" text-anchor="middle" font-size="9" fill="#14532d">EX</text>
+  <rect x="460" y="176" width="56" height="26" fill="#ddd6fe" stroke="#7c3aed"/><text x="488" y="194" text-anchor="middle" font-size="9" fill="#4c1d95">MEM</text>
+  <rect x="520" y="176" width="56" height="26" fill="#fed7aa" stroke="#c2410c"/><text x="548" y="194" text-anchor="middle" font-size="9" fill="#7c2d12">WB</text>
+
+  <!-- I5 -->
+  <text x="30" y="230" font-size="10" fill="#334155">I5</text>
+  <rect x="340" y="210" width="56" height="26" fill="#bfdbfe" stroke="#2563eb"/><text x="368" y="228" text-anchor="middle" font-size="9" fill="#1e3a8a">IF</text>
+  <rect x="400" y="210" width="56" height="26" fill="#fde68a" stroke="#b45309"/><text x="428" y="228" text-anchor="middle" font-size="9" fill="#78350f">ID</text>
+  <rect x="460" y="210" width="56" height="26" fill="#86efac" stroke="#15803d"/><text x="488" y="228" text-anchor="middle" font-size="9" fill="#14532d">EX</text>
+  <rect x="520" y="210" width="56" height="26" fill="#ddd6fe" stroke="#7c3aed"/><text x="548" y="228" text-anchor="middle" font-size="9" fill="#4c1d95">MEM</text>
+  <rect x="580" y="210" width="56" height="26" fill="#fed7aa" stroke="#c2410c"/><text x="608" y="228" text-anchor="middle" font-size="9" fill="#7c2d12">WB</text>
+
+  <text x="20" y="256" font-size="9.5" fill="#64748b">IF 取指｜ID 译码/读寄存器｜EX 执行/算地址｜MEM 访存｜WB 写回；理想情况下每个时钟周期流出一条指令（CPI = 1）。</text>
+
+  <!-- 公式 -->
+  <rect x="16" y="268" width="648" height="72" rx="8" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="28" y="288" font-size="11" font-weight="700" fill="#1e3a8a">性能公式（k 段流水线、n 条指令、每段 1 个时钟周期 t）</text>
+  <text x="28" y="308" font-size="10" fill="#1e293b">非流水时间 = n·k·t；流水时间 = (k + n − 1)·t；加速比 S = n·k / (k + n − 1)，n→∞ 时 S→k</text>
+  <text x="28" y="328" font-size="10" fill="#1e293b">吞吐率 TP = n / [(k+n−1)·t]，最大吞吐率 = 1/t；效率 E = S/k = n/(k+n−1)</text>
+
+  <rect x="16" y="350" width="648" height="70" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="28" y="370" font-size="11" font-weight="700" fill="#334155">工作示例 · k = 5，n = 100 条指令</text>
+  <text x="28" y="390" font-size="10" fill="#1e293b">非流水 = 100×5 = 500 周期；流水 = 5 + 100 − 1 = <tspan font-weight="700">104 周期</tspan>；加速比 S = 500/104 ≈ <tspan font-weight="700">4.81</tspan>（理论上限 5）。</text>
+  <text x="28" y="408" font-size="10" fill="#1e293b">若存在冒险导致平均每条指令停顿 0.2 拍：实际 CPI = 1 + 0.2 = 1.2，总周期 ≈ 100×1.2 + 4 = 124，加速比降为约 4.03。</text>
+</svg>

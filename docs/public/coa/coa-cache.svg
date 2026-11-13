@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 440" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="440" fill="#fbfdff"/>
+  <text x="340" y="28" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">Cache 地址映射、替换算法与写策略</text>
+
+  <!-- 三种映射 -->
+  <text x="20" y="52" font-size="11.5" font-weight="700" fill="#334155">① 主存地址划分（设主存 1 MB = 20 位地址、块 16 B = 块内 4 位、Cache 64 行）</text>
+  <rect x="16" y="62" width="648" height="42" rx="6" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="26" y="79" font-size="10" font-weight="700" fill="#1e3a8a">直接映射</text>
+  <text x="26" y="96" font-size="9.5" fill="#1e293b">主存块号 mod 64 决定唯一行：Tag(10 bit) | 行号 index(6 bit) | 块内(4 bit)</text>
+  <text x="470" y="88" font-size="9.5" fill="#64748b">冲突最多、硬件最简</text>
+
+  <rect x="16" y="110" width="648" height="42" rx="6" fill="#f0fdf4" stroke="#15803d"/>
+  <text x="26" y="127" font-size="10" font-weight="700" fill="#15803d">全相联</text>
+  <text x="26" y="144" font-size="9.5" fill="#1e293b">任意块可放任意行：Tag(16 bit) | 块内(4 bit)，需并行比较所有行的 Tag</text>
+  <text x="470" y="136" font-size="9.5" fill="#64748b">冲突最少、比较器贵</text>
+
+  <rect x="16" y="158" width="648" height="42" rx="6" fill="#fefce8" stroke="#b45309"/>
+  <text x="26" y="175" font-size="10" font-weight="700" fill="#92400e">2 路组相联</text>
+  <text x="26" y="192" font-size="9.5" fill="#1e293b">64 行 / 2 = 32 组：Tag(11 bit) | 组号(5 bit) | 块内(4 bit)，组内全相联</text>
+  <text x="470" y="184" font-size="9.5" fill="#64748b">折中方案，最常用</text>
+
+  <text x="20" y="222" font-size="10" fill="#64748b">通用关系：Tag 位数 = 主存地址位数 − 组（行）索引位数 − 块内地址位数；Cache 总容量 = 行数 × 块大小 × 路数。</text>
+
+  <!-- 工作示例 -->
+  <rect x="16" y="234" width="648" height="92" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="28" y="254" font-size="11" font-weight="700" fill="#334155">工作示例 · 命中判断与容量计算</text>
+  <text x="28" y="274" font-size="10" fill="#1e293b">Cache 共 64 行、每行 16 B → 数据容量 = 64 × 16 = 1 KB；2 路组相联时 32 组、每组 2 行，容量仍是 1 KB。</text>
+  <text x="28" y="292" font-size="10" fill="#1e293b">访问地址 0x3A5F8（20 位）：块内 = 低 4 位 0x8；直接映射行号 = (地址 &gt;&gt; 4) mod 64；Tag = 地址 &gt;&gt; 10。</text>
+  <text x="28" y="310" font-size="10" fill="#1e293b">命中条件：该行有效位为 1 且 Tag 相等；否则缺失，从主存调入整块（16 B）并可能替换旧行。</text>
+
+  <!-- 替换与写策略 -->
+  <rect x="16" y="336" width="318" height="94" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="28" y="356" font-size="11" font-weight="700" fill="#334155">② 替换算法（组/全相联满时）</text>
+  <text x="28" y="375" font-size="9.5" fill="#1e293b">LRU 最近最少用（命中率好，硬件开销大）</text>
+  <text x="28" y="392" font-size="9.5" fill="#1e293b">FIFO 先进先出（简单，可能出现 Belady 异常）</text>
+  <text x="28" y="409" font-size="9.5" fill="#1e293b">LFU 最不常用 / Random 随机（近似 LRU）</text>
+  <text x="28" y="425" font-size="9.5" fill="#64748b">直接映射无需替换算法：位置唯一，直接覆盖</text>
+
+  <rect x="346" y="336" width="318" height="94" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="358" y="356" font-size="11" font-weight="700" fill="#334155">③ 写策略与一致性</text>
+  <text x="358" y="375" font-size="9.5" fill="#1e293b"><tspan font-weight="700">写直达 Write-through</tspan>：同时写 Cache 与主存，简单但慢</text>
+  <text x="358" y="392" font-size="9.5" fill="#1e293b"><tspan font-weight="700">写回 Write-back</tspan>：只写 Cache 并置脏位，替换时才写回</text>
+  <text x="358" y="409" font-size="9.5" fill="#1e293b">写缺失：写分配 / 非写分配；常配写缓冲 Write Buffer</text>
+  <text x="358" y="425" font-size="9.5" fill="#64748b">多核：MESI/MOESI 协议维护 Cache 一致性，注意伪共享</text>
+</svg>

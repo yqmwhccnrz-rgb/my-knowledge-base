@@ -41556,5 +41556,2000 @@
   "answer": "对称（AES/ChaCha20）：速度快、适合大数据，但 n 个用户两两通信需 n(n−1)/2 个密钥、分发困难，且本身不解决身份鉴别。公钥（RSA/ECC/DH）：公钥可公开，适合签名与密钥协商，但计算慢 2~3 个数量级，且需要 CA 证书保证公钥归属。TLS 握手：服务端出示 X.509 证书（客户端验证 CA 链与域名）→ 用 ECDHE（或 RSA 密钥传输）协商出会话密钥并具备前向保密 → 之后所有应用数据用对称 AEAD（AES-GCM / ChaCha20-Poly1305）加密并带认证标签，兼顾认证、保密、完整性与性能。",
   "explanation": "TLS 1.3 只保留 AEAD 套件并强制前向保密，握手可缩到 1-RTT。",
   "type": "essay"
+ },
+ {
+  "id": "coa1",
+  "note": "COA",
+  "topic": "第1章 计算机系统概述",
+  "question": "冯·诺依曼结构最核心的思想是（ ）。",
+  "options": [
+   "存储程序：指令与数据以同等地位存于存储器，按地址取指执行",
+   "全部采用二进制运算",
+   "用总线连接所有部件",
+   "必须使用高速 Cache"
+  ],
+  "answer": 0,
+  "explanation": "存储程序使计算机能自动、连续地按程序执行，无需人工干预。",
+  "type": "choice"
+ },
+ {
+  "id": "coa2",
+  "note": "COA",
+  "topic": "第1章 计算机系统概述",
+  "question": "冯·诺依曼计算机的五大部件是（ ）。",
+  "options": [
+   "CPU、内存、硬盘、显示器、键盘",
+   "运算器、控制器、存储器、输入设备、输出设备",
+   "ALU、Cache、MMU、总线、I/O 接口",
+   "运算器、寄存器、Cache、主存、总线"
+  ],
+  "answer": 1,
+  "explanation": "CPU = 运算器 + 控制器；存储器与 I/O 设备构成其余部分。",
+  "type": "choice"
+ },
+ {
+  "id": "coa3",
+  "note": "COA",
+  "topic": "第1章 计算机系统概述",
+  "question": "下列属于 ISA（指令集体系结构）范畴的是（ ）。",
+  "options": [
+   "流水线级数",
+   "Cache 容量与相联度",
+   "可访问寄存器的个数、位数与编号",
+   "是否采用乱序执行"
+  ],
+  "answer": 2,
+  "explanation": "ISA 是程序员可见的属性；流水线级数、Cache 结构、乱序执行属于微体系结构/组成。",
+  "type": "choice"
+ },
+ {
+  "id": "coa4",
+  "note": "COA",
+  "topic": "第1章 计算机系统概述",
+  "question": "CPU 时间的正确表达式是（ ）。",
+  "options": [
+   "主频 × CPI",
+   "指令数 / 主频",
+   "MIPS × 指令数",
+   "指令数 × CPI × 时钟周期"
+  ],
+  "answer": 3,
+  "explanation": "CPU 时间 = IC × CPI / f，三要素缺一不可。",
+  "type": "choice"
+ },
+ {
+  "id": "coa5",
+  "note": "COA",
+  "topic": "第1章 计算机系统概述",
+  "question": "某程序 ALU 指令占 50%（CPI=1）、Load/Store 占 40%（CPI=5）、分支占 10%（CPI=3），加权 CPI 为（ ）。",
+  "options": [
+   "2.8",
+   "3.0",
+   "2.5",
+   "1.8"
+  ],
+  "answer": 0,
+  "explanation": "0.5×1 + 0.4×5 + 0.1×3 = 0.5+2+0.3 = 2.8。",
+  "type": "choice"
+ },
+ {
+  "id": "coa6",
+  "note": "COA",
+  "topic": "第1章 计算机系统概述",
+  "question": "MIPS 指标的主要缺陷是（ ）。",
+  "options": [
+   "计算过于复杂",
+   "不包含指令数，不能跨 ISA 或跨编译器比较性能",
+   "只适用于浮点运算",
+   "必须使用基准程序才能算出"
+  ],
+  "answer": 1,
+  "explanation": "MIPS = f/(CPI×10⁶)，忽略 IC；教材专门举例说明优化后 MIPS 下降但时间反而缩短。",
+  "type": "choice"
+ },
+ {
+  "id": "coa7",
+  "note": "COA",
+  "topic": "第1章 计算机系统概述",
+  "question": "Amdahl 定律中，若某部件原占总时间 40%、自身加速 10 倍，整体加速比为（ ）。",
+  "options": [
+   "10",
+   "4",
+   "约 1.56",
+   "2.5"
+  ],
+  "answer": 2,
+  "explanation": "S = 1/[(1−0.4)+0.4/10] = 1/0.64 ≈ 1.5625；上限 1/0.6 ≈ 1.67。",
+  "type": "choice"
+ },
+ {
+  "id": "coa8",
+  "note": "COA",
+  "topic": "第1章 计算机系统概述",
+  "question": "关于主频与性能，正确的是（ ）。",
+  "options": [
+   "主频越高机器一定越快",
+   "主频与时钟周期成正比",
+   "主频由编译器决定",
+   "主频提高若伴随 CPI 增大或指令数增加，性能未必提升"
+  ],
+  "answer": 3,
+  "explanation": "必须综合 IC × CPI / f；流水线加深会提高主频但也可能增大 CPI。",
+  "type": "choice"
+ },
+ {
+  "id": "coa9",
+  "note": "COA",
+  "topic": "第1章 计算机系统概述",
+  "question": "计算机系统层次化结构中，位于软硬件交界面的是（ ）。",
+  "options": [
+   "指令集体系结构 ISA（机器语言层）",
+   "操作系统层",
+   "高级语言层",
+   "数字逻辑电路层"
+  ],
+  "answer": 0,
+  "explanation": "ISA 之上是软件（含 OS、编译器），之下是微体系结构与电路实现。",
+  "type": "choice"
+ },
+ {
+  "id": "coa10",
+  "note": "COA",
+  "topic": "第1章 计算机系统概述",
+  "question": "SPEC 测试程序集汇总多台机器性能时通常采用（ ）。",
+  "options": [
+   "算术平均",
+   "相对参考机比值的几何平均",
+   "取最大值",
+   "取中位数"
+  ],
+  "answer": 1,
+  "explanation": "几何平均避免某个大数值程序主导结果。",
+  "type": "choice"
+ },
+ {
+  "id": "coa11",
+  "note": "COA",
+  "topic": "第1章 计算机系统概述",
+  "question": "程序从源代码到运行，正确顺序是（ ）。",
+  "options": [
+   "汇编 → 编译 → 装入 → 链接 → 执行",
+   "编译 → 链接 → 汇编 → 装入 → 执行",
+   "编译 → 汇编 → 链接 → 装入 → 执行",
+   "链接 → 编译 → 汇编 → 执行"
+  ],
+  "answer": 2,
+  "explanation": "链接做符号解析与重定位，装入由 OS 建立进程与地址空间。",
+  "type": "choice"
+ },
+ {
+  "id": "coa12",
+  "note": "COA",
+  "topic": "第1章 计算机系统概述",
+  "question": "摩尔定律属于（ ）。",
+  "options": [
+   "严格物理定律",
+   "关于主频的定律",
+   "描述存储容量与价格关系的定律",
+   "关于集成度增长的经验规律，近年因功耗与成本明显放缓"
+  ],
+  "answer": 3,
+  "explanation": "性能提升已转向多核、异构与专用加速器。",
+  "type": "choice"
+ },
+ {
+  "id": "coa13",
+  "note": "COA",
+  "topic": "第2章 数据的机器级表示",
+  "question": "8 位补码能表示的整数范围是（ ）。",
+  "options": [
+   "−128 ~ +127",
+   "−127 ~ +127",
+   "−128 ~ +128",
+   "0 ~ 255"
+  ],
+  "answer": 0,
+  "explanation": "n 位补码范围 −2^(n−1) ~ 2^(n−1)−1，0 的表示唯一，可多表示一个最小负数。",
+  "type": "choice"
+ },
+ {
+  "id": "coa14",
+  "note": "COA",
+  "topic": "第2章 数据的机器级表示",
+  "question": "真值 −5 的 8 位补码是（ ）。",
+  "options": [
+   "1000 0101",
+   "1111 1011",
+   "1111 1010",
+   "0111 1011"
+  ],
+  "answer": 1,
+  "explanation": "原码 1000 0101 → 反码 1111 1010 → 补码 1111 1011；0111 1011 是移码。",
+  "type": "choice"
+ },
+ {
+  "id": "coa15",
+  "note": "COA",
+  "topic": "第2章 数据的机器级表示",
+  "question": "8 位补码 1000 0000 对应的真值是（ ）。",
+  "options": [
+   "−0",
+   "+128",
+   "−128",
+   "−127"
+  ],
+  "answer": 2,
+  "explanation": "这是补码特有的最小负数，没有对应的 8 位原码/反码。",
+  "type": "choice"
+ },
+ {
+  "id": "coa16",
+  "note": "COA",
+  "topic": "第2章 数据的机器级表示",
+  "question": "关于原码与反码的 0，正确的是（ ）。",
+  "options": [
+   "只有一种表示",
+   "反码只有一种而原码有两种",
+   "补码也有两种",
+   "各有 +0 与 −0 两种表示"
+  ],
+  "answer": 3,
+  "explanation": "补码与移码的 0 唯一；原码 ±0 为 00000000/10000000，反码为 00000000/11111111。",
+  "type": "choice"
+ },
+ {
+  "id": "coa17",
+  "note": "COA",
+  "topic": "第2章 数据的机器级表示",
+  "question": "浮点数阶码常用移码表示，主要目的是（ ）。",
+  "options": [
+   "便于直接比较阶码大小，简化对阶",
+   "节省存储空间",
+   "提高尾数精度",
+   "避免溢出"
+  ],
+  "answer": 0,
+  "explanation": "移码使阶码的单调性与真值一致，比较时无需考虑符号。",
+  "type": "choice"
+ },
+ {
+  "id": "coa18",
+  "note": "COA",
+  "topic": "第2章 数据的机器级表示",
+  "question": "IEEE 754 单精度浮点数的字段划分是（ ）。",
+  "options": [
+   "符号 1 位、阶码 11 位、尾数 52 位",
+   "符号 1 位、阶码 8 位、尾数 23 位",
+   "符号 1 位、阶码 8 位、尾数 24 位",
+   "符号 2 位、阶码 8 位、尾数 22 位"
+  ],
+  "answer": 1,
+  "explanation": "单精度 S1/E8/M23，还有 1 位隐藏位；双精度 S1/E11/M52。",
+  "type": "choice"
+ },
+ {
+  "id": "coa19",
+  "note": "COA",
+  "topic": "第2章 数据的机器级表示",
+  "question": "IEEE 754 单精度阶码的偏置值 bias 是（ ）。",
+  "options": [
+   "128",
+   "1023",
+   "127",
+   "126"
+  ],
+  "answer": 2,
+  "explanation": "真指数 + 127 存入 E 字段；双精度为 1023。",
+  "type": "choice"
+ },
+ {
+  "id": "coa20",
+  "note": "COA",
+  "topic": "第2章 数据的机器级表示",
+  "question": "十进制 −12.75 的 IEEE 754 单精度编码（十六进制）是（ ）。",
+  "options": [
+   "0x414C0000",
+   "0xC14C0001",
+   "0xC1500000",
+   "0xC14C0000"
+  ],
+  "answer": 3,
+  "explanation": "12.75 = 1.10011×2³；S=1、E=130(10000010)、M=100110…0 → C14C0000。",
+  "type": "choice"
+ },
+ {
+  "id": "coa21",
+  "note": "COA",
+  "topic": "第2章 数据的机器级表示",
+  "question": "IEEE 754 中 E=0 且 M≠0 表示（ ）。",
+  "options": [
+   "非规格化数（0.M × 2^−126）",
+   "±0",
+   "±∞",
+   "NaN"
+  ],
+  "answer": 0,
+  "explanation": "非规格化数隐藏位为 0，用于渐进下溢；E 全 1 且 M=0 是 ±∞，M≠0 是 NaN。",
+  "type": "choice"
+ },
+ {
+  "id": "coa22",
+  "note": "COA",
+  "topic": "第2章 数据的机器级表示",
+  "question": "关于浮点运算，正确的是（ ）。",
+  "options": [
+   "总是精确无误差",
+   "不满足结合律，对阶右移会丢失低位精度",
+   "溢出由尾数决定",
+   "0.1+0.2 精确等于 0.3"
+  ],
+  "answer": 1,
+  "explanation": "浮点加法需对阶、舍入，误差会累积；溢出判的是阶码。",
+  "type": "choice"
+ },
+ {
+  "id": "coa23",
+  "note": "COA",
+  "topic": "第2章 数据的机器级表示",
+  "question": "小端方式存储 0x12345678 时，最低地址字节是（ ）。",
+  "options": [
+   "0x12",
+   "0x34",
+   "0x78",
+   "0x56"
+  ],
+  "answer": 2,
+  "explanation": "小端低位字节在低地址；大端则 0x12 在最低地址。",
+  "type": "choice"
+ },
+ {
+  "id": "coa24",
+  "note": "COA",
+  "topic": "第2章 数据的机器级表示",
+  "question": "数据 8 位采用海明码校验，需要的校验位最少是（ ）。",
+  "options": [
+   "2 位",
+   "3 位",
+   "5 位",
+   "4 位"
+  ],
+  "answer": 3,
+  "explanation": "2ᵏ ≥ n+k+1：8 位数据时 k=4 满足 16 ≥ 13；k=3 时 8 < 12。",
+  "type": "choice"
+ },
+ {
+  "id": "coa25",
+  "note": "COA",
+  "topic": "第2章 数据的机器级表示",
+  "question": "奇偶校验码的能力是（ ）。",
+  "options": [
+   "只能检出奇数个比特错，无纠错能力",
+   "能纠正 1 位错",
+   "能检出任意多位错",
+   "能定位出错位置"
+  ],
+  "answer": 0,
+  "explanation": "多重奇偶校验才是海明码；海明码可纠 1 位、检 2 位。",
+  "type": "choice"
+ },
+ {
+  "id": "coa26",
+  "note": "COA",
+  "topic": "第2章 数据的机器级表示",
+  "question": "C 语言中表达式 −1 < 1U 的结果为假，原因是（ ）。",
+  "options": [
+   "编译器优化错误",
+   "有符号数被隐式转换为无符号数再比较",
+   "−1 被解释为 0",
+   "无符号数不能比较"
+  ],
+  "answer": 1,
+  "explanation": "C 的寻常算术转换：signed 与 unsigned 混合时向 unsigned 转换。",
+  "type": "choice"
+ },
+ {
+  "id": "coa27",
+  "note": "COA",
+  "topic": "第3章 运算方法与运算部件",
+  "question": "一位全加器的进位输出表达式是（ ）。",
+  "options": [
+   "C_out = A ⊕ B ⊕ C_in",
+   "C_out = A·B·C_in",
+   "C_out = A·B + (A⊕B)·C_in",
+   "C_out = A+B+C_in"
+  ],
+  "answer": 2,
+  "explanation": "A⊕B⊕C_in 是和 S；C_out = G + P·C_in，其中 G=A·B、P=A⊕B。",
+  "type": "choice"
+ },
+ {
+  "id": "coa28",
+  "note": "COA",
+  "topic": "第3章 运算方法与运算部件",
+  "question": "先行进位加法器相比行波进位的主要优势是（ ）。",
+  "options": [
+   "门数更少",
+   "不需要全加器",
+   "功耗更低",
+   "各级进位并行产生，时延由 O(n) 降为 O(log n)"
+  ],
+  "answer": 3,
+  "explanation": "代价是门数与布线复杂度增加。",
+  "type": "choice"
+ },
+ {
+  "id": "coa29",
+  "note": "COA",
+  "topic": "第3章 运算方法与运算部件",
+  "question": "补码减法 [X−Y]补 等于（ ）。",
+  "options": [
+   "[X]补 + [−Y]补",
+   "[X]补 − [Y]补",
+   "[X]原 + [Y]反",
+   "[X]补 + [Y]补 再取反"
+  ],
+  "answer": 0,
+  "explanation": "[−Y]补 = [Y]补 连同符号位取反、末位加 1；这样减法可复用加法器。",
+  "type": "choice"
+ },
+ {
+  "id": "coa30",
+  "note": "COA",
+  "topic": "第3章 运算方法与运算部件",
+  "question": "判断补码加减溢出的常用方法是（ ）。",
+  "options": [
+   "结果最高位为 1",
+   "最高数值位进位与符号位进位相异或",
+   "结果为 0",
+   "两操作数符号不同"
+  ],
+  "answer": 1,
+  "explanation": "OV = C_n ⊕ C_(n−1)；也可用双符号位 01/10 判断。",
+  "type": "choice"
+ },
+ {
+  "id": "coa31",
+  "note": "COA",
+  "topic": "第3章 运算方法与运算部件",
+  "question": "双符号位补码运算结果为 01，表示（ ）。",
+  "options": [
+   "负溢出",
+   "结果为正且正常",
+   "正溢出",
+   "结果为负且正常"
+  ],
+  "answer": 2,
+  "explanation": "00/11 正常；01 正溢出、10 负溢出。",
+  "type": "choice"
+ },
+ {
+  "id": "coa32",
+  "note": "COA",
+  "topic": "第3章 运算方法与运算部件",
+  "question": "Booth 一位乘法中，相邻两位为 10 时应（ ）。",
+  "options": [
+   "部分积加 [X]补 后右移",
+   "部分积不变仅右移",
+   "结束运算",
+   "部分积加 [−X]补 后右移"
+  ],
+  "answer": 3,
+  "explanation": "规则：00/11 仅右移；01 加 [X]补；10 加 [−X]补；最后一步不移位。",
+  "type": "choice"
+ },
+ {
+  "id": "coa33",
+  "note": "COA",
+  "topic": "第3章 运算方法与运算部件",
+  "question": "n 位原码一位乘法需要的加法次数是（ ）。",
+  "options": [
+   "n 次",
+   "1 次",
+   "n/2 次",
+   "2n 次"
+  ],
+  "answer": 0,
+  "explanation": "乘数每一位判断一次，共 n 次加法与 n 次右移；结果 2n 位。",
+  "type": "choice"
+ },
+ {
+  "id": "coa34",
+  "note": "COA",
+  "topic": "第3章 运算方法与运算部件",
+  "question": "加减交替（不恢复余数）除法中，余数为负时下一步应（ ）。",
+  "options": [
+   "先加回除数再左移并减除数",
+   "余数左移后加除数",
+   "左移后减除数",
+   "直接结束并取商"
+  ],
+  "answer": 1,
+  "explanation": "恢复余数法才需要加回；加减交替法把恢复与下一步合并。",
+  "type": "choice"
+ },
+ {
+  "id": "coa35",
+  "note": "COA",
+  "topic": "第3章 运算方法与运算部件",
+  "question": "浮点加减运算中，对阶的原则是（ ）。",
+  "options": [
+   "大阶向小阶看齐，尾数左移",
+   "阶码取平均值",
+   "小阶向大阶看齐，小阶数的尾数右移",
+   "只调整尾数不调整阶码"
+  ],
+  "answer": 2,
+  "explanation": "右移只丢低位精度；左移会丢高位有效数字，故不能反向对阶。",
+  "type": "choice"
+ },
+ {
+  "id": "coa36",
+  "note": "COA",
+  "topic": "第3章 运算方法与运算部件",
+  "question": "浮点运算判溢出的依据是（ ）。",
+  "options": [
+   "尾数最高位是否为 1",
+   "尾数是否全 0",
+   "符号位是否变化",
+   "阶码是否超出表示范围"
+  ],
+  "answer": 3,
+  "explanation": "尾数溢出可通过右规修正；阶码上溢为 ∞、下溢为 0 或非规格化数。",
+  "type": "choice"
+ },
+ {
+  "id": "coa37",
+  "note": "COA",
+  "topic": "第3章 运算方法与运算部件",
+  "question": "BCD 码加法中某 4 位组结果大于 9 时应（ ）。",
+  "options": [
+   "对该组加 6（0110）修正",
+   "对该组减 6",
+   "向高组进 1 即可",
+   "重新编码为 ASCII"
+  ],
+  "answer": 0,
+  "explanation": "例 25+37：0101 1100 → 低组加 0110 → 0110 0010 = 62。",
+  "type": "choice"
+ },
+ {
+  "id": "coa38",
+  "note": "COA",
+  "topic": "第4章 存储器分层体系结构",
+  "question": "关于 SRAM 与 DRAM，正确的是（ ）。",
+  "options": [
+   "DRAM 更快且不需刷新",
+   "SRAM 用触发器、无需刷新；DRAM 用电容、需定期刷新",
+   "SRAM 集成度更高",
+   "两者都是非易失存储器"
+  ],
+  "answer": 1,
+  "explanation": "SRAM 快但贵、用于 Cache；DRAM 密度高、用于主存；两者均易失。",
+  "type": "choice"
+ },
+ {
+  "id": "coa39",
+  "note": "COA",
+  "topic": "第4章 存储器分层体系结构",
+  "question": "DRAM 刷新的单位是（ ）。",
+  "options": [
+   "字节",
+   "字节块 Cache 行",
+   "行",
+   "整个芯片按位"
+  ],
+  "answer": 2,
+  "explanation": "一次读操作可再生的整行电容，故按行组织刷新。",
+  "type": "choice"
+ },
+ {
+  "id": "coa40",
+  "note": "COA",
+  "topic": "第4章 存储器分层体系结构",
+  "question": "用 1K×4 位芯片构成 4K×8 位主存，需要芯片（ ）。",
+  "options": [
+   "2 片",
+   "4 片",
+   "16 片",
+   "8 片"
+  ],
+  "answer": 3,
+  "explanation": "(4K/1K)×(8/4) = 4×2 = 8；高 2 位地址用于片选。",
+  "type": "choice"
+ },
+ {
+  "id": "coa41",
+  "note": "COA",
+  "topic": "第4章 存储器分层体系结构",
+  "question": "程序访问局部性中，数组元素顺序遍历主要体现（ ）。",
+  "options": [
+   "空间局部性",
+   "时间局部性",
+   "分支局部性",
+   "指令局部性"
+  ],
+  "answer": 0,
+  "explanation": "相邻地址连续被访问；循环体反复执行体现时间局部性。",
+  "type": "choice"
+ },
+ {
+  "id": "coa42",
+  "note": "COA",
+  "topic": "第4章 存储器分层体系结构",
+  "question": "引入 Cache 的主要目的是解决（ ）。",
+  "options": [
+   "主存容量不足",
+   "CPU 与主存之间的速度差异",
+   "外存速度过慢",
+   "多进程地址隔离"
+  ],
+  "answer": 1,
+  "explanation": "容量与保护问题由虚拟存储器解决。",
+  "type": "choice"
+ },
+ {
+  "id": "coa43",
+  "note": "COA",
+  "topic": "第4章 存储器分层体系结构",
+  "question": "直接映射 Cache 中，主存块放入哪一行由（ ）决定。",
+  "options": [
+   "替换算法 LRU",
+   "操作系统随机分配",
+   "主存块号 mod Cache 行数",
+   "块内偏移"
+  ],
+  "answer": 2,
+  "explanation": "故无需替换算法，位置唯一直接覆盖，但冲突缺失多。",
+  "type": "choice"
+ },
+ {
+  "id": "coa44",
+  "note": "COA",
+  "topic": "第4章 存储器分层体系结构",
+  "question": "主存 1 MB（20 位地址）、块 16 B、Cache 64 行，直接映射时 Tag 位数是（ ）。",
+  "options": [
+   "6 位",
+   "4 位",
+   "16 位",
+   "10 位"
+  ],
+  "answer": 3,
+  "explanation": "块内 4 位、行号 6 位 → Tag = 20−6−4 = 10。",
+  "type": "choice"
+ },
+ {
+  "id": "coa45",
+  "note": "COA",
+  "topic": "第4章 存储器分层体系结构",
+  "question": "上题若改为 2 路组相联，Tag 位数变为（ ）。",
+  "options": [
+   "11 位",
+   "10 位",
+   "9 位",
+   "12 位"
+  ],
+  "answer": 0,
+  "explanation": "32 组 → 组号 5 位 → Tag = 20−5−4 = 11。",
+  "type": "choice"
+ },
+ {
+  "id": "coa46",
+  "note": "COA",
+  "topic": "第4章 存储器分层体系结构",
+  "question": "Cache 写回法（Write-back）需要额外的（ ）。",
+  "options": [
+   "有效位之外的校验位",
+   "脏位，标记该行是否被修改过",
+   "更大的 Tag",
+   "额外的地址总线"
+  ],
+  "answer": 1,
+  "explanation": "替换时才把脏行写回主存，减少写主存次数。",
+  "type": "choice"
+ },
+ {
+  "id": "coa47",
+  "note": "COA",
+  "topic": "第4章 存储器分层体系结构",
+  "question": "Cache 命中时间 1 ns、缺失率 5%、缺失代价 100 ns，AMAT 为（ ）。",
+  "options": [
+   "5 ns",
+   "1.05 ns",
+   "6 ns",
+   "100 ns"
+  ],
+  "answer": 2,
+  "explanation": "AMAT = 1 + 0.05×100 = 6 ns；命中时间始终要计入。",
+  "type": "choice"
+ },
+ {
+  "id": "coa48",
+  "note": "COA",
+  "topic": "第4章 存储器分层体系结构",
+  "question": "TLB 的作用是（ ）。",
+  "options": [
+   "缓存主存数据块",
+   "保存中断向量",
+   "存放微程序",
+   "缓存近期 VPN→PFN 映射，加速虚拟地址变换"
+  ],
+  "answer": 3,
+  "explanation": "TLB 是页表的 Cache，由 MMU 使用。",
+  "type": "choice"
+ },
+ {
+  "id": "coa49",
+  "note": "COA",
+  "topic": "第4章 存储器分层体系结构",
+  "question": "32 位虚拟地址、页大小 4 KB，页内偏移位数是（ ）。",
+  "options": [
+   "12 位",
+   "10 位",
+   "20 位",
+   "22 位"
+  ],
+  "answer": 0,
+  "explanation": "log₂4096 = 12；VPN = 32−12 = 20 位。",
+  "type": "choice"
+ },
+ {
+  "id": "coa50",
+  "note": "COA",
+  "topic": "第4章 存储器分层体系结构",
+  "question": "虚拟存储器的主要作用不包括（ ）。",
+  "options": [
+   "扩大可用地址空间",
+   "提高 CPU 与主存之间的访问速度",
+   "实现进程间存储保护",
+   "支持多进程共享主存"
+  ],
+  "answer": 1,
+  "explanation": "提速是 Cache 的职责；虚存解决容量、保护与地址空间问题。",
+  "type": "choice"
+ },
+ {
+  "id": "coa51",
+  "note": "COA",
+  "topic": "第4章 存储器分层体系结构",
+  "question": "多核系统中维护各核 Cache 副本一致的常用协议是（ ）。",
+  "options": [
+   "PCIe",
+   "RAID",
+   "MESI / MOESI",
+   "TLB"
+  ],
+  "answer": 2,
+  "explanation": "通过 Modified/Exclusive/Shared/Invalid 状态与侦听或目录机制维护一致性。",
+  "type": "choice"
+ },
+ {
+  "id": "coa52",
+  "note": "COA",
+  "topic": "第5章 指令系统",
+  "question": "一条机器指令的基本组成是（ ）。",
+  "options": [
+   "程序计数器 + 状态字",
+   "段地址 + 偏移地址",
+   "微指令 + 微地址",
+   "操作码 + 地址码"
+  ],
+  "answer": 3,
+  "explanation": "OP 指明操作类型与寻址方式，A 给出操作数或地址。",
+  "type": "choice"
+ },
+ {
+  "id": "coa53",
+  "note": "COA",
+  "topic": "第5章 指令系统",
+  "question": "下列指令格式中，程序最短而指令最长的是（ ）。",
+  "options": [
+   "三地址指令",
+   "一地址指令",
+   "零地址指令",
+   "二地址指令"
+  ],
+  "answer": 0,
+  "explanation": "地址码多→单条指令长，但表达同一运算所需指令条数少。",
+  "type": "choice"
+ },
+ {
+  "id": "coa54",
+  "note": "COA",
+  "topic": "第5章 指令系统",
+  "question": "指令字长 16 位、地址码 4 位，三/二/一地址各 15 条时，零地址最多（ ）。",
+  "options": [
+   "15 条",
+   "16 条",
+   "1 条",
+   "64 条"
+  ],
+  "answer": 1,
+  "explanation": "每层用 15 种编码、各留 1 个扩展前缀，最后剩 4 位 → 2⁴ = 16。",
+  "type": "choice"
+ },
+ {
+  "id": "coa55",
+  "note": "COA",
+  "topic": "第5章 指令系统",
+  "question": "不需要访问主存即可取得操作数的寻址方式是（ ）。",
+  "options": [
+   "直接寻址",
+   "间接寻址",
+   "立即寻址",
+   "寄存器间接寻址"
+  ],
+  "answer": 2,
+  "explanation": "立即数就在指令中；寄存器直接寻址也不访主存，但需读寄存器。",
+  "type": "choice"
+ },
+ {
+  "id": "coa56",
+  "note": "COA",
+  "topic": "第5章 指令系统",
+  "question": "变址寻址与基址寻址的关键区别是（ ）。",
+  "options": [
+   "计算公式不同",
+   "一个访存一个不访存",
+   "变址只能用于跳转",
+   "变址寄存器由程序修改（数组遍历），基址寄存器由 OS 设定（重定位）"
+  ],
+  "answer": 3,
+  "explanation": "两者 EA 都是 A + (R)，区别在使用者与用途。",
+  "type": "choice"
+ },
+ {
+  "id": "coa57",
+  "note": "COA",
+  "topic": "第5章 指令系统",
+  "question": "相对寻址的基准地址通常是（ ）。",
+  "options": [
+   "取指完成后的 PC（已指向下一条指令）",
+   "当前指令地址",
+   "基址寄存器",
+   "栈顶指针"
+  ],
+  "answer": 0,
+  "explanation": "故位移量按「下一条指令」计算，注意指令长度。",
+  "type": "choice"
+ },
+ {
+  "id": "coa58",
+  "note": "COA",
+  "topic": "第5章 指令系统",
+  "question": "下列关于 RISC 的描述正确的是（ ）。",
+  "options": [
+   "指令条数多且变长",
+   "指令定长、仅 Load/Store 访存、寄存器数量多",
+   "必须用微程序控制器",
+   "寻址方式非常丰富"
+  ],
+  "answer": 1,
+  "explanation": "RISC 规整易流水；「指令少」指种类少，不是程序指令条数少。",
+  "type": "choice"
+ },
+ {
+  "id": "coa59",
+  "note": "COA",
+  "topic": "第5章 指令系统",
+  "question": "MIPS 的 R 型指令字段不含（ ）。",
+  "options": [
+   "rs",
+   "rd",
+   "16 位立即数",
+   "funct"
+  ],
+  "answer": 2,
+  "explanation": "R 型为 op/rs/rt/rd/shamt/funct；立即数属于 I 型。",
+  "type": "choice"
+ },
+ {
+  "id": "coa60",
+  "note": "COA",
+  "topic": "第5章 指令系统",
+  "question": "MIPS 汇编中的 move 指令通常是（ ）。",
+  "options": [
+   "CPU 硬件直接执行的独立机器指令",
+   "J 型跳转指令",
+   "协处理器指令",
+   "汇编器伪指令，展开为 add $dst, $src, $zero"
+  ],
+  "answer": 3,
+  "explanation": "教材特别指出 MIPS 没有寄存器传送指令，用伪指令提升可读性。",
+  "type": "choice"
+ },
+ {
+  "id": "coa61",
+  "note": "COA",
+  "topic": "第5章 指令系统",
+  "question": "过程调用约定中，callee-saved 寄存器的含义是（ ）。",
+  "options": [
+   "由被调用过程负责保存与恢复",
+   "由调用者保存",
+   "由操作系统保存",
+   "永不保存"
+  ],
+  "answer": 0,
+  "explanation": "MIPS 中 $s 类为 callee-saved、$t 类为 caller-saved。",
+  "type": "choice"
+ },
+ {
+  "id": "coa62",
+  "note": "COA",
+  "topic": "第5章 指令系统",
+  "question": "下列属于现代开源 RISC 指令集的是（ ）。",
+  "options": [
+   "x86-64",
+   "RISC-V",
+   "IA-32",
+   "VAX"
+  ],
+  "answer": 1,
+  "explanation": "RISC-V 模块化扩展、定长指令 + 压缩扩展，是教材未涉及的重要现代 ISA。",
+  "type": "choice"
+ },
+ {
+  "id": "coa63",
+  "note": "COA",
+  "topic": "第6章 中央处理器",
+  "question": "CPU 中存放下一条指令地址的是（ ），存放当前指令的是（ ）。",
+  "options": [
+   "IR / PC",
+   "MAR / MDR",
+   "PC / IR",
+   "PSW / MAR"
+  ],
+  "answer": 2,
+  "explanation": "PC 程序计数器、IR 指令寄存器；MAR/MDR 是访存地址与数据暂存。",
+  "type": "choice"
+ },
+ {
+  "id": "coa64",
+  "note": "COA",
+  "topic": "第6章 中央处理器",
+  "question": "单周期处理器的 CPI 是（ ）。",
+  "options": [
+   "等于指令种类数",
+   "大于 1",
+   "小于 1",
+   "1"
+  ],
+  "answer": 3,
+  "explanation": "一条指令一个时钟周期完成；代价是周期必须由最慢指令决定。",
+  "type": "choice"
+ },
+ {
+  "id": "coa65",
+  "note": "COA",
+  "topic": "第6章 中央处理器",
+  "question": "单周期 CPU 需要分离的指令存储器与数据存储器，主要是为了避免（ ）。",
+  "options": [
+   "IF 与 MEM 在同一周期争用同一部件（结构冒险）",
+   "数据相关",
+   "控制相关",
+   "Cache 缺失"
+  ],
+  "answer": 0,
+  "explanation": "也可使用双端口存储器；流水线 CPU 用分离 I/D Cache。",
+  "type": "choice"
+ },
+ {
+  "id": "coa66",
+  "note": "COA",
+  "topic": "第6章 中央处理器",
+  "question": "控制信号 RegDst 的作用是（ ）。",
+  "options": [
+   "选择 ALU 第二操作数",
+   "选择写回目的寄存器是 rt 还是 rd",
+   "选择写回数据来源",
+   "控制数据存储器写使能"
+  ],
+  "answer": 1,
+  "explanation": "ALUSrc 选操作数、MemtoReg 选写回数据、RegWrite 是写使能。",
+  "type": "choice"
+ },
+ {
+  "id": "coa67",
+  "note": "COA",
+  "topic": "第6章 中央处理器",
+  "question": "多周期处理器相比单周期的主要优点是（ ）。",
+  "options": [
+   "CPI 恒为 1",
+   "不需要控制器",
+   "时钟周期由最慢的单个阶段决定，部件可分时复用",
+   "所有指令周期数相同"
+  ],
+  "answer": 2,
+  "explanation": "CPI 随指令类型变化，但周期显著缩短、硬件更省。",
+  "type": "choice"
+ },
+ {
+  "id": "coa68",
+  "note": "COA",
+  "topic": "第6章 中央处理器",
+  "question": "微程序控制器的控制信号存放在（ ）。",
+  "options": [
+   "通用寄存器堆",
+   "主存的数据区",
+   "指令 Cache",
+   "控制存储器（ROM）中的微指令里"
+  ],
+  "answer": 3,
+  "explanation": "每条机器指令对应一段微程序，由微地址寄存器指向下一条微指令。",
+  "type": "choice"
+ },
+ {
+  "id": "coa69",
+  "note": "COA",
+  "topic": "第6章 中央处理器",
+  "question": "微程序控制器相对硬连线控制器的主要优势是（ ）。",
+  "options": [
+   "规整、易修改与扩展指令系统",
+   "速度更快",
+   "不需要时序",
+   "门数更少"
+  ],
+  "answer": 0,
+  "explanation": "代价是每条微指令需一次控存读出，速度较慢；故 RISC 多用硬连线。",
+  "type": "choice"
+ },
+ {
+  "id": "coa70",
+  "note": "COA",
+  "topic": "第6章 中央处理器",
+  "question": "下列属于同步异常的是（ ）。",
+  "options": [
+   "定时器中断",
+   "缺页、非法指令、整数除零",
+   "键盘输入",
+   "网卡收到数据包"
+  ],
+  "answer": 1,
+  "explanation": "异常由当前指令引起、同步发生；中断由外部事件异步触发。",
+  "type": "choice"
+ },
+ {
+  "id": "coa71",
+  "note": "COA",
+  "topic": "第6章 中央处理器",
+  "question": "精确异常要求（ ）。",
+  "options": [
+   "所有流水线级立即清空且不保存 PC",
+   "异常指令重新取指但不恢复现场",
+   "异常指令之前的指令全部完成、之后的指令不留副作用",
+   "只允许在 WB 阶段报告异常"
+  ],
+  "answer": 2,
+  "explanation": "乱序核靠重排序缓冲 ROB 按程序顺序提交来保证。",
+  "type": "choice"
+ },
+ {
+  "id": "coa72",
+  "note": "COA",
+  "topic": "第6章 中央处理器",
+  "question": "中断向量表中存放的是（ ）。",
+  "options": [
+   "被中断程序的断点",
+   "中断屏蔽字",
+   "设备状态字",
+   "各中断类型对应服务程序的入口地址"
+  ],
+  "answer": 3,
+  "explanation": "非向量中断则统一入口后由软件查询中断源。",
+  "type": "choice"
+ },
+ {
+  "id": "coa73",
+  "note": "COA",
+  "topic": "第6章 中央处理器",
+  "question": "单周期 CPU 的时钟周期应取（ ）。",
+  "options": [
+   "所有指令中最长数据通路的延迟之和",
+   "最短指令的延迟",
+   "各部件延迟的平均值",
+   "主存存取周期"
+  ],
+  "answer": 0,
+  "explanation": "通常由 lw 决定：取指+译码+读寄存器+ALU 算地址+访存+写回。",
+  "type": "choice"
+ },
+ {
+  "id": "coa74",
+  "note": "COA",
+  "topic": "第7章 指令流水线",
+  "question": "经典 MIPS 五级流水线的正确顺序是（ ）。",
+  "options": [
+   "IF → EX → ID → MEM → WB",
+   "IF → ID → EX → MEM → WB",
+   "ID → IF → EX → WB → MEM",
+   "IF → ID → MEM → EX → WB"
+  ],
+  "answer": 1,
+  "explanation": "取指、译码读寄存器、执行/算地址、访存、写回。",
+  "type": "choice"
+ },
+ {
+  "id": "coa75",
+  "note": "COA",
+  "topic": "第7章 指令流水线",
+  "question": "流水线技术主要提高的是（ ）。",
+  "options": [
+   "单条指令的执行速度",
+   "主存容量",
+   "指令吞吐率，而非单条指令的执行时间",
+   "指令系统复杂度"
+  ],
+  "answer": 2,
+  "explanation": "单条指令甚至因流水线寄存器开销略变慢。",
+  "type": "choice"
+ },
+ {
+  "id": "coa76",
+  "note": "COA",
+  "topic": "第7章 指令流水线",
+  "question": "k 段流水线执行 n 条指令（理想、每段 1 拍）的总拍数是（ ）。",
+  "options": [
+   "n × k",
+   "k × n / 2",
+   "n + k",
+   "k + n − 1"
+  ],
+  "answer": 3,
+  "explanation": "首条填满需 k 拍，之后每拍流出一条；加速比 = nk/(k+n−1)。",
+  "type": "choice"
+ },
+ {
+  "id": "coa77",
+  "note": "COA",
+  "topic": "第7章 指令流水线",
+  "question": "5 级流水线执行 100 条指令（理想）的加速比约为（ ）。",
+  "options": [
+   "4.81",
+   "5",
+   "20",
+   "1.0"
+  ],
+  "answer": 0,
+  "explanation": "500/104 ≈ 4.81，n→∞ 才趋于 5。",
+  "type": "choice"
+ },
+ {
+  "id": "coa78",
+  "note": "COA",
+  "topic": "第7章 指令流水线",
+  "question": "两条指令在同一周期争用同一存储器，属于（ ）。",
+  "options": [
+   "数据冒险",
+   "结构冒险",
+   "控制冒险",
+   "输出相关"
+  ],
+  "answer": 1,
+  "explanation": "分离 I/D Cache 或增加部件可解决。",
+  "type": "choice"
+ },
+ {
+  "id": "coa79",
+  "note": "COA",
+  "topic": "第7章 指令流水线",
+  "question": "add $t0,$t1,$t2 后紧跟 sub $t3,$t0,$t4，属于（ ）。",
+  "options": [
+   "WAR 反相关",
+   "WAW 输出相关",
+   "RAW 真数据相关",
+   "控制相关"
+  ],
+  "answer": 2,
+  "explanation": "后一条要读前一条尚未写回的结果；顺序机器也存在。",
+  "type": "choice"
+ },
+ {
+  "id": "coa80",
+  "note": "COA",
+  "topic": "第7章 指令流水线",
+  "question": "转发（旁路）技术能（ ）。",
+  "options": [
+   "消除所有数据冒险",
+   "提高主存带宽",
+   "替代分支预测",
+   "把尚未写回的结果直接引到后续指令的 ALU 输入"
+  ],
+  "answer": 3,
+  "explanation": "ALU→ALU 可 0 停顿，但 Load-Use 仍需 1 拍停顿。",
+  "type": "choice"
+ },
+ {
+  "id": "coa81",
+  "note": "COA",
+  "topic": "第7章 指令流水线",
+  "question": "Load-Use 相关即使有转发，通常仍需（ ）。",
+  "options": [
+   "1 个停顿周期",
+   "0 个",
+   "2 个",
+   "3 个"
+  ],
+  "answer": 0,
+  "explanation": "Load 的数据要到 MEM 阶段结束才可用，早于 WB 但晚于下一指令的 EX。",
+  "type": "choice"
+ },
+ {
+  "id": "coa82",
+  "note": "COA",
+  "topic": "第7章 指令流水线",
+  "question": "分支预测主要用于缓解（ ）。",
+  "options": [
+   "结构冒险",
+   "控制冒险",
+   "数据冒险",
+   "存储缺失"
+  ],
+  "answer": 1,
+  "explanation": "预测失败需冲刷流水线，深流水线惩罚更大。",
+  "type": "choice"
+ },
+ {
+  "id": "coa83",
+  "note": "COA",
+  "topic": "第7章 指令流水线",
+  "question": "超标量处理器 n 发射时的理想 CPI 是（ ）。",
+  "options": [
+   "1",
+   "n",
+   "1/n",
+   "0"
+  ],
+  "answer": 2,
+  "explanation": "每周期可流出多条指令，IPC = n。",
+  "type": "choice"
+ },
+ {
+  "id": "coa84",
+  "note": "COA",
+  "topic": "第7章 指令流水线",
+  "question": "教材以 Pentium 4 深流水线为例，现代设计回归较短流水线的原因是（ ）。",
+  "options": [
+   "级数越多 CPI 一定越大",
+   "编译器不支持深流水线",
+   "主存容量不足",
+   "预测失败惩罚与功耗随级数急剧增大"
+  ],
+  "answer": 3,
+  "explanation": "超流水线收益被冒险惩罚与锁存开销抵消。",
+  "type": "choice"
+ },
+ {
+  "id": "coa85",
+  "note": "COA",
+  "topic": "第8章 系统总线",
+  "question": "系统总线通常分为（ ）。",
+  "options": [
+   "数据总线、地址总线、控制总线",
+   "输入总线、输出总线、控制总线",
+   "片内总线、系统总线、通信总线",
+   "串行总线、并行总线、同步总线"
+  ],
+  "answer": 0,
+  "explanation": "按传送信息的内容划分；后两组是按位置/方式分类。",
+  "type": "choice"
+ },
+ {
+  "id": "coa86",
+  "note": "COA",
+  "topic": "第8章 系统总线",
+  "question": "地址总线宽度决定的是（ ）。",
+  "options": [
+   "一次传送的数据位数",
+   "可寻址的最大空间",
+   "总线带宽",
+   "设备数量上限"
+  ],
+  "answer": 1,
+  "explanation": "n 位地址线按字节编址可寻址 2ⁿ 个单元。",
+  "type": "choice"
+ },
+ {
+  "id": "coa87",
+  "note": "COA",
+  "topic": "第8章 系统总线",
+  "question": "64 bit、100 MHz、每周期传 1 次的总线带宽是（ ）。",
+  "options": [
+   "100 MB/s",
+   "6.4 GB/s",
+   "800 MB/s",
+   "1.6 GB/s"
+  ],
+  "answer": 2,
+  "explanation": "64/8 × 100×10⁶ = 8×10⁸ B/s；若 DDR 每周期 2 次才是 1.6 GB/s。",
+  "type": "choice"
+ },
+ {
+  "id": "coa88",
+  "note": "COA",
+  "topic": "第8章 系统总线",
+  "question": "同步总线的主要局限是（ ）。",
+  "options": [
+   "无法连接多个设备",
+   "没有时钟信号",
+   "只能传送地址",
+   "受最慢设备与时钟偏斜限制，距离不能太长"
+  ],
+  "answer": 3,
+  "explanation": "异步总线用请求-应答握手，可适应速度差异大的设备。",
+  "type": "choice"
+ },
+ {
+  "id": "coa89",
+  "note": "COA",
+  "topic": "第8章 系统总线",
+  "question": "下列总线裁决方式中速度最快但控制线最多的是（ ）。",
+  "options": [
+   "独立请求",
+   "菊花链",
+   "计数器定时查询",
+   "软件轮询"
+  ],
+  "answer": 0,
+  "explanation": "菊花链最省线但优先级固定且链路故障敏感。",
+  "type": "choice"
+ },
+ {
+  "id": "coa90",
+  "note": "COA",
+  "topic": "第8章 系统总线",
+  "question": "关于 PCIe，正确的是（ ）。",
+  "options": [
+   "并行共享总线",
+   "串行差分、点对点、多 lane、包交换",
+   "只能连接一个设备",
+   "与 PCI 软件完全不兼容"
+  ],
+  "answer": 1,
+  "explanation": "PCIe 用 lane 数扩展带宽并保持对 PCI 软件模型的兼容。",
+  "type": "choice"
+ },
+ {
+  "id": "coa91",
+  "note": "COA",
+  "topic": "第8章 系统总线",
+  "question": "地址线与数据线复用会（ ）。",
+  "options": [
+   "同时提升带宽与引脚数",
+   "取消地址期",
+   "减少引脚数，但降低有效带宽",
+   "使总线无需仲裁"
+  ],
+  "answer": 2,
+  "explanation": "同一周期无法同时送地址和数据，事务周期变长。",
+  "type": "choice"
+ },
+ {
+  "id": "coa92",
+  "note": "COA",
+  "topic": "第9章 输入/输出系统",
+  "question": "统一编址（存储器映射 I/O）的特点是（ ）。",
+  "options": [
+   "必须用专用 IN/OUT 指令",
+   "端口与主存地址完全隔离",
+   "不需要地址译码",
+   "用普通访存指令访问端口，但占用主存地址空间"
+  ],
+  "answer": 3,
+  "explanation": "独立编址才需要专用 I/O 指令与额外控制线。",
+  "type": "choice"
+ },
+ {
+  "id": "coa93",
+  "note": "COA",
+  "topic": "第9章 输入/输出系统",
+  "question": "程序中断方式下，数据传送路径是（ ）。",
+  "options": [
+   "外设 ↔ CPU 寄存器 ↔ 主存",
+   "外设 ↔ 主存（不经 CPU）",
+   "外设 ↔ DMA 控制器 ↔ 主存",
+   "外设 ↔ 通道 ↔ Cache"
+  ],
+  "answer": 0,
+  "explanation": "中断只让 CPU 不必轮询，数据仍要 CPU 中转；不经 CPU 的是 DMA。",
+  "type": "choice"
+ },
+ {
+  "id": "coa94",
+  "note": "COA",
+  "topic": "第9章 输入/输出系统",
+  "question": "DMA 方式中，CPU 参与的是（ ）。",
+  "options": [
+   "每个字的传送",
+   "传送前的配置与传送结束后的中断处理",
+   "总线仲裁全过程",
+   "所有数据校验"
+  ],
+  "answer": 1,
+  "explanation": "数据传送阶段由 DMAC 接管总线，CPU 可并行执行其它任务。",
+  "type": "choice"
+ },
+ {
+  "id": "coa95",
+  "note": "COA",
+  "topic": "第9章 输入/输出系统",
+  "question": "DMA 的「周期窃取」是指（ ）。",
+  "options": [
+   "CPU 暂停工作直到整块传完",
+   "数据被加密传输",
+   "DMAC 挪用空闲总线周期逐字传送，与 CPU 分时使用主存",
+   "中断周期被强行占用"
+  ],
+  "answer": 2,
+  "explanation": "另有停止 CPU 访存（成组传送）与交替分时两种方式。",
+  "type": "choice"
+ },
+ {
+  "id": "coa96",
+  "note": "COA",
+  "topic": "第9章 输入/输出系统",
+  "question": "7200 rpm 磁盘的平均旋转延迟约为（ ）。",
+  "options": [
+   "8.33 ms",
+   "2 ms",
+   "0.1 ms",
+   "4.17 ms"
+  ],
+  "answer": 3,
+  "explanation": "60/7200 = 8.33 ms 一圈，平均半圈 = 4.17 ms。",
+  "type": "choice"
+ },
+ {
+  "id": "coa97",
+  "note": "COA",
+  "topic": "第9章 输入/输出系统",
+  "question": "RAID 5 的典型特征是（ ）。",
+  "options": [
+   "块级条带 + 校验信息分布存放在各盘，允许坏 1 块盘",
+   "无冗余纯条带",
+   "全盘镜像",
+   "专用一个校验盘"
+  ],
+  "answer": 0,
+  "explanation": "RAID0 无冗余、RAID1 镜像、RAID4 专用校验盘、RAID6 容 2 盘。",
+  "type": "choice"
+ },
+ {
+  "id": "coa98",
+  "note": "COA",
+  "topic": "第9章 输入/输出系统",
+  "question": "关于 SSD/NVMe，正确的是（ ）。",
+  "options": [
+   "靠磁头寻道定位数据",
+   "无机械部件、随机访问快，但写入前需擦除且有写放大与寿命限制",
+   "平均旋转延迟约 4 ms",
+   "断电后数据立即丢失"
+  ],
+  "answer": 1,
+  "explanation": "教材以机械盘为主，现代应补充 FTL、磨损均衡、TRIM 与多队列 NVMe。",
+  "type": "choice"
+ },
+ {
+  "id": "coa99",
+  "note": "COA",
+  "topic": "第9章 输入/输出系统",
+  "question": "中断屏蔽字主要用于调整（ ）。",
+  "options": [
+   "中断响应优先级",
+   "设备数据传输率",
+   "中断处理优先级（允许/禁止嵌套）",
+   "中断向量表大小"
+  ],
+  "answer": 2,
+  "explanation": "响应优先级由硬件排队器固定，处理优先级可由屏蔽字动态修改。",
+  "type": "choice"
+ },
+ {
+  "id": "coa100",
+  "note": "COA",
+  "topic": "第9章 输入/输出系统",
+  "question": "下列最适合用 DMA 而非中断方式的设备是（ ）。",
+  "options": [
+   "键盘",
+   "鼠标",
+   "温度传感器（每秒 1 次）",
+   "高速磁盘 / 千兆网卡"
+  ],
+  "answer": 3,
+  "explanation": "低速字符设备用中断；高速成批传送用 DMA 可大幅降低 CPU 中断开销。",
+  "type": "choice"
+ },
+ {
+  "id": "coa101",
+  "note": "COA",
+  "topic": "第1章 计算机系统概述",
+  "question": "主频越高，计算机性能一定越好。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "还需考虑 CPI 与指令数，跨 ISA 尤其不能只比主频。",
+  "type": "judge"
+ },
+ {
+  "id": "coa102",
+  "note": "COA",
+  "topic": "第1章 计算机系统概述",
+  "question": "ISA 规定的是程序员可见的属性，Cache 容量与流水线级数不属于 ISA。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "后者属于微体系结构/计算机组成。",
+  "type": "judge"
+ },
+ {
+  "id": "coa103",
+  "note": "COA",
+  "topic": "第2章 数据的机器级表示",
+  "question": "补码中 0 只有一种表示，且 8 位补码可表示 −128。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "原码/反码的 ±0 各有两种；补码 1000 0000 表示 −128。",
+  "type": "judge"
+ },
+ {
+  "id": "coa104",
+  "note": "COA",
+  "topic": "第2章 数据的机器级表示",
+  "question": "IEEE 754 单精度的偏置值是 128。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "单精度 bias=127，双精度 1023。",
+  "type": "judge"
+ },
+ {
+  "id": "coa105",
+  "note": "COA",
+  "topic": "第3章 运算方法与运算部件",
+  "question": "浮点加减法对阶时应让大阶向小阶看齐。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "必须小阶向大阶看齐，尾数右移，否则丢失高位有效数字。",
+  "type": "judge"
+ },
+ {
+  "id": "coa106",
+  "note": "COA",
+  "topic": "第3章 运算方法与运算部件",
+  "question": "同号相加才可能发生补码溢出，异号相加不会溢出。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "也可由 C_n ⊕ C_(n−1) 或双符号位判断。",
+  "type": "judge"
+ },
+ {
+  "id": "coa107",
+  "note": "COA",
+  "topic": "第4章 存储器分层体系结构",
+  "question": "Cache 与虚拟存储器都是为了解决主存容量不足。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "Cache 解决速度差；虚存解决容量、保护与地址空间。",
+  "type": "judge"
+ },
+ {
+  "id": "coa108",
+  "note": "COA",
+  "topic": "第4章 存储器分层体系结构",
+  "question": "TLB 是页表的 Cache，用于加速虚拟地址到物理地址的变换。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "TLB 未命中时才需要遍历页表。",
+  "type": "judge"
+ },
+ {
+  "id": "coa109",
+  "note": "COA",
+  "topic": "第5章 指令系统",
+  "question": "RISC 的「指令少」指指令种类少，同等程序的指令条数可能比 CISC 多。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "RISC 靠规整定长指令与 Load/Store 架构换取易流水。",
+  "type": "judge"
+ },
+ {
+  "id": "coa110",
+  "note": "COA",
+  "topic": "第6章 中央处理器",
+  "question": "单周期 CPU 的时钟周期由执行时间最短的指令决定。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "必须由最慢指令（通常是 lw）的最长数据通路决定。",
+  "type": "judge"
+ },
+ {
+  "id": "coa111",
+  "note": "COA",
+  "topic": "第7章 指令流水线",
+  "question": "流水线能缩短单条指令的执行时间。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "流水线提高吞吐率，单条指令因锁存器开销甚至略变慢。",
+  "type": "judge"
+ },
+ {
+  "id": "coa112",
+  "note": "COA",
+  "topic": "第8章 系统总线",
+  "question": "总线带宽公式中应使用数据总线的宽度而非地址总线的宽度。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "地址线宽度决定寻址空间。",
+  "type": "judge"
+ },
+ {
+  "id": "coa113",
+  "note": "COA",
+  "topic": "第9章 输入/输出系统",
+  "question": "DMA 方式下数据传送完全不占用主存与总线带宽。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "数据不经 CPU，但仍占用总线与主存带宽；CPU 只是不参与逐字传送。",
+  "type": "judge"
+ },
+ {
+  "id": "coa114",
+  "note": "COA",
+  "topic": "第1章 计算机系统概述",
+  "question": "影响 CPU 时间的因素有（ ）。",
+  "options": [
+   "指令数 IC",
+   "CPI",
+   "时钟周期（主频）",
+   "程序功能与编译器",
+   "显示器分辨率"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "explanation": "CPU 时间 = IC × CPI × T；编译器与 ISA 决定 IC。",
+  "type": "multi"
+ },
+ {
+  "id": "coa115",
+  "note": "COA",
+  "topic": "第2章 数据的机器级表示",
+  "question": "下列编码中，0 只有一种表示的有（ ）。",
+  "options": [
+   "补码",
+   "移码",
+   "原码",
+   "反码",
+   "IEEE 754 的 +0"
+  ],
+  "answer": [
+   0,
+   1
+  ],
+  "explanation": "原码与反码各有 +0 与 −0；浮点 ±0 由符号位区分，仍是两种位模式。",
+  "type": "multi"
+ },
+ {
+  "id": "coa116",
+  "note": "COA",
+  "topic": "第3章 运算方法与运算部件",
+  "question": "浮点加减运算包含的步骤有（ ）。",
+  "options": [
+   "对阶",
+   "尾数加减",
+   "规格化",
+   "舍入与判溢出",
+   "寄存器重命名"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "explanation": "寄存器重命名属于乱序执行消除伪相关。",
+  "type": "multi"
+ },
+ {
+  "id": "coa117",
+  "note": "COA",
+  "topic": "第4章 存储器分层体系结构",
+  "question": "下列属于 Cache 缺失类型的有（ ）。",
+  "options": [
+   "强制/冷启动缺失",
+   "容量缺失",
+   "冲突缺失",
+   "缺页",
+   "TLB 缺失"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "3C 模型；缺页与 TLB 缺失属于虚拟存储范畴。",
+  "type": "multi"
+ },
+ {
+  "id": "coa118",
+  "note": "COA",
+  "topic": "第7章 指令流水线",
+  "question": "下列属于流水线冒险的有（ ）。",
+  "options": [
+   "结构冒险",
+   "数据冒险",
+   "控制冒险",
+   "存储保护异常"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "另有访存缺失引起的流水线阻塞，但不属于三种基本冒险。",
+  "type": "multi"
+ },
+ {
+  "id": "coa119",
+  "note": "COA",
+  "topic": "第9章 输入/输出系统",
+  "question": "下列关于中断与 DMA 的说法正确的有（ ）。",
+  "options": [
+   "中断方式的数据仍经 CPU 中转",
+   "DMA 数据直接在设备与主存间传送",
+   "DMA 传送前需 CPU 配置地址与计数",
+   "DMA 完全不需要中断"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "DMA 传送结束后通常仍发中断通知 CPU 收尾。",
+  "type": "multi"
+ },
+ {
+  "id": "coa120",
+  "note": "COA",
+  "topic": "第1章 计算机系统概述",
+  "question": "CPU 时间 = 指令数 × CPI × ____。",
+  "options": [],
+  "answer": [
+   "时钟周期",
+   "T",
+   "1/主频"
+  ],
+  "explanation": "即 IC × CPI / f。",
+  "type": "fill"
+ },
+ {
+  "id": "coa121",
+  "note": "COA",
+  "topic": "第2章 数据的机器级表示",
+  "question": "8 位补码 1111 1011 对应的真值是____。",
+  "options": [],
+  "answer": [
+   "-5",
+   "−5",
+   "负5"
+  ],
+  "explanation": "取反加 1 得 0000 0101 = 5，故为 −5。",
+  "type": "fill"
+ },
+ {
+  "id": "coa122",
+  "note": "COA",
+  "topic": "第3章 运算方法与运算部件",
+  "question": "补码加法溢出判断式 OV = C_n ⊕ ____。",
+  "options": [],
+  "answer": [
+   "C_(n-1)",
+   "Cn-1",
+   "最高数值位进位",
+   "C(n-1)"
+  ],
+  "explanation": "符号位进位与最高数值位进位相异或。",
+  "type": "fill"
+ },
+ {
+  "id": "coa123",
+  "note": "COA",
+  "topic": "第4章 存储器分层体系结构",
+  "question": "Cache 平均访问时间 AMAT = 命中时间 + 缺失率 × ____。",
+  "options": [],
+  "answer": [
+   "缺失代价",
+   "miss penalty"
+  ],
+  "explanation": "多级 Cache 时逐级嵌套。",
+  "type": "fill"
+ },
+ {
+  "id": "coa124",
+  "note": "COA",
+  "topic": "第4章 存储器分层体系结构",
+  "question": "页大小 4 KB 时，页内偏移占____位。",
+  "options": [],
+  "answer": [
+   "12"
+  ],
+  "explanation": "log₂4096 = 12。",
+  "type": "fill"
+ },
+ {
+  "id": "coa125",
+  "note": "COA",
+  "topic": "第7章 指令流水线",
+  "question": "k 段流水线执行 n 条指令的理想总拍数为____。",
+  "options": [],
+  "answer": [
+   "k+n-1",
+   "k + n - 1",
+   "n+k-1"
+  ],
+  "explanation": "加速比 nk/(k+n−1)。",
+  "type": "fill"
+ },
+ {
+  "id": "coa126",
+  "note": "COA",
+  "topic": "第8章 系统总线",
+  "question": "64 位总线、100 MHz、每周期传 1 次，带宽为____ MB/s。",
+  "options": [],
+  "answer": [
+   "800"
+  ],
+  "explanation": "64/8 × 100 = 800 MB/s。",
+  "type": "fill"
+ },
+ {
+  "id": "coa127",
+  "note": "COA",
+  "topic": "第9章 输入/输出系统",
+  "question": "DMA 的三个阶段是预处理、数据传送和____。",
+  "options": [],
+  "answer": [
+   "后处理",
+   "结束处理"
+  ],
+  "explanation": "后处理由 CPU 响应中断完成校验与收尾。",
+  "type": "fill"
+ },
+ {
+  "id": "coa128",
+  "note": "COA",
+  "topic": "第1章 计算",
+  "question": "某程序在主频 4 GHz 的机器上有 8×10⁹ 条指令、CPI=1.25。求 CPU 时间；若把某占原时间 40% 的模块加速 10 倍，整体加速比又是多少？",
+  "options": [],
+  "answer": "CPU 时间 = IC×CPI/f = 8×10⁹×1.25/(4×10⁹) = 10×10⁹/4×10⁹ = 2.5 s。Amdahl：S = 1/[(1−0.4)+0.4/10] = 1/(0.6+0.04) = 1/0.64 ≈ 1.5625；理论上限 1/0.6 ≈ 1.67。",
+  "explanation": "先算 CPU 时间，再用 Amdahl；注意 F 是原时间占比。",
+  "type": "essay"
+ },
+ {
+  "id": "coa129",
+  "note": "COA",
+  "topic": "第2章 计算",
+  "question": "求 −37 的 8 位原码/反码/补码/移码，并把 −37.25 编码为 IEEE 754 单精度十六进制。",
+  "options": [],
+  "answer": "+37 = 0010 0101 → 原码 1010 0101、反码 1101 1010、补码 1101 1011(0xDB)、移码 0101 1011(0x5B)。37.25 = 100101.01₂ = 1.0010101×2⁵ → S=1、E=5+127=132=1000 0100、M=0010101 补零到 23 位 → 1100 0010 0001 0101 0000 0000 0000 0000 = 0xC2150000。",
+  "explanation": "先规格化再算移码阶码，隐藏位不写入 M 字段。",
+  "type": "essay"
+ },
+ {
+  "id": "coa130",
+  "note": "COA",
+  "topic": "第3章 计算",
+  "question": "8 位补码计算 100+40 与 −100−40，判断是否溢出并说明判据；浮点加法 X=0.1101×2²、Y=0.1011×2³ 求 X+Y（尾数保留 4 位以上）。",
+  "options": [],
+  "answer": "100=0110 0100、40=0010 1000，和=1000 1100(−116)，C_n=0、C_(n−1)=1 → OV=1 正溢出。−100=1001 1100、−40=1101 1000，和=1 0111 0100 → 0111 0100(+116)，OV=1 负溢出。浮点：ΔE=1，X 尾数右移 → 0.01101×2³；0.01101+0.10110=1.00011×2³ → 右规 0.100011×2⁴ = 8.75（验证 3.25+5.5=8.75 ✓）。",
+  "explanation": "浮点结果需右规并把阶码加 1。",
+  "type": "essay"
+ },
+ {
+  "id": "coa131",
+  "note": "COA",
+  "topic": "第4章 计算",
+  "question": "32 位地址、Cache 64 KB、块 128 B、直接映射；求块内偏移、行数/行号位数、Tag 位数。若命中 1 ns、缺失率 5%、L2 命中 10 ns、L2 局部缺失率 20%、主存 100 ns，求 AMAT。",
+  "options": [],
+  "answer": "块内偏移 = log₂128 = 7 bit；行数 = 64 KB/128 B = 512 → 行号 9 bit；Tag = 32−9−7 = 16 bit。L1 缺失代价 = 10 + 0.20×100 = 30 ns → AMAT = 1 + 0.05×30 = 2.5 ns。",
+  "explanation": "先画 Tag|index|offset 位划分，再代入嵌套 AMAT。",
+  "type": "essay"
+ },
+ {
+  "id": "coa132",
+  "note": "COA",
+  "topic": "第4章 计算",
+  "question": "32 位虚拟地址、页 4 KB、物理内存 256 MB、PTE 4 B：求 VPN/PFN 位数、单级页表大小，并说明为何改用多级页表；VA=0x12345678 且 PFN=0xABCD 时求物理地址。",
+  "options": [],
+  "answer": "offset=12、VPN=20、PFN=28−12=16；页表 = 2²⁰×4 B = 4 MB/进程，且多数表项未用，故改两级（页目录 10 + 页表 10 + offset 12）按需分配。VPN=0x12345，PA = PFN<<12 | 0x678 = 0xABCD678。",
+  "explanation": "页内偏移在地址变换前后不变。",
+  "type": "essay"
+ },
+ {
+  "id": "coa133",
+  "note": "COA",
+  "topic": "第5章 计算",
+  "question": "指令字长 16 位、地址码 4 位，三/二/一地址各 12 条，求零地址最多几条；再求 PC=0x0800、指令长 4 B、相对位移 −5（按字计）的转移目标。",
+  "options": [],
+  "answer": "逐层递推：三地址 16−12=4 个扩展槽；二地址 4×16=64，用 12 → 剩 52；一地址 52×16=832，用 12 → 剩 820；零地址 = 820×16 = 13120 条。相对寻址：取指后 PC=0x0804，目标 = 0x0804 + (−5×4) = 0x0804 − 0x14 = 0x07F0。",
+  "explanation": "注意是「剩余扩展槽」而不是「前缀个数相乘」。",
+  "type": "essay"
+ },
+ {
+  "id": "coa134",
+  "note": "COA",
+  "topic": "第6章 计算",
+  "question": "单周期 CPU 各部件延迟：PC 2 ns、指令存储器 8 ns、译码 3 ns、寄存器堆读 5 ns、ALU 8 ns、数据存储器 10 ns、寄存器堆写 5 ns。求时钟周期与主频上限，并说明 CPI。",
+  "options": [],
+  "answer": "lw 路径 = 2+8+3+5+8+10+5 = 41 ns → 时钟周期 ≥ 41 ns，主频上限 ≈ 1/41 ns ≈ 24.4 MHz。单周期 CPI = 1；R 型 add 只需约 31 ns，但仍须等满 41 ns，造成浪费。",
+  "explanation": "单周期时钟周期由最长数据通路决定。",
+  "type": "essay"
+ },
+ {
+  "id": "coa135",
+  "note": "COA",
+  "topic": "第7章 计算",
+  "question": "5 级流水线各段 2 ns、锁存器 0.5 ns，执行 200 条指令。求时钟周期、理想流水时间与加速比；若分支占 20%、预测失败率 10%、失败惩罚 3 拍，求实际 CPI 与总时间。",
+  "options": [],
+  "answer": "时钟周期 = 2+0.5 = 2.5 ns；T_流 = (5+200−1)×2.5 = 510 ns；T_非 = 200×5×2 = 2000 ns → S ≈ 3.92。分支停顿 = 0.20×0.10×3 = 0.06 周期/指令 → 实际 CPI = 1.06，总时间 ≈ 200×1.06×2.5 = 530 ns。",
+  "explanation": "流水线加速比上限为段数，且受冒险与锁存开销影响。",
+  "type": "essay"
+ },
+ {
+  "id": "coa136",
+  "note": "COA",
+  "topic": "第8章 计算",
+  "question": "总线 64 bit、100 MHz、每周期传 1 次，求带宽；若要传 128 B 且每次事务另有 1 个地址周期，求有效带宽；DMA 传 2 MB 需要多久？",
+  "options": [],
+  "answer": "带宽 = 64/8×100×10⁶ = 800 MB/s。128 B 需 128/8 = 16 个数据周期 + 1 个地址周期 = 17 周期 × 10 ns = 170 ns → 有效带宽 ≈ 128/170 ns ≈ 753 MB/s（低于峰值）。DMA 传 2 MB ≈ 2/800 s = 2.5 ms（忽略配置与中断开销）。",
+  "explanation": "有效带宽要考虑地址期与事务开销。",
+  "type": "essay"
+ },
+ {
+  "id": "coa137",
+  "note": "COA",
+  "topic": "第9章 计算",
+  "question": "7200 rpm 磁盘、平均寻道 8 ms、传输率 100 MB/s，读 4 KB 块，求平均存取时间；若改用 DMA 每 1 KB 中断一次（原中断方式每字节一次），说明 CPU 开销变化。",
+  "options": [],
+  "answer": "平均旋转延迟 = (60/7200)/2 ≈ 4.17 ms；传输时间 = 4096/100×10⁶ ≈ 0.041 ms；总 ≈ 8+4.17+0.041 ≈ 12.2 ms。中断方式每字节中断一次会频繁打断 CPU（如 100 KB/s 且每次服务 10 μs 时 CPU 占用可达 100%）；改为每 1 KB 一次 DMA 中断，中断次数降为原来的 1/1024，CPU 几乎不被打扰。",
+  "explanation": "机械盘的毫秒级延迟主要来自寻道与旋转。",
+  "type": "essay"
  }
 ]

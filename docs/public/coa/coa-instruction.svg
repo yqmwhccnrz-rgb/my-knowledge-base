@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 440" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="440" fill="#fbfdff"/>
+  <text x="340" y="28" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">指令格式、扩展操作码与寻址方式</text>
+
+  <!-- 指令格式 -->
+  <text x="20" y="52" font-size="11.5" font-weight="700" fill="#334155">① 指令的一般格式：操作码 OP + 地址码 A</text>
+  <rect x="20" y="62" width="90" height="32" fill="#fecaca" stroke="#b91c1c"/>
+  <text x="65" y="83" text-anchor="middle" font-size="10.5" fill="#7f1d1d">OP</text>
+  <rect x="110" y="62" width="90" height="32" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="155" y="83" text-anchor="middle" font-size="10.5" fill="#1e3a8a">A1</text>
+  <rect x="200" y="62" width="90" height="32" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="245" y="83" text-anchor="middle" font-size="10.5" fill="#1e3a8a">A2</text>
+  <rect x="290" y="62" width="90" height="32" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="335" y="83" text-anchor="middle" font-size="10.5" fill="#1e3a8a">A3</text>
+  <text x="392" y="83" font-size="10" fill="#64748b">OP 指明操作类型与寻址方式；A 给出操作数/地址/下条指令地址</text>
+
+  <rect x="20" y="102" width="648" height="66" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="30" y="120" font-size="9.5" font-weight="700" fill="#334155">按地址码个数分类</text>
+  <text x="30" y="138" font-size="9.5" fill="#1e293b">四地址：A1 OP A2 → A3，下条指令 A4｜三地址：A1 OP A2 → A3，PC 隐含｜二地址：A1 OP A2 → A1</text>
+  <text x="30" y="156" font-size="9.5" fill="#1e293b">一地址：ACC OP A1 → ACC（隐含累加器）｜零地址：堆栈型，操作数隐含在栈顶（如 RPN 表达式）</text>
+
+  <!-- 扩展操作码 -->
+  <rect x="20" y="178" width="648" height="94" rx="8" fill="#fefce8" stroke="#b45309"/>
+  <text x="32" y="198" font-size="11" font-weight="700" fill="#92400e">② 工作示例 · 扩展操作码（经典考题）</text>
+  <text x="32" y="216" font-size="10" fill="#1e293b">指令字长 16 位、每个地址码 4 位。若三地址指令 15 条、二地址 15 条、一地址 15 条，零地址最多几条？</text>
+  <text x="32" y="234" font-size="10" fill="#1e293b">三地址 OP 占 4 位共 16 种编码，用 15 种（0000~1110），留 <tspan font-weight="700">1111</tspan> 作扩展标志；</text>
+  <text x="32" y="250" font-size="10" fill="#1e293b">二地址用 1111 + 4 位，再用掉 15 种，留 1111 1111；一地址同理留 1111 1111 1111；</text>
+  <text x="32" y="266" font-size="10.5" font-weight="700" fill="#92400e">零地址剩余 4 位编码 → 最多 2⁴ = 16 条。原则：短地址码的指令优先占用短操作码。</text>
+
+  <!-- 寻址方式 -->
+  <text x="20" y="292" font-size="11" font-weight="700" fill="#334155">③ 常见寻址方式与有效地址 EA</text>
+  <rect x="20" y="302" width="648" height="22" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="28" y="317" font-size="9.5" font-weight="700" fill="#334155">方式</text>
+  <text x="170" y="317" font-size="9.5" font-weight="700" fill="#334155">EA 计算</text>
+  <text x="400" y="317" font-size="9.5" font-weight="700" fill="#334155">用途 / 特点</text>
+  <text x="28" y="338" font-size="9.5" fill="#1e293b">立即寻址</text>
+  <text x="170" y="338" font-size="9.5" fill="#1e293b">操作数 = 指令中的立即数 A</text>
+  <text x="400" y="338" font-size="9.5" fill="#1e293b">最快，无需访存；常数</text>
+  <text x="28" y="356" font-size="9.5" fill="#1e293b">直接 / 间接</text>
+  <text x="170" y="356" font-size="9.5" fill="#1e293b">EA = A ／ EA = (A)（需多次访存）</text>
+  <text x="400" y="356" font-size="9.5" fill="#1e293b">间接扩大寻址范围、便于指针</text>
+  <text x="28" y="374" font-size="9.5" fill="#1e293b">寄存器 / 寄存器间接</text>
+  <text x="170" y="374" font-size="9.5" fill="#1e293b">EA = R ／ EA = (R)</text>
+  <text x="400" y="374" font-size="9.5" fill="#1e293b">速度快，RISC 常用</text>
+  <text x="28" y="392" font-size="9.5" fill="#1e293b">变址 / 基址 / 相对</text>
+  <text x="170" y="392" font-size="9.5" fill="#1e293b">EA = A + (IX) ／ A + (BR) ／ (PC) + A</text>
+  <text x="400" y="392" font-size="9.5" fill="#1e293b">数组遍历 / 程序重定位 / 转移指令</text>
+  <text x="28" y="410" font-size="9.5" fill="#1e293b">堆栈寻址</text>
+  <text x="170" y="410" font-size="9.5" fill="#1e293b">EA 隐含由 SP 指出</text>
+  <text x="400" y="410" font-size="9.5" fill="#1e293b">零地址指令、过程调用</text>
+
+  <text x="20" y="430" font-size="9.5" fill="#64748b">CISC（x86：变长指令、微程序、寻址丰富）vs RISC（MIPS/RISC-V：定长、Load/Store、寄存器多、易流水）；现代 x86 内部把 CISC 译码为类 RISC 微操作。</text>
+</svg>

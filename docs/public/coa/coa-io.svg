@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 430" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="430" fill="#fbfdff"/>
+  <text x="340" y="28" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">系统总线与 I/O 数据传送控制方式</text>
+
+  <!-- 总线 -->
+  <rect x="16" y="44" width="318" height="130" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="28" y="64" font-size="11" font-weight="700" fill="#334155">① 系统总线的组成与设计要素</text>
+  <text x="28" y="84" font-size="9.5" fill="#1e293b"><tspan font-weight="700">数据总线</tspan>（双向，宽度决定一次传送位数）</text>
+  <text x="28" y="102" font-size="9.5" fill="#1e293b"><tspan font-weight="700">地址总线</tspan>（单向，宽度决定寻址空间）</text>
+  <text x="28" y="120" font-size="9.5" fill="#1e293b"><tspan font-weight="700">控制总线</tspan>（读/写、时钟、复位、中断、总线请求/授权）</text>
+  <text x="28" y="140" font-size="9.5" fill="#1e293b">总线事务：存储器读/写、I/O 读/写、中断响应、DMA 等</text>
+  <text x="28" y="158" font-size="9.5" fill="#64748b">裁决：菊花链 / 计数器定时查询 / 独立请求；定时：同步 / 异步（握手）</text>
+
+  <rect x="346" y="44" width="318" height="130" rx="8" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="358" y="64" font-size="11" font-weight="700" fill="#1e3a8a">② 总线带宽公式与工作示例</text>
+  <text x="358" y="86" font-size="10" fill="#1e293b">带宽 (B/s) = 总线宽度(bit) / 8 × 总线工作频率(Hz) × 每周期传送次数</text>
+  <text x="358" y="108" font-size="10" fill="#1e293b">例：64 bit、100 MHz、每周期传 1 次 → 64/8 × 10⁸ = 800 MB/s</text>
+  <text x="358" y="128" font-size="10" fill="#1e293b">DDR 在时钟上升/下降沿各传一次 → 2 倍，约 1.6 GB/s</text>
+  <text x="358" y="150" font-size="9.5" fill="#64748b">现代例子：PCIe 用串行差分链路 + 多通道（lane），带宽按 lane 数线性叠加。</text>
+  <text x="358" y="168" font-size="9.5" fill="#64748b">总线标准演进：ISA → EISA → PCI → PCI-X → PCIe；片上常用 AMBA/AXI。</text>
+
+  <!-- I/O 方式对比 -->
+  <text x="20" y="196" font-size="11.5" font-weight="700" fill="#334155">③ 四种 I/O 数据传送控制方式</text>
+  <rect x="16" y="206" width="648" height="24" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="24" y="223" font-size="9.5" font-weight="700" fill="#334155">方式</text>
+  <text x="150" y="223" font-size="9.5" font-weight="700" fill="#334155">CPU 参与</text>
+  <text x="300" y="223" font-size="9.5" font-weight="700" fill="#334155">数据通路</text>
+  <text x="470" y="223" font-size="9.5" font-weight="700" fill="#334155">适用 / 特点</text>
+  <text x="24" y="247" font-size="9.5" fill="#1e293b">程序直接控制（轮询）</text>
+  <text x="150" y="247" font-size="9.5" fill="#1e293b">全程循环查询状态</text>
+  <text x="300" y="247" font-size="9.5" fill="#1e293b">外设 ↔ CPU 寄存器 ↔ 主存</text>
+  <text x="470" y="247" font-size="9.5" fill="#1e293b">简单但 CPU 效率极低</text>
+  <text x="24" y="267" font-size="9.5" fill="#1e293b">程序中断方式</text>
+  <text x="150" y="267" font-size="9.5" fill="#1e293b">仅在数据就绪时响应</text>
+  <text x="300" y="267" font-size="9.5" fill="#1e293b">经 CPU 中转</text>
+  <text x="470" y="267" font-size="9.5" fill="#1e293b">适合键盘、鼠标等低速设备</text>
+  <rect x="16" y="277" width="648" height="22" fill="#dcfce7"/>
+  <text x="24" y="292" font-size="9.5" fill="#14532d">DMA 方式</text>
+  <text x="150" y="292" font-size="9.5" fill="#14532d">只在开始/结束参与</text>
+  <text x="300" y="292" font-size="9.5" fill="#14532d">外设 ↔ 主存（不经 CPU）</text>
+  <text x="470" y="292" font-size="9.5" fill="#14532d">高速成批传送，磁盘/网卡</text>
+  <text x="24" y="312" font-size="9.5" fill="#1e293b">通道 / I/O 处理器</text>
+  <text x="150" y="312" font-size="9.5" fill="#1e293b">仅启动通道程序</text>
+  <text x="300" y="312" font-size="9.5" fill="#1e293b">通道统一管理多设备</text>
+  <text x="470" y="312" font-size="9.5" fill="#1e293b">大型机，专用处理器执行 I/O 程序</text>
+
+  <!-- DMA 与中断流程 -->
+  <rect x="16" y="326" width="318" height="92" rx="8" fill="#f0fdf4" stroke="#15803d"/>
+  <text x="28" y="346" font-size="11" font-weight="700" fill="#15803d">④ DMA 工作过程</text>
+  <text x="28" y="365" font-size="9.5" fill="#1e293b">预处理：CPU 写 DMA 控制器的地址/计数/方向寄存器</text>
+  <text x="28" y="382" font-size="9.5" fill="#1e293b">传送：DMAC 总线请求 → 获授权后直接读写主存（周期窃取）</text>
+  <text x="28" y="399" font-size="9.5" fill="#1e293b">后处理：计数归零发中断，CPU 校验并完成收尾</text>
+  <text x="28" y="414" font-size="9.5" fill="#64748b">三种占用方式：停止 CPU 访存 / 周期挪用 / 交替分时</text>
+
+  <rect x="346" y="326" width="318" height="92" rx="8" fill="#fefce8" stroke="#b45309"/>
+  <text x="358" y="346" font-size="11" font-weight="700" fill="#92400e">⑤ 中断响应过程</text>
+  <text x="358" y="365" font-size="9.5" fill="#1e293b">中断请求 → 判优（硬件/软件排队）→ 响应（满足屏蔽与时机）</text>
+  <text x="358" y="382" font-size="9.5" fill="#1e293b">保护断点与现场（PC、PSW、寄存器）→ 取中断向量 → 服务程序</text>
+  <text x="358" y="399" font-size="9.5" fill="#1e293b">恢复现场 → 开中断 → 中断返回；可嵌套（优先级屏蔽字）</text>
+  <text x="358" y="414" font-size="9.5" fill="#64748b">补充：MSI-X 消息中断、中断合并、io_uring、RDMA 减少 CPU 介入</text>
+</svg>
