@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 430" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect width="680" height="430" fill="#fafaf9"/>
+  <text x="340" y="30" text-anchor="middle" font-size="20" font-weight="700" fill="#1f2937">散列表 · 链地址法（拉链法）</text>
+  <text x="340" y="52" text-anchor="middle" font-size="13" fill="#6b7280">哈希函数 H(key) = key mod 7，表长 7，记录数 12，装填因子 α ≈ 1.71</text>
+
+  <!-- bucket headers -->
+  <g font-size="14" fill="#374151">
+    <!-- bucket boxes 0..6 -->
+    <g>
+      <rect x="40" y="80" width="46" height="36" rx="6" fill="#e5e7eb" stroke="#9ca3af"/>
+      <rect x="40" y="132" width="46" height="36" rx="6" fill="#e5e7eb" stroke="#9ca3af"/>
+      <rect x="40" y="184" width="46" height="36" rx="6" fill="#e5e7eb" stroke="#9ca3af"/>
+      <rect x="40" y="236" width="46" height="36" rx="6" fill="#e5e7eb" stroke="#9ca3af"/>
+      <rect x="40" y="288" width="46" height="36" rx="6" fill="#e5e7eb" stroke="#9ca3af"/>
+      <rect x="40" y="340" width="46" height="36" rx="6" fill="#e5e7eb" stroke="#9ca3af"/>
+      <rect x="40" y="392" width="46" height="36" rx="6" fill="#e5e7eb" stroke="#9ca3af"/>
+    </g>
+    <g text-anchor="middle" font-weight="700" fill="#1f2937">
+      <text x="63" y="103">0</text>
+      <text x="63" y="155">1</text>
+      <text x="63" y="207">2</text>
+      <text x="63" y="259">3</text>
+      <text x="63" y="311">4</text>
+      <text x="63" y="363">5</text>
+      <text x="63" y="415">6</text>
+    </g>
+  </g>
+
+  <!-- connectors bucket -> first node -->
+  <g stroke="#9ca3af" stroke-width="2">
+    <line x1="86" y1="98" x2="120" y2="98"/>
+    <line x1="86" y1="150" x2="120" y2="150"/>
+    <line x1="86" y1="202" x2="120" y2="202"/>
+    <line x1="86" y1="254" x2="120" y2="254"/>
+    <line x1="86" y1="306" x2="120" y2="306"/>
+    <line x1="86" y1="358" x2="120" y2="358"/>
+    <line x1="86" y1="410" x2="120" y2="410"/>
+  </g>
+
+  <!-- chain nodes -->
+  <g font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <!-- bucket0: 7 -->
+    <rect x="120" y="80" width="60" height="36" rx="6" fill="#3b82f6"/><text x="150" y="103">7</text>
+    <!-- bucket1: 8->15->22 -->
+    <rect x="120" y="132" width="60" height="36" rx="6" fill="#10b981"/><text x="150" y="155">8</text>
+    <rect x="200" y="132" width="60" height="36" rx="6" fill="#10b981"/><text x="230" y="155">15</text>
+    <rect x="280" y="132" width="60" height="36" rx="6" fill="#10b981"/><text x="310" y="155">22</text>
+    <!-- bucket2: 16->23->9 -->
+    <rect x="120" y="184" width="60" height="36" rx="6" fill="#10b981"/><text x="150" y="207">16</text>
+    <rect x="200" y="184" width="60" height="36" rx="6" fill="#10b981"/><text x="230" y="207">23</text>
+    <rect x="280" y="184" width="60" height="36" rx="6" fill="#10b981"/><text x="310" y="207">9</text>
+    <!-- bucket3: 10 -->
+    <rect x="120" y="236" width="60" height="36" rx="6" fill="#3b82f6"/><text x="150" y="259">10</text>
+    <!-- bucket4: 11 -->
+    <rect x="120" y="288" width="60" height="36" rx="6" fill="#3b82f6"/><text x="150" y="311">11</text>
+    <!-- bucket5: 12 -->
+    <rect x="120" y="340" width="60" height="36" rx="6" fill="#3b82f6"/><text x="150" y="363">12</text>
+    <!-- bucket6: 13 -->
+    <rect x="120" y="392" width="60" height="36" rx="6" fill="#3b82f6"/><text x="150" y="415">13</text>
+  </g>
+
+  <!-- inter-node connectors -->
+  <g stroke="#9ca3af" stroke-width="2">
+    <line x1="180" y1="150" x2="200" y2="150"/>
+    <line x1="260" y1="150" x2="280" y2="150"/>
+    <line x1="180" y1="202" x2="200" y2="202"/>
+    <line x1="260" y1="202" x2="280" y2="202"/>
+  </g>
+
+</svg>
