@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">异方差：图形、检验与修正</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 残差图：同方差 vs 异方差</text>
+  <rect x="30" y="62" width="300" height="140" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="180" y="80" text-anchor="middle" font-size="10" fill="#475569">同方差（均匀带状）</text>
+  <line x1="56" y1="186" x2="304" y2="186" stroke="#94a3b8"/>
+  <line x1="56" y1="186" x2="56" y2="90" stroke="#94a3b8"/>
+  <g fill="#2563eb">
+    <circle cx="76" cy="125" r="2.6"/><circle cx="90" cy="160" r="2.6"/><circle cx="104" cy="137" r="2.6"/>
+    <circle cx="118" cy="152" r="2.6"/><circle cx="132" cy="126" r="2.6"/><circle cx="146" cy="163" r="2.6"/>
+    <circle cx="160" cy="138" r="2.6"/><circle cx="174" cy="150" r="2.6"/><circle cx="188" cy="130" r="2.6"/>
+    <circle cx="202" cy="158" r="2.6"/><circle cx="216" cy="141" r="2.6"/><circle cx="230" cy="155" r="2.6"/>
+    <circle cx="244" cy="132" r="2.6"/><circle cx="258" cy="161" r="2.6"/><circle cx="272" cy="143" r="2.6"/>
+    <circle cx="286" cy="152" r="2.6"/>
+  </g>
+  <text x="180" y="198" text-anchor="middle" font-size="9" fill="#64748b">X（或拟合值 Ŷ）</text>
+
+  <rect x="350" y="62" width="300" height="140" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="500" y="80" text-anchor="middle" font-size="10" fill="#475569">异方差（扇形 / 漏斗形）</text>
+  <line x1="376" y1="186" x2="624" y2="186" stroke="#94a3b8"/>
+  <line x1="376" y1="186" x2="376" y2="90" stroke="#94a3b8"/>
+  <path d="M390 143 L610 100 L610 182 L390 152 Z" fill="#fecaca" opacity="0.55"/>
+  <g fill="#dc2626">
+    <circle cx="396" cy="146" r="2.6"/><circle cx="410" cy="150" r="2.6"/><circle cx="424" cy="142" r="2.6"/>
+    <circle cx="438" cy="156" r="2.6"/><circle cx="452" cy="132" r="2.6"/><circle cx="466" cy="163" r="2.6"/>
+    <circle cx="480" cy="126" r="2.6"/><circle cx="494" cy="170" r="2.6"/><circle cx="508" cy="118" r="2.6"/>
+    <circle cx="522" cy="176" r="2.6"/><circle cx="536" cy="110" r="2.6"/><circle cx="550" cy="178" r="2.6"/>
+    <circle cx="564" cy="104" r="2.6"/><circle cx="578" cy="182" r="2.6"/><circle cx="592" cy="98" r="2.6"/>
+    <circle cx="606" cy="184" r="2.6"/>
+  </g>
+  <text x="500" y="198" text-anchor="middle" font-size="9" fill="#64748b">Var(u|X) 随 X 增大</text>
+
+  <text x="30" y="226" font-size="12" font-weight="700" fill="#334155">② 检验族与 LM 手算</text>
+  <rect x="30" y="236" width="300" height="100" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="42" y="256" font-size="9.5" fill="#1e40af">图示法：e² 或 |e| 对 Ŷ / 可疑变量散点</text>
+  <text x="42" y="275" font-size="9.5" fill="#1e40af">Park / Glejser：ln e² 或 |e| 对变量回归</text>
+  <text x="42" y="294" font-size="9.5" fill="#1e40af">Goldfeld-Quandt：F = SSE₂/SSE₁</text>
+  <text x="42" y="313" font-size="9.5" fill="#1e40af">BP/Godfrey、White：LM = n·R²_aux ∼ χ²(df)</text>
+  <text x="42" y="330" font-size="9" fill="#64748b">White 辅助回归含平方项与交叉项，还能查设定误差</text>
+
+  <rect x="350" y="236" width="300" height="100" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="362" y="256" font-size="10" font-weight="700" fill="#166534">例题：n=50, R²_aux=0.12, df=2</text>
+  <text x="362" y="277" font-size="9.5" fill="#15803d">LM = 50 × 0.12 = 6.00</text>
+  <text x="362" y="296" font-size="9.5" fill="#15803d">χ²₀.₀₅(2) = 5.99 → 6.00 &gt; 5.99，勉强拒绝</text>
+  <text x="362" y="315" font-size="9" fill="#64748b">贴近临界值须结合残差图与 White 检验再判断</text>
+  <text x="362" y="330" font-size="9" fill="#64748b">χ²₀.₀₅(1)=3.84；(3)=7.81</text>
+
+  <rect x="30" y="346" width="620" height="44" rx="6" fill="#fff7ed" stroke="#f59e0b"/>
+  <text x="42" y="364" font-size="10.5" font-weight="700" fill="#92400e">修正路线</text>
+  <text x="42" y="382" font-size="9.5" fill="#78350f">① 现代首选：系数不变，换异方差稳健标准误 HC0–HC3（面板/分组再用聚类稳健）　② 已知 σᵢ² 形式：WLS / FGLS 更有效　③ 取对数或人均化</text>
+</svg>

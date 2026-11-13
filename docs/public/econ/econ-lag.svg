@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">动态模型：分布滞后、长期乘数与 Granger 因果</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 三类动态模型</text>
+  <rect x="30" y="62" width="196" height="72" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="128" y="82" text-anchor="middle" font-size="10" font-weight="700" fill="#1e3a8a">分布滞后</text>
+  <text x="40" y="101" font-size="9" fill="#1e40af">Yₜ = α + β₀Xₜ + β₁Xₜ₋₁ +</text>
+  <text x="40" y="117" font-size="9" fill="#1e40af">… + βₛXₜ₋ₛ + uₜ</text>
+  <rect x="242" y="62" width="196" height="72" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="340" y="82" text-anchor="middle" font-size="10" font-weight="700" fill="#166534">自回归 / Koyck</text>
+  <text x="252" y="101" font-size="9" fill="#15803d">Yₜ = α(1−λ) + β₀Xₜ +</text>
+  <text x="252" y="117" font-size="9" fill="#15803d">λYₜ₋₁ + vₜ，vₜ = uₜ − λuₜ₋₁</text>
+  <rect x="454" y="62" width="196" height="72" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="552" y="82" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">阿尔蒙多项式</text>
+  <text x="464" y="101" font-size="9" fill="#78350f">βᵢ = a₀ + a₁i + a₂i²</text>
+  <text x="464" y="117" font-size="9" fill="#78350f">构造 Z₀=ΣXₜ₋ᵢ、Z₁=ΣiXₜ₋ᵢ、Z₂=Σi²Xₜ₋ᵢ</text>
+
+  <text x="30" y="158" font-size="12" font-weight="700" fill="#334155">② 短期 / 延迟 / 长期乘数（β₀ = 0.5, λ = 0.6）</text>
+  <rect x="30" y="168" width="620" height="72" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="189" font-size="9.5" fill="#475569">短期乘数 = β₀ = 0.5（当期影响）　｜　延迟乘数 = β₀λⁱ（0.30, 0.18, 0.108, …）</text>
+  <text x="42" y="210" font-size="10" font-weight="700" fill="#1e3a8a">长期乘数 = Σβᵢ = β₀/(1−λ) = 0.5/0.4 = 1.25　｜　平均滞后 ≈ λ/(1−λ) = 1.5 期</text>
+  <text x="42" y="230" font-size="9" fill="#64748b">λ=0.4 → 长期乘数 0.833；λ=0.8 → 2.50（调整越慢，累积总效应越大）</text>
+
+  <text x="30" y="264" font-size="12" font-weight="700" fill="#334155">③ Granger 因果检验</text>
+  <rect x="30" y="274" width="300" height="62" rx="6" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="42" y="294" font-size="9.5" fill="#4c1d95">无约束：Yₜ = α + ΣaᵢYₜ₋ᵢ + ΣbⱼXₜ₋ⱼ + u → SSEᵤ</text>
+  <text x="42" y="312" font-size="9.5" fill="#4c1d95">受约束：H₀: 全部 bⱼ = 0 → SSEᵣ</text>
+  <text x="42" y="329" font-size="9.5" fill="#4c1d95">F = [(SSEᵣ−SSEᵤ)/q]/[SSEᵤ/(n−k)]</text>
+  <rect x="350" y="274" width="300" height="62" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="362" y="294" font-size="9.5" fill="#15803d">例题：SSEᵣ=1200, SSEᵤ=900, q=2, n=60, k=5</text>
+  <text x="362" y="312" font-size="9.5" fill="#15803d">F = 150/(900/55) = 9.17 &gt; F₀.₀₅(2,55)≈3.17</text>
+  <text x="362" y="329" font-size="9" fill="#64748b">→ X Granger 引起 Y（仅增量预测，非结构因果）</text>
+
+  <rect x="30" y="346" width="620" height="44" rx="6" fill="#fff7ed" stroke="#f59e0b"/>
+  <text x="42" y="364" font-size="10.5" font-weight="700" fill="#92400e">估计陷阱</text>
+  <text x="42" y="382" font-size="9.5" fill="#78350f">Koyck 变换后扰动为 MA(1) 且与 Yₜ₋₁ 相关 ⇒ OLS 不一致（需 IV/GMM）；含 Y 滞后时 DW 失效，改 Durbin h / BG-LM；Granger 检验前须先处理非平稳性。</text>
+</svg>

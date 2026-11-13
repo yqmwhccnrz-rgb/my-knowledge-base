@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">计量经济学方法论与数据类型</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 传统八步研究流程</text>
+  <rect x="30" y="62" width="146" height="42" rx="5" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="103" y="80" text-anchor="middle" font-size="10" fill="#1e3a8a">① 理论 / 假设</text>
+  <text x="103" y="96" text-anchor="middle" font-size="9" fill="#64748b">需求定律、消费函数</text>
+  <rect x="186" y="62" width="146" height="42" rx="5" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="259" y="80" text-anchor="middle" font-size="10" fill="#1e3a8a">② 数学模型</text>
+  <text x="259" y="96" text-anchor="middle" font-size="9" fill="#64748b">Q = a + bP</text>
+  <rect x="342" y="62" width="146" height="42" rx="5" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="415" y="80" text-anchor="middle" font-size="10" fill="#1e3a8a">③ 计量模型</text>
+  <text x="415" y="96" text-anchor="middle" font-size="9" fill="#64748b">加入扰动 u：Q=a+bP+u</text>
+  <rect x="498" y="62" width="152" height="42" rx="5" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="574" y="80" text-anchor="middle" font-size="10" fill="#1e3a8a">④ 获取数据</text>
+  <text x="574" y="96" text-anchor="middle" font-size="9" fill="#64748b">横截面 / 时序 / 面板</text>
+  <rect x="30" y="114" width="146" height="42" rx="5" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="103" y="132" text-anchor="middle" font-size="10" fill="#166534">⑤ 参数估计</text>
+  <text x="103" y="148" text-anchor="middle" font-size="9" fill="#64748b">OLS / ML / GMM</text>
+  <rect x="186" y="114" width="146" height="42" rx="5" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="259" y="132" text-anchor="middle" font-size="10" fill="#166534">⑥ 假设检验</text>
+  <text x="259" y="148" text-anchor="middle" font-size="9" fill="#64748b">t / F / R² / 置信区间</text>
+  <rect x="342" y="114" width="146" height="42" rx="5" fill="#fef3c7" stroke="#d97706"/>
+  <text x="415" y="132" text-anchor="middle" font-size="10" fill="#92400e">⑦ 诊断与修正</text>
+  <text x="415" y="148" text-anchor="middle" font-size="9" fill="#64748b">异方差 / 自相关 / 内生性</text>
+  <rect x="498" y="114" width="152" height="42" rx="5" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="574" y="132" text-anchor="middle" font-size="10" fill="#5b21b6">⑧ 预测与政策评价</text>
+  <text x="574" y="148" text-anchor="middle" font-size="9" fill="#64748b">点预测 + 区间 + 弹性</text>
+
+  <text x="30" y="184" font-size="12" font-weight="700" fill="#334155">② 四层检验（缺一不可）</text>
+  <rect x="30" y="194" width="150" height="34" rx="5" fill="#f8fafc" stroke="#cbd5e1"/><text x="105" y="216" text-anchor="middle" font-size="10" fill="#475569">经济意义：符号 / 大小</text>
+  <rect x="186" y="194" width="150" height="34" rx="5" fill="#f8fafc" stroke="#cbd5e1"/><text x="261" y="216" text-anchor="middle" font-size="10" fill="#475569">统计检验：t / F / R²</text>
+  <rect x="342" y="194" width="150" height="34" rx="5" fill="#f8fafc" stroke="#cbd5e1"/><text x="417" y="216" text-anchor="middle" font-size="10" fill="#475569">计量检验：古典假定</text>
+  <rect x="498" y="194" width="152" height="34" rx="5" fill="#f8fafc" stroke="#cbd5e1"/><text x="574" y="216" text-anchor="middle" font-size="10" fill="#475569">稳定性：Chow / 外推</text>
+
+  <text x="30" y="254" font-size="12" font-weight="700" fill="#334155">③ 四类数据</text>
+  <rect x="30" y="264" width="620" height="72" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="284" font-size="10" fill="#475569">横截面：同一时点多个体（某年 500 户家庭消费）→ 异方差常见</text>
+  <text x="42" y="302" font-size="10" fill="#475569">时间序列：同一个体多时期（1990–2025 年 GDP）→ 自相关、非平稳、趋势与季节</text>
+  <text x="42" y="320" font-size="10" font-weight="700" fill="#1e3a8a">面板：同一批个体 × 多时期（4 个产业 × 20 年）→ 可控制不可观测个体异质性</text>
+
+  <rect x="30" y="346" width="620" height="44" rx="6" fill="#fff7ed" stroke="#f59e0b"/>
+  <text x="42" y="364" font-size="10.5" font-weight="700" fill="#92400e">补充：现代研究更强调「识别优先」</text>
+  <text x="42" y="382" font-size="10" fill="#78350f">先回答「系数能否作因果解释」（随机化 / 可忽略性 / IV / DID / RDD），再谈估计与显著性；混合数据 ≠ 面板数据。</text>
+</svg>

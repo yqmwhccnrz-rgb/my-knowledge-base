@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">多元回归：偏效应、虚拟变量与函数形式</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 偏回归系数：控制其它变量不变（ceteris paribus）</text>
+  <rect x="30" y="62" width="300" height="116" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="42" y="83" font-size="10" fill="#1e3a8a">Y = β₀ + β₁X₁ + β₂X₂ + u</text>
+  <text x="42" y="104" font-size="9.5" fill="#1e40af">β₁ = 保持 X₂ 不变时，X₁ 增 1 单位对 Y 的影响</text>
+  <text x="42" y="124" font-size="9.5" fill="#1e40af">FWL：β̂₁ 等于「y 对 X₂ 的残差」对「X₁ 对 X₂ 的残差」回归</text>
+  <text x="42" y="145" font-size="9.5" fill="#dc2626">遗漏 X₂ 时：plim β̃₁ = β₁ + β₂·δ₁（δ₁ 为 X₂ 对 X₁ 回归斜率）</text>
+  <text x="42" y="166" font-size="9" fill="#64748b">偏误方向 = sign(β₂) × sign(Corr(X₁,X₂))</text>
+
+  <rect x="350" y="62" width="300" height="116" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="362" y="83" font-size="10" font-weight="700" fill="#166534">约束 F 检例题（n=30, k=3）</text>
+  <text x="362" y="104" font-size="9.5" fill="#15803d">R²_u=0.86, R²_r=0.62, q=2</text>
+  <text x="362" y="124" font-size="9.5" fill="#15803d">F = [(0.86−0.62)/2]/[0.14/26] = 22.29</text>
+  <text x="362" y="144" font-size="9.5" fill="#15803d">F₀.₀₅(2,26)≈3.37 → 拒绝约束</text>
+  <text x="362" y="165" font-size="9" fill="#64748b">R̄² = 1 − 0.14×29/26 = 0.8438；整体 F = 53.24</text>
+
+  <text x="30" y="202" font-size="12" font-weight="700" fill="#334155">② 虚拟变量与陷阱</text>
+  <rect x="30" y="212" width="620" height="72" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="232" font-size="9.5" fill="#475569">截距虚拟：Y = β₀ + δD + β₁X + u → D=1 组相对基准组截距差 δ</text>
+  <text x="42" y="251" font-size="9.5" fill="#475569">斜率虚拟（交互）：Y = β₀ + β₁X + δ(D·X) + u → 两组斜率差 δ</text>
+  <text x="42" y="271" font-size="9.5" font-weight="700" fill="#dc2626">m 个类别只放 m−1 个虚拟变量；全放且含截距 ⇒ 虚拟变量陷阱（完全共线，X′X 不可逆）</text>
+
+  <text x="30" y="308" font-size="12" font-weight="700" fill="#334155">③ 四种函数形式的系数解释</text>
+  <rect x="30" y="318" width="620" height="68" rx="6" fill="#fff7ed" stroke="#f59e0b"/>
+  <text x="42" y="338" font-size="9.5" fill="#78350f">线性 Y~X：β₁ 为绝对变化　｜　对数-线性 lnY~X：X 增 1 单位 → Y 约变 100β₁%</text>
+  <text x="42" y="357" font-size="9.5" fill="#78350f">线性-对数 Y~lnX：X 增 1% → Y 变 β₁/100 单位　｜　双对数 lnY~lnX：β₁ 直接是弹性</text>
+  <text x="42" y="376" font-size="9" fill="#64748b">注意：对数模型与线性模型的 R² 不可直接比较；交互项显著时主效应只代表「另一变量为 0」时。</text>
+</svg>

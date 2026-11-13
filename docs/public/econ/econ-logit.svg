@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">定性选择模型：LPM、Logit / Probit 与边际效应</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 三种连接函数的形状</text>
+  <rect x="30" y="62" width="380" height="184" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <line x1="60" y1="222" x2="386" y2="222" stroke="#94a3b8"/>
+  <line x1="60" y1="222" x2="60" y2="78" stroke="#94a3b8"/>
+  <text x="46" y="80" font-size="9" fill="#64748b">P</text>
+  <text x="52" y="94" font-size="9" fill="#64748b">1</text>
+  <text x="52" y="154" font-size="9" fill="#64748b">0.5</text>
+  <text x="52" y="226" font-size="9" fill="#64748b">0</text>
+  <text x="388" y="238" font-size="9" fill="#64748b">z = β′X</text>
+  <line x1="60" y1="150" x2="386" y2="150" stroke="#cbd5e1" stroke-dasharray="3 3"/>
+  <line x1="60" y1="222" x2="320" y2="88" stroke="#dc2626" stroke-width="1.7"/>
+  <text x="300" y="82" font-size="9" fill="#dc2626">LPM 线性（会越界）</text>
+  <path d="M70 216 C140 214 170 176 223 150 C276 124 306 88 376 84" fill="none" stroke="#2563eb" stroke-width="2"/>
+  <text x="264" y="118" font-size="9" fill="#2563eb">Logit S 形</text>
+  <path d="M70 220 C130 219 180 192 223 150 C266 108 316 82 376 80" fill="none" stroke="#16a34a" stroke-width="1.8" stroke-dasharray="5 3"/>
+  <text x="110" y="200" font-size="9" fill="#16a34a">Probit（更陡）</text>
+
+  <rect x="426" y="62" width="224" height="184" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="538" y="82" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">三大模型对照</text>
+  <text x="438" y="103" font-size="9" fill="#1e40af">LPM：P = β′X，边际效应 = β（常数）</text>
+  <text x="438" y="120" font-size="9" fill="#1e40af">缺点：预测越界、必然异方差</text>
+  <text x="438" y="142" font-size="9" fill="#1e40af">Logit：P = 1/(1+e⁻ᶻ)</text>
+  <text x="438" y="159" font-size="9" fill="#1e40af">ME = β·P(1−P)，OR = eᵝ</text>
+  <text x="438" y="181" font-size="9" fill="#1e40af">Probit：P = Φ(z)，ME = β·φ(z)</text>
+  <text x="438" y="198" font-size="9" fill="#1e40af">β_Logit ≈ 1.6 × β_Probit</text>
+  <text x="438" y="220" font-size="9" fill="#64748b">均用极大似然 MLE 估计（非 OLS）</text>
+  <text x="438" y="238" font-size="9" fill="#64748b">LR = 2(lnLᵤ−lnLᵣ) ∼ χ²(q)</text>
+
+  <text x="30" y="270" font-size="12" font-weight="700" fill="#334155">② 数值例题：z = −1 + 0.5x</text>
+  <rect x="30" y="280" width="620" height="62" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="42" y="300" font-size="9.5" fill="#15803d">x=2 → z=0　 P=0.5000，ME=0.1250（最大）　｜　x=4 → z=1　 P=0.7311，ME=0.0983</text>
+  <text x="42" y="319" font-size="9.5" fill="#15803d">x=6 → z=2　 P=0.8808，ME=0.0525　｜　优势比 OR = e⁰·⁵ = 1.649（发生比 ×1.649，非概率 +64.9%）</text>
+  <text x="42" y="336" font-size="9" fill="#64748b">边际效应在 P≈0.5 处最大、两端趋 0；报告应给 AME 或指定点 MEM，而非只报 β</text>
+
+  <rect x="30" y="352" width="620" height="38" rx="6" fill="#fff7ed" stroke="#f59e0b"/>
+  <text x="42" y="376" font-size="9.5" fill="#78350f">扩展：多项 Logit（IIA 假定）/ 有序 Logit（平行线）/ Tobit（角点堆积删失）/ Heckman 两阶段（样本选择）/ Poisson（计数因变量）</text>
+</svg>

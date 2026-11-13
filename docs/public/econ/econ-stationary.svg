@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">时间序列：平稳性、单位根与伪回归</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 三类序列形态</text>
+  <rect x="30" y="62" width="196" height="116" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="128" y="82" text-anchor="middle" font-size="10" font-weight="700" fill="#166534">平稳 I(0)</text>
+  <polyline points="44,150 58,120 72,144 86,116 100,140 114,122 128,146 142,118 156,142 170,124 184,148 212,126" fill="none" stroke="#16a34a" stroke-width="1.6"/>
+  <line x1="44" y1="134" x2="212" y2="134" stroke="#94a3b8" stroke-dasharray="4 3"/>
+  <text x="128" y="170" text-anchor="middle" font-size="9" fill="#64748b">围绕常数均值波动</text>
+  <rect x="242" y="62" width="196" height="116" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="340" y="82" text-anchor="middle" font-size="10" font-weight="700" fill="#1e3a8a">趋势平稳</text>
+  <line x1="256" y1="160" x2="424" y2="102" stroke="#94a3b8" stroke-dasharray="4 3"/>
+  <polyline points="256,156 272,142 288,152 304,132 320,144 336,128 352,140 368,118 384,132 400,112 422,120" fill="none" stroke="#2563eb" stroke-width="1.6"/>
+  <text x="340" y="170" text-anchor="middle" font-size="9" fill="#64748b">去趋势后平稳，冲击暂时</text>
+  <rect x="454" y="62" width="196" height="116" rx="6" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="552" y="82" text-anchor="middle" font-size="10" font-weight="700" fill="#991b1b">随机游走 I(1)</text>
+  <polyline points="468,140 484,132 500,146 516,118 532,126 548,104 564,112 580,92 596,104 612,80 636,88" fill="none" stroke="#dc2626" stroke-width="1.6"/>
+  <text x="552" y="170" text-anchor="middle" font-size="9" fill="#64748b">方差随时间增大，冲击永久</text>
+
+  <text x="30" y="202" font-size="12" font-weight="700" fill="#334155">② 单位根检验：ADF 与临界值</text>
+  <rect x="30" y="212" width="620" height="76" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="232" font-size="9.5" fill="#475569">ΔYₜ = α + βt + γYₜ₋₁ + ΣδᵢΔYₜ₋ᵢ + εₜ　　H₀: γ = 0（有单位根，非平稳）</text>
+  <text x="42" y="251" font-size="9.5" font-weight="700" fill="#dc2626">统计量在原假设下不服从标准 t 分布，必须用 DF / MacKinnon 临界值（更负）</text>
+  <text x="42" y="270" font-size="9.5" fill="#475569">AEG 例题：−4.99 &lt; −3.01 ⇒ 拒绝非平稳（协整残差平稳）；水平值 −1.71 &gt; −3.01 ⇒ 不能拒绝单位根</text>
+  <text x="42" y="283" font-size="9" fill="#64748b">ADF 的 H₀ 是「非平稳」；KPSS 的 H₀ 恰好相反（平稳），可联合使用</text>
+
+  <text x="30" y="312" font-size="12" font-weight="700" fill="#334155">③ 伪回归与处理路线</text>
+  <rect x="30" y="322" width="300" height="66" rx="6" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="42" y="342" font-size="9.5" fill="#7f1d1d">两个独立随机游走互相回归：高 R²、显著 t、低 DW</text>
+  <text x="42" y="360" font-size="9.5" fill="#7f1d1d">判别信号：R² &gt; DW；残差高度自相关</text>
+  <text x="42" y="378" font-size="9" fill="#64748b">结论完全虚假，样本越大越「显著」</text>
+  <rect x="350" y="322" width="300" height="66" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="362" y="342" font-size="9.5" fill="#15803d">① 先做 ADF/PP/KPSS 定单整阶 I(d)</text>
+  <text x="362" y="360" font-size="9.5" fill="#15803d">② 同阶单整 → 协整检验；协整则用 VECM</text>
+  <text x="362" y="378" font-size="9.5" fill="#15803d">③ 无协整 → 差分后回归（但丢失长期信息）</text>
+</svg>

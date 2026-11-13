@@ -32,7 +32,8 @@ const noteOptions = [
   { key: 'Java', label: 'Java 程序设计笔记' },
   { key: 'Network', label: '计算机网络笔记' },
   { key: 'COA', label: '计算机组成与系统结构笔记' },
-  { key: 'OS', label: '计算机操作系统笔记' }
+  { key: 'OS', label: '计算机操作系统笔记' },
+  { key: 'Econometrics', label: '计量经济学笔记' }
 ]
 const selectedNote = ref('all')
 const size = ref(5)

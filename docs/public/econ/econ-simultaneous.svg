@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">联立方程模型：内生性、简化式与识别条件</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 课件宏观例：为什么 OLS 不一致</text>
+  <rect x="30" y="62" width="300" height="122" rx="6" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="42" y="83" font-size="10" fill="#7f1d1d">消费函数：Cₜ = α + βYₜ + uₜ　（行为方程）</text>
+  <text x="42" y="103" font-size="10" fill="#7f1d1d">收入恒等：Yₜ = Cₜ + Iₜ　　　　（恒等式）</text>
+  <text x="42" y="126" font-size="9.5" fill="#7f1d1d">代入 ⇒ Yₜ = α/(1−β) + Iₜ/(1−β) + uₜ/(1−β)</text>
+  <text x="42" y="145" font-size="9.5" fill="#7f1d1d">⇒ Yₜ 含 uₜ，Cov(Yₜ,uₜ) ≠ 0</text>
+  <text x="42" y="166" font-size="9.5" font-weight="700" fill="#991b1b">OLS 估计 β 有偏且不一致（联立性偏误）</text>
+
+  <rect x="350" y="62" width="300" height="122" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="362" y="83" font-size="10.5" font-weight="700" fill="#1e3a8a">变量与方程分类</text>
+  <text x="362" y="103" font-size="9.5" fill="#1e40af">内生变量：由模型内部决定（C、Y）</text>
+  <text x="362" y="122" font-size="9.5" fill="#1e40af">外生变量：外部给定（I、政策变量）</text>
+  <text x="362" y="141" font-size="9.5" fill="#1e40af">前定变量 = 外生 + 滞后内生（可作工具）</text>
+  <text x="362" y="160" font-size="9.5" fill="#1e40af">结构式（含内生变量）vs 简化式（只含前定变量）</text>
+  <text x="362" y="177" font-size="9" fill="#64748b">简化式系数 1/(1−β) 即投资乘数；OLS 可一致估计简化式</text>
+
+  <text x="30" y="208" font-size="12" font-weight="700" fill="#334155">② 识别：阶条件与秩条件</text>
+  <rect x="30" y="218" width="620" height="76" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="238" font-size="9.5" fill="#475569">设 G 个内生变量（方程数）、K 个前定变量；某方程含 g 个内生、k 个前定 ⇒ 排除了 K−k 个前定变量</text>
+  <text x="42" y="258" font-size="10" font-weight="700" fill="#1e3a8a">阶条件（必要非充分）：K − k ≥ g − 1　｜　恰好识别：K−k = g−1　｜　过度识别：K−k &gt; g−1　｜　不可识别：K−k &lt; g−1</text>
+  <text x="42" y="278" font-size="9.5" fill="#475569">秩条件（充要）：被排除变量在其它方程中的系数矩阵存在非零 G−1 阶行列式</text>
+  <text x="42" y="290" font-size="9" fill="#64748b">直觉：必须有「别的方程里有、本方程里没有」的外生变量充当工具</text>
+
+  <text x="30" y="318" font-size="12" font-weight="700" fill="#334155">③ 估计方法</text>
+  <rect x="30" y="328" width="150" height="58" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="105" y="348" text-anchor="middle" font-size="10" font-weight="700" fill="#166534">ILS 间接最小二乘</text>
+  <text x="105" y="366" text-anchor="middle" font-size="9" fill="#15803d">仅恰好识别</text>
+  <text x="105" y="380" text-anchor="middle" font-size="9" fill="#64748b">简化式反解 β</text>
+  <rect x="186" y="328" width="150" height="58" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="261" y="348" text-anchor="middle" font-size="10" font-weight="700" fill="#1e3a8a">2SLS 两阶段</text>
+  <text x="261" y="366" text-anchor="middle" font-size="9" fill="#1e40af">恰好 / 过度识别</text>
+  <text x="261" y="380" text-anchor="middle" font-size="9" fill="#64748b">等价于 IV，最常用</text>
+  <rect x="342" y="328" width="150" height="58" rx="6" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="417" y="348" text-anchor="middle" font-size="10" font-weight="700" fill="#5b21b6">3SLS / FIML</text>
+  <text x="417" y="366" text-anchor="middle" font-size="9" fill="#4c1d95">系统估计，效率更高</text>
+  <text x="417" y="380" text-anchor="middle" font-size="9" fill="#64748b">一处设定错污染全系统</text>
+  <rect x="498" y="328" width="152" height="58" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="574" y="348" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">LIML / GMM</text>
+  <text x="574" y="366" text-anchor="middle" font-size="9" fill="#78350f">弱工具、异方差</text>
+  <text x="574" y="380" text-anchor="middle" font-size="9" fill="#64748b">更稳健</text>
+</svg>

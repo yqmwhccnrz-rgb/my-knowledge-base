@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">模型诊断流程：五大问题、检验与对策</text>
+
+  <defs><marker id="dg" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#475569"/></marker></defs>
+
+  <rect x="220" y="46" width="240" height="36" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="340" y="69" text-anchor="middle" font-size="11" font-weight="700" fill="#1e3a8a">估计基准 OLS 模型</text>
+  <line x1="340" y1="82" x2="340" y2="98" stroke="#475569" marker-end="url(#dg)"/>
+  <rect x="220" y="100" width="240" height="36" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="340" y="123" text-anchor="middle" font-size="10.5" font-weight="700" fill="#92400e">先看：系数符号、t/F、R²、残差图</text>
+  <line x1="340" y1="136" x2="340" y2="152" stroke="#475569" marker-end="url(#dg)"/>
+
+  <rect x="30" y="156" width="196" height="96" rx="6" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="128" y="176" text-anchor="middle" font-size="10.5" font-weight="700" fill="#991b1b">内生性 / 误设定</text>
+  <text x="40" y="195" font-size="9" fill="#7f1d1d">信号：系数反常、理论冲突</text>
+  <text x="40" y="212" font-size="9" fill="#7f1d1d">检验：RESET、DWH、理论</text>
+  <text x="40" y="229" font-size="9" fill="#7f1d1d">对策：加控制 / FE / IV-2SLS</text>
+  <text x="40" y="245" font-size="9" font-weight="700" fill="#991b1b">有偏且不一致（最严重）</text>
+
+  <rect x="242" y="156" width="196" height="96" rx="6" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="340" y="176" text-anchor="middle" font-size="10.5" font-weight="700" fill="#5b21b6">多重共线性</text>
+  <text x="252" y="195" font-size="9" fill="#4c1d95">信号：F 显著但 t 多不显著</text>
+  <text x="252" y="212" font-size="9" fill="#4c1d95">检验：VIF = 1/(1−R²ⱼ)</text>
+  <text x="252" y="229" font-size="9" fill="#4c1d95">对策：增样本 / 变换 / 岭回归</text>
+  <text x="252" y="245" font-size="9" fill="#64748b">无偏，仅方差膨胀</text>
+
+  <rect x="454" y="156" width="196" height="96" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="552" y="176" text-anchor="middle" font-size="10.5" font-weight="700" fill="#166534">异方差</text>
+  <text x="464" y="195" font-size="9" fill="#15803d">信号：残差呈扇形/漏斗</text>
+  <text x="464" y="212" font-size="9" fill="#15803d">检验：BP / White / GQ</text>
+  <text x="464" y="229" font-size="9" fill="#15803d">对策：稳健 SE / WLS-FGLS</text>
+  <text x="464" y="245" font-size="9" fill="#64748b">无偏，标准误失效</text>
+
+  <rect x="136" y="264" width="196" height="76" rx="6" fill="#ffedd5" stroke="#ea580c"/>
+  <text x="234" y="284" text-anchor="middle" font-size="10.5" font-weight="700" fill="#9a3412">自相关</text>
+  <text x="146" y="303" font-size="9" fill="#9a3412">信号：残差连续正/负串</text>
+  <text x="146" y="320" font-size="9" fill="#9a3412">检验：DW / BG-LM；对策：HAC / C-O</text>
+  <text x="146" y="335" font-size="9" fill="#64748b">DW 五项限制，含 Y 滞后须换检验</text>
+
+  <rect x="348" y="264" width="196" height="76" rx="6" fill="#e0f2fe" stroke="#0284c7"/>
+  <text x="446" y="284" text-anchor="middle" font-size="10.5" font-weight="700" fill="#075985">非平稳 / 伪回归</text>
+  <text x="358" y="303" font-size="9" fill="#075985">信号：R² 高且 DW 低</text>
+  <text x="358" y="320" font-size="9" fill="#075985">检验：ADF / PP / KPSS → 协整</text>
+  <text x="358" y="335" font-size="9" fill="#64748b">对策：差分 / VECM / ARDL</text>
+
+  <rect x="30" y="352" width="620" height="38" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="376" font-size="10" fill="#475569">报告顺序：先识别（能否作因果解释）→ 再估计 → 再诊断修正 → 最后报告系数、标准误类型（普通/稳健/聚类）、p 值与稳健性。</text>
+</svg>

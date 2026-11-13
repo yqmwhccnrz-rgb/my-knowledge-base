@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">古典假定、高斯-马尔可夫定理与假定破坏的后果</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 六大古典假定（BLUE 的前提）</text>
+  <rect x="30" y="62" width="620" height="128" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="83" font-size="9.5" fill="#475569">A1 参数线性：Y = β₀ + β₁X + u（对 β 线性即可，X² 仍属线性模型）</text>
+  <text x="42" y="103" font-size="9.5" font-weight="700" fill="#dc2626">A2 解释变量与扰动不相关：Cov(X,u) = 0（关乎一致性，最致命）</text>
+  <text x="42" y="123" font-size="9.5" fill="#475569">A3 零条件均值：E(u|X) = 0　　　A4 同方差：Var(u|X) = σ²</text>
+  <text x="42" y="143" font-size="9.5" fill="#475569">A5 无自相关：Cov(uᵢ,uⱼ)=0 (i≠j)　　A6 X 有变异、无完全共线、n &gt; k+1</text>
+  <text x="42" y="168" font-size="9.5" fill="#64748b">可选 A7 正态性 u ∼ N(0,σ²)：只用于小样本精确 t/F 推断，不是 BLUE 的必要条件</text>
+
+  <rect x="30" y="200" width="300" height="86" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="180" y="222" text-anchor="middle" font-size="12" font-weight="700" fill="#166534">高斯-马尔可夫定理 → BLUE</text>
+  <text x="42" y="243" font-size="9.5" fill="#15803d">B 最佳（方差最小）　L 线性（Y 的线性组合）</text>
+  <text x="42" y="261" font-size="9.5" fill="#15803d">U 无偏　E 估计量　→ 在「线性无偏」类中方差最小</text>
+  <text x="42" y="278" font-size="9" fill="#64748b">「最佳」范围有限：有偏估计（岭回归）方差可更小</text>
+
+  <rect x="350" y="200" width="300" height="86" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="500" y="222" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">「系数性质」 vs 「推断性质」</text>
+  <text x="362" y="243" font-size="9.5" fill="#78350f">A2/A3 决定无偏与一致（系数本身对不对）</text>
+  <text x="362" y="261" font-size="9.5" fill="#78350f">A4/A5 决定有效性与标准误（t/F/区间对不对）</text>
+  <text x="362" y="278" font-size="9" fill="#64748b">故：异方差/自相关不使系数有偏，却让推断全部失效</text>
+
+  <text x="30" y="310" font-size="12" font-weight="700" fill="#334155">② 假定被破坏的后果速查</text>
+  <rect x="30" y="320" width="620" height="66" rx="6" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="42" y="340" font-size="9.5" fill="#7f1d1d">A2 破坏（内生性 / 遗漏变量 / 反向因果 / 测量误差）→ 系数有偏且不一致，增大样本无效 → IV/2SLS、实验或准实验</text>
+  <text x="42" y="359" font-size="9.5" fill="#7f1d1d">A4 破坏（异方差）→ 系数仍无偏、标准误错 → 稳健标准误 / WLS；A5 破坏（自相关）→ 标准误低估、t 虚高 → HAC / 广义差分</text>
+  <text x="42" y="378" font-size="9.5" fill="#7f1d1d">A6 近似破坏（高度共线）→ 系数无偏但方差膨胀 → VIF 诊断，增样本 / 删冗余 / 岭回归</text>
+</svg>

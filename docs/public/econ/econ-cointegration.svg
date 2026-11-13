@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">协整：长期均衡、EG 两步法与误差修正模型</text>
+
+  <defs><marker id="ci" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#475569"/></marker></defs>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 两条 I(1) 序列围绕长期均衡共同漂移</text>
+  <rect x="30" y="62" width="380" height="140" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <line x1="50" y1="184" x2="392" y2="184" stroke="#94a3b8"/>
+  <line x1="50" y1="184" x2="50" y2="72" stroke="#94a3b8"/>
+  <line x1="56" y1="170" x2="386" y2="88" stroke="#16a34a" stroke-width="1.6" stroke-dasharray="5 3"/>
+  <polyline points="56,168 90,158 124,164 158,142 192,150 226,128 260,138 294,116 328,124 386,96" fill="none" stroke="#2563eb" stroke-width="1.7"/>
+  <polyline points="56,176 90,166 124,152 158,156 192,134 226,142 260,118 294,126 328,104 386,92" fill="none" stroke="#ea580c" stroke-width="1.7"/>
+  <text x="300" y="82" font-size="9" fill="#166534">长期均衡线</text>
+  <text x="60" y="76" font-size="9" fill="#2563eb">Yₜ (I(1))　</text>
+  <text x="60" y="90" font-size="9" fill="#ea580c">βXₜ (I(1))</text>
+  <text x="220" y="198" text-anchor="middle" font-size="9" fill="#64748b">二者各自非平稳，但差值 uₜ = Yₜ − β₀ − β₁Xₜ 平稳 ⇒ 协整</text>
+
+  <rect x="426" y="62" width="224" height="140" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="538" y="82" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">Engle-Granger 两步法</text>
+  <text x="438" y="103" font-size="9" fill="#1e40af">① OLS 估长期静态回归</text>
+  <text x="438" y="120" font-size="9" fill="#1e40af">　Yₜ = β₀ + β₁Xₜ + uₜ，取 ûₜ</text>
+  <text x="438" y="139" font-size="9" fill="#1e40af">② 对 ûₜ 做 ADF 型检验（AEG）</text>
+  <text x="438" y="156" font-size="9" fill="#1e40af">　用 AEG 专用临界值（更负）</text>
+  <text x="438" y="175" font-size="9" font-weight="700" fill="#dc2626">　拒绝单位根 ⇒ 协整成立</text>
+  <text x="438" y="193" font-size="9" fill="#64748b">③ 协整 ⇒ 建立 ECM / VECM</text>
+
+  <text x="30" y="226" font-size="12" font-weight="700" fill="#334155">② 误差修正模型（Granger 表述定理）</text>
+  <rect x="30" y="236" width="620" height="72" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="42" y="257" font-size="10" font-weight="700" fill="#166534">ΔYₜ = α + γ·ECMₜ₋₁ + ΣδᵢΔXₜ₋ᵢ + ΣθⱼΔYₜ₋ⱼ + εₜ，　ECMₜ₋₁ = Yₜ₋₁ − β̂₀ − β̂₁Xₜ₋₁</text>
+  <text x="42" y="277" font-size="9.5" fill="#15803d">γ &lt; 0 为调整速度：γ = −0.25 表示每期修正上期偏离的 25%，半衰期 ln0.5/ln0.75 ≈ 2.4 期</text>
+  <text x="42" y="296" font-size="9.5" fill="#15803d">Σδᵢ 刻画短期动态；γ 必须显著为负，否则误差修正机制不成立</text>
+
+  <text x="30" y="332" font-size="12" font-weight="700" fill="#334155">③ 方法对照</text>
+  <rect x="30" y="342" width="620" height="46" rx="6" fill="#fff7ed" stroke="#f59e0b"/>
+  <text x="42" y="360" font-size="9.5" fill="#78350f">EG 两步：单方程、只找一个协整向量、小样本有偏、功效低　｜　Johansen：VAR 系统、迹统计量与最大特征值定协整秩 r、可做多协整关系</text>
+  <text x="42" y="378" font-size="9.5" fill="#78350f">ARDL 边界检验：允许 I(0)/I(1) 混合、小样本好　｜　VECM：同时刻画长期均衡与短期调整　｜　协整 ≠ 因果，方向需理论或 Granger/ECM 判定</text>
+</svg>

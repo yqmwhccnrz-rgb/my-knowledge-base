@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">面板数据：三种模型、变异来源与 Hausman 检验</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 通用设定与三种变异</text>
+  <rect x="30" y="62" width="300" height="102" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="42" y="83" font-size="10.5" fill="#1e3a8a">yᵢₜ = α + β′xᵢₜ + μᵢ + λₜ + εᵢₜ</text>
+  <text x="42" y="103" font-size="9.5" fill="#1e40af">μᵢ：个体效应（不随时间变）；λₜ：时间效应</text>
+  <text x="42" y="123" font-size="9.5" fill="#1e40af">总变异 yᵢₜ−ȳ（pooled）｜组内 yᵢₜ−ȳᵢ（FE）</text>
+  <text x="42" y="142" font-size="9.5" fill="#1e40af">组间 ȳᵢ−ȳ（BE）｜RE = 组内与组间加权平均</text>
+  <text x="42" y="158" font-size="9" fill="#64748b">面板必须是同一批个体跨期追踪，混合数据不是面板</text>
+
+  <rect x="350" y="62" width="300" height="102" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="362" y="83" font-size="10" font-weight="700" fill="#334155">三类模型</text>
+  <text x="362" y="103" font-size="9.5" fill="#475569">混合 OLS：忽略 μᵢ，假定所有观测独立（通常不成立）</text>
+  <text x="362" y="122" font-size="9.5" font-weight="700" fill="#166534">FE 固定效应：LSDV / 组内去均值 / 一阶差分，允许 Cov(μᵢ,x)≠0</text>
+  <text x="362" y="141" font-size="9.5" font-weight="700" fill="#d97706">RE 随机效应：FGLS 拟去均值，要求 Cov(μᵢ,x)=0，更有效</text>
+  <text x="362" y="158" font-size="9" fill="#64748b">FE 不能估时不变变量的系数，但能控制它们</text>
+
+  <text x="30" y="188" font-size="12" font-weight="700" fill="#334155">② Hausman 检验与例题</text>
+  <rect x="30" y="198" width="620" height="80" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="42" y="218" font-size="9.5" fill="#15803d">H₀: Cov(μᵢ, xᵢₜ) = 0（RE 一致且有效）　　H₁: 相关（RE 不一致，应选 FE）</text>
+  <text x="42" y="238" font-size="9.5" fill="#15803d">H = (β̂_FE − β̂_RE)′ [Var(β̂_FE) − Var(β̂_RE)]⁻¹ (β̂_FE − β̂_RE) ∼ χ²(k)</text>
+  <text x="42" y="259" font-size="9.5" font-weight="700" fill="#166534">例题：(0.62−0.45)²/(0.004−0.001) = 0.0289/0.003 = 9.63 &gt; χ²₀.₀₅(1)=3.84 ⇒ 拒绝 RE，选 FE</text>
+  <text x="42" y="274" font-size="9" fill="#64748b">检验只比较时变变量系数；H 可能为负（小样本非正定），需稳健版或 Mundlak-CRE</text>
+
+  <text x="30" y="302" font-size="12" font-weight="700" fill="#334155">③ 现代补充</text>
+  <rect x="30" y="312" width="620" height="76" rx="6" fill="#fff7ed" stroke="#f59e0b"/>
+  <text x="42" y="332" font-size="9.5" fill="#78350f">聚类稳健标准误：按个体聚类（允许组内任意自相关与异方差）；聚类数少用 wild cluster bootstrap</text>
+  <text x="42" y="351" font-size="9.5" fill="#78350f">动态面板：含 yᵢ,ₜ₋₁ 且 T 小时 FE 有 Nickell 偏误（约 −1/T）→ Arellano-Bond / 系统 GMM</text>
+  <text x="42" y="370" font-size="9.5" fill="#78350f">Mundlak-CRE：RE 中加入组内均值 x̄ᵢ，兼顾时不变变量与相关性　｜　双向 FE：同时控制个体与时间效应</text>
+  <text x="42" y="385" font-size="9" fill="#64748b">交错处理时点的 TWFE 在异质效应下可能有偏误，需 Callaway-Sant'Anna 等稳健估计量</text>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">自相关：残差形态、DW 判据与修正</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 残差序列形态</text>
+  <rect x="30" y="62" width="300" height="112" rx="6" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="180" y="82" text-anchor="middle" font-size="10" font-weight="700" fill="#991b1b">正自相关（连续同号、平滑游走）</text>
+  <polyline points="50,140 70,120 90,110 110,118 130,96 150,88 170,98 190,78 210,86 230,68 250,76 280,60" fill="none" stroke="#dc2626" stroke-width="1.8"/>
+  <line x1="50" y1="118" x2="280" y2="118" stroke="#94a3b8" stroke-dasharray="4 3"/>
+  <rect x="350" y="62" width="300" height="112" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="500" y="82" text-anchor="middle" font-size="10" font-weight="700" fill="#1e3a8a">无自相关（随机交替）</text>
+  <polyline points="370,140 390,92 410,146 430,100 450,138 470,88 490,142 510,104 530,136 550,94 570,144 620,108" fill="none" stroke="#2563eb" stroke-width="1.8"/>
+  <line x1="370" y1="118" x2="620" y2="118" stroke="#94a3b8" stroke-dasharray="4 3"/>
+
+  <text x="30" y="198" font-size="12" font-weight="700" fill="#334155">② DW 数轴与判断</text>
+  <rect x="30" y="208" width="620" height="60" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <rect x="50" y="222" width="130" height="18" fill="#fecaca" stroke="#dc2626"/>
+  <rect x="180" y="222" width="90" height="18" fill="#fed7aa" stroke="#ea580c"/>
+  <rect x="270" y="222" width="140" height="18" fill="#bbf7d0" stroke="#16a34a"/>
+  <rect x="410" y="222" width="90" height="18" fill="#fed7aa" stroke="#ea580c"/>
+  <rect x="500" y="222" width="130" height="18" fill="#bfdbfe" stroke="#2563eb"/>
+  <text x="115" y="252" text-anchor="middle" font-size="9" fill="#991b1b">正相关</text>
+  <text x="225" y="252" text-anchor="middle" font-size="9" fill="#9a3412">不可判定区</text>
+  <text x="340" y="252" text-anchor="middle" font-size="9" fill="#166534">无自相关（d≈2）</text>
+  <text x="455" y="252" text-anchor="middle" font-size="9" fill="#9a3412">不可判定区</text>
+  <text x="565" y="252" text-anchor="middle" font-size="9" fill="#1e3a8a">负相关</text>
+  <text x="50" y="214" font-size="9" fill="#64748b">0</text><text x="330" y="214" font-size="9" fill="#64748b">2</text><text x="622" y="214" font-size="9" fill="#64748b">4</text>
+
+  <rect x="30" y="278" width="300" height="56" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="42" y="297" font-size="10" font-weight="700" fill="#166534">d = Σ(eₜ−eₜ₋₁)²/Σeₜ² ≈ 2(1−ρ̂)</text>
+  <text x="42" y="316" font-size="9.5" fill="#15803d">例题：0.76/0.30 = 2.533 → ρ̂ = −0.267</text>
+  <text x="42" y="330" font-size="9" fill="#64748b">d=0.8 → ρ̂=0.60；d=3.4 → ρ̂=−0.70</text>
+
+  <rect x="350" y="278" width="300" height="56" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="362" y="297" font-size="10" font-weight="700" fill="#92400e">DW 五项硬限制</text>
+  <text x="362" y="316" font-size="9" fill="#78350f">只检一阶；不能含 Y 滞后；需含截距；有不确定区；无缺失值</text>
+  <text x="362" y="330" font-size="9" fill="#78350f">替代：Durbin h、Breusch-Godfrey LM（可检高阶）</text>
+
+  <rect x="30" y="344" width="620" height="46" rx="6" fill="#fff7ed" stroke="#f59e0b"/>
+  <text x="42" y="362" font-size="10.5" font-weight="700" fill="#92400e">修正与后果</text>
+  <text x="42" y="380" font-size="9.5" fill="#78350f">后果：系数（严格外生下）无偏，但标准误低估、t 虚高 → 假阳性。对策：Newey-West HAC 标准误 / Cochrane-Orcutt 广义差分 / Prais-Winsten；先排除「遗漏滞后变量」造成的伪自相关。</text>
+</svg>
