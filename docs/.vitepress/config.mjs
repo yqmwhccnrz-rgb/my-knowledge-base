@@ -103,10 +103,17 @@ function cleanDescription(text) {
 
 const notes = noteLinks()
 
-// CPA 笔记收进「CPA」折叠分组，其余笔记保持扁平
+// 408 统考四门（数据结构、计算机组成、操作系统、计算机网络）与 CPA 笔记
+// 分别收进折叠分组，其余笔记保持扁平
+const slugs408 = ['datastructure', 'coa', 'os', 'network']
+const is408 = (n) => slugs408.some((s) => n.link === `/notes/${s}.html`)
+// 按 408 统考科目顺序整理，便于查阅
+const notes408 = slugs408
+  .map((slug) => notes.find((n) => n.link === `/notes/${slug}.html`))
+  .filter(Boolean)
 const isCPA = (n) => n.text.includes('（CPA）')
 const cpaNotes = notes.filter(isCPA)
-const otherNotes = notes.filter((n) => !isCPA(n))
+const otherNotes = notes.filter((n) => !isCPA(n) && !is408(n))
 // 按 CPA 考试试卷顺序整理，便于查阅
 const cpaOrder = ['会计', '审计', '税法', '经济法', '财务成本管理', '公司战略']
 cpaNotes.sort((a, b) => {
@@ -187,6 +194,13 @@ export default defineConfig({
         items: [
           ...otherNotes,
           { text: '英语听力', link: '/listening.html' },
+          // 「408」折叠分组：计算机统考四门，点击展开/收起，默认收起
+          {
+            text: '<i class="kb-408-dot"></i>408',
+            collapsible: true,
+            collapsed: true,
+            items: notes408
+          },
           // 「CPA」折叠分组：集中收纳全部 CPA 笔记，点击展开/收起
           {
             text: '<i class="kb-cpa-dot"></i>CPA',
