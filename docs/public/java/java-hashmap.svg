@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 470" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="470" fill="#fbfdff"/>
+  <text x="340" y="28" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">HashMap 底层结构：数组 + 链表 / 红黑树</text>
+
+  <defs>
+    <marker id="ar3" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <text x="20" y="56" font-size="12.5" font-weight="700" fill="#334155">① Node&lt;K,V&gt;[] table（容量始终为 2 的幂，下图以 8 示意）</text>
+
+  <!-- 数组 8 格 -->
+  <rect x="30" y="66" width="68" height="30" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="64" y="86" text-anchor="middle" font-size="11" fill="#334155">[0]</text>
+  <rect x="108" y="66" width="68" height="30" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="142" y="86" text-anchor="middle" font-size="11" fill="#334155">[1]</text>
+  <rect x="186" y="66" width="68" height="30" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="220" y="86" text-anchor="middle" font-size="11" fill="#334155">[2]</text>
+  <rect x="264" y="66" width="68" height="30" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="298" y="86" text-anchor="middle" font-size="11" font-weight="700" fill="#1e3a8a">[3]</text>
+  <rect x="342" y="66" width="68" height="30" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="376" y="86" text-anchor="middle" font-size="11" fill="#334155">[4]</text>
+  <rect x="420" y="66" width="68" height="30" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="454" y="86" text-anchor="middle" font-size="11" fill="#334155">[5]</text>
+  <rect x="498" y="66" width="68" height="30" rx="4" fill="#dcfce7" stroke="#15803d" stroke-width="1.5"/>
+  <text x="532" y="86" text-anchor="middle" font-size="11" font-weight="700" fill="#15803d">[6]</text>
+  <rect x="576" y="66" width="68" height="30" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="610" y="86" text-anchor="middle" font-size="11" fill="#334155">[7]</text>
+
+  <!-- 桶3 -> 链表 -->
+  <line x1="298" y1="96" x2="298" y2="122" stroke="#2563eb" stroke-width="1.4" marker-end="url(#ar3)"/>
+  <rect x="20" y="124" width="310" height="98" rx="8" fill="#ffffff" stroke="#2563eb"/>
+  <text x="30" y="144" font-size="11" font-weight="700" fill="#1e3a8a">桶 [3]：哈希冲突较少 → 单向链表</text>
+  <rect x="32" y="158" width="76" height="30" rx="5" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="70" y="178" text-anchor="middle" font-size="10" fill="#1e293b">A:hash/key</text>
+  <line x1="108" y1="173" x2="132" y2="173" stroke="#2563eb" marker-end="url(#ar3)"/>
+  <rect x="134" y="158" width="76" height="30" rx="5" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="172" y="178" text-anchor="middle" font-size="10" fill="#1e293b">B:hash/key</text>
+  <line x1="210" y1="173" x2="234" y2="173" stroke="#2563eb" marker-end="url(#ar3)"/>
+  <rect x="236" y="158" width="76" height="30" rx="5" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="274" y="178" text-anchor="middle" font-size="10" fill="#1e293b">C:hash/key</text>
+  <text x="32" y="208" font-size="10" fill="#64748b">JDK 8 起冲突节点尾插（JDK 7 头插在并发扩容时会成环）。</text>
+
+  <!-- 桶6 -> 红黑树 -->
+  <line x1="532" y1="96" x2="532" y2="122" stroke="#15803d" stroke-width="1.4" marker-end="url(#ar3)"/>
+  <rect x="350" y="124" width="310" height="98" rx="8" fill="#ffffff" stroke="#15803d"/>
+  <text x="360" y="144" font-size="11" font-weight="700" fill="#15803d">桶 [6]：链表 ≥ 8 且容量 ≥ 64 → 红黑树</text>
+  <rect x="470" y="154" width="70" height="24" rx="5" fill="#dcfce7" stroke="#15803d"/>
+  <text x="505" y="170" text-anchor="middle" font-size="10" fill="#14532d">root</text>
+  <line x1="492" y1="178" x2="440" y2="194" stroke="#15803d"/>
+  <line x1="520" y1="178" x2="572" y2="194" stroke="#15803d"/>
+  <rect x="404" y="194" width="72" height="22" rx="5" fill="#f0fdf4" stroke="#15803d"/>
+  <text x="440" y="209" text-anchor="middle" font-size="10" fill="#14532d">left</text>
+  <rect x="536" y="194" width="72" height="22" rx="5" fill="#f0fdf4" stroke="#15803d"/>
+  <text x="572" y="209" text-anchor="middle" font-size="10" fill="#14532d">right</text>
+  <text x="360" y="209" font-size="10" fill="#64748b">查找由 O(n)</text>
+  <text x="360" y="220" font-size="10" fill="#64748b">降为 O(log n)</text>
+
+  <!-- ② 定位 -->
+  <line x1="20" y1="234" x2="660" y2="234" stroke="#e2e8f0"/>
+  <text x="20" y="256" font-size="12.5" font-weight="700" fill="#334155">② put / get 如何定位桶</text>
+  <rect x="20" y="266" width="640" height="62" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="32" y="286" font-size="11" fill="#334155">h = key.hashCode();   hash = h ^ (h &gt;&gt;&gt; 16);   // 高 16 位混入低位，减少哈希冲突</text>
+  <text x="32" y="305" font-size="11" fill="#334155">index = (n - 1) &amp; hash;                        // n = 2^k 时等价于 hash % n，但位运算更快</text>
+  <text x="32" y="322" font-size="10.5" fill="#64748b">先比 hash 是否相等，再调用 equals 判同；相同则覆盖 value，不同则挂到链表尾 / 插入树节点。</text>
+
+  <!-- ③ 扩容与树化 -->
+  <text x="20" y="350" font-size="12.5" font-weight="700" fill="#334155">③ 扩容与树化阈值</text>
+  <text x="20" y="370" font-size="11" fill="#334155">• 默认容量 16、负载因子 0.75；阈值 = 容量 × 0.75，size 超过阈值就扩容为 2 倍并重新分布（JDK 8 靠高位拆分，无需全量重算 hash）。</text>
+  <text x="20" y="388" font-size="11" fill="#334155">• 链表长度 ≥ 8（TREEIFY_THRESHOLD）且 table 长度 ≥ 64 才树化；容量不足 64 时优先扩容而不是树化；树节点 ≤ 6 退化为链表。</text>
+  <text x="20" y="406" font-size="11" fill="#334155">• key 必须正确重写 equals + hashCode，且参与比较的字段放进 Map 后不可变，否则 get 时定位不到原桶 ——「存进去找不到自己」。</text>
+  <text x="20" y="424" font-size="11" fill="#334155">• 允许 1 个 null 键、多个 null 值；HashMap 非线程安全，并发场景用 ConcurrentHashMap（JDK 8 起桶级 CAS + synchronized）。</text>
+  <text x="20" y="446" font-size="10.5" fill="#64748b">对比：Hashtable 全表 synchronized 且不允许 null 键；LinkedHashMap 额外用双向链表维护插入 / 访问顺序；TreeMap 红黑树按键有序。</text>
+</svg>

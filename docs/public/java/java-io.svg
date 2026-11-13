@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 440" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="440" fill="#fbfdff"/>
+  <text x="340" y="28" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">Java I/O 体系：字节流 / 字符流 与 NIO.2</text>
+
+  <!-- 四大基类 2x2 -->
+  <text x="20" y="56" font-size="12.5" font-weight="700" fill="#334155">① 四大抽象基类（按「数据单位」×「方向」划分）</text>
+  <rect x="20" y="66" width="310" height="34" rx="5" fill="#e0e7ff" stroke="#6366f1"/>
+  <text x="30" y="87" font-size="11" fill="#3730a3">字节输入  InputStream ← FileInputStream / BufferedInputStream</text>
+  <rect x="350" y="66" width="310" height="34" rx="5" fill="#e0e7ff" stroke="#6366f1"/>
+  <text x="360" y="87" font-size="11" fill="#3730a3">字节输出  OutputStream ← FileOutputStream / BufferedOutputStream</text>
+  <rect x="20" y="106" width="310" height="34" rx="5" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="30" y="127" font-size="11" fill="#14532d">字符输入  Reader ← FileReader / BufferedReader / InputStreamReader</text>
+  <rect x="350" y="106" width="310" height="34" rx="5" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="360" y="127" font-size="11" fill="#14532d">字符输出  Writer ← FileWriter / BufferedWriter / OutputStreamWriter</text>
+  <text x="20" y="158" font-size="10.5" fill="#64748b">字节流以 byte 为单位（图片、视频、任意二进制）；字符流以 char 为单位，内部做字符编码转换（务必显式指定 UTF-8）。</text>
+
+  <!-- 装饰器 -->
+  <text x="20" y="184" font-size="12.5" font-weight="700" fill="#334155">② 装饰器模式：层层包裹，逐层增强能力</text>
+  <rect x="20" y="194" width="640" height="72" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="32" y="216" font-size="10.5" fill="#1e293b">Reader br = new BufferedReader(                    // ③ 缓冲 + readLine()</text>
+  <text x="32" y="234" font-size="10.5" fill="#1e293b">                 new InputStreamReader(            // ② 字节 → 字符（指定字符集）</text>
+  <text x="32" y="252" font-size="10.5" fill="#1e293b">                 new FileInputStream("a.txt"), StandardCharsets.UTF_8));   // ① 读文件原始字节</text>
+
+  <!-- try-with-resources -->
+  <text x="20" y="290" font-size="12.5" font-weight="700" fill="#334155">③ 资源关闭：实现 AutoCloseable 才能用于 try-with-resources</text>
+  <rect x="20" y="300" width="310" height="66" rx="6" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="30" y="320" font-size="10.5" fill="#1e293b">try (Reader r = newBufferedReader(...)) {</text>
+  <text x="30" y="338" font-size="10.5" fill="#1e293b">    return r.readLine();</text>
+  <text x="30" y="356" font-size="10.5" fill="#1e293b">}   // 按声明逆序自动 close()</text>
+
+  <!-- NIO.2 -->
+  <rect x="350" y="300" width="310" height="66" rx="6" fill="#fffbeb" stroke="#d97706"/>
+  <text x="360" y="320" font-size="11" font-weight="700" fill="#92400e">NIO.2（java.nio.file，替代老 File）</text>
+  <text x="360" y="338" font-size="10.5" fill="#1e293b">Path / Paths / Files / FileSystem</text>
+  <text x="360" y="356" font-size="10.5" fill="#1e293b">Files.readAllLines / lines / walk / copy / WatchService</text>
+
+  <!-- 要点 -->
+  <line x1="20" y1="378" x2="660" y2="378" stroke="#e2e8f0"/>
+  <text x="20" y="398" font-size="11" fill="#334155">• 关闭顺序与包裹顺序相反：关闭最外层 Buffered 流会连带关闭底层流；只关内层可能丢失缓冲区数据。</text>
+  <text x="20" y="416" font-size="11" fill="#334155">• Files.readAllLines 会一次读入内存，大文件请用 Files.lines 返回的 Stream 流式处理（该 Stream 也需 try-with-resources 关闭）。</text>
+  <text x="20" y="434" font-size="10.5" fill="#64748b">• 序列化用 ObjectOutputStream / ObjectInputStream + Serializable，transient 字段不参与；现代项目更常用 JSON。</text>
+</svg>

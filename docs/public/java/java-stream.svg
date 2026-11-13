@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 440" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="440" fill="#fbfdff"/>
+  <text x="340" y="28" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">Stream API：流水线与惰性求值</text>
+
+  <defs>
+    <marker id="ar4" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <!-- 流水线 -->
+  <rect x="18" y="56" width="96" height="52" rx="8" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="66" y="78" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1e3a8a">数据源</text>
+  <text x="66" y="96" text-anchor="middle" font-size="10" fill="#64748b">list.stream()</text>
+
+  <line x1="114" y1="82" x2="134" y2="82" stroke="#2563eb" stroke-width="1.6" marker-end="url(#ar4)"/>
+
+  <rect x="138" y="56" width="106" height="52" rx="8" fill="#ffffff" stroke="#7c3aed"/>
+  <text x="191" y="78" text-anchor="middle" font-size="11.5" font-weight="700" fill="#5b21b6">filter</text>
+  <text x="191" y="96" text-anchor="middle" font-size="10" fill="#64748b">中间 · 惰性</text>
+
+  <line x1="244" y1="82" x2="264" y2="82" stroke="#7c3aed" stroke-width="1.6" marker-end="url(#ar4)"/>
+
+  <rect x="268" y="56" width="106" height="52" rx="8" fill="#ffffff" stroke="#7c3aed"/>
+  <text x="321" y="78" text-anchor="middle" font-size="11.5" font-weight="700" fill="#5b21b6">map</text>
+  <text x="321" y="96" text-anchor="middle" font-size="10" fill="#64748b">中间 · 惰性</text>
+
+  <line x1="374" y1="82" x2="394" y2="82" stroke="#7c3aed" stroke-width="1.6" marker-end="url(#ar4)"/>
+
+  <rect x="398" y="56" width="106" height="52" rx="8" fill="#ffffff" stroke="#7c3aed"/>
+  <text x="451" y="78" text-anchor="middle" font-size="11.5" font-weight="700" fill="#5b21b6">sorted</text>
+  <text x="451" y="96" text-anchor="middle" font-size="10" fill="#64748b">中间 · 有状态</text>
+
+  <line x1="504" y1="82" x2="524" y2="82" stroke="#7c3aed" stroke-width="1.6" marker-end="url(#ar4)"/>
+
+  <rect x="528" y="56" width="134" height="52" rx="8" fill="#dcfce7" stroke="#15803d" stroke-width="1.5"/>
+  <text x="595" y="78" text-anchor="middle" font-size="11.5" font-weight="700" fill="#15803d">collect / count</text>
+  <text x="595" y="96" text-anchor="middle" font-size="10" fill="#64748b">终止 · 真正触发计算</text>
+
+  <text x="18" y="132" font-size="11.5" fill="#334155">• 中间操作只「登记」不执行，返回新的 Stream；只有终止操作被调用时才一次性遍历数据源（惰性 + 循环合并优化）。</text>
+  <text x="18" y="150" font-size="11.5" fill="#334155">• Stream 只能消费一次：终止操作后再用会抛 IllegalStateException；源集合在流执行期间不要被结构性修改。</text>
+
+  <!-- 工作示例 -->
+  <rect x="18" y="164" width="644" height="112" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="30" y="184" font-size="11.5" font-weight="700" fill="#334155">工作示例</text>
+  <text x="30" y="204" font-size="10.5" fill="#1e293b">List&lt;String&gt; words = List.of("java", "stream", "go", "lambda", "jvm");</text>
+  <text x="30" y="222" font-size="10.5" fill="#1e293b">List&lt;String&gt; r = words.stream()</text>
+  <text x="30" y="240" font-size="10.5" fill="#1e293b">    .filter(w -&gt; w.length() &gt; 3)       // 保留 java(4)/stream(6)/lambda(6)，滤掉 go(2)/jvm(3)</text>
+  <text x="30" y="258" font-size="10.5" fill="#1e293b">    .map(String::toUpperCase).sorted().collect(Collectors.toList());    // 结果 [JAVA, LAMBDA, STREAM]</text>
+
+  <!-- API 分类 -->
+  <line x1="18" y1="288" x2="662" y2="288" stroke="#e2e8f0"/>
+  <text x="18" y="310" font-size="12.5" font-weight="700" fill="#334155">常用操作分类</text>
+
+  <rect x="18" y="320" width="206" height="84" rx="6" fill="#ffffff" stroke="#7c3aed"/>
+  <text x="28" y="340" font-size="11" font-weight="700" fill="#5b21b6">中间操作（返回 Stream）</text>
+  <text x="28" y="358" font-size="10.5" fill="#334155">filter / map / flatMap</text>
+  <text x="28" y="375" font-size="10.5" fill="#334155">distinct / sorted / peek</text>
+  <text x="28" y="392" font-size="10.5" fill="#334155">limit / skip / mapToInt</text>
+
+  <rect x="234" y="320" width="206" height="84" rx="6" fill="#ffffff" stroke="#15803d"/>
+  <text x="244" y="340" font-size="11" font-weight="700" fill="#15803d">终止操作（触发计算）</text>
+  <text x="244" y="358" font-size="10.5" fill="#334155">collect / forEach / count</text>
+  <text x="244" y="375" font-size="10.5" fill="#334155">reduce / anyMatch / findFirst</text>
+  <text x="244" y="392" font-size="10.5" fill="#334155">min / max / toArray / groupingBy</text>
+
+  <rect x="450" y="320" width="212" height="84" rx="6" fill="#ffffff" stroke="#d97706"/>
+  <text x="460" y="340" font-size="11" font-weight="700" fill="#92400e">并行与注意</text>
+  <text x="460" y="358" font-size="10.5" fill="#334155">parallelStream() 走 ForkJoinPool</text>
+  <text x="460" y="375" font-size="10.5" fill="#334155">需无状态、无副作用、线程安全</text>
+  <text x="460" y="392" font-size="10.5" fill="#334155">小数据量反而更慢（调度开销）</text>
+
+  <text x="18" y="424" font-size="10.5" fill="#64748b">• 原始类型流 IntStream / LongStream / DoubleStream 可避免装箱开销；Optional 用于优雅处理「可能没有结果」的 findFirst / reduce。</text>
+</svg>

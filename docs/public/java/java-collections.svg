@@ -1,77 +1,83 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 480" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
-  <rect x="0" y="0" width="680" height="480" fill="#fbfdff"/>
-  <text x="340" y="30" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">Java 集合框架（Java Collections Framework）继承层次</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 500" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="500" fill="#fbfdff"/>
+  <text x="340" y="28" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">Java 集合框架（Collections Framework）体系</text>
 
-  <!-- Iterable -->
-  <rect x="285" y="48" width="110" height="30" rx="6" fill="#dbeafe" stroke="#1e3a8a" stroke-width="1.2"/>
-  <text x="340" y="68" text-anchor="middle" font-size="13" fill="#1e3a8a">«interface» Iterable</text>
+  <!-- 顶层：Iterable -> Collection -->
+  <rect x="46" y="48" width="128" height="28" rx="6" fill="#dbeafe" stroke="#1e3a8a" stroke-width="1.2"/>
+  <text x="110" y="67" text-anchor="middle" font-size="12.5" fill="#1e3a8a">«interface» Iterable</text>
+  <line x1="110" y1="76" x2="110" y2="96" stroke="#1e3a8a" stroke-width="1.2"/>
+  <rect x="46" y="96" width="128" height="28" rx="6" fill="#dbeafe" stroke="#1e3a8a" stroke-width="1.2"/>
+  <text x="110" y="115" text-anchor="middle" font-size="12.5" fill="#1e3a8a">«interface» Collection</text>
 
-  <!-- Collection -->
-  <rect x="285" y="100" width="110" height="30" rx="6" fill="#dbeafe" stroke="#1e3a8a" stroke-width="1.2"/>
-  <text x="340" y="120" text-anchor="middle" font-size="13" fill="#1e3a8a">«interface» Collection</text>
-  <line x1="340" y1="78" x2="340" y2="100" stroke="#1e3a8a" stroke-width="1.2"/>
+  <!-- 独立根：Map -->
+  <rect x="470" y="48" width="150" height="28" rx="6" fill="#fef3c7" stroke="#b45309" stroke-width="1.2"/>
+  <text x="545" y="67" text-anchor="middle" font-size="12.5" fill="#b45309">«interface» Map（独立根）</text>
+  <text x="545" y="90" text-anchor="middle" font-size="10.5" fill="#b45309">不继承 Collection</text>
 
-  <!-- Map (separate root) -->
-  <rect x="525" y="100" width="120" height="30" rx="6" fill="#fef3c7" stroke="#b45309" stroke-width="1.2"/>
-  <text x="585" y="120" text-anchor="middle" font-size="13" fill="#b45309">«interface» Map</text>
+  <!-- 顶层到三个分支 -->
+  <line x1="110" y1="124" x2="93" y2="140" stroke="#1e3a8a" stroke-width="1"/>
+  <line x1="110" y1="124" x2="256" y2="140" stroke="#1e3a8a" stroke-width="1"/>
+  <line x1="110" y1="124" x2="419" y2="140" stroke="#1e3a8a" stroke-width="1"/>
+  <!-- Map 到自己的分组 -->
+  <line x1="545" y1="96" x2="585" y2="140" stroke="#b45309" stroke-width="1.2"/>
 
-  <!-- three branches -->
-  <line x1="340" y1="130" x2="120" y2="160" stroke="#1e3a8a" stroke-width="1"/>
-  <line x1="340" y1="130" x2="340" y2="160" stroke="#1e3a8a" stroke-width="1"/>
-  <line x1="340" y1="130" x2="560" y2="160" stroke="#1e3a8a" stroke-width="1"/>
+  <!-- 分组框：List -->
+  <rect x="16" y="140" width="155" height="172" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.2"/>
+  <rect x="16" y="140" width="155" height="28" rx="8" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="93" y="159" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1e3a8a">«interface» List</text>
+  <text x="26" y="186" font-size="11.5" fill="#1e293b">有序 · 可重复 · 有索引</text>
+  <rect x="26" y="196" width="135" height="30" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="33" y="215" font-size="11" fill="#1e293b">ArrayList  动态数组</text>
+  <rect x="26" y="232" width="135" height="30" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="33" y="251" font-size="11" fill="#1e293b">LinkedList  双向链表</text>
+  <rect x="26" y="268" width="135" height="30" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="33" y="287" font-size="11" fill="#1e293b">Vector  遗留/线程安全</text>
 
-  <!-- List -->
-  <rect x="65" y="160" width="110" height="30" rx="6" fill="#dbeafe" stroke="#1e3a8a"/>
-  <text x="120" y="180" text-anchor="middle" font-size="13" fill="#1e3a8a">«interface» List</text>
-  <!-- Set -->
-  <rect x="285" y="160" width="110" height="30" rx="6" fill="#dbeafe" stroke="#1e3a8a"/>
-  <text x="340" y="180" text-anchor="middle" font-size="13" fill="#1e3a8a">«interface» Set</text>
-  <!-- Queue -->
-  <rect x="505" y="160" width="110" height="30" rx="6" fill="#dbeafe" stroke="#1e3a8a"/>
-  <text x="560" y="180" text-anchor="middle" font-size="13" fill="#1e3a8a">«interface» Queue</text>
+  <!-- 分组框：Set -->
+  <rect x="179" y="140" width="155" height="172" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.2"/>
+  <rect x="179" y="140" width="155" height="28" rx="8" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="256" y="159" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1e3a8a">«interface» Set</text>
+  <text x="189" y="186" font-size="11.5" fill="#1e293b">不重复 · 判重靠 equals/hashCode</text>
+  <rect x="189" y="196" width="135" height="30" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="196" y="215" font-size="11" fill="#1e293b">HashSet  哈希 O(1)</text>
+  <rect x="189" y="232" width="135" height="30" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="196" y="251" font-size="11" fill="#1e293b">LinkedHashSet  插入序</text>
+  <rect x="189" y="268" width="135" height="30" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="196" y="287" font-size="11" fill="#1e293b">TreeSet  红黑树有序</text>
 
-  <!-- List impls -->
-  <line x1="120" y1="190" x2="60" y2="220" stroke="#2563eb"/>
-  <line x1="120" y1="190" x2="180" y2="220" stroke="#2563eb"/>
-  <rect x="10" y="220" width="100" height="28" rx="5" fill="#ffffff" stroke="#2563eb"/>
-  <text x="60" y="238" text-anchor="middle" font-size="12" fill="#1e293b">ArrayList</text>
-  <rect x="130" y="220" width="100" height="28" rx="5" fill="#ffffff" stroke="#2563eb"/>
-  <text x="180" y="238" text-anchor="middle" font-size="12" fill="#1e293b">LinkedList</text>
+  <!-- 分组框：Queue -->
+  <rect x="342" y="140" width="155" height="172" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.2"/>
+  <rect x="342" y="140" width="155" height="28" rx="8" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="419" y="159" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1e3a8a">«interface» Queue</text>
+  <text x="352" y="186" font-size="11.5" fill="#1e293b">队列；Deque 是其子接口</text>
+  <rect x="352" y="196" width="135" height="30" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="359" y="215" font-size="11" fill="#1e293b">ArrayDeque  循环数组</text>
+  <rect x="352" y="232" width="135" height="30" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="359" y="251" font-size="11" fill="#1e293b">PriorityQueue  二叉堆</text>
+  <rect x="352" y="268" width="135" height="30" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="359" y="287" font-size="11" fill="#1e293b">LinkedList  亦实现 Deque</text>
 
-  <!-- Set impls -->
-  <line x1="340" y1="190" x2="280" y2="220" stroke="#2563eb"/>
-  <line x1="340" y1="190" x2="400" y2="220" stroke="#2563eb"/>
-  <rect x="230" y="220" width="100" height="28" rx="5" fill="#ffffff" stroke="#2563eb"/>
-  <text x="280" y="238" text-anchor="middle" font-size="12" fill="#1e293b">HashSet</text>
-  <rect x="350" y="220" width="100" height="28" rx="5" fill="#ffffff" stroke="#2563eb"/>
-  <text x="400" y="238" text-anchor="middle" font-size="12" fill="#1e293b">TreeSet</text>
-  <text x="280" y="262" text-anchor="middle" font-size="10.5" fill="#64748b">LinkedHashSet 继承 HashSet</text>
+  <!-- 分组框：Map -->
+  <rect x="505" y="140" width="160" height="172" rx="8" fill="#ffffff" stroke="#b45309" stroke-width="1.2"/>
+  <rect x="505" y="140" width="160" height="28" rx="8" fill="#fef3c7" stroke="#b45309"/>
+  <text x="585" y="159" text-anchor="middle" font-size="12.5" font-weight="700" fill="#92400e">«interface» Map</text>
+  <text x="515" y="186" font-size="11.5" fill="#1e293b">键值对，键不可重复</text>
+  <rect x="515" y="196" width="140" height="24" rx="4" fill="#fffbeb" stroke="#fcd34d"/>
+  <text x="522" y="212" font-size="10.5" fill="#78350f">HashMap  哈希 O(1)</text>
+  <rect x="515" y="224" width="140" height="24" rx="4" fill="#fffbeb" stroke="#fcd34d"/>
+  <text x="522" y="240" font-size="10.5" fill="#78350f">LinkedHashMap  保序</text>
+  <rect x="515" y="252" width="140" height="24" rx="4" fill="#fffbeb" stroke="#fcd34d"/>
+  <text x="522" y="268" font-size="10.5" fill="#78350f">TreeMap  红黑树有序</text>
+  <rect x="515" y="280" width="140" height="24" rx="4" fill="#fffbeb" stroke="#fcd34d" stroke-dasharray="3 2"/>
+  <text x="522" y="296" font-size="10.5" fill="#78350f">Hashtable  遗留(勿用)</text>
 
-  <!-- Queue impls -->
-  <line x1="560" y1="190" x2="500" y2="220" stroke="#2563eb"/>
-  <line x1="560" y1="190" x2="620" y2="220" stroke="#2563eb"/>
-  <rect x="450" y="220" width="100" height="28" rx="5" fill="#ffffff" stroke="#2563eb"/>
-  <text x="500" y="238" text-anchor="middle" font-size="12" fill="#1e293b">ArrayDeque</text>
-  <rect x="570" y="220" width="100" height="28" rx="5" fill="#ffffff" stroke="#2563eb"/>
-  <text x="620" y="238" text-anchor="middle" font-size="12" fill="#1e293b">PriorityQueue</text>
-
-  <!-- Map impls -->
-  <line x1="585" y1="130" x2="540" y2="160" stroke="#b45309"/>
-  <line x1="585" y1="130" x2="630" y2="160" stroke="#b45309"/>
-  <rect x="480" y="220" width="100" height="28" rx="5" fill="#fffbeb" stroke="#b45309"/>
-  <text x="530" y="238" text-anchor="middle" font-size="12" fill="#92400e">HashMap</text>
-  <rect x="600" y="220" width="100" height="28" rx="5" fill="#fffbeb" stroke="#b45309"/>
-  <text x="650" y="238" text-anchor="middle" font-size="12" fill="#92400e">TreeMap</text>
-  <text x="530" y="262" text-anchor="middle" font-size="10.5" fill="#92400e">LinkedHashMap 继承 HashMap</text>
-  <rect x="600" y="262" width="100" height="24" rx="5" fill="#fffbeb" stroke="#b45309" stroke-dasharray="3 2"/>
-  <text x="650" y="278" text-anchor="middle" font-size="11" fill="#92400e">Hashtable(遗留,线程安全)</text>
-
-  <!-- notes -->
-  <text x="20" y="320" font-size="12.5" fill="#334155">要点：</text>
-  <text x="20" y="342" font-size="12" fill="#334155">• Collection 与 Map 是两大根接口；Collection 继承 Iterable，可用增强 for / 迭代器遍历。</text>
-  <text x="20" y="364" font-size="12" fill="#334155">• List 有序可重复（ArrayList 数组实现、随机访问快；LinkedList 链表、插入删除快）。</text>
-  <text x="20" y="386" font-size="12" fill="#334155">• Set 无序不重复：HashSet 哈希( O(1) )、TreeSet 红黑树(有序 O(log n))。</text>
-  <text x="20" y="408" font-size="12" fill="#334155">• Queue/Deque：ArrayDeque 双端队列，PriorityQueue 优先级堆。</text>
-  <text x="20" y="430" font-size="12" fill="#334155">• Map 键值对：HashMap 哈希、TreeMap 红黑树有序；Hashtable 线程安全但已过时。</text>
-  <text x="20" y="456" font-size="11.5" fill="#64748b">注：除遗留类（Vector/Hashtable/Stack）外，现代集合均非线程安全，并发用 java.util.concurrent。</text>
+  <!-- 要点 -->
+  <line x1="16" y1="326" x2="664" y2="326" stroke="#e2e8f0"/>
+  <text x="16" y="348" font-size="12" font-weight="700" fill="#334155">要点</text>
+  <text x="16" y="368" font-size="11.5" fill="#334155">• Iterable 是顶层接口，Collection 继承它，因此所有 Collection 都可用增强 for 与 Iterator 遍历；Map 不行。</text>
+  <text x="16" y="388" font-size="11.5" fill="#334155">• 接口与实现分离：声明用接口类型（List&lt;String&gt; list = new ArrayList&lt;&gt;();），替换实现不改调用方。</text>
+  <text x="16" y="408" font-size="11.5" fill="#334155">• ArrayList 随机访问 O(1)、中间插入 O(n)；LinkedList 头尾增删 O(1)、按索引访问 O(n)。</text>
+  <text x="16" y="428" font-size="11.5" fill="#334155">• HashSet/TreeSet 底层分别复用 HashMap/TreeMap（Set 的元素就是 Map 的键）。</text>
+  <text x="16" y="448" font-size="11.5" fill="#334155">• 除 Vector/Hashtable 等遗留类外，普通集合均非线程安全；并发请用 java.util.concurrent。</text>
+  <text x="16" y="470" font-size="11" fill="#64748b">注：Collection（接口）与 Collections（工具类，提供 sort/binarySearch/synchronizedList 等静态方法）是两个不同的东西。</text>
 </svg>
