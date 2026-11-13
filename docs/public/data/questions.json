@@ -38811,5 +38811,872 @@
   "answer": "顺序：父类静态字段/静态块（类加载时只一次）→ 子类静态字段/静态块 → 父类实例字段默认值 → 父类显式初始化/实例初始化块 → 父类构造器体 → 子类实例字段默认值 → 子类显式初始化/实例块 → 子类构造器体。若父类构造器调用被子类覆盖的方法，动态绑定会分派到子类版本，而此刻子类字段尚未执行显式初始化，方法可能读到 0/false/null，产生难以定位的 bug。因此构造器应只调用 private、final 或 static 方法。",
   "explanation": "静态先于实例、父类先于子类；动态绑定在构造过程中已经生效，这是『构造器中调用可覆盖方法』危险的根因。",
   "type": "essay"
+ },
+ {
+  "id": "java132",
+  "note": "Java",
+  "topic": "第3章 代码输出",
+  "question": "int a = 5, b = 2;\nSystem.out.println(a / b + \" \" + a % b + \" \" + (double) a / b);\n运行结果是（ ）。",
+  "options": [
+   "2.5 1 2.5",
+   "2 1 2.5",
+   "2 1 2",
+   "2 1 2.0"
+  ],
+  "answer": 1,
+  "explanation": "a/b 是整数除法得 2；5%2 得 1；(double)a/b 先转 double 再除得 2.5。",
+  "type": "choice"
+ },
+ {
+  "id": "java133",
+  "note": "Java",
+  "topic": "第3章 代码输出",
+  "question": "System.out.println(1 + 2 + \"3\" + 4 + 5);\n运行结果是（ ）。",
+  "options": [
+   "12345",
+   "31245",
+   "3345",
+   "15"
+  ],
+  "answer": 2,
+  "explanation": "从左到右：1+2=3（数值加）；遇到字符串 \"3\" 后转为拼接，得到 \"33\"，再拼 4、5 → \"3345\"。",
+  "type": "choice"
+ },
+ {
+  "id": "java134",
+  "note": "Java",
+  "topic": "第3章 代码输出",
+  "question": "String s1 = \"abc\", s2 = \"abc\";\nString s3 = new String(\"abc\");\nSystem.out.println((s1 == s2) + \" \" + (s1 == s3) + \" \" + s1.equals(s3));\n运行结果是（ ）。",
+  "options": [
+   "true true true",
+   "false false true",
+   "true false false",
+   "true false true"
+  ],
+  "answer": 3,
+  "explanation": "字面量复用常量池故 s1==s2 为 true；new 强制新建堆对象故 s1==s3 为 false；equals 比内容恒为 true。",
+  "type": "choice"
+ },
+ {
+  "id": "java135",
+  "note": "Java",
+  "topic": "第3章 代码输出",
+  "question": "String s = \"Hello\";\ns.concat(\" World\");\nSystem.out.println(s);\n运行结果是（ ）。",
+  "options": [
+   "Hello",
+   "Hello World",
+   " World",
+   "编译报错"
+  ],
+  "answer": 0,
+  "explanation": "String 不可变，concat 返回新字符串；未接收返回值则原对象不变。",
+  "type": "choice"
+ },
+ {
+  "id": "java136",
+  "note": "Java",
+  "topic": "第3章 代码输出",
+  "question": "StringBuilder sb = new StringBuilder(\"ab\");\nsb.append(\"cd\").insert(1, \"X\");\nSystem.out.println(sb);\n运行结果是（ ）。",
+  "options": [
+   "abcd",
+   "aXbcd",
+   "Xabcd",
+   "abXcd"
+  ],
+  "answer": 1,
+  "explanation": "append 后为 abcd；insert(1, \"X\") 在下标 1 前插入，得 aXbcd。StringBuilder 是就地修改。",
+  "type": "choice"
+ },
+ {
+  "id": "java137",
+  "note": "Java",
+  "topic": "第3章 代码输出",
+  "question": "int x = 3;\nswitch (x) {\n    case 1: System.out.print(\"A\");\n    case 3: System.out.print(\"B\");\n    case 5: System.out.print(\"C\"); break;\n    default: System.out.print(\"D\");\n}\n运行结果是（ ）。",
+  "options": [
+   "B",
+   "BCD",
+   "BC",
+   "ABCD"
+  ],
+  "answer": 2,
+  "explanation": "传统冒号形式会贯穿：命中 case 3 后依次执行 B、C，直到 case 5 的 break；default 不会被执行。",
+  "type": "choice"
+ },
+ {
+  "id": "java138",
+  "note": "Java",
+  "topic": "第3章 代码输出",
+  "question": "System.out.println(\"a,b,,c\".split(\",\").length);\n运行结果是（ ）。",
+  "options": [
+   "5",
+   "3",
+   "编译报错",
+   "4"
+  ],
+  "answer": 3,
+  "explanation": "split 参数是正则，末尾的空串会被丢弃，中间的保留：[\"a\", \"b\", \"\", \"c\"] 共 4 个。",
+  "type": "choice"
+ },
+ {
+  "id": "java139",
+  "note": "Java",
+  "topic": "第3章 代码输出",
+  "question": "char c = 'A';\nSystem.out.println(c + 1 + \" \" + (char) (c + 1));\n运行结果是（ ）。",
+  "options": [
+   "66 B",
+   "B B",
+   "65 B",
+   "A1 B"
+  ],
+  "answer": 0,
+  "explanation": "c+1 中 char 提升为 int 得 66；后半段强转回 char 得 'B'。",
+  "type": "choice"
+ },
+ {
+  "id": "java140",
+  "note": "Java",
+  "topic": "第3章 代码输出",
+  "question": "int i = 0;\ni = i++;\nSystem.out.println(i);\n运行结果是（ ）。",
+  "options": [
+   "1",
+   "0",
+   "2",
+   "编译报错"
+  ],
+  "answer": 1,
+  "explanation": "i++ 先取旧值 0 再自增为 1，随后赋值又把 0 写回 i，最终为 0。",
+  "type": "choice"
+ },
+ {
+  "id": "java141",
+  "note": "Java",
+  "topic": "第3章 代码输出",
+  "question": "System.out.println(0.1 + 0.2);\n运行结果是（ ）。",
+  "options": [
+   "0.3",
+   "0.30000000000000003",
+   "0.30000000000000004",
+   "0.29999999999999999"
+  ],
+  "answer": 2,
+  "explanation": "二进制浮点无法精确表示 0.1/0.2；金额计算应用 BigDecimal 并用字符串构造。",
+  "type": "choice"
+ },
+ {
+  "id": "java142",
+  "note": "Java",
+  "topic": "第3章 代码输出",
+  "question": "String s = null;\nSystem.out.println(\"x\" + s);\n运行结果是（ ）。",
+  "options": [
+   "x",
+   "抛 NullPointerException",
+   "xnullnull",
+   "xnull"
+  ],
+  "answer": 3,
+  "explanation": "字符串拼接对 null 会转成字面量 \"null\"，不会抛 NPE；只有调用 s.length() 之类才会。",
+  "type": "choice"
+ },
+ {
+  "id": "java143",
+  "note": "Java",
+  "topic": "第4章 代码输出",
+  "question": "class A {\n    static { System.out.print(\"1\"); }\n    { System.out.print(\"2\"); }\n    A() { System.out.print(\"3\"); }\n}\nclass B extends A {\n    static { System.out.print(\"4\"); }\n    { System.out.print(\"5\"); }\n    B() { System.out.print(\"6\"); }\n}\nnew B();\n运行结果是（ ）。",
+  "options": [
+   "142356",
+   "123456",
+   "412356",
+   "124365"
+  ],
+  "answer": 0,
+  "explanation": "父静态(1)→子静态(4)→父实例块(2)→父构造(3)→子实例块(5)→子构造(6)。静态部分在类加载时只执行一次。",
+  "type": "choice"
+ },
+ {
+  "id": "java144",
+  "note": "Java",
+  "topic": "第4章 代码输出",
+  "question": "static void f(StringBuilder s, int n) { s.append(\"X\"); n = 99; }\nStringBuilder sb = new StringBuilder(\"a\");\nint n = 1;\nf(sb, n);\nSystem.out.println(sb + \" \" + n);\n运行结果是（ ）。",
+  "options": [
+   "aX 99",
+   "aX 1",
+   "a 1",
+   "a 99"
+  ],
+  "answer": 1,
+  "explanation": "Java 只有值传递：方法内改的是同一个 StringBuilder 对象的内容（生效），而 int 与引用副本的重新赋值不影响调用方。",
+  "type": "choice"
+ },
+ {
+  "id": "java145",
+  "note": "Java",
+  "topic": "第4章 代码输出",
+  "question": "class T {\n    int x = 1;\n    { x = 3; System.out.print(x); }\n    T() { x = 2; System.out.print(x); }\n}\nnew T();\n运行结果是（ ）。",
+  "options": [
+   "12",
+   "23",
+   "32",
+   "31"
+  ],
+  "answer": 2,
+  "explanation": "顺序：字段显式初始化 x=1 → 实例初始化块打印 3 → 构造器体打印 2。",
+  "type": "choice"
+ },
+ {
+  "id": "java146",
+  "note": "Java",
+  "topic": "第4章 代码输出",
+  "question": "class P {\n    P() { show(); }\n    void show() { System.out.print(\"P\"); }\n}\nclass C extends P {\n    int x = 5;\n    @Override void show() { System.out.print(\"C\" + x); }\n}\nnew C();\n运行结果是（ ）。",
+  "options": [
+   "C5",
+   "P",
+   "C5P",
+   "C0"
+  ],
+  "answer": 3,
+  "explanation": "父类构造器调用可覆盖方法会动态绑定到子类版本，但此刻子类字段尚未显式初始化，x 仍是默认值 0。故构造器里不要调用可覆盖方法。",
+  "type": "choice"
+ },
+ {
+  "id": "java147",
+  "note": "Java",
+  "topic": "第5章 代码输出",
+  "question": "Integer a = 127, b = 127;\nInteger c = 128, d = 128;\nSystem.out.println((a == b) + \" \" + (c == d) + \" \" + c.equals(d));\n运行结果是（ ）。",
+  "options": [
+   "true false true",
+   "true true true",
+   "false false true",
+   "true true false"
+  ],
+  "answer": 0,
+  "explanation": "自动装箱走 Integer.valueOf：-128~127 命中缓存故 a==b 为 true；128 超出缓存各自新建对象故 == 为 false；equals 比数值恒 true。",
+  "type": "choice"
+ },
+ {
+  "id": "java148",
+  "note": "Java",
+  "topic": "第5章 代码输出",
+  "question": "class P { int x = 1; void f() { System.out.print(\"P\"); } }\nclass C extends P { int x = 2; @Override void f() { System.out.print(\"C\"); } }\nP p = new C();\np.f(); System.out.print(p.x);\n运行结果是（ ）。",
+  "options": [
+   "C2",
+   "C1",
+   "P1",
+   "P2"
+  ],
+  "answer": 1,
+  "explanation": "实例方法 f() 动态绑定到子类版本输出 C；字段不参与多态，p.x 按引用类型 P 取到 1。",
+  "type": "choice"
+ },
+ {
+  "id": "java149",
+  "note": "Java",
+  "topic": "第5章 代码输出",
+  "question": "class P { static void f() { System.out.print(\"P\"); } }\nclass C extends P { static void f() { System.out.print(\"C\"); } }\nP p = new C();\np.f();\n运行结果是（ ）。",
+  "options": [
+   "C",
+   "PC",
+   "P",
+   "编译报错"
+  ],
+  "answer": 2,
+  "explanation": "static 方法是『隐藏』而非覆盖，调用版本由编译期引用类型决定；用 p.f() 调用静态方法还会有编译警告。",
+  "type": "choice"
+ },
+ {
+  "id": "java150",
+  "note": "Java",
+  "topic": "第5章 代码输出",
+  "question": "Integer i = 100;\nLong l = 100L;\nSystem.out.println(i.equals(l));\n运行结果是（ ）。",
+  "options": [
+   "true",
+   "编译报错",
+   "抛 ClassCastException",
+   "false"
+  ],
+  "answer": 3,
+  "explanation": "Integer.equals 先判断 instanceof Integer，Long 不是 Integer 故直接返回 false；数值相等也不能跨包装类 equals。",
+  "type": "choice"
+ },
+ {
+  "id": "java151",
+  "note": "Java",
+  "topic": "第6章 代码输出",
+  "question": "List<String> l = new ArrayList<>(List.of(\"b\", \"a\", \"c\"));\nl.removeIf(s -> s.startsWith(\"a\"));\nSystem.out.println(l);\n运行结果是（ ）。",
+  "options": [
+   "[b, c]",
+   "[b, a, c]",
+   "[a, c]",
+   "抛 ConcurrentModificationException"
+  ],
+  "answer": 0,
+  "explanation": "removeIf 内部使用 Iterator.remove()，可安全删除；注意 List.of 本身不可变，所以先包进 new ArrayList。",
+  "type": "choice"
+ },
+ {
+  "id": "java152",
+  "note": "Java",
+  "topic": "第6章 代码输出",
+  "question": "int base = 10;\nbase++;\nIntUnaryOperator f = x -> x + base;\nSystem.out.println(f.applyAsInt(5));\n运行结果是（ ）。",
+  "options": [
+   "15",
+   "编译报错",
+   "16",
+   "5"
+  ],
+  "answer": 1,
+  "explanation": "lambda 捕获的局部变量必须 effectively final；base 被重新赋值后不再满足，编译期报错。删掉 base++ 才输出 15。",
+  "type": "choice"
+ },
+ {
+  "id": "java153",
+  "note": "Java",
+  "topic": "第6章 代码输出",
+  "question": "interface A { default String f() { return \"A\"; } }\ninterface B { default String f() { return \"B\"; } }\nclass C implements A, B {\n    public String f() { return A.super.f() + B.super.f(); }\n}\nSystem.out.println(new C().f());\n运行结果是（ ）。",
+  "options": [
+   "B",
+   "编译报错",
+   "AB",
+   "A"
+  ],
+  "answer": 2,
+  "explanation": "两个接口默认方法冲突时实现类必须显式重写；可用 接口名.super.方法() 分别调用，拼接得 AB。",
+  "type": "choice"
+ },
+ {
+  "id": "java154",
+  "note": "Java",
+  "topic": "第7章 代码输出",
+  "question": "static int f() {\n    try { return 1; }\n    finally { System.out.print(\"F\"); }\n}\nSystem.out.println(f());\n运行结果是（ ）。",
+  "options": [
+   "1F",
+   "1",
+   "F2",
+   "F1"
+  ],
+  "answer": 3,
+  "explanation": "finally 在 return 之前执行，先打印 F，再返回并打印 1。若 finally 里也 return，则会覆盖返回值。",
+  "type": "choice"
+ },
+ {
+  "id": "java155",
+  "note": "Java",
+  "topic": "第7章 代码输出",
+  "question": "static int f() {\n    try { return 1; } finally { return 2; }\n}\nSystem.out.println(f());\n运行结果是（ ）。",
+  "options": [
+   "2",
+   "1",
+   "12",
+   "编译报错"
+  ],
+  "answer": 0,
+  "explanation": "finally 中的 return 会覆盖 try 的返回值（并吞掉异常），这是必须避免的写法。",
+  "type": "choice"
+ },
+ {
+  "id": "java156",
+  "note": "Java",
+  "topic": "第7章 代码输出",
+  "question": "try {\n    int x = 1 / 0;\n} catch (ArithmeticException e) {\n    System.out.print(\"A\");\n} catch (Exception e) {\n    System.out.print(\"E\");\n} finally {\n    System.out.print(\"F\");\n}\n运行结果是（ ）。",
+  "options": [
+   "AEF",
+   "AF",
+   "EF",
+   "FA"
+  ],
+  "answer": 1,
+  "explanation": "子类 catch 先命中并只执行一个分支，随后 finally 必执行；父类 catch 不会重复执行。",
+  "type": "choice"
+ },
+ {
+  "id": "java157",
+  "note": "Java",
+  "topic": "第8章 代码输出",
+  "question": "List<String> a = new ArrayList<>();\nList<Integer> b = new ArrayList<>();\nSystem.out.println(a.getClass() == b.getClass());\n运行结果是（ ）。",
+  "options": [
+   "false",
+   "编译报错",
+   "true",
+   "抛 ClassCastException"
+  ],
+  "answer": 2,
+  "explanation": "类型擦除后两者运行时都是 ArrayList.class，泛型参数信息不保留，故 getClass() 相同。",
+  "type": "choice"
+ },
+ {
+  "id": "java158",
+  "note": "Java",
+  "topic": "第8章 代码输出",
+  "question": "List<Integer> l = new ArrayList<>();\nl.add(1); l.add(2);\nSystem.out.println(l.get(0) + l.get(1));\n运行结果是（ ）。",
+  "options": [
+   "12",
+   "编译报错",
+   "1 2",
+   "3"
+  ],
+  "answer": 3,
+  "explanation": "l.get 返回 Integer，+ 运算触发自动拆箱做数值加法得 3；若写成 \"\" + l.get(0) + l.get(1) 才会得到 \"12\"。",
+  "type": "choice"
+ },
+ {
+  "id": "java159",
+  "note": "Java",
+  "topic": "第8章 代码输出",
+  "question": "List<? extends Number> l = new ArrayList<Integer>();\nl.add(1);\nSystem.out.println(l);\n运行结果是（ ）。",
+  "options": [
+   "编译报错",
+   "[1]",
+   "[]",
+   "抛 UnsupportedOperationException"
+  ],
+  "answer": 0,
+  "explanation": "? extends Number 是生产者视图，具体子类型未知，除 null 外不能写入；只能安全读取为 Number。",
+  "type": "choice"
+ },
+ {
+  "id": "java160",
+  "note": "Java",
+  "topic": "第9章 代码输出",
+  "question": "Map<String, Integer> m = new HashMap<>();\nm.put(\"a\", 1);\nm.put(\"a\", 2);\nSystem.out.println(m.size() + \" \" + m.get(\"a\"));\n运行结果是（ ）。",
+  "options": [
+   "2 2",
+   "1 2",
+   "1 1",
+   "2 1"
+  ],
+  "answer": 1,
+  "explanation": "相同键再次 put 会覆盖 value 并返回旧值，size 不变；故 size=1、get=2。",
+  "type": "choice"
+ },
+ {
+  "id": "java161",
+  "note": "Java",
+  "topic": "第9章 代码输出",
+  "question": "List<String> l = new ArrayList<>(List.of(\"a\", \"b\", \"c\"));\nIterator<String> it = l.iterator();\nwhile (it.hasNext()) {\n    if (\"b\".equals(it.next())) it.remove();\n}\nSystem.out.println(l);\n运行结果是（ ）。",
+  "options": [
+   "[a, b, c]",
+   "抛 ConcurrentModificationException",
+   "[a, c]",
+   "[b, c]"
+  ],
+  "answer": 2,
+  "explanation": "遍历中删除必须用迭代器自身的 remove()，这样 modCount 会被同步更新，不会触发 fail-fast。",
+  "type": "choice"
+ },
+ {
+  "id": "java162",
+  "note": "Java",
+  "topic": "第9章 代码输出",
+  "question": "Map<Integer, String> m = new TreeMap<>();\nm.put(3, \"c\"); m.put(1, \"a\"); m.put(2, \"b\");\nSystem.out.println(m.keySet());\n运行结果是（ ）。",
+  "options": [
+   "[3, 1, 2]",
+   "[3, 2, 1]",
+   "[2, 1, 3]",
+   "[1, 2, 3]"
+  ],
+  "answer": 3,
+  "explanation": "TreeMap 基于红黑树按键的自然顺序排列，keySet() 视图迭代即有序。",
+  "type": "choice"
+ },
+ {
+  "id": "java163",
+  "note": "Java",
+  "topic": "第9章 代码输出",
+  "question": "PriorityQueue<Integer> q = new PriorityQueue<>();\nq.add(3); q.add(1); q.add(2);\nSystem.out.println(q.poll() + \" \" + q.peek());\n运行结果是（ ）。",
+  "options": [
+   "1 2",
+   "3 1",
+   "1 1",
+   "3 2"
+  ],
+  "answer": 0,
+  "explanation": "PriorityQueue 是小顶堆：poll() 取出并移除最小元素 1，之后 peek() 返回新的堆顶 2。",
+  "type": "choice"
+ },
+ {
+  "id": "java164",
+  "note": "Java",
+  "topic": "第12章 代码输出",
+  "question": "Thread t = new Thread(() -> System.out.print(\"R\"));\nt.run();\nSystem.out.print(\"M\");\n运行结果是（ ）。",
+  "options": [
+   "MR",
+   "RM",
+   "RM 或 MR 均可能",
+   "只输出 M"
+  ],
+  "answer": 1,
+  "explanation": "调用 run() 只是当前线程里的普通方法调用，不会开启新线程，因此执行顺序确定为先 R 后 M。若改成 start() 则顺序不确定。",
+  "type": "choice"
+ },
+ {
+  "id": "java165",
+  "note": "Java",
+  "topic": "第12章 代码输出",
+  "question": "AtomicInteger a = new AtomicInteger(0);\na.incrementAndGet();\nSystem.out.println(a.getAndIncrement() + \" \" + a.get());\n运行结果是（ ）。",
+  "options": [
+   "2 2",
+   "1 1",
+   "1 2",
+   "2 3"
+  ],
+  "answer": 2,
+  "explanation": "incrementAndGet 先增到 1 并返回 1（未打印）；getAndIncrement 返回旧值 1 后把值增到 2；最后 get() 为 2。",
+  "type": "choice"
+ },
+ {
+  "id": "java166",
+  "note": "Java",
+  "topic": "补4 代码输出",
+  "question": "Stream.of(1, 2, 3).peek(i -> System.out.print(i));\nSystem.out.print(\"END\");\n运行结果是（ ）。",
+  "options": [
+   "123END",
+   "END123",
+   "123",
+   "END"
+  ],
+  "answer": 3,
+  "explanation": "中间操作是惰性的，没有终止操作就完全不会遍历，peek 也不执行；补上 .count() 才会打印 123。",
+  "type": "choice"
+ },
+ {
+  "id": "java167",
+  "note": "Java",
+  "topic": "补4 代码输出",
+  "question": "System.out.println(Stream.of(1, 2, 3).map(i -> i * 2).reduce(0, Integer::sum));\n运行结果是（ ）。",
+  "options": [
+   "12",
+   "6",
+   "123",
+   "编译报错"
+  ],
+  "answer": 0,
+  "explanation": "map 得 2,4,6；reduce 以 0 为初值累加得 12。reduce 是终止操作，触发整个流水线。",
+  "type": "choice"
+ },
+ {
+  "id": "java168",
+  "note": "Java",
+  "topic": "第3章 代码输出",
+  "question": "System.out.println(5 / 2 + \" \" + 5.0 / 2);\n写出运行结果：____",
+  "options": [],
+  "answer": [
+   "2 2.5"
+  ],
+  "explanation": "整数除法 5/2 得 2；5.0/2 因含 double 得 2.5。",
+  "type": "fill"
+ },
+ {
+  "id": "java169",
+  "note": "Java",
+  "topic": "第3章 代码输出",
+  "question": "System.out.println(Arrays.toString(new int[]{1, 2}));\n写出运行结果：____",
+  "options": [],
+  "answer": [
+   "[1, 2]",
+   "[1,2]"
+  ],
+  "explanation": "Arrays.toString 返回带方括号与逗号空格的可读形式；直接 println(数组) 只会得到 [I@哈希。",
+  "type": "fill"
+ },
+ {
+  "id": "java170",
+  "note": "Java",
+  "topic": "第3章 代码输出",
+  "question": "System.out.println(String.join(\"-\", \"a\", \"b\", \"c\"));\n写出运行结果：____",
+  "options": [],
+  "answer": [
+   "a-b-c"
+  ],
+  "explanation": "String.join 用指定分隔符把多个字符序列连成一个字符串。",
+  "type": "fill"
+ },
+ {
+  "id": "java171",
+  "note": "Java",
+  "topic": "第3章 代码输出",
+  "question": "System.out.println(Math.round(2.5));\n写出运行结果：____",
+  "options": [],
+  "answer": [
+   "3"
+  ],
+  "explanation": "Math.round(double) 返回 long，等价于 floor(x + 0.5)；负数如 -2.5 得 -2。",
+  "type": "fill"
+ },
+ {
+  "id": "java172",
+  "note": "Java",
+  "topic": "补3 代码输出",
+  "question": "System.out.println(LocalDate.of(2026, 1, 1).getDayOfWeek());\n写出运行结果：____",
+  "options": [],
+  "answer": [
+   "THURSDAY",
+   "星期四"
+  ],
+  "explanation": "2026 年 1 月 1 日是星期四；getDayOfWeek() 返回 DayOfWeek 枚举，其 toString 为全大写英文名。",
+  "type": "fill"
+ },
+ {
+  "id": "java173",
+  "note": "Java",
+  "topic": "补6 代码输出",
+  "question": "System.out.println(new BigDecimal(\"0.30\").compareTo(new BigDecimal(\"0.3\")));\n写出运行结果：____",
+  "options": [],
+  "answer": [
+   "0",
+   "零"
+  ],
+  "explanation": "compareTo 只比较数值、忽略标度故返回 0；若用 equals 则因标度 2≠1 返回 false。",
+  "type": "fill"
+ },
+ {
+  "id": "java174",
+  "note": "Java",
+  "topic": "第9章 代码输出",
+  "question": "List.of(\"a\", \"b\").add(\"c\"); 能正常运行并得到含 3 个元素的列表。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "List.of 返回完全不可变列表，调用 add 会抛 UnsupportedOperationException（编译能通过、运行失败）。",
+  "type": "judge"
+ },
+ {
+  "id": "java175",
+  "note": "Java",
+  "topic": "第3章 代码输出",
+  "question": "Java 中 int x; if (x = 0) { ... } 可以编译通过。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "赋值表达式结果是 int，不能用于布尔上下文；且 == 才应写成比较。C 语言允许但 Java 编译报错。",
+  "type": "judge"
+ },
+ {
+  "id": "java176",
+  "note": "Java",
+  "topic": "第3章 代码输出",
+  "question": "String s = \"a\" + \"b\" + \"c\"; 在编译期会被折叠为常量池中的一个字面量 \"abc\"。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "全是编译期常量时 javac 会做常量折叠；若混入变量则改为运行期 StringBuilder 拼接。",
+  "type": "judge"
+ },
+ {
+  "id": "java177",
+  "note": "Java",
+  "topic": "补7 代码输出",
+  "question": "record P(int x) {} 生成的类是 final 的，不能被其他类继承。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "record 隐式 final、字段 private final，自动生成访问器与 equals/hashCode/toString；适合纯数据载体。",
+  "type": "judge"
+ },
+ {
+  "id": "java178",
+  "note": "Java",
+  "topic": "第3章 代码输出",
+  "type": "program",
+  "question": "// 冒泡排序：把数组 a 升序排列\nfor (int i = 0; i < a.length - 1; i++) {\n    for (int j = 0; j < __1__; j++) {\n        if (__2__) {\n            int t = a[j]; a[j] = a[j+1]; a[j+1] = t;\n        }\n    }\n}",
+  "blanks": [
+   {
+    "answer": [
+     "a.length - 1 - i",
+     "a.length-1-i",
+     "a.length - i - 1"
+    ]
+   },
+   {
+    "answer": [
+     "a[j] > a[j+1]",
+     "a[j]>a[j+1]",
+     "a[j + 1] < a[j]"
+    ]
+   }
+  ],
+  "explanation": "每轮把当前最大值沉到末尾，故内层上界随 i 递减；相邻逆序则交换，保证排序稳定。",
+  "answer": "空1: a.length - 1 - i；空2: a[j] > a[j+1]"
+ },
+ {
+  "id": "java179",
+  "note": "Java",
+  "topic": "第3章 代码输出",
+  "type": "program",
+  "question": "// 判断字符串 s 是否回文\nString rev = new StringBuilder(__1__).reverse().toString();\nboolean ok = __2__;\nSystem.out.println(ok);   // \"level\" 应输出 true",
+  "blanks": [
+   {
+    "answer": [
+     "s"
+    ]
+   },
+   {
+    "answer": [
+     "s.equals(rev)",
+     "rev.equals(s)",
+     "s.equalsIgnoreCase(rev)"
+    ]
+   }
+  ],
+  "explanation": "StringBuilder 有 reverse()；String 比较内容用 equals，不能用 ==。",
+  "answer": "空1: s；空2: s.equals(rev)"
+ },
+ {
+  "id": "java180",
+  "note": "Java",
+  "topic": "补4 代码输出",
+  "type": "program",
+  "question": "List<Integer> r = List.of(3, 1, 4, 1, 5).stream()\n        .filter(n -> n > 2)\n        .sorted()\n        .collect(__1__);\nSystem.out.println(r);    // [3, 4, 5]",
+  "blanks": [
+   {
+    "answer": [
+     "Collectors.toList()",
+     "toList()"
+    ]
+   }
+  ],
+  "explanation": "filter/sorted 是惰性中间操作；collect 是终止操作，用 Collectors.toList() 收集为 List。",
+  "answer": "空1: Collectors.toList()（Java 16+ 可写 toList()）"
+ },
+ {
+  "id": "java181",
+  "note": "Java",
+  "topic": "第9章 代码输出",
+  "type": "program",
+  "question": "// 二分查找有序数组 a 中 key 的下标，找不到返回 -1\nint lo = 0, hi = a.length - 1;\nwhile (lo <= hi) {\n    int mid = lo + (hi - lo) / 2;\n    if (a[mid] == key) return mid;\n    else if (__1__) lo = mid + 1;\n    else __2__;\n}\nreturn -1;",
+  "blanks": [
+   {
+    "answer": [
+     "a[mid] < key",
+     "key > a[mid]"
+    ]
+   },
+   {
+    "answer": [
+     "hi = mid - 1",
+     "hi=mid-1"
+    ]
+   }
+  ],
+  "explanation": "key 更大则收缩左边界，否则收缩右边界；用 lo + (hi-lo)/2 可避免 (lo+hi) 溢出。",
+  "answer": "空1: a[mid] < key；空2: hi = mid - 1"
+ },
+ {
+  "id": "java182",
+  "note": "Java",
+  "topic": "第12章 代码输出",
+  "type": "program",
+  "question": "// 线程安全计数器\nprivate int count = 0;\npublic __1__ void inc() { count++; }\npublic int get() { return count; }",
+  "blanks": [
+   {
+    "answer": [
+     "synchronized"
+    ]
+   }
+  ],
+  "explanation": "count++ 是读-改-写复合操作，volatile 不足以保证原子性；用 synchronized（或 AtomicInteger）才能保证互斥与可见性。",
+  "answer": "空1: synchronized"
+ },
+ {
+  "id": "java183",
+  "note": "Java",
+  "topic": "补5 代码输出",
+  "type": "program",
+  "question": "// 逐行读取大文件，避免一次性载入内存\ntry (__1__<String> lines = Files.lines(Path.of(\"a.txt\"), StandardCharsets.UTF_8)) {\n    lines.filter(s -> !s.isBlank()).forEach(System.out::println);\n}",
+  "blanks": [
+   {
+    "answer": [
+     "Stream"
+    ]
+   }
+  ],
+  "explanation": "Files.lines 返回 Stream<String>，持有文件句柄，必须用 try-with-resources 关闭；字符编码要显式指定。",
+  "answer": "空1: Stream"
+ },
+ {
+  "id": "java184",
+  "note": "Java",
+  "topic": "编程大题 单例",
+  "question": "写出一个线程安全的单例模式实现（至少给出一种），并说明为什么它是线程安全的。",
+  "options": [],
+  "answer": "// 方案一（推荐）：枚举单例 —— 天然防反射/反序列化破坏，且线程安全\npublic enum Singleton {\n    INSTANCE;\n    public void doWork() { /* ... */ }\n}\n\n// 方案二：静态内部类（懒加载 + 类加载机制保证线程安全）\npublic class Singleton {\n    private Singleton() {}\n    private static class Holder { static final Singleton INSTANCE = new Singleton(); }\n    public static Singleton getInstance() { return Holder.INSTANCE; }\n}\n\n// 方案三：双重检查锁（注意 volatile 禁止指令重排序）\npublic class Singleton {\n    private static volatile Singleton instance;\n    private Singleton() {}\n    public static Singleton getInstance() {\n        if (instance == null) {\n            synchronized (Singleton.class) {\n                if (instance == null) instance = new Singleton();\n            }\n        }\n        return instance;\n    }\n}",
+  "explanation": "枚举由 JVM 保证只实例化一次；静态内部类依赖类初始化锁且实现懒加载；DCL 必须 volatile，否则可能因重排序把未构造完的对象引用暴露出去。",
+  "type": "essay"
+ },
+ {
+  "id": "java185",
+  "note": "Java",
+  "topic": "编程大题 集合",
+  "question": "用 LinkedHashMap 实现一个固定容量的 LRU 缓存（get / put），要求淘汰最久未使用的条目。",
+  "options": [],
+  "answer": "class LruCache<K, V> extends LinkedHashMap<K, V> {\n    private final int cap;\n    LruCache(int cap) {\n        super(cap, 0.75f, true);   // accessOrder=true：按访问顺序排序\n        this.cap = cap;\n    }\n    @Override protected boolean removeEldestEntry(Map.Entry<K, V> eldest) {\n        return size() > cap;\n    }\n    @Override public synchronized V get(Object key) { return super.get(key); }\n    @Override public synchronized V put(K key, V value) { return super.put(key, value); }\n}",
+  "explanation": "LinkedHashMap 构造第三参数 accessOrder=true 时，get 会把条目移到链尾；重写 removeEldestEntry 在超容量时自动删除链头（最久未使用）。多线程访问需自行同步。",
+  "type": "essay"
+ },
+ {
+  "id": "java186",
+  "note": "Java",
+  "topic": "编程大题 链表",
+  "question": "写出反转单链表的迭代实现（给出 Node 定义与 reverse 方法），说明时间复杂度。",
+  "options": [],
+  "answer": "class Node {\n    int val; Node next;\n    Node(int v) { val = v; }\n}\nstatic Node reverse(Node head) {\n    Node prev = null, cur = head;\n    while (cur != null) {\n        Node nxt = cur.next;   // 先保存后继\n        cur.next = prev;       // 反转指针\n        prev = cur;            // prev 前移\n        cur = nxt;             // cur 前移\n    }\n    return prev;               // 新头结点\n}",
+  "explanation": "一次遍历、只改指针，时间 O(n)、额外空间 O(1)。关键是先保存 next 再断链，否则后续节点会丢失。",
+  "type": "essay"
+ },
+ {
+  "id": "java187",
+  "note": "Java",
+  "topic": "编程大题 并发",
+  "question": "用 wait()/notifyAll() 实现一个容量为 1 的生产者-消费者缓冲区，说明为什么等待条件要放在 while 里。",
+  "options": [],
+  "answer": "class Buffer {\n    private String item;\n    public synchronized void put(String s) throws InterruptedException {\n        while (item != null) wait();     // 满则等待，被唤醒后必须重新检查\n        item = s;\n        notifyAll();\n    }\n    public synchronized String take() throws InterruptedException {\n        while (item == null) wait();     // 空则等待\n        String s = item;\n        item = null;\n        notifyAll();\n        return s;\n    }\n}",
+  "explanation": "wait/notify 必须在 synchronized 块内；wait 会释放锁并可能被虚假唤醒，或多个消费者同时被 notifyAll 唤醒后只有一个能拿到数据，故用 while 重新检查条件。工程中更推荐 BlockingQueue。",
+  "type": "essay"
+ },
+ {
+  "id": "java188",
+  "note": "Java",
+  "topic": "编程大题 Stream",
+  "question": "给定 List<String> words，用 Stream API 统计每个单词出现次数并按频次降序输出前 3 名。",
+  "options": [],
+  "answer": "Map<String, Long> freq = words.stream()\n        .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));\n\nfreq.entrySet().stream()\n    .sorted(Map.Entry.<String, Long>comparingByValue().reversed()\n            .thenComparing(Map.Entry.comparingByKey()))\n    .limit(3)\n    .forEach(e -> System.out.println(e.getKey() + \" : \" + e.getValue()));",
+  "explanation": "groupingBy + counting 完成词频；再按 value 降序、key 升序（保证结果稳定）排序并 limit(3)。也可直接用 LinkedHashMap 保序。",
+  "type": "essay"
+ },
+ {
+  "id": "java189",
+  "note": "Java",
+  "topic": "编程大题 不可变",
+  "question": "设计一个不可变类 ImmutablePoint（含 x、y），说明必须遵守哪些规则。",
+  "options": [],
+  "answer": "public final class ImmutablePoint {\n    private final int x;\n    private final int y;\n    public ImmutablePoint(int x, int y) { this.x = x; this.y = y; }\n    public int getX() { return x; }\n    public int getY() { return y; }\n    @Override public boolean equals(Object o) {\n        if (this == o) return true;\n        if (!(o instanceof ImmutablePoint p)) return false;\n        return x == p.x && y == p.y;\n    }\n    @Override public int hashCode() { return Objects.hash(x, y); }\n    @Override public String toString() { return \"(\" + x + \", \" + y + \")\"; }\n}",
+  "explanation": "要点：类声明 final（防子类破坏）、字段 private final、不提供更改器、构造器中不泄露 this、不返回可变内部对象引用；需要『修改』时返回新对象。Java 16+ 可直接用 record Point(int x, int y)。",
+  "type": "essay"
+ },
+ {
+  "id": "java190",
+  "note": "Java",
+  "topic": "编程大题 栈",
+  "question": "写一个方法判断字符串中的括号 ()[]{} 是否成对且正确嵌套。",
+  "options": [],
+  "answer": "static boolean valid(String s) {\n    Deque<Character> st = new ArrayDeque<>();\n    for (char c : s.toCharArray()) {\n        if (c == '(' || c == '[' || c == '{') st.push(c);\n        else {\n            if (st.isEmpty()) return false;\n            char o = st.pop();\n            if ((c == ')' && o != '(') || (c == ']' && o != '[')\n                || (c == '}' && o != '{')) return false;\n        }\n    }\n    return st.isEmpty();\n}",
+  "explanation": "遇左括号入栈，遇右括号弹出并检查是否匹配，最后栈必须为空；时间 O(n)、空间 O(n)。ArrayDeque 优于遗留 Stack。",
+  "type": "essay"
+ },
+ {
+  "id": "java191",
+  "note": "Java",
+  "topic": "编程大题 线程池",
+  "question": "用 ThreadPoolExecutor 提交 10 个任务并汇总返回值，写出带超时与关闭的完整代码。",
+  "options": [],
+  "answer": "ThreadPoolExecutor pool = new ThreadPoolExecutor(\n        4, 8, 30, TimeUnit.SECONDS,\n        new ArrayBlockingQueue<>(100),\n        Executors.defaultThreadFactory(),\n        new ThreadPoolExecutor.CallerRunsPolicy());\n\nList<Future<Integer>> fs = new ArrayList<>();\nfor (int i = 0; i < 10; i++) {\n    final int n = i;\n    fs.add(pool.submit(() -> n * n));\n}\nint sum = 0;\nfor (Future<Integer> f : fs) {\n    try { sum += f.get(5, TimeUnit.SECONDS); }   // 带超时，抛 ExecutionException 时保留 cause\n    catch (Exception e) { e.printStackTrace(); }\n}\npool.shutdown();\ntry { if (!pool.awaitTermination(10, TimeUnit.SECONDS)) pool.shutdownNow(); }\ncatch (InterruptedException e) { Thread.currentThread().interrupt(); }\nSystem.out.println(sum);",
+  "explanation": "显式构造线程池配 有界队列 + 明确的拒绝策略（勿用 Executors 无界队列工厂）；submit 的异常要 get() 才暴露；收尾用 shutdown + awaitTermination。",
+  "type": "essay"
  }
 ]

@@ -339,7 +339,7 @@ function fmtDate(iso) {
         <p
           v-if="q.type !== 'program'"
           class="quiz-text"
-          :class="{ 'is-code': q.topic === '代码' }"
+          :class="{ 'is-code': q.topic && q.topic.includes('代码') }"
         >
           {{ q.question }}
         </p>
