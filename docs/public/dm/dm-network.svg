@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">社会网络分析：图结构、中心性与子群（第 8 章）</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 两大要素与三种表示</text>
+  <rect x="30" y="62" width="200" height="72" rx="6" fill="#e0f2fe" stroke="#0284c7"/>
+  <text x="130" y="82" text-anchor="middle" font-size="10.5" font-weight="700" fill="#075985">图 G = (V, E)</text>
+  <text x="42" y="102" font-size="9.5" fill="#334155">行动者 → 节点 node（V）</text>
+  <text x="42" y="120" font-size="9.5" fill="#334155">关系 → 边 edge（E），可有方向 / 权重</text>
+  <rect x="240" y="62" width="200" height="72" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="340" y="82" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">邻接矩阵 / 边表</text>
+  <text x="252" y="102" font-size="9.5" fill="#334155">矩阵 A：aᵢⱼ=1 表示 i 与 j 相连</text>
+  <text x="252" y="120" font-size="9.5" fill="#334155">无向图对称；边表 (u,v,w) 更省空间</text>
+  <rect x="450" y="62" width="200" height="72" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="550" y="82" text-anchor="middle" font-size="10.5" font-weight="700" fill="#166534">networkx 建模</text>
+  <text x="462" y="102" font-size="9.5" fill="#334155">G = nx.Graph() / nx.DiGraph()</text>
+  <text x="462" y="120" font-size="9.5" fill="#334155">G.add_edge(a,b,weight=…) → nx.draw(G)</text>
+
+  <text x="30" y="158" font-size="12" font-weight="700" fill="#334155">② 示例网络（左）与四种中心性（右）</text>
+  <rect x="30" y="168" width="256" height="150" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <line x1="80" y1="210" x2="150" y2="190" stroke="#94a3b8"/><line x1="80" y1="210" x2="150" y2="240" stroke="#94a3b8"/>
+  <line x1="150" y1="190" x2="150" y2="240" stroke="#94a3b8"/><line x1="150" y1="190" x2="222" y2="196" stroke="#94a3b8"/>
+  <line x1="150" y1="240" x2="222" y2="286" stroke="#94a3b8"/><line x1="222" y1="196" x2="222" y2="286" stroke="#94a3b8"/>
+  <circle cx="80" cy="210" r="13" fill="#dbeafe" stroke="#2563eb"/><text x="80" y="214" text-anchor="middle" font-size="10" fill="#1e3a8a">A</text>
+  <circle cx="150" cy="190" r="13" fill="#fef3c7" stroke="#d97706"/><text x="150" y="194" text-anchor="middle" font-size="10" fill="#92400e">B</text>
+  <circle cx="150" cy="240" r="13" fill="#dcfce7" stroke="#16a34a"/><text x="150" y="244" text-anchor="middle" font-size="10" fill="#166534">C</text>
+  <circle cx="222" cy="196" r="13" fill="#dcfce7" stroke="#16a34a"/><text x="222" y="200" text-anchor="middle" font-size="10" fill="#166534">D</text>
+  <circle cx="222" cy="286" r="13" fill="#dcfce7" stroke="#16a34a"/><text x="222" y="290" text-anchor="middle" font-size="10" fill="#166534">E</text>
+  <text x="158" y="310" text-anchor="middle" font-size="9" fill="#64748b">B、C 是连接两簇的「桥」节点 → 介数中心性高</text>
+  <rect x="298" y="168" width="352" height="150" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="474" y="186" text-anchor="middle" font-size="10.5" font-weight="700" fill="#334155">个体属性（节点层面）</text>
+  <text x="310" y="206" font-size="9.5" fill="#334155">点度中心度：直接邻居数（度 / (n−1)），衡量「活跃」</text>
+  <text x="310" y="224" font-size="9.5" fill="#334155">接近中心度：到所有其他点平均最短路径的倒数，衡量「效率」</text>
+  <text x="310" y="242" font-size="9.5" fill="#334155">中介中心度：经过该点的最短路径占比，衡量「桥梁 / 控制」</text>
+  <text x="310" y="260" font-size="9.5" fill="#334155">特征向量 / PageRank：邻居也重要则更重要，衡量「声望」</text>
+  <text x="474" y="282" text-anchor="middle" font-size="10.5" font-weight="700" fill="#334155">整体属性（网络层面）</text>
+  <text x="310" y="302" font-size="9.5" fill="#334155">密度 = 实际边数 / 可能边数；直径 = 最长最短路径</text>
+  <text x="310" y="314" font-size="9.5" fill="#64748b">平均路径长度、聚类系数、小世界效应、凝聚子群 / 小团体</text>
+
+  <text x="30" y="342" font-size="12" font-weight="700" fill="#334155">③ 工作例题（左图，n=5）</text>
+  <text x="30" y="362" font-size="10.5" fill="#334155">度：A=2, B=3, C=3, D=2, E=2 → 总度数 12，边数 6，密度 = 6/10 = 0.6（无向完全图 5×4/2=10）。</text>
+  <text x="30" y="380" font-size="10.5" fill="#334155">标准化点度中心度：B=C=3/4=0.75；B、C 位于两簇之间，介数中心性最高（控制信息流动）。</text>
+  <text x="30" y="396" font-size="10" fill="#64748b">补充：社群发现用模块度 Q 与 Louvain / Girvan-Newman；二模网（如作者—论文）；中心性须按网络规模标准化后才可跨网络比较。</text>
+</svg>

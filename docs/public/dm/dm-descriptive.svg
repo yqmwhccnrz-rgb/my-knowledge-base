@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">数据的描述分析（第 2 章）：三类统计量</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 三类统计量一览（对应 pandas 方法）</text>
+  <rect x="30" y="62" width="200" height="112" rx="6" fill="#e0f2fe" stroke="#0284c7"/>
+  <text x="130" y="82" text-anchor="middle" font-size="11" font-weight="700" fill="#075985">集中趋势</text>
+  <text x="42" y="102" font-size="10" fill="#334155">均值 mean()：Σxᵢ / n</text>
+  <text x="42" y="120" font-size="10" fill="#334155">中位数 median()：排序居中</text>
+  <text x="42" y="138" font-size="10" fill="#334155">众数 mode()：频数最高</text>
+  <text x="42" y="158" font-size="9.5" fill="#64748b">右偏：均值 &gt; 中位数 &gt; 众数</text>
+  <rect x="240" y="62" width="200" height="112" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="340" y="82" text-anchor="middle" font-size="11" font-weight="700" fill="#1e3a8a">离散程度</text>
+  <text x="252" y="102" font-size="10" fill="#334155">极差 max() − min()</text>
+  <text x="252" y="120" font-size="10" fill="#334155">方差 var()：Σ(x−x̄)²/(n−1)</text>
+  <text x="252" y="138" font-size="10" fill="#334155">标准差 std()；四分位距 IQR</text>
+  <text x="252" y="158" font-size="9.5" fill="#64748b">变异系数 CV = s / x̄（无量纲）</text>
+  <rect x="450" y="62" width="200" height="112" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="550" y="82" text-anchor="middle" font-size="11" font-weight="700" fill="#166534">分布形态</text>
+  <text x="462" y="102" font-size="10" fill="#334155">偏度 skew()：&gt;0 右偏、&lt;0 左偏</text>
+  <text x="462" y="120" font-size="10" fill="#334155">峰度 kurt()：&gt;0 尖峰厚尾</text>
+  <text x="462" y="138" font-size="10" fill="#334155">分位数 quantile(q)</text>
+  <text x="462" y="158" font-size="9.5" fill="#64748b">describe() 一次给全部</text>
+
+  <text x="30" y="198" font-size="12" font-weight="700" fill="#334155">② 分布图示与箱线图判读</text>
+  <rect x="30" y="208" width="300" height="112" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="180" y="226" text-anchor="middle" font-size="10.5" font-weight="700" fill="#334155">频数直方图 / 密度曲线</text>
+  <line x1="52" y1="300" x2="308" y2="300" stroke="#94a3b8"/>
+  <rect x="70" y="272" width="30" height="28" fill="#93c5fd" stroke="#2563eb"/>
+  <rect x="100" y="248" width="30" height="52" fill="#93c5fd" stroke="#2563eb"/>
+  <rect x="130" y="238" width="30" height="62" fill="#60a5fa" stroke="#2563eb"/>
+  <rect x="160" y="252" width="30" height="48" fill="#93c5fd" stroke="#2563eb"/>
+  <rect x="190" y="268" width="30" height="32" fill="#93c5fd" stroke="#2563eb"/>
+  <rect x="220" y="284" width="30" height="16" fill="#93c5fd" stroke="#2563eb"/>
+  <rect x="250" y="292" width="30" height="8" fill="#93c5fd" stroke="#2563eb"/>
+  <text x="180" y="315" text-anchor="middle" font-size="9" fill="#64748b">单峰右偏：长尾在右，均值被拉向右侧</text>
+  <rect x="342" y="208" width="308" height="112" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="496" y="226" text-anchor="middle" font-size="10.5" font-weight="700" fill="#334155">箱线图五数概括与异常值</text>
+  <line x1="368" y1="266" x2="626" y2="266" stroke="#94a3b8"/>
+  <rect x="424" y="250" width="112" height="32" fill="#dbeafe" stroke="#2563eb"/>
+  <line x1="480" y1="250" x2="480" y2="282" stroke="#1e3a8a" stroke-width="2"/>
+  <line x1="368" y1="266" x2="424" y2="266" stroke="#2563eb"/>
+  <line x1="536" y1="266" x2="612" y2="266" stroke="#2563eb"/>
+  <circle cx="626" cy="266" r="3.5" fill="#dc2626"/>
+  <text x="368" y="290" font-size="9" fill="#64748b">Q1−1.5IQR</text>
+  <text x="424" y="290" font-size="9" fill="#64748b">Q1</text>
+  <text x="472" y="290" font-size="9" fill="#64748b">中位数</text>
+  <text x="526" y="290" font-size="9" fill="#64748b">Q3</text>
+  <text x="600" y="290" font-size="9" fill="#64748b">异常点</text>
+  <text x="496" y="310" text-anchor="middle" font-size="9" fill="#64748b">IQR = Q3 − Q1；超出 [Q1−1.5IQR, Q3+1.5IQR] 判为异常</text>
+
+  <text x="30" y="344" font-size="12" font-weight="700" fill="#334155">③ 工作例题（手算）</text>
+  <text x="30" y="364" font-size="10.5" fill="#334155">样本 2, 4, 5, 7, 9：x̄=5.4；中位数=5；Σ(x−x̄)² = 11.56+1.96+0.16+2.56+12.96 = 29.20 → s²=29.2/4 = 7.30；s≈2.7019</text>
+  <text x="30" y="382" font-size="10.5" fill="#334155">Q1=4、Q3=7 → IQR=3、上界=11.5 无异常；CV=2.7019/5.4≈0.5003。注意 var() 默认 ddof=1（样本方差）。</text>
+</svg>

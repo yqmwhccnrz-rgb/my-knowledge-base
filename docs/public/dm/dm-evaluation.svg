@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">综合评价指标体系与权重确定（第 4 章 4.2）</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 构建评价体系的完整流程</text>
+  <defs><marker id="ar1" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#2563eb"/></marker></defs>
+  <rect x="30" y="62" width="116" height="44" rx="6" fill="#e0f2fe" stroke="#0284c7"/><text x="88" y="80" text-anchor="middle" font-size="10" font-weight="700" fill="#075985">定目标与对象</text><text x="88" y="96" text-anchor="middle" font-size="9" fill="#075985">评价谁、评价什么</text>
+  <rect x="160" y="62" width="116" height="44" rx="6" fill="#dbeafe" stroke="#2563eb"/><text x="218" y="80" text-anchor="middle" font-size="10" font-weight="700" fill="#1e3a8a">选指标建层次</text><text x="218" y="96" text-anchor="middle" font-size="9" fill="#1e3a8a">目标层/准则层/指标层</text>
+  <rect x="290" y="62" width="116" height="44" rx="6" fill="#dcfce7" stroke="#16a34a"/><text x="348" y="80" text-anchor="middle" font-size="10" font-weight="700" fill="#166534">无量纲化</text><text x="348" y="96" text-anchor="middle" font-size="9" fill="#166534">正向化 + 标准化</text>
+  <rect x="420" y="62" width="116" height="44" rx="6" fill="#fef3c7" stroke="#d97706"/><text x="478" y="80" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">确定权重</text><text x="478" y="96" text-anchor="middle" font-size="9" fill="#92400e">主观 / 客观赋权</text>
+  <rect x="550" y="62" width="100" height="44" rx="6" fill="#ede9fe" stroke="#7c3aed"/><text x="600" y="80" text-anchor="middle" font-size="10" font-weight="700" fill="#5b21b6">综合与排序</text><text x="600" y="96" text-anchor="middle" font-size="9" fill="#5b21b6">加权求和 / TOPSIS</text>
+  <line x1="146" y1="84" x2="159" y2="84" stroke="#2563eb" marker-end="url(#ar1)"/>
+  <line x1="276" y1="84" x2="289" y2="84" stroke="#2563eb" marker-end="url(#ar1)"/>
+  <line x1="406" y1="84" x2="419" y2="84" stroke="#2563eb" marker-end="url(#ar1)"/>
+  <line x1="536" y1="84" x2="549" y2="84" stroke="#2563eb" marker-end="url(#ar1)"/>
+
+  <text x="30" y="130" font-size="12" font-weight="700" fill="#334155">② 课件三类赋权法 + 补充的现代客观法</text>
+  <rect x="30" y="140" width="200" height="94" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="130" y="158" text-anchor="middle" font-size="10.5" font-weight="700" fill="#075985">德尔菲法（主观）</text>
+  <text x="42" y="178" font-size="9.5" fill="#334155">多轮匿名专家打分 → 反馈 → 收敛</text>
+  <text x="42" y="196" font-size="9.5" fill="#334155">用均值/中位数 + 变异系数看共识</text>
+  <text x="42" y="214" font-size="9.5" fill="#334155">优点：能纳入经验；缺点：耗时、主观</text>
+  <text x="42" y="230" font-size="9" fill="#64748b">须报告专家数与轮次</text>
+  <rect x="240" y="140" width="200" height="94" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="340" y="158" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">层次分析法 AHP（主观）</text>
+  <text x="252" y="178" font-size="9.5" fill="#334155">1–9 标度构造两两判断矩阵</text>
+  <text x="252" y="196" font-size="9.5" fill="#334155">求最大特征根 λmax 与特征向量</text>
+  <text x="252" y="214" font-size="9.5" fill="#334155">CI=(λmax−n)/(n−1)，CR=CI/RI</text>
+  <text x="252" y="230" font-size="9" fill="#64748b">CR &lt; 0.1 才通过一致性检验</text>
+  <rect x="450" y="140" width="200" height="94" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="550" y="158" text-anchor="middle" font-size="10.5" font-weight="700" fill="#166534">变异系数法（客观）</text>
+  <text x="462" y="178" font-size="9.5" fill="#334155">CVⱼ = sⱼ / x̄ⱼ（指标区分度）</text>
+  <text x="462" y="196" font-size="9.5" fill="#334155">wⱼ = CVⱼ / ΣCVⱼ</text>
+  <text x="462" y="214" font-size="9.5" fill="#334155">差异越大的指标权重越高</text>
+  <text x="462" y="230" font-size="9" fill="#64748b">须先消除量纲与正负方向</text>
+
+  <text x="30" y="258" font-size="11" font-weight="700" fill="#7c3aed">补充（课件未展开）：熵权法（信息熵越小权重越大）· CRITIC（对比强度 × 冲突性）· 主客观组合赋权 · TOPSIS（逼近理想解排序）</text>
+
+  <text x="30" y="282" font-size="12" font-weight="700" fill="#334155">③ 无量纲化与两种综合评分法（工作例题）</text>
+  <rect x="30" y="292" width="620" height="88" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="42" y="312" font-size="10" fill="#334155">正向指标 z=(x−min)/(max−min)；负向指标 z=(max−x)/(max−min)；或标准分数 z=(x−x̄)/s。</text>
+  <text x="42" y="332" font-size="10" fill="#334155">简单平均法：S = (z₁+z₂+z₃)/3（隐含等权）。加权综合评分：S = Σwⱼzⱼ。</text>
+  <text x="42" y="352" font-size="10" fill="#334155">例题：某单位 z=(0.8, 0.6, 0.4)，等权 S=0.60；权重 w=(0.5,0.3,0.2) → S=0.4+0.18+0.08=0.66。</text>
+  <text x="42" y="370" font-size="9.5" fill="#64748b">结论会随权重变化，必须做敏感性分析；不同无量纲化方法也可能改变排序（须说明并保持一致）。</text>
+
+  <text x="30" y="394" font-size="10" fill="#64748b">易错：指标未正向化就把「成本」「污染」等逆向指标直接加权，方向反了结论必错；AHP 不做 CR 检验结果不可信。</text>
+</svg>

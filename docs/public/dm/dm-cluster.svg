@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">聚类分析：距离度量与系统聚类（第 4 章 4.4）</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 聚类的两类相似性统计量</text>
+  <rect x="30" y="62" width="300" height="90" rx="6" fill="#e0f2fe" stroke="#0284c7"/>
+  <text x="180" y="82" text-anchor="middle" font-size="10.5" font-weight="700" fill="#075985">距离（样品间 / Q 型）</text>
+  <text x="42" y="102" font-size="9.5" fill="#334155">欧氏 d = √Σ(xᵢ−yᵢ)²；曼哈顿 Σ|xᵢ−yᵢ|</text>
+  <text x="42" y="120" font-size="9.5" fill="#334155">闵可夫斯基（p 阶）、马氏距离（消除相关与量纲）</text>
+  <text x="42" y="138" font-size="9" fill="#64748b">值越小越相似；必须先标准化</text>
+  <rect x="342" y="62" width="308" height="90" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="496" y="82" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">相似系数（变量间 / R 型）</text>
+  <text x="354" y="102" font-size="9.5" fill="#334155">夹角余弦 cosθ = X·Y/(|X||Y|)</text>
+  <text x="354" y="120" font-size="9.5" fill="#334155">Pearson 相关系数也可作相似系数</text>
+  <text x="354" y="138" font-size="9" fill="#64748b">值越大越相似；常用于文本、评价向量</text>
+
+  <text x="30" y="176" font-size="12" font-weight="700" fill="#334155">② 系统（层次）聚类：自底向上八步</text>
+  <rect x="30" y="186" width="620" height="56" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="42" y="206" font-size="10" fill="#334155">① 标准化 → ② n 个样品各自成一类 → ③ 计算类间距离矩阵 D → ④ 合并距离最近的两类</text>
+  <text x="42" y="226" font-size="10" fill="#334155">⑤ 按类间距离定义重算新距离 → ⑥ 重复 ④⑤ 直至并成一类 → ⑦ 画谱系图（树状图）→ ⑧ 决定分类数</text>
+  <text x="42" y="240" font-size="9.5" fill="#64748b">每一步合并都不可撤销（贪心）；分类数由树状图「跳跃高度」或业务需要确定。</text>
+
+  <text x="30" y="266" font-size="12" font-weight="700" fill="#334155">③ 类间距离的四种经典定义（课件 4.4.2）</text>
+  <rect x="30" y="276" width="152" height="72" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="106" y="294" text-anchor="middle" font-size="10" font-weight="700" fill="#334155">最短距离法</text>
+  <text x="40" y="312" font-size="9.5" fill="#334155">两类最近样品的距离</text>
+  <text x="40" y="330" font-size="9.5" fill="#334155">易产生「链式」长条类</text>
+  <text x="40" y="344" font-size="9" fill="#64748b">single linkage</text>
+  <rect x="190" y="276" width="152" height="72" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="266" y="294" text-anchor="middle" font-size="10" font-weight="700" fill="#334155">最长距离法</text>
+  <text x="200" y="312" font-size="9.5" fill="#334155">两类最远样品的距离</text>
+  <text x="200" y="330" font-size="9.5" fill="#334155">倾向生成紧凑小类</text>
+  <text x="200" y="344" font-size="9" fill="#64748b">complete linkage</text>
+  <rect x="350" y="276" width="152" height="72" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="426" y="294" text-anchor="middle" font-size="10" font-weight="700" fill="#334155">类平均法</text>
+  <text x="360" y="312" font-size="9.5" fill="#334155">两两样品平方距离均值</text>
+  <text x="360" y="330" font-size="9.5" fill="#334155">较稳健、最常用</text>
+  <text x="360" y="344" font-size="9" fill="#64748b">average linkage</text>
+  <rect x="510" y="276" width="140" height="72" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="580" y="294" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">Ward 法（补充）</text>
+  <text x="520" y="312" font-size="9.5" fill="#92400e">合并使类内离差平方和</text>
+  <text x="520" y="330" font-size="9.5" fill="#92400e">增量最小，偏向球形类</text>
+  <text x="520" y="344" font-size="9" fill="#64748b">scipy.linkage(...,'ward')</text>
+
+  <text x="30" y="372" font-size="10.5" fill="#334155">补充（课件未展开）：K-means（先定 K、迭代更新质心）适合大样本；肘部法 / 轮廓系数选 K；DBSCAN 基于密度可识别噪声。</text>
+  <text x="30" y="390" font-size="10" fill="#64748b">易错：聚类是无监督（无标签、无「正确率」）；K-means 对初始质心与异常值敏感，必须先标准化；轮廓系数取值 [−1,1]，越大越好。</text>
+</svg>

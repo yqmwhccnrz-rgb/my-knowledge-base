@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">数据挖掘通用流程（CRISP-DM）与本书章节地图</text>
+  <defs><marker id="ar1" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#2563eb"/></marker></defs>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 六阶段闭环（数据 → 知识 → 决策）</text>
+  <rect x="30" y="62" width="100" height="46" rx="6" fill="#e0f2fe" stroke="#0284c7"/><text x="80" y="82" text-anchor="middle" font-size="10.5" font-weight="700" fill="#075985">业务理解</text><text x="80" y="98" text-anchor="middle" font-size="9" fill="#075985">目标 / 评价指标</text>
+  <rect x="145" y="62" width="100" height="46" rx="6" fill="#dbeafe" stroke="#2563eb"/><text x="195" y="82" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">数据理解</text><text x="195" y="98" text-anchor="middle" font-size="9" fill="#1e3a8a">收集 / 探索 / 质量</text>
+  <rect x="260" y="62" width="100" height="46" rx="6" fill="#dbeafe" stroke="#2563eb"/><text x="310" y="82" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">数据准备</text><text x="310" y="98" text-anchor="middle" font-size="9" fill="#1e3a8a">清洗 / 变换 / 规约</text>
+  <rect x="375" y="62" width="100" height="46" rx="6" fill="#dcfce7" stroke="#16a34a"/><text x="425" y="82" text-anchor="middle" font-size="10.5" font-weight="700" fill="#166534">建模</text><text x="425" y="98" text-anchor="middle" font-size="9" fill="#166534">选模型 / 调参数</text>
+  <rect x="490" y="62" width="100" height="46" rx="6" fill="#fef3c7" stroke="#d97706"/><text x="540" y="82" text-anchor="middle" font-size="10.5" font-weight="700" fill="#92400e">评估</text><text x="540" y="98" text-anchor="middle" font-size="9" fill="#92400e">检验 / 复核目标</text>
+  <rect x="605" y="62" width="45" height="46" rx="6" fill="#ede9fe" stroke="#7c3aed"/><text x="627" y="82" text-anchor="middle" font-size="10.5" font-weight="700" fill="#5b21b6">部署</text><text x="627" y="98" text-anchor="middle" font-size="9" fill="#5b21b6">上线</text>
+  <line x1="130" y1="85" x2="144" y2="85" stroke="#2563eb" marker-end="url(#ar1)"/>
+  <line x1="245" y1="85" x2="259" y2="85" stroke="#2563eb" marker-end="url(#ar1)"/>
+  <line x1="360" y1="85" x2="374" y2="85" stroke="#2563eb" marker-end="url(#ar1)"/>
+  <line x1="475" y1="85" x2="489" y2="85" stroke="#2563eb" marker-end="url(#ar1)"/>
+  <line x1="590" y1="85" x2="604" y2="85" stroke="#2563eb" marker-end="url(#ar1)"/>
+  <text x="340" y="128" text-anchor="middle" font-size="9.5" fill="#64748b">评估不达标则回退到业务理解 / 数据准备，数据挖掘是反复迭代而非一次线性流程</text>
+
+  <text x="30" y="154" font-size="12" font-weight="700" fill="#334155">② 本书 8 章内容在流程中的位置</text>
+  <rect x="30" y="164" width="620" height="150" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <rect x="44" y="176" width="192" height="60" rx="5" fill="#e0f2fe" stroke="#0284c7"/>
+  <text x="140" y="194" text-anchor="middle" font-size="10.5" font-weight="700" fill="#075985">第 1 章 数据收集与分析软件</text>
+  <text x="140" y="210" text-anchor="middle" font-size="9.5" fill="#075985">数据类型 / 收集过程 / Python 基础</text>
+  <text x="140" y="226" text-anchor="middle" font-size="9.5" fill="#075985">→ 数据理解 + 环境搭建</text>
+  <rect x="244" y="176" width="192" height="60" rx="5" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="340" y="194" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">第 2–3 章 分析基础</text>
+  <text x="340" y="210" text-anchor="middle" font-size="9.5" fill="#1e3a8a">描述分析 / 透视分析 / 分布</text>
+  <text x="340" y="226" text-anchor="middle" font-size="9.5" fill="#1e3a8a">随机模拟 / 单变量统计模型</text>
+  <rect x="444" y="176" width="192" height="60" rx="5" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="540" y="194" text-anchor="middle" font-size="10.5" font-weight="700" fill="#166534">第 4–5 章 建模核心</text>
+  <text x="540" y="210" text-anchor="middle" font-size="9.5" fill="#166534">多元回归 / 降维 / 聚类 / 综合评价</text>
+  <text x="540" y="226" text-anchor="middle" font-size="9.5" fill="#166534">时序平稳性 / ARIMA / 预测</text>
+  <rect x="44" y="244" width="192" height="58" rx="5" fill="#fef3c7" stroke="#d97706"/>
+  <text x="140" y="262" text-anchor="middle" font-size="10.5" font-weight="700" fill="#92400e">第 6 章 大数据分析</text>
+  <text x="140" y="278" text-anchor="middle" font-size="9.5" fill="#92400e">4V / 分布式存储与计算</text>
+  <text x="140" y="294" text-anchor="middle" font-size="9.5" fill="#92400e">→ 规模化的数据准备与建模</text>
+  <rect x="244" y="244" width="192" height="58" rx="5" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="340" y="262" text-anchor="middle" font-size="10.5" font-weight="700" fill="#5b21b6">第 7 章 文献计量</text>
+  <text x="340" y="278" text-anchor="middle" font-size="9.5" fill="#5b21b6">数据获取 / h 指数 / 共被引</text>
+  <text x="340" y="294" text-anchor="middle" font-size="9.5" fill="#5b21b6">→ 领域应用一</text>
+  <rect x="444" y="244" width="192" height="58" rx="5" fill="#fce7f3" stroke="#db2777"/>
+  <text x="540" y="262" text-anchor="middle" font-size="10.5" font-weight="700" fill="#9d174d">第 8 章 社会网络分析</text>
+  <text x="540" y="278" text-anchor="middle" font-size="9.5" fill="#9d174d">图结构 / 中心性 / 社群发现</text>
+  <text x="540" y="294" text-anchor="middle" font-size="9.5" fill="#9d174d">→ 领域应用二</text>
+
+  <text x="30" y="336" font-size="12" font-weight="700" fill="#334155">③ 三类任务要分清</text>
+  <text x="30" y="356" font-size="10.5" fill="#334155">描述性（发生了什么：描述统计 / 可视化 / 透视） → 预测性（将要怎样：回归 / 时序 / 分类） → 探索性（发现结构：聚类 / 降维 / 关联 / 网络）</text>
+  <text x="30" y="374" font-size="10" fill="#64748b">易错：数据挖掘 ≠ 机器学习；前者是「业务 + 数据准备 + 建模 + 评估 + 部署」的完整过程，后者只是其中建模环节的一类方法。</text>
+</svg>

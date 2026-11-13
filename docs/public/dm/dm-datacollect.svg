@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">数据收集过程与数据类型（第 1 章）</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 数据收集的一般过程</text>
+  <defs><marker id="ar1" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#2563eb"/></marker></defs>
+  <rect x="30" y="62" width="112" height="42" rx="6" fill="#e0f2fe" stroke="#0284c7"/><text x="86" y="80" text-anchor="middle" font-size="10.5" font-weight="700" fill="#075985">明确分析目标</text><text x="86" y="95" text-anchor="middle" font-size="9" fill="#075985">需要哪些变量</text>
+  <rect x="158" y="62" width="112" height="42" rx="6" fill="#dbeafe" stroke="#2563eb"/><text x="214" y="80" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">确定数据来源</text><text x="214" y="95" text-anchor="middle" font-size="9" fill="#1e3a8a">内部 / 外部 / 公开</text>
+  <rect x="286" y="62" width="112" height="42" rx="6" fill="#dbeafe" stroke="#2563eb"/><text x="342" y="80" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">设计采集方案</text><text x="342" y="95" text-anchor="middle" font-size="9" fill="#1e3a8a">问卷 / 爬虫 / 接口</text>
+  <rect x="414" y="62" width="112" height="42" rx="6" fill="#dcfce7" stroke="#16a34a"/><text x="470" y="80" text-anchor="middle" font-size="10.5" font-weight="700" fill="#166534">实施与录入</text><text x="470" y="95" text-anchor="middle" font-size="9" fill="#166534">csv / Excel / DB</text>
+  <rect x="542" y="62" width="108" height="42" rx="6" fill="#fef3c7" stroke="#d97706"/><text x="596" y="80" text-anchor="middle" font-size="10.5" font-weight="700" fill="#92400e">质量核查</text><text x="596" y="95" text-anchor="middle" font-size="9" fill="#92400e">完整性 / 一致性</text>
+  <line x1="142" y1="83" x2="157" y2="83" stroke="#2563eb" marker-end="url(#ar1)"/>
+  <line x1="270" y1="83" x2="285" y2="83" stroke="#2563eb" marker-end="url(#ar1)"/>
+  <line x1="398" y1="83" x2="413" y2="83" stroke="#2563eb" marker-end="url(#ar1)"/>
+  <line x1="526" y1="83" x2="541" y2="83" stroke="#2563eb" marker-end="url(#ar1)"/>
+
+  <text x="30" y="130" font-size="12" font-weight="700" fill="#334155">② 按度量尺度分（决定可用统计量，最易考）</text>
+  <rect x="30" y="140" width="150" height="76" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="105" y="160" text-anchor="middle" font-size="11" font-weight="700" fill="#1e3a8a">定类 / 名义</text>
+  <text x="105" y="178" text-anchor="middle" font-size="9.5" fill="#334155">性别、专业、地区</text>
+  <text x="105" y="194" text-anchor="middle" font-size="9.5" fill="#334155">仅计数、众数、频数</text>
+  <text x="105" y="208" text-anchor="middle" font-size="9" fill="#64748b">= / ≠，无大小顺序</text>
+  <rect x="188" y="140" width="150" height="76" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="263" y="160" text-anchor="middle" font-size="11" font-weight="700" fill="#1e3a8a">定序 / 顺序</text>
+  <text x="263" y="178" text-anchor="middle" font-size="9.5" fill="#334155">满意度、职级、等级</text>
+  <text x="263" y="194" text-anchor="middle" font-size="9.5" fill="#334155">中位数、百分位、秩</text>
+  <text x="263" y="208" text-anchor="middle" font-size="9" fill="#64748b">可比较大小，间距无意义</text>
+  <rect x="346" y="140" width="150" height="76" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="421" y="160" text-anchor="middle" font-size="11" font-weight="700" fill="#1e3a8a">定距 / 区间</text>
+  <text x="421" y="178" text-anchor="middle" font-size="9.5" fill="#334155">温度（℃）、年份</text>
+  <text x="421" y="194" text-anchor="middle" font-size="9.5" fill="#334155">均值、方差、相关</text>
+  <text x="421" y="208" text-anchor="middle" font-size="9" fill="#64748b">可加减，无绝对零点</text>
+  <rect x="504" y="140" width="146" height="76" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="577" y="160" text-anchor="middle" font-size="11" font-weight="700" fill="#1e3a8a">定比 / 比率</text>
+  <text x="577" y="178" text-anchor="middle" font-size="9.5" fill="#334155">收入、身高、销售额</text>
+  <text x="577" y="194" text-anchor="middle" font-size="9.5" fill="#334155">全部运算、变异系数</text>
+  <text x="577" y="208" text-anchor="middle" font-size="9" fill="#64748b">有绝对零点，可乘除</text>
+
+  <text x="30" y="240" font-size="12" font-weight="700" fill="#334155">③ 按结构 / 时间形态分</text>
+  <rect x="30" y="250" width="196" height="56" rx="6" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="128" y="268" text-anchor="middle" font-size="10.5" font-weight="700" fill="#5b21b6">截面数据</text>
+  <text x="128" y="284" text-anchor="middle" font-size="9.5" fill="#5b21b6">同一时点多个个体（一次问卷调查）</text>
+  <text x="128" y="299" text-anchor="middle" font-size="9.5" fill="#5b21b6">→ 描述 / 相关 / 回归 / 聚类</text>
+  <rect x="234" y="250" width="196" height="56" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="332" y="268" text-anchor="middle" font-size="10.5" font-weight="700" fill="#166534">时间序列</text>
+  <text x="332" y="284" text-anchor="middle" font-size="9.5" fill="#166534">同一个体多个时点（股价、指数）</text>
+  <text x="332" y="299" text-anchor="middle" font-size="9.5" fill="#166534">→ 平稳性 / ARIMA / 预测</text>
+  <rect x="438" y="250" width="212" height="56" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="544" y="268" text-anchor="middle" font-size="10.5" font-weight="700" fill="#92400e">面板 / 多元数据</text>
+  <text x="544" y="284" text-anchor="middle" font-size="9.5" fill="#92400e">多个个体 × 多个时点 × 多指标</text>
+  <text x="544" y="299" text-anchor="middle" font-size="9.5" fill="#92400e">→ 主成分 / 综合评价 / 固定效应</text>
+
+  <text x="30" y="332" font-size="12" font-weight="700" fill="#334155">④ 结构化程度：结构化（表 / DB） · 半结构化（JSON / XML / HTML） · 非结构化（文本 / 图像 / 音视频）</text>
+  <text x="30" y="352" font-size="10.5" fill="#334155">补充：课件只讲「按度量尺度 + 多元/时序收集」，实际项目还须考虑抽样偏差、数据口径、缺失机制（MCAR/MAR/MNAR）。</text>
+  <text x="30" y="372" font-size="10.5" fill="#334155">合规要点：个人信息最小必要、脱敏、来源授权；爬虫遵守 robots.txt、控制频率、优先使用官方 API。</text>
+  <text x="30" y="390" font-size="10" fill="#64748b">易错：定序数据取「均值」无意义；定类编码成 1/2/3 后不可直接当数值做回归（须独热编码）。</text>
+</svg>

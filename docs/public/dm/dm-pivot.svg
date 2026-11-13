@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">数据的透视分析（第 2 章）：分组 → 汇总 → 透视</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 三种工具的分工</text>
+  <rect x="30" y="62" width="200" height="86" rx="6" fill="#e0f2fe" stroke="#0284c7"/>
+  <text x="130" y="82" text-anchor="middle" font-size="11" font-weight="700" fill="#075985">groupby（分组聚合）</text>
+  <text x="42" y="102" font-size="9.5" fill="#334155">df.groupby('专业')['身高'].mean()</text>
+  <text x="42" y="120" font-size="9.5" fill="#334155">agg(['mean','std','count'])</text>
+  <text x="42" y="138" font-size="9" fill="#64748b">一个分组键 → 一组汇总值</text>
+  <rect x="240" y="62" width="200" height="86" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="340" y="82" text-anchor="middle" font-size="11" font-weight="700" fill="#1e3a8a">pivot_table（透视表）</text>
+  <text x="252" y="102" font-size="9.5" fill="#334155">index=行维, columns=列维</text>
+  <text x="252" y="120" font-size="9.5" fill="#334155">values=值, aggfunc=汇总</text>
+  <text x="252" y="138" font-size="9" fill="#64748b">两个维度交叉 → 二维表</text>
+  <rect x="450" y="62" width="200" height="86" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="550" y="82" text-anchor="middle" font-size="11" font-weight="700" fill="#166534">crosstab（列联表）</text>
+  <text x="462" y="102" font-size="9.5" fill="#334155">pd.crosstab(df.性别, df.专业)</text>
+  <text x="462" y="120" font-size="9.5" fill="#334155">normalize='index' 得行百分比</text>
+  <text x="462" y="138" font-size="9" fill="#64748b">双分类变量 → 频数 / 比例</text>
+
+  <text x="30" y="172" font-size="12" font-weight="700" fill="#334155">② 示例数据（学生调查表）与透视结果</text>
+  <rect x="30" y="182" width="290" height="132" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="175" y="200" text-anchor="middle" font-size="10.5" font-weight="700" fill="#334155">原始明细 df</text>
+  <text x="42" y="220" font-size="9.5" fill="#334155">姓名　性别　专业　身高　成绩</text>
+  <text x="42" y="238" font-size="9.5" fill="#334155">李勇　男　　CS　　178　92</text>
+  <text x="42" y="256" font-size="9.5" fill="#334155">刘晨　女　　CS　　165　85</text>
+  <text x="42" y="274" font-size="9.5" fill="#334155">王敏　女　　MA　　170　78</text>
+  <text x="42" y="292" font-size="9.5" fill="#334155">张立　男　　IS　　172　65</text>
+  <text x="42" y="308" font-size="9" fill="#64748b">（数值仅为教学示意）</text>
+  <rect x="330" y="182" width="320" height="132" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="490" y="200" text-anchor="middle" font-size="10.5" font-weight="700" fill="#334155">groupby('专业') 汇总：人数 / 平均身高</text>
+  <text x="342" y="220" font-size="9.5" fill="#334155">专业　count　mean(身高)　mean(成绩)</text>
+  <text x="342" y="238" font-size="9.5" fill="#334155">CS　　2　　171.5　　　　88.5</text>
+  <text x="342" y="256" font-size="9.5" fill="#334155">MA　　1　　170.0　　　　78.0</text>
+  <text x="342" y="274" font-size="9.5" fill="#334155">IS　　1　　172.0　　　　65.0</text>
+  <text x="342" y="294" font-size="9.5" fill="#166534">pivot_table(index='性别', columns='专业',</text>
+  <text x="342" y="308" font-size="9.5" fill="#166534">values='成绩', aggfunc='mean') → 交叉均值</text>
+
+  <text x="30" y="338" font-size="12" font-weight="700" fill="#334155">③ 常用汇总函数与易错点</text>
+  <text x="30" y="358" font-size="10.5" fill="#334155">count / size（后者含 NaN）· sum / mean / median · min / max · std / var · quantile · nunique · first / last</text>
+  <text x="30" y="376" font-size="10.5" fill="#334155">易错：groupby 返回 GroupBy 中间对象，必须再接聚合函数；pivot_table 默认 aggfunc='mean'，重复组合会自动聚合。</text>
+  <text x="30" y="394" font-size="10" fill="#64748b">补充：pivot 不允许重复索引组合（需先聚合），pivot_table 可以；margins=True 可加「合计」行列；多行索引用 stack/unstack 重塑。</text>
+</svg>

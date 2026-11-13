@@ -49438,5 +49438,2011 @@
   "answer": "① CREATE TABLE Student(Sno CHAR(7) PRIMARY KEY, Sname VARCHAR(20) NOT NULL, Sdept CHAR(2) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;　CREATE TABLE Course(Cno CHAR(2) PRIMARY KEY, Cname VARCHAR(40) NOT NULL);　CREATE TABLE SC(Sno CHAR(7), Cno CHAR(2), Grade SMALLINT CHECK(Grade BETWEEN 0 AND 100), PRIMARY KEY(Sno,Cno), FOREIGN KEY(Sno) REFERENCES Student(Sno), FOREIGN KEY(Cno) REFERENCES Course(Cno));　② SELECT s.Sdept, AVG(sc.Grade) FROM Student s JOIN SC sc ON s.Sno=sc.Sno WHERE sc.Grade IS NOT NULL GROUP BY s.Sdept;（AVG 本身忽略 NULL，显式写出更清晰）　③ 三个表各自无非主属性对码的部分/传递依赖，均满足 3NF（SC 甚至 BCNF）。若把「系名、系楼」并入学生表：候选码仍为 Sno，但存在 Sno→系名→系楼的传递依赖（假设系名决定系楼），退化为 2NF，出现冗余（同系每个学生重复存系楼）、插入异常（新系尚无学生无法录入）、删除异常（删掉该系最后一个学生丢失系楼信息）、更新异常（系搬楼要改多行）；应按规范化拆出 Dept(系号,系名,系楼) 并在 Student 中仅保留系号作外码。",
   "explanation": "综合考查 DDL、连接聚合与规范化三块知识。",
   "type": "essay"
+ },
+ {
+  "id": "dm1",
+  "note": "DataMining",
+  "topic": "第0章 课前准备",
+  "question": "CRISP-DM 数据挖掘流程共包含几个阶段（ ）。",
+  "options": [
+   "6 个",
+   "4 个",
+   "5 个",
+   "7 个"
+  ],
+  "answer": 0,
+  "explanation": "业务理解、数据理解、数据准备、建模、评估、部署，共 6 阶段且闭环迭代。",
+  "type": "choice"
+ },
+ {
+  "id": "dm2",
+  "note": "DataMining",
+  "topic": "第0章 课前准备",
+  "question": "按任务类型划分，聚类分析属于（ ）。",
+  "options": [
+   "描述性任务",
+   "探索性任务",
+   "预测性任务",
+   "规范性任务"
+  ],
+  "answer": 1,
+  "explanation": "探索性任务用于发现数据内在结构：聚类、降维、关联规则、网络分析。",
+  "type": "choice"
+ },
+ {
+  "id": "dm3",
+  "note": "DataMining",
+  "topic": "第0章 课前准备",
+  "question": "关于数据挖掘与机器学习的关系，正确的是（ ）。",
+  "options": [
+   "两者完全等价",
+   "机器学习包含数据挖掘的全部环节",
+   "数据挖掘是含业务/准备/评估/部署的完整流程，机器学习只是建模方法之一",
+   "数据挖掘只是机器学习的一个算法"
+  ],
+  "answer": 2,
+  "explanation": "课件以流程组织内容，机器学习是其中建模环节的一类方法。",
+  "type": "choice"
+ },
+ {
+  "id": "dm4",
+  "note": "DataMining",
+  "topic": "第0章 课前准备",
+  "question": "CRISP-DM 中评估结果不达标时应当（ ）。",
+  "options": [
+   "直接进入部署",
+   "只调模型参数即可",
+   "放弃该项目",
+   "回退到业务理解或数据准备重新迭代"
+  ],
+  "answer": 3,
+  "explanation": "流程是闭环迭代，不是一次性线性流水线。",
+  "type": "choice"
+ },
+ {
+  "id": "dm5",
+  "note": "DataMining",
+  "topic": "第0章 课前准备",
+  "question": "本书知识体系中，ARIMA 模型属于（ ）。",
+  "options": [
+   "方法层（多元与时序建模）",
+   "基础层",
+   "应用层",
+   "工具层"
+  ],
+  "answer": 0,
+  "explanation": "基础层为第 0–3 章，方法层为第 4–5 章，应用层为第 6–8 章。",
+  "type": "choice"
+ },
+ {
+  "id": "dm6",
+  "note": "DataMining",
+  "topic": "第1章 数据收集与分析软件",
+  "question": "按度量尺度划分，「满意度等级（很满意/满意/一般…）」属于（ ）。",
+  "options": [
+   "定类数据",
+   "定序数据",
+   "定距数据",
+   "定比数据"
+  ],
+  "answer": 1,
+  "explanation": "有大小顺序但等级间距未必相等，可用中位数与秩相关，严格说不可求均值。",
+  "type": "choice"
+ },
+ {
+  "id": "dm7",
+  "note": "DataMining",
+  "topic": "第1章 数据收集与分析软件",
+  "question": "把定类变量（如专业）编码成 1/2/3 后直接放入回归模型，正确的评价是（ ）。",
+  "options": [
+   "正确，编码后就是数值",
+   "错误，定类变量完全不能参与建模",
+   "错误，会人为引入大小顺序，应做独热编码",
+   "正确，只要样本量足够大"
+  ],
+  "answer": 2,
+  "explanation": "定类编码后的数字只是标签，数值大小无意义，须用哑变量/独热编码。",
+  "type": "choice"
+ },
+ {
+  "id": "dm8",
+  "note": "DataMining",
+  "topic": "第1章 数据收集与分析软件",
+  "question": "「温度（℃）」按度量尺度属于（ ）。",
+  "options": [
+   "定类数据",
+   "定序数据",
+   "定比数据",
+   "定距数据"
+  ],
+  "answer": 3,
+  "explanation": "可加减但无绝对零点，20℃ 不能说成 10℃ 的两倍热。",
+  "type": "choice"
+ },
+ {
+  "id": "dm9",
+  "note": "DataMining",
+  "topic": "第1章 数据收集与分析软件",
+  "question": "变异系数 CV = s/x̄ 主要适用于（ ）。",
+  "options": [
+   "定比数据，用于跨量纲比较离散程度",
+   "定类数据",
+   "定序数据",
+   "任何含零或负值的数据"
+  ],
+  "answer": 0,
+  "explanation": "CV 无量纲；均值接近 0 或含负值时会失真，且要求有绝对零点。",
+  "type": "choice"
+ },
+ {
+  "id": "dm10",
+  "note": "DataMining",
+  "topic": "第1章 数据收集与分析软件",
+  "question": "某股票每日收盘价序列按时间形态属于（ ）。",
+  "options": [
+   "截面数据",
+   "时间序列数据",
+   "面板数据",
+   "定类数据"
+  ],
+  "answer": 1,
+  "explanation": "同一个体、多个时点；多只股票多时点才是面板数据。",
+  "type": "choice"
+ },
+ {
+  "id": "dm11",
+  "note": "DataMining",
+  "topic": "第1章 数据收集与分析软件",
+  "question": "pandas 中带行列标签、各列可异构的二维数据结构是（ ）。",
+  "options": [
+   "Series",
+   "ndarray",
+   "DataFrame",
+   "dict"
+  ],
+  "answer": 2,
+  "explanation": "Series 是一维带标签；ndarray 同构且无标签；DataFrame 由多个 Series 组成。",
+  "type": "choice"
+ },
+ {
+  "id": "dm12",
+  "note": "DataMining",
+  "topic": "第1章 数据收集与分析软件",
+  "question": "pd.Series([178, 165, 170]).std() 的结果约为（ ）。",
+  "options": [
+   "5.3541",
+   "43.0000",
+   "28.6667",
+   "6.5574"
+  ],
+  "answer": 3,
+  "explanation": "pandas 默认 ddof=1：均值 171、偏差平方和 86、86/2=43、√43≈6.5574。",
+  "type": "choice"
+ },
+ {
+  "id": "dm13",
+  "note": "DataMining",
+  "topic": "第1章 数据收集与分析软件",
+  "question": "numpy 的 np.std() 默认自由度修正 ddof 是（ ）。",
+  "options": [
+   "0",
+   "1",
+   "2",
+   "n−1"
+  ],
+  "answer": 0,
+  "explanation": "numpy 默认 ddof=0（除以 n），pandas 默认 ddof=1（除以 n−1），这是最常见数值差异。",
+  "type": "choice"
+ },
+ {
+  "id": "dm14",
+  "note": "DataMining",
+  "topic": "第1章 数据收集与分析软件",
+  "question": "HTML 网页、JSON 文件按结构化程度属于（ ）。",
+  "options": [
+   "结构化数据",
+   "半结构化数据",
+   "非结构化数据",
+   "图数据"
+  ],
+  "answer": 1,
+  "explanation": "有标签/键但不满足关系表刚性模式，解析后再入库。",
+  "type": "choice"
+ },
+ {
+  "id": "dm15",
+  "note": "DataMining",
+  "topic": "第1章 数据收集与分析软件",
+  "question": "缺失机制 MNAR 指的是（ ）。",
+  "options": [
+   "完全随机缺失",
+   "缺失只依赖已观测变量",
+   "缺失概率依赖于缺失值本身",
+   "数据录入格式错误"
+  ],
+  "answer": 2,
+  "explanation": "MNAR 会造成系统性偏差，简单删除或均值填补都不可靠。",
+  "type": "choice"
+ },
+ {
+  "id": "dm16",
+  "note": "DataMining",
+  "topic": "第2章 分析基础",
+  "question": "样本 2, 4, 5, 7, 9 的样本方差（ddof=1）是（ ）。",
+  "options": [
+   "5.84",
+   "7.70",
+   "2.70",
+   "7.30"
+  ],
+  "answer": 3,
+  "explanation": "x̄=5.4，偏差平方和 29.20，除以 n−1=4 得 7.30；标准差≈2.7019。",
+  "type": "choice"
+ },
+ {
+  "id": "dm17",
+  "note": "DataMining",
+  "topic": "第2章 分析基础",
+  "question": "在右偏（正偏）分布中，通常成立的是（ ）。",
+  "options": [
+   "均值 > 中位数 > 众数",
+   "众数 > 中位数 > 均值",
+   "三者相等",
+   "中位数 > 均值 > 众数"
+  ],
+  "answer": 0,
+  "explanation": "长尾在右侧，把均值拉向右；中位数更稳健。",
+  "type": "choice"
+ },
+ {
+  "id": "dm18",
+  "note": "DataMining",
+  "topic": "第2章 分析基础",
+  "question": "Q1=4、Q3=7 时，箱线图判定异常值的上界是（ ）。",
+  "options": [
+   "10.0",
+   "11.5",
+   "13.0",
+   "9.5"
+  ],
+  "answer": 1,
+  "explanation": "IQR=3，上界 = Q3 + 1.5·IQR = 7 + 4.5 = 11.5，下界 = 4 − 4.5 = −0.5。",
+  "type": "choice"
+ },
+ {
+  "id": "dm19",
+  "note": "DataMining",
+  "topic": "第2章 分析基础",
+  "question": "DataFrame.describe() 默认统计的对象是（ ）。",
+  "options": [
+   "所有列",
+   "仅字符列",
+   "仅数值型列",
+   "仅前 5 行"
+  ],
+  "answer": 2,
+  "explanation": "要看分类列须 describe(include='object') 或 include='all'。",
+  "type": "choice"
+ },
+ {
+  "id": "dm20",
+  "note": "DataMining",
+  "topic": "第2章 分析基础",
+  "question": "df.groupby('专业') 直接返回的是（ ）。",
+  "options": [
+   "汇总好的 DataFrame",
+   "一个 Series",
+   "布尔索引数组",
+   "GroupBy 中间对象，需再接聚合函数"
+  ],
+  "answer": 3,
+  "explanation": "课件特别提醒：不接 mean()/agg() 不会输出表格。",
+  "type": "choice"
+ },
+ {
+  "id": "dm21",
+  "note": "DataMining",
+  "topic": "第2章 分析基础",
+  "question": "pd.pivot_table() 默认的 aggfunc 是（ ）。",
+  "options": [
+   "mean",
+   "sum",
+   "count",
+   "first"
+  ],
+  "answer": 0,
+  "explanation": "默认对重复的行列组合取均值；pivot() 则不允许重复组合直接报错。",
+  "type": "choice"
+ },
+ {
+  "id": "dm22",
+  "note": "DataMining",
+  "topic": "第2章 分析基础",
+  "question": "pd.crosstab(a, b, normalize='index') 的归一化方向是（ ）。",
+  "options": [
+   "按列归一",
+   "按行归一，每行和为 1",
+   "按全体归一",
+   "不做归一"
+  ],
+  "answer": 1,
+  "explanation": "normalize='columns' 按列，'all' 按全体总数。",
+  "type": "choice"
+ },
+ {
+  "id": "dm23",
+  "note": "DataMining",
+  "topic": "第2章 分析基础",
+  "question": "分组聚合中 count 与 size 的区别是（ ）。",
+  "options": [
+   "count 计所有行",
+   "size 会去重",
+   "count 不计 NaN，size 计所有行",
+   "两者完全相同"
+  ],
+  "answer": 2,
+  "explanation": "统计分组人数时若该列有缺失，两者结果不同。",
+  "type": "choice"
+ },
+ {
+  "id": "dm24",
+  "note": "DataMining",
+  "topic": "第2章 分析基础",
+  "question": "四分位距 IQR 的定义是（ ）。",
+  "options": [
+   "Q3 + Q1",
+   "max − min",
+   "Q3/ Q1",
+   "Q3 − Q1"
+  ],
+  "answer": 3,
+  "explanation": "IQR 是中间 50% 数据的跨度，比极差稳健。",
+  "type": "choice"
+ },
+ {
+  "id": "dm25",
+  "note": "DataMining",
+  "topic": "第2章 分析基础",
+  "question": "偏度 skew() > 0 表示（ ）。",
+  "options": [
+   "右偏（长尾在右）",
+   "左偏",
+   "尖峰厚尾",
+   "完全对称"
+  ],
+  "answer": 0,
+  "explanation": "峰度 kurt() > 0 才是尖峰厚尾，二者不要混淆。",
+  "type": "choice"
+ },
+ {
+  "id": "dm26",
+  "note": "DataMining",
+  "topic": "第2章 分析基础",
+  "question": "变异系数 CV 的突出优点是（ ）。",
+  "options": [
+   "一定为正且不受异常值影响",
+   "无量纲，可比较量纲不同或均值差异大的组",
+   "等于标准差",
+   "可用于定类数据"
+  ],
+  "answer": 1,
+  "explanation": "CV=s/x̄；均值接近 0 时会失真。",
+  "type": "choice"
+ },
+ {
+  "id": "dm27",
+  "note": "DataMining",
+  "topic": "第2章 分析基础",
+  "question": "关于 pivot 与 pivot_table，正确的是（ ）。",
+  "options": [
+   "两者都不允许重复",
+   "pivot_table 不能加合计行列",
+   "pivot 不允许重复的索引组合，pivot_table 会自动聚合",
+   "pivot 默认聚合方式为 sum"
+  ],
+  "answer": 2,
+  "explanation": "pivot_table 支持 aggfunc 与 margins=True 生成合计。",
+  "type": "choice"
+ },
+ {
+  "id": "dm28",
+  "note": "DataMining",
+  "topic": "第3章 简单统计分析",
+  "question": "单样本 t 检验的自由度是（ ）。",
+  "options": [
+   "n",
+   "n − 2",
+   "k",
+   "n − 1"
+  ],
+  "answer": 3,
+  "explanation": "估计样本均值消耗 1 个自由度；一元回归检验系数用 n−2。",
+  "type": "choice"
+ },
+ {
+  "id": "dm29",
+  "note": "DataMining",
+  "topic": "第3章 简单统计分析",
+  "question": "p 值的正确含义是（ ）。",
+  "options": [
+   "H₀ 成立前提下，观察到当前或更极端样本结果的概率",
+   "H₀ 为真的概率",
+   "H₁ 为假的概率",
+   "效应量的大小"
+  ],
+  "answer": 0,
+  "explanation": "p 值不是假设为真的概率，也不衡量效应大小。",
+  "type": "choice"
+ },
+ {
+  "id": "dm30",
+  "note": "DataMining",
+  "topic": "第3章 简单统计分析",
+  "question": "第一类错误是指（ ）。",
+  "options": [
+   "H₀ 为假却未拒绝",
+   "H₀ 为真却拒绝了 H₀",
+   "样本量不足",
+   "选择了错误的检验统计量"
+  ],
+  "answer": 1,
+  "explanation": "概率为 α；第二类错误概率 β，功效 = 1 − β。",
+  "type": "choice"
+ },
+ {
+  "id": "dm31",
+  "note": "DataMining",
+  "topic": "第3章 简单统计分析",
+  "question": "中心极限定理描述的是（ ）。",
+  "options": [
+   "总体分布变成正态",
+   "样本分布一定对称",
+   "样本均值的抽样分布近似正态",
+   "方差恒为 1"
+  ],
+  "answer": 2,
+  "explanation": "总体可以严重偏态，只要 n 足够大且方差有限。",
+  "type": "choice"
+ },
+ {
+  "id": "dm32",
+  "note": "DataMining",
+  "topic": "第3章 简单统计分析",
+  "question": "泊松分布 P(λ) 的期望与方差分别是（ ）。",
+  "options": [
+   "λ 与 λ²",
+   "np 与 np(1−p)",
+   "0 与 1",
+   "λ 与 λ"
+  ],
+  "answer": 3,
+  "explanation": "若实际数据方差远大于均值（过度离散），应考虑负二项模型。",
+  "type": "choice"
+ },
+ {
+  "id": "dm33",
+  "note": "DataMining",
+  "topic": "第3章 简单统计分析",
+  "question": "二项分布 B(10, 0.3) 的方差是（ ）。",
+  "options": [
+   "2.1",
+   "3.0",
+   "0.21",
+   "7.0"
+  ],
+  "answer": 0,
+  "explanation": "Var = np(1−p) = 10×0.3×0.7 = 2.1；E(X)=3。",
+  "type": "choice"
+ },
+ {
+  "id": "dm34",
+  "note": "DataMining",
+  "topic": "第3章 简单统计分析",
+  "question": "一元最小二乘回归中斜率估计为（ ）。",
+  "options": [
+   "β̂₁ = Sxx / Sxy",
+   "β̂₁ = Sxy / Sxx",
+   "β̂₁ = ȳ / x̄",
+   "β̂₁ = SSE / SST"
+  ],
+  "answer": 1,
+  "explanation": "Sxy=Σ(x−x̄)(y−ȳ)，Sxx=Σ(x−x̄)²；截距 β̂₀=ȳ−β̂₁x̄。",
+  "type": "choice"
+ },
+ {
+  "id": "dm35",
+  "note": "DataMining",
+  "topic": "第3章 简单统计分析",
+  "question": "x=[1,2,3,4,5]、y=[2,4,5,7,9] 的决定系数 R² 约为（ ）。",
+  "options": [
+   "0.9000",
+   "0.9948",
+   "0.9897",
+   "0.5000"
+  ],
+  "answer": 2,
+  "explanation": "SSE=0.30、SST=29.20 → R²=1−0.30/29.20≈0.989726；r≈0.99485。",
+  "type": "choice"
+ },
+ {
+  "id": "dm36",
+  "note": "DataMining",
+  "topic": "第3章 简单统计分析",
+  "question": "含截距的一元线性回归中，R² 与相关系数 r 的关系是（ ）。",
+  "options": [
+   "R² = r",
+   "R² = 1 − r",
+   "两者无固定关系",
+   "R² = r²"
+  ],
+  "answer": 3,
+  "explanation": "本例 r² = 0.99485² ≈ 0.989726 = R²；该等式不适用于多元回归。",
+  "type": "choice"
+ },
+ {
+  "id": "dm37",
+  "note": "DataMining",
+  "topic": "第3章 简单统计分析",
+  "question": "用 [0,1]² 均匀投点做蒙特卡罗模拟估算 π，公式是（ ）。",
+  "options": [
+   "π ≈ 4 × 落入四分之一圆内点数 / 总点数",
+   "π ≈ 落入点数 / 总点数",
+   "π ≈ 2 × 落入比例",
+   "π ≈ 总点数 / 落入点数"
+  ],
+  "answer": 0,
+  "explanation": "四分之一圆面积为 π/4；N=100000、seed=42 时约得 3.1373。",
+  "type": "choice"
+ },
+ {
+  "id": "dm38",
+  "note": "DataMining",
+  "topic": "第3章 简单统计分析",
+  "question": "关于置信区间与预测区间，正确的是（ ）。",
+  "options": [
+   "两者宽度相同",
+   "单个新观测的预测区间比均值的置信区间更宽",
+   "置信区间更宽",
+   "预测区间不含参数不确定性"
+  ],
+  "answer": 1,
+  "explanation": "预测区间额外包含单个观测的随机误差。",
+  "type": "choice"
+ },
+ {
+  "id": "dm39",
+  "note": "DataMining",
+  "topic": "第3章 简单统计分析",
+  "question": "检验结果 p > 0.05（不拒绝 H₀），正确的解读是（ ）。",
+  "options": [
+   "H₀ 一定为真",
+   "效应量一定为 0",
+   "证据不足以拒绝 H₀，不等于证明 H₀ 成立",
+   "样本量一定足够大"
+  ],
+  "answer": 2,
+  "explanation": "可能只是功效不足；应结合效应量与置信区间。",
+  "type": "choice"
+ },
+ {
+  "id": "dm40",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "Pearson 相关系数 r 的取值范围是（ ）。",
+  "options": [
+   "[0, 1]",
+   "(−∞, +∞)",
+   "[0, 100]",
+   "[−1, 1]"
+  ],
+  "answer": 3,
+  "explanation": "|r| 越接近 1 线性相关越强，符号表示方向。",
+  "type": "choice"
+ },
+ {
+  "id": "dm41",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "r = 0 的正确含义是（ ）。",
+  "options": [
+   "两变量无线性相关，但可能有非线性关系",
+   "两变量完全独立",
+   "两变量无任何关系",
+   "回归系数必为 0"
+  ],
+  "answer": 0,
+  "explanation": "U 形关系可使 Pearson r≈0，务必先画散点图或用秩相关。",
+  "type": "choice"
+ },
+ {
+  "id": "dm42",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "检验 H₀: ρ=0 的 t 统计量自由度为（ ）。",
+  "options": [
+   "n − 1",
+   "n − 2",
+   "n",
+   "n − k − 1"
+  ],
+  "answer": 1,
+  "explanation": "t = r√((n−2)/(1−r²))，df=n−2；n=20、r=0.6 时 t≈3.182。",
+  "type": "choice"
+ },
+ {
+  "id": "dm43",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "方差膨胀因子 VIF 的定义是（ ）。",
+  "options": [
+   "VIFⱼ = 1 − Rⱼ²",
+   "VIFⱼ = Rⱼ²",
+   "VIFⱼ = 1/(1 − Rⱼ²)",
+   "VIFⱼ = 1/Rⱼ²"
+  ],
+  "answer": 2,
+  "explanation": "Rⱼ² 是用其余自变量回归 Xⱼ 的决定系数；VIF>10 视为严重共线。",
+  "type": "choice"
+ },
+ {
+  "id": "dm44",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "向模型中加入新自变量后，调整 R² 会（ ）。",
+  "options": [
+   "一定上升",
+   "一定不变",
+   "一定下降",
+   "可能上升也可能下降"
+  ],
+  "answer": 3,
+  "explanation": "普通 R² 必不降；调整 R² 对变量数施加惩罚，故可下降。",
+  "type": "choice"
+ },
+ {
+  "id": "dm45",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "多元回归整体 F 检验的原假设是（ ）。",
+  "options": [
+   "所有斜率系数同时为 0",
+   "截距为 0",
+   "某一个系数为 0",
+   "残差服从正态"
+  ],
+  "answer": 0,
+  "explanation": "H₀: β₁=…=βₖ=0；F=(SSR/k)/(SSE/(n−k−1))。",
+  "type": "choice"
+ },
+ {
+  "id": "dm46",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "n=30、k=3、R²=0.86 时调整 R² 约为（ ）。",
+  "options": [
+   "0.8600",
+   "0.8438",
+   "0.8200",
+   "0.8800"
+  ],
+  "answer": 1,
+  "explanation": "1−0.14×29/26 ≈ 0.8438；整体 F≈53.24。",
+  "type": "choice"
+ },
+ {
+  "id": "dm47",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "多元线性回归最小二乘估计的矩阵形式是（ ）。",
+  "options": [
+   "β̂ = XᵀY",
+   "β̂ = (XᵀX)Y",
+   "β̂ = (XᵀX)⁻¹XᵀY",
+   "β̂ = X⁻¹Y"
+  ],
+  "answer": 2,
+  "explanation": "工程上用 np.linalg.solve/lstsq 而非显式求逆，数值更稳定。",
+  "type": "choice"
+ },
+ {
+  "id": "dm48",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "AHP 层次分析法中判断矩阵通过一致性检验的条件是（ ）。",
+  "options": [
+   "CR > 0.1",
+   "CI = 0",
+   "λmax < n",
+   "CR < 0.1"
+  ],
+  "answer": 3,
+  "explanation": "CI=(λmax−n)/(n−1)，CR=CI/RI；不满足须重新调整两两比较标度。",
+  "type": "choice"
+ },
+ {
+  "id": "dm49",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "变异系数法确定权重的公式是（ ）。",
+  "options": [
+   "wⱼ = CVⱼ / ΣCVⱼ",
+   "wⱼ = 1/CVⱼ",
+   "wⱼ = x̄ⱼ/Σx̄",
+   "wⱼ 全部相等"
+  ],
+  "answer": 0,
+  "explanation": "CVⱼ=sⱼ/x̄ⱼ 表示指标区分度，差异越大权重越高。",
+  "type": "choice"
+ },
+ {
+  "id": "dm50",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "熵权法的基本思想是（ ）。",
+  "options": [
+   "信息熵越大权重越大",
+   "指标信息熵越小（取值越分散），权重越大",
+   "所有指标等权",
+   "完全由专家打分决定"
+  ],
+  "answer": 1,
+  "explanation": "差异系数 gⱼ=1−eⱼ，wⱼ=gⱼ/Σgⱼ。",
+  "type": "choice"
+ },
+ {
+  "id": "dm51",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "TOPSIS 法中贴近度 C 的定义是（ ）。",
+  "options": [
+   "C = D⁺ / (D⁺ + D⁻)",
+   "C = D⁺ / D⁻",
+   "C = D⁻ / (D⁺ + D⁻)，越大越优",
+   "C = D⁻ / D⁺"
+  ],
+  "answer": 2,
+  "explanation": "D⁺ 到正理想解距离、D⁻ 到负理想解距离；C 越接近 1 越好。",
+  "type": "choice"
+ },
+ {
+  "id": "dm52",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "主成分分析中第 j 个主成分的方差贡献率是（ ）。",
+  "options": [
+   "λⱼ / p",
+   "Σλᵢ / λⱼ",
+   "1 − λⱼ",
+   "λⱼ / Σλᵢ"
+  ],
+  "answer": 3,
+  "explanation": "λⱼ 为相关矩阵特征值；标准化后 Σλᵢ = p。",
+  "type": "choice"
+ },
+ {
+  "id": "dm53",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "做 PCA 之前必须先做的处理是（ ）。",
+  "options": [
+   "指标正向化并标准化",
+   "取对数",
+   "按行排序",
+   "删除所有异常值"
+  ],
+  "answer": 0,
+  "explanation": "否则量纲大的变量会主导第一主成分，降维失去意义。",
+  "type": "choice"
+ },
+ {
+  "id": "dm54",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "特征值 λ=(2.4, 0.9, 0.5, 0.2) 时前两个主成分的累计贡献率是（ ）。",
+  "options": [
+   "60%",
+   "82.5%",
+   "72.5%",
+   "95%"
+  ],
+  "answer": 1,
+  "explanation": "Σλ=4，贡献率 60%、22.5%、12.5%、5%；前两个累计 82.5% ≥ 80%。",
+  "type": "choice"
+ },
+ {
+  "id": "dm55",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "主成分载荷的计算式是（ ）。",
+  "options": [
+   "aⱼᵢ / √λⱼ",
+   "λⱼ / aⱼᵢ",
+   "aⱼᵢ · √λⱼ",
+   "aⱼᵢ · λⱼ²"
+  ],
+  "answer": 2,
+  "explanation": "载荷用于解释主成分含义；其符号可整体翻转，看相对大小即可。",
+  "type": "choice"
+ },
+ {
+  "id": "dm56",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "系统聚类中「最短距离法」的典型特点是（ ）。",
+  "options": [
+   "倾向生成紧凑小类",
+   "必须预设类数 K",
+   "只适用于大样本",
+   "容易产生链式的长条类"
+  ],
+  "answer": 3,
+  "explanation": "single linkage 只取两类最近样品距离，易把类串成链；最长距离法偏紧凑。",
+  "type": "choice"
+ },
+ {
+  "id": "dm57",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "点 (1, 2) 与 (4, 6) 之间的欧氏距离是（ ）。",
+  "options": [
+   "5",
+   "7",
+   "25",
+   "3"
+  ],
+  "answer": 0,
+  "explanation": "√[(4−1)²+(6−2)²] = √(9+16) = 5。",
+  "type": "choice"
+ },
+ {
+  "id": "dm58",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "评价聚类结果优劣时，合适的内部指标是（ ）。",
+  "options": [
+   "准确率",
+   "轮廓系数",
+   "召回率",
+   "R²"
+  ],
+  "answer": 1,
+  "explanation": "聚类无标签，不能用准确率；轮廓系数∈[−1,1]，越大越好。",
+  "type": "choice"
+ },
+ {
+  "id": "dm59",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "K-means 算法必须先由使用者指定（ ）。",
+  "options": [
+   "距离矩阵的维度",
+   "谱系图的高度",
+   "簇数 K",
+   "特征值的个数"
+  ],
+  "answer": 2,
+  "explanation": "K 可用肘部法或轮廓系数选择；且对初始质心敏感需多次初始化。",
+  "type": "choice"
+ },
+ {
+  "id": "dm60",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "综合评价中「成本」「污染」等逆向指标必须（ ）。",
+  "options": [
+   "直接原值加权",
+   "直接删除",
+   "取倒数后无需再标准化",
+   "先正向化再参与加权"
+  ],
+  "answer": 3,
+  "explanation": "正向化 z=(max−x)/(max−min)，方向反了结论必错。",
+  "type": "choice"
+ },
+ {
+  "id": "dm61",
+  "note": "DataMining",
+  "topic": "第5章 时序模型分析",
+  "question": "ARIMA(p, d, q) 中 d 的含义是（ ）。",
+  "options": [
+   "差分阶数",
+   "自回归阶数",
+   "移动平均阶数",
+   "因变量个数"
+  ],
+  "answer": 0,
+  "explanation": "p 为 AR 阶、q 为 MA 阶；ARIMA(1,1,1) 表示一阶差分后建 ARMA(1,1)。",
+  "type": "choice"
+ },
+ {
+  "id": "dm62",
+  "note": "DataMining",
+  "topic": "第5章 时序模型分析",
+  "question": "白噪声序列的特征是（ ）。",
+  "options": [
+   "均值随时间递增",
+   "零均值、同方差、各期之间无自相关",
+   "方差随时间递增",
+   "自相关函数缓慢衰减"
+  ],
+  "answer": 1,
+  "explanation": "常记作 uₜ ~ N(0, σ²)；残差应为白噪声才说明模型提取充分。",
+  "type": "choice"
+ },
+ {
+  "id": "dm63",
+  "note": "DataMining",
+  "topic": "第5章 时序模型分析",
+  "question": "若 ACF 在 q 阶截尾、PACF 拖尾，应识别为（ ）。",
+  "options": [
+   "AR(p)",
+   "ARMA(p,q)",
+   "MA(q)",
+   "ARIMA(p,1,q)"
+  ],
+  "answer": 2,
+  "explanation": "AR(p) 相反：PACF 截尾、ACF 拖尾；两者都拖尾用 AIC/BIC 网格搜索。",
+  "type": "choice"
+ },
+ {
+  "id": "dm64",
+  "note": "DataMining",
+  "topic": "第5章 时序模型分析",
+  "question": "差分后序列的 PACF 在 1 阶截尾、ACF 拖尾，合适的模型是（ ）。",
+  "options": [
+   "MA(1)",
+   "ARMA(1,1)",
+   "白噪声",
+   "AR(1)"
+  ],
+  "answer": 3,
+  "explanation": "原序列非平稳需一阶差分时，完整模型为 ARIMA(1,1,0)。",
+  "type": "choice"
+ },
+ {
+  "id": "dm65",
+  "note": "DataMining",
+  "topic": "第5章 时序模型分析",
+  "question": "ADF 检验统计量的临界值应取自（ ）。",
+  "options": [
+   "MacKinnon 临界值表",
+   "标准正态的 1.96",
+   "t 分布表 t₀.₀₂₅(n−1)",
+   "χ² 分布表"
+  ],
+  "answer": 0,
+  "explanation": "ADF 统计量不服从常规 t 分布，adfuller 返回的 crit 即为 MacKinnon 临界值。",
+  "type": "choice"
+ },
+ {
+  "id": "dm66",
+  "note": "DataMining",
+  "topic": "第5章 时序模型分析",
+  "question": "AIC 的定义式是（ ）。",
+  "options": [
+   "−2ln(L) + ln(n)·k",
+   "−2ln(L) + 2k",
+   "2ln(L) + 2k",
+   "−2ln(L) − 2k"
+  ],
+  "answer": 1,
+  "explanation": "k 为待估参数个数；BIC 把 2k 换成 ln(n)·k，惩罚更重。",
+  "type": "choice"
+ },
+ {
+  "id": "dm67",
+  "note": "DataMining",
+  "topic": "第5章 时序模型分析",
+  "question": "BIC 相对于 AIC 的特点是（ ）。",
+  "options": [
+   "惩罚更轻，倾向复杂模型",
+   "只适用于大样本且不看似然",
+   "惩罚项 ln(n)·k 更重，倾向选择更简约的模型",
+   "与 AIC 永远给出相同选择"
+  ],
+  "answer": 2,
+  "explanation": "n=200 例题中 AIC 选 k=3、BIC 选 k=2，正体现这一分歧。",
+  "type": "choice"
+ },
+ {
+  "id": "dm68",
+  "note": "DataMining",
+  "topic": "第5章 时序模型分析",
+  "question": "Ljung-Box 残差检验合格的判断是（ ）。",
+  "options": [
+   "p < 0.05",
+   "统计量越大越好",
+   "残差均值不为 0",
+   "p > 0.05，不能拒绝残差为白噪声"
+  ],
+  "answer": 3,
+  "explanation": "p 小说明残差仍有自相关，模型需重新定阶。",
+  "type": "choice"
+ },
+ {
+  "id": "dm69",
+  "note": "DataMining",
+  "topic": "第5章 时序模型分析",
+  "question": "「伪回归」最常发生在（ ）。",
+  "options": [
+   "两条互不相关但都非平稳（含趋势）的序列之间",
+   "两条平稳白噪声之间",
+   "大样本截面数据",
+   "已差分平稳的序列"
+  ],
+  "answer": 0,
+  "explanation": "表现为高 R² 与显著 t 却毫无关系；建模前必须先检验平稳性。",
+  "type": "choice"
+ },
+ {
+  "id": "dm70",
+  "note": "DataMining",
+  "topic": "第5章 时序模型分析",
+  "question": "过度差分最可能带来的问题是（ ）。",
+  "options": [
+   "使序列更非平稳",
+   "人为引入负自相关并放大噪声",
+   "让 ADF 一定拒绝单位根",
+   "消除全部季节性"
+  ],
+  "answer": 1,
+  "explanation": "通常 d=0 或 1 即可，季节性强时再做季节差分。",
+  "type": "choice"
+ },
+ {
+  "id": "dm71",
+  "note": "DataMining",
+  "topic": "第5章 时序模型分析",
+  "question": "时间序列做模型评估时应采用的切分方式是（ ）。",
+  "options": [
+   "随机 K 折交叉验证",
+   "分层 K 折",
+   "按时间前向切分（TimeSeriesSplit）",
+   "留一法随机划分"
+  ],
+  "answer": 2,
+  "explanation": "随机打乱会用未来数据预测过去，造成数据泄露与虚高分数。",
+  "type": "choice"
+ },
+ {
+  "id": "dm72",
+  "note": "DataMining",
+  "topic": "第5章 时序模型分析",
+  "question": "对数收益率相对于简单收益率的主要优点是（ ）。",
+  "options": [
+   "一定为正",
+   "计算更简单且不需要价格",
+   "不受极端值影响",
+   "可跨期相加、近似对称"
+  ],
+  "answer": 3,
+  "explanation": "rₜ=ln(Pₜ/Pₜ₋₁)；多期收益可直接求和，金融建模更常用。",
+  "type": "choice"
+ },
+ {
+  "id": "dm73",
+  "note": "DataMining",
+  "topic": "第6章 大数据基础应用",
+  "question": "课件所述大数据 4V 特征不包括下列哪一项（ ）。",
+  "options": [
+   "Veracity（真实性）作为第 5 个 V",
+   "Volume 体量大",
+   "Velocity 速度快",
+   "Variety 类型多"
+  ],
+  "answer": 0,
+  "explanation": "教材 4V 为 Volume / Velocity / Variety / Value；有的资料另加 Veracity 成为 5V。",
+  "type": "choice"
+ },
+ {
+  "id": "dm74",
+  "note": "DataMining",
+  "topic": "第6章 大数据基础应用",
+  "question": "课件第 6 章的实际实操主线是（ ）。",
+  "options": [
+   "HDFS → MapReduce → Spark",
+   "字符串处理 → 网络爬虫 → SQLite 落库",
+   "数据仓库 → OLAP → 数据湖",
+   "Kafka → Flink → 实时数仓"
+  ],
+  "answer": 1,
+  "explanation": "属单机数据准备入门，并非分布式计算，本笔记在补充里给出真正的大数据技术栈。",
+  "type": "choice"
+ },
+ {
+  "id": "dm75",
+  "note": "DataMining",
+  "topic": "第6章 大数据基础应用",
+  "question": "循环拼接大量字符串时，推荐做法是（ ）。",
+  "options": [
+   "用 + 逐次拼接",
+   "用 replace() 拼接",
+   "用 join() 一次性拼接",
+   "用 split() 拼接"
+  ],
+  "answer": 2,
+  "explanation": "循环 + 拼接是 O(n²)，join 效率显著更高。",
+  "type": "choice"
+ },
+ {
+  "id": "dm76",
+  "note": "DataMining",
+  "topic": "第6章 大数据基础应用",
+  "question": "字符串方法 find() 找不到子串时返回（ ）。",
+  "options": [
+   "0",
+   "None",
+   "抛出异常",
+   "−1"
+  ],
+  "answer": 3,
+  "explanation": "index() 找不到才抛 ValueError，二者不可互换。",
+  "type": "choice"
+ },
+ {
+  "id": "dm77",
+  "note": "DataMining",
+  "topic": "第6章 大数据基础应用",
+  "question": "CSS 选择器 '.price' 表示（ ）。",
+  "options": [
+   "class 属性为 price 的元素",
+   "id 为 price 的元素",
+   "标签名为 price 的元素",
+   "含有 price 文本的元素"
+  ],
+  "answer": 0,
+  "explanation": "#price 才是 id 选择器；标签名直接写 tag。",
+  "type": "choice"
+ },
+ {
+  "id": "dm78",
+  "note": "DataMining",
+  "topic": "第6章 大数据基础应用",
+  "question": "爬虫流程中 requests.get() 之后通常用于解析 HTML 的是（ ）。",
+  "options": [
+   "sqlite3",
+   "BeautifulSoup",
+   "numpy.linalg",
+   "pandas.crosstab"
+  ],
+  "answer": 1,
+  "explanation": "BeautifulSoup(resp.text, 'html.parser') 之后用 select()/find_all() 定位节点。",
+  "type": "choice"
+ },
+ {
+  "id": "dm79",
+  "note": "DataMining",
+  "topic": "第6章 大数据基础应用",
+  "question": "防止 SQL 注入的正确做法是（ ）。",
+  "options": [
+   "用 f-string 拼接 SQL",
+   "过滤掉所有单引号即可",
+   "使用 ? 占位符的参数化查询",
+   "把表名改成变量"
+  ],
+  "answer": 2,
+  "explanation": "参数化由驱动处理转义；字符串拼接永远不安全。",
+  "type": "choice"
+ },
+ {
+  "id": "dm80",
+  "note": "DataMining",
+  "topic": "第6章 大数据基础应用",
+  "question": "SQLite 中执行 INSERT 后，写入真正生效需要（ ）。",
+  "options": [
+   "调用 cursor.close()",
+   "重新 connect",
+   "执行 SELECT",
+   "调用 conn.commit()"
+  ],
+  "answer": 3,
+  "explanation": "只有只读查询不需要 commit；连接用完应 close 或用 with。",
+  "type": "choice"
+ },
+ {
+  "id": "dm81",
+  "note": "DataMining",
+  "topic": "第6章 大数据基础应用",
+  "question": "爬虫合规要求中，正确的是（ ）。",
+  "options": [
+   "先检查 robots.txt，优先官方 API，并控制请求频率",
+   "能抓到就可以抓",
+   "并发越高越好",
+   "绕过登录即可获取公开数据"
+  ],
+  "answer": 0,
+  "explanation": "还须只取公开非敏感数据、设 User-Agent、注明来源与用途。",
+  "type": "choice"
+ },
+ {
+  "id": "dm82",
+  "note": "DataMining",
+  "topic": "第6章 大数据基础应用",
+  "question": "下列属于真正的分布式计算框架的是（ ）。",
+  "options": [
+   "sqlite3",
+   "Spark",
+   "BeautifulSoup",
+   "pandas.DataFrame"
+  ],
+  "answer": 1,
+  "explanation": "课件缺漏的内容：HDFS/Spark/Flink、列式存储、NoSQL 与 pyspark/dask/polars。",
+  "type": "choice"
+ },
+ {
+  "id": "dm83",
+  "note": "DataMining",
+  "topic": "第6章 大数据基础应用",
+  "question": "关于 SQLite，正确的是（ ）。",
+  "options": [
+   "需要独立服务器进程",
+   "天然支持高并发写入",
+   "零配置的文件型嵌入式数据库",
+   "只能存储字符串"
+  ],
+  "answer": 2,
+  "explanation": "适合教学与中小规模落地；高并发写入应选 MySQL/PostgreSQL。",
+  "type": "choice"
+ },
+ {
+  "id": "dm84",
+  "note": "DataMining",
+  "topic": "第6章 大数据基础应用",
+  "question": "正则表达式中 \\d 的含义是（ ）。",
+  "options": [
+   "任意一个字母",
+   "任意一个空白",
+   "字面的字母 d",
+   "任意一个数字字符"
+  ],
+  "answer": 3,
+  "explanation": "配套：\\w 单词字符、\\s 空白、+ 一个或多个、? 非贪婪量词修饰。",
+  "type": "choice"
+ },
+ {
+  "id": "dm85",
+  "note": "DataMining",
+  "topic": "第7章 文献计量与科研评价",
+  "question": "文献计量学主要使用的方法是（ ）。",
+  "options": [
+   "数学与统计学方法定量分析知识载体",
+   "纯定性文献综述",
+   "实验对照法",
+   "深度访谈法"
+  ],
+  "answer": 0,
+  "explanation": "研究文献的分布结构、数量关系与变化规律。",
+  "type": "choice"
+ },
+ {
+  "id": "dm86",
+  "note": "DataMining",
+  "topic": "第7章 文献计量与科研评价",
+  "question": "课件第 7 章 PPT 封面标题的笔误是（ ）。",
+  "options": [
+   "把章号写成第 9 章",
+   "误写成「第 7 章 多元数据的综合分析」，与第 4 章重名",
+   "把「文献」写成「文档」",
+   "把作者名写错"
+  ],
+  "answer": 1,
+  "explanation": "正文编号 7.2/7.3 均为文献数据收集与科研评价，本笔记已订正。",
+  "type": "choice"
+ },
+ {
+  "id": "dm87",
+  "note": "DataMining",
+  "topic": "第7章 文献计量与科研评价",
+  "question": "h 指数的定义是（ ）。",
+  "options": [
+   "总被引次数除以论文数",
+   "最高被引论文的被引次数",
+   "有 h 篇论文每篇至少被引 h 次",
+   "近 5 年发文篇数"
+  ],
+  "answer": 2,
+  "explanation": "兼顾数量与质量，但受学科、年限、自引与合作署名影响。",
+  "type": "choice"
+ },
+ {
+  "id": "dm88",
+  "note": "DataMining",
+  "topic": "第7章 文献计量与科研评价",
+  "question": "某作者 8 篇论文被引降序为 25,14,9,6,5,3,1,0，其 h 指数是（ ）。",
+  "options": [
+   "6",
+   "4",
+   "8",
+   "5"
+  ],
+  "answer": 3,
+  "explanation": "第 5 篇被引 5 ≥ 5，第 6 篇 3 < 6，故 h=5。",
+  "type": "choice"
+ },
+ {
+  "id": "dm89",
+  "note": "DataMining",
+  "topic": "第7章 文献计量与科研评价",
+  "question": "「共被引」是指（ ）。",
+  "options": [
+   "两篇文献被同一篇后续文献同时引用",
+   "两篇文献引用了相同参考文献",
+   "两篇文献由同一作者撰写",
+   "两个关键词在同一篇出现"
+  ],
+  "answer": 0,
+  "explanation": "后者分别是文献耦合与共词分析；共被引用于识别知识基础。",
+  "type": "choice"
+ },
+ {
+  "id": "dm90",
+  "note": "DataMining",
+  "topic": "第7章 文献计量与科研评价",
+  "question": "统计多值关键词字段的词频前，必须先（ ）。",
+  "options": [
+   "直接 value_counts()",
+   "用 str.split(';').explode() 展开成一行一词",
+   "先做透视表",
+   "先转成数值类型"
+  ],
+  "answer": 1,
+  "explanation": "直接计数会把「数据挖掘;聚类」当成一个整体，结论失真。",
+  "type": "choice"
+ },
+ {
+  "id": "dm91",
+  "note": "DataMining",
+  "topic": "第7章 文献计量与科研评价",
+  "question": "期刊影响因子评价的对象是（ ）。",
+  "options": [
+   "单篇论文",
+   "单个作者",
+   "期刊整体",
+   "单个科研机构"
+  ],
+  "answer": 2,
+  "explanation": "不能用于评价单篇论文或作者；评价作者用 h 指数等，且须同学科比较。",
+  "type": "choice"
+ },
+ {
+  "id": "dm92",
+  "note": "DataMining",
+  "topic": "第7章 文献计量与科研评价",
+  "question": "CiteSpace 在文献计量中的主要用途是（ ）。",
+  "options": [
+   "关系数据库建表",
+   "网页爬虫抓取",
+   "SQL 查询优化",
+   "共被引/共词网络可视化、突现词与时间线分析"
+  ],
+  "answer": 3,
+  "explanation": "同类工具还有 VOSviewer 与 R 包 bibliometrix。",
+  "type": "choice"
+ },
+ {
+  "id": "dm93",
+  "note": "DataMining",
+  "topic": "第8章 社会网络分析",
+  "question": "社会网络分析的两大基本要素是（ ）。",
+  "options": [
+   "行动者（节点）与关系（边）",
+   "均值与方差",
+   "特征值与特征向量",
+   "训练集与测试集"
+  ],
+  "answer": 0,
+  "explanation": "源于图论：G=(V,E)，关系可有方向与权重。",
+  "type": "choice"
+ },
+ {
+  "id": "dm94",
+  "note": "DataMining",
+  "topic": "第8章 社会网络分析",
+  "question": "networkx 中创建无向图应使用（ ）。",
+  "options": [
+   "nx.DiGraph()",
+   "nx.Graph()",
+   "nx.MultiDiGraph()",
+   "nx.DiGraph().to_undirected() 之外的类"
+  ],
+  "answer": 1,
+  "explanation": "有向图用 DiGraph；多重边用 MultiGraph/MultiDiGraph。",
+  "type": "choice"
+ },
+ {
+  "id": "dm95",
+  "note": "DataMining",
+  "topic": "第8章 社会网络分析",
+  "question": "5 个节点、6 条边的无向简单图，其密度是（ ）。",
+  "options": [
+   "0.3",
+   "1.2",
+   "0.6",
+   "0.5"
+  ],
+  "answer": 2,
+  "explanation": "最多边数 5×4/2=10，密度 = 6/10 = 0.6。",
+  "type": "choice"
+ },
+ {
+  "id": "dm96",
+  "note": "DataMining",
+  "topic": "第8章 社会网络分析",
+  "question": "5 个节点的网络中某节点度为 3，其标准化点度中心度是（ ）。",
+  "options": [
+   "0.60",
+   "3.00",
+   "0.30",
+   "0.75"
+  ],
+  "answer": 3,
+  "explanation": "标准化点度中心度 = deg/(n−1) = 3/4 = 0.75。",
+  "type": "choice"
+ },
+ {
+  "id": "dm97",
+  "note": "DataMining",
+  "topic": "第8章 社会网络分析",
+  "question": "衡量「节点处于其他节点最短路径上、控制信息流动」的指标是（ ）。",
+  "options": [
+   "中介（介数）中心度",
+   "点度中心度",
+   "接近中心度",
+   "特征向量中心度"
+  ],
+  "answer": 0,
+  "explanation": "betweenness centrality 高的节点常是连接两个社群的桥。",
+  "type": "choice"
+ },
+ {
+  "id": "dm98",
+  "note": "DataMining",
+  "topic": "第8章 社会网络分析",
+  "question": "网络的直径定义是（ ）。",
+  "options": [
+   "所有边权之和",
+   "任意两点间最短路径长度的最大值",
+   "节点度的最大值",
+   "平均聚类系数"
+  ],
+  "answer": 1,
+  "explanation": "直径与平均路径长度用于判断小世界效应。",
+  "type": "choice"
+ },
+ {
+  "id": "dm99",
+  "note": "DataMining",
+  "topic": "第8章 社会网络分析",
+  "question": "模块度 Q 主要用于（ ）。",
+  "options": [
+   "衡量单个节点的重要性",
+   "计算最短路径",
+   "衡量社群（社区）结构的显著程度",
+   "判断图是否连通"
+  ],
+  "answer": 2,
+  "explanation": "Louvain/Leiden 通过贪心优化 Q 发现社群；Q 存在分辨率极限。",
+  "type": "choice"
+ },
+ {
+  "id": "dm100",
+  "note": "DataMining",
+  "topic": "第8章 社会网络分析",
+  "question": "PageRank 主要适用于（ ）。",
+  "options": [
+   "无向图的密度计算",
+   "二模网投影",
+   "计算聚类系数",
+   "有向图，入链被视为投票"
+  ],
+  "answer": 3,
+  "explanation": "PR(v)=(1−d)/N + d·Σ PR(u)/out(u)，d 常取 0.85。",
+  "type": "choice"
+ },
+ {
+  "id": "dm101",
+  "note": "DataMining",
+  "topic": "第8章 社会网络分析",
+  "question": "关于中心性的跨网络比较，正确的是（ ）。",
+  "options": [
+   "须先标准化，否则受网络规模影响",
+   "原始度可直接比较",
+   "密度可直接比较任意规模网络",
+   "介数中心性与 n 无关"
+  ],
+  "answer": 0,
+  "explanation": "密度分母 |V|(|V|−1)/2 也随节点数变化，跨规模比较须谨慎。",
+  "type": "choice"
+ },
+ {
+  "id": "dm102",
+  "note": "DataMining",
+  "topic": "第0章 课前准备",
+  "question": "数据挖掘与机器学习是同一概念的不同叫法。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "数据挖掘是完整流程，机器学习只是其中建模环节的一类方法。",
+  "type": "judge"
+ },
+ {
+  "id": "dm103",
+  "note": "DataMining",
+  "topic": "第1章 数据收集与分析软件",
+  "question": "pandas 的 Series.std() 默认使用 ddof=1（样本标准差）。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "pandas 默认 ddof=1；numpy 的 np.std() 默认 ddof=0。",
+  "type": "judge"
+ },
+ {
+  "id": "dm104",
+  "note": "DataMining",
+  "topic": "第1章 数据收集与分析软件",
+  "question": "定类变量编码为 1/2/3 之后即可直接作为数值型自变量做线性回归。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "编码数字只是标签，会人为引入大小顺序，须做独热编码。",
+  "type": "judge"
+ },
+ {
+  "id": "dm105",
+  "note": "DataMining",
+  "topic": "第2章 分析基础",
+  "question": "增加自变量的个数，普通 R² 一定不会下降。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "普通 R² 单调不降；因此比较变量数不同的模型要看调整 R² / AIC / BIC。",
+  "type": "judge"
+ },
+ {
+  "id": "dm106",
+  "note": "DataMining",
+  "topic": "第3章 简单统计分析",
+  "question": "p 值就是原假设 H₀ 为真的概率。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "p 值是 H₀ 成立前提下观察到当前或更极端结果的概率。",
+  "type": "judge"
+ },
+ {
+  "id": "dm107",
+  "note": "DataMining",
+  "topic": "第3章 简单统计分析",
+  "question": "中心极限定理说明样本均值的抽样分布近似正态，与总体分布形状无关。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "但要求样本量足够大且总体方差有限。",
+  "type": "judge"
+ },
+ {
+  "id": "dm108",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "两个变量相关系数很高，就可以断定存在因果关系。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "共同原因、反向因果或偶然都会产生高相关。",
+  "type": "judge"
+ },
+ {
+  "id": "dm109",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "做主成分分析之前必须对原始指标做标准化处理。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "否则量纲大的变量会主导第一主成分。",
+  "type": "judge"
+ },
+ {
+  "id": "dm110",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "聚类是有监督学习，可以用准确率评价聚类结果。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "聚类无标签，用轮廓系数等内部指标或业务可解释性评价。",
+  "type": "judge"
+ },
+ {
+  "id": "dm111",
+  "note": "DataMining",
+  "topic": "第5章 时序模型分析",
+  "question": "ADF 检验可直接使用标准正态临界值 1.96 判断。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "ADF 统计量不服从常规分布，必须用 MacKinnon 临界值表。",
+  "type": "judge"
+ },
+ {
+  "id": "dm112",
+  "note": "DataMining",
+  "topic": "第5章 时序模型分析",
+  "question": "ARMA 模型要求序列平稳，含单位根的非平稳序列须先差分改用 ARIMA。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "d 即差分阶数；若序列本身平稳，ARIMA(p,0,q) 退化为 ARMA(p,q)。",
+  "type": "judge"
+ },
+ {
+  "id": "dm113",
+  "note": "DataMining",
+  "topic": "第6章 大数据基础应用",
+  "question": "网络爬虫应当遵守 robots.txt 并控制请求频率。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "还应优先官方 API、只取公开非敏感数据并注明来源。",
+  "type": "judge"
+ },
+ {
+  "id": "dm114",
+  "note": "DataMining",
+  "topic": "第7章 文献计量与科研评价",
+  "question": "h 指数可以在不同学科之间直接比较大小。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "h 指数受学科引用习惯、学术年限、自引与合作署名影响，须归一化后比较。",
+  "type": "judge"
+ },
+ {
+  "id": "dm115",
+  "note": "DataMining",
+  "topic": "第1章 数据收集与分析软件",
+  "question": "下列数据中，属于定序（顺序）尺度的有（ ）。",
+  "options": [
+   "满意度等级",
+   "职称层级",
+   "性别",
+   "温度（℃）"
+  ],
+  "answer": [
+   0,
+   1
+  ],
+  "explanation": "性别为定类、温度为定距；定序有大小顺序但间距无意义。",
+  "type": "multi"
+ },
+ {
+  "id": "dm116",
+  "note": "DataMining",
+  "topic": "第2章 分析基础",
+  "question": "下列关于描述统计的说法正确的有（ ）。",
+  "options": [
+   "pandas 的 var() 默认 ddof=1",
+   "右偏时均值通常大于中位数",
+   "IQR = Q3 − Q1",
+   "箱线图异常上界是 Q3 + 3·IQR"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "上界应为 Q3 + 1.5·IQR。",
+  "type": "multi"
+ },
+ {
+  "id": "dm117",
+  "note": "DataMining",
+  "topic": "第3章 简单统计分析",
+  "question": "下列属于常见概率分布且期望等于方差的有（ ）。",
+  "options": [
+   "泊松分布 P(λ)",
+   "标准正态分布",
+   "指数分布 Exp(1)",
+   "二项分布 B(n,p)"
+  ],
+  "answer": [
+   0,
+   2
+  ],
+  "explanation": "泊松 E=Var=λ；Exp(1) 的 E=Var=1；标准正态 E=0、Var=1。",
+  "type": "multi"
+ },
+ {
+  "id": "dm118",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "下列属于客观赋权法的有（ ）。",
+  "options": [
+   "变异系数法",
+   "熵权法",
+   "CRITIC 法",
+   "德尔菲法"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "德尔菲法与 AHP 属于主观赋权（依赖专家判断）。",
+  "type": "multi"
+ },
+ {
+  "id": "dm119",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "关于主成分分析，下列说法正确的有（ ）。",
+  "options": [
+   "主成分之间互不相关",
+   "必须先标准化",
+   "第一主成分方差最大",
+   "主成分一定具有明确业务含义"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "PCA 只保证方差最大，不保证可解释性，必要时用因子旋转。",
+  "type": "multi"
+ },
+ {
+  "id": "dm120",
+  "note": "DataMining",
+  "topic": "第5章 时序模型分析",
+  "question": "下列关于 ARIMA 建模的说法正确的有（ ）。",
+  "options": [
+   "d 表示差分阶数",
+   "残差应通过 Ljung-Box 白噪声检验",
+   "AIC/BIC 越小越好",
+   "PACF 截尾对应 MA 模型"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "PACF 截尾对应 AR(p)；ACF 截尾才对应 MA(q)。",
+  "type": "multi"
+ },
+ {
+  "id": "dm121",
+  "note": "DataMining",
+  "topic": "第1章 数据收集与分析软件",
+  "question": "pandas 中二维带标签、列可异构的核心数据结构名称是（ ）。",
+  "options": [],
+  "answer": "DataFrame",
+  "explanation": "一维带标签结构为 Series。",
+  "type": "fill"
+ },
+ {
+  "id": "dm122",
+  "note": "DataMining",
+  "topic": "第2章 分析基础",
+  "question": "样本 2, 4, 5, 7, 9 的样本标准差约为（ ）（保留 4 位小数）。",
+  "options": [],
+  "answer": "2.7019",
+  "explanation": "s²=29.2/4=7.30，√7.30≈2.7019。",
+  "type": "fill"
+ },
+ {
+  "id": "dm123",
+  "note": "DataMining",
+  "topic": "第2章 分析基础",
+  "question": "pd.pivot_table() 在不指定 aggfunc 时默认使用的聚合函数是（ ）。",
+  "options": [],
+  "answer": "mean",
+  "explanation": "默认对重复组合取均值。",
+  "type": "fill"
+ },
+ {
+  "id": "dm124",
+  "note": "DataMining",
+  "topic": "第3章 简单统计分析",
+  "question": "一元线性回归中，决定系数 R² 等于相关系数 r 的（ ）。",
+  "options": [],
+  "answer": "平方",
+  "explanation": "R² = r²（仅限含截距的一元回归）。",
+  "type": "fill"
+ },
+ {
+  "id": "dm125",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "方差膨胀因子的英文缩写是（ ）。",
+  "options": [],
+  "answer": "VIF",
+  "explanation": "VIF = 1/(1−Rⱼ²)，大于 10 视为严重共线。",
+  "type": "fill"
+ },
+ {
+  "id": "dm126",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "AHP 一致性比率 CR 必须小于（ ）才可接受。",
+  "options": [],
+  "answer": "0.1",
+  "explanation": "CR = CI/RI，RI 查表。",
+  "type": "fill"
+ },
+ {
+  "id": "dm127",
+  "note": "DataMining",
+  "topic": "第5章 时序模型分析",
+  "question": "ARIMA(p,d,q) 中的字母 d 表示（ ）。",
+  "options": [],
+  "answer": "差分阶数",
+  "explanation": "p 为自回归阶数、q 为移动平均阶数。",
+  "type": "fill"
+ },
+ {
+  "id": "dm128",
+  "note": "DataMining",
+  "topic": "第8章 社会网络分析",
+  "question": "networkx 中计算网络整体连接紧密程度的指标叫（ ）。",
+  "options": [],
+  "answer": "密度",
+  "explanation": "密度 = 实际边数 / 可能边数。",
+  "type": "fill"
+ },
+ {
+  "id": "dm129",
+  "note": "DataMining",
+  "topic": "第2章 分析基础",
+  "question": "计算题：样本 2, 4, 5, 7, 9，求均值、中位数、样本方差、标准差、IQR 与变异系数，并判断是否有异常值。",
+  "options": [],
+  "answer": "x̄=5.4；中位数=5；样本方差 s²=29.2/4=7.30；s≈2.7019；Q1=4、Q3=7 → IQR=3；CV≈0.5003；异常界 [−0.5, 11.5]，全部数据在界内，无异常值。",
+  "explanation": "关键：pandas 用 ddof=1，除以 n−1=4；Σ(x−x̄)²=11.56+1.96+0.16+2.56+12.96=29.20。",
+  "type": "essay"
+ },
+ {
+  "id": "dm130",
+  "note": "DataMining",
+  "topic": "第3章 简单统计分析",
+  "question": "计算题：n=16、x̄=52、s=4，在 α=0.05 下双侧检验 H₀: μ=50（t₀.₀₂₅(15)=2.131），给出 t 值、结论与 95% 置信区间。",
+  "options": [],
+  "answer": "t=(52−50)/(4/√16)=2.00，df=15；|t|=2.00 < 2.131 → 不拒绝 H₀；95%CI = 52 ± 2.131×1 = [49.869, 54.131]，包含 50，结论一致。",
+  "explanation": "不拒绝不等于证明 μ=50；应结合效应量 d=(52−50)/4=0.5 与功效讨论。",
+  "type": "essay"
+ },
+ {
+  "id": "dm131",
+  "note": "DataMining",
+  "topic": "第3章 简单统计分析",
+  "question": "计算题：x=[1,2,3,4,5]、y=[2,4,5,7,9]，用最小二乘求回归方程、SSE、R²、系数 t 值，并预测 x=6。",
+  "options": [],
+  "answer": "x̄=3、ȳ=5.4，Sxx=10、Sxy=17 → β̂₁=1.7、β̂₀=0.3，ŷ=0.3+1.7x；拟合值 [2.0,3.7,5.4,7.1,8.8]；SSE=0.30、SST=29.20 → R²≈0.9897；se(β̂₁)=√(0.30/3/10)=0.1 → t=17；x=6 时 ŷ=10.5（外推需谨慎）。",
+  "explanation": "同时可得 r=17/√(10×29.2)≈0.99485，r²≈0.9897=R²。",
+  "type": "essay"
+ },
+ {
+  "id": "dm132",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "计算题：n=30、k=3、R²=0.86，求调整 R² 与整体 F；若施加 q=2 个约束后 R² 降为 0.62，求约束 F 并说明结论。",
+  "options": [],
+  "answer": "调整 R²=1−0.14×29/26≈0.8438；整体 F=(0.86/3)/(0.14/26)≈53.24；约束 F=[(0.86−0.62)/2]/(0.14/26)=0.12/0.0053846≈22.29，远大于临界值 → 拒绝约束（被删变量整体显著）。",
+  "explanation": "注意分母自由度统一为 n−k−1=26。",
+  "type": "essay"
+ },
+ {
+  "id": "dm133",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "计算题：主成分分析得特征值 λ=(2.4, 0.9, 0.5, 0.2)，求各贡献率、确定主成分个数，并给出归一化综合得分权重。",
+  "options": [],
+  "answer": "Σλ=4.0 → 贡献率 60%、22.5%、12.5%、5%；前两个累计 82.5% ≥ 80% → 取 m=2；归一化权重 (60/82.5, 22.5/82.5)=(0.727, 0.273)，即 F=0.727F₁+0.273F₂。",
+  "explanation": "若直接用贡献率加权则为 F=0.60F₁+0.225F₂，两种写法须说明并保持一致。",
+  "type": "essay"
+ },
+ {
+  "id": "dm134",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "计算题：三个对象在两项正向指标上的标准化得分 Z=[[1.0,0.2],[0.6,0.8],[0.2,1.0]]，权重 w=(0.5,0.5)，用 TOPSIS 求贴近度并排序。",
+  "options": [],
+  "answer": "Z⁺=(1,1)、Z⁻=(0.2,0.2)。对象1：D⁺=D⁻=0.5657 → C=0.500；对象2：D⁺=0.3162、D⁻=0.5099 → C=0.6172；对象3：D⁺=D⁻=0.5657 → C=0.500。排序 2 > 1 = 3。",
+  "explanation": "TOPSIS 偏好各项均衡；单项极端但另一项很差的 1、3 反而落后，这是它与简单加权求和的区别。",
+  "type": "essay"
+ },
+ {
+  "id": "dm135",
+  "note": "DataMining",
+  "topic": "第4章 多元综合分析",
+  "question": "计算题：标准化矩阵 Z=[[0.8,0.6,0.4],[0.5,0.9,0.7],[0.2,0.3,1.0]]，用变异系数法求三个指标的权重。",
+  "options": [],
+  "answer": "各列 CV=(0.6000, 0.5000, 0.4286)；ΣCV=1.5286 → 权重 w=(0.3925, 0.3271, 0.2804)。",
+  "explanation": "CVⱼ=sⱼ/x̄ⱼ 用样本标准差（ddof=1）；客观赋权方法不同（如熵权法）结果也不同，须注明方法。",
+  "type": "essay"
+ },
+ {
+  "id": "dm136",
+  "note": "DataMining",
+  "topic": "第5章 时序模型分析",
+  "question": "计算题：n=200，模型 A（k=2，lnL=−120）与模型 B（k=3，lnL=−118.5），分别计算 AIC 与 BIC 并说明二者分歧。",
+  "options": [],
+  "answer": "ln(200)≈5.298。A：AIC=240+4=244.00、BIC=240+10.596=250.60；B：AIC=237+6=243.00、BIC=237+15.895=252.89。AIC 选 B（243<244），BIC 选 A（250.60<252.89）；BIC 惩罚更重、偏好简约模型。",
+  "explanation": "AIC/BIC 只能在相同数据与相同差分阶 d 的模型间比较。",
+  "type": "essay"
+ },
+ {
+  "id": "dm137",
+  "note": "DataMining",
+  "topic": "第5章 时序模型分析",
+  "question": "简答：某序列 ADF 检验不拒绝单位根，一阶差分后平稳；差分序列 ACF 拖尾、PACF 一阶截尾。给出完整建模与检验流程。",
+  "options": [],
+  "answer": "① 确定 d=1；② 由 PACF 一阶截尾、ACF 拖尾识别 AR(1) → ARIMA(1,1,0)；③ 估计参数并做显著性检验；④ 用 AIC/BIC 与备选阶数比较、结合图形判读；⑤ 残差做 Ljung-Box 检验须 p>0.05（白噪声），并检查平稳/可逆条件；⑥ get_forecast 预测并给出区间；⑦ 用按时间前向切分的样本外 MAE/RMSE 评估，随新数据滚动重估。",
+  "explanation": "残差不白噪声说明信息未提取干净，须重新定阶。",
+  "type": "essay"
+ },
+ {
+  "id": "dm138",
+  "note": "DataMining",
+  "topic": "第6章 大数据基础应用",
+  "question": "计算题：房源字段「3室2厅 | 117.05平米 | 总价235万」与「2室1厅 | 72.27平米 | 总价168万」，求每条记录的单价（元/平米，保留 2 位）。",
+  "options": [],
+  "answer": "第一条 235×10000/117.05≈20076.89 元/平米；第二条 168×10000/72.27≈23246.16 元/平米，后者单价更高。",
+  "explanation": "先正则抽取面积与总价，再做单位换算与派生指标；清洗须保留原始字段便于回溯。",
+  "type": "essay"
+ },
+ {
+  "id": "dm139",
+  "note": "DataMining",
+  "topic": "第7章 文献计量与科研评价",
+  "question": "计算题：某作者 8 篇论文被引次数降序为 25, 14, 9, 6, 5, 3, 1, 0，求 h 指数并说明局限。",
+  "options": [],
+  "answer": "逐位检验「第 i 篇被引 ≥ i」：i=1..5 均成立（第 5 篇被引 5），i=6 时 3<6 不成立 → h=5。局限：受学科引用习惯、学术年限、自引与合作署名影响，不能跨学科比较，也不宜单独用于人才评价。",
+  "explanation": "可补充 g 指数、篇均被引、FWCI 等并做学科归一化。",
+  "type": "essay"
+ },
+ {
+  "id": "dm140",
+  "note": "DataMining",
+  "topic": "第8章 社会网络分析",
+  "question": "计算题：无向图边集为 A-B、A-C、B-C、B-D、C-E、D-E，求节点数、边数、密度、各节点度与 B 的标准化点度中心度，并指出桥节点。",
+  "options": [],
+  "answer": "节点 5、边 6；度 A=2、B=3、C=3、D=2、E=2（总度 12=2×6）；完全图最多 10 条边 → 密度=6/10=0.6；B 的标准化点度中心度=3/4=0.75；B、C 连接左簇 {A,B,C} 与右簇 {D,E}，是桥节点，介数中心性最高。",
+  "explanation": "标准化中心度需除以 n−1；密度分母随节点数变化，跨规模比较须谨慎。",
+  "type": "essay"
+ },
+ {
+  "id": "dm141",
+  "note": "DataMining",
+  "topic": "综合题",
+  "question": "方案设计：给定用户消费表（用户 ID、日期、金额、品类、地区），要求分析消费趋势并给出营销建议。请按数据挖掘流程写出完整方案。",
+  "options": [],
+  "answer": "① 业务理解：明确目标（提升复购/客单价），定义 GMV、复购率、客单价与评价方式；② 数据理解：核对字段口径、时间范围、缺失与异常、地区/品类分布；③ 数据准备：去重、金额单位统一、日期解析，派生「年月」「是否复购」与用户聚合表；④ 建模：描述统计与透视（地区×品类）、月度 GMV 时序分析、RFM 或 K-means 用户分群；⑤ 评估：分群用轮廓系数与业务可解释性，预测用时间序列切分的样本外误差；⑥ 部署与伦理：输出分群名单、监控指标、个人信息脱敏，避免把相关关系当因果结论。",
+  "explanation": "评分要点：流程完整、预处理不泄露、时序用前向切分、聚类不用准确率、注明隐私与因果边界。",
+  "type": "essay"
  }
 ]

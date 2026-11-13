@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">多元线性回归：估计 → 检验 → 评判（第 4 章 4.1）</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 矩阵形式与最小二乘估计</text>
+  <rect x="30" y="62" width="620" height="58" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="42" y="82" font-size="10.5" fill="#334155">模型 Y = Xβ + ε（X 含常数列）；β̂ = (XᵀX)⁻¹XᵀY；Ŷ = Xβ̂ = HY，H 称帽子矩阵</text>
+  <text x="42" y="102" font-size="10.5" fill="#334155">残差 e = Y − Ŷ；SST = Σ(y−ȳ)² = SSR + SSE；R² = SSR/SST = 1 − SSE/SST</text>
+  <text x="42" y="116" font-size="9.5" fill="#64748b">σ̂² = SSE/(n−k−1)（k 为自变量个数）；β̂ 协方差矩阵 = σ̂²(XᵀX)⁻¹。</text>
+
+  <text x="30" y="144" font-size="12" font-weight="700" fill="#334155">② 三层检验（课件 4.1.2.3）</text>
+  <rect x="30" y="154" width="200" height="94" rx="6" fill="#e0f2fe" stroke="#0284c7"/>
+  <text x="130" y="174" text-anchor="middle" font-size="10.5" font-weight="700" fill="#075985">整体显著性 F 检验</text>
+  <text x="42" y="194" font-size="9.5" fill="#334155">H₀: β₁=…=βₖ=0</text>
+  <text x="42" y="212" font-size="9.5" fill="#334155">F = (SSR/k)/(SSE/(n−k−1))</text>
+  <text x="42" y="230" font-size="9.5" fill="#334155">F ~ F(k, n−k−1)</text>
+  <text x="42" y="244" font-size="9" fill="#64748b">拒绝 → 模型整体有用</text>
+  <rect x="240" y="154" width="200" height="94" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="340" y="174" text-anchor="middle" font-size="10.5" font-weight="700" fill="#166534">单个系数 t 检验</text>
+  <text x="252" y="194" font-size="9.5" fill="#334155">H₀: βⱼ=0</text>
+  <text x="252" y="212" font-size="9.5" fill="#334155">t = β̂ⱼ / se(β̂ⱼ)</text>
+  <text x="252" y="230" font-size="9.5" fill="#334155">df = n−k−1</text>
+  <text x="252" y="244" font-size="9" fill="#64748b">看每个变量是否必要</text>
+  <rect x="450" y="154" width="200" height="94" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="550" y="174" text-anchor="middle" font-size="10.5" font-weight="700" fill="#92400e">拟合优度与评判</text>
+  <text x="462" y="194" font-size="9.5" fill="#334155">R² 越接近 1 越好</text>
+  <text x="462" y="212" font-size="9.5" fill="#334155">调整 R² = 1−(1−R²)(n−1)/(n−k−1)</text>
+  <text x="462" y="230" font-size="9.5" fill="#334155">AIC / BIC 越小越好</text>
+  <text x="462" y="244" font-size="9" fill="#64748b">加变量 R² 必不降，须看调整 R²</text>
+
+  <text x="30" y="272" font-size="12" font-weight="700" fill="#334155">③ 残差诊断与工作例题</text>
+  <rect x="30" y="282" width="300" height="82" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="180" y="300" text-anchor="middle" font-size="10.5" font-weight="700" fill="#334155">四项经典诊断</text>
+  <text x="42" y="320" font-size="9.5" fill="#334155">残差图（非线性/漏斗形异方差）· Q-Q 图（正态性）</text>
+  <text x="42" y="338" font-size="9.5" fill="#334155">DW / 自相关 · VIF 与条件数（共线性）</text>
+  <text x="42" y="356" font-size="9" fill="#64748b">强影响点：Cook 距离、杠杆值 hat</text>
+  <rect x="342" y="282" width="308" height="82" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="496" y="300" text-anchor="middle" font-size="10.5" font-weight="700" fill="#334155">工作例题（n=30, k=3, R²=0.86）</text>
+  <text x="354" y="320" font-size="9.5" fill="#334155">调整 R² = 1−0.14×29/26 ≈ 0.8438</text>
+  <text x="354" y="338" font-size="9.5" fill="#334155">整体 F = (0.86/3)/(0.14/26) ≈ 53.24</text>
+  <text x="354" y="356" font-size="9" fill="#64748b">约束 q=2、受限 R²=0.62 → F = (0.24/2)/(0.14/26) ≈ 22.29</text>
+
+  <text x="30" y="388" font-size="10" fill="#64748b">易错：R² 高不代表可外推、也不代表因果；F 显著但个别 t 不显著常提示共线；预测区间比置信区间宽（含单个观测误差）。</text>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">大数据分析基础：4V、字符串、爬虫与数据库（第 6 章）</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 大数据的 4V 特征（课件 6.1）</text>
+  <rect x="30" y="62" width="152" height="50" rx="6" fill="#e0f2fe" stroke="#0284c7"/><text x="106" y="82" text-anchor="middle" font-size="10.5" font-weight="700" fill="#075985">Volume 体量大</text><text x="106" y="100" text-anchor="middle" font-size="9" fill="#075985">TB / PB 级，单机难存</text>
+  <rect x="190" y="62" width="152" height="50" rx="6" fill="#dbeafe" stroke="#2563eb"/><text x="266" y="82" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">Velocity 速度快</text><text x="266" y="100" text-anchor="middle" font-size="9" fill="#1e3a8a">实时产生、需快速处理</text>
+  <rect x="350" y="62" width="152" height="50" rx="6" fill="#dcfce7" stroke="#16a34a"/><text x="426" y="82" text-anchor="middle" font-size="10.5" font-weight="700" fill="#166534">Variety 类型多</text><text x="426" y="100" text-anchor="middle" font-size="9" fill="#166534">结构化 / 半 / 非结构化</text>
+  <rect x="510" y="62" width="140" height="50" rx="6" fill="#fef3c7" stroke="#d97706"/><text x="580" y="82" text-anchor="middle" font-size="10.5" font-weight="700" fill="#92400e">Value 价值密度低</text><text x="580" y="100" text-anchor="middle" font-size="9" fill="#92400e">需清洗挖掘才有价值</text>
+
+  <text x="30" y="136" font-size="12" font-weight="700" fill="#334155">② 课件实操主线：字符串 → 爬虫 → 落库</text>
+  <rect x="30" y="146" width="200" height="88" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="130" y="164" text-anchor="middle" font-size="10.5" font-weight="700" fill="#075985">6.2 字符串操作</text>
+  <text x="42" y="184" font-size="9.5" fill="#334155">len / count（统计）</text>
+  <text x="42" y="202" font-size="9.5" fill="#334155">+ 、join()（连接）</text>
+  <text x="42" y="220" font-size="9.5" fill="#334155">split()（拆分）· find / in（查询）</text>
+  <text x="42" y="230" font-size="9" fill="#64748b">replace() · strip() · 正则表达式 re</text>
+  <rect x="240" y="146" width="200" height="88" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="340" y="164" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">6.3 网络爬虫</text>
+  <text x="252" y="184" font-size="9.5" fill="#334155">HTML 结构 + CSS 选择器</text>
+  <text x="252" y="202" font-size="9.5" fill="#334155">requests 取页 → bs4 解析</text>
+  <text x="252" y="220" font-size="9.5" fill="#334155">select() 提取 → 循环翻页</text>
+  <text x="252" y="230" font-size="9" fill="#64748b">案例：链家广州二手房批量采集</text>
+  <rect x="450" y="146" width="200" height="88" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="550" y="164" text-anchor="middle" font-size="10.5" font-weight="700" fill="#166534">6.4 数据库落地</text>
+  <text x="462" y="184" font-size="9.5" fill="#334155">sqlite3 连接 / 游标</text>
+  <text x="462" y="202" font-size="9.5" fill="#334155">CREATE TABLE / INSERT</text>
+  <text x="462" y="220" font-size="9.5" fill="#334155">SELECT 查询 → pandas 读回</text>
+  <text x="462" y="230" font-size="9" fill="#64748b">统一 DB-API：connect → cursor → execute → commit</text>
+
+  <text x="30" y="258" font-size="12" font-weight="700" fill="#334155">③ 爬虫五步与合规红线</text>
+  <rect x="30" y="268" width="620" height="52" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="42" y="288" font-size="10" fill="#334155">① 明确目标字段与页面 → ② requests.get(url, headers) → ③ BeautifulSoup(html, 'html.parser') → ④ soup.select(css) 抽取并清洗 → ⑤ 存入 DataFrame / SQLite</text>
+  <text x="42" y="308" font-size="9.5" fill="#64748b">补充：优先官方 API；遵守 robots.txt 与服务条款；控制频率（加延时）、设 User-Agent、只取公开数据、不碰个人信息、注明来源与用途。</text>
+
+  <text x="30" y="344" font-size="12" font-weight="700" fill="#334155">④ 课件缺漏：真正的「大数据」技术栈（补充）</text>
+  <text x="30" y="364" font-size="10.5" fill="#334155">分布式存储 HDFS / 对象存储 · 计算 MapReduce / Spark（内存迭代） · 批流一体 Flink · 列式 Parquet / ORC · 数据仓库与湖仓 · NoSQL（HBase/MongoDB/Redis）</text>
+  <text x="30" y="382" font-size="10.5" fill="#334155">Python 侧：pyspark / dask / polars 处理超内存数据；分块读取 chunksize；数据库用 SQLAlchemy + 连接池，勿拼接 SQL（防注入）。</text>
+  <text x="30" y="398" font-size="10" fill="#64748b">课件修正：本章以「单机 Python 文本与网页数据处理」为主，属于大数据分析的入门数据准备，并非分布式计算本身，二者概念须分清。</text>
+</svg>

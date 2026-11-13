@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">时间序列分析与 ARIMA 建模流程（第 5 章）</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 建模六步（课件 5.1 → 5.4）</text>
+  <defs><marker id="ar1" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#2563eb"/></marker></defs>
+  <rect x="30" y="62" width="98" height="48" rx="6" fill="#e0f2fe" stroke="#0284c7"/><text x="79" y="82" text-anchor="middle" font-size="9.5" font-weight="700" fill="#075985">读取与可视化</text><text x="79" y="98" text-anchor="middle" font-size="9" fill="#075985">指数 / 收益率</text>
+  <rect x="140" y="62" width="98" height="48" rx="6" fill="#dbeafe" stroke="#2563eb"/><text x="189" y="82" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1e3a8a">平稳性检验</text><text x="189" y="98" text-anchor="middle" font-size="9" fill="#1e3a8a">DF / ADF 单位根</text>
+  <rect x="250" y="62" width="98" height="48" rx="6" fill="#dbeafe" stroke="#2563eb"/><text x="299" y="82" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1e3a8a">差分定 d</text><text x="299" y="98" text-anchor="middle" font-size="9" fill="#1e3a8a">直至平稳</text>
+  <rect x="360" y="62" width="98" height="48" rx="6" fill="#dcfce7" stroke="#16a34a"/><text x="409" y="82" text-anchor="middle" font-size="9.5" font-weight="700" fill="#166534">ACF/PACF 定阶</text><text x="409" y="98" text-anchor="middle" font-size="9" fill="#166534">识别 p, q</text>
+  <rect x="470" y="62" width="98" height="48" rx="6" fill="#fef3c7" stroke="#d97706"/><text x="519" y="82" text-anchor="middle" font-size="9.5" font-weight="700" fill="#92400e">估计与检验</text><text x="519" y="98" text-anchor="middle" font-size="9" fill="#92400e">AIC / BIC / 残差</text>
+  <rect x="580" y="62" width="70" height="48" rx="6" fill="#ede9fe" stroke="#7c3aed"/><text x="615" y="82" text-anchor="middle" font-size="9.5" font-weight="700" fill="#5b21b6">预测</text><text x="615" y="98" text-anchor="middle" font-size="9" fill="#5b21b6">forecast</text>
+  <line x1="128" y1="86" x2="139" y2="86" stroke="#2563eb" marker-end="url(#ar1)"/>
+  <line x1="238" y1="86" x2="249" y2="86" stroke="#2563eb" marker-end="url(#ar1)"/>
+  <line x1="348" y1="86" x2="359" y2="86" stroke="#2563eb" marker-end="url(#ar1)"/>
+  <line x1="458" y1="86" x2="469" y2="86" stroke="#2563eb" marker-end="url(#ar1)"/>
+  <line x1="568" y1="86" x2="579" y2="86" stroke="#2563eb" marker-end="url(#ar1)"/>
+
+  <text x="30" y="134" font-size="12" font-weight="700" fill="#334155">② 模型族与记号</text>
+  <rect x="30" y="144" width="620" height="72" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="164" font-size="10" fill="#334155">AR(p)：yₜ = φ₁yₜ₋₁ + … + φₚyₜ₋ₚ + uₜ　　MA(q)：yₜ = uₜ + θ₁uₜ₋₁ + … + θ_q uₜ₋q</text>
+  <text x="42" y="184" font-size="10" fill="#334155">ARMA(p,q) = AR + MA（要求序列平稳）；ARIMA(p,d,q) 先 d 阶差分再建 ARMA，故可处理非平稳序列。</text>
+  <text x="42" y="204" font-size="9.5" fill="#64748b">白噪声 uₜ ~ N(0,σ²) 且互不相关；平稳要求均值、方差恒定，自协方差只与滞后阶数有关。</text>
+
+  <text x="30" y="240" font-size="12" font-weight="700" fill="#334155">③ 定阶：ACF / PACF 的截尾与拖尾（判读表）</text>
+  <rect x="30" y="250" width="620" height="26" rx="4" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="42" y="268" font-size="10" font-weight="700" fill="#1e3a8a">模型</text><text x="170" y="268" font-size="10" font-weight="700" fill="#1e3a8a">ACF（自相关）</text><text x="350" y="268" font-size="10" font-weight="700" fill="#1e3a8a">PACF（偏自相关）</text><text x="530" y="268" font-size="10" font-weight="700" fill="#1e3a8a">定阶</text>
+  <text x="42" y="292" font-size="10" fill="#334155">AR(p)</text><text x="170" y="292" font-size="10" fill="#334155">拖尾（指数衰减）</text><text x="350" y="292" font-size="10" fill="#334155">p 阶截尾</text><text x="530" y="292" font-size="10" fill="#334155">PACF 截尾处 = p</text>
+  <text x="42" y="312" font-size="10" fill="#334155">MA(q)</text><text x="170" y="312" font-size="10" fill="#334155">q 阶截尾</text><text x="350" y="312" font-size="10" fill="#334155">拖尾</text><text x="530" y="312" font-size="10" fill="#334155">ACF 截尾处 = q</text>
+  <text x="42" y="332" font-size="10" fill="#334155">ARMA(p,q)</text><text x="170" y="332" font-size="10" fill="#334155">拖尾</text><text x="350" y="332" font-size="10" fill="#334155">拖尾</text><text x="530" y="332" font-size="10" fill="#334155">用 AIC / BIC 网格搜索</text>
+
+  <text x="30" y="358" font-size="10.5" fill="#334155">定阶准则（课件）：AIC = −2ln(L) + 2k，BIC = −2ln(L) + ln(n)·k，越小越好；BIC 对参数惩罚更重、倾向更简模型。</text>
+  <text x="30" y="376" font-size="10.5" fill="#334155">残差须为白噪声（Ljung-Box 检验 p &gt; 0.05）；否则说明信息未提取干净，须重新定阶。</text>
+  <text x="30" y="394" font-size="10" fill="#64748b">补充：季节性 SARIMA(p,d,q)(P,D,Q,s)、GARCH 建模波动率、Prophet / LSTM；ADF 临界值用 MacKinnon 表而非普通 t 表。</text>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">多元相关分析与散点图（第 4 章 4.1）</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 从协方差到 Pearson 相关系数</text>
+  <rect x="30" y="62" width="620" height="62" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="42" y="82" font-size="10.5" fill="#334155">协方差 Cov(X,Y)=Σ(xᵢ−x̄)(yᵢ−ȳ)/(n−1) 受量纲影响，不能直接比较 → 标准化为相关系数</text>
+  <text x="42" y="102" font-size="10.5" font-weight="700" fill="#1e3a8a">r = Cov(X,Y)/(sₓ·sᵧ)，取值 [−1, 1]；|r| 越接近 1 线性相关越强，r=0 仅表示「无线性相关」</text>
+  <text x="42" y="118" font-size="9.5" fill="#64748b">检验 H₀: ρ=0 用 t = r√((n−2)/(1−r²))，df=n−2；相关矩阵 df.corr() 一次给出全部两两 r。</text>
+
+  <text x="30" y="148" font-size="12" font-weight="700" fill="#334155">② 相关强弱与方向的图形判读</text>
+  <rect x="30" y="158" width="150" height="112" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="105" y="176" text-anchor="middle" font-size="10" font-weight="700" fill="#166534">强正相关 r≈0.95</text>
+  <line x1="44" y1="256" x2="166" y2="256" stroke="#94a3b8"/><line x1="44" y1="256" x2="44" y2="186" stroke="#94a3b8"/>
+  <circle cx="56" cy="248" r="3" fill="#2563eb"/><circle cx="76" cy="238" r="3" fill="#2563eb"/><circle cx="96" cy="224" r="3" fill="#2563eb"/><circle cx="116" cy="210" r="3" fill="#2563eb"/><circle cx="146" cy="194" r="3" fill="#2563eb"/>
+  <rect x="188" y="158" width="150" height="112" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="263" y="176" text-anchor="middle" font-size="10" font-weight="700" fill="#dc2626">强负相关 r≈−0.95</text>
+  <line x1="202" y1="256" x2="324" y2="256" stroke="#94a3b8"/><line x1="202" y1="256" x2="202" y2="186" stroke="#94a3b8"/>
+  <circle cx="214" cy="194" r="3" fill="#dc2626"/><circle cx="234" cy="210" r="3" fill="#dc2626"/><circle cx="254" cy="224" r="3" fill="#dc2626"/><circle cx="274" cy="238" r="3" fill="#dc2626"/><circle cx="304" cy="248" r="3" fill="#dc2626"/>
+  <rect x="346" y="158" width="150" height="112" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="421" y="176" text-anchor="middle" font-size="10" font-weight="700" fill="#64748b">无相关 r≈0</text>
+  <line x1="360" y1="256" x2="482" y2="256" stroke="#94a3b8"/><line x1="360" y1="256" x2="360" y2="186" stroke="#94a3b8"/>
+  <circle cx="374" cy="204" r="3" fill="#94a3b8"/><circle cx="392" cy="240" r="3" fill="#94a3b8"/><circle cx="410" cy="214" r="3" fill="#94a3b8"/><circle cx="430" cy="246" r="3" fill="#94a3b8"/><circle cx="462" cy="200" r="3" fill="#94a3b8"/>
+  <rect x="504" y="158" width="146" height="112" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="577" y="176" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">非线性 r≈0 但强相关</text>
+  <text x="516" y="198" font-size="9.5" fill="#92400e">U 形 / 倒 U 关系</text>
+  <text x="516" y="216" font-size="9.5" fill="#92400e">Pearson 只测线性</text>
+  <text x="516" y="234" font-size="9.5" fill="#92400e">须先看散点图</text>
+  <text x="516" y="252" font-size="9.5" fill="#92400e">或用 Spearman 秩相关</text>
+
+  <text x="30" y="294" font-size="12" font-weight="700" fill="#334155">③ 相关系数矩阵与多重共线性</text>
+  <rect x="30" y="304" width="620" height="60" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="324" font-size="10" fill="#334155">矩阵为对称阵、对角恒为 1；检验每个 r 是否显著（H₀: ρ=0），并留意「个别显著但整体多重共线」。</text>
+  <text x="42" y="344" font-size="10" fill="#334155">自变量间 |r| 过高（&gt;0.8）→ 系数不稳、t 值变小；诊断用 VIF = 1/(1−Rⱼ²)，VIF &gt; 10 视为严重共线。</text>
+  <text x="42" y="360" font-size="9.5" fill="#64748b">补充：Spearman / Kendall 秩相关用于定序或非线性单调关系；热力图 seaborn.heatmap(df.corr(), annot=True)。</text>
+
+  <text x="30" y="388" font-size="10" fill="#64748b">易错：相关 ≠ 因果（可能存在共同原因、反向因果或纯偶然）；异常点会显著拉高或拉低 r，务必先画散点图。</text>
+</svg>

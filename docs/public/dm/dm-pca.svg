@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">主成分分析 PCA：思想、推导与步骤（第 4 章 4.3）</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 核心思想：把相关变量变成互不相关的少数综合变量</text>
+  <rect x="30" y="62" width="620" height="56" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="42" y="82" font-size="10.5" fill="#334155">对原始 p 个相关变量做正交旋转，得 F₁, F₂, …, Fₚ；每个主成分是原变量的线性组合 Fⱼ = aⱼ₁X₁ + … + aⱼₚXₚ</text>
+  <text x="42" y="102" font-size="10.5" fill="#334155">约束：① 各主成分互不相关（协方差为 0）；② 系数向量单位长度；③ 方差依次递减 Var(F₁) ≥ Var(F₂) ≥ …</text>
+  <text x="42" y="116" font-size="9.5" fill="#64748b">几何解释：找到数据方差最大的方向作为第一主轴，再在与之正交的方向上找次大方差，依次类推。</text>
+
+  <text x="30" y="142" font-size="12" font-weight="700" fill="#334155">② 推导要点与两个关键量</text>
+  <rect x="30" y="152" width="300" height="104" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="180" y="170" text-anchor="middle" font-size="10.5" font-weight="700" fill="#334155">求解</text>
+  <text x="42" y="190" font-size="9.5" fill="#334155">对标准化后的相关矩阵 R 求特征值 λⱼ</text>
+  <text x="42" y="208" font-size="9.5" fill="#334155">与对应单位特征向量 aⱼ（即系数/载荷）</text>
+  <text x="42" y="226" font-size="9.5" fill="#334155">Var(Fⱼ)=λⱼ，且 Σλⱼ = p（标准化后）</text>
+  <text x="42" y="244" font-size="9" fill="#64748b">载荷 = aⱼᵢ√λⱼ，用于解释主成分含义</text>
+  <rect x="342" y="152" width="308" height="104" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="496" y="170" text-anchor="middle" font-size="10.5" font-weight="700" fill="#334155">贡献率与累计贡献率</text>
+  <text x="354" y="190" font-size="9.5" fill="#334155">方差贡献率 = λⱼ / Σλᵢ</text>
+  <text x="354" y="208" font-size="9.5" fill="#334155">累计贡献率 = (λ₁+…+λₘ)/Σλᵢ</text>
+  <text x="354" y="226" font-size="9.5" fill="#334155">常取累计 ≥ 80%（或 85%）的前 m 个</text>
+  <text x="354" y="244" font-size="9" fill="#64748b">碎石图：特征值随序号下降，取拐点之前</text>
+
+  <text x="30" y="280" font-size="12" font-weight="700" fill="#334155">③ 标准步骤 + 工作例题</text>
+  <rect x="30" y="290" width="380" height="96" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="42" y="310" font-size="10" fill="#334155">① 正向化与标准化（消除量纲；关键！）</text>
+  <text x="42" y="328" font-size="10" fill="#334155">② 计算相关矩阵 R，检验是否适合（KMO / Bartlett）</text>
+  <text x="42" y="346" font-size="10" fill="#334155">③ 求特征值与特征向量 → ④ 按累计贡献率定 m</text>
+  <text x="42" y="364" font-size="10" fill="#334155">⑤ 解释命名 → ⑥ 计算主成分得分并做综合评价</text>
+  <text x="42" y="380" font-size="9" fill="#64748b">Python：sklearn.decomposition.PCA(n_components=0.8)</text>
+  <rect x="422" y="290" width="228" height="96" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="536" y="310" text-anchor="middle" font-size="10.5" font-weight="700" fill="#92400e">工作例题</text>
+  <text x="434" y="330" font-size="9.5" fill="#334155">p=4，λ=(2.4, 0.9, 0.5, 0.2)</text>
+  <text x="434" y="348" font-size="9.5" fill="#334155">贡献率：60%, 22.5%, 12.5%, 5%</text>
+  <text x="434" y="366" font-size="9.5" fill="#334155">累计 60% → 82.5%，取前 2 个</text>
+  <text x="434" y="382" font-size="9" fill="#64748b">归一化权重：F = 0.727F₁ + 0.273F₂（60/82.5、22.5/82.5）</text>
+
+  <text x="30" y="396" font-size="10" fill="#64748b">易错：不标准化就做 PCA，量纲大的变量会霸占第一主成分；主成分只保证「方差最大」不保证「解释性最强」，必要时做因子旋转。</text>
+</svg>
