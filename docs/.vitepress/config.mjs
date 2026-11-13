@@ -191,7 +191,7 @@ export default defineConfig({
           {
             text: '<i class="kb-cpa-dot"></i>CPA',
             collapsible: true,
-            collapsed: false,
+            collapsed: true,
             items: cpaNotes
           }
         ]
