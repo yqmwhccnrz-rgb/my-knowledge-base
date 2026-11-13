@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">虚拟化 VMM 架构与容器对比</text>
+
+  <rect x="30" y="46" width="300" height="164" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="180" y="66" text-anchor="middle" font-size="11" font-weight="700" fill="#1e3a8a">虚拟机 VM（Type 1 裸金属 VMM）</text>
+  <rect x="46" y="78" width="82" height="34" rx="4" fill="#93c5fd" stroke="#2563eb"/><text x="87" y="99" text-anchor="middle" font-size="9" fill="#1e3a8a">App + 客户 OS</text>
+  <rect x="136" y="78" width="82" height="34" rx="4" fill="#93c5fd" stroke="#2563eb"/><text x="177" y="99" text-anchor="middle" font-size="9" fill="#1e3a8a">App + 客户 OS</text>
+  <rect x="226" y="78" width="82" height="34" rx="4" fill="#93c5fd" stroke="#2563eb"/><text x="267" y="99" text-anchor="middle" font-size="9" fill="#1e3a8a">App + 客户 OS</text>
+  <rect x="46" y="122" width="262" height="30" rx="4" fill="#c4b5fd" stroke="#7c3aed"/><text x="177" y="142" text-anchor="middle" font-size="10" fill="#4c1d95">Hypervisor / VMM（ESXi · Xen · KVM）</text>
+  <rect x="46" y="162" width="262" height="30" rx="4" fill="#dcfce7" stroke="#16a34a"/><text x="177" y="182" text-anchor="middle" font-size="10" fill="#166534">物理硬件（CPU / 内存 / 设备）</text>
+  <text x="46" y="205" font-size="9" fill="#64748b">每个 VM 有独立内核与完整虚拟硬件，隔离强、开销大</text>
+
+  <rect x="350" y="46" width="300" height="164" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="500" y="66" text-anchor="middle" font-size="11" font-weight="700" fill="#166534">容器 Container（共享宿主内核）</text>
+  <rect x="366" y="78" width="82" height="34" rx="4" fill="#86efac" stroke="#16a34a"/><text x="407" y="99" text-anchor="middle" font-size="9" fill="#14532d">App + 依赖</text>
+  <rect x="456" y="78" width="82" height="34" rx="4" fill="#86efac" stroke="#16a34a"/><text x="497" y="99" text-anchor="middle" font-size="9" fill="#14532d">App + 依赖</text>
+  <rect x="546" y="78" width="82" height="34" rx="4" fill="#86efac" stroke="#16a34a"/><text x="587" y="99" text-anchor="middle" font-size="9" fill="#14532d">App + 依赖</text>
+  <rect x="366" y="122" width="262" height="30" rx="4" fill="#fde68a" stroke="#d97706"/><text x="497" y="142" text-anchor="middle" font-size="10" fill="#92400e">namespace 隔离 + cgroup 限额 + 镜像分层</text>
+  <rect x="366" y="162" width="262" height="30" rx="4" fill="#dcfce7" stroke="#16a34a"/><text x="497" y="182" text-anchor="middle" font-size="10" fill="#166534">宿主 OS 内核 + 物理硬件</text>
+  <text x="366" y="205" font-size="9" fill="#64748b">毫秒级启动、密度高、隔离弱于 VM；共享内核版本</text>
+
+  <text x="30" y="234" font-size="11.5" font-weight="700" fill="#334155">三类虚拟化与硬件辅助</text>
+  <rect x="30" y="244" width="620" height="72" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="264" font-size="9.5" fill="#475569">CPU：全虚拟化（二进制翻译）/ 半虚拟化（hypercall）→ Intel VT-x、AMD-V 的 VMCS 与 VM-entry/exit</text>
+  <text x="42" y="283" font-size="9.5" fill="#475569">内存：影子页表（客户机改页表就陷出）→ EPT / NPT 硬件二级翻译 GVA→GPA→HPA；另有 ballooning、KSM</text>
+  <text x="42" y="302" font-size="9.5" fill="#475569">I/O：全模拟 → 半虚拟 virtio 前后端共享环形队列 → SR-IOV / 设备直通 / IOMMU 接近原生性能</text>
+
+  <rect x="30" y="326" width="620" height="62" rx="6" fill="#fff7ed" stroke="#f59e0b"/>
+  <text x="42" y="346" font-size="10.5" font-weight="700" fill="#92400e">云计算与补充</text>
+  <text x="42" y="364" font-size="9.5" fill="#78350f">服务模型 IaaS / PaaS / SaaS / FaaS；虚拟机在线迁移用「预拷贝 + 迭代脏页 + 短暂停机切换」。</text>
+  <text x="42" y="382" font-size="9.5" fill="#78350f">现代演进：Kubernetes 编排、Serverless 与 microVM、unikernel/WASM、机密计算 TEE（SEV-SNP / TDX）。</text>
+</svg>

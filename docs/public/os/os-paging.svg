@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 410" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="410" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">分页地址变换、快表 EAT 与段页式</text>
+
+  <defs><marker id="g1" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#2563eb"/></marker></defs>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 逻辑地址 → 物理地址（页大小 1 KB = 2^10）</text>
+  <rect x="30" y="64" width="180" height="36" rx="5" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="120" y="87" text-anchor="middle" font-size="10.5" fill="#1e3a8a">逻辑地址 A = 2500</text>
+  <line x1="210" y1="82" x2="240" y2="82" stroke="#2563eb" marker-end="url(#g1)"/>
+  <rect x="244" y="64" width="186" height="36" rx="5" fill="#fef3c7" stroke="#d97706"/>
+  <text x="337" y="87" text-anchor="middle" font-size="10" fill="#92400e">页号 p = 2 ｜ 偏移 d = 452</text>
+  <line x1="430" y1="82" x2="460" y2="82" stroke="#2563eb" marker-end="url(#g1)"/>
+  <rect x="464" y="64" width="186" height="36" rx="5" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="557" y="87" text-anchor="middle" font-size="10" fill="#166534">PA = 8×1024 + 452 = 8644</text>
+
+  <rect x="30" y="110" width="300" height="116" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="130" font-size="10.5" font-weight="700" fill="#334155">页表（每进程一张，PTBR/CR3 指向）</text>
+  <text x="42" y="150" font-size="10" fill="#475569">页号 0 → 块 2　　页号 1 → 块 3</text>
+  <text x="42" y="169" font-size="10" font-weight="700" fill="#dc2626">页号 2 → 块 8　（命中本题）</text>
+  <text x="42" y="190" font-size="9.5" fill="#64748b">二进制快算法：高位页号换成块号，低 10 位原样保留</text>
+  <text x="42" y="210" font-size="9.5" fill="#64748b">2500 = 10 0111000100 → 1000 0111000100 = 8644</text>
+
+  <rect x="350" y="110" width="300" height="116" rx="6" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="362" y="130" font-size="10.5" font-weight="700" fill="#5b21b6">快表 TLB 与有效访问时间</text>
+  <text x="362" y="150" font-size="9.5" fill="#4c1d95">t = 20 ns，ma = 100 ns，命中率 λ = 90%</text>
+  <text x="362" y="169" font-size="9.5" fill="#4c1d95">命中：20 + 100 = 120 ns</text>
+  <text x="362" y="187" font-size="9.5" fill="#4c1d95">未命中：20 + 100(查页表) + 100(取数) = 220 ns</text>
+  <text x="362" y="208" font-size="10" font-weight="700" fill="#5b21b6">EAT = 0.9×120 + 0.1×220 = 130 ns</text>
+
+  <rect x="30" y="236" width="620" height="50" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="42" y="255" font-size="10.5" font-weight="700" fill="#1e3a8a">多级页表与访存次数</text>
+  <text x="42" y="274" font-size="10" fill="#1e40af">32 位 / 4 KB / PTE 4 B → 单级页表 2^20×4 B = 4 MB（每进程需连续）；两级 10+10 后外层仅 4 KB，但无 TLB 时 3 次访存；段页式同样 3 次访存。</text>
+
+  <rect x="30" y="296" width="300" height="98" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="316" font-size="10.5" font-weight="700" fill="#334155">分页（一维）</text>
+  <text x="42" y="335" font-size="9.5" fill="#475569">页大小固定、用户不可见、系统为省内存</text>
+  <text x="42" y="353" font-size="9.5" fill="#475569">PA = 块号 × L + d，偏移原样保留</text>
+  <text x="42" y="371" font-size="9.5" fill="#475569">只有页内碎片，无外部碎片</text>
+  <text x="42" y="388" font-size="9.5" fill="#64748b">共享/保护按页不直观</text>
+
+  <rect x="350" y="296" width="300" height="98" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="362" y="316" font-size="10.5" font-weight="700" fill="#334155">分段（二维）</text>
+  <text x="362" y="335" font-size="9.5" fill="#475569">段长按逻辑单位变化、用户可见</text>
+  <text x="362" y="353" font-size="9.5" fill="#475569">PA = 段基址 + 段内偏移，须校验偏移 &lt; 段长</text>
+  <text x="362" y="371" font-size="9.5" fill="#475569">有段间外部碎片</text>
+  <text x="362" y="388" font-size="9.5" fill="#64748b">按段天然共享与保护（一个子程序 = 一段）</text>
+</svg>

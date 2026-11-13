@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 410" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="410" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">磁盘结构与六种调度算法（含完整寻道计算）</text>
+
+  <rect x="30" y="44" width="290" height="112" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="63" font-size="10.5" font-weight="700" fill="#334155">磁盘访问时间 Ta</text>
+  <text x="42" y="82" font-size="10" fill="#475569">Ta = Ts(寻道) + 1/(2×转速)(旋转延迟) + 传输时间</text>
+  <text x="42" y="101" font-size="10" fill="#475569">7200 rpm → Tτ ≈ 4.17 ms；平均寻道 8 ms</text>
+  <text x="42" y="120" font-size="10" fill="#475569">读 4 KB @200 MB/s → Tt ≈ 0.02 ms</text>
+  <text x="42" y="141" font-size="10" font-weight="700" fill="#dc2626">Ta ≈ 12.19 ms，机械定位占 99.8%</text>
+
+  <rect x="340" y="44" width="310" height="112" rx="6" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="352" y="63" font-size="10.5" font-weight="700" fill="#5b21b6">算法特征</text>
+  <text x="352" y="82" font-size="9.5" fill="#4c1d95">FCFS 公平但磁头大幅来回；SSTF 距离最小但远端饥饿</text>
+  <text x="352" y="101" font-size="9.5" fill="#4c1d95">SCAN 电梯：单向扫到端点再折返，无饥饿</text>
+  <text x="352" y="120" font-size="9.5" fill="#4c1d95">C-SCAN：单向服务，到端点快速回起点，等待更均匀</text>
+  <text x="352" y="141" font-size="9.5" fill="#4c1d95">LOOK / C-LOOK 只到最远请求即折返，消除空走</text>
+
+  <text x="30" y="178" font-size="11" font-weight="700" fill="#334155">例题：磁头在 100，请求 55, 58, 39, 18, 90, 160, 150, 38, 184（0–199 道，初始向增大方向）</text>
+  <rect x="30" y="188" width="620" height="26" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="42" y="206" font-size="9.5" fill="#475569">算法　　　　　服务序列　　　　　　　　　　　　　　　　　　　　　　总移动 / 平均寻道</text>
+
+  <rect x="30" y="218" width="620" height="26" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="42" y="236" font-size="9.5" fill="#334155">FCFS　　　100→55→58→39→18→90→160→150→38→184　　　498 / 55.33</text>
+  <rect x="30" y="246" width="620" height="26" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="42" y="264" font-size="9.5" fill="#334155">SSTF　　　100→90→58→55→39→38→18→150→160→184　　　248 / 27.56</text>
+  <rect x="30" y="274" width="620" height="26" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="42" y="292" font-size="9.5" fill="#334155">SCAN　　100→150→160→184→199→90→58→55→39→38→18　　280 / 31.11</text>
+  <rect x="30" y="302" width="620" height="26" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="42" y="320" font-size="9.5" fill="#334155">C-SCAN　100→150→160→184→199→(0)→18→38→39→55→58→90　189 / 21.00</text>
+
+  <rect x="30" y="338" width="620" height="58" rx="6" fill="#fff7ed" stroke="#f59e0b"/>
+  <text x="42" y="357" font-size="10.5" font-weight="700" fill="#92400e">答题约定与常见失分点</text>
+  <text x="42" y="375" font-size="9.5" fill="#78350f">① SCAN 是否走到物理端点 199（还是 LOOK 只到 184）② C-SCAN 回程是否计入寻道距离 ③ 平均寻道 = 总移动 / 请求数（不是 / 服务序列长度）</text>
+  <text x="42" y="391" font-size="9.5" fill="#78350f">先写清假设再计算；SSD 无机械寻道与旋转，改由 FTL 与 NCQ/多队列重排，调度目标转为延迟隔离与公平。</text>
+</svg>

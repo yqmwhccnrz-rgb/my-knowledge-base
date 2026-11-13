@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">动态分区分配四算法（同一请求的对照）</text>
+
+  <text x="30" y="52" font-size="11" font-weight="700" fill="#334155">初始空闲分区链（按地址递增）：作业请求 14K</text>
+  <rect x="30" y="62" width="120" height="34" fill="#dbeafe" stroke="#2563eb"/><text x="90" y="84" text-anchor="middle" font-size="10.5" fill="#1e3a8a">20K</text>
+  <rect x="156" y="62" width="120" height="34" fill="#dbeafe" stroke="#2563eb"/><text x="216" y="84" text-anchor="middle" font-size="10.5" fill="#1e3a8a">50K</text>
+  <rect x="282" y="62" width="120" height="34" fill="#dbeafe" stroke="#2563eb"/><text x="342" y="84" text-anchor="middle" font-size="10.5" fill="#1e3a8a">30K</text>
+  <rect x="408" y="62" width="120" height="34" fill="#dbeafe" stroke="#2563eb"/><text x="468" y="84" text-anchor="middle" font-size="10.5" fill="#1e3a8a">100K</text>
+  <text x="540" y="84" font-size="10" fill="#64748b">← 上次分配位置在 20K</text>
+
+  <text x="30" y="122" font-size="11" font-weight="700" fill="#334155">四种算法分配后的链（橙色 = 已分配的 14K，浅色 = 剩余空闲）</text>
+
+  <text x="30" y="147" font-size="10" font-weight="700" fill="#2563eb">FF 首次适应</text>
+  <rect x="150" y="130" width="84" height="26" fill="#fed7aa" stroke="#ea580c"/><text x="192" y="148" text-anchor="middle" font-size="9" fill="#9a3412">14K 已分配</text>
+  <rect x="236" y="130" width="36" height="26" fill="#e2e8f0" stroke="#94a3b8"/><text x="254" y="148" text-anchor="middle" font-size="9" fill="#475569">6K</text>
+  <rect x="278" y="130" width="90" height="26" fill="#dbeafe" stroke="#2563eb"/><text x="323" y="148" text-anchor="middle" font-size="9" fill="#1e3a8a">50K</text>
+  <rect x="374" y="130" width="90" height="26" fill="#dbeafe" stroke="#2563eb"/><text x="419" y="148" text-anchor="middle" font-size="9" fill="#1e3a8a">30K</text>
+  <rect x="470" y="130" width="100" height="26" fill="#dbeafe" stroke="#2563eb"/><text x="520" y="148" text-anchor="middle" font-size="9" fill="#1e3a8a">100K</text>
+  <text x="576" y="148" font-size="9" fill="#64748b">取第一个够大者</text>
+
+  <text x="30" y="187" font-size="10" font-weight="700" fill="#7c3aed">NF 循环首次适应</text>
+  <rect x="150" y="170" width="90" height="26" fill="#dbeafe" stroke="#2563eb"/><text x="195" y="188" text-anchor="middle" font-size="9" fill="#1e3a8a">20K</text>
+  <rect x="246" y="170" width="84" height="26" fill="#fed7aa" stroke="#ea580c"/><text x="288" y="188" text-anchor="middle" font-size="9" fill="#9a3412">14K 已分配</text>
+  <rect x="332" y="170" width="54" height="26" fill="#e2e8f0" stroke="#94a3b8"/><text x="359" y="188" text-anchor="middle" font-size="9" fill="#475569">36K</text>
+  <rect x="392" y="170" width="90" height="26" fill="#dbeafe" stroke="#2563eb"/><text x="437" y="188" text-anchor="middle" font-size="9" fill="#1e3a8a">30K</text>
+  <rect x="488" y="170" width="100" height="26" fill="#dbeafe" stroke="#2563eb"/><text x="538" y="188" text-anchor="middle" font-size="9" fill="#1e3a8a">100K</text>
+  <text x="594" y="188" font-size="9" fill="#64748b">从上次之后</text>
+
+  <text x="30" y="227" font-size="10" font-weight="700" fill="#16a34a">BF 最佳适应</text>
+  <rect x="150" y="210" width="84" height="26" fill="#fed7aa" stroke="#ea580c"/><text x="192" y="228" text-anchor="middle" font-size="9" fill="#9a3412">14K 已分配</text>
+  <rect x="236" y="210" width="36" height="26" fill="#e2e8f0" stroke="#94a3b8"/><text x="254" y="228" text-anchor="middle" font-size="9" fill="#475569">6K</text>
+  <rect x="278" y="210" width="90" height="26" fill="#dbeafe" stroke="#2563eb"/><text x="323" y="228" text-anchor="middle" font-size="9" fill="#1e3a8a">50K</text>
+  <rect x="374" y="210" width="90" height="26" fill="#dbeafe" stroke="#2563eb"/><text x="419" y="228" text-anchor="middle" font-size="9" fill="#1e3a8a">30K</text>
+  <rect x="470" y="210" width="100" height="26" fill="#dbeafe" stroke="#2563eb"/><text x="520" y="228" text-anchor="middle" font-size="9" fill="#1e3a8a">100K</text>
+  <text x="576" y="228" font-size="9" fill="#64748b">最小够大者</text>
+
+  <text x="30" y="267" font-size="10" font-weight="700" fill="#d97706">WF 最坏适应</text>
+  <rect x="150" y="250" width="90" height="26" fill="#dbeafe" stroke="#2563eb"/><text x="195" y="268" text-anchor="middle" font-size="9" fill="#1e3a8a">20K</text>
+  <rect x="246" y="250" width="90" height="26" fill="#dbeafe" stroke="#2563eb"/><text x="291" y="268" text-anchor="middle" font-size="9" fill="#1e3a8a">50K</text>
+  <rect x="342" y="250" width="90" height="26" fill="#dbeafe" stroke="#2563eb"/><text x="387" y="268" text-anchor="middle" font-size="9" fill="#1e3a8a">30K</text>
+  <rect x="438" y="250" width="84" height="26" fill="#fed7aa" stroke="#ea580c"/><text x="480" y="268" text-anchor="middle" font-size="9" fill="#9a3412">14K 已分配</text>
+  <rect x="524" y="250" width="66" height="26" fill="#e2e8f0" stroke="#94a3b8"/><text x="557" y="268" text-anchor="middle" font-size="9" fill="#475569">86K</text>
+  <text x="596" y="268" font-size="9" fill="#64748b">取最大者</text>
+
+  <rect x="30" y="292" width="620" height="44" rx="6" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="42" y="310" font-size="10.5" font-weight="700" fill="#991b1b">「最佳适应」并不全局最优</text>
+  <text x="42" y="328" font-size="10" fill="#7f1d1d">BF 每次都制造最小的剩余块，长期看外部碎片最多；现代内核改用伙伴系统（2 的幂次块）+ slab/slub 兼顾速度与碎片。</text>
+
+  <rect x="30" y="344" width="620" height="44" rx="6" fill="#fff7ed" stroke="#f59e0b"/>
+  <text x="42" y="362" font-size="10.5" font-weight="700" fill="#92400e">回收合并四情况</text>
+  <text x="42" y="380" font-size="10" fill="#78350f">① 与前空闲区相邻（改大小）② 与后相邻（改始址+大小）③ 与前后都邻（三合一，少一个表项）④ 都不邻（新建表项）；紧凑须动态重定位。</text>
+</svg>

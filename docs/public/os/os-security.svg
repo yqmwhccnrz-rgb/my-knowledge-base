@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">系统安全：攻击面、加密方向与现代缓解机制</text>
+
+  <rect x="30" y="46" width="300" height="126" rx="6" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="42" y="66" font-size="11" font-weight="700" fill="#991b1b">传统攻击面（教材）</text>
+  <text x="42" y="86" font-size="9.5" fill="#7f1d1d">内部：逻辑炸弹、陷阱门（后门）、特洛伊木马</text>
+  <text x="42" y="105" font-size="9.5" fill="#7f1d1d">　　　登录欺骗、缓冲区溢出（劫持返回地址）</text>
+  <text x="42" y="124" font-size="9.5" fill="#7f1d1d">外部：病毒（依附宿主）、蠕虫（独立传播）</text>
+  <text x="42" y="143" font-size="9.5" fill="#7f1d1d">　　　移动代码、拒绝服务、恶意下载</text>
+  <text x="42" y="163" font-size="9" fill="#64748b">注：缓冲区溢出属程序漏洞，与"内/外"不是同一维度</text>
+
+  <rect x="350" y="46" width="300" height="126" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="362" y="66" font-size="11" font-weight="700" fill="#166534">现代缓解机制（补充）</text>
+  <text x="362" y="86" font-size="9.5" fill="#15803d">Canary 栈保护 / DEP-NX 数据页不可执行</text>
+  <text x="362" y="105" font-size="9.5" fill="#15803d">ASLR 地址随机化 / CFI 与影子栈 / RELRO</text>
+  <text x="362" y="124" font-size="9.5" fill="#15803d">KPTI 页表隔离（缓解 Meltdown）、推测执行屏障</text>
+  <text x="362" y="143" font-size="9.5" fill="#15803d">capabilities / seccomp-bpf / SELinux / 沙箱</text>
+  <text x="362" y="163" font-size="9" fill="#64748b">Secure Boot → TPM 度量 → 远程证明的可信启动链</text>
+
+  <rect x="30" y="182" width="620" height="66" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="42" y="202" font-size="10.5" font-weight="700" fill="#1e3a8a">加密方向（最易答反）</text>
+  <text x="42" y="221" font-size="9.5" fill="#1e40af">加密：用接收方【公钥】加密 → 只有接收方私钥可解（保机密）　　签名：用发送方【私钥】签摘要 → 任何人可用公钥验（认证 + 完整性 + 不可抵赖）</text>
+  <text x="42" y="240" font-size="9.5" fill="#1e40af">对称 AES/SM4 快、用于数据；非对称 RSA/ECC/SM2 慢、用于密钥交换与签名；散列 SHA-256/SM3 不是加密，HMAC 才有认证</text>
+
+  <rect x="30" y="258" width="300" height="62" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="278" font-size="10.5" font-weight="700" fill="#334155">用户验证</text>
+  <text x="42" y="297" font-size="9.5" fill="#475569">口令（须加盐 + 慢哈希 bcrypt/Argon2）</text>
+  <text x="42" y="313" font-size="9.5" fill="#475569">物理标志（U 盾）/ 生物识别 / 多因素 MFA</text>
+
+  <rect x="350" y="258" width="300" height="62" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="362" y="278" font-size="10.5" font-weight="700" fill="#334155">可信系统</text>
+  <text x="362" y="297" font-size="9.5" fill="#475569">访问矩阵模型（ACL 按列 / capability 按行）</text>
+  <text x="362" y="313" font-size="9.5" fill="#475569">信息流控制（BLP 防泄密 / Biba 防篡改）、TCB 最小化</text>
+
+  <rect x="30" y="330" width="620" height="58" rx="6" fill="#fff7ed" stroke="#f59e0b"/>
+  <text x="42" y="350" font-size="10.5" font-weight="700" fill="#92400e">安全设计原则</text>
+  <text x="42" y="368" font-size="9.5" fill="#78350f">最小特权 · 机制与策略分离 · 机制简洁 · 完全中介（每次访问都检查）· 默认拒绝 · 开放设计 · 最小共享 · 易用性</text>
+  <text x="42" y="384" font-size="9.5" fill="#78350f">数字证书（教材称「数字证明书」）由 CA 签名绑定身份与公钥，验证时沿证书链上溯至受信任根 CA；MD5/SHA-1/DES/SSL3.0 已不安全。</text>
+</svg>

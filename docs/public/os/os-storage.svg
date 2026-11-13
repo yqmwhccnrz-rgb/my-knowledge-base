@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">外存组织方式、RAID 分级与数据一致性</text>
+
+  <text x="30" y="52" font-size="11.5" font-weight="700" fill="#334155">① 三种外存组织（同一文件占 4 个盘块的示意）</text>
+  <rect x="30" y="62" width="196" height="96" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="128" y="82" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">连续组织</text>
+  <rect x="48" y="92" width="30" height="24" fill="#93c5fd" stroke="#2563eb"/><rect x="80" y="92" width="30" height="24" fill="#93c5fd" stroke="#2563eb"/>
+  <rect x="112" y="92" width="30" height="24" fill="#93c5fd" stroke="#2563eb"/><rect x="144" y="92" width="30" height="24" fill="#93c5fd" stroke="#2563eb"/>
+  <text x="42" y="132" font-size="9" fill="#1e40af">顺序/直接访问最快</text>
+  <text x="42" y="148" font-size="9" fill="#dc2626">外部碎片、须预知大小</text>
+  <rect x="242" y="62" width="196" height="96" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="340" y="82" text-anchor="middle" font-size="10.5" font-weight="700" fill="#166534">链接组织</text>
+  <rect x="260" y="92" width="30" height="24" fill="#86efac" stroke="#16a34a"/><text x="298" y="110" font-size="10" fill="#166534">→</text>
+  <rect x="312" y="92" width="30" height="24" fill="#86efac" stroke="#16a34a"/><text x="350" y="110" font-size="10" fill="#166534">→</text>
+  <rect x="364" y="92" width="30" height="24" fill="#86efac" stroke="#16a34a"/>
+  <text x="254" y="132" font-size="9" fill="#15803d">无碎片、可动态增长</text>
+  <text x="254" y="148" font-size="9" fill="#dc2626">只能顺序访问；断链风险</text>
+  <rect x="454" y="62" width="196" height="96" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="552" y="82" text-anchor="middle" font-size="10.5" font-weight="700" fill="#92400e">索引组织</text>
+  <rect x="472" y="92" width="52" height="24" fill="#fde68a" stroke="#d97706"/><text x="498" y="109" text-anchor="middle" font-size="9" fill="#92400e">索引块</text>
+  <text x="530" y="109" font-size="10" fill="#92400e">→</text>
+  <rect x="552" y="92" width="26" height="24" fill="#fde68a" stroke="#d97706"/><rect x="582" y="92" width="26" height="24" fill="#fde68a" stroke="#d97706"/>
+  <text x="466" y="132" font-size="9" fill="#78350f">支持直接访问、无外部碎片</text>
+  <text x="466" y="148" font-size="9" fill="#dc2626">索引块占空间；小文件也需一块</text>
+
+  <text x="30" y="182" font-size="11.5" font-weight="700" fill="#334155">② RAID 分级（N 块盘，利用率与容错）</text>
+  <rect x="30" y="192" width="620" height="102" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="212" font-size="9.5" font-weight="700" fill="#334155">级别　　冗余方式　　　　　　　　　　最少盘　有效容量　　　　可坏盘</text>
+  <text x="42" y="232" font-size="9.5" fill="#475569">RAID 0　条带化，无冗余　　　　　　　2　　　100%　　　　　　0</text>
+  <text x="42" y="250" font-size="9.5" fill="#475569">RAID 1　镜像　　　　　　　　　　　　2　　　50%　　　　　　 每对 1</text>
+  <text x="42" y="268" font-size="9.5" font-weight="700" fill="#1e3a8a">RAID 5　块级条带 + 分布式校验　　　　3　　　(N−1)/N　　　　 1</text>
+  <text x="42" y="286" font-size="9.5" font-weight="700" fill="#1e3a8a">RAID 6　双份校验 P+Q　　　　　　　　 4　　　(N−2)/N　　　　 2</text>
+
+  <rect x="30" y="304" width="300" height="82" rx="6" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="42" y="324" font-size="10.5" font-weight="700" fill="#5b21b6">例：8 块 1 TB 盘</text>
+  <text x="42" y="343" font-size="9.5" fill="#4c1d95">RAID 0 = 8 TB；RAID 5 = 7 TB</text>
+  <text x="42" y="361" font-size="9.5" fill="#4c1d95">RAID 6 = 6 TB；RAID 10 = 4 TB</text>
+  <text x="42" y="379" font-size="9" fill="#dc2626">RAID 不能替代备份（误删/勒索仍丢数据）</text>
+
+  <rect x="350" y="304" width="300" height="82" rx="6" fill="#fff7ed" stroke="#f59e0b"/>
+  <text x="362" y="324" font-size="10.5" font-weight="700" fill="#92400e">一致性与 SSD</text>
+  <text x="362" y="343" font-size="9.5" fill="#78350f">事务 ACID + 日志 + 检查点 + 2PL 并发控制</text>
+  <text x="362" y="361" font-size="9.5" fill="#78350f">SSD：FTL 映射 / 磨损均衡 / GC / 写放大 / TRIM</text>
+  <text x="362" y="379" font-size="9" fill="#78350f">现代：PMEM + DAX、纠删码、快照与 COW 文件系统</text>
+</svg>

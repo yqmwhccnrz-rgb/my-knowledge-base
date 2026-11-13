@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">多处理机：UMA / NUMA、自旋锁与 RCU</text>
+
+  <rect x="30" y="46" width="300" height="132" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="42" y="66" font-size="11" font-weight="700" fill="#1e3a8a">UMA 统一内存访问</text>
+  <rect x="52" y="78" width="52" height="30" rx="5" fill="#93c5fd" stroke="#2563eb"/><text x="78" y="98" text-anchor="middle" font-size="9" fill="#1e3a8a">核1</text>
+  <rect x="114" y="78" width="52" height="30" rx="5" fill="#93c5fd" stroke="#2563eb"/><text x="140" y="98" text-anchor="middle" font-size="9" fill="#1e3a8a">核2</text>
+  <rect x="176" y="78" width="52" height="30" rx="5" fill="#93c5fd" stroke="#2563eb"/><text x="202" y="98" text-anchor="middle" font-size="9" fill="#1e3a8a">核3</text>
+  <rect x="238" y="78" width="52" height="30" rx="5" fill="#93c5fd" stroke="#2563eb"/><text x="264" y="98" text-anchor="middle" font-size="9" fill="#1e3a8a">核4</text>
+  <rect x="76" y="124" width="180" height="30" rx="5" fill="#dcfce7" stroke="#16a34a"/><text x="166" y="144" text-anchor="middle" font-size="10" fill="#166534">集中式共享内存（各核等距）</text>
+  <text x="42" y="170" font-size="9" fill="#64748b">总线/交叉开关互连；需 MESI 等缓存一致性协议</text>
+
+  <rect x="350" y="46" width="300" height="132" rx="6" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="362" y="66" font-size="11" font-weight="700" fill="#5b21b6">NUMA 非一致内存访问</text>
+  <rect x="368" y="78" width="120" height="50" rx="5" fill="#ddd6fe" stroke="#7c3aed"/>
+  <text x="428" y="97" text-anchor="middle" font-size="9" fill="#4c1d95">节点0：核1 核2</text>
+  <text x="428" y="116" text-anchor="middle" font-size="9" fill="#4c1d95">本地内存（快）</text>
+  <rect x="506" y="78" width="126" height="50" rx="5" fill="#ddd6fe" stroke="#7c3aed"/>
+  <text x="569" y="97" text-anchor="middle" font-size="9" fill="#4c1d95">节点1：核3 核4</text>
+  <text x="569" y="116" text-anchor="middle" font-size="9" fill="#4c1d95">本地内存（快）</text>
+  <text x="362" y="150" font-size="9.5" fill="#dc2626">跨节点访问远端内存更慢 → 须做 NUMA 亲和绑定</text>
+  <text x="362" y="170" font-size="9" fill="#64748b">内存物理分布、逻辑连续，由单一 OS 管理</text>
+
+  <text x="30" y="202" font-size="11.5" font-weight="700" fill="#334155">同步机制对照</text>
+  <rect x="30" y="212" width="300" height="102" rx="6" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="42" y="232" font-size="10.5" font-weight="700" fill="#991b1b">自旋锁 spinlock（忙等）</text>
+  <text x="42" y="251" font-size="9.5" fill="#7f1d1d">适用：持锁时间 &lt; 两次上下文切换开销、多核</text>
+  <text x="42" y="269" font-size="9.5" fill="#7f1d1d">单 CPU 上自旋毫无意义（持锁者无法运行）</text>
+  <text x="42" y="287" font-size="9.5" fill="#7f1d1d">配套：二进制指数补偿退避、待锁 CPU 队列</text>
+  <text x="42" y="305" font-size="9" fill="#64748b">另有面包房算法（取号）、令牌环算法（轮转）</text>
+
+  <rect x="350" y="212" width="300" height="102" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="362" y="232" font-size="10.5" font-weight="700" fill="#166534">RCU 读-复制-更新（读侧几乎零开销）</text>
+  <text x="362" y="251" font-size="9.5" fill="#15803d">① 写者复制一份副本　② 在副本上修改</text>
+  <text x="362" y="269" font-size="9.5" fill="#15803d">③ 原子替换指针　④ 等宽限期（旧读者全部退出）</text>
+  <text x="362" y="287" font-size="9.5" fill="#15803d">⑤ 回调释放旧副本</text>
+  <text x="362" y="305" font-size="9" fill="#64748b">适合读多写少：路由表、内核对象查找</text>
+
+  <rect x="30" y="324" width="620" height="62" rx="6" fill="#fff7ed" stroke="#f59e0b"/>
+  <text x="42" y="344" font-size="10.5" font-weight="700" fill="#92400e">加速上限与工程陷阱</text>
+  <text x="42" y="362" font-size="9.5" fill="#78350f">Amdahl：S = 1/((1−f) + f/N)；f=0.8、N=8 → S≈3.33，N→∞ 上限仅 5.0（串行段决定天花板）。</text>
+  <text x="42" y="380" font-size="9.5" fill="#78350f">伪共享：两核写同一 Cache 行的不同变量 → 行反复失效；用缓存行填充/对齐规避。调度须兼顾负载均衡与处理机亲和性。</text>
+</svg>

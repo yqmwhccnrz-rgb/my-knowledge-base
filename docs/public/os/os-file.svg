@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 410" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="410" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">文件目录、inode 与混合索引分配</text>
+
+  <defs><marker id="f1" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#475569"/></marker></defs>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 目录项与 inode 分离（硬链接 = 多个目录项指向同一 inode）</text>
+  <rect x="30" y="62" width="180" height="82" rx="6" fill="#e0f2fe" stroke="#0284c7"/>
+  <text x="42" y="81" font-size="10" font-weight="700" fill="#075985">目录文件（目录项集合）</text>
+  <text x="42" y="101" font-size="9.5" fill="#0c4a6e">"a.txt"　→　inode 12</text>
+  <text x="42" y="120" font-size="9.5" fill="#0c4a6e">"b.txt"　→　inode 12（硬链接）</text>
+  <text x="42" y="137" font-size="9" fill="#64748b">链接计数 = 2</text>
+  <line x1="210" y1="103" x2="240" y2="103" stroke="#475569" marker-end="url(#f1)"/>
+  <rect x="244" y="62" width="186" height="82" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="256" y="81" font-size="10" font-weight="700" fill="#92400e">inode 12（元数据）</text>
+  <text x="256" y="101" font-size="9.5" fill="#78350f">权限 / 大小 / 时间 / 链接数</text>
+  <text x="256" y="120" font-size="9.5" fill="#78350f">12 个直接地址 + 三级间接</text>
+  <text x="256" y="137" font-size="9" fill="#64748b">目录项变小 → 查目录读盘次数减少</text>
+  <line x1="430" y1="103" x2="460" y2="103" stroke="#475569" marker-end="url(#f1)"/>
+  <rect x="464" y="62" width="186" height="82" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="476" y="81" font-size="10" font-weight="700" fill="#166534">数据盘块</text>
+  <text x="476" y="101" font-size="9.5" fill="#15803d">直接地址 → 1 次 I/O</text>
+  <text x="476" y="120" font-size="9.5" fill="#15803d">二级间接 → 3 次 I/O</text>
+  <text x="476" y="137" font-size="9" fill="#64748b">符号链接：存的是路径，可悬空</text>
+
+  <text x="30" y="168" font-size="12" font-weight="700" fill="#334155">② 混合索引（盘块 1 KB、块号 4 B → 一个索引块 k = 256 个块号）</text>
+  <rect x="30" y="178" width="620" height="98" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="199" font-size="10" fill="#334155">直接地址 10 项　　　10 × 1 KB = 10 KB　　　　　　　　一次 I/O（小文件走这里）</text>
+  <text x="42" y="219" font-size="10" fill="#334155">一级间接　　　　　 256 × 1 KB = 256 KB　　　　　　　两次 I/O</text>
+  <text x="42" y="239" font-size="10" fill="#334155">二级间接　　　　　 256² × 1 KB = 64 MB　　　　　　　三次 I/O</text>
+  <text x="42" y="259" font-size="10" font-weight="700" fill="#1e3a8a">三级间接　　　　　 256³ × 1 KB = 16 GB　→　最大文件 ≈ 16 GB（四次 I/O）</text>
+
+  <rect x="30" y="286" width="300" height="106" rx="6" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="42" y="306" font-size="10.5" font-weight="700" fill="#5b21b6">inode 分离为何加速目录检索</text>
+  <text x="42" y="325" font-size="9.5" fill="#4c1d95">128 个文件、盘块 1 KB：</text>
+  <text x="42" y="344" font-size="9.5" fill="#4c1d95">完整 FCB 64 B → 16 项/块 → 8 块 → 平均 4.5 次读盘</text>
+  <text x="42" y="363" font-size="9.5" fill="#4c1d95">分离后 18 B → 56 项/块 → 3 块 → 约 2 次读盘</text>
+  <text x="42" y="382" font-size="9" fill="#64748b">再加 dentry cache / 目录 B+ 树（htree）几乎不读盘</text>
+
+  <rect x="350" y="286" width="300" height="106" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="362" y="306" font-size="10.5" font-weight="700" fill="#1e3a8a">位示图（空闲空间管理）</text>
+  <text x="362" y="325" font-size="9.5" fill="#1e40af">1 GB / 1 KB 块 = 2^20 块 → 位示图 128 KB</text>
+  <text x="362" y="344" font-size="9.5" fill="#1e40af">从 0 起：b = n·i + j；从 1 起：b = n(i−1)+j</text>
+  <text x="362" y="363" font-size="9.5" fill="#1e40af">例：n=16，b=1025 → i=64，j=1</text>
+  <text x="362" y="382" font-size="9" fill="#64748b">另有空闲区表/链表法与成组链接法（Unix 经典）</text>
+</svg>

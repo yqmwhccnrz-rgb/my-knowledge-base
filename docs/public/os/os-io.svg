@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 410" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="410" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">I/O 系统层次、四种控制方式与缓冲区</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① I/O 软件层次（自上而下，越往下越贴近硬件）</text>
+  <rect x="30" y="62" width="300" height="30" rx="4" fill="#e0f2fe" stroke="#0284c7"/><text x="180" y="82" text-anchor="middle" font-size="10" fill="#075985">用户层 I/O：库函数 / SPOOLing / 格式化</text>
+  <rect x="30" y="96" width="300" height="30" rx="4" fill="#dbeafe" stroke="#2563eb"/><text x="180" y="116" text-anchor="middle" font-size="10" fill="#1e3a8a">与设备无关层：命名映射 / 保护 / 缓冲 / 分配回收</text>
+  <rect x="30" y="130" width="300" height="30" rx="4" fill="#ede9fe" stroke="#7c3aed"/><text x="180" y="150" text-anchor="middle" font-size="10" fill="#5b21b6">设备驱动程序：抽象请求 → 控制器命令</text>
+  <rect x="30" y="164" width="300" height="30" rx="4" fill="#fef3c7" stroke="#d97706"/><text x="180" y="184" text-anchor="middle" font-size="10" fill="#92400e">中断处理程序：保存现场 / 唤醒驱动进程</text>
+  <rect x="30" y="198" width="300" height="30" rx="4" fill="#dcfce7" stroke="#16a34a"/><text x="180" y="218" text-anchor="middle" font-size="10" fill="#166534">硬件：设备控制器（寄存器 + 缓冲）+ 设备</text>
+
+  <text x="350" y="52" font-size="12" font-weight="700" fill="#334155">② 四种控制方式（CPU 干预粒度逐级变粗）</text>
+  <rect x="350" y="62" width="300" height="166" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="362" y="82" font-size="10" fill="#475569">程序轮询　　每字节　CPU 全程忙等，效率最低</text>
+  <text x="362" y="105" font-size="10" fill="#475569">中断驱动　　每字节　一次中断，数据仍由 CPU 搬</text>
+  <text x="362" y="128" font-size="10" font-weight="700" fill="#1e3a8a">DMA　　　　每批块　数据由 DMA 控制器搬运</text>
+  <text x="362" y="151" font-size="10" fill="#475569">I/O 通道　　每组块　执行通道程序，可管多台设备</text>
+  <text x="362" y="178" font-size="9.5" fill="#dc2626">例题：传 1000 B、每次中断 100 μs</text>
+  <text x="362" y="196" font-size="9.5" fill="#dc2626">中断驱动 = 1000×100 μs = 100 ms</text>
+  <text x="362" y="214" font-size="9.5" font-weight="700" fill="#166534">DMA = 初始化 100 μs + 完成中断 100 μs = 200 μs</text>
+
+  <rect x="30" y="240" width="620" height="48" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="42" y="259" font-size="10.5" font-weight="700" fill="#1e3a8a">SPOOLing：用磁盘输入井/输出井 + 缓冲 + 输入/输出进程，把独占设备虚拟为共享设备</text>
+  <text x="42" y="278" font-size="10" fill="#1e40af">三个用户"同时打印" → 各自写入输出井并排队 → 输出进程串行送打印机；提高设备利用率，但不缩短单个作业响应时间。</text>
+
+  <rect x="30" y="298" width="620" height="46" rx="6" fill="#f0fdf4" stroke="#22c55e"/>
+  <text x="42" y="317" font-size="10.5" font-weight="700" fill="#166534">缓冲区公式（T 设备→缓冲区，M 缓冲区→用户区，C CPU 处理）</text>
+  <text x="42" y="336" font-size="10" fill="#15803d">单缓冲 = max(C,T) + M　　双缓冲 = max(C+M, T)；T=100 μs、M=50 μs、C=50 μs → 150 μs vs 100 μs（提速 1.5 倍）</text>
+
+  <rect x="30" y="354" width="620" height="44" rx="6" fill="#fff7ed" stroke="#f59e0b"/>
+  <text x="42" y="372" font-size="10.5" font-weight="700" fill="#92400e">现代补充</text>
+  <text x="42" y="391" font-size="10" fill="#78350f">io_uring 共享环形队列异步 I/O；NVMe 多队列 + MSI-X 中断投递到指定核；SSD 下传统寻道调度意义下降，改为延迟隔离与公平性。</text>
+</svg>
