@@ -53437,5 +53437,715 @@
   "answer": "① 明确流失口径与业务代价；② 先分层划分训练/验证/测试；③ 预处理（标准化、独热编码、缺失填补）全部放进 Pipeline，仅训练折拟合；④ 基线用带 class_weight 的逻辑回归 + 单棵决策树，交叉验证建立参照；⑤ 主模型用随机森林/GBDT（混合特征友好），必要时概率校准；⑥ 因 1:9 不平衡，主看 PR-AUC、Recall@固定 Precision 与 F1，辅以 ROC-AUC，并做分组公平性检查；⑦ 调参只在验证折进行，测试集最后一次性评估；⑧ 上线输出概率与阈值、监控数据漂移、定期重训、保留回滚。",
   "explanation": "评分点：Pipeline 防泄露、时序/分层切分、不用 accuracy、测试集只用一次。",
   "type": "essay"
+ },
+ {
+  "id": "mlt141",
+  "note": "MLTheory",
+  "topic": "深挖 偏差方差",
+  "question": "偏差-方差可加分解 Err=Bias²+Var+σ² 严格成立于（ ）。",
+  "options": [
+   "平方损失",
+   "0-1 损失",
+   "交叉熵损失",
+   "hinge 损失"
+  ],
+  "answer": 0,
+  "explanation": "推导依赖 E[(y−f̂)²] 的展开；其它损失下三项不再可加分解。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt142",
+  "note": "MLTheory",
+  "topic": "深挖 强化学习",
+  "question": "值迭代保证收敛到唯一 V* 的数学依据是（ ）。",
+  "options": [
+   "策略一定是贪心的",
+   "γ<1 使贝尔曼最优算子成为压缩映射",
+   "状态空间有限即可",
+   "奖励恒为非负"
+  ],
+  "answer": 1,
+  "explanation": "误差按 γᵏ 衰减；γ 越小收敛越快但越短视。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt143",
+  "note": "MLTheory",
+  "topic": "深挖 强化学习",
+  "question": "策略迭代与值迭代的关键区别是（ ）。",
+  "options": [
+   "值迭代需要环境模型而策略迭代不需要",
+   "策略迭代只能用于离散动作",
+   "策略迭代的策略评估要迭代到收敛，值迭代只做一步贝尔曼最优更新",
+   "两者完全相同"
+  ],
+  "answer": 2,
+  "explanation": "值迭代中间量 V_k 不对应任何具体策略，只是下界序列。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt144",
+  "note": "MLTheory",
+  "topic": "深挖 强化学习",
+  "question": "TD(0) 相对于蒙特卡罗 MC 的特点是（ ）。",
+  "options": [
+   "无偏但方差大",
+   "必须等回合结束",
+   "不能使用折扣因子",
+   "有偏（自举）但方差小、可在线更新"
+  ],
+  "answer": 3,
+  "explanation": "自举用对下一状态的估计作目标，换来低方差与在线性。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt145",
+  "note": "MLTheory",
+  "topic": "深挖 强化学习",
+  "question": "TD(λ) 中 λ=1 时算法近似于（ ）。",
+  "options": [
+   "蒙特卡罗方法",
+   "单步 TD(0)",
+   "动态规划值迭代",
+   "策略梯度"
+  ],
+  "answer": 0,
+  "explanation": "λ=0 退化为单步 TD；实践常用 λ∈[0.8,0.95] 折中。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt146",
+  "note": "MLTheory",
+  "topic": "深挖 强化学习",
+  "question": "DQN 引入目标网络的主要作用是（ ）。",
+  "options": [
+   "增加模型参数量",
+   "固定 TD 目标，避免目标随在线网络参数漂移",
+   "打破样本相关性",
+   "实现连续动作控制"
+  ],
+  "answer": 1,
+  "explanation": "经验回放才负责打破样本相关性；目标网络参数 w⁻ 不参与梯度回传。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt147",
+  "note": "MLTheory",
+  "topic": "深挖 强化学习",
+  "question": "Double DQN 主要解决（ ）。",
+  "options": [
+   "梯度消失",
+   "经验回放内存不足",
+   "max 操作带来的 Q 值系统性过高估计",
+   "奖励尺度不一致"
+  ],
+  "answer": 2,
+  "explanation": "用在线网络选动作、目标网络估值，把选择与评估解耦。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt148",
+  "note": "MLTheory",
+  "topic": "深挖 强化学习",
+  "question": "策略梯度中可减去的基线 b 必须（ ）。",
+  "options": [
+   "同时依赖状态和动作",
+   "恒等于回报 Gₜ",
+   "等于学习率",
+   "只依赖状态 s，不依赖动作 a"
+  ],
+  "answer": 3,
+  "explanation": "因 E[∇logπ·b(s)]=b(s)∇Σπ=0，减基线不改变期望却能降方差。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt149",
+  "note": "MLTheory",
+  "topic": "深挖 强化学习",
+  "question": "PPO 的裁剪操作作用于（ ）。",
+  "options": [
+   "新旧策略的概率比 rₜ(θ)",
+   "梯度范数",
+   "参数矩阵的特征值",
+   "折扣因子 γ"
+  ],
+  "answer": 0,
+  "explanation": "裁剪代理目标限制策略更新幅度，同一批采样可多轮小批量更新。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt150",
+  "note": "MLTheory",
+  "topic": "深挖 强化学习",
+  "question": "DQN 不能直接用于连续动作空间，根本原因是（ ）。",
+  "options": [
+   "神经网络不能输出实数",
+   "无法对连续动作集合求 maxₐ Q(s,a)",
+   "经验回放不支持连续值",
+   "贝尔曼方程在连续空间不成立"
+  ],
+  "answer": 1,
+  "explanation": "因此需 DDPG/TD3/SAC 等确定性策略或策略梯度方法。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt151",
+  "note": "MLTheory",
+  "topic": "深挖 统计优化",
+  "question": "逻辑回归的交叉熵损失可由（ ）严格推出。",
+  "options": [
+   "高斯噪声假设的负对数似然",
+   "hinge 损失的平滑化",
+   "Bernoulli 标签似然的负对数",
+   "信息增益的最大化"
+  ],
+  "answer": 2,
+  "explanation": "线性回归的均方误差则来自高斯噪声假设；损失由标签噪声模型决定。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt152",
+  "note": "MLTheory",
+  "topic": "深挖 统计优化",
+  "question": "单样本 x=1, y=1, w₀=0 的逻辑回归，一步牛顿法后 w 为（ ）。",
+  "options": [
+   "0.05",
+   "0.5",
+   "1.0",
+   "2.0"
+  ],
+  "answer": 3,
+  "explanation": "ŷ=0.5、∇L=−0.5、H=ŷ(1−ŷ)=0.25 → w=0−(−0.5)/0.25=2.0。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt153",
+  "note": "MLTheory",
+  "topic": "深挖 统计优化",
+  "question": "逻辑回归牛顿法中的 Hessian 为 H=XᵀRX，其中 R 是（ ）。",
+  "options": [
+   "diag(ŷᵢ(1−ŷᵢ))",
+   "单位矩阵",
+   "diag(yᵢ)",
+   "协方差矩阵"
+  ],
+  "answer": 0,
+  "explanation": "由 sigmoid 二阶导得出；IRLS 每步等价于解加权最小二乘。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt154",
+  "note": "MLTheory",
+  "topic": "深挖 核与SVM",
+  "question": "hinge 损失 max(0,1−yf) 在 yf≥1 时（ ）。",
+  "options": [
+   "梯度恒为 1",
+   "损失与梯度都为 0",
+   "损失为 1",
+   "不可导"
+  ],
+  "answer": 1,
+  "explanation": "这正是 SVM 解稀疏、只有支持向量参与优化的原因。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt155",
+  "note": "MLTheory",
+  "topic": "深挖 核与SVM",
+  "question": "SMO 算法每次必须同时优化两个拉格朗日乘子，是因为（ ）。",
+  "options": [
+   "两个变量收敛更快",
+   "核矩阵是 2×2 的",
+   "等式约束 Σαᵢyᵢ=0 使单个 α 无法独立变化",
+   "样本成对出现"
+  ],
+  "answer": 2,
+  "explanation": "固定其余变量后目标化为单变量二次函数，可解析求解并裁剪到 [0,C]。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt156",
+  "note": "MLTheory",
+  "topic": "深挖 集成学习",
+  "question": "AdaBoost 的推导框架是（ ）。",
+  "options": [
+   "平方损失上的梯度下降",
+   "对数损失上的牛顿法",
+   "0-1 损失上的动态规划",
+   "指数损失上的前向分步加法模型"
+  ],
+  "answer": 3,
+  "explanation": "先解出加权误差最小的 hₜ，再对 α 求导得 αₜ=½ln((1−εₜ)/εₜ)。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt157",
+  "note": "MLTheory",
+  "topic": "深挖 无监督",
+  "question": "「PCA 最大化投影方差」与「最小化重构误差」的关系是（ ）。",
+  "options": [
+   "数学上等价，都归结为协方差矩阵前 m 个特征向量",
+   "前者是后者的近似",
+   "二者目标相反",
+   "只在二维时等价"
+  ],
+  "answer": 0,
+  "explanation": "min‖X−Xwwᵀ‖²=tr(S)−wᵀSw，与 max wᵀSw 同解（Eckart–Young）。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt158",
+  "note": "MLTheory",
+  "topic": "深挖 无监督",
+  "question": "一维 GMM：π=(0.5,0.5)、μ=(0,4)、σ=1，观测 x=1 时属于成分 1 的责任度约为（ ）。",
+  "options": [
+   "0.5000",
+   "0.9820",
+   "0.0180",
+   "0.7563"
+  ],
+  "answer": 1,
+  "explanation": "π₁N(1|0,1)=0.12099、π₂N(1|4,1)=0.00222 → γ₁≈0.9820、γ₂≈0.0180。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt159",
+  "note": "MLTheory",
+  "topic": "深挖 深度学习",
+  "question": "转置卷积 H_in=2、K=3、S=2、P=0 时的输出边长是（ ）。",
+  "options": [
+   "3",
+   "4",
+   "5",
+   "6"
+  ],
+  "answer": 2,
+  "explanation": "(H_in−1)S−2P+K = (2−1)×2+3 = 5；它只是梯度反传形式，不是卷积的数学逆。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt160",
+  "note": "MLTheory",
+  "topic": "深挖 生成模型",
+  "question": "固定生成器 G 时，GAN 的最优判别器是（ ）。",
+  "options": [
+   "D*(x)=p_g(x)",
+   "D*(x)=0.5 恒成立",
+   "D*(x)=p_data(x)−p_g(x)",
+   "D*(x)=p_data(x)/(p_data(x)+p_g(x))"
+  ],
+  "answer": 3,
+  "explanation": "代回目标得 2·JS(p_data‖p_g)−2log2；最优时 p_g=p_data、D*=0.5。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt161",
+  "note": "MLTheory",
+  "topic": "深挖 偏差方差",
+  "question": "偏差-方差可加分解对 0-1 损失也严格成立。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "该分解依赖平方损失下 E[(y−f̂)²] 的展开，其它损失只有类似直观。",
+  "type": "judge"
+ },
+ {
+  "id": "mlt162",
+  "note": "MLTheory",
+  "topic": "深挖 强化学习",
+  "question": "值迭代的中间量 V_k 对应某一个具体策略的值函数。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "V_k 只是下界迭代序列，只有收敛后的 V* 才是最优值函数。",
+  "type": "judge"
+ },
+ {
+  "id": "mlt163",
+  "note": "MLTheory",
+  "topic": "深挖 强化学习",
+  "question": "DQN 的经验回放通过随机采样打破了连续样本之间的相关性。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "同时提高数据复用；目标网络与奖励裁剪解决的是另外两个问题。",
+  "type": "judge"
+ },
+ {
+  "id": "mlt164",
+  "note": "MLTheory",
+  "topic": "深挖 强化学习",
+  "question": "REINFORCE 等基本策略梯度方法属于 on-policy。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "数据须由当前策略采集；PPO 通过裁剪允许同一批数据多轮更新。",
+  "type": "judge"
+ },
+ {
+  "id": "mlt165",
+  "note": "MLTheory",
+  "topic": "深挖 生成模型",
+  "question": "VAE 的 ELBO 中，当变分分布 q 取真实后验 p(z|x) 时下界取等。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "log p(x)=ELBO+D_KL(q‖p(z|x))，KL=0 时取等，与 EM 的 E 步同源。",
+  "type": "judge"
+ },
+ {
+  "id": "mlt166",
+  "note": "MLTheory",
+  "topic": "深挖 生成模型",
+  "question": "归一化流的隐变量 z 维度可以小于输入 x 以实现降维。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "变换必须双射，故 z 与 x 维度相同；任意降维是 VAE/自编码器的特征。",
+  "type": "judge"
+ },
+ {
+  "id": "mlt167",
+  "note": "MLTheory",
+  "topic": "深挖 生成模型",
+  "question": "扩散模型的前向加噪过程含有需要训练学习的参数。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "前向是固定的 Markov 高斯过程；只有反向去噪网络 ε_θ 含参数。",
+  "type": "judge"
+ },
+ {
+  "id": "mlt168",
+  "note": "MLTheory",
+  "topic": "深挖 生成模型",
+  "question": "RealNVP 类耦合层因 Jacobian 为三角阵，log|det J| 等于缩放向量 s 的元素之和。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "行列式等于对角元素之积，故无需 O(d³) 的一般行列式计算。",
+  "type": "judge"
+ },
+ {
+  "id": "mlt169",
+  "note": "MLTheory",
+  "topic": "深挖 强化学习",
+  "question": "下列属于 DQN 三大稳定化机制的有（ ）。",
+  "options": [
+   "经验回放",
+   "目标网络",
+   "奖励裁剪",
+   "Dropout"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "分别解决样本相关、移动靶、奖励尺度问题；Dropout 是正则化技巧。",
+  "type": "multi"
+ },
+ {
+  "id": "mlt170",
+  "note": "MLTheory",
+  "topic": "深挖 生成模型",
+  "question": "下列可缓解 VAE 后验坍缩的有（ ）。",
+  "options": [
+   "KL 退火",
+   "β-VAE",
+   "free-bits",
+   "增大判别器容量"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "后验坍缩指 q(z|x)=p(z)、隐变量被忽略；判别器属于 GAN 范畴。",
+  "type": "multi"
+ },
+ {
+  "id": "mlt171",
+  "note": "MLTheory",
+  "topic": "深挖 生成模型",
+  "question": "下列基于可逆变换、可计算精确似然的有（ ）。",
+  "options": [
+   "RealNVP 耦合层",
+   "Glow 的 1×1 可逆卷积",
+   "一般归一化流",
+   "GAN"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "GAN 无显式似然；VAE/扩散只有下界。",
+  "type": "multi"
+ },
+ {
+  "id": "mlt172",
+  "note": "MLTheory",
+  "topic": "深挖 统计优化",
+  "question": "下列推导中出现二阶信息（Hessian 或二阶梯度）的有（ ）。",
+  "options": [
+   "逻辑回归牛顿法 H=XᵀRX",
+   "XGBoost 的 hᵢ=∂²ℓ/∂ŷ²",
+   "SVM 对偶的解析解",
+   "普通 SGD 的梯度更新"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "SVM 对偶是二次规划（目标含二次项）；SGD 只用一阶梯度。",
+  "type": "multi"
+ },
+ {
+  "id": "mlt173",
+  "note": "MLTheory",
+  "topic": "深挖 生成模型",
+  "question": "GAN 在最优判别器下的目标值为 −2log2，约等于（ ）（保留 4 位小数）。",
+  "options": [],
+  "answer": "-1.3863",
+  "explanation": "2·JS(p_data‖p_g)−2log2，最优时 JS=0。",
+  "type": "fill"
+ },
+ {
+  "id": "mlt174",
+  "note": "MLTheory",
+  "topic": "深挖 生成模型",
+  "question": "扩散模型中若 αₜ≡0.9，则 ᾱ₃ =（ ）。",
+  "options": [],
+  "answer": "0.729",
+  "explanation": "ᾱₜ=Παₛ：0.9 → 0.81 → 0.729。",
+  "type": "fill"
+ },
+ {
+  "id": "mlt175",
+  "note": "MLTheory",
+  "topic": "深挖 生成模型",
+  "question": "某归一化流耦合层输出 s=(0.2,−0.3,0.5)，其 log|det J| =（ ）。",
+  "options": [],
+  "answer": "0.4",
+  "explanation": "Σs=0.4；|det J|=e^0.4≈1.4918。",
+  "type": "fill"
+ },
+ {
+  "id": "mlt176",
+  "note": "MLTheory",
+  "topic": "深挖 强化学习",
+  "question": "两状态 MDP（V(s₁)=1+0.9V(s₂)、V(s₂)=0.45V(s₁)）的最优 V(s₁) 约为（ ）（保留 4 位小数）。",
+  "options": [],
+  "answer": "1.6807",
+  "explanation": "V(s₁)=1/(1−0.9×0.45)=1/0.595≈1.6807。",
+  "type": "fill"
+ },
+ {
+  "id": "mlt177",
+  "note": "MLTheory",
+  "topic": "深挖 生成模型",
+  "question": "扩散前向 x₀=2、ε=0.5、t=3、ᾱ₃=0.729 时，x₃ 约为（ ）（保留 4 位小数）。",
+  "options": [],
+  "answer": "1.9679",
+  "explanation": "√0.729×2+√(1−0.729)×0.5≈1.9679。",
+  "type": "fill"
+ },
+ {
+  "id": "mlt178",
+  "note": "MLTheory",
+  "topic": "深挖 偏差方差",
+  "question": "证明题：从 E[(y−f̂)²] 出发证明平方损失下 Err(x)=Bias²(f̂)+Var(f̂)+σ²，并说明前提。",
+  "options": [],
+  "answer": "设 y=f(x)+ε，E[ε]=0、Var(ε)=σ²，ε 与 f̂ 独立。E[(f+ε−f̂)²]=E[(f−f̂)²]+2E[(f−f̂)ε]+E[ε²]=E[(f−f̂)²]+σ²（交叉项为 0）。再插入 ±E f̂：E[(f−f̂)²]=E[((f−E f̂)+(E f̂−f̂))²]=(f−E f̂)²+E[(f̂−E f̂)²]+2(f−E f̂)E[E f̂−f̂]=(Bias)²+Var（末项因 E[E f̂−f̂]=0 而消失）。故 Err=Bias²+Var+σ²。",
+  "explanation": "前提：平方损失、噪声零均值且与估计独立；该分解对 0-1 损失或交叉熵不严格成立。",
+  "type": "essay"
+ },
+ {
+  "id": "mlt179",
+  "note": "MLTheory",
+  "topic": "深挖 统计优化",
+  "question": "推导题：从 Bernoulli 标签似然推导二元交叉熵，并求 ∇_w L 与 Hessian。",
+  "options": [],
+  "answer": "设 ŷ=σ(wᵀx)，p(y|x)=ŷ^y(1−ŷ)^{1−y}。负对数似然 −log p=−[y log ŷ+(1−y)log(1−ŷ)]，即二元交叉熵。因 σ′=ŷ(1−ŷ)，链式法则消去得 ∇_w L=(ŷ−y)x；矩阵形式 ∇L=Xᵀ(ŷ−y)。二阶：H=XᵀRX，R=diag(ŷᵢ(1−ŷᵢ))，半正定，故目标凸。",
+  "explanation": "线性回归 MSE 同理来自高斯噪声假设；损失由标签噪声模型决定。",
+  "type": "essay"
+ },
+ {
+  "id": "mlt180",
+  "note": "MLTheory",
+  "topic": "深挖 统计优化",
+  "question": "计算题：单样本 x=1、y=1、w₀=0，写出逻辑回归一步牛顿更新并与 η=0.1 的梯度下降对比。",
+  "options": [],
+  "answer": "ŷ=σ(0)=0.5；∇L=(0.5−1)×1=−0.5；H=ŷ(1−ŷ)x²=0.25；w₁=0−(−0.5)/0.25=2.0。梯度下降 w₁=0−0.1×(−0.5)=0.05。牛顿法按曲率自动缩放步长，一步接近最优，但每步需求 O(d³) 的 Hessian 逆，高维仍以一阶方法为主。",
+  "explanation": "数据线性可分时 ‖w‖→∞、MLE 无有限解，必须加正则。",
+  "type": "essay"
+ },
+ {
+  "id": "mlt181",
+  "note": "MLTheory",
+  "topic": "深挖 核与SVM",
+  "question": "推导题：从 SVM 原问题的拉格朗日函数推导对偶问题，并写出 KKT 互补松弛的推论。",
+  "options": [],
+  "answer": "L(w,b,α)=½‖w‖²−Σαᵢ[yᵢ(wᵀxᵢ+b)−1]，αᵢ≥0。∂L/∂w=0 ⇒ w=Σαᵢyᵢxᵢ；∂L/∂b=0 ⇒ Σαᵢyᵢ=0。代回并消去 w,b 得对偶 max_α Σαᵢ−½Σᵢⱼαᵢαⱼyᵢyⱼxᵢᵀxⱼ，s.t. αᵢ≥0、Σαᵢyᵢ=0；把内积换成 k(xᵢ,xⱼ) 即核 SVM。KKT 互补条件 αᵢ[yᵢfᵢ−1]=0 ⇒ 仅约束取等的样本可能 αᵢ>0，即支持向量决定解（稀疏性）；偏置 b 由任一 0<αᵢ<C 的支持向量解出。",
+  "explanation": "软间隔时约束再加 αᵢ≤C，αᵢ=C 的点包括间隔内或错分样本。",
+  "type": "essay"
+ },
+ {
+  "id": "mlt182",
+  "note": "MLTheory",
+  "topic": "深挖 核与SVM",
+  "question": "证明题：说明 hinge 损失形式与软间隔 SVM 的等价性，并解释 SVM 解为何稀疏。",
+  "options": [],
+  "answer": "软间隔原问题 min ½‖w‖²+CΣξᵢ s.t. yᵢfᵢ≥1−ξᵢ, ξᵢ≥0；对每个样本最优 ξᵢ=max(0,1−yᵢfᵢ)，代入得无约束形式 min ½‖w‖²+CΣmax(0,1−yᵢfᵢ)。当 yᵢfᵢ≥1（正确分类且在间隔外）时 hinge 损失与次梯度恒为 0，故这些样本对目标与解无贡献；只有 yᵢfᵢ<1 的支持向量参与优化，这从损失角度解释了稀疏性（交叉熵对所有样本都有梯度，逻辑回归不稀疏）。",
+  "explanation": "C→∞ 逼近硬间隔；L2-SVM 用平方 hinge 使目标处处可导。",
+  "type": "essay"
+ },
+ {
+  "id": "mlt183",
+  "note": "MLTheory",
+  "topic": "深挖 核与SVM",
+  "question": "简答题：为什么 SMO 必须每次同时优化两个拉格朗日乘子？写出其解析求解思路。",
+  "options": [],
+  "answer": "对偶有等式约束 Σαᵢyᵢ=0：若只动一个 αᵢ，其余固定时该等式强制 αᵢ 不变，故无法优化。选两个 αᵢ、αⱼ 后可用约束把 αⱼ 表示成 αᵢ 的线性函数，代入对偶目标得单变量二次函数，令导数为 0 求无约束极值，再裁剪到 [0,C]（软间隔）可行域，随后更新 b 与误差缓存；按 KKT 违反程度挑选下一对，循环至收敛。",
+  "explanation": "这是约束导致的必然，不是可选的加速技巧。",
+  "type": "essay"
+ },
+ {
+  "id": "mlt184",
+  "note": "MLTheory",
+  "topic": "深挖 集成学习",
+  "question": "推导题：证明 AdaBoost 的 αₜ=½ln((1−εₜ)/εₜ) 与样本权重更新式。",
+  "options": [],
+  "answer": "把 AdaBoost 视作指数损失 L=Σexp(−yᵢf(xᵢ)) 上的前向分步加法模型 f=Σαₜhₜ。第 t 轮固定 f_{t−1}，令 wᵢ=exp(−yᵢf_{t−1})，目标 Σwᵢexp(−α yᵢh(xᵢ))。① 固定 α，最小化该式等价于选加权错误率最小的 hₜ，记 εₜ=Σ_{mis}wᵢ/Σwᵢ。② 固定 hₜ 对 α 求导：−(1−εₜ)e^{−α}+εₜe^{α}=0 ⇒ αₜ=½ln((1−εₜ)/εₜ)。③ 由 fₜ=f_{t−1}+αₜhₜ 得 wᵢ←wᵢexp(−αₜyᵢhₜ(xᵢ)) 后归一化：错分样本权重升高、正确样本降低。",
+  "explanation": "εₜ=0.5 ⇒ αₜ=0；εₜ>0.5 应停止或取反。指数损失对错分样本惩罚随 e^{|f|} 增长，故 AdaBoost 对噪声敏感。",
+  "type": "essay"
+ },
+ {
+  "id": "mlt185",
+  "note": "MLTheory",
+  "topic": "深挖 集成学习",
+  "question": "计算题：XGBoost 中 G_L=−2,H_L=2、G_R=3,H_R=2、λ=1、γ=0，推导分裂增益公式并求值与叶权重。",
+  "options": [],
+  "answer": "对损失二阶泰勒展开：Obj≈Σ[gᵢf_t(xᵢ)+½hᵢf_t²]+Ω(f)，Ω=γT+½λ‖w‖²。固定树结构对叶权重求极值 ⇒ w*_j=−G_j/(H_j+λ)。代入得最优目标 −½ΣG_j²/(H_j+λ)+γT，故分裂增益 Gain=½[G_L²/(H_L+λ)+G_R²/(H_R+λ)−(G_L+G_R)²/(H_L+H_R+λ)]−γ。本例 G=1,H=4：Gain=½[4/3+9/3−1/5]=½[1.3333+3−0.2]≈2.0667>0，值得分裂；w*_L=2/3≈0.6667、w*_R=−3/3=−1.0。",
+  "explanation": "γ 为分裂最小收益门槛，起预剪枝作用。",
+  "type": "essay"
+ },
+ {
+  "id": "mlt186",
+  "note": "MLTheory",
+  "topic": "深挖 无监督",
+  "question": "证明题：证明「PCA 最大化投影方差」与「最小化重构误差」等价，并给出最小重构误差。",
+  "options": [],
+  "answer": "设中心化数据协方差 S=(1/N)XᵀX。视角 A：max_{‖w‖=1} wᵀSw，拉格朗日 L=wᵀSw−λ(wᵀw−1)，∂L/∂w=2Sw−2λw=0 ⇒ Sw=λw，故 w 为 S 的特征向量，目标值 wᵀSw=λ，取最大特征值。视角 B：把 x 投影到 w 再还原，重构误差 min‖X−Xwwᵀ‖²_F=tr(S)−wᵀSw，等价于最大化 wᵀSw。二者同解：最优 m 维子空间由 S 的前 m 个特征向量张成（Eckart–Young），最小重构误差为 Σ_{j>m}λⱼ。",
+  "explanation": "特征值 λ=(2.4,0.9,0.5,0.2) 时取前 2 个累计 82.5%，丢弃部分 0.7 占 17.5%。",
+  "type": "essay"
+ },
+ {
+  "id": "mlt187",
+  "note": "MLTheory",
+  "topic": "深挖 无监督",
+  "question": "推导+计算题：写出 GMM 的 EM 更新式；并对 π=(0.5,0.5)、μ=(0,4)、σ=1、x=1 求责任度。",
+  "options": [],
+  "answer": "完全数据对数似然 ΣₙΣₖ zₙₖ[log πₖ+log N(xₙ|μₖ,Σₖ)]；E 步用 γₙₖ=E[zₙₖ]=πₖN(xₙ|μₖ,Σₖ)/ΣⱼπⱼN(...) 替代 zₙₖ。M 步对 μₖ 求导得 μₖ=Σγₙₖxₙ/Nₖ，对 Σₖ 求导得 Σₖ=Σγₙₖ(xₙ−μₖ)(xₙ−μₖ)ᵀ/Nₖ，带 Σπ=1 约束得 πₖ=Nₖ/N，Nₖ=Σγₙₖ。数值：π₁N(1|0,1)=0.12099、π₂N(1|4,1)=0.00222 → γ₁≈0.9820、γ₂≈0.0180（软分配）。",
+  "explanation": "EM 只保证似然单调不降并收敛到局部极大，需多次重启与协方差正则。",
+  "type": "essay"
+ },
+ {
+  "id": "mlt188",
+  "note": "MLTheory",
+  "topic": "深挖 强化学习",
+  "question": "计算+证明题：写出值迭代递推式；对两状态 MDP（V(s₁)=1+0.9V(s₂)、V(s₂)=0.45V(s₁)）迭代 3 轮并求解析解，说明收敛依据。",
+  "options": [],
+  "answer": "值迭代 V_{k+1}(s)=maxₐΣ_{s′}P(s′|s,a)[R+γV_k(s′)]。从 V₀=(0,0)：k=1 (1.00000, 0)；k=2 (1.00000, 0.45000)；k=3 (1.40500, 0.45000)；继续 k=4 (1.40500, 0.63225)、k=5 (1.56902, 0.63225)。解析：V(s₁)=1+0.9×0.45V(s₁) ⇒ V(s₁)=1/0.595≈1.6807，V(s₂)≈0.7563。收敛依据：γ<1 时贝尔曼最优算子为 γ-压缩映射，由 Banach 不动点定理从任意初值收敛到唯一 V*，误差按 γᵏ 衰减。",
+  "explanation": "策略迭代的评估须迭代到收敛，值迭代只做一步并取 max。",
+  "type": "essay"
+ },
+ {
+  "id": "mlt189",
+  "note": "MLTheory",
+  "topic": "深挖 强化学习",
+  "question": "简答题：比较 MC 与 TD(0) 的偏差/方差与适用条件，并说明 TD(λ) 的作用。",
+  "options": [],
+  "answer": "MC 用完整回合的实际回报 Gₜ 作目标：无偏、方差大、须回合终止、不能在线；TD(0) 用 R+γV̂(Sₜ₊₁) 自举：因目标含估计而有偏、方差小、可逐步在线更新、适用持续性任务。TD(λ) 用资格迹在二者间插值：λ=0 为单步 TD、λ=1 近似 MC，实践 λ∈[0.8,0.95] 常取得更低误差。",
+  "explanation": "轨迹 s₀→s₁→终止（r=0,1；γ=0.9；V(s₁)=0.5）：s₁ 处 TD 目标=1、δ=0.5；s₀ 处 TD 目标=0+0.9×0.5=0.45；MC 对 s₀ 用 G=0.9。",
+  "type": "essay"
+ },
+ {
+  "id": "mlt190",
+  "note": "MLTheory",
+  "topic": "深挖 强化学习",
+  "question": "简答题：写出 DQN 的损失函数，并说明三项稳定化机制各自解决什么问题。",
+  "options": [],
+  "answer": "L(w)=E_{(s,a,r,s′)~D}[(r+γmaxₐ′Q(s′,a′;w⁻)−Q(s,a;w))²]，w⁻ 为目标网络参数、不回传梯度。① 经验回放：随机小批量采样打破连续样本相关性、提高数据复用；② 目标网络：每 C 步同步一次，固定 TD 目标避免「移动靶」；③ 奖励裁剪/Huber：把奖励压到 [−1,1]、稳定梯度尺度。改进：Double DQN 解耦动作选择与估值以缓解 max 高估，Dueling 拆分 V+A，优先回放按 |δ| 采样。",
+  "explanation": "目标网络参数参与梯度回传会使目标随参数漂移，这是常见实现错误。",
+  "type": "essay"
+ },
+ {
+  "id": "mlt191",
+  "note": "MLTheory",
+  "topic": "深挖 强化学习",
+  "question": "推导题：用 log-derivative trick 推导策略梯度定理，并证明减去只依赖状态的基线不改变期望。",
+  "options": [],
+  "answer": "J(θ)=E_{π}[ΣγᵗR]。由 ∇π=π∇logπ，∇J=E_{π}[Σ_t ∇log π_θ(A_t|S_t)·Q^π(S_t,A_t)]；把 Q 换成优势 A=Q−V(s) 可降方差。对任意只依赖 s 的基线 b(s)：E[∇logπ·b(s)]=b(s)Σ_a ∇π(a|s)=b(s)∇Σ_a π(a|s)=b(s)∇1=0，故减去 b(s) 不改变梯度期望；若 b 依赖动作则该等式不成立、会引入偏差。",
+  "explanation": "REINFORCE 用 Gₜ 方差大；Actor-Critic 用 Critic 估 V 提供优势；PPO 裁剪概率比限制更新幅度。",
+  "type": "essay"
+ },
+ {
+  "id": "mlt192",
+  "note": "MLTheory",
+  "topic": "深挖 生成模型",
+  "question": "推导题：用 Jensen 不等式推导 VAE 的 ELBO，说明何时取等，并解释重参数技巧为何必要。",
+  "options": [],
+  "answer": "log p_θ(x)=log∫q(z|x)[p_θ(x|z)p(z)/q(z|x)]dz=log E_q[...] ≥ E_q[log p_θ(x|z)]−D_KL(q_φ(z|x)‖p(z))≜ELBO（Jensen，log 凹）。等价形式 log p=ELBO+D_KL(q‖p_θ(z|x))，故 q=p_θ(z|x) 时 KL=0、界取等（与 EM 的 E 步同源）。直接对 z~q_φ 采样无法把梯度传回 φ；重参数化 z=μ_φ(x)+σ_φ(x)⊙ε（ε~N(0,I)）把随机性移到无参数噪声，使 ∇_φ E_q[log p_θ(x|z)]=E_ε[∇_φ log p_θ(x|μ+σ⊙ε)] 可计算。",
+  "explanation": "课件 M=100,L=1 即每批 100 样本、每样本 1 次 MC 采样。KL 方向固定为 q‖p，交换会改变目标。",
+  "type": "essay"
+ },
+ {
+  "id": "mlt193",
+  "note": "MLTheory",
+  "topic": "深挖 生成模型",
+  "question": "推导题：固定 G 求 GAN 最优判别器 D*，代入目标并说明与 JS 散度的关系及梯度消失原因。",
+  "options": [],
+  "answer": "V(D,G)=∫p_data log D+∫p_g log(1−D)。对 D(x) 逐点求导令零：p_data/D−p_g/(1−D)=0 ⇒ D*=p_data/(p_data+p_g)。代回：V(D*,G)=2·JS(p_data‖p_g)−2log2。JS≥0 且在 p_g=p_data 时为 0，故全局最优 D*=0.5、V=−2log2≈−1.3863。当两分布支撑集不重叠（高维图像常见）时 JS 恒为 log2、对 G 的梯度为 0 → 生成器收不到信号；WGAN 改用 Wasserstein 距离（1-Lipschitz 约束）提供平滑梯度。",
+  "explanation": "模式崩塌与梯度消失是不同失败模式；前者是多样性缺失，后者是目标函数饱和。",
+  "type": "essay"
+ },
+ {
+  "id": "mlt194",
+  "note": "MLTheory",
+  "topic": "深挖 生成模型",
+  "question": "计算+推导题：写出扩散模型前向的闭式 q(xₜ|x₀) 与简化训练目标，并计算 α≡0.9、x₀=2、ε=0.5、t=3 时的 x₃。",
+  "options": [],
+  "answer": "前向 q(xₜ|xₜ₋₁)=N(√αₜxₜ₋₁,(1−αₜ)I)；由高斯可加性得 ᾱₜ=Παₛ、q(xₜ|x₀)=N(√ᾱₜx₀,(1−ᾱₜ)I)，即 xₜ=√ᾱₜx₀+√(1−ᾱₜ)ε。训练网络 ε_θ 预测噪声，简化目标 L_simple=E_{t,x₀,ε}‖ε−ε_θ(xₜ,t)‖²；反向均值 μ_θ=(1/√αₜ)[xₜ−(1−αₜ)/√(1−ᾱₜ)·ε_θ]。数值：ᾱ₃=0.9³=0.729 → x₃=√0.729×2+√(1−0.729)×0.5≈1.7076+0.2603≈1.9679。",
+  "explanation": "ᾱ=(0.9,0.81,0.729,0.6561,0.5905) 递减，t→∞ 时趋于 N(0,I)；DDIM 可跳步加速采样。",
+  "type": "essay"
+ },
+ {
+  "id": "mlt195",
+  "note": "MLTheory",
+  "topic": "深挖 生成模型",
+  "question": "推导+计算题：写出归一化流的密度变换公式与耦合层结构，说明为何计算高效；若 s=(0.2,−0.3,0.5) 求 log|det J|。",
+  "options": [],
+  "answer": "设 z=f_θ(x) 可逆，p_X(x)=p_Z(f(x))·|det ∂f/∂x|，故 log p_X=log p_Z(z)+log|det J_f|，可直接最大化精确似然。RealNVP 耦合层把 x 切为 (x₁,x₂)：y₁=x₁、y₂=x₂⊙exp(s(x₁))+t(x₁)；Jacobian 为下三角，det J=exp(Σs_i(x₁))，故 log|det J|=Σs=0.4、|det J|≈1.4918，避免 O(d³) 的一般行列式；逆变换 x₂=(y₂−t(y₁))⊙exp(−s(y₁)) 解析可算。",
+  "explanation": "双射要求 z 与 x 同维度，不能任意降维；s 数值过大须 tanh 或裁剪防 exp 溢出。",
+  "type": "essay"
  }
 ]
