@@ -103,6 +103,18 @@ function cleanDescription(text) {
 
 const notes = noteLinks()
 
+// CPA 笔记收进「下拉选单」折叠分组，其余笔记保持扁平
+const isCPA = (n) => n.text.includes('（CPA）')
+const cpaNotes = notes.filter(isCPA)
+const otherNotes = notes.filter((n) => !isCPA(n))
+// 按 CPA 考试试卷顺序整理，便于查阅
+const cpaOrder = ['会计', '审计', '税法', '经济法', '财务成本管理', '公司战略']
+cpaNotes.sort((a, b) => {
+  const ia = cpaOrder.findIndex((k) => a.text.includes(k))
+  const ib = cpaOrder.findIndex((k) => b.text.includes(k))
+  return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib)
+})
+
 export default defineConfig({
   title: '我的知识库',
   description: '笔记与习题测试',
@@ -170,7 +182,20 @@ export default defineConfig({
     ],
     sidebar: [
       // 英语听力已归入笔记板块；链接统一带 .html，和 nav 保持一致
-      { text: '笔记', items: [...notes, { text: '英语听力', link: '/listening.html' }] },
+      {
+        text: '笔记',
+        items: [
+          ...otherNotes,
+          { text: '英语听力', link: '/listening.html' },
+          // 「下拉选单」折叠分组：集中收纳全部 CPA 笔记，点击展开/收起
+          {
+            text: '下拉选单',
+            collapsible: true,
+            collapsed: false,
+            items: cpaNotes
+          }
+        ]
+      },
       {
         text: '练习',
         items: [
