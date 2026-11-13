@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">循环网络、注意力与 Transformer（第 10–11 章）</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① RNN：沿时间展开，参数共享</text>
+  <rect x="30" y="62" width="620" height="52" rx="6" fill="#e0f2fe" stroke="#0284c7"/>
+  <text x="42" y="82" font-size="10.5" fill="#334155">hₜ = φ(W_xh xₜ + W_hh hₜ₋₁ + b)，　yₜ = W_hy hₜ　（同一组 W 在每个时刻复用）</text>
+  <text x="42" y="102" font-size="9.5" fill="#64748b">训练用 BPTT（沿时间反向传播）；序列很长时连乘导致梯度消失/爆炸，难以记住久远信息。</text>
+  <rect x="30" y="120" width="200" height="76" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="130" y="138" text-anchor="middle" font-size="10" font-weight="700" fill="#334155">LSTM</text>
+  <text x="42" y="158" font-size="9" fill="#334155">遗忘门 f、输入门 i、输出门 o</text>
+  <text x="42" y="174" font-size="9" fill="#334155">细胞状态 cₜ 提供线性「传送带」</text>
+  <text x="42" y="190" font-size="9" fill="#64748b">cₜ = f⊙cₜ₋₁ + i⊙g，缓解梯度消失</text>
+  <rect x="240" y="120" width="200" height="76" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="340" y="138" text-anchor="middle" font-size="10" font-weight="700" fill="#334155">GRU</text>
+  <text x="252" y="158" font-size="9" fill="#334155">更新门 z、重置门 r（两门）</text>
+  <text x="252" y="174" font-size="9" fill="#334155">合并细胞状态与隐状态</text>
+  <text x="252" y="190" font-size="9" fill="#64748b">参数更少、训练更快</text>
+  <rect x="450" y="120" width="200" height="76" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="550" y="138" text-anchor="middle" font-size="10" font-weight="700" fill="#334155">自编码器 AE</text>
+  <text x="462" y="158" font-size="9" fill="#334155">编码器压成低维 z，解码器重构 x</text>
+  <text x="462" y="174" font-size="9" fill="#334155">自监督：重构损失 ‖x−x̂‖²</text>
+  <text x="462" y="190" font-size="9" fill="#64748b">降维/去噪/生成模型的雏形</text>
+
+  <text x="30" y="220" font-size="12" font-weight="700" fill="#334155">② 注意力机制：让解码器「回头看」全部位置</text>
+  <rect x="30" y="230" width="620" height="56" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="340" y="250" text-anchor="middle" font-size="11" font-weight="700" fill="#1e3a8a">Attention(Q, K, V) = softmax(QKᵀ / √d_k) · V</text>
+  <text x="42" y="270" font-size="9.5" fill="#334155">Q（查询）× K（键）得相关分数 → 缩放防 softmax 饱和 → 归一化成权重 → 对 V（值）加权求和。</text>
+  <text x="42" y="282" font-size="9" fill="#64748b">除以 √d_k 是因为维度高时点积方差变大，会把 softmax 推入梯度极小的饱和区。</text>
+
+  <text x="30" y="310" font-size="12" font-weight="700" fill="#334155">③ Transformer（课件 Part-3，Repeat × L=12）</text>
+  <rect x="30" y="320" width="620" height="60" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="42" y="340" font-size="10" fill="#334155">结构：输入嵌入 + 位置编码 → N 个编码器块（多头自注意力 + FFN，各带残差与 LayerNorm）→ 解码器（带掩码自注意力 + 交叉注意力）。</text>
+  <text x="42" y="358" font-size="10" fill="#334155">多头注意力把 Q/K/V 投影到 h 个子空间并行计算后拼接；彻底抛弃循环，可并行训练、捕捉长程依赖。</text>
+  <text x="42" y="374" font-size="9" fill="#64748b">自注意力复杂度 O(n²) 随序列长度平方增长；位置编码（正弦/可学习/RoPE）补足顺序信息。</text>
+
+  <text x="30" y="394" font-size="10" fill="#64748b">易错：RNN 不能并行（依赖上一步），Transformer 能并行但需显式位置编码；解码器掩码是为了防止「看到未来词」造成泄露。</text>
+</svg>

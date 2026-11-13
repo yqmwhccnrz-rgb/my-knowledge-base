@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">集成学习：Bagging / 随机森林 与 Boosting（第 7 章）</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 两条路线的根本差别</text>
+  <rect x="30" y="62" width="300" height="112" rx="6" fill="#e0f2fe" stroke="#0284c7"/>
+  <text x="180" y="80" text-anchor="middle" font-size="10.5" font-weight="700" fill="#075985">Bagging（并行、降方差）</text>
+  <text x="42" y="100" font-size="9.5" fill="#334155">Bootstrap 有放回抽样 → 各训一个基学习器</text>
+  <text x="42" y="118" font-size="9.5" fill="#334155">分类投票 / 回归平均，彼此独立可并行</text>
+  <text x="42" y="136" font-size="9.5" fill="#334155">基学习器要「强且不稳定」（深决策树）</text>
+  <text x="42" y="154" font-size="9.5" fill="#334155">随机森林再加「随机选特征」进一步去相关</text>
+  <text x="42" y="170" font-size="9" fill="#64748b">可用 OOB 袋外样本做无偏误差估计</text>
+  <rect x="342" y="62" width="308" height="112" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="496" y="80" text-anchor="middle" font-size="10.5" font-weight="700" fill="#166534">Boosting（串行、降偏差）</text>
+  <text x="354" y="100" font-size="9.5" fill="#334155">逐个训练弱学习器，每个关注前面分错的样本</text>
+  <text x="354" y="118" font-size="9.5" fill="#334155">AdaBoost：调样本权重；GBDT：拟合残差/负梯度</text>
+  <text x="354" y="136" font-size="9.5" fill="#334155">最终加权组合：F(x)=Σ αₜ hₜ(x)</text>
+  <text x="354" y="154" font-size="9.5" fill="#334155">基学习器要「弱但优于随机」（浅树/树桩）</text>
+  <text x="354" y="170" font-size="9" fill="#64748b">不能并行；对噪声与异常值较敏感</text>
+
+  <text x="30" y="198" font-size="12" font-weight="700" fill="#334155">② AdaBoost 的权重更新（课件第 7 讲）</text>
+  <rect x="30" y="208" width="620" height="58" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="228" font-size="10.5" fill="#334155">第 t 轮弱分类器加权错误率 εₜ → 分类器权重 αₜ = ½ ln((1−εₜ)/εₜ)（εₜ &lt; 0.5 时 αₜ &gt; 0）</text>
+  <text x="42" y="248" font-size="10.5" fill="#334155">样本权重 wᵢ ← wᵢ·exp(−αₜ yᵢ hₜ(xᵢ)) 后归一化：错分样本权重升高、正确样本降低</text>
+  <text x="42" y="262" font-size="9" fill="#64748b">GBDT 等价视角：每一轮拟合当前模型损失函数的负梯度（伪残差），XGBoost 再加二阶泰勒、正则项与列采样。</text>
+
+  <text x="30" y="290" font-size="12" font-weight="700" fill="#334155">③ 工作例题（εₜ = 0.3）</text>
+  <rect x="30" y="300" width="620" height="44" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="42" y="318" font-size="10" fill="#334155">αₜ = ½ ln(0.7/0.3) = ½ ln(2.3333) ≈ 0.4236；错分样本权重乘 e^{0.4236} ≈ 1.5275，正确样本乘 e^{−0.4236} ≈ 0.6547。</text>
+  <text x="42" y="336" font-size="10" fill="#334155">εₜ=0.5（随机猜测）→ αₜ=0，该分类器无贡献；εₜ&gt;0.5 应停止或取反。</text>
+
+  <text x="30" y="368" font-size="12" font-weight="700" fill="#334155">④ 算法谱系对照</text>
+  <text x="30" y="386" font-size="10" fill="#334155">Bagging → 随机森林（RF） → ExtraTrees；AdaBoost → GBDT → XGBoost / LightGBM / CatBoost；Stacking 用元学习器组合异构模型。</text>
+  <text x="30" y="398" font-size="9.5" fill="#64748b">易错：RF 不需要交叉验证即可用 OOB 估误差；Boosting 降低偏差但训练久；集成并不总能提升，基学习器需「有差异且各自优于随机」。</text>
+</svg>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">分类学习：三种基本模型与代表性算法（第 4 章）</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 分类问题的三种建模路线</text>
+  <rect x="30" y="62" width="200" height="84" rx="6" fill="#e0f2fe" stroke="#0284c7"/>
+  <text x="130" y="80" text-anchor="middle" font-size="10.5" font-weight="700" fill="#075985">判决函数模型</text>
+  <text x="42" y="100" font-size="9.5" fill="#334155">直接学 f(x) → 类别标签</text>
+  <text x="42" y="118" font-size="9.5" fill="#334155">感知机、SVM、KNN、决策树</text>
+  <text x="42" y="136" font-size="9" fill="#64748b">不输出概率，边界由判别函数定</text>
+  <rect x="240" y="62" width="200" height="84" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="340" y="80" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">判别式概率模型</text>
+  <text x="252" y="100" font-size="9.5" fill="#334155">直接建模 p(Cₖ|x)</text>
+  <text x="252" y="118" font-size="9.5" fill="#334155">逻辑回归、softmax 回归</text>
+  <text x="252" y="136" font-size="9" fill="#64748b">输出后验概率，可给置信度</text>
+  <rect x="450" y="62" width="200" height="84" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="550" y="80" text-anchor="middle" font-size="10.5" font-weight="700" fill="#166534">生成式模型</text>
+  <text x="462" y="100" font-size="9.5" fill="#334155">建模 p(x|Cₖ) 与 p(Cₖ)</text>
+  <text x="462" y="118" font-size="9.5" fill="#334155">朴素贝叶斯、LDA、GMM</text>
+  <text x="462" y="136" font-size="9" fill="#64748b">用贝叶斯公式反推后验，可生成样本</text>
+
+  <text x="30" y="170" font-size="12" font-weight="700" fill="#334155">② 逻辑回归与 softmax（课件第 4、8 讲）</text>
+  <rect x="30" y="180" width="620" height="58" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="200" font-size="10.5" fill="#334155">二分类：p(y=1|x) = σ(wᵀx) = 1/(1+exp(−wᵀx))；σ 为 sigmoid，把线性得分压到 (0,1)</text>
+  <text x="42" y="220" font-size="10.5" fill="#334155">损失为交叉熵（负对数似然）：L = −Σᵢ[yᵢ log ŷᵢ + (1−yᵢ)log(1−ŷᵢ)]；∇L = Xᵀ(ŷ−y)</text>
+  <text x="42" y="234" font-size="9" fill="#64748b">多分类：softmax p(Cₖ|x)=exp(aₖ)/Σⱼexp(aⱼ)，损失 −Σ log p(真实类|x)。</text>
+
+  <text x="30" y="262" font-size="12" font-weight="700" fill="#334155">③ 常见分类器对照</text>
+  <rect x="30" y="272" width="152" height="72" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="106" y="290" text-anchor="middle" font-size="10" font-weight="700" fill="#334155">KNN</text>
+  <text x="40" y="308" font-size="9" fill="#334155">近邻投票，无训练过程</text>
+  <text x="40" y="324" font-size="9" fill="#334155">须定 K 与距离度量、标准化</text>
+  <text x="40" y="338" font-size="9" fill="#64748b">预测慢、高维失效</text>
+  <rect x="190" y="272" width="152" height="72" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="266" y="290" text-anchor="middle" font-size="10" font-weight="700" fill="#334155">朴素贝叶斯</text>
+  <text x="200" y="308" font-size="9" fill="#334155">假设特征条件独立</text>
+  <text x="200" y="324" font-size="9" fill="#334155">p(C|x) ∝ p(C)Πp(xⱼ|C)</text>
+  <text x="200" y="338" font-size="9" fill="#64748b">需平滑防零概率</text>
+  <rect x="350" y="272" width="152" height="72" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="426" y="290" text-anchor="middle" font-size="10" font-weight="700" fill="#334155">感知机</text>
+  <text x="360" y="308" font-size="9" fill="#334155">y = sgn(wᵀx)，误分类时</text>
+  <text x="360" y="324" font-size="9" fill="#334155">w ← w + η·yᵢxᵢ</text>
+  <text x="360" y="338" font-size="9" fill="#64748b">仅线性可分才收敛</text>
+  <rect x="510" y="272" width="140" height="72" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="580" y="290" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">LDA</text>
+  <text x="520" y="308" font-size="9" fill="#92400e">同类样本高斯、同协方差</text>
+  <text x="520" y="324" font-size="9" fill="#92400e">投影使类间/类内比最大</text>
+  <text x="520" y="338" font-size="9" fill="#64748b">得线性决策边界</text>
+
+  <text x="30" y="368" font-size="10.5" fill="#334155">工作例题：wᵀx=0 时 σ(0)=0.5 为决策边界；wᵀx=2 时 σ(2)=1/(1+e⁻²)≈0.881，判为正类。</text>
+  <text x="30" y="386" font-size="10" fill="#64748b">易错：逻辑回归是「分类」不是「回归」；softmax 输出和为 1；生成式与判别式的差别在是否建模 p(x)，不是能否输出概率。</text>
+</svg>

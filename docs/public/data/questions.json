@@ -51444,5 +51444,1998 @@
   "answer": "① 业务理解：明确目标（提升复购/客单价），定义 GMV、复购率、客单价与评价方式；② 数据理解：核对字段口径、时间范围、缺失与异常、地区/品类分布；③ 数据准备：去重、金额单位统一、日期解析，派生「年月」「是否复购」与用户聚合表；④ 建模：描述统计与透视（地区×品类）、月度 GMV 时序分析、RFM 或 K-means 用户分群；⑤ 评估：分群用轮廓系数与业务可解释性，预测用时间序列切分的样本外误差；⑥ 部署与伦理：输出分群名单、监控指标、个人信息脱敏，避免把相关关系当因果结论。",
   "explanation": "评分要点：流程完整、预处理不泄露、时序用前向切分、聚类不用准确率、注明隐私与因果边界。",
   "type": "essay"
+ },
+ {
+  "id": "mlt1",
+  "note": "MLTheory",
+  "topic": "第1章 导论",
+  "question": "按反馈信号划分，K 均值聚类属于（ ）。",
+  "options": [
+   "无监督学习",
+   "监督学习",
+   "强化学习",
+   "半监督学习"
+  ],
+  "answer": 0,
+  "explanation": "只有特征 x、无标签 y，目标是发现数据内在结构。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt2",
+  "note": "MLTheory",
+  "topic": "第1章 导论",
+  "question": "偏差-方差分解 Err(x)=Bias²+Var+σ² 中，σ² 表示（ ）。",
+  "options": [
+   "模型偏差",
+   "数据本身不可约的噪声",
+   "训练误差",
+   "优化误差"
+  ],
+  "answer": 1,
+  "explanation": "噪声项无法通过任何模型消除，构成泛化误差下界。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt3",
+  "note": "MLTheory",
+  "topic": "第1章 导论",
+  "question": "没有免费午餐定理（NFL）说明（ ）。",
+  "options": [
+   "简单模型总是更好",
+   "深度网络总是更好",
+   "不存在对所有问题都最优的学习算法",
+   "样本越多越不需要选模型"
+  ],
+  "answer": 2,
+  "explanation": "算法优劣必须相对于具体数据分布与归纳偏好来评价。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt4",
+  "note": "MLTheory",
+  "topic": "第1章 导论",
+  "question": "经验风险与期望风险的差别是（ ）。",
+  "options": [
+   "两者完全相同",
+   "前者一定小于后者",
+   "后者可直接精确计算",
+   "前者是训练集上的平均损失，后者是真实分布下的期望损失"
+  ],
+  "answer": 3,
+  "explanation": "学习算法最小化可计算的经验风险，目标是减小不可计算的期望风险。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt5",
+  "note": "MLTheory",
+  "topic": "第1章 导论",
+  "question": "Bagging 类集成方法主要降低（ ）。",
+  "options": [
+   "方差",
+   "偏差",
+   "噪声",
+   "训练时间"
+  ],
+  "answer": 0,
+  "explanation": "对多个高方差基模型求平均可降方差；Boosting 串行纠错主要降偏差。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt6",
+  "note": "MLTheory",
+  "topic": "第1章 导论",
+  "question": "结构风险最小化在经验风险之外额外加入（ ）。",
+  "options": [
+   "更多的训练样本",
+   "控制模型复杂度的正则项 Ω(f)",
+   "更大的学习率",
+   "额外的标签列"
+  ],
+  "answer": 1,
+  "explanation": "R̂(f)+λΩ(f)；Ω 体现偏好简单模型的归纳偏好。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt7",
+  "note": "MLTheory",
+  "topic": "第2章 统计与优化",
+  "question": "贝叶斯公式的正确形式是（ ）。",
+  "options": [
+   "p(θ|D)=p(D|θ)/p(θ)",
+   "p(θ|D)=p(θ)p(D)",
+   "p(θ|D)=p(D|θ)p(θ)/p(D)",
+   "p(θ|D)=p(D|θ)+p(θ)"
+  ],
+  "answer": 2,
+  "explanation": "后验 ∝ 似然 × 先验；分母 p(D) 是归一化证据。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt8",
+  "note": "MLTheory",
+  "topic": "第2章 统计与优化",
+  "question": "最大似然估计 MLE 的目标是（ ）。",
+  "options": [
+   "argmax_θ p(θ)",
+   "argmin_θ Σᵢ(xᵢ−θ)²",
+   "argmax_θ log p(θ|D)",
+   "argmax_θ Σᵢ log p(xᵢ|θ)"
+  ],
+  "answer": 3,
+  "explanation": "视 θ 为未知常数，最大化观测数据的联合似然；取 log 是为了把乘积变求和。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt9",
+  "note": "MLTheory",
+  "topic": "第2章 统计与优化",
+  "question": "高斯分布方差的 MLE 分母是（ ）。",
+  "options": [
+   "N",
+   "N−1",
+   "N−2",
+   "N+1"
+  ],
+  "answer": 0,
+  "explanation": "MLE 得 (1/N)Σ(x−μ̂)²，是有偏估计；无偏样本方差才除以 N−1。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt10",
+  "note": "MLTheory",
+  "topic": "第2章 统计与优化",
+  "question": "关于 KL 散度，正确的是（ ）。",
+  "options": [
+   "是对称的",
+   "非负且不对称，D_KL(p‖q) ≠ D_KL(q‖p)",
+   "满足三角不等式，是距离度量",
+   "可以为负值"
+  ],
+  "answer": 1,
+  "explanation": "p=q 时取 0；非对称且不满足三角不等式，故不是度量。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt11",
+  "note": "MLTheory",
+  "topic": "第2章 统计与优化",
+  "question": "离散均匀分布的熵达到最大，二分类时 H(p) 最大值为（ ）。",
+  "options": [
+   "0 bit",
+   "2 bit",
+   "1 bit",
+   "0.5 bit"
+  ],
+  "answer": 2,
+  "explanation": "p=(0.5,0.5) 时 H=−Σp log₂p=1；确定性分布 H=0。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt12",
+  "note": "MLTheory",
+  "topic": "第2章 统计与优化",
+  "question": "梯度下降的参数更新式是（ ）。",
+  "options": [
+   "w ← w + η·∇_w L(w)",
+   "w ← w − η·L(w)",
+   "w ← η·∇_w L(w)",
+   "w ← w − η·∇_w L(w)"
+  ],
+  "answer": 3,
+  "explanation": "沿负梯度方向下降；η 为学习率，过大发散、过小收敛慢。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt13",
+  "note": "MLTheory",
+  "topic": "第2章 统计与优化",
+  "question": "Adam 优化器默认的一阶动量衰减率 β₁ 是（ ）。",
+  "options": [
+   "0.9",
+   "0.999",
+   "0.001",
+   "0.5"
+  ],
+  "answer": 0,
+  "explanation": "课件推荐 η=0.001、β₁=0.9、β₂=0.999、ε=1e−8。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt14",
+  "note": "MLTheory",
+  "topic": "第2章 统计与优化",
+  "question": "关于凸优化问题，正确的是（ ）。",
+  "options": [
+   "一定存在唯一解",
+   "局部最优解即全局最优解",
+   "不需要考虑学习率",
+   "与初始点无关且必有闭式解"
+  ],
+  "answer": 1,
+  "explanation": "线性回归、逻辑回归、SVM 原问题是凸的；深度网络非凸。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt15",
+  "note": "MLTheory",
+  "topic": "第2章 统计与优化",
+  "question": "最大后验估计 MAP 与 MLE 的关系是（ ）。",
+  "options": [
+   "两者完全等价",
+   "MAP 不需要似然",
+   "MAP 相当于在 MLE 上加 log 先验，等价于带正则的 MLE",
+   "MAP 一定无偏"
+  ],
+  "answer": 2,
+  "explanation": "L2 正则对应高斯先验、L1 对应拉普拉斯先验。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt16",
+  "note": "MLTheory",
+  "topic": "第2章 统计与优化",
+  "question": "KKT 互补松弛条件 αᵢgᵢ(w)=0 的直接推论是（ ）。",
+  "options": [
+   "所有样本 αᵢ 都相等",
+   "αᵢ 恒为 0",
+   "约束全部失效",
+   "只有约束取等的点才可能 αᵢ>0"
+  ],
+  "answer": 3,
+  "explanation": "在 SVM 中即「只有支持向量 αᵢ>0」，这是稀疏性的来源。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt17",
+  "note": "MLTheory",
+  "topic": "第3章 回归学习",
+  "question": "线性回归最小二乘的闭式解是（ ）。",
+  "options": [
+   "w*=(XᵀX)⁻¹Xᵀy",
+   "w*=Xᵀy",
+   "w*=(XXᵀ)⁻¹y",
+   "w*=X⁻¹y"
+  ],
+  "answer": 0,
+  "explanation": "由 ∇_w L=Xᵀ(Xw−y)=0 解出；工程上用 solve/lstsq 而非显式求逆。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt18",
+  "note": "MLTheory",
+  "topic": "第3章 回归学习",
+  "question": "当特征共线导致 XᵀX 奇异时，正确的处理是（ ）。",
+  "options": [
+   "直接删除全部特征",
+   "使用岭回归 (XᵀX+λI)⁻¹ 或伪逆/最小二乘求解",
+   "增大学习率",
+   "把样本数减少"
+  ],
+  "answer": 1,
+  "explanation": "加 λI 使矩阵正定，也是岭回归数值稳定的原因。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt19",
+  "note": "MLTheory",
+  "topic": "第3章 回归学习",
+  "question": "L1 正则（Lasso）最显著的特点是（ ）。",
+  "options": [
+   "系数均匀缩小但不为 0",
+   "一定有闭式解",
+   "产生稀疏解，部分系数恰为 0",
+   "完全不影响偏差"
+  ],
+  "answer": 2,
+  "explanation": "L1 可做特征选择；L2（岭）只缩小系数、不为 0。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt20",
+  "note": "MLTheory",
+  "topic": "第3章 回归学习",
+  "question": "岭回归中 λ 增大时，下列说法正确的是（ ）。",
+  "options": [
+   "系数变大，方差上升",
+   "训练误差一定下降",
+   "模型变得更复杂",
+   "系数向 0 收缩，偏差上升、方差下降"
+  ],
+  "answer": 3,
+  "explanation": "λ 控制偏差-方差权衡，最优值由验证集或交叉验证选取。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt21",
+  "note": "MLTheory",
+  "topic": "第3章 回归学习",
+  "question": "样本 (1,2)、(2,3)，模型 ŷ=wx，w₀=0、η=0.1，一步梯度下降后 w 为（ ）。",
+  "options": [
+   "0.8",
+   "1.6",
+   "−0.8",
+   "0.08"
+  ],
+  "answer": 0,
+  "explanation": "∇L=(0−2)·1+(0−3)·2=−8 → w=0−0.1×(−8)=0.8；闭式解为 1.6。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt22",
+  "note": "MLTheory",
+  "topic": "第3章 回归学习",
+  "question": "多项式回归的实质是（ ）。",
+  "options": [
+   "更换损失函数为交叉熵",
+   "先把特征升维 (x, x², …) 再做线性回归",
+   "改用非线性优化器",
+   "放弃截距项"
+  ],
+  "answer": 1,
+  "explanation": "模型对参数仍线性，故可用同样的最小二乘/正则框架。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt23",
+  "note": "MLTheory",
+  "topic": "第3章 回归学习",
+  "question": "平方损失对异常值的表现是（ ）。",
+  "options": [
+   "很稳健",
+   "完全不受影响",
+   "很敏感，因为误差被平方放大",
+   "只影响截距"
+  ],
+  "answer": 2,
+  "explanation": "工程上可改用 Huber 或 MAE 损失提高稳健性。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt24",
+  "note": "MLTheory",
+  "topic": "第3章 回归学习",
+  "question": "L2 正则在贝叶斯视角下等价于给参数加（ ）。",
+  "options": [
+   "拉普拉斯先验",
+   "均匀先验",
+   "无信息 improper 先验之外的泊松先验",
+   "高斯先验"
+  ],
+  "answer": 3,
+  "explanation": "L1 对应拉普拉斯先验；负 log 先验即正则项。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt25",
+  "note": "MLTheory",
+  "topic": "第3章 回归学习",
+  "question": "关于正则项，正确的是（ ）。",
+  "options": [
+   "通常不含偏置项 b，且自变量须先标准化",
+   "必须包含偏置项",
+   "标准化与否无影响",
+   "只能用于深度网络"
+  ],
+  "answer": 0,
+  "explanation": "量纲不同会让惩罚不公平；偏置一般不加惩罚。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt26",
+  "note": "MLTheory",
+  "topic": "第4章 分类学习",
+  "question": "逻辑回归解决的任务类型是（ ）。",
+  "options": [
+   "回归",
+   "分类（输出属于某类的概率）",
+   "聚类",
+   "降维"
+  ],
+  "answer": 1,
+  "explanation": "名字含「回归」是因为用线性得分，但输出经 sigmoid 后用于分类。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt27",
+  "note": "MLTheory",
+  "topic": "第4章 分类学习",
+  "question": "sigmoid(0) 的值是（ ）。",
+  "options": [
+   "0",
+   "1",
+   "0.5",
+   "0.8808"
+  ],
+  "answer": 2,
+  "explanation": "σ(z)=1/(1+e⁻ᶻ)，z=0 时为 0.5，正是决策边界；σ(2)≈0.8808。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt28",
+  "note": "MLTheory",
+  "topic": "第4章 分类学习",
+  "question": "三分类 logits (2, 1, 0.1) 经 softmax 后约为（ ）。",
+  "options": [
+   "(2, 1, 0.1)",
+   "(0.5, 0.3, 0.2)",
+   "(0.8808, 0.7311, 0.5250)",
+   "(0.6590, 0.2424, 0.0986)"
+  ],
+  "answer": 3,
+  "explanation": "exp 归一后和为 1，预测第 1 类；计算时先减 max 防溢出。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt29",
+  "note": "MLTheory",
+  "topic": "第4章 分类学习",
+  "question": "逻辑回归应使用的损失函数是（ ）。",
+  "options": [
+   "交叉熵（负对数似然）",
+   "均方误差",
+   "hinge 损失",
+   "绝对值损失"
+  ],
+  "answer": 0,
+  "explanation": "平方损失配 sigmoid 非凸且饱和时梯度极小；交叉熵是凸的。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt30",
+  "note": "MLTheory",
+  "topic": "第4章 分类学习",
+  "question": "逻辑回归在交叉熵损失下关于 w 的梯度是（ ）。",
+  "options": [
+   "Xᵀ(y − ŷ)",
+   "Xᵀ(ŷ − y)",
+   "Xᵀ(ŷ − y)⊙σ′",
+   "2Xᵀ(y − ŷ)"
+  ],
+  "answer": 1,
+  "explanation": "sigmoid 与交叉熵配对后 σ′ 恰好消去，形式与线性回归梯度一致。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt31",
+  "note": "MLTheory",
+  "topic": "第4章 分类学习",
+  "question": "下列模型中属于生成式模型的是（ ）。",
+  "options": [
+   "逻辑回归",
+   "SVM",
+   "朴素贝叶斯",
+   "感知机"
+  ],
+  "answer": 2,
+  "explanation": "生成式先建 p(x|C_k) 与 p(C_k)，再用贝叶斯反推后验。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt32",
+  "note": "MLTheory",
+  "topic": "第4章 分类学习",
+  "question": "朴素贝叶斯的关键假设是（ ）。",
+  "options": [
+   "特征服从均匀分布",
+   "类别之间互斥且等概率",
+   "协方差矩阵为单位阵",
+   "各特征在给定类别下条件独立"
+  ],
+  "answer": 3,
+  "explanation": "假设强但估计简单；特征强相关时概率失真，需拉普拉斯平滑防零概率。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt33",
+  "note": "MLTheory",
+  "topic": "第4章 分类学习",
+  "question": "感知机学习算法收敛的前提是（ ）。",
+  "options": [
+   "训练样本线性可分",
+   "样本量足够大",
+   "使用交叉熵损失",
+   "特征已做过 PCA"
+  ],
+  "answer": 0,
+  "explanation": "Novikoff 定理保证线性可分时有限步收敛；否则会震荡。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt34",
+  "note": "MLTheory",
+  "topic": "第4章 分类学习",
+  "question": "KNN 算法最关键的两个设定是（ ）。",
+  "options": [
+   "学习率与迭代轮数",
+   "K 值与距离度量（并需特征标准化）",
+   "核函数与惩罚系数 C",
+   "树的深度与叶节点最小样本数"
+  ],
+  "answer": 1,
+  "explanation": "K 小方差大、K 大偏差大；高维下距离度量失效。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt35",
+  "note": "MLTheory",
+  "topic": "第4章 分类学习",
+  "question": "类别极不平衡（如 1:99）时，最合适的评估指标是（ ）。",
+  "options": [
+   "准确率 Accuracy",
+   "总样本数",
+   "PR-AUC 与逐类 P/R/F1",
+   "训练损失"
+  ],
+  "answer": 2,
+  "explanation": "全预测为负类也有 99% 准确率；ROC-AUC 在负样本极多时也偏乐观。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt36",
+  "note": "MLTheory",
+  "topic": "第5章 流程与评估",
+  "question": "测试集的正确用法是（ ）。",
+  "options": [
+   "反复用来调超参",
+   "参与特征标准化拟合",
+   "用于早停判断",
+   "在所有训练与调参结束后，只用于最终一次性评估"
+  ],
+  "answer": 3,
+  "explanation": "验证集负责调参与早停，测试集必须保持独立。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt37",
+  "note": "MLTheory",
+  "topic": "第5章 流程与评估",
+  "question": "下列做法会造成数据泄露的是（ ）。",
+  "options": [
+   "先对全量数据做标准化/PCA，再划分训练与测试集",
+   "在训练折内拟合 Pipeline",
+   "按时间前向切分",
+   "用分层 K 折交叉验证"
+  ],
+  "answer": 0,
+  "explanation": "全量预处理把测试折的统计信息泄漏进训练；应把预处理放进 Pipeline。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt38",
+  "note": "MLTheory",
+  "topic": "第5章 流程与评估",
+  "question": "F1 的正确表达式是（ ）。",
+  "options": [
+   "TP/(TP+FP)",
+   "2TP/(2TP+FP+FN)",
+   "TP/(TP+FN)",
+   "(TP+TN)/N"
+  ],
+  "answer": 1,
+  "explanation": "等价于 2PR/(P+R)，是精确率与召回率的调和平均。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt39",
+  "note": "MLTheory",
+  "topic": "第5章 流程与评估",
+  "question": "TP=80, FP=20, FN=10, TN=90 时 F1 约为（ ）。",
+  "options": [
+   "0.8500",
+   "0.8000",
+   "0.8421",
+   "0.8889"
+  ],
+  "answer": 2,
+  "explanation": "F1=160/190≈0.8421；Acc=0.85、P=0.80、R≈0.8889。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt40",
+  "note": "MLTheory",
+  "topic": "第5章 流程与评估",
+  "question": "分层 K 折交叉验证的主要作用是（ ）。",
+  "options": [
+   "提高训练速度",
+   "增大样本量",
+   "自动选择最优模型",
+   "保持每折中的类别比例与整体一致"
+  ],
+  "answer": 3,
+  "explanation": "分类且类别不平衡时尤其重要，避免某折缺少少数类。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt41",
+  "note": "MLTheory",
+  "topic": "第5章 流程与评估",
+  "question": "时间序列数据做交叉验证应采用（ ）。",
+  "options": [
+   "按时间前向滚动切分（TimeSeriesSplit）",
+   "随机 K 折",
+   "留一法",
+   "Bootstrap 重抽样"
+  ],
+  "answer": 0,
+  "explanation": "随机打乱会用未来数据预测过去，造成泄露与虚高分数。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt42",
+  "note": "MLTheory",
+  "topic": "第5章 流程与评估",
+  "question": "ROC 曲线的横轴是（ ）。",
+  "options": [
+   "TPR",
+   "FPR = FP/(FP+TN)",
+   "精确率",
+   "阈值"
+  ],
+  "answer": 1,
+  "explanation": "纵轴为 TPR；AUC 越接近 1 越好，0.5 为随机猜测。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt43",
+  "note": "MLTheory",
+  "topic": "第5章 流程与评估",
+  "question": "sklearn 的 Pipeline 在机器学习流程中最重要的价值是（ ）。",
+  "options": [
+   "自动提升模型精度",
+   "自动做特征选择",
+   "把预处理与模型封装，确保只在训练折内 fit，防止数据泄露",
+   "减少内存占用"
+  ],
+  "answer": 2,
+  "explanation": "cross_val_score(pipe, ...) 时每折独立 fit 预处理。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt44",
+  "note": "MLTheory",
+  "topic": "第5章 流程与评估",
+  "question": "Hoeffding 型泛化界 √[(ln|H|+ln(2/δ))/(2N)] 随样本量 N 增大而（ ）。",
+  "options": [
+   "增大",
+   "不变",
+   "先增后减",
+   "减小"
+  ],
+  "answer": 3,
+  "explanation": "假设空间越大、样本越少，经验风险与期望风险差距上界越大。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt45",
+  "note": "MLTheory",
+  "topic": "第5章 流程与评估",
+  "question": "降低二分类决策阈值通常会（ ）。",
+  "options": [
+   "提高召回率、降低精确率",
+   "同时提高 P 与 R",
+   "同时降低 P 与 R",
+   "不改变任何指标"
+  ],
+  "answer": 0,
+  "explanation": "更多样本被判为正 → TP、FP 同增；AUC 与单一阈值无关。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt46",
+  "note": "MLTheory",
+  "topic": "第6章 核与SVM",
+  "question": "硬间隔 SVM 的原问题优化目标是（ ）。",
+  "options": [
+   "min Σξᵢ",
+   "min ½‖w‖²，s.t. yᵢ(wᵀxᵢ+b) ≥ 1",
+   "max 2/‖w‖",
+   "min Σ(yᵢ−wᵀxᵢ)²"
+  ],
+  "answer": 1,
+  "explanation": "最大化几何间隔 γ=2/‖w‖ 等价于最小化 ‖w‖²。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt47",
+  "note": "MLTheory",
+  "topic": "第6章 核与SVM",
+  "question": "SVM 的几何间隔为（ ）。",
+  "options": [
+   "1/‖w‖",
+   "‖w‖",
+   "2/‖w‖",
+   "1/(2‖w‖)"
+  ],
+  "answer": 2,
+  "explanation": "两条间隔边界 wᵀx+b=±1 之间的距离；w=(1,1) 时 γ=√2≈1.4142。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt48",
+  "note": "MLTheory",
+  "topic": "第6章 核与SVM",
+  "question": "一个函数能作为合法核函数的条件是（ ）。",
+  "options": [
+   "函数值恒为正",
+   "函数可导",
+   "函数值域在 [0,1]",
+   "任意样本集上的 Gram 矩阵对称且半正定"
+  ],
+  "answer": 3,
+  "explanation": "Mercer 条件；Sigmoid 型核在部分参数下不满足。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt49",
+  "note": "MLTheory",
+  "topic": "第6章 核与SVM",
+  "question": "二维输入下核 k(x,z)=(1+xᵀz)² 对应的显式特征空间维数是（ ）。",
+  "options": [
+   "6",
+   "2",
+   "3",
+   "4"
+  ],
+  "answer": 0,
+  "explanation": "展开为 1, √2x₁, √2x₂, x₁², x₂², √2x₁x₂ 共 6 项。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt50",
+  "note": "MLTheory",
+  "topic": "第6章 核与SVM",
+  "question": "高斯 RBF 核对应的特征空间是（ ）。",
+  "options": [
+   "二维",
+   "无穷维",
+   "六维",
+   "与样本数相同维"
+  ],
+  "answer": 1,
+  "explanation": "核技巧正是让我们无需显式构造无穷维 φ(x)。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt51",
+  "note": "MLTheory",
+  "topic": "第6章 核与SVM",
+  "question": "软间隔 SVM 中惩罚参数 C 增大通常会导致（ ）。",
+  "options": [
+   "间隔变宽、更欠拟合",
+   "支持向量一定减少",
+   "间隔变窄、边界更复杂、更易过拟合",
+   "模型退化为线性回归"
+  ],
+  "answer": 2,
+  "explanation": "C 越大越不容忍误分类；对偶中约束为 0 ≤ αᵢ ≤ C。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt52",
+  "note": "MLTheory",
+  "topic": "第6章 核与SVM",
+  "question": "决定 SVM 最终决策界面的样本是（ ）。",
+  "options": [
+   "全部训练样本",
+   "被正确分类且远离边界的样本",
+   "仅错分样本",
+   "支持向量（αᵢ>0 的点）"
+  ],
+  "answer": 3,
+  "explanation": "KKT 互补松弛使间隔外样本 αᵢ=0，对解无贡献。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt53",
+  "note": "MLTheory",
+  "topic": "第6章 核与SVM",
+  "question": "SVM 对偶问题中的等式约束是（ ）。",
+  "options": [
+   "Σᵢ αᵢ yᵢ = 0",
+   "Σᵢ αᵢ = 1",
+   "Σᵢ αᵢ yᵢ = C",
+   "αᵢ ≥ 0 之外的 Σαᵢ²=1"
+  ],
+  "answer": 0,
+  "explanation": "由 ∂L/∂b=0 得到；另一个约束是 αᵢ ≥ 0（软间隔再加 αᵢ ≤ C）。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt54",
+  "note": "MLTheory",
+  "topic": "第6章 核与SVM",
+  "question": "软间隔 SVM 引入松弛变量 ξᵢ 是为了（ ）。",
+  "options": [
+   "提升计算速度",
+   "允许部分样本不满足间隔约束（处理不可分与噪声）",
+   "把核函数变成线性的",
+   "去掉偏置项"
+  ],
+  "answer": 1,
+  "explanation": "目标变为 min ½‖w‖²+CΣξᵢ，C 权衡间隔宽度与误分类惩罚。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt55",
+  "note": "MLTheory",
+  "topic": "第6章 核与SVM",
+  "question": "关于 SVM 的输出，正确的是（ ）。",
+  "options": [
+   "天然输出后验概率",
+   "输出一定在 [0,1]",
+   "输出是判别函数符号，不是校准概率",
+   "输出等于样本到超平面的欧氏距离"
+  ],
+  "answer": 2,
+  "explanation": "需要概率时要用 Platt 校准或改用逻辑回归。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt56",
+  "note": "MLTheory",
+  "topic": "第7章 决策树与集成",
+  "question": "ID3 算法选择划分属性的准则是（ ）。",
+  "options": [
+   "信息增益最小",
+   "基尼指数最小",
+   "方差最小",
+   "信息增益最大"
+  ],
+  "answer": 3,
+  "explanation": "G(D,A)=H(D)−H(D|A)；偏袒取值多的特征。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt57",
+  "note": "MLTheory",
+  "topic": "第7章 决策树与集成",
+  "question": "C4.5 相对于 ID3 的主要改进是（ ）。",
+  "options": [
+   "用增益率惩罚取值多的特征，并支持连续值与缺失",
+   "改用基尼指数",
+   "改成二叉树",
+   "引入 Boosting"
+  ],
+  "answer": 0,
+  "explanation": "GR=G(D,A)/SplitInfo_A。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt58",
+  "note": "MLTheory",
+  "topic": "第7章 决策树与集成",
+  "question": "CART 分类树使用的划分准则是（ ）。",
+  "options": [
+   "信息增益最大",
+   "基尼指数最小",
+   "增益率最大",
+   "卡方统计量"
+  ],
+  "answer": 1,
+  "explanation": "CART 是二叉树；分类用基尼，回归用平方误差。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt59",
+  "note": "MLTheory",
+  "topic": "第7章 决策树与集成",
+  "question": "关于划分准则的方向，正确的是（ ）。",
+  "options": [
+   "两者都取最大",
+   "两者都取最小",
+   "信息增益取最大，基尼指数取最小",
+   "信息增益取最小，基尼取最大"
+  ],
+  "answer": 2,
+  "explanation": "这是高频易错点；基尼指数衡量不纯度，越小越纯。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt60",
+  "note": "MLTheory",
+  "topic": "第7章 决策树与集成",
+  "question": "14 个样本（9 正 5 负）按 A 分为 7正1负 与 2正4负，其信息增益约为（ ）。",
+  "options": [
+   "0.0866",
+   "0.3155",
+   "0.7042",
+   "0.2361"
+  ],
+  "answer": 3,
+  "explanation": "H(D)=0.9403、条件熵=0.7042 → Gain=0.2361；0.3155 是基尼指数。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt61",
+  "note": "MLTheory",
+  "topic": "第7章 决策树与集成",
+  "question": "Bagging 与随机森林的共同特点是（ ）。",
+  "options": [
+   "基学习器可并行训练，主要降低方差",
+   "串行训练，主要降偏差",
+   "必须提升错分样本权重",
+   "只能用线性基学习器"
+  ],
+  "answer": 0,
+  "explanation": "随机森林在 Bagging 之上再加随机选特征去相关。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt62",
+  "note": "MLTheory",
+  "topic": "第7章 决策树与集成",
+  "question": "AdaBoost 中某轮加权错误率 εₜ=0.3，分类器权重 αₜ 约为（ ）。",
+  "options": [
+   "0.3000",
+   "0.4236",
+   "1.5275",
+   "0.6547"
+  ],
+  "answer": 1,
+  "explanation": "αₜ=½ln((1−ε)/ε)=½ln(2.3333)≈0.4236；错分样本权重乘 e^α≈1.5275。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt63",
+  "note": "MLTheory",
+  "topic": "第7章 决策树与集成",
+  "question": "随机森林相比普通 Bagging 多出的「随机性」是（ ）。",
+  "options": [
+   "随机丢弃样本标签",
+   "随机初始化权重",
+   "每个结点分裂时只从随机特征子集中挑选",
+   "随机改变树的深度"
+  ],
+  "answer": 2,
+  "explanation": "两层随机（样本 Bootstrap + 特征子集）降低树之间相关性。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt64",
+  "note": "MLTheory",
+  "topic": "第7章 决策树与集成",
+  "question": "XGBoost 相对于传统 GBDT 的关键改进是（ ）。",
+  "options": [
+   "改用随机森林结构",
+   "去除所有超参数",
+   "不再使用决策树",
+   "对损失作二阶泰勒展开并显式加入正则项与列采样"
+  ],
+  "answer": 3,
+  "explanation": "叶权重 w*=−G/(H+λ)，分裂增益含 γ 门槛。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt65",
+  "note": "MLTheory",
+  "topic": "第7章 决策树与集成",
+  "question": "关于预剪枝与后剪枝，正确的是（ ）。",
+  "options": [
+   "预剪枝快但可能欠拟合，后剪枝更可靠但开销大",
+   "后剪枝一定欠拟合",
+   "预剪枝一定更准确",
+   "两者都需要测试集参与"
+  ],
+  "answer": 0,
+  "explanation": "CART 常用代价复杂度剪枝 CCP 选 α。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt66",
+  "note": "MLTheory",
+  "topic": "第8章 神经网络",
+  "question": "若多层网络所有层都使用线性激活，则（ ）。",
+  "options": [
+   "表达能力增强",
+   "整个网络等价于单层线性变换",
+   "一定无法训练",
+   "自动变成 SVM"
+  ],
+  "answer": 1,
+  "explanation": "非线性激活是深度网络表达能力的来源。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt67",
+  "note": "MLTheory",
+  "topic": "第8章 神经网络",
+  "question": "ReLU 激活函数的表达式是（ ）。",
+  "options": [
+   "1/(1+e⁻ᶻ)",
+   "tanh(z)",
+   "max(0, z)",
+   "exp(z)/Σexp"
+  ],
+  "answer": 2,
+  "explanation": "正半轴梯度恒 1，缓解梯度消失；缺点 z<0 时神经元可能死亡。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt68",
+  "note": "MLTheory",
+  "topic": "第8章 神经网络",
+  "question": "sigmoid 函数导数的最大值是（ ）。",
+  "options": [
+   "1",
+   "0.5",
+   "0.1",
+   "0.25"
+  ],
+  "answer": 3,
+  "explanation": "σ′=σ(1−σ) 在 z=0 时取 0.25，是深层梯度消失的历史主因。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt69",
+  "note": "MLTheory",
+  "topic": "第8章 神经网络",
+  "question": "反向传播中 δ^{(l)} 的递推主要依据（ ）。",
+  "options": [
+   "链式法则（矩阵乘法与逐元素乘 φ′）",
+   "泰勒展开",
+   "贝叶斯公式",
+   "中心极限定理"
+  ],
+  "answer": 0,
+  "explanation": "δ^{(l)}=(W^{(l+1)})ᵀδ^{(l+1)}⊙φ′(z^{(l)})。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt70",
+  "note": "MLTheory",
+  "topic": "第8章 神经网络",
+  "question": "下列不是缓解梯度消失的措施的是（ ）。",
+  "options": [
+   "使用 ReLU 系激活",
+   "增大学习率",
+   "残差连接",
+   "批归一化"
+  ],
+  "answer": 1,
+  "explanation": "增大学习率不解决连乘衰减，甚至可能引发发散；梯度裁剪针对的是爆炸。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt71",
+  "note": "MLTheory",
+  "topic": "第8章 神经网络",
+  "question": "批归一化 BN 在推理阶段使用的统计量是（ ）。",
+  "options": [
+   "当前批次的均值与方差",
+   "全量测试集的统计",
+   "训练期间累积的滑动平均均值与方差",
+   "固定的 0 与 1"
+  ],
+  "answer": 2,
+  "explanation": "训练/推理统计量不同是 BN 的经典易错点。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt72",
+  "note": "MLTheory",
+  "topic": "第8章 神经网络",
+  "question": "Dropout 的正确用法是（ ）。",
+  "options": [
+   "训练与推理都随机置零",
+   "只在推理时启用",
+   "只作用于输出层",
+   "仅训练时按概率 p 随机置零，推理时全开并缩放"
+  ],
+  "answer": 3,
+  "explanation": "等价于隐式集成，减少神经元共适应。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt73",
+  "note": "MLTheory",
+  "topic": "第8章 神经网络",
+  "question": "神经网络权重全部初始化为 0 会导致（ ）。",
+  "options": [
+   "同层神经元完全对称，学到相同特征",
+   "梯度爆炸",
+   "损失恒为 0",
+   "无法进行矩阵乘法"
+  ],
+  "answer": 0,
+  "explanation": "须用 Xavier（配 tanh/sigmoid）或 He（配 ReLU）随机初始化。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt74",
+  "note": "MLTheory",
+  "topic": "第8章 神经网络",
+  "question": "5 层网络每层反传因子约 0.5，首层梯度约衰减为（ ）。",
+  "options": [
+   "0.5",
+   "0.03125",
+   "32",
+   "0.25"
+  ],
+  "answer": 1,
+  "explanation": "0.5⁵=0.03125（消失）；若因子为 2 则 2⁵=32（爆炸）。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt75",
+  "note": "MLTheory",
+  "topic": "第9章 深度学习进阶",
+  "question": "下列不属于 CNN 三大思想的是（ ）。",
+  "options": [
+   "局部感受野",
+   "权值共享",
+   "全连接权值不共享",
+   "层级特征与池化"
+  ],
+  "answer": 2,
+  "explanation": "CNN 正是靠局部连接 + 权值共享大幅减少参数。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt76",
+  "note": "MLTheory",
+  "topic": "第9章 深度学习进阶",
+  "question": "卷积输出尺寸公式是（ ）。",
+  "options": [
+   "(H_in − K)/S",
+   "H_in × K",
+   "⌊H_in/S⌋ − K",
+   "⌊(H_in − K + 2P)/S⌋ + 1"
+  ],
+  "answer": 3,
+  "explanation": "K 核尺寸、P 填充、S 步长；输出通道数等于卷积核个数。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt77",
+  "note": "MLTheory",
+  "topic": "第9章 深度学习进阶",
+  "question": "输入 32×32，用 5×5 卷积核、S=1、P=0，输出边长为（ ）。",
+  "options": [
+   "28",
+   "32",
+   "27",
+   "16"
+  ],
+  "answer": 0,
+  "explanation": "⌊(32−5)/1⌋+1=28；6 个核时输出 28×28×6、参数 156。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt78",
+  "note": "MLTheory",
+  "topic": "第9章 深度学习进阶",
+  "question": "池化层的作用是（ ）。",
+  "options": [
+   "增加通道数",
+   "降低空间尺寸、带来弱平移不变性，且不改变通道数",
+   "引入可训练参数",
+   "必然提升平移不变性到任意变换"
+  ],
+  "answer": 1,
+  "explanation": "池化无可训练参数；旋转/尺度不变性主要靠数据增强。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt79",
+  "note": "MLTheory",
+  "topic": "第9章 深度学习进阶",
+  "question": "缩放点积注意力的计算公式是（ ）。",
+  "options": [
+   "softmax(QVᵀ/√d_k)·K",
+   "QKᵀV",
+   "softmax(QKᵀ/√d_k)·V",
+   "V·softmax(KᵀQ/d_k)"
+  ],
+  "answer": 2,
+  "explanation": "Q 与 K 得相关分数、归一化后对 V 加权求和。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt80",
+  "note": "MLTheory",
+  "topic": "第9章 深度学习进阶",
+  "question": "注意力中除以 √d_k 的目的是（ ）。",
+  "options": [
+   "减少参数量",
+   "让权重和为 1",
+   "加快矩阵乘法",
+   "防止高维点积方差过大把 softmax 推入饱和区"
+  ],
+  "answer": 3,
+  "explanation": "d_k 大时点积数值大，softmax 梯度极小。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt81",
+  "note": "MLTheory",
+  "topic": "第9章 深度学习进阶",
+  "question": "Transformer 相对 RNN 的关键优势是（ ）。",
+  "options": [
+   "可并行训练且任意位置直接相连",
+   "复杂度更低",
+   "不需要位置编码",
+   "天然具有时序递归归纳偏好"
+  ],
+  "answer": 0,
+  "explanation": "代价是自注意力 O(n²) 复杂度，且需显式位置编码。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt82",
+  "note": "MLTheory",
+  "topic": "第9章 深度学习进阶",
+  "question": "解码器自注意力必须加因果掩码，是为了（ ）。",
+  "options": [
+   "减少计算量",
+   "防止当前位置看到未来词造成信息泄露",
+   "增加模型深度",
+   "让权重和为 1"
+  ],
+  "answer": 1,
+  "explanation": "编码器可双向注意力，解码器只能看已生成部分。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt83",
+  "note": "MLTheory",
+  "topic": "第9章 深度学习进阶",
+  "question": "标准自注意力对序列长度 n 的计算复杂度是（ ）。",
+  "options": [
+   "O(n·d)",
+   "O(n³)",
+   "O(n²·d)",
+   "O(log n)"
+  ],
+  "answer": 2,
+  "explanation": "长序列需稀疏/线性注意力、FlashAttention、KV Cache 等优化。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt84",
+  "note": "MLTheory",
+  "topic": "第10章 无监督学习",
+  "question": "K 均值的目标函数是（ ）。",
+  "options": [
+   "最大化类间距离",
+   "最大化似然下界",
+   "最小化交叉熵",
+   "最小化各类内平方和 J=Σ‖xₙ−μₖ‖²"
+  ],
+  "answer": 3,
+  "explanation": "交替 E 步（硬分配）与 M 步（重算质心）使 J 单调下降。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt85",
+  "note": "MLTheory",
+  "topic": "第10章 无监督学习",
+  "question": "关于 K 均值的收敛性，正确的是（ ）。",
+  "options": [
+   "保证收敛到局部极小，不保证全局最优",
+   "一定收敛到全局最优",
+   "不会收敛",
+   "收敛值与初始质心无关"
+  ],
+  "answer": 0,
+  "explanation": "初值敏感，故用 K-means++ 与多次重启。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt86",
+  "note": "MLTheory",
+  "topic": "第10章 无监督学习",
+  "question": "EM 算法的 E 步主要计算（ ）。",
+  "options": [
+   "直接更新协方差矩阵",
+   "隐变量的后验责任度 γ(zₙₖ)=p(zₖ=1|xₙ)",
+   "计算测试集误差",
+   "删除低密度样本"
+  ],
+  "answer": 1,
+  "explanation": "M 步再用 γ 作软计数重估 π、μ、Σ。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt87",
+  "note": "MLTheory",
+  "topic": "第10章 无监督学习",
+  "question": "K-means 与 GMM/EM 的关系是（ ）。",
+  "options": [
+   "两者完全无关",
+   "GMM 是 K-means 的特例",
+   "K-means 是 GMM 在协方差 σ²I→0 时的硬分配极限",
+   "两者目标函数相同"
+  ],
+  "answer": 2,
+  "explanation": "GMM 给软责任度与椭球协方差，表达力更强。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt88",
+  "note": "MLTheory",
+  "topic": "第10章 无监督学习",
+  "question": "PCA 与 LDA 的根本区别是（ ）。",
+  "options": [
+   "PCA 只能用于二维数据",
+   "LDA 不需要标签",
+   "两者优化目标相同",
+   "PCA 无监督最大化方差，LDA 有监督最大化类间/类内比"
+  ],
+  "answer": 3,
+  "explanation": "都做线性投影但目标完全不同，是高频易混点。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt89",
+  "note": "MLTheory",
+  "topic": "第10章 无监督学习",
+  "question": "ICA 与 PCA 的主要区别是（ ）。",
+  "options": [
+   "ICA 要求分量统计独立并利用高阶统计量，PCA 只要求不相关",
+   "ICA 必然正交",
+   "PCA 需要白化而 ICA 不需要",
+   "两者完全等价"
+  ],
+  "answer": 0,
+  "explanation": "独立强于不相关；ICA 典型应用是盲源分离。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt90",
+  "note": "MLTheory",
+  "topic": "第10章 无监督学习",
+  "question": "关于 EM 收敛性，正确的是（ ）。",
+  "options": [
+   "似然可能下降",
+   "似然单调不降，但可能收敛到局部极大",
+   "一定全局最优",
+   "与初值无关"
+  ],
+  "answer": 1,
+  "explanation": "由 Jensen 不等式导出下界，E 步紧贴、M 步最大化。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt91",
+  "note": "MLTheory",
+  "topic": "第11章 强化学习",
+  "question": "MDP 的五元组是（ ）。",
+  "options": [
+   "(X, y, L, η, δ)",
+   "(Q, K, V, d, n)",
+   "(S, A, P, R, γ)",
+   "(w, b, α, λ, ε)"
+  ],
+  "answer": 2,
+  "explanation": "状态、动作、转移概率、奖励、折扣因子。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt92",
+  "note": "MLTheory",
+  "topic": "第11章 强化学习",
+  "question": "折扣回报 Gₜ 的定义是（ ）。",
+  "options": [
+   "仅 Rₜ₊₁",
+   "Σ R 不打折",
+   "γ⁻¹Rₜ₊₁",
+   "Rₜ₊₁ + γRₜ₊₂ + γ²Rₜ₊₃ + …"
+  ],
+  "answer": 3,
+  "explanation": "γ 小则短视、大则远视；持续性任务须 γ<1 保证有界。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt93",
+  "note": "MLTheory",
+  "topic": "第11章 强化学习",
+  "question": "Q-learning 属于（ ）。",
+  "options": [
+   "off-policy（用下一状态最大 Q 作目标）",
+   "on-policy",
+   "无模型生成式",
+   "纯策略梯度"
+  ],
+  "answer": 0,
+  "explanation": "SARSA 用实际采取的下一个动作，是 on-policy。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt94",
+  "note": "MLTheory",
+  "topic": "第11章 强化学习",
+  "question": "Q(s,a)=0.5、r=1、γ=0.9、max Q(s′,·)=0.8、α=0.1 时，更新后 Q 为（ ）。",
+  "options": [
+   "1.720",
+   "0.622",
+   "0.500",
+   "0.572"
+  ],
+  "answer": 1,
+  "explanation": "TD 目标=1.72、δ=1.22 → Q=0.5+0.1×1.22=0.622。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt95",
+  "note": "MLTheory",
+  "topic": "第11章 强化学习",
+  "question": "策略梯度（REINFORCE）方法属于（ ）。",
+  "options": [
+   "off-policy，可用任意历史数据",
+   "无模型的值迭代",
+   "on-policy，直接用当前策略采样的数据更新",
+   "生成式模型"
+  ],
+  "answer": 2,
+  "explanation": "Actor-Critic 用值函数降低方差；PPO 用裁剪限制更新幅度。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt96",
+  "note": "MLTheory",
+  "topic": "第11章 强化学习",
+  "question": "贝尔曼最优方程与贝尔曼期望方程的区别是（ ）。",
+  "options": [
+   "前者不需要折扣因子",
+   "后者只用于表格型",
+   "两者完全相同",
+   "前者对动作取 max，后者按当前策略求期望"
+  ],
+  "answer": 3,
+  "explanation": "V*(s)=maxₐ E[R+γV*(s′)]；V^π(s)=E_π[R+γV^π(s′)]。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt97",
+  "note": "MLTheory",
+  "topic": "第12章 深度生成模型",
+  "question": "VAE 实际优化的目标是（ ）。",
+  "options": [
+   "对数似然的证据下界 ELBO",
+   "精确对数似然",
+   "判别器准确率",
+   "重构误差的最大值"
+  ],
+  "answer": 0,
+  "explanation": "ELBO = 重构项 − D_KL(q(z|x)‖p(z))；重参数技巧使采样可导。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt98",
+  "note": "MLTheory",
+  "topic": "第12章 深度生成模型",
+  "question": "GAN 的训练目标是（ ）。",
+  "options": [
+   "最大化 ELBO",
+   "生成器与判别器的极小极大博弈 min_G max_D V(D,G)",
+   "最小化重构误差",
+   "最小化 TD 误差"
+  ],
+  "answer": 1,
+  "explanation": "均衡时 p_g=p_data、D(x)=0.5；常见难点是模式崩塌与训练不稳。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt99",
+  "note": "MLTheory",
+  "topic": "第12章 深度生成模型",
+  "question": "关于扩散模型，正确的是（ ）。",
+  "options": [
+   "前向过程需要训练",
+   "采样一次前向即可",
+   "前向加噪过程固定且无参数，只有反向去噪网络需要学习",
+   "无法生成图像"
+  ],
+  "answer": 2,
+  "explanation": "xₜ=√αₜxₜ₋₁+√(1−αₜ)ε；质量高但采样需多步迭代。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt100",
+  "note": "MLTheory",
+  "topic": "第12章 深度生成模型",
+  "question": "四类生成模型中能计算精确似然的是（ ）。",
+  "options": [
+   "VAE",
+   "GAN",
+   "扩散模型",
+   "归一化流"
+  ],
+  "answer": 3,
+  "explanation": "log p(x)=log p(z)+Σlog|det J|；代价是变换必须可逆且维度不变。",
+  "type": "choice"
+ },
+ {
+  "id": "mlt101",
+  "note": "MLTheory",
+  "topic": "第1章 导论",
+  "question": "深度神经网络可以全部使用线性激活函数而保持多层表达能力。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "多层线性复合等价于单层线性变换，必须含非线性激活。",
+  "type": "judge"
+ },
+ {
+  "id": "mlt102",
+  "note": "MLTheory",
+  "topic": "第3章 回归学习",
+  "question": "L1 正则会产生稀疏解，即部分系数恰为 0。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "L1 可做特征选择；L2 只缩小系数不为 0。",
+  "type": "judge"
+ },
+ {
+  "id": "mlt103",
+  "note": "MLTheory",
+  "topic": "第5章 流程与评估",
+  "question": "测试集应只用于所有训练与调参结束后的最终一次性评估。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "验证集负责调参与早停；反复看测试集会让评估不再无偏。",
+  "type": "judge"
+ },
+ {
+  "id": "mlt104",
+  "note": "MLTheory",
+  "topic": "第4章 分类学习",
+  "question": "逻辑回归使用交叉熵（负对数似然）作为损失函数。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "用平方损失配 sigmoid 会非凸且饱和时梯度极小。",
+  "type": "judge"
+ },
+ {
+  "id": "mlt105",
+  "note": "MLTheory",
+  "topic": "第6章 核与SVM",
+  "question": "sklearn 中 SVM 的 C 越大，正则化越强、模型越简单。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "sklearn 的 C=1/λ，C 越大正则越弱、越易过拟合。",
+  "type": "judge"
+ },
+ {
+  "id": "mlt106",
+  "note": "MLTheory",
+  "topic": "第6章 核与SVM",
+  "question": "合法核函数要求任意样本集上的 Gram 矩阵对称半正定。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "即 Mercer 条件；Sigmoid 型核在部分参数下不满足。",
+  "type": "judge"
+ },
+ {
+  "id": "mlt107",
+  "note": "MLTheory",
+  "topic": "第7章 决策树与集成",
+  "question": "决策树选择划分属性时应选择信息增益最小的属性。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "信息增益/增益率取最大；基尼指数才取最小。",
+  "type": "judge"
+ },
+ {
+  "id": "mlt108",
+  "note": "MLTheory",
+  "topic": "第7章 决策树与集成",
+  "question": "Bagging 类方法主要通过并行训练多个基学习器来降低偏差。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "Bagging 主要降方差；Boosting 串行纠错才主要降偏差。",
+  "type": "judge"
+ },
+ {
+  "id": "mlt109",
+  "note": "MLTheory",
+  "topic": "第9章 深度学习进阶",
+  "question": "自注意力本身不含顺序信息，Transformer 需要显式位置编码。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "可用正弦、可学习或 RoPE 位置编码补足顺序。",
+  "type": "judge"
+ },
+ {
+  "id": "mlt110",
+  "note": "MLTheory",
+  "topic": "第10章 无监督学习",
+  "question": "K 均值可视为 GMM 在各成分协方差趋于 0 时的硬分配极限。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "EM 的软责任度退化为 0/1 分配，M 步退化为重算质心。",
+  "type": "judge"
+ },
+ {
+  "id": "mlt111",
+  "note": "MLTheory",
+  "topic": "第11章 强化学习",
+  "question": "Q-learning 是 on-policy 算法，因为它用实际采取的下一个动作作目标。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "Q-learning 用 maxₐ′Q(s′,a′)，是 off-policy；SARSA 才是 on-policy。",
+  "type": "judge"
+ },
+ {
+  "id": "mlt112",
+  "note": "MLTheory",
+  "topic": "第12章 深度生成模型",
+  "question": "扩散模型的前向加噪过程需要通过训练学习其参数。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "前向是固定的 Markov 加噪过程；只有反向去噪网络含参数。",
+  "type": "judge"
+ },
+ {
+  "id": "mlt113",
+  "note": "MLTheory",
+  "topic": "第5章 流程与评估",
+  "question": "类别极不平衡时，准确率能可靠反映模型好坏。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "应看 PR-AUC 与逐类 P/R/F1；全预测多数类即可获得高准确率。",
+  "type": "judge"
+ },
+ {
+  "id": "mlt114",
+  "note": "MLTheory",
+  "topic": "第1章 导论",
+  "question": "下列属于监督学习的有（ ）。",
+  "options": [
+   "线性回归",
+   "逻辑回归",
+   "支持向量机",
+   "K 均值聚类"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "K 均值无标签，属无监督学习。",
+  "type": "multi"
+ },
+ {
+  "id": "mlt115",
+  "note": "MLTheory",
+  "topic": "第8章 神经网络",
+  "question": "下列可缓解深度网络过拟合或训练不稳定的有（ ）。",
+  "options": [
+   "L2 权重衰减",
+   "Dropout",
+   "早停",
+   "无限增大学习率"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "学习率过大反而发散；批归一化主要稳定训练。",
+  "type": "multi"
+ },
+ {
+  "id": "mlt116",
+  "note": "MLTheory",
+  "topic": "第6章 核与SVM",
+  "question": "下列通常属于合法核函数的有（ ）。",
+  "options": [
+   "线性核",
+   "多项式核",
+   "高斯 RBF 核",
+   "任意参数下的 Sigmoid 核"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "Sigmoid 核在部分参数下 Gram 矩阵非半正定。",
+  "type": "multi"
+ },
+ {
+  "id": "mlt117",
+  "note": "MLTheory",
+  "topic": "第12章 深度生成模型",
+  "question": "下列属于深度生成模型的有（ ）。",
+  "options": [
+   "VAE",
+   "GAN",
+   "扩散模型",
+   "逻辑回归"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "逻辑回归是判别式分类模型，不能生成新样本。",
+  "type": "multi"
+ },
+ {
+  "id": "mlt118",
+  "note": "MLTheory",
+  "topic": "第5章 流程与评估",
+  "question": "下列模型通常要求先对特征做标准化的有（ ）。",
+  "options": [
+   "RBF 核 SVM",
+   "KNN",
+   "神经网络",
+   "决策树"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "决策树基于特征取值阈值划分，对单调缩放不敏感。",
+  "type": "multi"
+ },
+ {
+  "id": "mlt119",
+  "note": "MLTheory",
+  "topic": "第7章 决策树与集成",
+  "question": "下列属于集成学习方法的有（ ）。",
+  "options": [
+   "随机森林",
+   "AdaBoost",
+   "GBDT",
+   "Dropout"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "Dropout 是训练时的正则化技巧，虽可视作隐式集成但不属集成算法。",
+  "type": "multi"
+ },
+ {
+  "id": "mlt120",
+  "note": "MLTheory",
+  "topic": "第1章 导论",
+  "question": "偏差-方差分解 Err=Bias²+Var+σ² 中不可约的第三项叫（ ）。",
+  "options": [],
+  "answer": "噪声",
+  "explanation": "也可写 σ²（不可约噪声）；它构成泛化误差下界。",
+  "type": "fill"
+ },
+ {
+  "id": "mlt121",
+  "note": "MLTheory",
+  "topic": "第4章 分类学习",
+  "question": "sigmoid(0) 的值是（ ）。",
+  "options": [],
+  "answer": "0.5",
+  "explanation": "z=0 时 σ=0.5，正是二分类决策边界。",
+  "type": "fill"
+ },
+ {
+  "id": "mlt122",
+  "note": "MLTheory",
+  "topic": "第6章 核与SVM",
+  "question": "SVM 的几何间隔等于 2 除以（ ）。",
+  "options": [],
+  "answer": "‖w‖",
+  "explanation": "γ=2/‖w‖；w=(1,1) 时间隔约 1.4142。",
+  "type": "fill"
+ },
+ {
+  "id": "mlt123",
+  "note": "MLTheory",
+  "topic": "第9章 深度学习进阶",
+  "question": "缩放点积注意力中，QKᵀ 要除以（ ）后再做 softmax。",
+  "options": [],
+  "answer": "√d_k",
+  "explanation": "防止高维点积把 softmax 推入梯度极小的饱和区。",
+  "type": "fill"
+ },
+ {
+  "id": "mlt124",
+  "note": "MLTheory",
+  "topic": "第2章 统计与优化",
+  "question": "Adam 优化器默认的二阶动量衰减率 β₂ 是（ ）。",
+  "options": [],
+  "answer": "0.999",
+  "explanation": "默认 η=0.001、β₁=0.9、β₂=0.999、ε=1e−8。",
+  "type": "fill"
+ },
+ {
+  "id": "mlt125",
+  "note": "MLTheory",
+  "topic": "第11章 强化学习",
+  "question": "Q(s,a)=0.5、r=1、γ=0.9、max Q(s′,·)=0.8、α=0.1，一次 Q-learning 更新后 Q=（ ）。",
+  "options": [],
+  "answer": "0.622",
+  "explanation": "目标 1.72、δ=1.22 → 0.5+0.122=0.622。",
+  "type": "fill"
+ },
+ {
+  "id": "mlt126",
+  "note": "MLTheory",
+  "topic": "第7章 决策树与集成",
+  "question": "AdaBoost 中 εₜ=0.3 时分类器权重 αₜ 约为（ ）（保留 4 位小数）。",
+  "options": [],
+  "answer": "0.4236",
+  "explanation": "αₜ=½ln(0.7/0.3)≈0.4236。",
+  "type": "fill"
+ },
+ {
+  "id": "mlt127",
+  "note": "MLTheory",
+  "topic": "第12章 深度生成模型",
+  "question": "VAE 的 ELBO 由重构项减去（ ）构成。",
+  "options": [],
+  "answer": "KL 散度",
+  "explanation": "即 D_KL(q_φ(z|x)‖p(z))，方向与先验选择有关。",
+  "type": "fill"
+ },
+ {
+  "id": "mlt128",
+  "note": "MLTheory",
+  "topic": "第3章 回归学习",
+  "question": "计算题：样本 (1,2)、(2,3)，模型 ŷ=wx，w₀=0、η=0.1。求初始损失与梯度、一步更新后的 w、无正则闭式解，以及加 L2 正则 λ=2 后的闭式解。",
+  "options": [],
+  "answer": "L=½[(0−2)²+(0−3)²]=6.5；∇L=(0−2)·1+(0−3)·2=−8 → w₁=0−0.1×(−8)=0.8；无正则 w*=Σxy/Σx²=8/5=1.6；加 λ=2 后 w*=8/(5+2)≈1.1429。",
+  "explanation": "λ 越大系数越向 0 收缩，偏差升、方差降。",
+  "type": "essay"
+ },
+ {
+  "id": "mlt129",
+  "note": "MLTheory",
+  "topic": "第4章 分类学习",
+  "question": "计算题：①求 σ(2)；②求 logits (2,1,0.1) 的 softmax；③真实为第 1 类，模型分别给 0.9 与 0.8 时求交叉熵损失。",
+  "options": [],
+  "answer": "①σ(2)=1/(1+e⁻²)≈0.8808（σ(0)=0.5 为决策边界）；②softmax≈(0.6590,0.2424,0.0986)，和为 1；③−log0.9≈0.1054、−log0.8≈0.2231。",
+  "explanation": "概率降低 0.1 损失约翻倍，体现交叉熵对置信度的强惩罚；softmax 计算须先减 max 防溢出。",
+  "type": "essay"
+ },
+ {
+  "id": "mlt130",
+  "note": "MLTheory",
+  "topic": "第5章 流程与评估",
+  "question": "计算题：TP=80, FP=20, FN=10, TN=90，求准确率、精确率、召回率、F1 与 FPR，并说明降低阈值的影响。",
+  "options": [],
+  "answer": "Acc=170/200=0.85；P=80/100=0.80；R=80/90≈0.8889；F1=2×80/(160+20+10)=160/190≈0.8421；FPR=20/110≈0.1818。降低阈值会把更多样本判正 → TP、FP 同增 → R 升、P 降；AUC 与单一阈值无关。",
+  "explanation": "类别不平衡时应看 PR-AUC 与逐类指标，而非 accuracy。",
+  "type": "essay"
+ },
+ {
+  "id": "mlt131",
+  "note": "MLTheory",
+  "topic": "第6章 核与SVM",
+  "question": "计算题：①展开 k(x,z)=(1+xᵀz)² 在二维下的显式特征映射；②w=(1,1)、b=−3 时的几何间隔；③C 增大对间隔与过拟合的影响。",
+  "options": [],
+  "answer": "①φ(x)=(1, √2x₁, √2x₂, x₁², x₂², √2x₁x₂)，共 6 维；②γ=2/‖w‖=2/√2=√2≈1.4142，间隔边界为 x₁+x₂=2 与 4；③C 增大 → 更不容忍误分 → 间隔变窄、边界更复杂 → 更易过拟合。",
+  "explanation": "核技巧的价值是用低维核计算替代高维显式映射。",
+  "type": "essay"
+ },
+ {
+  "id": "mlt132",
+  "note": "MLTheory",
+  "topic": "第7章 决策树与集成",
+  "question": "计算题：14 个样本（9 正 5 负）按属性 A 分为 7正1负 与 2正4负，求信息增益、基尼指数、增益率；并求 AdaBoost 在 ε=0.3 时的 α 与样本权重乘数。",
+  "options": [],
+  "answer": "H(D)=0.9403、H(D₁)=0.5436、H(D₂)=0.9183 → 条件熵 0.7042 → Gain=0.2361；Gini(D₁)=0.2188、Gini(D₂)=0.4444 → Gini_index=0.3155；SplitInfo=0.9852 → GR≈0.2397。AdaBoost：α=½ln(0.7/0.3)≈0.4236；错分样本权重 ×e^α≈1.5275、正确样本 ×e^{−α}≈0.6547。",
+  "explanation": "信息增益/增益率取最大、基尼指数取最小；ε 必须 <0.5。",
+  "type": "essay"
+ },
+ {
+  "id": "mlt133",
+  "note": "MLTheory",
+  "topic": "第8章 神经网络",
+  "question": "计算题：x=(1,2)、w=(0.5,−1)、b=0.3，求 ReLU 与 sigmoid 输出；若 5 层网络每层反传因子 0.5，首层梯度约为多少？列出三条对策。",
+  "options": [],
+  "answer": "z=0.5−2+0.3=−1.2 → ReLU=0、sigmoid≈0.2315；0.5⁵=0.03125（几乎消失），若因子为 2 则 2⁵=32（爆炸）。对策：ReLU 系激活、残差连接、批归一化、He/Xavier 初始化；针对爆炸可用梯度裁剪，序列模型可用 LSTM 门控。",
+  "explanation": "sigmoid 导数上限 0.25 是消失的历史主因。",
+  "type": "essay"
+ },
+ {
+  "id": "mlt134",
+  "note": "MLTheory",
+  "topic": "第9章 深度学习进阶",
+  "question": "计算题：输入 32×32×1，6 个 5×5 卷积核 S=1、P=0，求输出尺寸与参数量；再接 2×2 / S=2 池化后的尺寸。",
+  "options": [],
+  "answer": "卷积：⌊(32−5)/1⌋+1=28 → 28×28×6，参数 5×5×1×6+6=156；池化：⌊(28−2)/2⌋+1=14 → 14×14×6（池化无可训练参数、不改通道数）。",
+  "explanation": "K=3,P=1,S=1 可保持尺寸；卷积层参数量与输入图像大小无关。",
+  "type": "essay"
+ },
+ {
+  "id": "mlt135",
+  "note": "MLTheory",
+  "topic": "第9章 深度学习进阶",
+  "question": "计算题：3 个 token、d=2，Q=K=[[1,0],[0,1],[1,1]]、V=[[1,2],[3,4],[5,6]]，写出分数矩阵与 softmax 后的注意力权重。",
+  "options": [],
+  "answer": "QKᵀ/√2=[[0.707,0,0.707],[0,0.707,0.707],[0.707,0.707,1.414]]；逐行 softmax 得 [[0.4011,0.1978,0.4011],[0.1978,0.4011,0.4011],[0.2483,0.2483,0.5035]]，每行和为 1；输出 A@V=[[3.0,4.0],[3.4066,4.4066],[3.5107,4.5108]]。",
+  "explanation": "除以 √d_k 防止高维点积把 softmax 推入饱和区；输出是 V 的加权平均。",
+  "type": "essay"
+ },
+ {
+  "id": "mlt136",
+  "note": "MLTheory",
+  "topic": "第7章 决策树与集成",
+  "question": "计算题（XGBoost）：某结点左右子树的梯度统计为 G_L=−2,H_L=2、G_R=3,H_R=2，λ=1、γ=0，求分裂增益与左右叶最优权重。",
+  "options": [],
+  "answer": "Gain=½[(−2)²/(2+1)+3²/(2+1)−(1)²/(4+1)]=½[1.3333+3−0.2]≈2.0667>0 → 值得分裂；w*_L=−G_L/(H_L+λ)=2/3≈0.6667，w*_R=−3/3=−1.0。",
+  "explanation": "γ 是分裂最小收益门槛，起预剪枝作用。",
+  "type": "essay"
+ },
+ {
+  "id": "mlt137",
+  "note": "MLTheory",
+  "topic": "第5章 流程与评估",
+  "question": "计算题：有限假设空间 |H|=1000、N=100、δ=0.05，求 Hoeffding 型泛化界 √[(ln|H|+ln(2/δ))/(2N)] 并解释其含义。",
+  "options": [],
+  "answer": "ln1000≈6.9078、ln(2/0.05)=ln40≈3.6889 → √[(6.9078+3.6889)/200]≈0.2302。即训练误差 0.05 的模型真实误差可能高达约 0.28；假设空间越大或样本越少，上界越大，故需正则化与更多数据。",
+  "explanation": "无限假设空间需改用 VC 维或 Rademacher 复杂度。",
+  "type": "essay"
+ },
+ {
+  "id": "mlt138",
+  "note": "MLTheory",
+  "topic": "第11章 强化学习",
+  "question": "计算题：Q(s,a)=0.5、r=1、γ=0.9、maxₐ′Q(s′,a′)=0.8、α=0.1，写出 Q-learning 更新式并算出结果。",
+  "options": [],
+  "answer": "Q ← Q + α[r + γ·max Q(s′,·) − Q]；TD 目标=1+0.9×0.8=1.72；δ=1.72−0.5=1.22；Q ← 0.5+0.1×1.22=0.622。",
+  "explanation": "课件 RL-2 的通用式 Δw=α(目标−预测)x(s) 即「步长 × 预测误差 × 特征向量」。",
+  "type": "essay"
+ },
+ {
+  "id": "mlt139",
+  "note": "MLTheory",
+  "topic": "第12章 深度生成模型",
+  "question": "简答：比较 VAE、GAN、扩散模型在似然、采样方式与训练稳定性上的差异。",
+  "options": [],
+  "answer": "VAE 优化似然下界 ELBO、一次前向采样、训练稳但样本偏模糊；GAN 无显式似然、一次前向采样、样本清晰但训练不稳且易模式崩塌；扩散模型用变分下界/去噪目标、需多步迭代采样（慢）、质量高且训练稳。归一化流可算精确似然但要求变换可逆。",
+  "explanation": "扩散前向加噪固定无参数，只有反向去噪网络含参数。",
+  "type": "essay"
+ },
+ {
+  "id": "mlt140",
+  "note": "MLTheory",
+  "topic": "第1章 导论",
+  "question": "方案设计：给定带标签的用户流失数据（数值+类别混合特征、正负比 1:9），写出完整建模方案，需体现防泄露、评估指标与不平衡处理。",
+  "options": [],
+  "answer": "① 明确流失口径与业务代价；② 先分层划分训练/验证/测试；③ 预处理（标准化、独热编码、缺失填补）全部放进 Pipeline，仅训练折拟合；④ 基线用带 class_weight 的逻辑回归 + 单棵决策树，交叉验证建立参照；⑤ 主模型用随机森林/GBDT（混合特征友好），必要时概率校准；⑥ 因 1:9 不平衡，主看 PR-AUC、Recall@固定 Precision 与 F1，辅以 ROC-AUC，并做分组公平性检查；⑦ 调参只在验证折进行，测试集最后一次性评估；⑧ 上线输出概率与阈值、监控数据漂移、定期重训、保留回滚。",
+  "explanation": "评分点：Pipeline 防泄露、时序/分层切分、不用 accuracy、测试集只用一次。",
+  "type": "essay"
  }
 ]

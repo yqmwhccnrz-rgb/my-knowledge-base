@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">深度生成模型：VAE / GAN / 扩散 / 归一化流（第 12 章）</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 共同目标：学习数据分布 p_data(x) 并能采样新样本</text>
+  <rect x="30" y="62" width="620" height="40" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="42" y="80" font-size="10" fill="#334155">给定 i.i.d. 样本集，训练参数化模型 p_θ(x)（显式或隐式），再从 z ~ p(z) 经生成器得到新样本。</text>
+  <text x="42" y="96" font-size="9" fill="#64748b">四类代表：变分自编码器 VAE、生成对抗网络 GAN、扩散模型 Diffusion、归一化流 Normalizing Flow。</text>
+
+  <text x="30" y="126" font-size="12" font-weight="700" fill="#334155">② VAE：显式似然 + 变分下界（课件 DGM-2）</text>
+  <rect x="30" y="136" width="620" height="66" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="42" y="156" font-size="10" fill="#334155">概率编码器 q_φ(z|x) 与解码器 p_θ(x|z)；直接算 log p_θ(x) 不可行，改为最大化证据下界 ELBO：</text>
+  <text x="42" y="176" font-size="10.5" font-weight="700" fill="#166534">log p_θ(x) ≥ E_{q(z|x)}[log p_θ(x|z)] − D_KL(q_φ(z|x) ‖ p(z))　（重构项 − 正则项）</text>
+  <text x="42" y="194" font-size="9" fill="#64748b">重参数技巧 z = μ_φ(x) + σ_φ(x)⊙ε（ε~N(0,I)）使采样可导；课件示例 M=100、L=1 蒙特卡罗估计。</text>
+
+  <text x="30" y="226" font-size="12" font-weight="700" fill="#334155">③ GAN：生成器与判别器的极小极大博弈（课件 DGM-1）</text>
+  <rect x="30" y="236" width="620" height="52" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="42" y="256" font-size="10.5" font-weight="700" fill="#92400e">min_G max_D V(D,G) = E_{x~p_data}[log D(x)] + E_{z~p_z}[log(1 − D(G(z)))]</text>
+  <text x="42" y="276" font-size="9.5" fill="#334155">D 尽量区分真假，G 尽量骗过 D；均衡时 p_g = p_data、D(x)=0.5。常见难点：模式崩塌、训练不稳定、梯度消失。</text>
+  <text x="42" y="286" font-size="9" fill="#64748b">改进：WGAN（Wasserstein 距离）、DCGAN、条件 GAN、StyleGAN；判别器用梯度上升、生成器用梯度下降交替更新。</text>
+
+  <text x="30" y="312" font-size="12" font-weight="700" fill="#334155">④ 扩散模型与归一化流（课件 DGM-3）</text>
+  <rect x="30" y="322" width="300" height="62" rx="6" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="180" y="340" text-anchor="middle" font-size="10" font-weight="700" fill="#5b21b6">扩散概率模型 DDPM</text>
+  <text x="42" y="358" font-size="9" fill="#334155">前向：逐步加噪 xₜ = √αₜ xₜ₋₁ + √(1−αₜ)ε（Markov）</text>
+  <text x="42" y="374" font-size="9" fill="#334155">反向：学去噪网络 p_θ(xₜ₋₁|xₜ)，从纯噪声逐步生成样本</text>
+  <text x="42" y="382" font-size="8.5" fill="#64748b">训练目标等价于预测噪声 ε；采样慢但质量高、训练稳</text>
+  <rect x="342" y="322" width="308" height="62" rx="6" fill="#e0f2fe" stroke="#0284c7"/>
+  <text x="496" y="340" text-anchor="middle" font-size="10" font-weight="700" fill="#075985">归一化流</text>
+  <text x="354" y="358" font-size="9" fill="#334155">用一系列可逆变换 z=f(x)，Jacobian 行列式可算</text>
+  <text x="354" y="374" font-size="9" fill="#334155">log p(x)=log p(z)+Σ log|det ∂f/∂x|，精确似然</text>
+  <text x="354" y="382" font-size="8.5" fill="#64748b">可逆要求维度不变；采样与密度估计都高效</text>
+
+  <text x="30" y="398" font-size="9.5" fill="#64748b">易错：VAE 优化的是似然下界而非精确似然；GAN 没有显式似然；扩散「前向加噪」是固定过程、只有「反向去噪」需学习。</text>
+</svg>

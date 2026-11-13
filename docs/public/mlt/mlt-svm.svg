@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">核函数与支持向量机 SVM（第 6 章）</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 最大间隔分类器</text>
+  <rect x="30" y="62" width="300" height="132" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <line x1="52" y1="180" x2="308" y2="180" stroke="#94a3b8"/><line x1="52" y1="180" x2="52" y2="72" stroke="#94a3b8"/>
+  <line x1="66" y1="168" x2="292" y2="80" stroke="#2563eb" stroke-width="2"/>
+  <line x1="60" y1="182" x2="286" y2="94" stroke="#93c5fd" stroke-dasharray="5 3"/>
+  <line x1="72" y1="154" x2="298" y2="66" stroke="#93c5fd" stroke-dasharray="5 3"/>
+  <circle cx="88" cy="152" r="5" fill="#dc2626"/><circle cx="110" cy="160" r="5" fill="#dc2626"/><circle cx="130" cy="140" r="5" fill="#dc2626"/>
+  <circle cx="220" cy="92" r="5" fill="#16a34a"/><circle cx="244" cy="82" r="5" fill="#16a34a"/><circle cx="262" cy="98" r="5" fill="#16a34a"/>
+  <text x="180" y="188" text-anchor="middle" font-size="9" fill="#64748b">实线为决策面 wᵀx+b=0，虚线为间隔边界 wᵀx+b=±1</text>
+  <rect x="342" y="62" width="308" height="132" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="496" y="80" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">优化目标（硬间隔）</text>
+  <text x="354" y="100" font-size="10" fill="#334155">min ½‖w‖²　s.t. yᵢ(wᵀxᵢ+b) ≥ 1</text>
+  <text x="354" y="118" font-size="9.5" fill="#334155">几何间隔 γ = 2/‖w‖，最大化间隔即最小化 ‖w‖²</text>
+  <text x="354" y="136" font-size="9.5" fill="#334155">只有落在间隔边界上的「支持向量」决定解</text>
+  <text x="354" y="154" font-size="9.5" fill="#334155">对偶：max Σαᵢ − ½Σαᵢαⱼyᵢyⱼxᵢᵀxⱼ，αᵢ ≥ 0</text>
+  <text x="354" y="172" font-size="9.5" fill="#334155">KKT 互补条件：αᵢ&gt;0 的点才是支持向量</text>
+  <text x="354" y="188" font-size="9" fill="#64748b">软间隔引入松弛 ξᵢ 与惩罚 C：min ½‖w‖²+CΣξᵢ</text>
+
+  <text x="30" y="218" font-size="12" font-weight="700" fill="#334155">② 核技巧：无需显式构造高维特征</text>
+  <rect x="30" y="228" width="620" height="66" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="42" y="248" font-size="10.5" fill="#334155">k(x,z) = φ(x)ᵀφ(z)，只需计算核函数值，避开高维（甚至无穷维）特征映射 φ 的显式计算。</text>
+  <text x="42" y="266" font-size="10.5" fill="#334155">课件示例（二维）：k(x,z)=(1+xᵀz)² = φ(x)ᵀφ(z)，其中 φ(x)=(1, √2x₁, √2x₂, x₁², x₂², √2x₁x₂)。</text>
+  <text x="42" y="284" font-size="9" fill="#64748b">合法核 ↔ Gram 矩阵 Kᵢⱼ=k(xᵢ,xⱼ) 对称且半正定（Mercer 条件）；正定核可分解为特征映射内积。</text>
+
+  <text x="30" y="318" font-size="12" font-weight="700" fill="#334155">③ 常用核与选择</text>
+  <rect x="30" y="328" width="152" height="52" rx="6" fill="#f8fafc" stroke="#cbd5e1"/><text x="106" y="346" text-anchor="middle" font-size="10" font-weight="700" fill="#334155">线性核</text><text x="40" y="364" font-size="9" fill="#334155">xᵀz；特征多、样本大</text><text x="40" y="376" font-size="9" fill="#64748b">不易过拟合、可解释</text>
+  <rect x="190" y="328" width="152" height="52" rx="6" fill="#f8fafc" stroke="#cbd5e1"/><text x="266" y="346" text-anchor="middle" font-size="10" font-weight="700" fill="#334155">多项式核</text><text x="200" y="364" font-size="9" fill="#334155">(γxᵀz+c)^d</text><text x="200" y="376" font-size="9" fill="#64748b">显式控制特征交互阶数</text>
+  <rect x="350" y="328" width="152" height="52" rx="6" fill="#fef3c7" stroke="#d97706"/><text x="426" y="346" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">高斯 RBF 核</text><text x="360" y="364" font-size="9" fill="#92400e">exp(−‖x−z‖²/2σ²)</text><text x="360" y="376" font-size="9" fill="#64748b">无穷维、默认首选</text>
+  <rect x="510" y="328" width="140" height="52" rx="6" fill="#ede9fe" stroke="#7c3aed"/><text x="580" y="346" text-anchor="middle" font-size="10" font-weight="700" fill="#5b21b6">Sigmoid 核</text><text x="520" y="364" font-size="9" fill="#5b21b6">tanh(γxᵀz+c)</text><text x="520" y="376" font-size="9" fill="#64748b">不总满足 Mercer</text>
+
+  <text x="30" y="394" font-size="10" fill="#64748b">易错：C 越大越惩罚误分类（间隔变窄、易过拟合），γ 越大 RBF 越尖锐；SVM 输出不是概率（需 Platt 校准），且对特征缩放敏感。</text>
+</svg>

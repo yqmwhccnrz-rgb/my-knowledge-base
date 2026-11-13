@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">无监督学习：K 均值、EM/GMM、PCA 与 ICA（第 10 章）</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① K 均值聚类（课件 Part-1）</text>
+  <rect x="30" y="62" width="300" height="106" rx="6" fill="#e0f2fe" stroke="#0284c7"/>
+  <text x="180" y="80" text-anchor="middle" font-size="10.5" font-weight="700" fill="#075985">目标函数与迭代</text>
+  <text x="42" y="100" font-size="9.5" fill="#334155">J = Σₙ Σₖ rₙₖ ‖xₙ − μₖ‖²（类内平方和最小）</text>
+  <text x="42" y="118" font-size="9.5" fill="#334155">E 步：rₙₖ = 1 若 k = argminⱼ‖xₙ−μⱼ‖²（硬分配）</text>
+  <text x="42" y="136" font-size="9.5" fill="#334155">M 步：μₖ = (Σₙ rₙₖ xₙ)/(Σₙ rₙₖ)（重算质心）</text>
+  <text x="42" y="154" font-size="9" fill="#64748b">交替至分配不变；J 单调下降，收敛到局部极小</text>
+  <rect x="342" y="62" width="308" height="106" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="496" y="80" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">要点与补充</text>
+  <text x="354" y="100" font-size="9.5" fill="#334155">须预设 K；对初始质心与异常值敏感</text>
+  <text x="354" y="118" font-size="9.5" fill="#334155">K-means++ 改进初始化；肘部法/轮廓系数选 K</text>
+  <text x="354" y="136" font-size="9.5" fill="#334155">假设簇为球形且大小相近，须先标准化</text>
+  <text x="354" y="154" font-size="9" fill="#64748b">补充：核 K-means、DBSCAN、谱聚类处理非凸形状</text>
+
+  <text x="30" y="192" font-size="12" font-weight="700" fill="#334155">② EM 算法与高斯混合模型 GMM（软分配）</text>
+  <rect x="30" y="202" width="620" height="78" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="42" y="220" font-size="10" fill="#334155">模型：p(x)=Σₖ πₖ N(x|μₖ,Σₖ)，隐变量 zₖ 表示成分归属；目标最大化对数似然 Σ log p(xₙ)。</text>
+  <text x="42" y="238" font-size="10" fill="#334155">E 步：γ(zₙₖ)=p(zₖ=1|xₙ)=πₖN(xₙ|μₖ,Σₖ)/ΣⱼπⱼN(xₙ|μⱼ,Σⱼ)（责任度）</text>
+  <text x="42" y="256" font-size="10" fill="#334155">M 步：用 γ 作软计数重估 πₖ、μₖ、Σₖ；反复迭代保证似然单调不降（EM 的一般性质）。</text>
+  <text x="42" y="274" font-size="9" fill="#64748b">K-means 是 GMM 在各成分协方差 → 0（等方差 σ²I）时的硬分配极限。</text>
+
+  <text x="30" y="304" font-size="12" font-weight="700" fill="#334155">③ 降维：PCA 与 ICA（课件 Part-2）</text>
+  <rect x="30" y="314" width="300" height="66" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="180" y="332" text-anchor="middle" font-size="10" font-weight="700" fill="#075985">PCA 主成分分析</text>
+  <text x="42" y="348" font-size="9.5" fill="#334155">找方差最大的正交方向，最小化重构误差</text>
+  <text x="42" y="362" font-size="9.5" fill="#334155">解协方差矩阵特征值；前 m 个主成分最优低秩逼近</text>
+  <text x="42" y="376" font-size="9" fill="#64748b">只用到二阶统计量，成分互不相关、正交</text>
+  <rect x="342" y="314" width="308" height="66" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="496" y="332" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">ICA 独立分量分析</text>
+  <text x="354" y="348" font-size="9.5" fill="#334155">x = As，要求源信号 s 相互统计独立</text>
+  <text x="354" y="362" font-size="9.5" fill="#334155">利用高阶统计量/非高斯性（如负熵）分离</text>
+  <text x="354" y="376" font-size="9" fill="#64748b">典型应用：鸡尾酒会问题、脑电信号去伪迹</text>
+
+  <text x="30" y="396" font-size="10" fill="#64748b">易错：PCA 无监督（不利用标签），LDA 有监督；PCA 需标准化，ICA 需先白化；EM 收敛到局部极大，初值敏感。</text>
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">决策树：划分准则、三种算法与剪枝（第 7 章）</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 树的结构与贪心构建</text>
+  <rect x="30" y="62" width="270" height="120" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <rect x="130" y="72" width="70" height="26" rx="4" fill="#dbeafe" stroke="#2563eb"/><text x="165" y="90" text-anchor="middle" font-size="9.5" fill="#1e3a8a">根结点 A?</text>
+  <rect x="58" y="116" width="84" height="26" rx="4" fill="#dcfce7" stroke="#16a34a"/><text x="100" y="134" text-anchor="middle" font-size="9.5" fill="#166534">叶：类别 +</text>
+  <rect x="188" y="116" width="84" height="26" rx="4" fill="#dbeafe" stroke="#2563eb"/><text x="230" y="134" text-anchor="middle" font-size="9.5" fill="#1e3a8a">内部结点 B?</text>
+  <rect x="164" y="158" width="60" height="22" rx="4" fill="#dcfce7" stroke="#16a34a"/><text x="194" y="173" text-anchor="middle" font-size="9" fill="#166534">叶 −</text>
+  <rect x="232" y="158" width="60" height="22" rx="4" fill="#dcfce7" stroke="#16a34a"/><text x="262" y="173" text-anchor="middle" font-size="9" fill="#166534">叶 +</text>
+  <line x1="150" y1="98" x2="100" y2="116" stroke="#2563eb"/><line x1="180" y1="98" x2="230" y2="116" stroke="#2563eb"/>
+  <line x1="218" y1="142" x2="194" y2="158" stroke="#2563eb"/><line x1="242" y1="142" x2="262" y2="158" stroke="#2563eb"/>
+  <rect x="312" y="62" width="338" height="120" rx="6" fill="#e0f2fe" stroke="#0284c7"/>
+  <text x="481" y="80" text-anchor="middle" font-size="10.5" font-weight="700" fill="#075985">递归流程（自顶向下、贪心）</text>
+  <text x="324" y="100" font-size="9.5" fill="#334155">① 对当前结点，遍历所有特征与切分点，选「纯度提升最大」的划分</text>
+  <text x="324" y="118" font-size="9.5" fill="#334155">② 按取值建立分支，把样本分到子集 Dᵥ</text>
+  <text x="324" y="136" font-size="9.5" fill="#334155">③ 对每个子集递归；满足停止条件则标为叶（多数类/均值）</text>
+  <text x="324" y="154" font-size="9.5" fill="#334155">④ 停止：结点纯、无特征、样本过少或达到最大深度</text>
+  <text x="324" y="172" font-size="9" fill="#64748b">优点：可解释、能处理混合属性与缺失；缺点：不稳定、易过拟合、贪心非全局最优</text>
+
+  <text x="30" y="206" font-size="12" font-weight="700" fill="#334155">② 三种划分准则与对应算法</text>
+  <rect x="30" y="216" width="200" height="76" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="130" y="234" text-anchor="middle" font-size="10" font-weight="700" fill="#075985">ID3 · 信息增益</text>
+  <text x="42" y="252" font-size="9.5" fill="#334155">H(D)=−Σpₖlog₂pₖ</text>
+  <text x="42" y="270" font-size="9.5" fill="#334155">G(D,A)=H(D)−Σ(|Dᵥ|/|D|)H(Dᵥ)</text>
+  <text x="42" y="286" font-size="9" fill="#64748b">偏袒取值多的特征（如编号）</text>
+  <rect x="240" y="216" width="200" height="76" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="340" y="234" text-anchor="middle" font-size="10" font-weight="700" fill="#166534">C4.5 · 增益率</text>
+  <text x="252" y="252" font-size="9.5" fill="#334155">GR = G(D,A)/SplitInfo_A</text>
+  <text x="252" y="270" font-size="9.5" fill="#334155">SplitInfo=−Σ(|Dᵥ|/|D|)log₂(|Dᵥ|/|D|)</text>
+  <text x="252" y="286" font-size="9" fill="#64748b">惩罚取值多的特征；支持连续值与缺失</text>
+  <rect x="450" y="216" width="200" height="76" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="550" y="234" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">CART · 基尼指数</text>
+  <text x="462" y="252" font-size="9.5" fill="#334155">Gini(D)=1−Σpₖ²</text>
+  <text x="462" y="270" font-size="9.5" fill="#334155">Gini_index=Σ(|Dᵥ|/|D|)Gini(Dᵥ)</text>
+  <text x="462" y="286" font-size="9" fill="#64748b">二叉树；分类用基尼、回归用平方误差</text>
+
+  <text x="30" y="316" font-size="12" font-weight="700" fill="#334155">③ 工作例题（14 个样本：9 正 / 5 负，按 A 分为 7正1负 与 2正4负）</text>
+  <rect x="30" y="326" width="620" height="52" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="42" y="344" font-size="10" fill="#334155">H(D)=0.9403；H(D₁)=0.5436、H(D₂)=0.9183 → 加权 = 8/14×0.5436+6/14×0.9183 = 0.7042 → 信息增益 = 0.2361。</text>
+  <text x="42" y="362" font-size="10" fill="#334155">基尼：Gini(D)=0.4592；Gini_index = 8/14×0.2188+6/14×0.4444 = 0.3155；SplitInfo=0.9852 → 增益率 = 0.2397。</text>
+  <text x="42" y="376" font-size="9" fill="#64748b">选使增益最大 / 基尼最小的特征与切分点；信息增益取最大，基尼指数取最小，方向别弄反。</text>
+
+  <text x="30" y="394" font-size="10" fill="#64748b">剪枝：预剪枝（提前停止）速度快但可能欠拟合；后剪枝（先长全树再自底向上替换子树）更可靠。CART 用代价复杂度剪枝 CCP 选 α。</text>
+</svg>

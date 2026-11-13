@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">回归学习：最小二乘、梯度下降与正则化（第 3 章）</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 模型与两条求解路径</text>
+  <rect x="30" y="62" width="620" height="44" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="42" y="82" font-size="10.5" fill="#334155">线性模型 y = wᵀx + w₀（扩充特征向量后写为 y = wᵀx）；训练集 {(xᵢ, yᵢ)}，损失 L(w)=½Σᵢ(yᵢ − wᵀxᵢ)²</text>
+  <text x="42" y="100" font-size="9.5" fill="#64748b">最小化经验风险得参数；对新样本 x 直接输出 ŷ = wᵀx。多项式回归 = 先做特征升维（x, x², …）再线性回归。</text>
+  <rect x="30" y="114" width="300" height="92" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="180" y="132" text-anchor="middle" font-size="10.5" font-weight="700" fill="#075985">路径 A：闭式解（正规方程）</text>
+  <text x="42" y="152" font-size="9.5" fill="#334155">∇_w L = Xᵀ(Xw − y) = 0</text>
+  <text x="42" y="170" font-size="9.5" font-weight="700" fill="#334155">w* = (XᵀX)⁻¹Xᵀy</text>
+  <text x="42" y="188" font-size="9" fill="#64748b">优点：一步到位、无学习率；缺点：O(d³) 求逆、</text>
+  <text x="42" y="200" font-size="9" fill="#64748b">XᵀX 奇异（共线或 d &gt; n）时失效 → 用伪逆或加正则</text>
+  <rect x="342" y="114" width="308" height="92" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="496" y="132" text-anchor="middle" font-size="10.5" font-weight="700" fill="#166534">路径 B：梯度下降</text>
+  <text x="354" y="152" font-size="9.5" fill="#334155">∇_w L = Σᵢ (wᵀxᵢ − yᵢ)·xᵢ</text>
+  <text x="354" y="170" font-size="9.5" font-weight="700" fill="#334155">w ← w − η·∇_w L</text>
+  <text x="354" y="188" font-size="9" fill="#64748b">适合大样本/高维，可小批量、可在线；</text>
+  <text x="354" y="200" font-size="9" fill="#64748b">须标准化特征、调学习率，否则收敛慢或震荡</text>
+
+  <text x="30" y="230" font-size="12" font-weight="700" fill="#334155">② 正则化：控制过拟合（课件第 3 讲）</text>
+  <rect x="30" y="240" width="200" height="80" rx="6" fill="#e0f2fe" stroke="#0284c7"/>
+  <text x="130" y="258" text-anchor="middle" font-size="10.5" font-weight="700" fill="#075985">岭回归 L2</text>
+  <text x="42" y="278" font-size="9.5" fill="#334155">L = ½Σe² + (λ/2)‖w‖²</text>
+  <text x="42" y="296" font-size="9.5" fill="#334155">w* = (XᵀX+λI)⁻¹Xᵀy</text>
+  <text x="42" y="312" font-size="9" fill="#64748b">系数整体缩小、解更稳，不为 0</text>
+  <rect x="240" y="240" width="200" height="80" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="340" y="258" text-anchor="middle" font-size="10.5" font-weight="700" fill="#166534">Lasso L1</text>
+  <text x="252" y="278" font-size="9.5" fill="#334155">L = ½Σe² + λ‖w‖₁</text>
+  <text x="252" y="296" font-size="9.5" fill="#334155">产生稀疏解（部分系数恰为 0）</text>
+  <text x="252" y="312" font-size="9" fill="#64748b">可自动做特征选择；近奇异点不可导</text>
+  <rect x="450" y="240" width="200" height="80" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="550" y="258" text-anchor="middle" font-size="10.5" font-weight="700" fill="#92400e">贝叶斯解释</text>
+  <text x="462" y="278" font-size="9.5" fill="#334155">L2 ↔ 参数高斯先验</text>
+  <text x="462" y="296" font-size="9.5" fill="#334155">L1 ↔ 拉普拉斯先验</text>
+  <text x="462" y="312" font-size="9" fill="#64748b">正则项 = 负 log 先验（MAP 估计）</text>
+
+  <text x="30" y="344" font-size="12" font-weight="700" fill="#334155">③ 工作例题 · 梯度下降一步（η=0.1）</text>
+  <text x="30" y="364" font-size="10.5" fill="#334155">样本 (x=1, y=2)、(x=2, y=3)，模型 ŷ=wx（无截距），初值 w=0：</text>
+  <text x="30" y="382" font-size="10.5" fill="#334155">L=½[(0−2)²+(0−3)²]=6.5；∇L=Σ(wx−y)x = (0−2)·1+(0−3)·2 = −8 → w ← 0 − 0.1×(−8) = 0.8。</text>
+  <text x="30" y="396" font-size="10" fill="#64748b">闭式解 w*=(1·2+2·3)/(1²+2²)=8/5=1.6；梯度下降从 0.8 逐步逼近 1.6。λ 越大系数越小，偏差升方差降。</text>
+</svg>

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">神经元、多层感知机与激活函数（第 8–9 章）</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 人工神经元与前向计算</text>
+  <rect x="30" y="62" width="300" height="102" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <line x1="56" y1="100" x2="140" y2="112" stroke="#94a3b8"/><line x1="56" y1="140" x2="140" y2="120" stroke="#94a3b8"/>
+  <circle cx="52" cy="100" r="7" fill="#dbeafe" stroke="#2563eb"/><text x="40" y="90" font-size="9" fill="#334155">x₁</text>
+  <circle cx="52" cy="140" r="7" fill="#dbeafe" stroke="#2563eb"/><text x="40" y="152" font-size="9" fill="#334155">x₂</text>
+  <circle cx="158" cy="116" r="18" fill="#dcfce7" stroke="#16a34a"/><text x="158" y="120" text-anchor="middle" font-size="9" fill="#166534">Σ,φ</text>
+  <line x1="176" y1="116" x2="250" y2="116" stroke="#94a3b8"/><text x="262" y="120" font-size="10" fill="#334155">输出 a</text>
+  <text x="62" y="76" font-size="9" fill="#64748b">w₁</text><text x="62" y="158" font-size="9" fill="#64748b">w₂</text>
+  <text x="42" y="162" font-size="9.5" fill="#334155">z = Σⱼ wⱼxⱼ + b = wᵀx + b；　a = φ(z)</text>
+  <rect x="342" y="62" width="308" height="102" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="496" y="80" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">多层感知机 MLP（前馈网络）</text>
+  <text x="354" y="100" font-size="9.5" fill="#334155">输入层 → 若干隐藏层 → 输出层，层间全连接</text>
+  <text x="354" y="118" font-size="9.5" fill="#334155">逐层：a^{(l)} = φ(W^{(l)}a^{(l−1)} + b^{(l)})</text>
+  <text x="354" y="136" font-size="9.5" fill="#334155">必须含非线性激活，否则多层线性叠加 = 单层线性</text>
+  <text x="354" y="154" font-size="9" fill="#64748b">万能逼近定理：单隐层 + 足够多神经元可逼近任意连续函数</text>
+
+  <text x="30" y="188" font-size="12" font-weight="700" fill="#334155">② 激活函数对照（课件 Part-1）</text>
+  <rect x="30" y="198" width="152" height="86" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="106" y="216" text-anchor="middle" font-size="10" font-weight="700" fill="#334155">Sigmoid</text>
+  <text x="40" y="234" font-size="9" fill="#334155">σ(z)=1/(1+e⁻ᶻ)∈(0,1)</text>
+  <text x="40" y="250" font-size="9" fill="#334155">饱和区梯度趋 0 → 消失</text>
+  <text x="40" y="266" font-size="9" fill="#64748b">用于二分类输出/门控</text>
+  <text x="40" y="278" font-size="9" fill="#64748b">输出非零均值</text>
+  <rect x="190" y="198" width="152" height="86" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="266" y="216" text-anchor="middle" font-size="10" font-weight="700" fill="#334155">Tanh</text>
+  <text x="200" y="234" font-size="9" fill="#334155">tanh(z)∈(−1,1)，零均值</text>
+  <text x="200" y="250" font-size="9" fill="#334155">仍有饱和与梯度消失</text>
+  <text x="200" y="266" font-size="9" fill="#64748b">常用于 RNN 隐状态</text>
+  <text x="200" y="278" font-size="9" fill="#64748b">指数运算较慢</text>
+  <rect x="350" y="198" width="152" height="86" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="426" y="216" text-anchor="middle" font-size="10" font-weight="700" fill="#166534">ReLU（默认首选）</text>
+  <text x="360" y="234" font-size="9" fill="#334155">max(0,z)，计算极简</text>
+  <text x="360" y="250" font-size="9" fill="#334155">正半轴梯度恒 1，缓解消失</text>
+  <text x="360" y="266" font-size="9" fill="#64748b">缺点：z&lt;0 神经元「死亡」</text>
+  <text x="360" y="278" font-size="9" fill="#64748b">变体：LeakyReLU / ELU / GELU</text>
+  <rect x="510" y="198" width="140" height="86" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="580" y="216" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">Softmax</text>
+  <text x="520" y="234" font-size="9" fill="#92400e">exp(aₖ)/Σⱼexp(aⱼ)</text>
+  <text x="520" y="250" font-size="9" fill="#92400e">多分类输出层，和为 1</text>
+  <text x="520" y="266" font-size="9" fill="#64748b">配合交叉熵损失</text>
+  <text x="520" y="278" font-size="9" fill="#64748b">注意数值溢出须减 max</text>
+
+  <text x="30" y="308" font-size="12" font-weight="700" fill="#334155">③ 工作例题 · 一层前向计算</text>
+  <rect x="30" y="318" width="620" height="58" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="338" font-size="10" fill="#334155">x=(1,2)，w=(0.5,−1)，b=0.3 → z=0.5×1+(−1)×2+0.3 = −1.2 → ReLU(z)=0；若用 sigmoid 则 ≈0.2315。</text>
+  <text x="42" y="358" font-size="10" fill="#334155">三分类 logits (2,1,0.1) → softmax ≈ (0.6590, 0.2424, 0.0986)，和为 1；预测第 1 类。</text>
+  <text x="42" y="372" font-size="9" fill="#64748b">深层网络靠「线性变换 + 非线性激活」的反复堆叠获得强表达能力；参数量随层数/宽度增长，须配正则化。</text>
+
+  <text x="30" y="394" font-size="10" fill="#64748b">易错：隐藏层不能用线性激活（等价于单层）；ReLU 死亡可用 LeakyReLU 或更小学习率缓解；softmax 与 sigmoid 分别对应多分类与二分类。</text>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">强化学习：MDP、值函数与策略优化（第 11 章）</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 基本框架：智能体与环境的交互闭环</text>
+  <defs><marker id="ar1" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#2563eb"/></marker></defs>
+  <rect x="30" y="62" width="150" height="52" rx="6" fill="#e0f2fe" stroke="#0284c7"/><text x="105" y="82" text-anchor="middle" font-size="10.5" font-weight="700" fill="#075985">Agent 智能体</text><text x="105" y="100" text-anchor="middle" font-size="9" fill="#075985">按策略 π 选动作 Aₜ</text>
+  <rect x="250" y="62" width="150" height="52" rx="6" fill="#dcfce7" stroke="#16a34a"/><text x="325" y="82" text-anchor="middle" font-size="10.5" font-weight="700" fill="#166534">Environment</text><text x="325" y="100" text-anchor="middle" font-size="9" fill="#166534">转移 Sₜ₊₁、给奖励 Rₜ₊₁</text>
+  <line x1="180" y1="80" x2="249" y2="80" stroke="#2563eb" marker-end="url(#ar1)"/><text x="214" y="74" text-anchor="middle" font-size="9" fill="#2563eb">Aₜ</text>
+  <line x1="250" y1="102" x2="181" y2="102" stroke="#2563eb" marker-end="url(#ar1)"/><text x="214" y="116" text-anchor="middle" font-size="9" fill="#2563eb">Sₜ₊₁, Rₜ₊₁</text>
+  <rect x="420" y="62" width="230" height="52" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="432" y="80" font-size="9.5" fill="#334155">MDP 五元组 (S, A, P, R, γ)</text>
+  <text x="432" y="98" font-size="9.5" fill="#334155">马尔可夫性：P(Sₜ₊₁|Sₜ, Aₜ) 与历史无关</text>
+  <text x="432" y="110" font-size="9" fill="#64748b">目标：最大化长期累计回报，而非单步奖励</text>
+
+  <text x="30" y="138" font-size="12" font-weight="700" fill="#334155">② 回报、值函数与贝尔曼方程（课件 RL-1）</text>
+  <rect x="30" y="148" width="620" height="74" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="42" y="168" font-size="10" fill="#334155">折扣回报 Gₜ = Rₜ₊₁ + γRₜ₊₂ + γ²Rₜ₊₃ + …（0 ≤ γ &lt; 1，γ 小则短视、大则远视）</text>
+  <text x="42" y="186" font-size="10" fill="#334155">状态值 V^π(s) = E_π[Gₜ | Sₜ=s]；动作值 q^π(s,a) = E_π[Gₜ | Sₜ=s, Aₜ=a]</text>
+  <text x="42" y="204" font-size="10" fill="#334155">贝尔曼期望：V^π(s)=E_π[Rₜ₊₁+γV^π(Sₜ₊₁)|Sₜ=s]；最优：V*(s)=maxₐ E[Rₜ₊₁+γV*(Sₜ₊₁)]</text>
+  <text x="42" y="218" font-size="9" fill="#64748b">V 与 q 的关系：V^π(s)=Σₐ π(a|s)q^π(s,a)；q* 已知则贪心即得最优策略。</text>
+
+  <text x="30" y="246" font-size="12" font-weight="700" fill="#334155">③ 求解路线与 Q-learning 更新</text>
+  <rect x="30" y="256" width="300" height="80" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="180" y="274" text-anchor="middle" font-size="10" font-weight="700" fill="#334155">表格型 / 值函数方法</text>
+  <text x="42" y="292" font-size="9.5" fill="#334155">动态规划（模型已知）、蒙特卡罗、时序差分 TD</text>
+  <text x="42" y="310" font-size="9.5" fill="#334155">Q-learning（off-policy）：用下一状态最大 Q 作目标</text>
+  <text x="42" y="328" font-size="9" fill="#64748b">SARSA 是 on-policy；ε-贪心平衡探索与利用</text>
+  <rect x="342" y="256" width="308" height="80" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="496" y="274" text-anchor="middle" font-size="10" font-weight="700" fill="#334155">函数逼近 / 策略方法（RL-2）</text>
+  <text x="354" y="292" font-size="9.5" fill="#334155">V̂(s,w)=x(s)ᵀw；Δw = α(目标 − 预测)·x(s)</text>
+  <text x="354" y="310" font-size="9.5" fill="#334155">DQN：神经网络 + 经验回放 + 目标网络</text>
+  <text x="354" y="328" font-size="9" fill="#64748b">策略梯度 REINFORCE、Actor-Critic、连续动作 DDPG</text>
+
+  <text x="30" y="360" font-size="12" font-weight="700" fill="#334155">④ 工作例题 · 一次 Q-learning 更新</text>
+  <text x="30" y="378" font-size="10" fill="#334155">Q(s,a) ← Q(s,a) + α[r + γ·maxₐ′Q(s′,a′) − Q(s,a)]；设 Q=0.5、r=1、γ=0.9、max Q(s′,·)=0.8、α=0.1。</text>
+  <text x="30" y="394" font-size="10" fill="#334155">目标 = 1+0.9×0.8 = 1.72；TD 误差 δ = 1.72−0.5 = 1.22 → Q ← 0.5 + 0.1×1.22 = 0.622。</text>
+</svg>

@@ -35,7 +35,8 @@ const noteOptions = [
   { key: 'OS', label: '计算机操作系统笔记' },
   { key: 'Econometrics', label: '计量经济学笔记' },
   { key: 'Database', label: '数据库原理及应用笔记' },
-  { key: 'DataMining', label: 'Python 数据挖掘笔记' }
+  { key: 'DataMining', label: 'Python 数据挖掘笔记' },
+  { key: 'MLTheory', label: '机器学习原理笔记' }
 ]
 const selectedNote = ref('all')
 const size = ref(5)

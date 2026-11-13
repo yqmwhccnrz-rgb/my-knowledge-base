@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">方法选型决策树与全书核心公式地图</text>
+  <defs><marker id="ar1" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#2563eb"/></marker></defs>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 按问题类型选方法</text>
+  <rect x="30" y="62" width="140" height="36" rx="6" fill="#dbeafe" stroke="#2563eb"/><text x="100" y="85" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">有标注 y 吗？</text>
+  <line x1="170" y1="80" x2="196" y2="62" stroke="#2563eb" marker-end="url(#ar1)"/><text x="176" y="56" font-size="9" fill="#2563eb">有</text>
+  <line x1="170" y1="80" x2="196" y2="116" stroke="#2563eb" marker-end="url(#ar1)"/><text x="176" y="112" font-size="9" fill="#2563eb">无</text>
+  <rect x="200" y="44" width="200" height="36" rx="6" fill="#e0f2fe" stroke="#0284c7"/><text x="300" y="67" text-anchor="middle" font-size="10" font-weight="700" fill="#075985">监督：y 离散还是连续？</text>
+  <rect x="200" y="98" width="200" height="36" rx="6" fill="#dcfce7" stroke="#16a34a"/><text x="300" y="121" text-anchor="middle" font-size="10" font-weight="700" fill="#166534">无监督：发现结构</text>
+  <line x1="400" y1="62" x2="426" y2="52" stroke="#2563eb" marker-end="url(#ar1)"/><text x="406" y="48" font-size="9" fill="#2563eb">离散</text>
+  <line x1="400" y1="62" x2="426" y2="92" stroke="#2563eb" marker-end="url(#ar1)"/><text x="406" y="90" font-size="9" fill="#2563eb">连续</text>
+  <rect x="430" y="36" width="220" height="32" rx="5" fill="#f8fafc" stroke="#cbd5e1"/><text x="440" y="56" font-size="9.5" fill="#334155">分类：LR / SVM / 树 / RF / GBDT / NN</text>
+  <rect x="430" y="76" width="220" height="32" rx="5" fill="#f8fafc" stroke="#cbd5e1"/><text x="440" y="96" font-size="9.5" fill="#334155">回归：线性/岭/Lasso / 回归树 / NN</text>
+  <line x1="400" y1="116" x2="426" y2="116" stroke="#2563eb" marker-end="url(#ar1)"/>
+  <rect x="430" y="112" width="220" height="32" rx="5" fill="#f8fafc" stroke="#cbd5e1"/><text x="440" y="132" font-size="9.5" fill="#334155">聚类 K-means/GMM；降维 PCA/ICA/AE</text>
+
+  <text x="30" y="166" font-size="12" font-weight="700" fill="#334155">② 按约束条件再收敛</text>
+  <rect x="30" y="176" width="152" height="58" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="106" y="194" text-anchor="middle" font-size="10" font-weight="700" fill="#334155">要可解释</text>
+  <text x="40" y="212" font-size="9" fill="#334155">线性回归 / 决策树 / LR</text>
+  <text x="40" y="228" font-size="9" fill="#64748b">深度模型需 SHAP/注意力解释</text>
+  <rect x="190" y="176" width="152" height="58" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="266" y="194" text-anchor="middle" font-size="10" font-weight="700" fill="#334155">要概率输出</text>
+  <text x="200" y="212" font-size="9" fill="#334155">LR / 朴素贝叶斯 / GMM</text>
+  <text x="200" y="228" font-size="9" fill="#64748b">SVM 需 Platt 校准</text>
+  <rect x="350" y="176" width="152" height="58" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="426" y="194" text-anchor="middle" font-size="10" font-weight="700" fill="#334155">小样本高维</text>
+  <text x="360" y="212" font-size="9" fill="#334155">SVM + RBF / 正则化 / 降维</text>
+  <text x="360" y="228" font-size="9" fill="#64748b">避免深度模型过拟合</text>
+  <rect x="510" y="176" width="140" height="58" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="580" y="194" text-anchor="middle" font-size="10" font-weight="700" fill="#334155">大数据非结构化</text>
+  <text x="520" y="212" font-size="9" fill="#334155">深度网络 / 预训练</text>
+  <text x="520" y="228" font-size="9" fill="#64748b">图像 CNN、序列 Transformer</text>
+
+  <text x="30" y="258" font-size="12" font-weight="700" fill="#334155">③ 全书核心公式地图（复习索引）</text>
+  <rect x="30" y="268" width="620" height="106" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="42" y="288" font-size="9.5" fill="#334155">【基础】贝叶斯 p(θ|D)∝p(D|θ)p(θ)；MLE argmax Σlog p；熵 H=−Σp log p；KL≥0；w ← w−η∇L</text>
+  <text x="42" y="306" font-size="9.5" fill="#334155">【回归/分类】w*=(XᵀX)⁻¹Xᵀy；L2: +λ‖w‖²；σ(z)=1/(1+e⁻ᶻ)；softmax；交叉熵 −Σy log ŷ</text>
+  <text x="42" y="324" font-size="9.5" fill="#334155">【核与树】k(x,z)=φ(x)ᵀφ(z)；SVM min ½‖w‖²+CΣξ；G(D,A)=H(D)−H(D|A)；Gini=1−Σp²</text>
+  <text x="42" y="342" font-size="9.5" fill="#334155">【深度】a⁽ˡ⁾=φ(W⁽ˡ⁾a⁽ˡ⁻¹⁾+b⁽ˡ⁾)；δ⁽ˡ⁾=(W⁽ˡ⁺¹⁾)ᵀδ⁽ˡ⁺¹⁾⊙φ′；Attention=softmax(QKᵀ/√d)V</text>
+  <text x="42" y="360" font-size="9.5" fill="#334155">【无监督/强化/生成】J_KM=Σ‖x−μ‖²；EM 的 E/M 步；Gₜ=ΣγᵏR；Q 更新；ELBO；GAN minmax；xₜ=√αₜxₜ₋₁+√(1−αₜ)ε</text>
+
+  <text x="30" y="392" font-size="10" fill="#64748b">黄金法则：先用简单基线（LR / 树）+ 交叉验证建立参照，再逐步上复杂模型；任何「提升」都要在独立测试集上验证。</text>
+</svg>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">反向传播、梯度问题与训练技巧（第 8–10 章）</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 反向传播 = 计算图上的链式法则（两遍扫描）</text>
+  <rect x="30" y="62" width="620" height="70" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="42" y="82" font-size="10.5" fill="#334155">前向：逐层算 z^{(l)}=W^{(l)}a^{(l−1)}+b^{(l)}、a^{(l)}=φ(z^{(l)})，缓存中间值，最后算损失 L。</text>
+  <text x="42" y="102" font-size="10.5" fill="#334155">反向：输出层 δ^{(L)}=∇_a L ⊙ φ′(z^{(L)})；逐层回传 δ^{(l)}=(W^{(l+1)})ᵀδ^{(l+1)} ⊙ φ′(z^{(l)})</text>
+  <text x="42" y="122" font-size="10.5" fill="#334155">梯度：∂L/∂W^{(l)} = δ^{(l)}(a^{(l−1)})ᵀ，∂L/∂b^{(l)} = δ^{(l)}；再按优化器更新参数。</text>
+
+  <text x="30" y="156" font-size="12" font-weight="700" fill="#334155">② 梯度消失 / 爆炸：连乘的后果</text>
+  <rect x="30" y="166" width="300" height="86" rx="6" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="180" y="184" text-anchor="middle" font-size="10.5" font-weight="700" fill="#991b1b">梯度消失</text>
+  <text x="42" y="204" font-size="9.5" fill="#334155">深层 δ 含多个 Wᵀφ′ 连乘，若 |·| &lt; 1 → 指数衰减</text>
+  <text x="42" y="222" font-size="9.5" fill="#334155">Sigmoid 导数最大仅 0.25，深层尤其严重</text>
+  <text x="42" y="240" font-size="9" fill="#64748b">对策：ReLU、残差连接、批归一化、恰当初始化、LSTM 门控</text>
+  <rect x="342" y="166" width="308" height="86" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="496" y="184" text-anchor="middle" font-size="10.5" font-weight="700" fill="#92400e">梯度爆炸</text>
+  <text x="354" y="204" font-size="9.5" fill="#334155">连乘因子 &gt; 1 → 梯度指数增长、参数更新失控</text>
+  <text x="354" y="222" font-size="9.5" fill="#334155">常见于 RNN 长序列与过大学习率</text>
+  <text x="354" y="240" font-size="9" fill="#64748b">对策：梯度裁剪、权重正则、降低学习率、正交初始化</text>
+
+  <text x="30" y="276" font-size="12" font-weight="700" fill="#334155">③ 训练技巧速查（课件 Part-2）</text>
+  <rect x="30" y="286" width="152" height="72" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="106" y="304" text-anchor="middle" font-size="10" font-weight="700" fill="#334155">批归一化 BN</text>
+  <text x="40" y="322" font-size="9" fill="#334155">每层输入标准化到 0 均值 1 方差</text>
+  <text x="40" y="338" font-size="9" fill="#334155">再加可学习 γ、β 缩放平移</text>
+  <text x="40" y="352" font-size="9" fill="#64748b">允许更大学习率、缓解内部协变量偏移</text>
+  <rect x="190" y="286" width="152" height="72" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="266" y="304" text-anchor="middle" font-size="10" font-weight="700" fill="#334155">Dropout</text>
+  <text x="200" y="322" font-size="9" fill="#334155">训练时按概率 p 随机置零神经元</text>
+  <text x="200" y="338" font-size="9" fill="#334155">测试时全开并按 (1−p) 缩放</text>
+  <text x="200" y="352" font-size="9" fill="#64748b">等价于隐式集成，降低共适应</text>
+  <rect x="350" y="286" width="152" height="72" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="426" y="304" text-anchor="middle" font-size="10" font-weight="700" fill="#334155">初始化与残差</text>
+  <text x="360" y="322" font-size="9" fill="#334155">Xavier(σ²≈1/d_in)、He(≈2/d_in)</text>
+  <text x="360" y="338" font-size="9" fill="#334155">残差 y=F(x)+x 提供梯度高速路</text>
+  <text x="360" y="352" font-size="9" fill="#64748b">使上百层网络可训练</text>
+  <rect x="510" y="286" width="140" height="72" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="580" y="304" text-anchor="middle" font-size="10" font-weight="700" fill="#166534">早停与权重衰减</text>
+  <text x="520" y="322" font-size="9" fill="#334155">验证误差回升即停</text>
+  <text x="520" y="338" font-size="9" fill="#334155">L2 惩罚等价于权重衰减</text>
+  <text x="520" y="352" font-size="9" fill="#64748b">二者都是控制过拟合</text>
+
+  <text x="30" y="382" font-size="10.5" fill="#334155">工作例题：5 层网络每层反传因子 0.5 → 首层梯度约 0.5⁵ = 0.03125（几乎消失）；若为 2 → 2⁵ = 32（爆炸）。</text>
+  <text x="30" y="398" font-size="10" fill="#64748b">易错：BN 在训练/推理用的统计量不同（推理用滑动平均）；Dropout 只在训练启用；反向传播不「创造」梯度，只是高效复用链式法则。</text>
+</svg>
