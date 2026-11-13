@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 445" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="445" fill="#fbfdff"/>
+  <text x="340" y="28" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">五层原理体系结构：逐层封装与 PDU</text>
+
+  <text x="20" y="52" font-size="11" font-weight="700" fill="#334155">层（发送端）</text>
+  <text x="150" y="52" font-size="11" font-weight="700" fill="#334155">封装后的数据单元（自上而下逐层加首部）</text>
+  <text x="548" y="52" font-size="11" font-weight="700" fill="#334155">PDU 名称</text>
+
+  <!-- 应用层 -->
+  <rect x="20" y="62" width="118" height="46" rx="6" fill="#dbeafe" stroke="#1e3a8a"/>
+  <text x="79" y="90" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a">5 应用层</text>
+  <rect x="200" y="70" width="340" height="30" rx="4" fill="#bfdbfe" stroke="#2563eb"/>
+  <text x="370" y="90" text-anchor="middle" font-size="11" fill="#1e3a8a">应用数据（HTTP 报文 / DNS 报文 …）</text>
+  <text x="552" y="90" font-size="10.5" fill="#334155">报文 message</text>
+
+  <!-- 运输层 -->
+  <rect x="20" y="124" width="118" height="46" rx="6" fill="#dcfce7" stroke="#15803d"/>
+  <text x="79" y="152" text-anchor="middle" font-size="12" font-weight="700" fill="#15803d">4 运输层</text>
+  <rect x="145" y="132" width="80" height="30" rx="4" fill="#86efac" stroke="#15803d"/>
+  <text x="185" y="152" text-anchor="middle" font-size="9.5" fill="#14532d">TCP/UDP 首部</text>
+  <rect x="225" y="132" width="315" height="30" rx="4" fill="#bfdbfe" stroke="#2563eb"/>
+  <text x="382" y="152" text-anchor="middle" font-size="11" fill="#1e3a8a">应用数据</text>
+  <text x="552" y="147" font-size="10" fill="#334155">报文段 /</text>
+  <text x="552" y="161" font-size="10" fill="#334155">用户数据报</text>
+
+  <!-- 网络层 -->
+  <rect x="20" y="186" width="118" height="46" rx="6" fill="#fef3c7" stroke="#b45309"/>
+  <text x="79" y="214" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">3 网络层</text>
+  <rect x="145" y="194" width="80" height="30" rx="4" fill="#fcd34d" stroke="#b45309"/>
+  <text x="185" y="214" text-anchor="middle" font-size="10" fill="#78350f">IP 首部</text>
+  <rect x="225" y="194" width="75" height="30" rx="4" fill="#86efac" stroke="#15803d"/>
+  <text x="262" y="214" text-anchor="middle" font-size="9.5" fill="#14532d">运输首部</text>
+  <rect x="300" y="194" width="240" height="30" rx="4" fill="#bfdbfe" stroke="#2563eb"/>
+  <text x="420" y="214" text-anchor="middle" font-size="11" fill="#1e3a8a">应用数据</text>
+  <text x="552" y="214" font-size="10.5" fill="#334155">IP 数据报</text>
+
+  <!-- 数据链路层 -->
+  <rect x="20" y="248" width="118" height="46" rx="6" fill="#ffedd5" stroke="#c2410c"/>
+  <text x="79" y="276" text-anchor="middle" font-size="12" font-weight="700" fill="#9a3412">2 数据链路层</text>
+  <rect x="145" y="256" width="70" height="30" rx="4" fill="#fdba74" stroke="#c2410c"/>
+  <text x="180" y="276" text-anchor="middle" font-size="9.5" fill="#7c2d12">帧首部</text>
+  <rect x="215" y="256" width="60" height="30" rx="4" fill="#fcd34d" stroke="#b45309"/>
+  <text x="245" y="276" text-anchor="middle" font-size="9" fill="#78350f">IP 首部</text>
+  <rect x="275" y="256" width="65" height="30" rx="4" fill="#86efac" stroke="#15803d"/>
+  <text x="307" y="276" text-anchor="middle" font-size="9" fill="#14532d">TCP 首部</text>
+  <rect x="340" y="256" width="160" height="30" rx="4" fill="#bfdbfe" stroke="#2563eb"/>
+  <text x="420" y="276" text-anchor="middle" font-size="10.5" fill="#1e3a8a">数据（46~1500 B）</text>
+  <rect x="500" y="256" width="40" height="30" rx="4" fill="#fdba74" stroke="#c2410c"/>
+  <text x="520" y="276" text-anchor="middle" font-size="9" fill="#7c2d12">FCS</text>
+  <text x="552" y="276" font-size="10.5" fill="#334155">帧 frame</text>
+
+  <!-- 物理层 -->
+  <rect x="20" y="310" width="118" height="46" rx="6" fill="#e2e8f0" stroke="#475569"/>
+  <text x="79" y="338" text-anchor="middle" font-size="12" font-weight="700" fill="#334155">1 物理层</text>
+  <rect x="145" y="318" width="395" height="30" rx="4" fill="#f1f5f9" stroke="#64748b"/>
+  <text x="342" y="338" text-anchor="middle" font-size="11" fill="#334155">比特流 0100110…（前导码 + 帧 + 帧间间隔）</text>
+  <text x="552" y="338" font-size="10.5" fill="#334155">比特 bit</text>
+
+  <line x1="20" y1="370" x2="660" y2="370" stroke="#e2e8f0"/>
+  <text x="20" y="390" font-size="11" fill="#334155">• 接收端反向逐层解封：去掉本层首部后把 SDU 交给上层；协议是「水平的」（对等实体之间），服务是「垂直的」（层间 SAP）。</text>
+  <text x="20" y="408" font-size="11" fill="#334155">• 中间设备只解到必要层次：集线器只看比特、交换机解到第 2 层（MAC）、路由器解到第 3 层（IP）；端系统才处理到应用层。</text>
+  <text x="20" y="426" font-size="10.5" fill="#64748b">• OSI 七层另含表示层/会话层；TCP/IP 四层把下两层合并为「网络接口层」（无具体内容）；教学采用五层原理体系结构。</text>
+</svg>

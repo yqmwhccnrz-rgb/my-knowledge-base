@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 460" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="460" fill="#fbfdff"/>
+  <text x="340" y="28" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">各层 PDU 与首部字段速览</text>
+
+  <!-- 以太网帧 -->
+  <text x="20" y="54" font-size="11.5" font-weight="700" fill="#1e3a8a">① 以太网 V2 MAC 帧（64 ~ 1518 字节）</text>
+  <rect x="20" y="62" width="80" height="30" fill="#fed7aa" stroke="#c2410c"/>
+  <text x="60" y="81" text-anchor="middle" font-size="8.5" fill="#7c2d12">目的地址 6B</text>
+  <rect x="100" y="62" width="80" height="30" fill="#fed7aa" stroke="#c2410c"/>
+  <text x="140" y="81" text-anchor="middle" font-size="8.5" fill="#7c2d12">源地址 6B</text>
+  <rect x="180" y="62" width="70" height="30" fill="#fdba74" stroke="#c2410c"/>
+  <text x="215" y="81" text-anchor="middle" font-size="8.5" fill="#7c2d12">类型 2B</text>
+  <rect x="250" y="62" width="350" height="30" fill="#bfdbfe" stroke="#2563eb"/>
+  <text x="425" y="81" text-anchor="middle" font-size="10" fill="#1e3a8a">数据 46 ~ 1500 B（不足 46 B 要填充）</text>
+  <rect x="600" y="62" width="60" height="30" fill="#fed7aa" stroke="#c2410c"/>
+  <text x="630" y="81" text-anchor="middle" font-size="8.5" fill="#7c2d12">FCS 4B</text>
+  <text x="20" y="108" font-size="9.5" fill="#64748b">类型：0x0800=IPv4、0x0806=ARP、0x86DD=IPv6；802.1Q VLAN 会插入 4 B 标记，帧最长 1522 B。</text>
+
+  <!-- IPv4 -->
+  <text x="20" y="136" font-size="11.5" font-weight="700" fill="#92400e">② IPv4 数据报首部（固定 20 B，最长 60 B）</text>
+  <rect x="20" y="144" width="80" height="30" fill="#fde68a" stroke="#b45309"/>
+  <text x="60" y="163" text-anchor="middle" font-size="8" fill="#78350f">版本/首部长</text>
+  <rect x="100" y="144" width="80" height="30" fill="#fde68a" stroke="#b45309"/>
+  <text x="140" y="163" text-anchor="middle" font-size="8" fill="#78350f">DSCP/总长度</text>
+  <rect x="180" y="144" width="100" height="30" fill="#fcd34d" stroke="#b45309"/>
+  <text x="230" y="163" text-anchor="middle" font-size="8" fill="#78350f">标识/标志/片偏移</text>
+  <rect x="280" y="144" width="60" height="30" fill="#fde68a" stroke="#b45309"/>
+  <text x="310" y="163" text-anchor="middle" font-size="8" fill="#78350f">TTL 8b</text>
+  <rect x="340" y="144" width="60" height="30" fill="#fde68a" stroke="#b45309"/>
+  <text x="370" y="163" text-anchor="middle" font-size="8" fill="#78350f">协议 8b</text>
+  <rect x="400" y="144" width="70" height="30" fill="#fcd34d" stroke="#b45309"/>
+  <text x="435" y="163" text-anchor="middle" font-size="8" fill="#78350f">首部检验和</text>
+  <rect x="470" y="144" width="95" height="30" fill="#fef3c7" stroke="#b45309"/>
+  <text x="517" y="163" text-anchor="middle" font-size="8.5" fill="#78350f">源 IP 32b</text>
+  <rect x="565" y="144" width="95" height="30" fill="#fef3c7" stroke="#b45309"/>
+  <text x="612" y="163" text-anchor="middle" font-size="8.5" fill="#78350f">目的 IP 32b</text>
+  <text x="20" y="190" font-size="9.5" fill="#64748b">协议号 6=TCP / 17=UDP / 1=ICMP / 89=OSPF；检验和只校验首部，TTL 每跳减 1 故每跳重算；片偏移以 8 B 为单位。</text>
+
+  <!-- UDP -->
+  <text x="20" y="218" font-size="11.5" font-weight="700" fill="#15803d">③ UDP 首部（固定 8 B）</text>
+  <rect x="20" y="226" width="160" height="30" fill="#bbf7d0" stroke="#15803d"/>
+  <text x="100" y="245" text-anchor="middle" font-size="9.5" fill="#14532d">源端口 16b</text>
+  <rect x="180" y="226" width="160" height="30" fill="#bbf7d0" stroke="#15803d"/>
+  <text x="260" y="245" text-anchor="middle" font-size="9.5" fill="#14532d">目的端口 16b</text>
+  <rect x="340" y="226" width="160" height="30" fill="#86efac" stroke="#15803d"/>
+  <text x="420" y="245" text-anchor="middle" font-size="9.5" fill="#14532d">长度 16b</text>
+  <rect x="500" y="226" width="160" height="30" fill="#86efac" stroke="#15803d"/>
+  <text x="580" y="245" text-anchor="middle" font-size="9.5" fill="#14532d">检验和 16b</text>
+  <text x="20" y="272" font-size="9.5" fill="#64748b">计算检验和时要临时加 12 B 伪首部（含源/目的 IP、协议号 17、UDP 长度），因此也校验了地址与端口。</text>
+
+  <!-- TCP -->
+  <text x="20" y="300" font-size="11.5" font-weight="700" fill="#5b21b6">④ TCP 报文段首部（固定 20 B，最长 60 B）</text>
+  <rect x="20" y="308" width="80" height="30" fill="#ddd6fe" stroke="#7c3aed"/>
+  <text x="60" y="327" text-anchor="middle" font-size="8" fill="#4c1d95">源端口 16b</text>
+  <rect x="100" y="308" width="80" height="30" fill="#ddd6fe" stroke="#7c3aed"/>
+  <text x="140" y="327" text-anchor="middle" font-size="8" fill="#4c1d95">目的端口 16b</text>
+  <rect x="180" y="308" width="100" height="30" fill="#c4b5fd" stroke="#7c3aed"/>
+  <text x="230" y="327" text-anchor="middle" font-size="8.5" fill="#4c1d95">序号 seq 32b</text>
+  <rect x="280" y="308" width="100" height="30" fill="#c4b5fd" stroke="#7c3aed"/>
+  <text x="330" y="327" text-anchor="middle" font-size="8.5" fill="#4c1d95">确认号 ack 32b</text>
+  <rect x="380" y="308" width="90" height="30" fill="#ddd6fe" stroke="#7c3aed"/>
+  <text x="425" y="327" text-anchor="middle" font-size="8" fill="#4c1d95">偏移/标志位</text>
+  <rect x="470" y="308" width="70" height="30" fill="#c4b5fd" stroke="#7c3aed"/>
+  <text x="505" y="327" text-anchor="middle" font-size="8.5" fill="#4c1d95">窗口 16b</text>
+  <rect x="540" y="308" width="60" height="30" fill="#ddd6fe" stroke="#7c3aed"/>
+  <text x="570" y="327" text-anchor="middle" font-size="8" fill="#4c1d95">检验和</text>
+  <rect x="600" y="308" width="60" height="30" fill="#ddd6fe" stroke="#7c3aed"/>
+  <text x="630" y="327" text-anchor="middle" font-size="8" fill="#4c1d95">紧急指针</text>
+  <text x="20" y="354" font-size="9.5" fill="#64748b">序号按「字节」编号；确认号是期望收到的下一个字节序号；窗口字段是接收方通告的 rwnd；选项含 MSS、窗口扩大、时间戳、SACK。</text>
+
+  <line x1="20" y1="370" x2="660" y2="370" stroke="#e2e8f0"/>
+  <text x="20" y="392" font-size="10.5" fill="#334155">• MTU：以太网数据字段最大 1500 B → TCP MSS 常为 1460 B（1500 − 20 IP − 20 TCP）。</text>
+  <text x="20" y="410" font-size="10.5" fill="#334155">• 帧最短 64 B 源于 CSMA/CD 争用期 512 bit time；现代全双工交换式以太网已无碰撞，但帧格式与最短帧限制保留。</text>
+  <text x="20" y="428" font-size="10.5" fill="#64748b">• 封装时每层只加自己的首部；解封时逐层去掉。IP 首部检验和只管首部，端到端数据完整性由运输层检验和与 TLS 保证。</text>
+</svg>

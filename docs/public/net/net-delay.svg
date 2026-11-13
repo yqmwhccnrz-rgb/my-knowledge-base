@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="28" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">四种时延、时延带宽积与利用率</text>
+
+  <!-- 拓扑 -->
+  <rect x="20" y="58" width="86" height="38" rx="6" fill="#dbeafe" stroke="#1e3a8a"/>
+  <text x="63" y="82" text-anchor="middle" font-size="11.5" fill="#1e3a8a">主机 A</text>
+  <line x1="106" y1="77" x2="286" y2="77" stroke="#64748b" stroke-width="2"/>
+  <rect x="286" y="56" width="108" height="42" rx="6" fill="#fef3c7" stroke="#b45309"/>
+  <text x="340" y="76" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">路由器</text>
+  <text x="340" y="91" text-anchor="middle" font-size="9.5" fill="#92400e">查表 / 排队</text>
+  <line x1="394" y1="77" x2="574" y2="77" stroke="#64748b" stroke-width="2"/>
+  <rect x="574" y="58" width="86" height="38" rx="6" fill="#dbeafe" stroke="#1e3a8a"/>
+  <text x="617" y="82" text-anchor="middle" font-size="11.5" fill="#1e3a8a">主机 B</text>
+
+  <text x="112" y="52" font-size="10" fill="#2563eb">① 发送时延</text>
+  <text x="190" y="112" font-size="10" fill="#15803d">② 传播时延（链路上）</text>
+  <text x="292" y="112" font-size="10" fill="#b45309">③ 处理 + ④ 排队</text>
+  <text x="470" y="112" font-size="10" fill="#15803d">② 传播时延</text>
+
+  <!-- 左列公式 -->
+  <rect x="20" y="130" width="315" height="172" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="32" y="152" font-size="12" font-weight="700" fill="#334155">总时延 = 发送 + 传播 + 处理 + 排队</text>
+  <text x="32" y="176" font-size="11" fill="#1e293b">发送时延 = 数据长度(bit) / 发送速率(bit/s)</text>
+  <text x="32" y="196" font-size="10" fill="#64748b">与数据长度、速率有关；与距离无关</text>
+  <text x="32" y="220" font-size="11" fill="#1e293b">传播时延 = 信道长度(m) / 传播速率(m/s)</text>
+  <text x="32" y="240" font-size="10" fill="#64748b">与距离、介质有关；与发送速率无关</text>
+  <text x="32" y="264" font-size="11" fill="#1e293b">处理时延：查转发表、校验首部、拆装</text>
+  <text x="32" y="286" font-size="11" fill="#1e293b">排队时延：在路由器输入输出队列等待</text>
+
+  <!-- 右列公式 -->
+  <rect x="345" y="130" width="315" height="172" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="357" y="152" font-size="12" font-weight="700" fill="#334155">三个派生指标</text>
+  <text x="357" y="176" font-size="11" fill="#1e293b">时延带宽积 = 传播时延 × 带宽</text>
+  <text x="357" y="196" font-size="10" fill="#64748b">单位 bit，表示链路上「在途」的比特数</text>
+  <text x="357" y="220" font-size="11" fill="#1e293b">RTT = 往返时间（含对端处理与排队）</text>
+  <text x="357" y="240" font-size="10" fill="#64748b">有效数据率 ≈ 数据长度 / (发送时延 + RTT)</text>
+  <text x="357" y="264" font-size="11" fill="#1e293b">利用率 U 与时延：D = D0 / (1 − U)</text>
+  <text x="357" y="286" font-size="10" fill="#64748b">U → 1 时排队时延急剧增大，骨干常控在 50% 以下</text>
+
+  <!-- 工作示例 -->
+  <rect x="20" y="314" width="640" height="72" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="32" y="334" font-size="11.5" font-weight="700" fill="#334155">工作示例</text>
+  <text x="32" y="353" font-size="10.5" fill="#1e293b">1 Gbit/s 链路发 1000 MB（=8.389×10⁹ bit）、距离 1000 km、传播速率 2×10⁸ m/s：</text>
+  <text x="32" y="371" font-size="10.5" fill="#1e293b">发送时延 ≈ 8.39 s，传播时延 = 5 ms → 总时延 ≈ 8.394 s（发送时延主导）；带宽 1 Mbit/s + 传播 20 ms → 时延带宽积 = 20000 bit = 2500 B。</text>
+</svg>

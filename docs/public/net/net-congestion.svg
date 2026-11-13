@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 410" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="410" fill="#fbfdff"/>
+  <text x="340" y="28" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">TCP 拥塞控制：cwnd 随 RTT 的变化（Reno 模型）</text>
+
+  <!-- 坐标轴 -->
+  <line x1="55" y1="280" x2="650" y2="280" stroke="#64748b" stroke-width="1.3"/>
+  <line x1="55" y1="280" x2="55" y2="48" stroke="#64748b" stroke-width="1.3"/>
+  <text x="24" y="54" font-size="10" fill="#64748b">cwnd</text>
+  <text x="600" y="298" font-size="10" fill="#64748b">往返轮次 RTT</text>
+  <text x="36" y="284" font-size="9" fill="#64748b">0</text>
+  <text x="34" y="156" font-size="9" fill="#64748b">8</text>
+  <text x="34" y="92" font-size="9" fill="#64748b">12</text>
+
+  <!-- 门限线 -->
+  <line x1="55" y1="152" x2="650" y2="152" stroke="#b45309" stroke-dasharray="6 4"/>
+  <text x="560" y="147" font-size="9.5" fill="#b45309">初始 ssthresh = 8</text>
+  <line x1="55" y1="184" x2="650" y2="184" stroke="#7c3aed" stroke-dasharray="4 4"/>
+  <text x="540" y="179" font-size="9.5" fill="#7c3aed">调整后 ssthresh = 6</text>
+
+  <!-- 阶段底色 -->
+  <rect x="70" y="48" width="126" height="232" fill="#eff6ff" opacity="0.55"/>
+  <rect x="196" y="48" width="168" height="232" fill="#f0fdf4" opacity="0.55"/>
+  <rect x="406" y="48" width="210" height="232" fill="#fefce8" opacity="0.55"/>
+  <text x="86" y="64" font-size="10" font-weight="700" fill="#1e3a8a">慢开始（每 RTT 加倍）</text>
+  <text x="212" y="64" font-size="10" font-weight="700" fill="#15803d">拥塞避免（每 RTT +1）</text>
+  <text x="418" y="64" font-size="10" font-weight="700" fill="#92400e">超时后重新慢开始</text>
+
+  <!-- 主线：1,2,4,8,9,10,11,12 然后超时掉到1，再 1,2,4,6,7,8 -->
+  <polyline points="70,264 112,248 154,216 196,152 238,136 280,120 322,104 364,88"
+            fill="none" stroke="#2563eb" stroke-width="2.6"/>
+  <line x1="364" y1="88" x2="406" y2="264" stroke="#b91c1c" stroke-width="2" stroke-dasharray="5 3"/>
+  <text x="368" y="216" font-size="9.5" fill="#b91c1c">超时：cwnd=1</text>
+  <polyline points="406,264 448,248 490,216 532,184 574,168 616,152"
+            fill="none" stroke="#2563eb" stroke-width="2.6"/>
+
+  <!-- 快恢复分支（3 个重复 ACK，绿色虚线） -->
+  <polyline points="364,88 406,184 448,168 490,152 532,136 574,120 616,104"
+            fill="none" stroke="#15803d" stroke-width="2.2" stroke-dasharray="7 4"/>
+  <text x="416" y="205" font-size="9.5" fill="#15803d">快重传/快恢复：cwnd 不回到 1</text>
+
+  <!-- 关键点标注 -->
+  <circle cx="196" cy="152" r="3.5" fill="#b45309"/>
+  <text x="200" y="142" font-size="9" fill="#b45309">达到门限</text>
+  <circle cx="364" cy="88" r="3.5" fill="#b91c1c"/>
+  <text x="300" y="82" font-size="9" fill="#b91c1c">cwnd=12 出现拥塞</text>
+
+  <!-- 图例 -->
+  <line x1="70" y1="316" x2="100" y2="316" stroke="#2563eb" stroke-width="2.6"/>
+  <text x="106" y="320" font-size="10" fill="#334155">实线：超时路径（ssthresh=cwnd/2，cwnd=1）</text>
+  <line x1="380" y1="316" x2="410" y2="316" stroke="#15803d" stroke-width="2.2" stroke-dasharray="7 4"/>
+  <text x="416" y="320" font-size="10" fill="#334155">虚线：3 个重复 ACK（快重传 + 快恢复）</text>
+
+  <rect x="20" y="332" width="640" height="62" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="32" y="352" font-size="10.5" fill="#1e293b">• 慢开始 cwnd &lt; ssthresh：每收到一个 ACK 加 1 MSS → 每 RTT 翻倍（1→2→4→8）；拥塞避免：每 RTT 只加 1 MSS。</text>
+  <text x="32" y="370" font-size="10.5" fill="#1e293b">• 判定拥塞（超时）就把 ssthresh 减半并从 1 重新开始；只是丢包（3 个重复 ACK）则快重传 + 快恢复，跳过慢开始。</text>
+  <text x="32" y="388" font-size="10" fill="#64748b">• 整体是 AIMD（加法增大、乘法减小）：探测带宽温和、发现拥塞迅速退让，多条流趋于公平。现代实现有 CUBIC、BBR、ECN。</text>
+</svg>

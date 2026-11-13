@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 440" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="440" fill="#fbfdff"/>
+  <text x="340" y="28" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">IPv4 地址、CIDR 与子网划分</text>
+
+  <!-- 左：分类地址表 -->
+  <rect x="20" y="46" width="310" height="168" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="30" y="66" font-size="11.5" font-weight="700" fill="#334155">① 分类地址（历史，已被 CIDR 取代）</text>
+  <rect x="30" y="76" width="290" height="22" fill="#eff6ff"/>
+  <text x="36" y="91" font-size="9.5" fill="#1e3a8a">类   前缀   首字节范围   网络号   最大主机数</text>
+  <text x="36" y="112" font-size="10" fill="#1e293b">A      0        1 ~ 126          8 bit        2^24 − 2</text>
+  <text x="36" y="130" font-size="10" fill="#1e293b">B      10      128 ~ 191      16 bit       2^16 − 2</text>
+  <text x="36" y="148" font-size="10" fill="#1e293b">C      110    192 ~ 223      24 bit       2^8 − 2 = 254</text>
+  <text x="36" y="166" font-size="10" fill="#1e293b">D      1110  224 ~ 239      多播组地址</text>
+  <text x="36" y="184" font-size="10" fill="#1e293b">E      1111  240 ~ 255      保留实验</text>
+  <text x="30" y="205" font-size="9.5" fill="#b91c1c">注意：现在一律按 /n 或子网掩码计算，不能凭首字节推断网络号！</text>
+
+  <!-- 左下：特殊地址 -->
+  <rect x="20" y="224" width="310" height="126" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="30" y="244" font-size="11.5" font-weight="700" fill="#334155">② 特殊与私有地址</text>
+  <text x="30" y="264" font-size="10" fill="#1e293b">主机号全 0 → 网络地址；全 1 → 广播地址</text>
+  <text x="30" y="282" font-size="10" fill="#1e293b">127.x.x.x 环回；0.0.0.0 本网本主机</text>
+  <text x="30" y="300" font-size="10" fill="#1e293b">255.255.255.255 受限广播</text>
+  <text x="30" y="318" font-size="10" fill="#15803d">私有：10.0.0.0/8、172.16.0.0/12、192.168.0.0/16</text>
+  <text x="30" y="338" font-size="9.5" fill="#64748b">另有链路本地 169.254.0.0/16、CGNAT 100.64.0.0/10</text>
+
+  <!-- 右：CIDR 演算 -->
+  <rect x="345" y="46" width="315" height="304" rx="8" fill="#ffffff" stroke="#7c3aed"/>
+  <text x="357" y="66" font-size="11.5" font-weight="700" fill="#5b21b6">③ 工作示例：128.14.35.7/20</text>
+
+  <rect x="357" y="78" width="291" height="40" rx="5" fill="#f5f3ff"/>
+  <text x="365" y="94" font-size="10" fill="#4c1d95">/20 → 掩码前 20 位为 1：255.255.240.0</text>
+  <text x="365" y="110" font-size="10" fill="#4c1d95">第 3 字节：35 = 0010 0011，240 = 1111 0000</text>
+
+  <rect x="357" y="126" width="291" height="46" rx="5" fill="#ede9fe"/>
+  <text x="365" y="143" font-size="10" fill="#4c1d95">按位与：0010 0011 &amp; 1111 0000 = 0010 0000 = 32</text>
+  <text x="365" y="162" font-size="10.5" font-weight="700" fill="#5b21b6">⇒ 网络地址 = 128.14.32.0/20</text>
+
+  <rect x="357" y="180" width="291" height="60" rx="5" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="365" y="197" font-size="10" fill="#1e293b">地址范围：128.14.32.0 ~ 128.14.47.255</text>
+  <text x="365" y="215" font-size="10" fill="#1e293b">可用主机：128.14.32.1 ~ 128.14.47.254</text>
+  <text x="365" y="233" font-size="10" fill="#1e293b">共 2^12 − 2 = 4094 个；广播 128.14.47.255</text>
+
+  <rect x="357" y="248" width="291" height="88" rx="5" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="365" y="266" font-size="10.5" font-weight="700" fill="#334155">划分子网与聚合</text>
+  <text x="365" y="284" font-size="10" fill="#1e293b">再借 2 位 → 4 个 /22 子网，每个 2^10−2 = 1022 个可用地址</text>
+  <text x="365" y="302" font-size="10" fill="#1e293b">/24 + /24 聚合：128.14.32.0/24 与 128.14.33.0/24</text>
+  <text x="365" y="320" font-size="10" fill="#1e293b">取共同前缀 ⇒ 128.14.32.0/23（路由表条目大幅压缩）</text>
+
+  <line x1="20" y1="362" x2="660" y2="362" stroke="#e2e8f0"/>
+  <text x="20" y="384" font-size="10.5" fill="#334155">• 转发表按「目的网络前缀 → 下一跳」存储；多条匹配时选<tspan font-weight="700">前缀最长</tspan>的那条，默认路由 0.0.0.0/0 兜底。</text>
+  <text x="20" y="402" font-size="10.5" fill="#334155">• 跨网通信时 ARP 解析的是默认网关（下一跳）的 MAC；IP 源/目的地址不变，MAC 每跳重写，TTL 每跳减 1。</text>
+  <text x="20" y="420" font-size="10.5" fill="#64748b">• IPv6 地址 128 bit、首部固定 40 B、无首部检验和、中途路由器不分片、取消广播（由 NDP 取代 ARP）。</text>
+</svg>

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="28" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">三种交换方式的时序对比（A → B → C → D）</text>
+
+  <text x="140" y="48" font-size="10" fill="#64748b">链路 A→B</text>
+  <text x="325" y="48" font-size="10" fill="#64748b">链路 B→C</text>
+  <text x="500" y="48" font-size="10" fill="#64748b">链路 C→D</text>
+  <line x1="300" y1="54" x2="300" y2="352" stroke="#cbd5e1" stroke-dasharray="4 4"/>
+  <line x1="475" y1="54" x2="475" y2="352" stroke="#cbd5e1" stroke-dasharray="4 4"/>
+
+  <!-- 行1 电路交换 -->
+  <rect x="16" y="58" width="104" height="88" rx="6" fill="#e2e8f0" stroke="#475569"/>
+  <text x="68" y="92" text-anchor="middle" font-size="12" font-weight="700" fill="#334155">① 电路交换</text>
+  <text x="68" y="112" text-anchor="middle" font-size="10" fill="#64748b">建立 → 通话 → 释放</text>
+  <rect x="130" y="70" width="90" height="34" rx="4" fill="#cbd5e1" stroke="#64748b"/>
+  <text x="175" y="91" text-anchor="middle" font-size="10" fill="#334155">建立连接</text>
+  <rect x="222" y="70" width="378" height="34" rx="4" fill="#bfdbfe" stroke="#2563eb"/>
+  <text x="411" y="91" text-anchor="middle" font-size="11" fill="#1e3a8a">连续传送比特流（全程独占物理通路）</text>
+  <rect x="602" y="70" width="53" height="34" rx="4" fill="#cbd5e1" stroke="#64748b"/>
+  <text x="628" y="91" text-anchor="middle" font-size="9.5" fill="#334155">释放</text>
+  <text x="130" y="126" font-size="10.5" fill="#334155">优点：时延确定、带宽保证；缺点：连接建立慢、空闲也占用链路，利用率低。</text>
+
+  <!-- 行2 报文交换 -->
+  <rect x="16" y="160" width="104" height="88" rx="6" fill="#ffedd5" stroke="#c2410c"/>
+  <text x="68" y="194" text-anchor="middle" font-size="12" font-weight="700" fill="#9a3412">② 报文交换</text>
+  <text x="68" y="214" text-anchor="middle" font-size="10" fill="#64748b">整报文存储转发</text>
+  <rect x="130" y="172" width="165" height="34" rx="4" fill="#fdba74" stroke="#c2410c"/>
+  <text x="212" y="193" text-anchor="middle" font-size="10.5" fill="#7c2d12">收完整个报文才能转发</text>
+  <rect x="305" y="172" width="165" height="34" rx="4" fill="#fdba74" stroke="#c2410c"/>
+  <text x="387" y="193" text-anchor="middle" font-size="10.5" fill="#7c2d12">收完整个报文才能转发</text>
+  <rect x="480" y="172" width="175" height="34" rx="4" fill="#fdba74" stroke="#c2410c"/>
+  <text x="567" y="193" text-anchor="middle" font-size="10.5" fill="#7c2d12">收完整个报文才交付</text>
+  <text x="130" y="228" font-size="10.5" fill="#334155">报文越大、跳数越多，存储转发时延越大；无需建立连接，但缓存开销高。</text>
+
+  <!-- 行3 分组交换 -->
+  <rect x="16" y="262" width="104" height="88" rx="6" fill="#dcfce7" stroke="#15803d"/>
+  <text x="68" y="296" text-anchor="middle" font-size="12" font-weight="700" fill="#15803d">③ 分组交换</text>
+  <text x="68" y="316" text-anchor="middle" font-size="10" fill="#64748b">小分组流水线转发</text>
+  <rect x="130" y="274" width="50" height="26" rx="3" fill="#86efac" stroke="#15803d"/>
+  <text x="155" y="292" text-anchor="middle" font-size="10" fill="#14532d">P1</text>
+  <rect x="182" y="274" width="50" height="26" rx="3" fill="#86efac" stroke="#15803d"/>
+  <text x="207" y="292" text-anchor="middle" font-size="10" fill="#14532d">P2</text>
+  <rect x="234" y="274" width="50" height="26" rx="3" fill="#86efac" stroke="#15803d"/>
+  <text x="259" y="292" text-anchor="middle" font-size="10" fill="#14532d">P3</text>
+  <rect x="305" y="274" width="50" height="26" rx="3" fill="#86efac" stroke="#15803d"/>
+  <text x="330" y="292" text-anchor="middle" font-size="10" fill="#14532d">P1</text>
+  <rect x="357" y="274" width="50" height="26" rx="3" fill="#86efac" stroke="#15803d"/>
+  <text x="382" y="292" text-anchor="middle" font-size="10" fill="#14532d">P2</text>
+  <rect x="409" y="274" width="50" height="26" rx="3" fill="#86efac" stroke="#15803d"/>
+  <text x="434" y="292" text-anchor="middle" font-size="10" fill="#14532d">P3</text>
+  <rect x="480" y="274" width="50" height="26" rx="3" fill="#86efac" stroke="#15803d"/>
+  <text x="505" y="292" text-anchor="middle" font-size="10" fill="#14532d">P1</text>
+  <rect x="532" y="274" width="50" height="26" rx="3" fill="#86efac" stroke="#15803d"/>
+  <text x="557" y="292" text-anchor="middle" font-size="10" fill="#14532d">P2</text>
+  <rect x="584" y="274" width="50" height="26" rx="3" fill="#86efac" stroke="#15803d"/>
+  <text x="609" y="292" text-anchor="middle" font-size="10" fill="#14532d">P3</text>
+  <text x="130" y="320" font-size="10.5" fill="#334155">同一分组在不同链路段间可以「边收边转」，多个分组重叠占用不同链路 → 总时延最小。</text>
+  <text x="130" y="338" font-size="10.5" fill="#334155">代价：每个分组要带首部、在路由器排队，可能失序/丢失；可靠性由上层（TCP）补足。</text>
+
+  <line x1="16" y1="360" x2="664" y2="360" stroke="#e2e8f0"/>
+  <text x="16" y="380" font-size="10.5" fill="#64748b">结论：互联网选分组交换不是因为「一定更快」，而是链路利用率高、鲁棒（可绕开故障）、便于异构网络互连。</text>
+</svg>

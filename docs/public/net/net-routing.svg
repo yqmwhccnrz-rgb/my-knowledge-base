@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="28" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">路由选择协议：IGP 在 AS 内，BGP 在 AS 之间</text>
+
+  <!-- AS1 -->
+  <rect x="20" y="46" width="295" height="148" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-dasharray="5 3"/>
+  <text x="167" y="66" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a">自治系统 AS1（如某运营商网络）</text>
+  <rect x="42" y="86" width="72" height="30" rx="5" fill="#ffffff" stroke="#2563eb"/>
+  <text x="78" y="106" text-anchor="middle" font-size="10" fill="#1e293b">R1</text>
+  <rect x="132" y="86" width="72" height="30" rx="5" fill="#ffffff" stroke="#2563eb"/>
+  <text x="168" y="106" text-anchor="middle" font-size="10" fill="#1e293b">R2</text>
+  <rect x="223" y="86" width="72" height="30" rx="5" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="259" y="106" text-anchor="middle" font-size="9.5" fill="#1e3a8a">边界 R3</text>
+  <line x1="114" y1="101" x2="130" y2="101" stroke="#2563eb"/>
+  <line x1="204" y1="101" x2="221" y2="101" stroke="#2563eb"/>
+  <rect x="42" y="130" width="253" height="46" rx="5" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="168" y="149" text-anchor="middle" font-size="10.5" fill="#1e3a8a">内部网关协议 IGP：RIP 或 OSPF</text>
+  <text x="168" y="166" text-anchor="middle" font-size="9.5" fill="#1e3a8a">负责 AS 内部路由器之间的最短路</text>
+
+  <!-- AS2 -->
+  <rect x="365" y="46" width="295" height="148" rx="10" fill="#ecfeff" stroke="#0891b2" stroke-dasharray="5 3"/>
+  <text x="512" y="66" text-anchor="middle" font-size="12" font-weight="700" fill="#0e7490">自治系统 AS2（另一个运营商 / 大型企业网）</text>
+  <rect x="385" y="86" width="72" height="30" rx="5" fill="#cffafe" stroke="#0891b2"/>
+  <text x="421" y="106" text-anchor="middle" font-size="9.5" fill="#155e75">边界 R4</text>
+  <rect x="475" y="86" width="72" height="30" rx="5" fill="#ffffff" stroke="#0891b2"/>
+  <text x="511" y="106" text-anchor="middle" font-size="10" fill="#1e293b">R5</text>
+  <rect x="565" y="86" width="72" height="30" rx="5" fill="#ffffff" stroke="#0891b2"/>
+  <text x="601" y="106" text-anchor="middle" font-size="10" fill="#1e293b">R6</text>
+  <line x1="457" y1="101" x2="473" y2="101" stroke="#0891b2"/>
+  <line x1="547" y1="101" x2="563" y2="101" stroke="#0891b2"/>
+  <rect x="385" y="130" width="252" height="46" rx="5" fill="#cffafe" stroke="#0891b2"/>
+  <text x="511" y="149" text-anchor="middle" font-size="10.5" fill="#155e75">内部网关协议 IGP：OSPF（分区域）</text>
+  <text x="511" y="166" text-anchor="middle" font-size="9.5" fill="#155e75">链路状态 + Dijkstra，触发更新收敛快</text>
+
+  <!-- BGP 连线 -->
+  <line x1="297" y1="101" x2="383" y2="101" stroke="#b45309" stroke-width="2.5"/>
+  <rect x="292" y="110" width="96" height="26" rx="5" fill="#fef3c7" stroke="#b45309"/>
+  <text x="340" y="127" text-anchor="middle" font-size="9.5" fill="#92400e">BGP-4 / EGP</text>
+  <text x="340" y="152" text-anchor="middle" font-size="9" fill="#92400e">TCP 179 · 路径向量 · 策略选路</text>
+
+  <!-- 对比表 -->
+  <text x="20" y="220" font-size="12" font-weight="700" fill="#334155">三类协议对比</text>
+  <rect x="20" y="230" width="640" height="26" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="28" y="248" font-size="10" font-weight="700" fill="#334155">维度</text>
+  <text x="150" y="248" font-size="10" font-weight="700" fill="#334155">RIP</text>
+  <text x="310" y="248" font-size="10" font-weight="700" fill="#334155">OSPF</text>
+  <text x="480" y="248" font-size="10" font-weight="700" fill="#334155">BGP-4</text>
+  <line x1="142" y1="230" x2="142" y2="352" stroke="#cbd5e1"/>
+  <line x1="302" y1="230" x2="302" y2="352" stroke="#cbd5e1"/>
+  <line x1="472" y1="230" x2="472" y2="352" stroke="#cbd5e1"/>
+
+  <text x="28" y="274" font-size="9.5" fill="#1e293b">类型 / 度量</text>
+  <text x="150" y="274" font-size="9.5" fill="#1e293b">IGP / 跳数 ≤ 15</text>
+  <text x="310" y="274" font-size="9.5" fill="#1e293b">IGP / 链路代价</text>
+  <text x="480" y="274" font-size="9.5" fill="#1e293b">EGP / AS 路径 + 策略</text>
+
+  <text x="28" y="296" font-size="9.5" fill="#1e293b">算法</text>
+  <text x="150" y="296" font-size="9.5" fill="#1e293b">距离向量 Bellman-Ford</text>
+  <text x="310" y="296" font-size="9.5" fill="#1e293b">链路状态 + Dijkstra</text>
+  <text x="480" y="296" font-size="9.5" fill="#1e293b">路径向量，逐 AS 通告</text>
+
+  <text x="28" y="318" font-size="9.5" fill="#1e293b">封装 / 端口</text>
+  <text x="150" y="318" font-size="9.5" fill="#1e293b">UDP 520</text>
+  <text x="310" y="318" font-size="9.5" fill="#1e293b">IP 协议号 89</text>
+  <text x="480" y="318" font-size="9.5" fill="#1e293b">TCP 179</text>
+
+  <text x="28" y="340" font-size="9.5" fill="#1e293b">更新 / 适用</text>
+  <text x="150" y="340" font-size="9.5" fill="#1e293b">30 s 全表，小型网络</text>
+  <text x="310" y="340" font-size="9.5" fill="#1e293b">触发洪泛，中大型 AS</text>
+  <text x="480" y="340" font-size="9.5" fill="#1e293b">增量更新，互联网骨干</text>
+
+  <line x1="20" y1="360" x2="660" y2="360" stroke="#e2e8f0"/>
+  <text x="20" y="380" font-size="10" fill="#64748b">• RIP「好消息传得快、坏消息传得慢」；OSPF 支持区域划分与等价负载均衡；BGP 选路首先看策略而非最短路。</text>
+  <text x="20" y="396" font-size="10" fill="#64748b">• SDN 把控制平面集中到控制器、数据平面按流表转发（OpenFlow），可视为对传统分布式路由的另一种架构。</text>
+</svg>

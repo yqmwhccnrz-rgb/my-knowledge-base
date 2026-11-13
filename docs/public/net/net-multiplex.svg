@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="28" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">信道复用技术与 CDMA 码片正交</text>
+
+  <text x="20" y="52" font-size="12" font-weight="700" fill="#334155">① 四种复用（左：共享同一条物理链路）</text>
+
+  <!-- FDM -->
+  <text x="20" y="76" font-size="10.5" fill="#1e293b">FDM 频分</text>
+  <rect x="100" y="62" width="230" height="24" rx="3" fill="#ffffff" stroke="#cbd5e1"/>
+  <rect x="100" y="62" width="230" height="6" fill="#bfdbfe"/>
+  <rect x="100" y="68" width="230" height="6" fill="#bbf7d0"/>
+  <rect x="100" y="74" width="230" height="6" fill="#fde68a"/>
+  <rect x="100" y="80" width="230" height="6" fill="#fed7aa"/>
+  <text x="336" y="79" font-size="9.5" fill="#64748b">按频率切条，各用户同时占用不同频带</text>
+
+  <!-- TDM -->
+  <text x="20" y="116" font-size="10.5" fill="#1e293b">TDM 时分</text>
+  <rect x="100" y="102" width="230" height="24" rx="3" fill="#ffffff" stroke="#cbd5e1"/>
+  <rect x="100" y="102" width="29" height="24" fill="#bfdbfe"/>
+  <rect x="129" y="102" width="29" height="24" fill="#bbf7d0"/>
+  <rect x="158" y="102" width="29" height="24" fill="#fde68a"/>
+  <rect x="187" y="102" width="29" height="24" fill="#fed7aa"/>
+  <rect x="216" y="102" width="29" height="24" fill="#bfdbfe"/>
+  <rect x="245" y="102" width="29" height="24" fill="#bbf7d0"/>
+  <rect x="274" y="102" width="29" height="24" fill="#fde68a"/>
+  <rect x="303" y="102" width="27" height="24" fill="#fed7aa"/>
+  <text x="336" y="119" font-size="9.5" fill="#64748b">按时隙固定轮转，空闲时隙被浪费</text>
+
+  <!-- STDM -->
+  <text x="20" y="156" font-size="10.5" fill="#1e293b">STDM 统计</text>
+  <rect x="100" y="142" width="230" height="24" rx="3" fill="#ffffff" stroke="#cbd5e1"/>
+  <rect x="100" y="142" width="46" height="24" fill="#86efac"/>
+  <rect x="146" y="142" width="70" height="24" fill="#fdba74"/>
+  <rect x="216" y="142" width="46" height="24" fill="#86efac"/>
+  <rect x="262" y="142" width="68" height="24" fill="#fdba74"/>
+  <text x="336" y="159" font-size="9.5" fill="#64748b">按需分配，时隙需带地址标记</text>
+
+  <!-- WDM -->
+  <text x="20" y="196" font-size="10.5" fill="#1e293b">WDM 波分</text>
+  <rect x="100" y="182" width="230" height="24" rx="3" fill="#ffffff" stroke="#cbd5e1"/>
+  <rect x="100" y="182" width="230" height="6" fill="#c4b5fd"/>
+  <rect x="100" y="188" width="230" height="6" fill="#93c5fd"/>
+  <rect x="100" y="194" width="230" height="6" fill="#6ee7b7"/>
+  <rect x="100" y="200" width="230" height="6" fill="#fca5a5"/>
+  <text x="336" y="199" font-size="9.5" fill="#64748b">光纤上的 FDM，不同波长 λ，DWDM 容量极大</text>
+
+  <!-- CDMA 框 -->
+  <rect x="20" y="222" width="640" height="112" rx="8" fill="#ffffff" stroke="#7c3aed"/>
+  <text x="32" y="244" font-size="12" font-weight="700" fill="#5b21b6">② CDM / CDMA：同频同时，靠正交码片区分用户</text>
+  <text x="32" y="266" font-size="10.5" fill="#1e293b">站 S 码片 = (-1 -1 -1 +1 +1 -1 +1 +1)；站 T 码片 = (-1 -1 +1 -1 +1 +1 +1 -1)（相互正交）</text>
+  <text x="32" y="286" font-size="10.5" fill="#1e293b">发 1 → 送自身码片；发 0 → 送反码；多个站的信号在信道上线性叠加</text>
+  <rect x="32" y="296" width="196" height="26" rx="4" fill="#ede9fe"/>
+  <text x="130" y="314" text-anchor="middle" font-size="10.5" fill="#5b21b6">S · S = 1（读出 1）</text>
+  <rect x="236" y="296" width="196" height="26" rx="4" fill="#ede9fe"/>
+  <text x="334" y="314" text-anchor="middle" font-size="10.5" fill="#5b21b6">S · (-S) = -1（读出 0）</text>
+  <rect x="440" y="296" width="208" height="26" rx="4" fill="#ede9fe"/>
+  <text x="544" y="314" text-anchor="middle" font-size="10.5" fill="#5b21b6">S · T = 0（他站被抵消）</text>
+
+  <line x1="20" y1="348" x2="660" y2="348" stroke="#e2e8f0"/>
+  <text x="20" y="368" font-size="10.5" fill="#334155">• 复用都在发送端把多路信号合成一路、接收端再分离；CDM 的抗干扰与保密性最好，但要求码片严格正交与同步。</text>
+  <text x="20" y="386" font-size="10.5" fill="#64748b">• 奈氏准则限码元速率 2W Baud（无噪声）；香农公式 C = W·log2(1+S/N) 限信息速率（有噪声），S/N = 10^(dB/10)。</text>
+</svg>
