@@ -945,16 +945,16 @@ select:focus-visible {
 
 /* ==========================================================================
    侧边栏「CPA」折叠分组标题前的小圆点
-   CPA 分组是唯一 collapsible 的 sidebar item，故该规则只作用于它。
+   通过 v-html 在 text 中嵌入 <i class="kb-cpa-dot"></i>，与上方笔记条目的
+   圆点风格保持一致：中性深灰实心圆点。
    ========================================================================== */
-.VPSidebarItem.collapsible > .item > .link > .text::before {
-  content: "";
+.kb-cpa-dot {
   display: inline-block;
-  width: 7px;
-  height: 7px;
-  margin-right: 7px;
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
   border-radius: 50%;
-  background: var(--vp-c-brand-1, #3451b2);
+  background: var(--vp-c-text-2, #626463);
   vertical-align: middle;
   position: relative;
   top: -1px;

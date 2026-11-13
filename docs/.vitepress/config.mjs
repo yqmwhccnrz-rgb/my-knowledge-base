@@ -189,7 +189,7 @@ export default defineConfig({
           { text: '英语听力', link: '/listening.html' },
           // 「CPA」折叠分组：集中收纳全部 CPA 笔记，点击展开/收起
           {
-            text: 'CPA',
+            text: '<i class="kb-cpa-dot"></i>CPA',
             collapsible: true,
             collapsed: false,
             items: cpaNotes
