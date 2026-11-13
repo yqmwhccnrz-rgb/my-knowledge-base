@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">存储引擎、字符集与数据库管理</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 四种常见存储引擎对照</text>
+  <rect x="30" y="62" width="620" height="112" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="82" font-size="9.5" font-weight="700" fill="#334155">引擎　　　　事务　锁粒度　　外键　索引结构　　　　适用场景</text>
+  <text x="42" y="104" font-size="9.5" font-weight="700" fill="#1e3a8a">InnoDB　　　 ✔　　行锁+MVCC　 ✔　　聚簇 B+树　　　OLTP、高并发写、崩溃恢复（5.5+ 默认）</text>
+  <text x="42" y="125" font-size="9.5" fill="#475569">MyISAM　　　 ✘　　表锁　　　 ✘　　非聚簇 B+树　　读多写少、表级 COUNT(*) 快</text>
+  <text x="42" y="146" font-size="9.5" fill="#475569">MEMORY　　　 ✘　　表锁　　　 ✘　　哈希（默认）　 临时表/缓存，重启丢数据</text>
+  <text x="42" y="165" font-size="9.5" fill="#475569">ARCHIVE　　　 ✘　　行锁　　　 ✘　　压缩　　　　　 归档日志，只支持 INSERT/SELECT</text>
+
+  <text x="30" y="198" font-size="12" font-weight="700" fill="#334155">② 建库与引擎操作</text>
+  <rect x="30" y="208" width="380" height="94" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="42" y="228" font-size="9.5" fill="#1e40af">CREATE DATABASE IF NOT EXISTS teaching</text>
+  <text x="42" y="247" font-size="9.5" fill="#1e40af">  DEFAULT CHARACTER SET utf8mb4</text>
+  <text x="42" y="266" font-size="9.5" fill="#1e40af">  DEFAULT COLLATE utf8mb4_0900_ai_ci;</text>
+  <text x="42" y="288" font-size="9" fill="#64748b">SHOW ENGINES; / SHOW CREATE DATABASE; / ALTER DATABASE; / DROP DATABASE;</text>
+
+  <rect x="426" y="208" width="224" height="94" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="438" y="228" font-size="9.5" fill="#15803d">CREATE TABLE t (id INT) ENGINE=InnoDB;</text>
+  <text x="438" y="247" font-size="9.5" fill="#15803d">ALTER TABLE t ENGINE=MyISAM;</text>
+  <text x="438" y="266" font-size="9" fill="#64748b">转换引擎会锁表并重建数据</text>
+  <text x="438" y="288" font-size="9" fill="#64748b">SHOW VARIABLES LIKE 'default_storage_engine';</text>
+
+  <text x="30" y="326" font-size="12" font-weight="700" fill="#334155">③ 字符集与校对规则</text>
+  <rect x="30" y="336" width="620" height="54" rx="6" fill="#fff7ed" stroke="#f59e0b"/>
+  <text x="42" y="355" font-size="9.5" font-weight="700" fill="#92400e">MySQL 的 utf8 实为 utf8mb3（最多 3 字节），存不了 emoji 与部分生僻字 → 统一用 utf8mb4</text>
+  <text x="42" y="374" font-size="9.5" fill="#78350f">层级：服务器 → 数据库 → 表 → 列（逐层继承）；改库的默认字符集不会自动转换已有列，需 CONVERT TO CHARACTER SET。</text>
+</svg>

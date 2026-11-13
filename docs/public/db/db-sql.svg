@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">SQL 分类与一条查询的执行路径</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① SQL 的五大类语句</text>
+  <rect x="30" y="62" width="124" height="64" rx="5" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="92" y="82" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">DDL 定义</text>
+  <text x="92" y="100" text-anchor="middle" font-size="9" fill="#1e40af">CREATE / ALTER</text>
+  <text x="92" y="116" text-anchor="middle" font-size="9" fill="#1e40af">DROP / TRUNCATE</text>
+  <rect x="160" y="62" width="124" height="64" rx="5" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="222" y="82" text-anchor="middle" font-size="10.5" font-weight="700" fill="#166534">DML 操纵</text>
+  <text x="222" y="100" text-anchor="middle" font-size="9" fill="#15803d">INSERT / UPDATE</text>
+  <text x="222" y="116" text-anchor="middle" font-size="9" fill="#15803d">DELETE</text>
+  <rect x="290" y="62" width="124" height="64" rx="5" fill="#fef3c7" stroke="#d97706"/>
+  <text x="352" y="82" text-anchor="middle" font-size="10.5" font-weight="700" fill="#92400e">DQL 查询</text>
+  <text x="352" y="100" text-anchor="middle" font-size="9" fill="#78350f">SELECT</text>
+  <text x="352" y="116" text-anchor="middle" font-size="9" fill="#78350f">（有时归入 DML）</text>
+  <rect x="420" y="62" width="124" height="64" rx="5" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="482" y="82" text-anchor="middle" font-size="10.5" font-weight="700" fill="#5b21b6">DCL 控制</text>
+  <text x="482" y="100" text-anchor="middle" font-size="9" fill="#4c1d95">GRANT / REVOKE</text>
+  <text x="482" y="116" text-anchor="middle" font-size="9" fill="#4c1d95">CREATE USER / ROLE</text>
+  <rect x="550" y="62" width="100" height="64" rx="5" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="600" y="82" text-anchor="middle" font-size="10.5" font-weight="700" fill="#991b1b">TCL 事务</text>
+  <text x="600" y="100" text-anchor="middle" font-size="9" fill="#7f1d1d">COMMIT</text>
+  <text x="600" y="116" text-anchor="middle" font-size="9" fill="#7f1d1d">ROLLBACK</text>
+
+  <text x="30" y="150" font-size="12" font-weight="700" fill="#334155">② MySQL 逻辑架构与执行路径</text>
+  <rect x="30" y="160" width="620" height="34" rx="5" fill="#e0f2fe" stroke="#0284c7"/>
+  <text x="340" y="182" text-anchor="middle" font-size="10.5" fill="#075985">客户端 → 连接层（TCP 握手 / 身份认证 / 权限读取 / 线程分配）</text>
+  <rect x="30" y="200" width="620" height="76" rx="5" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="340" y="220" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">服务层</text>
+  <rect x="46" y="230" width="94" height="32" rx="4" fill="#ffffff" stroke="#93c5fd"/><text x="93" y="251" text-anchor="middle" font-size="9" fill="#1e40af">SQL 接口</text>
+  <rect x="148" y="230" width="94" height="32" rx="4" fill="#ffffff" stroke="#93c5fd"/><text x="195" y="251" text-anchor="middle" font-size="9" fill="#1e40af">解析器</text>
+  <rect x="250" y="230" width="94" height="32" rx="4" fill="#ffffff" stroke="#93c5fd"/><text x="297" y="251" text-anchor="middle" font-size="9" fill="#1e40af">预处理器</text>
+  <rect x="352" y="230" width="94" height="32" rx="4" fill="#fef3c7" stroke="#d97706"/><text x="399" y="251" text-anchor="middle" font-size="9" font-weight="700" fill="#92400e">优化器</text>
+  <rect x="454" y="230" width="94" height="32" rx="4" fill="#ffffff" stroke="#93c5fd"/><text x="501" y="251" text-anchor="middle" font-size="9" fill="#1e40af">执行器</text>
+  <rect x="556" y="230" width="80" height="32" rx="4" fill="#ffffff" stroke="#93c5fd"/><text x="596" y="251" text-anchor="middle" font-size="9" fill="#1e40af">EXPLAIN</text>
+  <rect x="30" y="282" width="620" height="34" rx="5" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="340" y="304" text-anchor="middle" font-size="10.5" fill="#166534">插件式存储引擎层：InnoDB（事务/行锁/外键）· MyISAM · MEMORY</text>
+  <rect x="30" y="322" width="620" height="30" rx="5" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="340" y="342" text-anchor="middle" font-size="10" fill="#5b21b6">文件系统：数据文件 · redo/undo · binlog · 错误日志 · 慢查询日志</text>
+
+  <rect x="30" y="360" width="620" height="32" rx="6" fill="#fff7ed" stroke="#f59e0b"/>
+  <text x="42" y="381" font-size="9.5" fill="#78350f">MySQL 8.0 已移除查询缓存；DDL 大多隐式提交不可回滚；`TRUNCATE` 是 DDL 而非 DML。</text>
+</svg>

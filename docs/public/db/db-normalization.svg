@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">函数依赖、范式判定与模式分解</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 经典反例 SLC 的依赖图</text>
+  <rect x="30" y="62" width="330" height="126" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="82" font-size="9.5" fill="#334155">SLC(Sno, Sdept, Sloc, Cno, Grade)　候选码 (Sno,Cno)</text>
+  <text x="42" y="103" font-size="9.5" fill="#1e3a8a">(Sno,Cno) →f Grade　完全依赖（好）</text>
+  <text x="42" y="123" font-size="9.5" font-weight="700" fill="#dc2626">Sno → Sdept　Sno → Sloc　部分依赖（只依赖主码一半）</text>
+  <text x="42" y="143" font-size="9.5" font-weight="700" fill="#ea580c">Sdept → Sloc　⇒ Sno →t Sloc 传递依赖</text>
+  <text x="42" y="166" font-size="9" fill="#64748b">四类异常：冗余 / 插入 / 删除 / 更新</text>
+  <text x="42" y="181" font-size="9" fill="#64748b">判定：存在部分依赖 ⇒ 仅 1NF</text>
+
+  <rect x="376" y="62" width="274" height="126" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="388" y="82" font-size="10" font-weight="700" fill="#1e3a8a">逐级判定条件</text>
+  <text x="388" y="102" font-size="9" fill="#1e40af">1NF　属性原子不可再分</text>
+  <text x="388" y="121" font-size="9" fill="#1e40af">2NF　1NF + 非主属性完全依赖于码</text>
+  <text x="388" y="140" font-size="9" fill="#1e40af">3NF　2NF + 非主属性不传递依赖于码</text>
+  <text x="388" y="159" font-size="9" font-weight="700" fill="#1e3a8a">BCNF 每个 X→Y 中 X 都含候选码</text>
+  <text x="388" y="178" font-size="9" fill="#64748b">4NF　再消除非平凡多值依赖</text>
+
+  <text x="30" y="212" font-size="12" font-weight="700" fill="#334155">② 分解链条（每步都要能说清依据）</text>
+  <rect x="30" y="222" width="620" height="72" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="42" y="242" font-size="9.5" fill="#15803d">SLC ──按部分依赖拆──▶ SC(Sno,Cno,Grade) + SL(Sno,Sdept,Sloc)　【达 2NF】</text>
+  <text x="42" y="262" font-size="9.5" fill="#15803d">SL 中 Sloc 传递依赖于 Sno ──拆──▶ SD(Sno,Sdept) + DL(Sdept,Sloc)　【达 3NF / BCNF】</text>
+  <text x="42" y="282" font-size="9" fill="#64748b">最终 SC、SD、DL 三个关系，四类异常全部消除</text>
+
+  <text x="30" y="318" font-size="12" font-weight="700" fill="#334155">③ 分解的两条质量判据与 Armstrong 公理</text>
+  <rect x="30" y="328" width="300" height="62" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="347" font-size="9" fill="#475569">无损连接：交集 Sdept，Sdept→Sloc ∈ F⁺ ⇒ 自然连接可精确还原</text>
+  <text x="42" y="365" font-size="9" fill="#475569">保持依赖：两子模式依赖之并可推出 Sno→Sloc</text>
+  <text x="42" y="383" font-size="9" fill="#64748b">3NF 可两者兼得；BCNF 保证无损但可能丢依赖</text>
+  <rect x="346" y="328" width="304" height="62" rx="6" fill="#fff7ed" stroke="#f59e0b"/>
+  <text x="358" y="347" font-size="9" fill="#78350f">A1 自反律 / A2 增广律 / A3 传递律（完备可靠）</text>
+  <text x="358" y="365" font-size="9" fill="#78350f">推论：合并 / 分解 / 伪传递；属性闭包 X⁺ 求候选码</text>
+  <text x="358" y="383" font-size="9" fill="#64748b">课件只讲到 3NF，BCNF/4NF/Armstrong 均未出现，须补</text>
+</svg>

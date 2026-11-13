@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">存储过程、函数、游标与触发器 / 事件</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 三种服务端程序对照</text>
+  <rect x="30" y="62" width="196" height="100" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="128" y="82" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">存储过程 PROCEDURE</text>
+  <text x="40" y="102" font-size="9" fill="#1e40af">CALL sp() 调用</text>
+  <text x="40" y="120" font-size="9" fill="#1e40af">IN / OUT / INOUT 参数</text>
+  <text x="40" y="138" font-size="9" fill="#1e40af">可无返回值、可出结果集</text>
+  <text x="40" y="154" font-size="9" fill="#64748b">需 DELIMITER 改结束符</text>
+  <rect x="242" y="62" width="196" height="100" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="340" y="82" text-anchor="middle" font-size="10.5" font-weight="700" fill="#166534">函数 FUNCTION</text>
+  <text x="252" y="102" font-size="9" fill="#15803d">SELECT fn() 嵌入表达式</text>
+  <text x="252" y="120" font-size="9" fill="#15803d">只有 IN 参数</text>
+  <text x="252" y="138" font-size="9" fill="#15803d">必须 RETURNS + RETURN 单值</text>
+  <text x="252" y="154" font-size="9" fill="#64748b">须声明 DETERMINISTIC 等特征</text>
+  <rect x="454" y="62" width="196" height="100" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="552" y="82" text-anchor="middle" font-size="10.5" font-weight="700" fill="#92400e">触发器 TRIGGER</text>
+  <text x="464" y="102" font-size="9" fill="#78350f">由 INSERT/UPDATE/DELETE 触发</text>
+  <text x="464" y="120" font-size="9" fill="#78350f">BEFORE / AFTER + FOR EACH ROW</text>
+  <text x="464" y="138" font-size="9" fill="#78350f">NEW（插入/更新）· OLD（删除/更新）</text>
+  <text x="464" y="154" font-size="9" fill="#64748b">与触发语句同一事务</text>
+
+  <text x="30" y="186" font-size="12" font-weight="700" fill="#334155">② 典型代码骨架</text>
+  <rect x="30" y="196" width="380" height="106" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="216" font-size="8.5" fill="#475569">DELIMITER //</text>
+  <text x="42" y="233" font-size="8.5" fill="#475569">CREATE PROCEDURE sp(IN p_dept VARCHAR(20), OUT p_cnt INT)</text>
+  <text x="42" y="250" font-size="8.5" fill="#475569">BEGIN SELECT COUNT(*) INTO p_cnt FROM Student WHERE Sdept=p_dept; END //</text>
+  <text x="42" y="267" font-size="8.5" fill="#475569">DELIMITER ;　　CALL sp('CS', @n);</text>
+  <text x="42" y="288" font-size="8.5" fill="#64748b">游标 DECLARE 顺序：变量 → 游标 → CONTINUE HANDLER FOR NOT FOUND</text>
+
+  <rect x="426" y="196" width="224" height="106" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="438" y="216" font-size="8.5" fill="#475569">CREATE TRIGGER trg BEFORE INSERT ON SC</text>
+  <text x="438" y="233" font-size="8.5" fill="#475569">FOR EACH ROW BEGIN</text>
+  <text x="438" y="250" font-size="8.5" fill="#475569"> IF NEW.Grade&gt;100 THEN</text>
+  <text x="438" y="267" font-size="8.5" fill="#475569">  SIGNAL SQLSTATE '45000' …; END IF;</text>
+  <text x="438" y="288" font-size="8.5" fill="#64748b">END;（INSERT 无 OLD，DELETE 无 NEW）</text>
+
+  <text x="30" y="326" font-size="12" font-weight="700" fill="#334155">③ 事件 EVENT（按时间调度，非 DML 触发）</text>
+  <rect x="30" y="336" width="620" height="54" rx="6" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="42" y="355" font-size="9.5" fill="#4c1d95">SET GLOBAL event_scheduler=ON;　CREATE EVENT e ON SCHEDULE EVERY 1 DAY STARTS '…' DO DELETE FROM log WHERE …;</text>
+  <text x="42" y="375" font-size="9" fill="#64748b">触发器 = 数据变化驱动（逐行）；事件 = 时间驱动（一次或周期），由事件调度器线程管理，常用于清理归档与定时汇总。</text>
+</svg>

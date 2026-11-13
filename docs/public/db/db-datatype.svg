@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">数据类型与六类完整性约束</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 常用数据类型速查</text>
+  <rect x="30" y="62" width="620" height="96" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="82" font-size="9.5" fill="#475569">整数：TINYINT(1B) / SMALLINT(2B) / MEDIUMINT(3B) / INT(4B) / BIGINT(8B)；INT(11) 只是显示宽度</text>
+  <text x="42" y="102" font-size="9.5" font-weight="700" fill="#dc2626">金额必须 DECIMAL(M,D)；FLOAT/DOUBLE 有二进制精度误差</text>
+  <text x="42" y="122" font-size="9.5" fill="#475569">字符串：CHAR(n) 定长 / VARCHAR(n) 变长（n 是字符数）/ TEXT / BLOB；ENUM / SET</text>
+  <text x="42" y="142" font-size="9.5" fill="#475569">日期：DATE / DATETIME（8B，与时区无关）/ TIMESTAMP（4B，受时区影响、2038 问题）/ YEAR</text>
+
+  <text x="30" y="182" font-size="12" font-weight="700" fill="#334155">② 六类列约束与建表示例</text>
+  <rect x="30" y="192" width="288" height="118" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="42" y="212" font-size="9.5" font-weight="700" fill="#1e3a8a">PRIMARY KEY　主码（非空+唯一，每表一个）</text>
+  <text x="42" y="232" font-size="9.5" fill="#1e40af">FOREIGN KEY　外码（参照完整性）</text>
+  <text x="42" y="251" font-size="9.5" fill="#1e40af">UNIQUE　　　 唯一（MySQL 允许多个 NULL）</text>
+  <text x="42" y="270" font-size="9.5" fill="#1e40af">NOT NULL / DEFAULT / CHECK / AUTO_INCREMENT</text>
+  <text x="42" y="292" font-size="9" fill="#64748b">违约处理：RESTRICT / CASCADE / SET NULL</text>
+  <text x="42" y="305" font-size="9" fill="#64748b">CHECK 在 MySQL 8.0.16 起才真正生效</text>
+
+  <rect x="334" y="192" width="316" height="118" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="346" y="212" font-size="9" fill="#334155">CREATE TABLE SC (</text>
+  <text x="346" y="229" font-size="9" fill="#334155">  Sno CHAR(7) NOT NULL,</text>
+  <text x="346" y="246" font-size="9" fill="#334155">  Cno CHAR(2) NOT NULL,</text>
+  <text x="346" y="263" font-size="9" fill="#334155">  Grade SMALLINT CHECK(Grade BETWEEN 0 AND 100),</text>
+  <text x="346" y="280" font-size="9" font-weight="700" fill="#1e3a8a">  PRIMARY KEY(Sno,Cno),</text>
+  <text x="346" y="297" font-size="9" fill="#334155">  FOREIGN KEY(Sno) REFERENCES Student(Sno)</text>
+  <text x="346" y="308" font-size="9" fill="#64748b">) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;</text>
+
+  <text x="30" y="334" font-size="12" font-weight="700" fill="#334155">③ DELETE / TRUNCATE / DROP 三兄弟</text>
+  <rect x="30" y="344" width="620" height="46" rx="6" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="42" y="362" font-size="9.5" fill="#7f1d1d">DELETE：DML、可带 WHERE、可回滚、触发触发器；　TRUNCATE：DDL、清全表、隐式提交不可回滚、重置自增；　DROP：连表结构一起删</text>
+  <text x="42" y="381" font-size="9.5" fill="#7f1d1d">UPDATE/DELETE 忘记写 WHERE 会作用于全表（生产事故高发），可开启 sql_safe_updates=1 强制要求键列条件。</text>
+</svg>

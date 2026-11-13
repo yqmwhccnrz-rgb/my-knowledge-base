@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">E-R 图与向关系模式转换</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① E-R 三要素与三类联系</text>
+  <rect x="30" y="62" width="300" height="124" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <rect x="46" y="78" width="80" height="30" rx="3" fill="#dbeafe" stroke="#2563eb"/><text x="86" y="98" text-anchor="middle" font-size="9.5" fill="#1e3a8a">实体 矩形</text>
+  <ellipse cx="185" cy="93" rx="40" ry="15" fill="#dcfce7" stroke="#16a34a"/><text x="185" y="97" text-anchor="middle" font-size="9" fill="#166534">属性 椭圆</text>
+  <path d="M250 78 L270 93 L250 108 L230 93 Z" fill="#fef3c7" stroke="#d97706"/><text x="250" y="96" text-anchor="middle" font-size="8" fill="#92400e">联系</text>
+  <text x="42" y="128" font-size="9" fill="#475569">1:1　班级 ↔ 班长　　任一方加对方主码</text>
+  <text x="42" y="147" font-size="9" font-weight="700" fill="#1e3a8a">1:n　系 ↔ 学生　　　在 n 端加 1 端主码（不单独建表）</text>
+  <text x="42" y="166" font-size="9" font-weight="700" fill="#dc2626">m:n　学生 ↔ 课程　　必须独立建表，组合主码</text>
+  <text x="42" y="181" font-size="9" fill="#64748b">联系自身的属性（成绩、借期）不能丢</text>
+
+  <rect x="346" y="62" width="304" height="124" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="358" y="82" font-size="10" font-weight="700" fill="#1e3a8a">教学系统转换示例（完整答案）</text>
+  <text x="358" y="102" font-size="9" fill="#1e40af">系(系号 PK, 系名, 系主任)</text>
+  <text x="358" y="121" font-size="9" fill="#1e40af">学生(学号 PK, 姓名, 性别, 系号 FK, 入学年份)</text>
+  <text x="358" y="140" font-size="9" fill="#1e40af">课程(课程号 PK, 课程名, 学分)</text>
+  <text x="358" y="159" font-size="9" font-weight="700" fill="#1e3a8a">选修(学号 FK, 课程号 FK, 成绩, PK(学号,课程号))</text>
+  <text x="358" y="178" font-size="9" fill="#64748b">1:n 并入 n 端；m:n 独立建表且含联系属性</text>
+
+  <text x="30" y="210" font-size="12" font-weight="700" fill="#334155">② 合并局部 E-R 图的四类冲突</text>
+  <rect x="30" y="220" width="150" height="56" rx="5" fill="#e0f2fe" stroke="#0284c7"/>
+  <text x="105" y="241" text-anchor="middle" font-size="10" font-weight="700" fill="#075985">属性冲突</text>
+  <text x="105" y="260" text-anchor="middle" font-size="9" fill="#0c4a6e">同名异义 / 类型域不同</text>
+  <rect x="186" y="220" width="150" height="56" rx="5" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="261" y="241" text-anchor="middle" font-size="10" font-weight="700" fill="#166534">命名冲突</text>
+  <text x="261" y="260" text-anchor="middle" font-size="9" fill="#15803d">同名不同实体 / 异名同义</text>
+  <rect x="342" y="220" width="150" height="56" rx="5" fill="#fef3c7" stroke="#d97706"/>
+  <text x="417" y="241" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">结构冲突</text>
+  <text x="417" y="260" text-anchor="middle" font-size="9" fill="#78350f">一处作实体一处作属性</text>
+  <rect x="498" y="220" width="152" height="56" rx="5" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="574" y="241" text-anchor="middle" font-size="10" font-weight="700" fill="#5b21b6">域/约束冲突</text>
+  <text x="574" y="260" text-anchor="middle" font-size="9" fill="#4c1d95">码或联系基数不一致</text>
+
+  <text x="30" y="300" font-size="12" font-weight="700" fill="#334155">③ 图书借阅系统转换（m:n 主码设计要点）</text>
+  <rect x="30" y="310" width="620" height="46" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="329" font-size="9.5" fill="#475569">单位(单位号 PK) · 读者(借书证号 PK, 单位号 FK) · 图书(书号 PK) · 借阅(证号, 书号, 借期, 还期, PK(证号,书号,借期))</text>
+  <text x="42" y="347" font-size="9" fill="#64748b">同一读者可多次借同一本书 → 仅 (证号,书号) 作主码会冲突，须加借期或用代理主码。</text>
+
+  <rect x="30" y="366" width="620" height="28" rx="6" fill="#fff7ed" stroke="#f59e0b"/>
+  <text x="42" y="385" font-size="9.5" fill="#78350f">概念结构设计独立于 DBMS；逻辑结构设计要转模式 + 规范化 + 设计外模式（视图）。</text>
+</svg>

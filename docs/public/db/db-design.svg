@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">数据库设计六阶段与需求产物</text>
+
+  <defs><marker id="ds" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#2563eb"/></marker></defs>
+
+  <rect x="30" y="46" width="196" height="66" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="128" y="67" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1e3a8a">① 需求分析</text>
+  <text x="128" y="85" text-anchor="middle" font-size="8.5" fill="#1e40af">业务调查 / DFD / 数据字典</text>
+  <text x="128" y="102" text-anchor="middle" font-size="8.5" fill="#1e40af">产出：需求说明书</text>
+  <rect x="242" y="46" width="196" height="66" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="340" y="67" text-anchor="middle" font-size="10.5" font-weight="700" fill="#166534">② 概念结构设计</text>
+  <text x="340" y="85" text-anchor="middle" font-size="8.5" fill="#15803d">实体 / 属性 / 联系，独立于 DBMS</text>
+  <text x="340" y="102" text-anchor="middle" font-size="8.5" fill="#15803d">产出：E-R 图</text>
+  <rect x="454" y="46" width="196" height="66" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="552" y="67" text-anchor="middle" font-size="10.5" font-weight="700" fill="#92400e">③ 逻辑结构设计</text>
+  <text x="552" y="85" text-anchor="middle" font-size="8.5" fill="#78350f">转关系模式 + 规范化 + 外模式</text>
+  <text x="552" y="102" text-anchor="middle" font-size="8.5" fill="#78350f">产出：关系模式集 / 视图</text>
+  <line x1="226" y1="79" x2="241" y2="79" stroke="#2563eb" marker-end="url(#ds)"/>
+  <line x1="438" y1="79" x2="453" y2="79" stroke="#2563eb" marker-end="url(#ds)"/>
+  <line x1="552" y1="112" x2="552" y2="140" stroke="#2563eb" marker-end="url(#ds)"/>
+
+  <rect x="454" y="144" width="196" height="66" rx="6" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="552" y="165" text-anchor="middle" font-size="10.5" font-weight="700" fill="#5b21b6">④ 物理结构设计</text>
+  <text x="552" y="183" text-anchor="middle" font-size="8.5" fill="#4c1d95">引擎 / 索引 / 聚簇 / 分区 / 参数</text>
+  <text x="552" y="200" text-anchor="middle" font-size="8.5" fill="#4c1d95">依赖具体 DBMS 与硬件</text>
+  <rect x="242" y="144" width="196" height="66" rx="6" fill="#e0f2fe" stroke="#0284c7"/>
+  <text x="340" y="165" text-anchor="middle" font-size="10.5" font-weight="700" fill="#075985">⑤ 数据库实施</text>
+  <text x="340" y="183" text-anchor="middle" font-size="8.5" fill="#0c4a6e">建库建表 / 装载 / 应用调试</text>
+  <text x="340" y="200" text-anchor="middle" font-size="8.5" fill="#0c4a6e">试运行与性能实测</text>
+  <rect x="30" y="144" width="196" height="66" rx="6" fill="#ffedd5" stroke="#ea580c"/>
+  <text x="128" y="165" text-anchor="middle" font-size="10.5" font-weight="700" fill="#9a3412">⑥ 运行与维护</text>
+  <text x="128" y="183" text-anchor="middle" font-size="8.5" fill="#9a3412">监控调优 / 备份恢复 / 审计</text>
+  <text x="128" y="200" text-anchor="middle" font-size="8.5" fill="#9a3412">结构变更 / 重组织重构</text>
+  <line x1="453" y1="177" x2="439" y2="177" stroke="#2563eb" marker-end="url(#ds)"/>
+  <line x1="241" y1="177" x2="227" y2="177" stroke="#2563eb" marker-end="url(#ds)"/>
+
+  <text x="30" y="236" font-size="12" font-weight="700" fill="#334155">需求分析的两大工具</text>
+  <rect x="30" y="246" width="300" height="82" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="266" font-size="10" font-weight="700" fill="#334155">数据流图 DFD 四要素</text>
+  <text x="42" y="285" font-size="9" fill="#475569">外部实体（矩形）· 处理过程 · 数据流（箭头）· 数据存储</text>
+  <text x="42" y="304" font-size="9" fill="#475569">自顶向下逐层分解：数据从哪来、经何处理、存到何处</text>
+  <text x="42" y="320" font-size="9" fill="#64748b">描述「数据流动」，不描述控制逻辑</text>
+
+  <rect x="346" y="246" width="304" height="82" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="358" y="266" font-size="10" font-weight="700" fill="#334155">数据字典（元数据）五项</text>
+  <text x="358" y="285" font-size="9" fill="#475569">数据项 · 数据结构 · 数据流 · 数据存储 · 处理过程</text>
+  <text x="358" y="304" font-size="9" fill="#475569">需求分析阶段建立，后续设计阶段持续充实</text>
+  <text x="358" y="320" font-size="9" fill="#64748b">不是用户数据本身，而是「描述数据的数据」</text>
+
+  <rect x="30" y="340" width="620" height="48" rx="6" fill="#fff7ed" stroke="#f59e0b"/>
+  <text x="42" y="359" font-size="9.5" fill="#78350f">三个高频判断点：概念结构设计独立于具体 DBMS；逻辑结构设计依赖所选数据模型；视图/外模式设计属于逻辑阶段而非物理阶段。</text>
+  <text x="42" y="378" font-size="9.5" fill="#78350f">课件按章节分散讲述设计与运维，未把「六阶段」串成一条主线（术语在课件文本中未出现），本图补全。</text>
+</svg>

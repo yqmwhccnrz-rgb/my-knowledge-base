@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">并发异常、隔离级别与封锁协议</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 四类并发异常</text>
+  <rect x="30" y="62" width="150" height="68" rx="6" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="105" y="82" text-anchor="middle" font-size="10" font-weight="700" fill="#991b1b">丢失修改</text>
+  <text x="105" y="101" text-anchor="middle" font-size="8.5" fill="#7f1d1d">两事务同读同行再写回</text>
+  <text x="105" y="118" text-anchor="middle" font-size="8.5" fill="#7f1d1d">100 各减 10 → 90（应 80）</text>
+  <rect x="186" y="62" width="150" height="68" rx="6" fill="#ffedd5" stroke="#ea580c"/>
+  <text x="261" y="82" text-anchor="middle" font-size="10" font-weight="700" fill="#9a3412">脏读</text>
+  <text x="261" y="101" text-anchor="middle" font-size="8.5" fill="#9a3412">读到别的事务未提交的修改</text>
+  <text x="261" y="118" text-anchor="middle" font-size="8.5" fill="#9a3412">对方回滚后数据不存在</text>
+  <rect x="342" y="62" width="150" height="68" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="417" y="82" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">不可重复读</text>
+  <text x="417" y="101" text-anchor="middle" font-size="8.5" fill="#78350f">两次读同一行，值不同</text>
+  <text x="417" y="118" text-anchor="middle" font-size="8.5" fill="#78350f">针对 UPDATE（值变了）</text>
+  <rect x="498" y="62" width="152" height="68" rx="6" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="574" y="82" text-anchor="middle" font-size="10" font-weight="700" fill="#5b21b6">幻读</text>
+  <text x="574" y="101" text-anchor="middle" font-size="8.5" fill="#4c1d95">同条件两次查，行数不同</text>
+  <text x="574" y="118" text-anchor="middle" font-size="8.5" fill="#4c1d95">针对 INSERT/DELETE</text>
+
+  <text x="30" y="154" font-size="12" font-weight="700" fill="#334155">② 四种隔离级别（✔ = 允许该异常）</text>
+  <rect x="30" y="164" width="620" height="88" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="184" font-size="9.5" font-weight="700" fill="#334155">隔离级别　　　　　　　　　　脏读　不可重复读　幻读　　说明</text>
+  <text x="42" y="204" font-size="9.5" fill="#475569">READ UNCOMMITTED　　　　　 ✔　　　✔　　　　✔　　　最低</text>
+  <text x="42" y="222" font-size="9.5" fill="#475569">READ COMMITTED　　　　　　 ✘　　　✔　　　　✔　　　Oracle/PG 默认</text>
+  <text x="42" y="240" font-size="9.5" font-weight="700" fill="#1e3a8a">REPEATABLE READ　　　　　　✘　　　✘　　　　✔*　　 MySQL InnoDB 默认</text>
+
+  <text x="30" y="276" font-size="12" font-weight="700" fill="#334155">③ 三级封锁协议与 2PL</text>
+  <rect x="30" y="286" width="300" height="62" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="42" y="305" font-size="9.5" fill="#1e40af">一级：写前加 X 锁至事务末 → 防丢失修改</text>
+  <text x="42" y="323" font-size="9.5" fill="#1e40af">二级：+ 读前加 S 锁读完放 → 防脏读</text>
+  <text x="42" y="340" font-size="9.5" fill="#1e40af">三级：+ 读前加 S 锁至末 → 防不可重复读</text>
+  <rect x="346" y="286" width="304" height="62" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="358" y="305" font-size="9.5" fill="#15803d">2PL 两段锁：扩展阶段只加锁、收缩阶段只放锁</text>
+  <text x="358" y="323" font-size="9.5" fill="#15803d">⇒ 冲突可串行化（充分非必要），但不保证无死锁</text>
+  <text x="358" y="340" font-size="9" fill="#64748b">优先图有环 ⇒ 调度不可串行化；死锁用超时/等待图检测</text>
+
+  <rect x="30" y="358" width="620" height="34" rx="6" fill="#fff7ed" stroke="#f59e0b"/>
+  <text x="42" y="379" font-size="9.5" fill="#78350f">* InnoDB 用 MVCC（快照读）+ Next-Key Lock（当前读）在 RR 下也基本消除幻读；仅提高隔离级别并不能自动解决读-改-写型丢失修改。</text>
+</svg>

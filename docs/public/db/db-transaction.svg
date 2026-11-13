@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">事务、ACID 与 InnoDB 实现机制</text>
+
+  <defs><marker id="tx" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#475569"/></marker></defs>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 事务状态转换</text>
+  <rect x="30" y="62" width="120" height="34" rx="17" fill="#e2e8f0" stroke="#64748b"/><text x="90" y="84" text-anchor="middle" font-size="10" fill="#334155">活动 Active</text>
+  <rect x="190" y="62" width="120" height="34" rx="17" fill="#fef3c7" stroke="#d97706"/><text x="250" y="84" text-anchor="middle" font-size="10" fill="#92400e">部分提交</text>
+  <rect x="350" y="62" width="120" height="34" rx="17" fill="#dcfce7" stroke="#16a34a"/><text x="410" y="84" text-anchor="middle" font-size="10" fill="#166534">提交 Committed</text>
+  <rect x="510" y="62" width="140" height="34" rx="17" fill="#fee2e2" stroke="#dc2626"/><text x="580" y="84" text-anchor="middle" font-size="10" fill="#991b1b">失败 / 回滚 Aborted</text>
+  <line x1="150" y1="79" x2="189" y2="79" stroke="#475569" marker-end="url(#tx)"/>
+  <line x1="310" y1="79" x2="349" y2="79" stroke="#475569" marker-end="url(#tx)"/>
+  <line x1="250" y1="96" x2="580" y2="96" stroke="#dc2626" stroke-dasharray="4 3" marker-end="url(#tx)"/>
+
+  <text x="30" y="122" font-size="12" font-weight="700" fill="#334155">② ACID 四特性与实现映射</text>
+  <rect x="30" y="132" width="150" height="82" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="105" y="153" text-anchor="middle" font-size="11" font-weight="700" fill="#1e3a8a">A 原子性</text>
+  <text x="105" y="173" text-anchor="middle" font-size="9" fill="#1e40af">全做或全不做</text>
+  <text x="105" y="193" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1e3a8a">↔ undo log</text>
+  <rect x="186" y="132" width="150" height="82" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="261" y="153" text-anchor="middle" font-size="11" font-weight="700" fill="#166534">C 一致性</text>
+  <text x="261" y="173" text-anchor="middle" font-size="9" fill="#15803d">一致态 → 一致态</text>
+  <text x="261" y="193" text-anchor="middle" font-size="9.5" fill="#15803d">↔ A/I/D + 完整性约束</text>
+  <rect x="342" y="132" width="150" height="82" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="417" y="153" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">I 隔离性</text>
+  <text x="417" y="173" text-anchor="middle" font-size="9" fill="#78350f">并发事务互不干扰</text>
+  <text x="417" y="193" text-anchor="middle" font-size="9.5" font-weight="700" fill="#92400e">↔ 锁 + MVCC</text>
+  <rect x="498" y="132" width="152" height="82" rx="6" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="574" y="153" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">D 持久性</text>
+  <text x="574" y="173" text-anchor="middle" font-size="9" fill="#4c1d95">提交后崩溃也不丢</text>
+  <text x="574" y="193" text-anchor="middle" font-size="9.5" font-weight="700" fill="#5b21b6">↔ redo log + WAL</text>
+
+  <text x="30" y="238" font-size="12" font-weight="700" fill="#334155">③ 一条 UPDATE 的日志协作（两阶段提交 2PC）</text>
+  <rect x="30" y="248" width="620" height="72" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="268" font-size="9.5" fill="#475569">① 写 undo（保存旧值）　② 改 Buffer Pool 中的页　③ 写 redo（prepare）</text>
+  <text x="42" y="288" font-size="9.5" fill="#475569">④ 写 binlog　⑤ redo 标记 commit　→　崩溃恢复时：redo prepare 且 binlog 完整则提交，否则回滚</text>
+  <text x="42" y="308" font-size="9" fill="#64748b">目的：保证主库与从库（binlog 复制）状态一致，避免「主库有、从库无」或反之</text>
+
+  <rect x="30" y="330" width="620" height="58" rx="6" fill="#fff7ed" stroke="#f59e0b"/>
+  <text x="42" y="350" font-size="9.5" fill="#78350f">START TRANSACTION; … SAVEPOINT sp1; … COMMIT / ROLLBACK [TO sp1];</text>
+  <text x="42" y="370" font-size="9.5" fill="#78350f">MySQL 默认 autocommit=1：单条 DML 自动提交；显式事务需 START TRANSACTION 或 SET autocommit=0。</text>
+  <text x="42" y="385" font-size="9" fill="#64748b">课件用中文描述四性质但未给 ACID 缩写与实现映射，且出现「事物的隔离级别」笔误，应订正为「事务」。</text>
+</svg>

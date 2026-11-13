@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">用户、权限、角色与 SQL 注入防御</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 权限四层级与账号</text>
+  <rect x="30" y="62" width="300" height="112" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="42" y="82" font-size="9.5" fill="#1e40af">全局级　　所有库　　　　mysql.user</text>
+  <text x="42" y="102" font-size="9.5" fill="#1e40af">数据库级　指定库全部对象　mysql.db</text>
+  <text x="42" y="122" font-size="9.5" fill="#1e40af">表/列级　 指定表或列　　tables_priv / columns_priv</text>
+  <text x="42" y="142" font-size="9.5" fill="#1e40af">例程级　　存储过程/函数　procs_priv</text>
+  <text x="42" y="164" font-size="9" fill="#64748b">MySQL 身份 = 'user'@'host'（localhost 与 % 不同账号）</text>
+
+  <rect x="346" y="62" width="304" height="112" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="358" y="82" font-size="9.5" fill="#15803d">CREATE USER 'app'@'%' IDENTIFIED BY '…';</text>
+  <text x="358" y="102" font-size="9.5" fill="#15803d">GRANT SELECT, INSERT ON teaching.Student TO 'app'@'%';</text>
+  <text x="358" y="122" font-size="9.5" fill="#15803d">REVOKE INSERT ON teaching.Student FROM 'app'@'%';</text>
+  <text x="358" y="142" font-size="9.5" fill="#15803d">CREATE ROLE r_reader; GRANT r_reader TO 'app'@'%';</text>
+  <text x="358" y="164" font-size="9" fill="#64748b">8.0 起须先 CREATE USER 再 GRANT；GRANT 自动生效</text>
+
+  <text x="30" y="198" font-size="12" font-weight="700" fill="#334155">② SQL 注入：拼接 vs 参数化</text>
+  <rect x="30" y="208" width="300" height="96" rx="6" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="42" y="228" font-size="9.5" font-weight="700" fill="#991b1b">危险：字符串拼接</text>
+  <text x="42" y="247" font-size="8.5" fill="#7f1d1d">sql = f"SELECT * FROM users WHERE name='{name}'</text>
+  <text x="42" y="263" font-size="8.5" fill="#7f1d1d">        AND pwd='{pwd}'"</text>
+  <text x="42" y="282" font-size="8.5" fill="#7f1d1d">输入 ' OR '1'='1' -- → 条件恒成立，绕过认证</text>
+  <text x="42" y="298" font-size="9" fill="#64748b">前端校验与转义函数都不能替代参数化</text>
+
+  <rect x="346" y="208" width="304" height="96" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="358" y="228" font-size="9.5" font-weight="700" fill="#166534">正确：预处理 / 参数化</text>
+  <text x="358" y="247" font-size="8.5" fill="#15803d">cur.execute("SELECT * FROM users</text>
+  <text x="358" y="263" font-size="8.5" fill="#15803d">  WHERE name=%s AND pwd=%s", (name,pwd))</text>
+  <text x="358" y="282" font-size="8.5" fill="#15803d">SQL 结构与数据分离，参数永不当作语法解析</text>
+  <text x="358" y="298" font-size="9" fill="#64748b">动态表名/列名不能参数化 → 用白名单映射</text>
+
+  <text x="30" y="328" font-size="12" font-weight="700" fill="#334155">③ 最小权限与安全清单</text>
+  <rect x="30" y="338" width="620" height="52" rx="6" fill="#fff7ed" stroke="#f59e0b"/>
+  <text x="42" y="357" font-size="9.5" fill="#78350f">应用账号只授所需库表的 SELECT/INSERT/UPDATE，不给 DROP/FILE/SUPER 与 WITH GRANT OPTION；禁止应用直连 root、禁止 '%' 通配主机。</text>
+  <text x="42" y="377" font-size="9.5" fill="#78350f">TLS 传输、密码加盐哈希、敏感列加密脱敏、备份文件加密、审计日志、定期审阅 mysql.user、及时打补丁与网络隔离。</text>
+</svg>

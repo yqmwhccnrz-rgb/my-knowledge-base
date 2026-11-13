@@ -47436,5 +47436,2007 @@
   "answer": "① H=(0.62−0.45)²/(0.004−0.001)=0.0289/0.003=9.63 > χ²₀.₀₅(1)=3.84 ⇒ 拒绝「个体效应与解释变量不相关」，RE 不一致，应选固定效应 FE；报告时还需按个体聚类的稳健标准误。② P=1/(1+e^{−z})、ME=0.5P(1−P)：x=2 → z=0，P=0.5000，ME=0.1250；x=4 → z=1，P=0.7311，ME=0.0983；x=6 → z=2，P=0.8808，ME=0.0525。OR=e⁰·⁵=1.649，表示 x 每增 1 单位，发生比 P/(1−P) 变为 1.649 倍。β 只是对数发生比的斜率；因连接函数为 S 形非线性，概率变化随 x 改变（P≈0.5 处最大、两端趋平），故应报告 AME 或指定点 MEM。",
   "explanation": "两题分别考查面板模型选择与离散选择模型的正确解读。",
   "type": "essay"
+ },
+ {
+  "id": "db1",
+  "note": "Database",
+  "topic": "第1章 数据库系统概述",
+  "question": "数据库系统 DBS 的组成不包括下列哪一项（ ）。",
+  "options": [
+   "编译程序",
+   "数据库",
+   "数据库管理系统",
+   "数据库管理员"
+  ],
+  "answer": 0,
+  "explanation": "DBS = DB + DBMS + 应用系统 + DBA + 用户 + 软硬件平台。",
+  "type": "choice"
+ },
+ {
+  "id": "db2",
+  "note": "Database",
+  "topic": "第1章 数据库系统概述",
+  "question": "数据库系统与文件系统相比最本质的优势是（ ）。",
+  "options": [
+   "存储容量更大",
+   "数据整体结构化、共享性高、冗余低、数据独立性高",
+   "不需要磁盘",
+   "只能由一个人访问"
+  ],
+  "answer": 1,
+  "explanation": "文件系统阶段数据共享性差、冗余大、数据与程序独立性差。",
+  "type": "choice"
+ },
+ {
+  "id": "db3",
+  "note": "Database",
+  "topic": "第1章 数据库系统概述",
+  "question": "三级模式结构中，模式与内模式的数量分别是（ ）。",
+  "options": [
+   "多个、一个",
+   "一个、多个",
+   "各一个",
+   "都多个"
+  ],
+  "answer": 2,
+  "explanation": "外模式可有多个，模式（概念模式）与内模式（存储模式）各只有一个。",
+  "type": "choice"
+ },
+ {
+  "id": "db4",
+  "note": "Database",
+  "topic": "第1章 数据库系统概述",
+  "question": "保证数据「逻辑独立性」的是（ ）。",
+  "options": [
+   "模式/内模式映像",
+   "外模式本身",
+   "存储引擎",
+   "外模式/模式映像"
+  ],
+  "answer": 3,
+  "explanation": "逻辑独立性由外模式/模式映像给；物理独立性由模式/内模式映像给。",
+  "type": "choice"
+ },
+ {
+  "id": "db5",
+  "note": "Database",
+  "topic": "第1章 数据库系统概述",
+  "question": "数据模型的三个要素是（ ）。",
+  "options": [
+   "数据结构、数据操作、完整性约束",
+   "实体、属性、联系",
+   "表、视图、索引",
+   "需求分析、设计、实施"
+  ],
+  "answer": 0,
+  "explanation": "E-R 模型属于概念模型，其要素是实体/属性/联系，注意区分。",
+  "type": "choice"
+ },
+ {
+  "id": "db6",
+  "note": "Database",
+  "topic": "第2章 关系数据库",
+  "question": "下列哪一项不是关系必须满足的性质（ ）。",
+  "options": [
+   "列同质",
+   "元组按主键值升序存放",
+   "任意两元组不能完全相同",
+   "每个分量不可再分"
+  ],
+  "answer": 1,
+  "explanation": "关系中行与列的次序都可任意交换，没有物理顺序要求。",
+  "type": "choice"
+ },
+ {
+  "id": "db7",
+  "note": "Database",
+  "topic": "第2章 关系数据库",
+  "question": "从多个候选码中选定用来唯一标识元组的称为（ ）。",
+  "options": [
+   "超码",
+   "外码",
+   "主码",
+   "全码"
+  ],
+  "answer": 2,
+  "explanation": "候选码是最小的超码、可有多个；主码是从中选定的一个。",
+  "type": "choice"
+ },
+ {
+  "id": "db8",
+  "note": "Database",
+  "topic": "第2章 关系数据库",
+  "question": "「主码属性不能取 NULL 且不能重复」属于（ ）。",
+  "options": [
+   "参照完整性",
+   "用户定义完整性",
+   "域完整性",
+   "实体完整性"
+  ],
+  "answer": 3,
+  "explanation": "参照完整性约束外码；用户定义完整性是 NOT NULL/UNIQUE/CHECK 等语义约束。",
+  "type": "choice"
+ },
+ {
+  "id": "db9",
+  "note": "Database",
+  "topic": "第2章 关系数据库",
+  "question": "外码取值必须（ ）。",
+  "options": [
+   "要么为 NULL，要么等于被参照关系某元组的主码值",
+   "必须与本关系主码相同",
+   "必须非空",
+   "可以是任意值"
+  ],
+  "answer": 0,
+  "explanation": "若外码同时是主码属性，则受实体完整性约束不能为 NULL。",
+  "type": "choice"
+ },
+ {
+  "id": "db10",
+  "note": "Database",
+  "topic": "第2章 关系数据库",
+  "question": "关系代数中「按条件选行」与「选列并去重」分别是（ ）。",
+  "options": [
+   "投影 π 与选择 σ",
+   "选择 σ 与投影 π",
+   "连接 ⋈ 与除 ÷",
+   "并 ∪ 与差 −"
+  ],
+  "answer": 1,
+  "explanation": "选择是水平方向过滤元组，投影是垂直方向取属性并去重。",
+  "type": "choice"
+ },
+ {
+  "id": "db11",
+  "note": "Database",
+  "topic": "第2章 关系数据库",
+  "question": "自然连接与等值连接的主要区别是（ ）。",
+  "options": [
+   "自然连接不要求条件",
+   "等值连接结果一定更少",
+   "自然连接自动按同名属性等值并去掉重复列",
+   "自然连接只适用于两个关系且不能有同名属性"
+  ],
+  "answer": 2,
+  "explanation": "自然连接是特殊的等值连接，会自动去重同名列。",
+  "type": "choice"
+ },
+ {
+  "id": "db12",
+  "note": "Database",
+  "topic": "第2章 关系数据库",
+  "question": "查询「选修了全部课程的学生」应使用的关系代数运算是（ ）。",
+  "options": [
+   "并 ∪",
+   "交 ∩",
+   "投影 π",
+   "除 ÷"
+  ],
+  "answer": 3,
+  "explanation": "除运算专用于表达「全部/所有」，SQL 中对应双重 NOT EXISTS 或 GROUP BY + HAVING COUNT。",
+  "type": "choice"
+ },
+ {
+  "id": "db13",
+  "note": "Database",
+  "topic": "第2章 关系数据库",
+  "question": "关系 R 有 m 个元组、关系 S 有 n 个元组，则 R×S 的元组数是（ ）。",
+  "options": [
+   "m×n",
+   "m+n",
+   "max(m,n)",
+   "m−n"
+  ],
+  "answer": 0,
+  "explanation": "笛卡尔积把 R 的每一行与 S 的每一行拼接，属性数为两者之和。",
+  "type": "choice"
+ },
+ {
+  "id": "db14",
+  "note": "Database",
+  "topic": "第2章 关系数据库",
+  "question": "SQL 具有「关系完备性」指的是（ ）。",
+  "options": [
+   "支持所有数据类型",
+   "表达能力不低于关系代数",
+   "不需要索引",
+   "能自动规范化"
+  ],
+  "answer": 1,
+  "explanation": "实际 SQL 还带聚合、分组、更新等超出关系代数的能力。",
+  "type": "choice"
+ },
+ {
+  "id": "db15",
+  "note": "Database",
+  "topic": "第3章 SQL 与 MySQL",
+  "question": "下列语句中属于 DDL 的是（ ）。",
+  "options": [
+   "INSERT",
+   "UPDATE",
+   "TRUNCATE TABLE",
+   "SELECT"
+  ],
+  "answer": 2,
+  "explanation": "TRUNCATE 是 DDL、隐式提交、不可回滚、重置自增值；DDL 还有 CREATE/ALTER/DROP。",
+  "type": "choice"
+ },
+ {
+  "id": "db16",
+  "note": "Database",
+  "topic": "第3章 SQL 与 MySQL",
+  "question": "GRANT 与 REVOKE 属于（ ）。",
+  "options": [
+   "DDL",
+   "DML",
+   "TCL",
+   "DCL 数据控制语言"
+  ],
+  "answer": 3,
+  "explanation": "TCL 是 COMMIT/ROLLBACK/SAVEPOINT 等事务控制语句。",
+  "type": "choice"
+ },
+ {
+  "id": "db17",
+  "note": "Database",
+  "topic": "第3章 SQL 与 MySQL",
+  "question": "MySQL 中一条 SQL 的执行顺序，第一步是（ ）。",
+  "options": [
+   "连接层完成认证并分配线程",
+   "优化器选索引",
+   "解析器生成解析树",
+   "执行器调用存储引擎"
+  ],
+  "answer": 0,
+  "explanation": "路径：连接 → 解析 → 预处理 → 优化器 → 执行器 → 存储引擎。",
+  "type": "choice"
+ },
+ {
+  "id": "db18",
+  "note": "Database",
+  "topic": "第3章 SQL 与 MySQL",
+  "question": "关于 MySQL 方言与标准 SQL，正确的是（ ）。",
+  "options": [
+   "两者都用 ||",
+   "MySQL 用 CONCAT() 拼接字符串，标准 SQL 用 ||",
+   "LIMIT 是标准 SQL 关键字",
+   "反引号是标准 SQL 标识符引用符"
+  ],
+  "answer": 1,
+  "explanation": "标准 SQL 用双引号引用标识符、OFFSET…FETCH 分页。",
+  "type": "choice"
+ },
+ {
+  "id": "db19",
+  "note": "Database",
+  "topic": "第3章 SQL 与 MySQL",
+  "question": "MySQL 8.0 相对于 5.7 的变化不包括（ ）。",
+  "options": [
+   "支持 CTE 与递归 CTE",
+   "支持窗口函数",
+   "重新引入并强化查询缓存",
+   "CHECK 约束真正生效"
+  ],
+  "answer": 2,
+  "explanation": "MySQL 8.0 反而移除了查询缓存，改用应用层缓存。",
+  "type": "choice"
+ },
+ {
+  "id": "db20",
+  "note": "Database",
+  "topic": "第4章 数据库创建和管理",
+  "question": "MySQL 5.5 之后的默认存储引擎是（ ）。",
+  "options": [
+   "MyISAM",
+   "MEMORY",
+   "ARCHIVE",
+   "InnoDB"
+  ],
+  "answer": 3,
+  "explanation": "InnoDB 支持事务、行锁、外键与崩溃恢复，是 OLTP 首选。",
+  "type": "choice"
+ },
+ {
+  "id": "db21",
+  "note": "Database",
+  "topic": "第4章 数据库创建和管理",
+  "question": "下列存储引擎中同时支持事务与外键的是（ ）。",
+  "options": [
+   "InnoDB",
+   "MyISAM",
+   "MEMORY",
+   "CSV"
+  ],
+  "answer": 0,
+  "explanation": "MyISAM 为表锁、无事务无外键；MEMORY 重启丢数据。",
+  "type": "choice"
+ },
+ {
+  "id": "db22",
+  "note": "Database",
+  "topic": "第4章 数据库创建和管理",
+  "question": "MySQL 中要存储 emoji 应使用的字符集是（ ）。",
+  "options": [
+   "utf8（utf8mb3）",
+   "utf8mb4",
+   "latin1",
+   "ascii"
+  ],
+  "answer": 1,
+  "explanation": "MySQL 的 utf8 实为 utf8mb3（最多 3 字节），存不了 4 字节字符。",
+  "type": "choice"
+ },
+ {
+  "id": "db23",
+  "note": "Database",
+  "topic": "第4章 数据库创建和管理",
+  "question": "查看 MySQL 支持哪些存储引擎的命令是（ ）。",
+  "options": [
+   "SHOW DATABASES",
+   "SHOW TABLES",
+   "SHOW ENGINES",
+   "SHOW VARIABLES LIKE 'version'"
+  ],
+  "answer": 2,
+  "explanation": "SHOW ENGINES 会列出引擎、是否支持事务与 XA、是否默认。",
+  "type": "choice"
+ },
+ {
+  "id": "db24",
+  "note": "Database",
+  "topic": "第4章 数据库创建和管理",
+  "question": "关于 ALTER DATABASE 修改默认字符集，正确的是（ ）。",
+  "options": [
+   "会立即转换全库所有既有列",
+   "会导致已有数据乱码",
+   "需要重启 MySQL 才生效",
+   "只影响此后新建对象，不会自动转换已有表与列"
+  ],
+  "answer": 3,
+  "explanation": "既有列需 ALTER TABLE … CONVERT TO CHARACTER SET utf8mb4。",
+  "type": "choice"
+ },
+ {
+  "id": "db25",
+  "note": "Database",
+  "topic": "第5章 数据表管理与操纵",
+  "question": "存储金额应优先选用的数据类型是（ ）。",
+  "options": [
+   "DECIMAL(M,D)",
+   "FLOAT",
+   "DOUBLE",
+   "VARCHAR"
+  ],
+  "answer": 0,
+  "explanation": "FLOAT/DOUBLE 有二进制精度误差，DECIMAL 是精确定点数。",
+  "type": "choice"
+ },
+ {
+  "id": "db26",
+  "note": "Database",
+  "topic": "第5章 数据表管理与操纵",
+  "question": "INT(11) 中 11 的含义是（ ）。",
+  "options": [
+   "最大 11 位整数",
+   "显示宽度，不限制取值范围",
+   "占 11 字节",
+   "小数位数"
+  ],
+  "answer": 1,
+  "explanation": "配合 ZEROFILL 才体现显示效果，MySQL 8.0.17 起废弃该写法。",
+  "type": "choice"
+ },
+ {
+  "id": "db27",
+  "note": "Database",
+  "topic": "第5章 数据表管理与操纵",
+  "question": "一张表最多可以有几个 PRIMARY KEY 约束（ ）。",
+  "options": [
+   "每列一个",
+   "任意多个",
+   "1 个（可由多列组合而成）",
+   "0 个"
+  ],
+  "answer": 2,
+  "explanation": "主键可组合多列，但表级主键约束只能有一个；UNIQUE 可有多个。",
+  "type": "choice"
+ },
+ {
+  "id": "db28",
+  "note": "Database",
+  "topic": "第5章 数据表管理与操纵",
+  "question": "MySQL 的 UNIQUE 约束对 NULL 的处理是（ ）。",
+  "options": [
+   "只允许一个 NULL",
+   "完全不允许 NULL",
+   "NULL 会被自动改成 0",
+   "允许多个 NULL"
+  ],
+  "answer": 3,
+  "explanation": "实体完整性只约束主码；要「非空唯一」须显式加 NOT NULL。",
+  "type": "choice"
+ },
+ {
+  "id": "db29",
+  "note": "Database",
+  "topic": "第5章 数据表管理与操纵",
+  "question": "关于 TRUNCATE，正确的是（ ）。",
+  "options": [
+   "是 DDL、隐式提交、不可回滚、重置 AUTO_INCREMENT",
+   "是 DML，可带 WHERE",
+   "可回滚",
+   "会逐行触发 DELETE 触发器"
+  ],
+  "answer": 0,
+  "explanation": "与 DELETE 对比是高频考点；DROP 则会连表结构一起删除。",
+  "type": "choice"
+ },
+ {
+  "id": "db30",
+  "note": "Database",
+  "topic": "第5章 数据表管理与操纵",
+  "question": "CHECK 约束在 MySQL 中真正开始生效的版本是（ ）。",
+  "options": [
+   "5.5",
+   "8.0.16",
+   "5.7",
+   "8.0.0"
+  ],
+  "answer": 1,
+  "explanation": "此前版本只解析 CHECK 语法但不执行校验。",
+  "type": "choice"
+ },
+ {
+  "id": "db31",
+  "note": "Database",
+  "topic": "第5章 数据表管理与操纵",
+  "question": "删除有外键引用的父表之前，正确的做法是（ ）。",
+  "options": [
+   "直接删父表即可",
+   "先删数据库",
+   "先删除或解除子表外键，再删父表",
+   "把父表改名"
+  ],
+  "answer": 2,
+  "explanation": "否则会因参照完整性被拒绝；也可用 ON DELETE CASCADE 预先定义级联。",
+  "type": "choice"
+ },
+ {
+  "id": "db32",
+  "note": "Database",
+  "topic": "第5章 数据表管理与操纵",
+  "question": "TIMESTAMP 与 DATETIME 的主要区别是（ ）。",
+  "options": [
+   "DATETIME 受时区影响",
+   "TIMESTAMP 可以存更大范围日期",
+   "两者完全相同",
+   "TIMESTAMP 占 4 字节且受时区影响、存在 2038 问题"
+  ],
+  "answer": 3,
+  "explanation": "DATETIME 占 8 字节、与时区无关、范围 1000–9999 年。",
+  "type": "choice"
+ },
+ {
+  "id": "db33",
+  "note": "Database",
+  "topic": "第6章 数据查询",
+  "question": "SELECT 语句真正的执行顺序是（ ）。",
+  "options": [
+   "FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY → LIMIT",
+   "SELECT → FROM → WHERE → GROUP BY → HAVING → ORDER BY",
+   "FROM → SELECT → WHERE → GROUP BY → HAVING",
+   "WHERE → FROM → SELECT → GROUP BY → LIMIT"
+  ],
+  "answer": 0,
+  "explanation": "书写顺序与执行顺序不同，是查询章最高频考点。",
+  "type": "choice"
+ },
+ {
+  "id": "db34",
+  "note": "Database",
+  "topic": "第6章 数据查询",
+  "question": "下列哪一项不能出现在 WHERE 子句中（ ）。",
+  "options": [
+   "比较谓词",
+   "聚合函数 COUNT(*)",
+   "IS NULL",
+   "AND/OR"
+  ],
+  "answer": 1,
+  "explanation": "聚合是对组计算结果，须放在 HAVING 或 SELECT 中。",
+  "type": "choice"
+ },
+ {
+  "id": "db35",
+  "note": "Database",
+  "topic": "第6章 数据查询",
+  "question": "教学库中 SELECT COUNT(*), COUNT(Grade) FROM SC 的结果是（ ）。",
+  "options": [
+   "7 与 7",
+   "6 与 6",
+   "7 与 6",
+   "6 与 7"
+  ],
+  "answer": 2,
+  "explanation": "SC 共 7 行，其中 1 行 Grade 为 NULL；COUNT(列) 跳过 NULL。",
+  "type": "choice"
+ },
+ {
+  "id": "db36",
+  "note": "Database",
+  "topic": "第6章 数据查询",
+  "question": "教学库中查询「CS 系且年龄小于 20 的学生姓名」的结果是（ ）。",
+  "options": [
+   "李勇",
+   "王敏",
+   "张立",
+   "刘晨"
+  ],
+  "answer": 3,
+  "explanation": "CS 系有李勇(20)与刘晨(19)，只有刘晨满足 Sage<20。",
+  "type": "choice"
+ },
+ {
+  "id": "db37",
+  "note": "Database",
+  "topic": "第6章 数据查询",
+  "question": "教学库按系分组并 HAVING COUNT(*)>=2 的结果是（ ）。",
+  "options": [
+   "CS | 2 | 19.5",
+   "MA | 1 | 18",
+   "IS | 1 | 19",
+   "CS | 2 | 20"
+  ],
+  "answer": 0,
+  "explanation": "只有 CS 系有 2 人，平均年龄 (20+19)/2 = 19.5。",
+  "type": "choice"
+ },
+ {
+  "id": "db38",
+  "note": "Database",
+  "topic": "第6章 数据查询",
+  "question": "关于 NULL 比较，正确的是（ ）。",
+  "options": [
+   "NULL = NULL 返回 TRUE",
+   "NULL = NULL 的结果是 UNKNOWN，判空必须用 IS NULL",
+   "NULL = NULL 返回 FALSE",
+   "NOT IN 子查询含 NULL 仍有结果"
+  ],
+  "answer": 1,
+  "explanation": "SQL 是三值逻辑；NOT IN 子查询含一个 NULL 就会使整体结果为空。",
+  "type": "choice"
+ },
+ {
+  "id": "db39",
+  "note": "Database",
+  "topic": "第6章 数据查询",
+  "question": "LEFT JOIN 后要统计「每个学生选了几门课」，应写（ ）。",
+  "options": [
+   "COUNT(*)",
+   "SUM(1) 与 COUNT(*) 等价即可",
+   "COUNT(右表列)",
+   "COUNT(左表列)"
+  ],
+  "answer": 2,
+  "explanation": "补 NULL 的行仍是一行，COUNT(*) 会把它计成 1。",
+  "type": "choice"
+ },
+ {
+  "id": "db40",
+  "note": "Database",
+  "topic": "第6章 数据查询",
+  "question": "教学库中「选修数据库且成绩 > 80 的学生」的查询结果是（ ）。",
+  "options": [
+   "刘晨 78",
+   "王敏 NULL",
+   "李勇 88",
+   "李勇 92"
+  ],
+  "answer": 3,
+  "explanation": "三表连接后只有李勇在「数据库」课得 92 分。",
+  "type": "choice"
+ },
+ {
+  "id": "db41",
+  "note": "Database",
+  "topic": "第6章 数据查询",
+  "question": "UNION 与 UNION ALL 的区别是（ ）。",
+  "options": [
+   "UNION 去重并有排序开销，UNION ALL 保留全部行",
+   "UNION ALL 会自动排序",
+   "UNION 只用于数字列",
+   "两者完全等价"
+  ],
+  "answer": 0,
+  "explanation": "业务确认无重复时优先 UNION ALL 以提升性能。",
+  "type": "choice"
+ },
+ {
+  "id": "db42",
+  "note": "Database",
+  "topic": "第6章 数据查询",
+  "question": "EXISTS 相关子查询相对 IN 子查询的优势通常是（ ）。",
+  "options": [
+   "语法更简单",
+   "逐行求值、找到匹配即停止，大表上更高效",
+   "可以返回多列",
+   "不需要索引"
+  ],
+  "answer": 1,
+  "explanation": "现代优化器常把两者改写为半连接，但 EXISTS 语义更适合「存在性」判断。",
+  "type": "choice"
+ },
+ {
+  "id": "db43",
+  "note": "Database",
+  "topic": "第6章 数据查询",
+  "question": "EXPLAIN 输出中 type = ALL 表示（ ）。",
+  "options": [
+   "使用了覆盖索引",
+   "使用主键等值查询",
+   "全表扫描，通常需要优化",
+   "使用了唯一索引"
+  ],
+  "answer": 2,
+  "explanation": "常见 type 由优到劣：system/const/eq_ref/ref/range/index/ALL。",
+  "type": "choice"
+ },
+ {
+  "id": "db44",
+  "note": "Database",
+  "topic": "第6章 数据查询",
+  "question": "下列哪种写法会使索引失效（ ）。",
+  "options": [
+   "WHERE id = 10",
+   "WHERE name LIKE 'ab%'",
+   "WHERE a=1 AND b=2（联合索引以 a 打头）",
+   "WHERE YEAR(create_time) = 2024（对索引列用函数）"
+  ],
+  "answer": 3,
+  "explanation": "索引列须保持「裸列」；前置通配、隐式类型转换、函数或运算都会失效。",
+  "type": "choice"
+ },
+ {
+  "id": "db45",
+  "note": "Database",
+  "topic": "第7章 视图和索引",
+  "question": "关于视图，正确的是（ ）。",
+  "options": [
+   "数据库中只保存视图定义，不保存视图数据",
+   "视图是真实存储的表",
+   "对视图查询不会访问基本表",
+   "视图一定能被更新"
+  ],
+  "answer": 0,
+  "explanation": "查询视图时由 DBMS 消解为底层 SELECT。",
+  "type": "choice"
+ },
+ {
+  "id": "db46",
+  "note": "Database",
+  "topic": "第7章 视图和索引",
+  "question": "视图最主要体现的是（ ）。",
+  "options": [
+   "内模式与物理独立性",
+   "外模式，因而提供逻辑独立性与安全控制",
+   "存储引擎",
+   "事务隔离"
+  ],
+  "answer": 1,
+  "explanation": "模式变化时改视图定义即可，应用程序不必改。",
+  "type": "choice"
+ },
+ {
+  "id": "db47",
+  "note": "Database",
+  "topic": "第7章 视图和索引",
+  "question": "下列视图中通常可更新的是（ ）。",
+  "options": [
+   "含 GROUP BY 的视图",
+   "含 DISTINCT 的视图",
+   "基于单表的简单行列投影且不含聚合",
+   "含 UNION 的视图"
+  ],
+  "answer": 2,
+  "explanation": "聚合、DISTINCT、GROUP BY/HAVING、UNION、子查询、多表连接多数不可更新。",
+  "type": "choice"
+ },
+ {
+  "id": "db48",
+  "note": "Database",
+  "topic": "第7章 视图和索引",
+  "question": "InnoDB 的聚簇索引叶子节点存放的是（ ）。",
+  "options": [
+   "主键值",
+   "行指针地址",
+   "只有索引列",
+   "整行数据"
+  ],
+  "answer": 3,
+  "explanation": "二级索引叶子存主键值，查其它列需回表；一张表只有一个聚簇索引。",
+  "type": "choice"
+ },
+ {
+  "id": "db49",
+  "note": "Database",
+  "topic": "第7章 视图和索引",
+  "question": "联合索引 (a,b,c) 不能有效使用索引的查询条件是（ ）。",
+  "options": [
+   "WHERE b = 2",
+   "WHERE a = 1",
+   "WHERE a = 1 AND b = 2",
+   "WHERE a = 1 AND b > 2"
+  ],
+  "answer": 0,
+  "explanation": "最左前缀原则：必须从最左列 a 开始连续匹配。",
+  "type": "choice"
+ },
+ {
+  "id": "db50",
+  "note": "Database",
+  "topic": "第7章 视图和索引",
+  "question": "「覆盖索引」带来的直接好处是（ ）。",
+  "options": [
+   "自动加速所有写入",
+   "所需列都在索引中，无需回表",
+   "允许索引列有重复值",
+   "不需要维护 B+树"
+  ],
+  "answer": 1,
+  "explanation": "EXPLAIN 的 Extra 会显示 Using index。",
+  "type": "choice"
+ },
+ {
+  "id": "db51",
+  "note": "Database",
+  "topic": "第7章 视图和索引",
+  "question": "B+ 树相对于 B 树更适合数据库索引的关键原因是（ ）。",
+  "options": [
+   "非叶子节点也存数据",
+   "树高一定为 2",
+   "数据全在叶子层且叶子间有链表，范围查询高效",
+   "不支持等值查询"
+  ],
+  "answer": 2,
+  "explanation": "叶子链表让 BETWEEN / ORDER BY 只需顺序扫描。",
+  "type": "choice"
+ },
+ {
+  "id": "db52",
+  "note": "Database",
+  "topic": "第7章 视图和索引",
+  "question": "关于索引数量，正确的工程结论是（ ）。",
+  "options": [
+   "索引越多越好",
+   "每个列都必须建索引",
+   "索引不占磁盘空间",
+   "索引越多写入越慢，应只给高频查询且高选择性的列建"
+  ],
+  "answer": 3,
+  "explanation": "每次 INSERT/UPDATE/DELETE 都要维护所有相关 B+树。",
+  "type": "choice"
+ },
+ {
+  "id": "db53",
+  "note": "Database",
+  "topic": "第8章 安全性管理",
+  "question": "MySQL 中用户的唯一身份由（ ）确定。",
+  "options": [
+   "'user'@'host' 二元组",
+   "仅用户名",
+   "仅主机名",
+   "仅密码"
+  ],
+  "answer": 0,
+  "explanation": "'root'@'localhost' 与 'root'@'%' 是两个不同账号。",
+  "type": "choice"
+ },
+ {
+  "id": "db54",
+  "note": "Database",
+  "topic": "第8章 安全性管理",
+  "question": "MySQL 8.0 中创建用户并授权的正确顺序是（ ）。",
+  "options": [
+   "直接 GRANT 自动创建用户",
+   "先 CREATE USER，再 GRANT",
+   "直接改 mysql.user 表",
+   "先 FLUSH PRIVILEGES 再 GRANT"
+  ],
+  "answer": 1,
+  "explanation": "旧版 GRANT 隐式创建用户的写法在 8.0 已废弃。",
+  "type": "choice"
+ },
+ {
+  "id": "db55",
+  "note": "Database",
+  "topic": "第8章 安全性管理",
+  "question": "防御 SQL 注入最有效的手段是（ ）。",
+  "options": [
+   "前端输入长度校验",
+   "字符串转义函数",
+   "参数化查询 / 预处理语句",
+   "隐藏数据库错误信息"
+  ],
+  "answer": 2,
+  "explanation": "参数化把 SQL 结构与数据分离，注入串不会被当作语法解析。",
+  "type": "choice"
+ },
+ {
+  "id": "db56",
+  "note": "Database",
+  "topic": "第8章 安全性管理",
+  "question": "REVOKE 语句的作用是（ ）。",
+  "options": [
+   "删除用户",
+   "删除表",
+   "重置密码",
+   "回收权限，但不删除用户"
+  ],
+  "answer": 3,
+  "explanation": "删除用户须用 DROP USER；直接改系统表才需要 FLUSH PRIVILEGES。",
+  "type": "choice"
+ },
+ {
+  "id": "db57",
+  "note": "Database",
+  "topic": "第8章 安全性管理",
+  "question": "下列哪一项不符合最小权限原则（ ）。",
+  "options": [
+   "应用账号使用 root 并授予 WITH GRANT OPTION",
+   "按功能拆分读写账号",
+   "只授所需库表的 SELECT/INSERT",
+   "禁止 '%' 通配主机并限制内网访问"
+  ],
+  "answer": 0,
+  "explanation": "应用账号不应具备 DROP/FILE/SUPER 或转授权能力。",
+  "type": "choice"
+ },
+ {
+  "id": "db58",
+  "note": "Database",
+  "topic": "第9章 并发控制与封锁",
+  "question": "事务的四个特性缩写 ACID 中，持久性主要由（ ）保障。",
+  "options": [
+   "undo log",
+   "redo log + WAL",
+   "锁机制",
+   "数据字典"
+  ],
+  "answer": 1,
+  "explanation": "A↔undo、D↔redo、I↔锁与 MVCC，C 是三者共同保障的结果。",
+  "type": "choice"
+ },
+ {
+  "id": "db59",
+  "note": "Database",
+  "topic": "第9章 并发控制与封锁",
+  "question": "事务原子性主要由（ ）保障。",
+  "options": [
+   "redo log",
+   "binlog",
+   "undo log",
+   "索引"
+  ],
+  "answer": 2,
+  "explanation": "undo 记录旧值，回滚时重放；同时支撑 MVCC 版本链。",
+  "type": "choice"
+ },
+ {
+  "id": "db60",
+  "note": "Database",
+  "topic": "第9章 并发控制与封锁",
+  "question": "MySQL InnoDB 的默认事务隔离级别是（ ）。",
+  "options": [
+   "READ UNCOMMITTED",
+   "READ COMMITTED",
+   "SERIALIZABLE",
+   "REPEATABLE READ"
+  ],
+  "answer": 3,
+  "explanation": "Oracle/PostgreSQL 默认是 READ COMMITTED。",
+  "type": "choice"
+ },
+ {
+  "id": "db61",
+  "note": "Database",
+  "topic": "第9章 并发控制与封锁",
+  "question": "同一事务内两次读同一行得到不同值，属于（ ）。",
+  "options": [
+   "不可重复读",
+   "脏读",
+   "幻读",
+   "丢失修改"
+  ],
+  "answer": 0,
+  "explanation": "不可重复读针对 UPDATE 改值；幻读针对结果集行数变化。",
+  "type": "choice"
+ },
+ {
+  "id": "db62",
+  "note": "Database",
+  "topic": "第9章 并发控制与封锁",
+  "question": "一级封锁协议能够防止（ ）。",
+  "options": [
+   "脏读",
+   "丢失修改",
+   "不可重复读",
+   "幻读"
+  ],
+  "answer": 1,
+  "explanation": "一级：写前加 X 锁至事务末；二级加防脏读；三级加防不可重复读。",
+  "type": "choice"
+ },
+ {
+  "id": "db63",
+  "note": "Database",
+  "topic": "第9章 并发控制与封锁",
+  "question": "两段锁协议 2PL 能保证（ ）。",
+  "options": [
+   "一定无死锁",
+   "一定保持依赖",
+   "调度冲突可串行化，但可能出现死锁",
+   "一定达到 BCNF"
+  ],
+  "answer": 2,
+  "explanation": "2PL 是可串行化的充分非必要条件；死锁需超时或等待图检测。",
+  "type": "choice"
+ },
+ {
+  "id": "db64",
+  "note": "Database",
+  "topic": "第9章 并发控制与封锁",
+  "question": "两个事务同时读到余额 100 并各减 10 写回，得到 90 而非 80，属于（ ）。",
+  "options": [
+   "脏读",
+   "不可重复读",
+   "幻读",
+   "丢失修改"
+  ],
+  "answer": 3,
+  "explanation": "仅提高隔离级别不能自动解决读-改-写型丢失修改，需行锁/原子更新/乐观锁。",
+  "type": "choice"
+ },
+ {
+  "id": "db65",
+  "note": "Database",
+  "topic": "第9章 并发控制与封锁",
+  "question": "S 锁（共享锁）与 X 锁（排他锁）的相容性是（ ）。",
+  "options": [
+   "多个 S 可共存，但 S 与 X、X 与 X 均互斥",
+   "S 与 X 可以共存",
+   "X 与 X 可以共存",
+   "多个 S 也不能共存"
+  ],
+  "answer": 0,
+  "explanation": "读读不互斥，读写、写写互斥。",
+  "type": "choice"
+ },
+ {
+  "id": "db66",
+  "note": "Database",
+  "topic": "第9章 并发控制与封锁",
+  "question": "MVCC 中 READ COMMITTED 与 REPEATABLE READ 的关键差异是（ ）。",
+  "options": [
+   "RR 每条都生成新 ReadView",
+   "RC 每条 SELECT 生成新 ReadView，RR 只在第一次普通 SELECT 生成",
+   "RC 不加任何锁",
+   "RR 不用 undo log"
+  ],
+  "answer": 1,
+  "explanation": "这决定了 RC 会出现不可重复读、RR 不会。",
+  "type": "choice"
+ },
+ {
+  "id": "db67",
+  "note": "Database",
+  "topic": "第9章 并发控制与封锁",
+  "question": "判断并发调度是否冲突可串行化的方法是（ ）。",
+  "options": [
+   "检查 R² 是否接近 1",
+   "检查是否遵守 2NF",
+   "构造优先图，无环则可串行化",
+   "检查索引是否命中"
+  ],
+  "answer": 2,
+  "explanation": "优先图节点为事务，冲突操作形成有向边；拓扑序即等价串行次序。",
+  "type": "choice"
+ },
+ {
+  "id": "db68",
+  "note": "Database",
+  "topic": "第10章 备份还原和日志",
+  "question": "用于主从复制与时间点恢复的日志是（ ）。",
+  "options": [
+   "redo log",
+   "undo log",
+   "错误日志",
+   "binlog（Server 层逻辑日志）"
+  ],
+  "answer": 3,
+  "explanation": "redo 是 InnoDB 物理日志用于崩溃恢复；undo 用于回滚与 MVCC。",
+  "type": "choice"
+ },
+ {
+  "id": "db69",
+  "note": "Database",
+  "topic": "第10章 备份还原和日志",
+  "question": "mysqldump 加 --single-transaction 的作用是（ ）。",
+  "options": [
+   "借 MVCC 取得一致性快照且不锁表（仅 InnoDB）",
+   "压缩备份文件",
+   "只备份表结构",
+   "自动开启 binlog"
+  ],
+  "answer": 0,
+  "explanation": "MyISAM 无法用该参数保证一致性。",
+  "type": "choice"
+ },
+ {
+  "id": "db70",
+  "note": "Database",
+  "topic": "第10章 备份还原和日志",
+  "question": "两阶段提交（2PC）中决定崩溃后提交还是回滚的依据是（ ）。",
+  "options": [
+   "undo log 是否存在",
+   "binlog 是否完整写入",
+   "索引是否更新",
+   "客户端是否收到响应"
+  ],
+  "answer": 1,
+  "explanation": "redo prepare 且 binlog 完整 → 提交；binlog 不完整 → 回滚。",
+  "type": "choice"
+ },
+ {
+  "id": "db71",
+  "note": "Database",
+  "topic": "第10章 备份还原和日志",
+  "question": "误执行 DROP TABLE 后，正确的恢复途径是（ ）。",
+  "options": [
+   "ROLLBACK 即可",
+   "用 undo log 回滚",
+   "还原最近全量备份 + 重放 binlog 到误操作之前",
+   "重启 MySQL"
+  ],
+  "answer": 2,
+  "explanation": "DDL 隐式提交、不可用 undo 撤销；这是 PITR 的标准场景。",
+  "type": "choice"
+ },
+ {
+  "id": "db72",
+  "note": "Database",
+  "topic": "第10章 备份还原和日志",
+  "question": "关于主从复制，正确的是（ ）。",
+  "options": [
+   "主库误删不会同步到从库",
+   "等同于增量备份",
+   "不需要 binlog",
+   "它是高可用与读扩展手段，不能替代备份"
+  ],
+  "answer": 3,
+  "explanation": "误删会同步到从库，需独立备份或延迟从库。",
+  "type": "choice"
+ },
+ {
+  "id": "db73",
+  "note": "Database",
+  "topic": "第10章 备份还原和日志",
+  "question": "RPO 与 RTO 分别衡量（ ）。",
+  "options": [
+   "最多丢多少数据 / 多久能恢复服务",
+   "备份文件大小 / 备份耗时",
+   "并发量 / 响应时间",
+   "日志条数 / 表数量"
+  ],
+  "answer": 0,
+  "explanation": "RPO 由备份频率 + binlog 决定，RTO 由备份体积与回放速度决定。",
+  "type": "choice"
+ },
+ {
+  "id": "db74",
+  "note": "Database",
+  "topic": "第11章 设计概述与需求分析",
+  "question": "数据库设计六阶段的正确顺序是（ ）。",
+  "options": [
+   "概念结构 → 需求分析 → 物理结构 → 逻辑结构 → 实施 → 维护",
+   "需求分析 → 概念结构 → 逻辑结构 → 物理结构 → 实施 → 运行维护",
+   "需求分析 → 逻辑结构 → 概念结构 → 实施 → 物理结构 → 维护",
+   "实施 → 需求分析 → 概念结构 → 逻辑结构 → 物理结构 → 维护"
+  ],
+  "answer": 1,
+  "explanation": "先搞清需求，再抽象概念，再转逻辑，最后落到物理与实施。",
+  "type": "choice"
+ },
+ {
+  "id": "db75",
+  "note": "Database",
+  "topic": "第11章 设计概述与需求分析",
+  "question": "数据字典不包含下列哪一项（ ）。",
+  "options": [
+   "数据项",
+   "数据流",
+   "用户的业务数据记录",
+   "处理过程"
+  ],
+  "answer": 2,
+  "explanation": "数据字典是元数据（描述数据的数据），不是用户数据本身。",
+  "type": "choice"
+ },
+ {
+  "id": "db76",
+  "note": "Database",
+  "topic": "第11章 设计概述与需求分析",
+  "question": "数据流图 DFD 的四要素是（ ）。",
+  "options": [
+   "实体、属性、联系、码",
+   "表、视图、索引、触发器",
+   "输入、输出、控制、反馈",
+   "外部实体、处理过程、数据流、数据存储"
+  ],
+  "answer": 3,
+  "explanation": "DFD 描述数据流动，不描述控制逻辑。",
+  "type": "choice"
+ },
+ {
+  "id": "db77",
+  "note": "Database",
+  "topic": "第12章 规范化理论",
+  "question": "关系模式属于 1NF 的判定条件是（ ）。",
+  "options": [
+   "每个属性都是不可再分的原子值",
+   "没有部分函数依赖",
+   "没有传递函数依赖",
+   "决定因素都含码"
+  ],
+  "answer": 0,
+  "explanation": "2NF/3NF/BCNF 是在 1NF 基础上逐级加条件。",
+  "type": "choice"
+ },
+ {
+  "id": "db78",
+  "note": "Database",
+  "topic": "第12章 规范化理论",
+  "question": "2NF 要求消除的是（ ）。",
+  "options": [
+   "非主属性对码的传递依赖",
+   "非主属性对码的部分函数依赖",
+   "主属性对码的依赖",
+   "多值依赖"
+  ],
+  "answer": 1,
+  "explanation": "3NF 再消除传递依赖，BCNF 处理所有决定因素。",
+  "type": "choice"
+ },
+ {
+  "id": "db79",
+  "note": "Database",
+  "topic": "第12章 规范化理论",
+  "question": "SLC(Sno,Sdept,Sloc,Cno,Grade) 中 Sno→Sdept 属于（ ）。",
+  "options": [
+   "完全函数依赖",
+   "传递函数依赖",
+   "部分函数依赖（Sno 只是组合主码的一部分）",
+   "多值依赖"
+  ],
+  "answer": 2,
+  "explanation": "候选码是 (Sno,Cno)，故该模式仅满足 1NF。",
+  "type": "choice"
+ },
+ {
+  "id": "db80",
+  "note": "Database",
+  "topic": "第12章 规范化理论",
+  "question": "分解 SL(Sno,Sdept,Sloc) 为 SD(Sno,Sdept)+DL(Sdept,Sloc) 后，SD 与 DL 达到（ ）。",
+  "options": [
+   "仅 1NF",
+   "2NF 但非 3NF",
+   "4NF 但有冗余",
+   "BCNF"
+  ],
+  "answer": 3,
+  "explanation": "两个关系中每个决定因素都含候选码，故达 BCNF。",
+  "type": "choice"
+ },
+ {
+  "id": "db81",
+  "note": "Database",
+  "topic": "第12章 规范化理论",
+  "question": "二元分解 R→R1,R2 具有无损连接性的判据是（ ）。",
+  "options": [
+   "(R1∩R2)→(R1−R2) 或 (R1∩R2)→(R2−R1) 属于 F⁺",
+   "R1∩R2 为空",
+   "R1 与 R2 属性数相同",
+   "F 中所有依赖都保留在 R1"
+  ],
+  "answer": 0,
+  "explanation": "上例交集为 Sdept 且 Sdept→Sloc 成立，故无损。",
+  "type": "choice"
+ },
+ {
+  "id": "db82",
+  "note": "Database",
+  "topic": "第12章 规范化理论",
+  "question": "Armstrong 公理的三条基本规则是（ ）。",
+  "options": [
+   "合并、分解、伪传递",
+   "自反律、增广律、传递律",
+   "选择、投影、连接",
+   "并、差、交"
+  ],
+  "answer": 1,
+  "explanation": "合并/分解/伪传递是由三条基本规则导出的推论。",
+  "type": "choice"
+ },
+ {
+  "id": "db83",
+  "note": "Database",
+  "topic": "第12章 规范化理论",
+  "question": "关于 3NF 与 BCNF 分解，正确的是（ ）。",
+  "options": [
+   "BCNF 一定保持依赖",
+   "两者都不能保证无损",
+   "3NF 可同时保证无损连接与保持依赖，BCNF 只保证无损",
+   "3NF 只保证保持依赖"
+  ],
+  "answer": 2,
+  "explanation": "BCNF 分解（如 STJ→ST+TJ）可能丢失 (S,J)→T。",
+  "type": "choice"
+ },
+ {
+  "id": "db84",
+  "note": "Database",
+  "topic": "第12章 规范化理论",
+  "question": "存在非平凡多值依赖时，应进一步分解到（ ）。",
+  "options": [
+   "2NF",
+   "3NF",
+   "BCNF 即可",
+   "4NF"
+  ],
+  "answer": 3,
+  "explanation": "例：课程-教师-教材三者，教师与教材相互独立，须拆成两个关系。",
+  "type": "choice"
+ },
+ {
+  "id": "db85",
+  "note": "Database",
+  "topic": "第13章 概念与逻辑结构设计",
+  "question": "E-R 图中 1:n 联系转换为关系模式时，通常（ ）。",
+  "options": [
+   "在 n 端关系中加入 1 端主码作外码，不单独建表",
+   "必须新建独立关系",
+   "在 1 端加 n 端主码",
+   "把两端主码都放进新关系"
+  ],
+  "answer": 0,
+  "explanation": "m:n 才必须独立建表且用组合主码。",
+  "type": "choice"
+ },
+ {
+  "id": "db86",
+  "note": "Database",
+  "topic": "第13章 概念与逻辑结构设计",
+  "question": "m:n 联系转换后的新关系，其主码通常是（ ）。",
+  "options": [
+   "任一端的主码",
+   "两端实体主码的组合",
+   "新建的代理键（必须）",
+   "联系自身的属性"
+  ],
+  "answer": 1,
+  "explanation": "联系自身的属性（如成绩、借期）作为普通属性保留在新关系中。",
+  "type": "choice"
+ },
+ {
+  "id": "db87",
+  "note": "Database",
+  "topic": "第13章 概念与逻辑结构设计",
+  "question": "概念结构设计的特点是（ ）。",
+  "options": [
+   "依赖存储引擎",
+   "必须写出 SQL 语句",
+   "独立于具体 DBMS，结果易于用户理解",
+   "只描述物理存储"
+  ],
+  "answer": 2,
+  "explanation": "逻辑结构设计才依赖所选数据模型；物理设计依赖 DBMS 与硬件。",
+  "type": "choice"
+ },
+ {
+  "id": "db88",
+  "note": "Database",
+  "topic": "第13章 概念与逻辑结构设计",
+  "question": "合并局部 E-R 图时，「同一对象在一处作实体、另一处作属性」属于（ ）。",
+  "options": [
+   "属性冲突",
+   "命名冲突",
+   "域冲突",
+   "结构冲突"
+  ],
+  "answer": 3,
+  "explanation": "四类冲突：属性、命名、结构、域/约束冲突。",
+  "type": "choice"
+ },
+ {
+  "id": "db89",
+  "note": "Database",
+  "topic": "第14章 物理设计与运维",
+  "question": "下列哪一项属于物理结构设计阶段的工作（ ）。",
+  "options": [
+   "选择索引、聚簇方式与分区策略",
+   "绘制 E-R 图",
+   "编写数据字典",
+   "规范化到 3NF"
+  ],
+  "answer": 0,
+  "explanation": "概念/逻辑/物理三阶段的任务要能区分。",
+  "type": "choice"
+ },
+ {
+  "id": "db90",
+  "note": "Database",
+  "topic": "第14章 物理设计与运维",
+  "question": "分区表与分库分表的关键区别是（ ）。",
+  "options": [
+   "两者完全相同",
+   "分区逻辑上仍是一张表、应用无感；分库分表需分片键与中间件",
+   "分区需要改应用 SQL，分库分表不需要",
+   "分区只能按日期"
+  ],
+  "answer": 1,
+  "explanation": "MySQL 分区键还须出现在唯一索引中。",
+  "type": "choice"
+ },
+ {
+  "id": "db91",
+  "note": "Database",
+  "topic": "第14章 物理设计与运维",
+  "question": "关于反规范化，正确的是（ ）。",
+  "options": [
+   "任何情况下都应避免",
+   "等价于 1NF",
+   "为减少连接开销主动引入冗余，但须维护一致性",
+   "会自动提升写入性能"
+  ],
+  "answer": 2,
+  "explanation": "读多写少的报表/数仓常主动反规范化。",
+  "type": "choice"
+ },
+ {
+  "id": "db92",
+  "note": "Database",
+  "topic": "第15章 存储过程与函数",
+  "question": "存储过程与自定义函数的关键区别是（ ）。",
+  "options": [
+   "过程一定更快",
+   "函数不能有参数",
+   "过程必须有返回值",
+   "函数必须 RETURNS 且可嵌入 SQL 表达式，过程用 CALL 且可带 OUT 参数"
+  ],
+  "answer": 3,
+  "explanation": "函数只有 IN 参数且须声明 DETERMINISTIC 等特征。",
+  "type": "choice"
+ },
+ {
+  "id": "db93",
+  "note": "Database",
+  "topic": "第15章 存储过程与函数",
+  "question": "编写含多个分号的存储过程前，必须先（ ）。",
+  "options": [
+   "用 DELIMITER 临时改结束符",
+   "关闭 autocommit",
+   "建索引",
+   "设置字符集"
+  ],
+  "answer": 0,
+  "explanation": "否则客户端会把过程体内部的第一个 ; 当作语句结束。",
+  "type": "choice"
+ },
+ {
+  "id": "db94",
+  "note": "Database",
+  "topic": "第15章 存储过程与函数",
+  "question": "游标声明的正确顺序是（ ）。",
+  "options": [
+   "游标 → HANDLER → 变量",
+   "变量 → 游标 → CONTINUE HANDLER FOR NOT FOUND",
+   "HANDLER → 变量 → 游标",
+   "任意顺序"
+  ],
+  "answer": 1,
+  "explanation": "HANDLER 必须写在游标之后，才能捕获 FETCH 到末尾的 NOT FOUND。",
+  "type": "choice"
+ },
+ {
+  "id": "db95",
+  "note": "Database",
+  "topic": "第16章 触发器与事件",
+  "question": "触发器的触发源是（ ）。",
+  "options": [
+   "到达指定时间",
+   "客户端 CALL 语句",
+   "表上的 INSERT/UPDATE/DELETE 操作",
+   "数据库启动"
+  ],
+  "answer": 2,
+  "explanation": "按时间调度的是事件（EVENT），由事件调度器线程管理。",
+  "type": "choice"
+ },
+ {
+  "id": "db96",
+  "note": "Database",
+  "topic": "第16章 触发器与事件",
+  "question": "在 BEFORE INSERT 触发器中，可用的是（ ）。",
+  "options": [
+   "OLD，不可用 NEW",
+   "NEW 与 OLD 都可用",
+   "两者都不可用",
+   "NEW，不可用 OLD"
+  ],
+  "answer": 3,
+  "explanation": "INSERT 无 OLD；DELETE 无 NEW；UPDATE 两者都有。",
+  "type": "choice"
+ },
+ {
+  "id": "db97",
+  "note": "Database",
+  "topic": "第16章 触发器与事件",
+  "question": "关于触发器与事务，正确的是（ ）。",
+  "options": [
+   "触发器与触发语句在同一事务，触发器抛错会使整个语句回滚",
+   "触发器在独立事务中",
+   "触发器失败只影响自身",
+   "触发器内可以随意 COMMIT"
+  ],
+  "answer": 0,
+  "explanation": "MySQL 只支持 FOR EACH ROW 行级触发器。",
+  "type": "choice"
+ },
+ {
+  "id": "db98",
+  "note": "Database",
+  "topic": "第17章 编程连接",
+  "question": "使用 PreparedStatement / 参数化查询的根本作用是（ ）。",
+  "options": [
+   "让 SQL 更美观",
+   "把 SQL 结构与数据分离，杜绝注入并复用执行计划",
+   "自动提交事务",
+   "自动建索引"
+  ],
+  "answer": 1,
+  "explanation": "动态表名/列名不能参数化，须用白名单映射。",
+  "type": "choice"
+ },
+ {
+  "id": "db99",
+  "note": "Database",
+  "topic": "第17章 编程连接",
+  "question": "连接池的主要作用是（ ）。",
+  "options": [
+   "自动执行 SQL 优化",
+   "替代数据库事务",
+   "复用物理连接，避免每次请求重新握手与认证",
+   "自动备份数据"
+  ],
+  "answer": 2,
+  "explanation": "需配置最小/最大连接数、空闲超时、探活，并在 finally 中归还。",
+  "type": "choice"
+ },
+ {
+  "id": "db100",
+  "note": "Database",
+  "topic": "第17章 编程连接",
+  "question": "关于 MySQL 的 autocommit，正确的是（ ）。",
+  "options": [
+   "默认关闭",
+   "只影响 SELECT",
+   "开启后无法使用 COMMIT",
+   "默认开启，单条 DML 自动成为独立事务"
+  ],
+  "answer": 3,
+  "explanation": "多语句需同一事务时应 START TRANSACTION 或 SET autocommit=0。",
+  "type": "choice"
+ },
+ {
+  "id": "db101",
+  "note": "Database",
+  "topic": "第1章 概述",
+  "question": "数据库的三级模式中，外模式可以有多个，而模式与内模式各只有一个。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "这是三级模式结构的基本结论。",
+  "type": "judge"
+ },
+ {
+  "id": "db102",
+  "note": "Database",
+  "topic": "第1章 概述",
+  "question": "数据库的物理独立性由「外模式/模式映像」保证。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "物理独立性来自模式/内模式映像；逻辑独立性才来自外模式/模式映像。",
+  "type": "judge"
+ },
+ {
+  "id": "db103",
+  "note": "Database",
+  "topic": "第2章 关系数据库",
+  "question": "关系中的元组允许完全重复，只要顺序不同即可。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "关系是元组的集合，任意两个元组不能完全相同。",
+  "type": "judge"
+ },
+ {
+  "id": "db104",
+  "note": "Database",
+  "topic": "第3章 SQL",
+  "question": "TRUNCATE TABLE 属于 DML，可以在事务中回滚。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "TRUNCATE 是 DDL、隐式提交、不可回滚，还会重置自增值。",
+  "type": "judge"
+ },
+ {
+  "id": "db105",
+  "note": "Database",
+  "topic": "第4章 库管理",
+  "question": "MySQL 的 utf8 字符集可以完整存储 4 字节的 emoji 字符。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "utf8 实为 utf8mb3，须使用 utf8mb4。",
+  "type": "judge"
+ },
+ {
+  "id": "db106",
+  "note": "Database",
+  "topic": "第5章 表管理",
+  "question": "MySQL 的 UNIQUE 约束允许列中存在多个 NULL 值。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "实体完整性只约束主码；UNIQUE 列允许多个 NULL。",
+  "type": "judge"
+ },
+ {
+  "id": "db107",
+  "note": "Database",
+  "topic": "第6章 查询",
+  "question": "WHERE 子句中可以直接使用聚合函数 COUNT(*) 过滤行。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "聚合函数须放在 HAVING 或 SELECT 中；WHERE 只做行级过滤。",
+  "type": "judge"
+ },
+ {
+  "id": "db108",
+  "note": "Database",
+  "topic": "第6章 查询",
+  "question": "SELECT COUNT(*) 与 COUNT(某列) 在该列含 NULL 时结果可能不同。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "COUNT(*) 计全部行，COUNT(列) 跳过 NULL。",
+  "type": "judge"
+ },
+ {
+  "id": "db109",
+  "note": "Database",
+  "topic": "第7章 索引",
+  "question": "联合索引 (a,b) 上执行 WHERE b=2 通常无法有效利用该索引。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "违反最左前缀原则。",
+  "type": "judge"
+ },
+ {
+  "id": "db110",
+  "note": "Database",
+  "topic": "第9章 事务",
+  "question": "两段锁协议（2PL）能保证并发调度冲突可串行化，但不能保证不发生死锁。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "2PL 是可串行化的充分非必要条件。",
+  "type": "judge"
+ },
+ {
+  "id": "db111",
+  "note": "Database",
+  "topic": "第10章 备份",
+  "question": "只要配置了主从复制，就不再需要独立备份。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "主库误删会同步到从库；主从复制是高可用手段而非备份。",
+  "type": "judge"
+ },
+ {
+  "id": "db112",
+  "note": "Database",
+  "topic": "第12章 规范化",
+  "question": "一个关系模式若所有属性都是主属性，则它至少属于 3NF。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "没有非主属性，2NF/3NF 的条件自然满足，但未必 BCNF。",
+  "type": "judge"
+ },
+ {
+  "id": "db113",
+  "note": "Database",
+  "topic": "第13章 设计",
+  "question": "E-R 图中的 m:n 联系可以不建新关系，直接把一方主码并入另一方即可。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "m:n 必须独立建表，主码为两端主码的组合。",
+  "type": "judge"
+ },
+ {
+  "id": "db114",
+  "note": "Database",
+  "topic": "第2章 关系数据库",
+  "question": "下列属于关系模型三类完整性的有（ ）。",
+  "options": [
+   "实体完整性",
+   "参照完整性",
+   "用户定义完整性",
+   "逻辑独立性",
+   "物理独立性"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "后两项属于三级模式带来的数据独立性，不是完整性约束。",
+  "type": "multi"
+ },
+ {
+  "id": "db115",
+  "note": "Database",
+  "topic": "第5章 表管理",
+  "question": "下列语句中属于 DDL 的有（ ）。",
+  "options": [
+   "CREATE TABLE",
+   "ALTER TABLE",
+   "TRUNCATE TABLE",
+   "INSERT INTO",
+   "UPDATE"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "INSERT/UPDATE 是 DML；DROP 也属 DDL。",
+  "type": "multi"
+ },
+ {
+  "id": "db116",
+  "note": "Database",
+  "topic": "第6章 查询",
+  "question": "下列关于 NULL 的说法正确的有（ ）。",
+  "options": [
+   "NULL = NULL 结果为 UNKNOWN",
+   "判空须用 IS NULL",
+   "AVG 忽略 NULL",
+   "NOT IN 子查询含 NULL 时结果仍正确",
+   "COUNT(*) 会计入含 NULL 的行"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   4
+  ],
+  "explanation": "NOT IN 含 NULL 会使整体结果恒为空。",
+  "type": "multi"
+ },
+ {
+  "id": "db117",
+  "note": "Database",
+  "topic": "第7章 索引",
+  "question": "下列会导致索引失效的写法有（ ）。",
+  "options": [
+   "对索引列使用函数",
+   "LIKE '%abc' 前置通配",
+   "隐式类型转换",
+   "违反最左前缀",
+   "使用覆盖索引"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "explanation": "覆盖索引是优化手段，不会导致失效。",
+  "type": "multi"
+ },
+ {
+  "id": "db118",
+  "note": "Database",
+  "topic": "第9章 事务",
+  "question": "下列属于 InnoDB 保证 ACID 所用机制的有（ ）。",
+  "options": [
+   "undo log",
+   "redo log",
+   "MVCC",
+   "两阶段提交",
+   "视图"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "explanation": "视图是外模式实现，与事务实现无关。",
+  "type": "multi"
+ },
+ {
+  "id": "db119",
+  "note": "Database",
+  "topic": "第12章 规范化",
+  "question": "下列关于模式分解的说法正确的有（ ）。",
+  "options": [
+   "无损连接保证能精确还原原关系",
+   "保持依赖保证约束可局部检查",
+   "3NF 分解可同时保证两者",
+   "BCNF 分解一定保持依赖",
+   "分解后范式越高查询一定越快"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "BCNF 不一定保持依赖；范式越高连接开销可能更大。",
+  "type": "multi"
+ },
+ {
+  "id": "db120",
+  "note": "Database",
+  "topic": "第1章 概述",
+  "question": "三级模式中，保证数据逻辑独立性的是 ______ 映像。",
+  "options": [],
+  "answer": "外模式/模式",
+  "explanation": "物理独立性由模式/内模式映像保证。",
+  "type": "fill"
+ },
+ {
+  "id": "db121",
+  "note": "Database",
+  "topic": "第2章 关系数据库",
+  "question": "关系代数中，表达「按条件选行」的运算符记作 ______。",
+  "options": [],
+  "answer": "σ（选择）",
+  "explanation": "投影记作 π，连接记作 ⋈，除记作 ÷。",
+  "type": "fill"
+ },
+ {
+  "id": "db122",
+  "note": "Database",
+  "topic": "第6章 查询",
+  "question": "教学库 SELECT COUNT(*), COUNT(Grade) FROM SC 的结果是 ______ 与 ______。",
+  "options": [],
+  "answer": "7; 6",
+  "explanation": "SC 共 7 行，其中一行 Grade 为 NULL。",
+  "type": "fill"
+ },
+ {
+  "id": "db123",
+  "note": "Database",
+  "topic": "第6章 查询",
+  "question": "SELECT 语句真实执行顺序中，位于 WHERE 之后、SELECT 之前的两个子句是 ______。",
+  "options": [],
+  "answer": "GROUP BY 与 HAVING",
+  "explanation": "完整顺序：FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY → LIMIT。",
+  "type": "fill"
+ },
+ {
+  "id": "db124",
+  "note": "Database",
+  "topic": "第9章 事务",
+  "question": "事务四特性的英文缩写是 ______。",
+  "options": [],
+  "answer": "ACID",
+  "explanation": "原子性 Atomicity / 一致性 Consistency / 隔离性 Isolation / 持久性 Durability。",
+  "type": "fill"
+ },
+ {
+  "id": "db125",
+  "note": "Database",
+  "topic": "第9章 事务",
+  "question": "MySQL InnoDB 默认的事务隔离级别是 ______。",
+  "options": [],
+  "answer": "REPEATABLE READ",
+  "explanation": "Oracle/PostgreSQL 默认是 READ COMMITTED。",
+  "type": "fill"
+ },
+ {
+  "id": "db126",
+  "note": "Database",
+  "topic": "第12章 规范化",
+  "question": "消除「非主属性对码的部分函数依赖」后达到的范式是 ______。",
+  "options": [],
+  "answer": "2NF",
+  "explanation": "1NF → 2NF 消部分依赖；→ 3NF 消传递依赖。",
+  "type": "fill"
+ },
+ {
+  "id": "db127",
+  "note": "Database",
+  "topic": "第13章 设计",
+  "question": "E-R 图中 m:n 联系转换成关系模式时，新关系的主码通常是 ______。",
+  "options": [],
+  "answer": "两端实体主码的组合",
+  "explanation": "联系自身的属性作为普通属性保留。",
+  "type": "fill"
+ },
+ {
+  "id": "db128",
+  "note": "Database",
+  "topic": "第6章 查询 计算",
+  "question": "基于教学库 Student/Course/SC，写出「CS 系人数不少于 2 的系、人数、平均年龄」的 SQL 与结果；再写出「无人选修的课程」的 SQL 与结果，并说明为什么应优先用 NOT EXISTS 而不是 NOT IN。",
+  "options": [],
+  "answer": "① SELECT Sdept, COUNT(*) AS n, AVG(Sage) FROM Student GROUP BY Sdept HAVING COUNT(*)>=2; → CS | 2 | 19.5。② SELECT Cname FROM Course c WHERE NOT EXISTS (SELECT 1 FROM SC sc WHERE sc.Cno=c.Cno); → 操作系统。③ NOT IN 的子查询只要含一个 NULL，整个表达式结果为 UNKNOWN，导致结果恒为空；NOT EXISTS 逐行判断存在性，不受 NULL 影响，且找到匹配即可停止，大表上通常更高效。",
+  "explanation": "HAVING 用于组过滤；聚合函数不能出现在 WHERE。",
+  "type": "essay"
+ },
+ {
+  "id": "db129",
+  "note": "Database",
+  "topic": "第6章 查询 计算",
+  "question": "写出「统计每位学生选课门数（含一门未选的学生）」的 SQL，给出教学库结果，并解释 COUNT(*)、COUNT(sc.Cno)、COUNT(sc.Grade) 三者的差异。",
+  "options": [],
+  "answer": "SELECT s.Sname, COUNT(sc.Cno) AS cnt FROM Student s LEFT JOIN SC sc ON s.Sno=sc.Sno GROUP BY s.Sno, s.Sname ORDER BY cnt DESC, s.Sname; → 李勇 3 / 刘晨 2 / 张立 1 / 王敏 1。COUNT(*) 会把 LEFT JOIN 补 NULL 的那一行也计成 1，导致未选课学生被算作 1 门；COUNT(sc.Grade) 会跳过 Grade 为 NULL 的记录（王敏那门虽选了但无成绩，会变成 0）；只有 COUNT(sc.Cno) 正确统计「存在的选课记录数」。",
+  "explanation": "外连接与 NULL 语义结合是常见失分点。",
+  "type": "essay"
+ },
+ {
+  "id": "db130",
+  "note": "Database",
+  "topic": "第12章 规范化 计算",
+  "question": "SLC(Sno,Sdept,Sloc,Cno,Grade)，F={(Sno,Cno)→Grade, Sno→Sdept, Sno→Sloc, Sdept→Sloc}。指出候选码、最高满足的范式与四类异常，给出分解到 BCNF 的完整链条，并验证无损连接与保持依赖。",
+  "options": [],
+  "answer": "候选码 (Sno,Cno)；非主属性 Sdept、Sloc 只依赖 Sno → 对码部分依赖 ⇒ 仅 1NF。异常：数据冗余（系楼重复）、插入异常（新生未选课主码为空无法录入）、删除异常（退掉最后一门课丢失系信息）、更新异常（系搬楼要改多行）。分解：按部分依赖拆为 SC(Sno,Cno,Grade) 与 SL(Sno,Sdept,Sloc)（达 2NF）；SL 中 Sno→Sdept→Sloc 且 Sdept↛Sno 为传递依赖 ⇒ 仅 2NF；再拆为 SD(Sno,Sdept) 与 DL(Sdept,Sloc)（达 3NF 与 BCNF）。无损验证：SD∩DL={Sdept}，Sdept→Sloc ∈ F⁺ ⇒ 无损连接。保持依赖：{Sno→Sdept}∪{Sdept→Sloc} 可推出 Sno→Sloc ⇒ 保持依赖。",
+  "explanation": "每步都要说明「违反哪个范式、依据哪条依赖、按什么拆」。",
+  "type": "essay"
+ },
+ {
+  "id": "db131",
+  "note": "Database",
+  "topic": "第12章 规范化 计算",
+  "question": "设 R(A,B,C,D,E)，F={AB→C, C→D, D→E, E→A}。求全部候选码，判断 R 最高属于第几范式，并说明理由。",
+  "options": [],
+  "answer": "分类：只在左出现的 L 类为 B（必在任何候选码中），其余 A/C/D/E 为 LR 类。B⁺={B} 不是码；逐一加入 LR 属性：(AB)⁺ 由 AB→C→D→E→A 得全部属性 ✔；(BC)⁺ 由 C→D→E→A→(AB→C) 得全部 ✔；(BD)⁺ 由 D→E→A 且已有 B，AB→C 得全部 ✔；(BE)⁺ 由 E→A、AB→C→D 得全部 ✔。故候选码为 AB、BC、BD、BE，全部属性都是主属性 ⇒ 无非主属性，自动满足 2NF/3NF，即至少 3NF。但存在 C→D、D→E、E→A 等函数依赖，其决定因素 C/D/E 均不含候选码 ⇒ 不满足 BCNF。故 R 最高属于 3NF。",
+  "explanation": "「全主属性至少 3NF 但未必 BCNF」是经典结论。",
+  "type": "essay"
+ },
+ {
+  "id": "db132",
+  "note": "Database",
+  "topic": "第13章 设计 计算",
+  "question": "图书借阅系统：读者(借书证号,姓名,单位)、图书(书号,书名,作者,库存)、单位(单位号,名称)；单位↔读者为 1:n，读者↔图书为 m:n（联系含借期、还期）。给出关系模式集并说明主码设计要点。",
+  "options": [],
+  "answer": "① 单位(单位号 PK, 名称)；② 读者(借书证号 PK, 姓名, 单位号 FK) —— 1:n 把 1 端主码并入 n 端，不单独建表；③ 图书(书号 PK, 书名, 作者, 库存)；④ 借阅(借书证号 FK, 书号 FK, 借期, 还期, PRIMARY KEY(借书证号, 书号, 借期)) —— m:n 必须独立建表，联系属性不能丢。主码要点：同一读者可多次借同一本书，仅 (证号,书号) 作主码会冲突，故须加借期或使用代理主码「借阅ID」并配合唯一约束。常见失分：1:n 单独建表、m:n 未单独建表、漏联系属性、未标 PK/FK。",
+  "explanation": "E-R 向关系模式转换是设计题必考。",
+  "type": "essay"
+ },
+ {
+  "id": "db133",
+  "note": "Database",
+  "topic": "第9章 事务 计算",
+  "question": "判断调度 S = R1(A) R2(A) W1(A) W2(A) R2(B) W2(B) R1(B) W1(B) 是否冲突可串行化，并说明如何用封锁修正。",
+  "options": [],
+  "answer": "列出冲突对（不同事务、同一数据项、至少一个写）：A 上 R2(A) 先于 W1(A) 给出 T2→T1，W1(A) 先于 W2(A) 给出 T1→T2；B 上 R2(B) 先于 W1(B) 与 W2(B) 先于 R1(B) 均给出 T2→T1。优先图含 T1⇄T2 的环 ⇒ 该调度不是冲突可串行化的。修正：令 T1、T2 遵守两段锁协议（各自在扩展阶段一次性申请所需 X/S 锁，收缩阶段统一释放），则任何合法调度都冲突可串行化；但可能死锁，需超时法或等待图法检测并回滚代价较小的事务。",
+  "explanation": "优先图无环是冲突可串行化的充要判据。",
+  "type": "essay"
+ },
+ {
+  "id": "db134",
+  "note": "Database",
+  "topic": "第9章 事务 计算",
+  "question": "余额 A=100，T1 与 T2 同时执行「读 A、减 10、写回」。说明可能的结果、属于哪种并发异常，并给出四种解决方案。",
+  "options": [],
+  "answer": "若不加控制，两事务都读到 100，各算得 90 并写回，最终 A=90（正确应为 80）⇒ 丢失修改。方案：① 一级封锁协议（写前加 X 锁并保持到事务结束）；② 原子更新 UPDATE account SET bal=bal-10 WHERE id=1（数据库对该行加行锁）；③ 悲观锁 SELECT … FOR UPDATE 后再更新；④ 乐观锁 UPDATE … WHERE id=1 AND bal=100，检查影响行数，失败则重试。注意：仅提高隔离级别（如设为 SERIALIZABLE 之外的 RR）并不能自动解决读-改-写型丢失修改，因为两个事务在 RR 下都可能基于同一快照读到 100。",
+  "explanation": "这是隔离级别最常见的误解之一。",
+  "type": "essay"
+ },
+ {
+  "id": "db135",
+  "note": "Database",
+  "topic": "第7章 索引 计算",
+  "question": "SC 表上有联合索引 (Sno,Grade)，判断下列四条 SQL 能否有效使用索引，并给出改写建议与 EXPLAIN 诊断流程。",
+  "options": [],
+  "answer": "① WHERE Sno='2021001' AND Grade>80 ✔ 用到最左列等值 + 第二列范围；② WHERE Grade>80 ✘ 跳过最左列，退化为全索引/全表扫描 → 另建以 Grade 打头的索引或补 Sno 条件；③ WHERE SUBSTRING(Sno,1,4)='2021' ✘ 对索引列用函数 → 改为 Sno LIKE '2021%'（前缀可用索引）或用生成列 + 索引；④ SELECT Grade FROM SC WHERE Sno='2021001' ✔ 所需列全在索引中，为覆盖索引、Extra 显示 Using index、无需回表。诊断流程：慢查询日志定位 → EXPLAIN 看 type(ALL 即全表扫描)/key/rows/Extra → 检查最左前缀与列是否被函数包裹 → 补改索引或改写 SQL → 复测；小表全表扫描可能是优化器的合理选择。",
+  "explanation": "索引失效的六类场景要能列举。",
+  "type": "essay"
+ },
+ {
+  "id": "db136",
+  "note": "Database",
+  "topic": "第10章 备份 计算",
+  "question": "某库每日 02:00 全量备份、binlog 保留 7 天，今日 14:30 误执行 DROP TABLE orders。给出完整恢复方案并说明 RPO/RTO 与预防措施。",
+  "options": [],
+  "answer": "① 立即停写/切流量，确认 binlog 未过期；② 在临时实例还原当日 02:00 全量备份；③ 用 mysqlbinlog 按位点或时间戳重放 02:00 至 14:29:59 的 binlog，精确跳过 DROP 语句；④ 校验一致性后导出 orders 并回灌生产库；⑤ 复盘收权限、启用延迟从库、定期演练恢复。RPO：binlog 完整时可接近 0（精确到误操作前一刻）；RTO：取决于全量备份体积与 binlog 回放时长。预防：应用账号禁止 DROP、DDL 变更走审批与灰度、开启审计。注意 DROP/TRUNCATE 是 DDL、隐式提交，无法用 ROLLBACK 或 undo 撤销；主从复制不是备份。",
+  "explanation": "时间点恢复是运维必考。",
+  "type": "essay"
+ },
+ {
+  "id": "db137",
+  "note": "Database",
+  "topic": "第7章 视图 简答",
+  "question": "说明视图与基本表的区别、四大用途，并列出不可更新视图的典型情形。",
+  "options": [],
+  "answer": "视图是由 SELECT 定义的虚拟表，数据库只在数据字典中保存定义、不保存数据；查询时被消解为底层 SELECT。基本表实际存储数据。四大用途：简化复杂查询、提供逻辑独立性（基本表结构变化可改视图而不改应用）、安全（只暴露允许的行列）、为不同用户定制视角。通常不可更新的情形：含 DISTINCT、GROUP BY、HAVING、聚合函数、UNION、子查询、常量列，以及多数多表连接视图；WITH CHECK OPTION 还会拒绝使行不再满足视图条件的更新。",
+  "explanation": "视图是外模式在 SQL 中的实现。",
+  "type": "essay"
+ },
+ {
+  "id": "db138",
+  "note": "Database",
+  "topic": "第8、17章 安全与编程 简答",
+  "question": "写出一条存在 SQL 注入风险的应用层代码与对应的参数化改写，并说明最小权限与事务处理的配套要求。",
+  "options": [],
+  "answer": "危险写法：sql = f\"SELECT * FROM users WHERE name='{n}' AND pwd='{p}'\"；若 n 输入 ' OR '1'='1' -- 则条件恒成立可绕过认证。参数化改写（Python）：cur.execute(\"SELECT * FROM users WHERE name=%s AND pwd=%s\", (n, p))；Java 用 PreparedStatement + setString/setInt。原理是把 SQL 结构与数据分离，参数永远作为字面值而不参与语法解析；动态表名/列名不能参数化，须用白名单映射。配套：应用账号最小权限（只授所需库表的 SELECT/INSERT/UPDATE，不给 DROP/FILE/SUPER，不用 root、不用 '%' 通配主机）、显式事务（关闭 autocommit，try 中 commit、except 中 rollback、finally 归还连接池）、处理死锁(1213)/锁等待超时(1205)并有限次重试。",
+  "explanation": "前端校验与字符串转义都不能替代参数化。",
+  "type": "essay"
+ },
+ {
+  "id": "db139",
+  "note": "Database",
+  "topic": "第9、10章 日志 简答",
+  "question": "说明 binlog、redo log、undo log 各自的所属层、内容与用途，并解释两阶段提交为什么必要。",
+  "options": [],
+  "answer": "binlog 是 Server 层逻辑日志，记录 DDL/DML 变更（statement/row/mixed），用于主从复制、时间点恢复与审计；redo log 是 InnoDB 层物理日志（记录某页某偏移的修改），通过 WAL 顺序写提升性能并用于崩溃恢复（保障持久性 D）；undo log 是 InnoDB 层记录修改前旧值，用于事务回滚（保障原子性 A）与 MVCC 版本链。两阶段提交流程：写 undo → 改 Buffer Pool → redo(prepare) → 写 binlog → redo(commit)。由于 binlog 与 redo 分属两层，若 redo 已提交而 binlog 未写，主库有数据、从库没有；反之从库多数据。2PC 以「binlog 是否完整写入」作为最终提交依据：崩溃恢复时 redo 为 prepare 且 binlog 完整则提交，否则回滚，从而保证主从一致。",
+  "explanation": "三层日志的分工是面试与考研高频。",
+  "type": "essay"
+ },
+ {
+  "id": "db140",
+  "note": "Database",
+  "topic": "综合 设计题",
+  "question": "某教学系统需要记录学生、课程、选课成绩与所属系。请给出：① 三个基本表的 CREATE TABLE（含主码、外码、CHECK 与 utf8mb4）；② 一条查询「每个系的平均选课成绩（只统计有成绩的记录）」；③ 说明该模式是否已满足 3NF，若把「系名、系楼」并入学生表会有什么问题。",
+  "options": [],
+  "answer": "① CREATE TABLE Student(Sno CHAR(7) PRIMARY KEY, Sname VARCHAR(20) NOT NULL, Sdept CHAR(2) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;　CREATE TABLE Course(Cno CHAR(2) PRIMARY KEY, Cname VARCHAR(40) NOT NULL);　CREATE TABLE SC(Sno CHAR(7), Cno CHAR(2), Grade SMALLINT CHECK(Grade BETWEEN 0 AND 100), PRIMARY KEY(Sno,Cno), FOREIGN KEY(Sno) REFERENCES Student(Sno), FOREIGN KEY(Cno) REFERENCES Course(Cno));　② SELECT s.Sdept, AVG(sc.Grade) FROM Student s JOIN SC sc ON s.Sno=sc.Sno WHERE sc.Grade IS NOT NULL GROUP BY s.Sdept;（AVG 本身忽略 NULL，显式写出更清晰）　③ 三个表各自无非主属性对码的部分/传递依赖，均满足 3NF（SC 甚至 BCNF）。若把「系名、系楼」并入学生表：候选码仍为 Sno，但存在 Sno→系名→系楼的传递依赖（假设系名决定系楼），退化为 2NF，出现冗余（同系每个学生重复存系楼）、插入异常（新系尚无学生无法录入）、删除异常（删掉该系最后一个学生丢失系楼信息）、更新异常（系搬楼要改多行）；应按规范化拆出 Dept(系号,系名,系楼) 并在 Student 中仅保留系号作外码。",
+  "explanation": "综合考查 DDL、连接聚合与规范化三块知识。",
+  "type": "essay"
  }
 ]

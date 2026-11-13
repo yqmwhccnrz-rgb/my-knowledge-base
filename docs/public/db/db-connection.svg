@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">编程语言连接 MySQL：参数化、事务与连接池</text>
+
+  <defs><marker id="cn" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#2563eb"/></marker></defs>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 连接七步</text>
+  <rect x="30" y="62" width="620" height="40" rx="6" fill="#e0f2fe" stroke="#0284c7"/>
+  <text x="42" y="87" font-size="9.5" fill="#075985">加载驱动 → 建立连接（host/port/db/user/pwd/charset）→ 建游标 → 执行 SQL → 取结果 → commit/rollback → 关闭或归还连接池</text>
+
+  <text x="30" y="126" font-size="12" font-weight="700" fill="#334155">② 参数化查询：SQL 结构与数据分离</text>
+  <rect x="30" y="136" width="300" height="98" rx="6" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="42" y="156" font-size="9.5" font-weight="700" fill="#991b1b">危险：拼接字符串</text>
+  <text x="42" y="176" font-size="8.5" fill="#7f1d1d">sql = f"SELECT * FROM users WHERE name='{n}'"</text>
+  <text x="42" y="195" font-size="8.5" fill="#7f1d1d">n = " ' OR '1'='1' -- " → 条件恒成立</text>
+  <text x="42" y="216" font-size="8.5" fill="#7f1d1d">可绕过认证、拖库、删表</text>
+  <rect x="346" y="136" width="304" height="98" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="358" y="156" font-size="9.5" font-weight="700" fill="#166534">正确：参数化 / PreparedStatement</text>
+  <text x="358" y="176" font-size="8.5" fill="#15803d">cur.execute("… WHERE name=%s AND age&gt;%s", (n, a))</text>
+  <text x="358" y="195" font-size="8.5" fill="#15803d">ps.setString(1, n); ps.setInt(2, a);　-- Java JDBC</text>
+  <text x="358" y="216" font-size="8.5" fill="#15803d">参数永不被解析为语法；还能复用执行计划</text>
+
+  <text x="30" y="258" font-size="12" font-weight="700" fill="#334155">③ 显式事务与连接池</text>
+  <rect x="30" y="268" width="300" height="68" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="42" y="288" font-size="9" fill="#1e40af">conn.autocommit(False)</text>
+  <text x="42" y="306" font-size="9" fill="#1e40af">try: 多条 DML; conn.commit()</text>
+  <text x="42" y="324" font-size="9" fill="#1e40af">except: conn.rollback(); finally: conn.close()</text>
+  <rect x="346" y="268" width="304" height="68" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="358" y="288" font-size="9" fill="#78350f">连接池（HikariCP / Druid / PooledDB）复用物理连接</text>
+  <text x="358" y="306" font-size="9" fill="#78350f">省去每次 TCP 握手与认证；配最小/最大连接数、超时、探活</text>
+  <text x="358" y="324" font-size="9" fill="#78350f">务必在 finally / try-with-resources 中归还</text>
+
+  <rect x="30" y="346" width="620" height="44" rx="6" fill="#fff7ed" stroke="#f59e0b"/>
+  <text x="42" y="364" font-size="9.5" fill="#78350f">生产五要点：① 一律参数化　② 连接池并正确归还　③ 显式事务、短事务　④ 处理死锁(1213)/锁等待超时(1205)并有限次重试</text>
+  <text x="42" y="382" font-size="9.5" fill="#78350f">⑤ 应用账号最小权限、连接串指定 utf8mb4。课件以 API 示例为主，这五项工程结论需补。</text>
+</svg>

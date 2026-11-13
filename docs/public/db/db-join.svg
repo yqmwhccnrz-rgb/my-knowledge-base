@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">多表连接、子查询与集合运算</text>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 四种 JOIN 的文氏示意</text>
+  <g transform="translate(0,0)">
+    <circle cx="95" cy="105" r="38" fill="#bfdbfe" fill-opacity="0.7" stroke="#2563eb"/>
+    <circle cx="145" cy="105" r="38" fill="#fde68a" fill-opacity="0.7" stroke="#d97706"/>
+    <text x="120" y="160" text-anchor="middle" font-size="9" fill="#334155">INNER JOIN（交集）</text>
+    <circle cx="245" cy="105" r="38" fill="#bfdbfe" fill-opacity="0.7" stroke="#2563eb"/>
+    <circle cx="295" cy="105" r="38" fill="#fde68a" fill-opacity="0.4" stroke="#d97706"/>
+    <text x="270" y="160" text-anchor="middle" font-size="9" fill="#334155">LEFT JOIN（左全保留）</text>
+    <circle cx="395" cy="105" r="38" fill="#bfdbfe" fill-opacity="0.4" stroke="#2563eb"/>
+    <circle cx="445" cy="105" r="38" fill="#fde68a" fill-opacity="0.7" stroke="#d97706"/>
+    <text x="420" y="160" text-anchor="middle" font-size="9" fill="#334155">RIGHT JOIN</text>
+    <circle cx="545" cy="105" r="38" fill="#bfdbfe" fill-opacity="0.6" stroke="#2563eb"/>
+    <circle cx="595" cy="105" r="38" fill="#fde68a" fill-opacity="0.6" stroke="#d97706"/>
+    <text x="570" y="160" text-anchor="middle" font-size="9" fill="#334155">FULL OUTER（并集）</text>
+  </g>
+
+  <rect x="30" y="176" width="300" height="98" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="42" y="196" font-size="10" font-weight="700" fill="#1e3a8a">三表连接例题（实际结果）</text>
+  <text x="42" y="215" font-size="8.5" fill="#1e40af">SELECT s.Sname, sc.Grade FROM Student s</text>
+  <text x="42" y="230" font-size="8.5" fill="#1e40af">JOIN SC sc ON s.Sno=sc.Sno</text>
+  <text x="42" y="245" font-size="8.5" fill="#1e40af">JOIN Course co ON sc.Cno=co.Cno</text>
+  <text x="42" y="260" font-size="8.5" fill="#1e40af">WHERE co.Cname='数据库' AND sc.Grade&gt;80;</text>
+  <text x="42" y="272" font-size="9" font-weight="700" fill="#1e3a8a">→ 李勇 | 92</text>
+
+  <rect x="346" y="176" width="304" height="98" rx="6" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="358" y="196" font-size="10" font-weight="700" fill="#991b1b">LEFT JOIN 的 COUNT 陷阱</text>
+  <text x="358" y="215" font-size="8.5" fill="#7f1d1d">补 NULL 的行仍是「一行」：</text>
+  <text x="358" y="230" font-size="8.5" fill="#7f1d1d">COUNT(*) 会把它计成 1；</text>
+  <text x="358" y="245" font-size="8.5" fill="#7f1d1d">正确：COUNT(右表列)，如 COUNT(sc.Cno)</text>
+  <text x="358" y="262" font-size="8.5" fill="#7f1d1d">若写 COUNT(sc.Grade)，成绩为 NULL 的记录又会漏掉</text>
+  <text x="358" y="272" font-size="9" fill="#64748b">教学库结果：李勇 3 / 刘晨 2 / 张立 1 / 王敏 1</text>
+
+  <text x="30" y="298" font-size="12" font-weight="700" fill="#334155">② 子查询四种形态与「全部」表达</text>
+  <rect x="30" y="308" width="620" height="50" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="327" font-size="9.5" fill="#475569">标量 / IN / ANY-ALL / EXISTS（相关子查询逐行求值、找到即停，通常更高效）；NOT EXISTS 双重否定对应除运算</text>
+  <text x="42" y="346" font-size="9.5" fill="#475569">选修全部课程：NOT EXISTS (课程 c WHERE NOT EXISTS (选课记录))　或　GROUP BY Sno HAVING COUNT(DISTINCT Cno)=(SELECT COUNT(*) FROM Course)</text>
+
+  <rect x="30" y="366" width="620" height="28" rx="6" fill="#fff7ed" stroke="#f59e0b"/>
+  <text x="42" y="385" font-size="9.5" fill="#78350f">NOT IN 子查询含 NULL → 结果恒空；UNION 去重（有排序开销），确认无重复时优先 UNION ALL。</text>
+</svg>
