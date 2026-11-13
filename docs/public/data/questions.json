@@ -36820,5 +36820,1996 @@
   "answer": "c=log₂2=1；f(n)=n²=Ω(n^{1+ε})（取 ε=1）且 a·f(n/b)=2·(n/2)²=n²/2 ≤ c·n² 对 c=1/2 成立（正规），属第 3 类，故 T(n)=Θ(f(n))=Θ(n²)。",
   "explanation": "主定理先算 c=log_b a，再比阶；本题 f(n) 增长快于 n^c，归第 3 类。",
   "type": "essay"
+ },
+ {
+  "id": "java1",
+  "note": "Java",
+  "topic": "第1章 概述",
+  "question": "JDK、JRE、JVM 三者的包含关系是（ ）。",
+  "options": [
+   "JDK 包含 JRE，JRE 包含 JVM",
+   "JVM 包含 JRE，JRE 包含 JDK",
+   "JRE 与 JDK 平级，都由 JVM 管理",
+   "三者互相独立，没有包含关系"
+  ],
+  "answer": 0,
+  "explanation": "JDK＝JRE＋编译/调试工具；JRE＝JVM＋核心类库；JVM 只负责执行字节码。故 JDK ⊃ JRE ⊃ JVM。",
+  "type": "choice"
+ },
+ {
+  "id": "java2",
+  "note": "Java",
+  "topic": "第1章 概述",
+  "question": "Java『一次编写，到处运行』得以实现的根本原因是（ ）。",
+  "options": [
+   "Java 源文件可以不经编译直接在任何系统上运行",
+   "源码被编译成平台无关的字节码，由各平台各自的 JVM 执行",
+   "同一个 JVM 二进制文件能安装在所有操作系统上",
+   "javac 直接把源码编译成通用的本地机器码"
+  ],
+  "answer": 1,
+  "explanation": "跨平台的不是 JVM 而是字节码；每个平台的 JVM 是不同的本地实现，字节码格式统一且基本类型长度固定。",
+  "type": "choice"
+ },
+ {
+  "id": "java3",
+  "note": "Java",
+  "topic": "第1章 概述",
+  "question": "关于 Java 与 C++ 的区别，正确的是（ ）。",
+  "options": [
+   "Java 支持操作符重载，因而更灵活",
+   "Java 需要程序员手动释放堆内存",
+   "Java 不支持指针运算，也不支持类的多重继承",
+   "Java 中 int 的长度随操作系统位数变化"
+  ],
+  "answer": 2,
+  "explanation": "Java 去掉了指针运算、头文件、操作符重载、多重继承、手动内存管理；用接口弥补单继承；int 恒 32 位。",
+  "type": "choice"
+ },
+ {
+  "id": "java4",
+  "note": "Java",
+  "topic": "第2章 环境",
+  "question": "执行 javac HelloWorld.java 得到的产物是（ ）。",
+  "options": [
+   "可直接执行的本地机器码文件",
+   "HelloWorld.o 目标文件",
+   "HelloWorld.jar 归档文件",
+   "HelloWorld.class 字节码文件"
+  ],
+  "answer": 3,
+  "explanation": "javac 生成 .class 字节码（含常量池、字段表、方法表），不是机器码；由 JVM 解释并 JIT 编译成本地码执行。",
+  "type": "choice"
+ },
+ {
+  "id": "java5",
+  "note": "Java",
+  "topic": "第2章 环境",
+  "question": "关于 public 类与源文件命名，正确的是（ ）。",
+  "options": [
+   "一个 .java 文件最多一个 public 类，且文件名须与该类名完全一致",
+   "一个 .java 文件可以有任意多个 public 类",
+   "文件名可以与 public 类名不同，只要运行时指定类名",
+   "public 类必须声明在文件末尾"
+  ],
+  "answer": 0,
+  "explanation": "一个源文件最多一个 public 类，文件名必须与它一致；否则编译报『类 X 是公共的，应在名为 X.java 的文件中声明』。",
+  "type": "choice"
+ },
+ {
+  "id": "java6",
+  "note": "Java",
+  "topic": "第2章 环境",
+  "question": "标准的 Java 程序入口方法签名是（ ）。",
+  "options": [
+   "public void main(String[] args)",
+   "public static void main(String[] args)",
+   "static void main(String args)",
+   "public static int main(String[] args)"
+  ],
+  "answer": 1,
+  "explanation": "入口必须是 public static void，参数为 String[]（或等价变参 String...），JVM 才能在不创建对象的情况下调用。",
+  "type": "choice"
+ },
+ {
+  "id": "java7",
+  "note": "Java",
+  "topic": "第2章 环境",
+  "question": "类加载器采用双亲委派模型的主要作用是（ ）。",
+  "options": [
+   "加快字节码的解释执行速度",
+   "让多个类加载器共享同一块堆内存",
+   "保证 java.lang 等核心类不被用户编写的同名类替换",
+   "自动完成垃圾回收时的类卸载"
+  ],
+  "answer": 2,
+  "explanation": "收到加载请求先委托父加载器，父加载不了才自己尝试；核心类始终由 Bootstrap 加载，从而避免被冒名顶替。",
+  "type": "choice"
+ },
+ {
+  "id": "java8",
+  "note": "Java",
+  "topic": "第3章 基本结构",
+  "question": "char 类型在 Java 中占多少位？（ ）",
+  "options": [
+   "8 位",
+   "32 位",
+   "由操作系统决定",
+   "16 位（UTF-16 码元）"
+  ],
+  "answer": 3,
+  "explanation": "Java 基本类型长度固定：byte 8 / short 16 / int 32 / long 64 / float 32 / double 64 / char 16；boolean 无明确位数。",
+  "type": "choice"
+ },
+ {
+  "id": "java9",
+  "note": "Java",
+  "topic": "第3章 基本结构",
+  "question": "关于 boolean 类型，正确的是（ ）。",
+  "options": [
+   "只有 true / false 两个值，不能与整数相互转换",
+   "可以用 0 表示 false、1 表示 true",
+   "可隐式转换为 int 参与算术运算",
+   "在 if 条件中可写 if (x = 0) 来判断赋值结果"
+  ],
+  "answer": 0,
+  "explanation": "boolean 独立于整数体系；if (x = 0) 里赋值表达式结果是 int，不能用于布尔上下文，编译直接报错。",
+  "type": "choice"
+ },
+ {
+  "id": "java10",
+  "note": "Java",
+  "topic": "第3章 基本结构",
+  "question": "表达式 double d = 1 / 2; 执行后 d 的值是（ ）。",
+  "options": [
+   "0.5",
+   "0.0",
+   "1.0",
+   "编译报错"
+  ],
+  "answer": 1,
+  "explanation": "两个 int 先做整数除法得 0，再 widening 成 double 0.0；要得到 0.5 应写 1 / 2.0 或 1.0 / 2。",
+  "type": "choice"
+ },
+ {
+  "id": "java11",
+  "note": "Java",
+  "topic": "第3章 基本结构",
+  "question": "判断两个 double 是否「相等」的正确做法是（ ）。",
+  "options": [
+   "直接使用 a == b",
+   "用 Double.equals(a, b) 忽略精度",
+   "判断 Math.abs(a - b) 是否小于一个很小的容差",
+   "把两个数都强转成 int 再比较"
+  ],
+  "answer": 2,
+  "explanation": "二进制浮点存在表示误差（如 0.1+0.2=0.30000000000000004）；金额计算应使用 BigDecimal 并用字符串构造。",
+  "type": "choice"
+ },
+ {
+  "id": "java12",
+  "note": "Java",
+  "topic": "第3章 基本结构",
+  "question": "字面量 10000000000 要合法表示，必须（ ）。",
+  "options": [
+   "加上后缀 F",
+   "加上后缀 D",
+   "拆成两个 int 相加",
+   "加上后缀 L 写成 10000000000L"
+  ],
+  "answer": 3,
+  "explanation": "整数字面量默认是 int，超过 ±2³¹ 会编译期报错；long 字面量必须加 L（小写 l 易与 1 混淆，不推荐）。",
+  "type": "choice"
+ },
+ {
+  "id": "java13",
+  "note": "Java",
+  "topic": "第3章 基本结构",
+  "question": "关于 String，正确的是（ ）。",
+  "options": [
+   "String 对象不可变，所有修改操作都返回新对象",
+   "substring 会就地修改原字符串",
+   "String 是可变的，因此天然线程不安全",
+   "append 是 String 的成员方法"
+  ],
+  "answer": 0,
+  "explanation": "String 不可变带来常量池复用、线程安全、可缓存 hashCode、适合做 HashMap 键；频繁拼接应改用 StringBuilder。",
+  "type": "choice"
+ },
+ {
+  "id": "java14",
+  "note": "Java",
+  "topic": "第3章 基本结构",
+  "question": "String s1 = \"abc\"; String s2 = \"abc\"; 则 s1 == s2 的结果是（ ）。",
+  "options": [
+   "false，== 比较内容",
+   "true，两个字面量复用常量池中的同一对象",
+   "false，每次出现字面量都新建对象",
+   "编译报错"
+  ],
+  "answer": 1,
+  "explanation": "编译期字面量入常量池，运行时相同字面量复用同一引用；但 == 比较的是引用，比较内容一律用 equals。",
+  "type": "choice"
+ },
+ {
+  "id": "java15",
+  "note": "Java",
+  "topic": "第3章 基本结构",
+  "question": "String s = new String(\"abc\"); 后，\"abc\" == s 与 \"abc\".equals(s) 分别是（ ）。",
+  "options": [
+   "true 与 true",
+   "false 与 false",
+   "false 与 true",
+   "true 与 false"
+  ],
+  "answer": 2,
+  "explanation": "new 一定在堆上新建对象，== 比引用得 false；equals 比内容得 true。可用 s.intern() 取回常量池引用。",
+  "type": "choice"
+ },
+ {
+  "id": "java16",
+  "note": "Java",
+  "topic": "第3章 基本结构",
+  "question": "在循环中反复用 + 拼接大量字符串，推荐（ ）。",
+  "options": [
+   "改用 String.concat 逐次拼接",
+   "每次拼接后调用 intern()",
+   "把字符串声明为 final 以提升性能",
+   "使用一个 StringBuilder（或 StringBuffer）累积"
+  ],
+  "answer": 3,
+  "explanation": "循环里 s += x 每轮都新建 StringBuilder 与 String，产生大量中间对象；StringBuffer 是 StringBuilder 的线程安全版本。",
+  "type": "choice"
+ },
+ {
+  "id": "java17",
+  "note": "Java",
+  "topic": "第3章 基本结构",
+  "question": "Java 14+ 的 switch 表达式使用 -> 形式的主要好处是（ ）。",
+  "options": [
+   "不会贯穿到下一个 case，且可直接返回值",
+   "可以省略所有 case 标签",
+   "允许 case 后跟任意表达式而无需常量",
+   "能在 switch 中使用浮点数条件"
+  ],
+  "answer": 0,
+  "explanation": "箭头形式每个分支独立、无 fall-through，可用 yield 返回值；传统冒号形式忘记 break 会贯穿。",
+  "type": "choice"
+ },
+ {
+  "id": "java18",
+  "note": "Java",
+  "topic": "第3章 基本结构",
+  "question": "byte b = 1; b += 1; 能编译通过，而 b = b + 1; 不能，原因是（ ）。",
+  "options": [
+   "复合赋值把 b 提升为 long",
+   "复合赋值自带隐式的强制类型转换",
+   "b + 1 的结果仍是 byte",
+   "编译器会自动把 1 转成 byte"
+  ],
+  "answer": 1,
+  "explanation": "b + 1 的结果是 int，直接赋回 byte 需显式强转；复合赋值等价于 b = (byte)(b + 1)。",
+  "type": "choice"
+ },
+ {
+  "id": "java19",
+  "note": "Java",
+  "topic": "第3章 基本结构",
+  "question": "构造 BigDecimal 表示 0.1 的正确方式是（ ）。",
+  "options": [
+   "new BigDecimal(0.1)",
+   "BigDecimal.parse(\"0.1\")",
+   "new BigDecimal(\"0.1\") 或 BigDecimal.valueOf(0.1)",
+   "new BigDecimal(0.1f)"
+  ],
+  "answer": 2,
+  "explanation": "用 double 构造会把二进制浮点误差一并带入；数值相等判断用 compareTo（equals 还会比较标度）。",
+  "type": "choice"
+ },
+ {
+  "id": "java20",
+  "note": "Java",
+  "topic": "第3章 基本结构",
+  "question": "String.split(\".\") 无法按句点切分，原因是（ ）。",
+  "options": [
+   "句点不是合法字符",
+   "split 只能按空白切分",
+   "String 没有 split 方法",
+   "split 的参数是正则表达式，句点需写成 \\\\."
+  ],
+  "answer": 3,
+  "explanation": "正则表达式中 . 匹配任意字符；要按字面量句点切分须转义为 \\\\.（Java 字符串里写 \"\\\\.\"）。",
+  "type": "choice"
+ },
+ {
+  "id": "java21",
+  "note": "Java",
+  "topic": "第4章 对象与类",
+  "question": "封装的核心含义是（ ）。",
+  "options": [
+   "字段私有化，通过访问器/更改器受控访问并可加入校验",
+   "把所有方法都声明为 public",
+   "把所有字段都声明为 static",
+   "禁止类被继承"
+  ],
+  "answer": 0,
+  "explanation": "封装隐藏内部表示，使实现可自由修改而不影响调用方；还应避免返回可变内部对象的引用（防御性拷贝）。",
+  "type": "choice"
+ },
+ {
+  "id": "java22",
+  "note": "Java",
+  "topic": "第4章 对象与类",
+  "question": "关于 static 方法，正确的是（ ）。",
+  "options": [
+   "可以通过 this 调用实例字段",
+   "没有隐式 this，只能直接访问本类的静态成员",
+   "不能被子类继承",
+   "一定比实例方法执行更快"
+  ],
+  "answer": 1,
+  "explanation": "static 属于类而非实例；main、Math.pow、工厂方法都是典型应用；实例方法可直接访问静态成员，反之不行。",
+  "type": "choice"
+ },
+ {
+  "id": "java23",
+  "note": "Java",
+  "topic": "第4章 对象与类",
+  "question": "final 修饰实例字段的含义是（ ）。",
+  "options": [
+   "该对象的内容完全不可修改",
+   "该字段是常量且属于类",
+   "该引用一经构造赋值后不能再指向别的对象",
+   "该字段可以被子类覆盖"
+  ],
+  "answer": 2,
+  "explanation": "final 只固定引用（或基本类型的值），对象内部仍可变；要真正不可变需同时做到字段私有、无更改器、防御性拷贝。",
+  "type": "choice"
+ },
+ {
+  "id": "java24",
+  "note": "Java",
+  "topic": "第4章 对象与类",
+  "question": "关于默认构造器，正确的是（ ）。",
+  "options": [
+   "任何类都一定有无参构造器",
+   "默认构造器会把字段初始化为传入的参数",
+   "显式定义带参构造器后默认构造器仍然存在",
+   "类未显式声明任何构造器时，编译器才提供无参构造"
+  ],
+  "answer": 3,
+  "explanation": "一旦声明任意构造器，编译器就不再生成无参构造；此时若需要无参构造必须自己写。",
+  "type": "choice"
+ },
+ {
+  "id": "java25",
+  "note": "Java",
+  "topic": "第4章 对象与类",
+  "question": "创建子类对象时，完整的初始化顺序是（ ）。",
+  "options": [
+   "父静态 → 子静态 → 父实例字段/块 → 父构造器 → 子实例字段/块 → 子构造器",
+   "父构造器 → 子构造器 → 父静态 → 子静态",
+   "子静态 → 父静态 → 子实例 → 父实例",
+   "所有静态块与实例块按文件名顺序交替执行"
+  ],
+  "answer": 0,
+  "explanation": "静态部分在类加载时执行一次且先父后子；随后父对象完整先构造完，再轮到子对象。故构造器中调用可覆盖方法很危险。",
+  "type": "choice"
+ },
+ {
+  "id": "java26",
+  "note": "Java",
+  "topic": "第4章 对象与类",
+  "question": "Java 方法参数传递的特点是（ ）。",
+  "options": [
+   "基本类型值传递、引用类型引用传递",
+   "只有值传递；引用类型传的是引用值的副本",
+   "一切都是引用传递",
+   "由参数是否 final 决定"
+  ],
+  "answer": 1,
+  "explanation": "可以在方法内修改所指向对象的内容，但不能让调用方的变量改指向另一对象；因此 swap(a,b) 在 Java 中无效。",
+  "type": "choice"
+ },
+ {
+  "id": "java27",
+  "note": "Java",
+  "topic": "第4章 对象与类",
+  "question": "构造器中用 this(...) 调用本类另一构造器时，必须（ ）。",
+  "options": [
+   "写在构造器体的最后一行",
+   "与 super(...) 同时出现",
+   "写在构造器体的第一行",
+   "只能用在静态方法中"
+  ],
+  "answer": 2,
+  "explanation": "this(...) 与 super(...) 都必须是首条语句且二者只能选其一；用于把公共初始化集中到一个构造器。",
+  "type": "choice"
+ },
+ {
+  "id": "java28",
+  "note": "Java",
+  "topic": "第4章 对象与类",
+  "question": "对于 record Point(int x, int y)，读取 x 的正确方式是（ ）。",
+  "options": [
+   "p.getX()",
+   "p.x",
+   "p.field(\"x\")",
+   "p.x()"
+  ],
+  "answer": 3,
+  "explanation": "record 自动生成与组件同名的访问器、equals/hashCode/toString；它是 final 且字段不可变，组件不能声明为 transient。",
+  "type": "choice"
+ },
+ {
+  "id": "java29",
+  "note": "Java",
+  "topic": "第5章 继承",
+  "question": "子类覆盖父类方法时，不允许（ ）。",
+  "options": [
+   "把 public 方法改成 protected（收窄可见性）",
+   "加上 @Override 注解",
+   "保持方法签名一致",
+   "返回协变类型"
+  ],
+  "answer": 0,
+  "explanation": "覆盖要求签名一致、可见性不能更严格、不能抛出更宽的受检异常；@Override 让编译器帮忙校验。",
+  "type": "choice"
+ },
+ {
+  "id": "java30",
+  "note": "Java",
+  "topic": "第5章 继承",
+  "question": "Employee e = new Manager(); e.getSalary(); 调用的是（ ）。",
+  "options": [
+   "Employee 的版本（按引用类型）",
+   "Manager 中覆盖后的版本（按实际对象类型动态绑定）",
+   "编译期随机决定",
+   "会抛出 ClassCastException"
+  ],
+  "answer": 1,
+  "explanation": "实例方法在运行时按对象实际类型分派；这是多态的核心，与编译期的重载解析是两个不同阶段。",
+  "type": "choice"
+ },
+ {
+  "id": "java31",
+  "note": "Java",
+  "topic": "第5章 继承",
+  "question": "Parent p = new Child(); 访问 p.f（父子各有同名字段 f）得到（ ）。",
+  "options": [
+   "Child 的 f，字段也参与多态",
+   "编译报错",
+   "Parent 的 f，字段按引用类型静态绑定",
+   "运行期随机"
+  ],
+  "answer": 2,
+  "explanation": "字段不参与多态，编译期按声明类型解析；只有可覆盖的实例方法才动态绑定。",
+  "type": "choice"
+ },
+ {
+  "id": "java32",
+  "note": "Java",
+  "topic": "第5章 继承",
+  "question": "关于 static 方法与继承，正确的是（ ）。",
+  "options": [
+   "static 方法可以被 @Override 覆盖",
+   "static 方法参与动态绑定",
+   "子类不能声明同名 static 方法",
+   "static 方法只能被隐藏，调用版本取决于引用类型"
+  ],
+  "answer": 3,
+  "explanation": "静态方法属于类；子类同名同签名静态方法称为『隐藏』，通过父类引用调用时走父类版本。",
+  "type": "choice"
+ },
+ {
+  "id": "java33",
+  "note": "Java",
+  "topic": "第5章 继承",
+  "question": "下列哪一组全部是 java.lang.Object 的方法？（ ）",
+  "options": [
+   "equals、hashCode、toString、getClass",
+   "equals、compareTo、toString、clone",
+   "hashCode、wait、run、getClass",
+   "toString、equals、size、notify"
+  ],
+  "answer": 0,
+  "explanation": "Object 定义了 equals/hashCode/toString/getClass/clone/finalize/notify/notifyAll/wait 等；compareTo 来自 Comparable，run 来自 Runnable。",
+  "type": "choice"
+ },
+ {
+  "id": "java34",
+  "note": "Java",
+  "topic": "第5章 继承",
+  "question": "Integer.valueOf(128) == Integer.valueOf(128) 的结果是（ ）。",
+  "options": [
+   "true，所有 Integer 都缓存",
+   "false，超出 -128~127 缓存范围会新建对象",
+   "true，因为 == 比较数值",
+   "编译报错"
+  ],
+  "answer": 1,
+  "explanation": "Integer/Long/Short/Byte 缓存 -128~127，Character 缓存 0~127，Boolean 缓存两个常量；Float/Double 无缓存。比较值一律用 equals。",
+  "type": "choice"
+ },
+ {
+  "id": "java35",
+  "note": "Java",
+  "topic": "第5章 继承",
+  "question": "Java 16+ 的 if (o instanceof String s && s.length() > 3) 中，s（ ）。",
+  "options": [
+   "是普通局部变量，需再写 (String) o",
+   "代表 o 的哈希码",
+   "是模式变量，在条件成立的作用域内可直接使用，无需强转",
+   "只在编译期有效，运行期不存在"
+  ],
+  "answer": 2,
+  "explanation": "instanceof 模式匹配把类型判断与变量绑定合二为一；配合 && 时变量在右侧及条件成立分支中有效。",
+  "type": "choice"
+ },
+ {
+  "id": "java36",
+  "note": "Java",
+  "topic": "第5章 继承",
+  "question": "Java 类的继承规则是（ ）。",
+  "options": [
+   "可继承多个类，但只能实现一个接口",
+   "类与接口都可多重继承",
+   "一个类不能同时继承类并实现接口",
+   "只能继承一个类，但可实现多个接口"
+  ],
+  "answer": 3,
+  "explanation": "单继承避免菱形继承的状态歧义；接口只定义能力契约且无实例状态，可多实现。",
+  "type": "choice"
+ },
+ {
+  "id": "java37",
+  "note": "Java",
+  "topic": "第6章 接口与 lambda",
+  "question": "接口中声明的字段（ ）。",
+  "options": [
+   "隐式 public static final，是常量",
+   "是每个实现类各自拥有的实例字段",
+   "可以是 private 可变字段",
+   "默认是 protected"
+  ],
+  "answer": 0,
+  "explanation": "接口不能有实例状态；字段一律是常量。Java 9+ 允许 private 方法，但那只是接口内部复用逻辑。",
+  "type": "choice"
+ },
+ {
+  "id": "java38",
+  "note": "Java",
+  "topic": "第6章 接口与 lambda",
+  "question": "一个类实现的两个接口含有同名默认方法时，必须（ ）。",
+  "options": [
+   "由 JVM 随机挑选一个",
+   "在该类中显式重写该方法以消除歧义",
+   "把其中一个接口改成抽象类",
+   "声明该类为 abstract 即可，无需重写"
+  ],
+  "answer": 1,
+  "explanation": "可用 X.super.m() 显式选择某个父接口实现；此外『类优先』——父类的具体方法胜过接口默认方法。",
+  "type": "choice"
+ },
+ {
+  "id": "java39",
+  "note": "Java",
+  "topic": "第6章 接口与 lambda",
+  "question": "接口相对抽象类最显著的特点是（ ）。",
+  "options": [
+   "接口可以有构造器和可变实例字段",
+   "接口方法可以有 private/protected 访问级别",
+   "一个类可以实现多个接口",
+   "接口可以被实例化"
+  ],
+  "answer": 2,
+  "explanation": "接口表达『能做什么』且支持多实现；抽象类表达『是什么』，可携带状态与骨架实现，但只能单继承。",
+  "type": "choice"
+ },
+ {
+  "id": "java40",
+  "note": "Java",
+  "topic": "第6章 接口与 lambda",
+  "question": "函数式接口的准确定义是（ ）。",
+  "options": [
+   "只包含一个方法的接口（含 default 方法也算）",
+   "用 @FunctionalInterface 标注的任何接口",
+   "继承 Runnable 的所有接口",
+   "恰好只有一个抽象方法的接口"
+  ],
+  "answer": 3,
+  "explanation": "default/static/private 方法以及 Object 的 public 方法签名不计入；@FunctionalInterface 只是让编译器校验。",
+  "type": "choice"
+ },
+ {
+  "id": "java41",
+  "note": "Java",
+  "topic": "第6章 接口与 lambda",
+  "question": "lambda 捕获的局部变量必须（ ）。",
+  "options": [
+   "事实最终（effectively final），即初始化后不再重新赋值",
+   "显式声明为 final 且必须是基本类型",
+   "声明为 static",
+   "放在堆上而非栈上"
+  ],
+  "answer": 0,
+  "explanation": "捕获的是值副本，为避免生命周期与可见性错乱，变量不得再赋值；注意对象内容仍可被修改。",
+  "type": "choice"
+ },
+ {
+  "id": "java42",
+  "note": "Java",
+  "topic": "第6章 接口与 lambda",
+  "question": "方法引用 String::length 属于哪一类型？（ ）",
+  "options": [
+   "对象::实例方法",
+   "类::实例方法（第一个参数充当接收者）",
+   "类::静态方法",
+   "类::new 构造器引用"
+  ],
+  "answer": 1,
+  "explanation": "Function<String,Integer> f = String::length 中，入参 String 成为 length() 的接收者；System.out::println 才是对象::实例方法。",
+  "type": "choice"
+ },
+ {
+  "id": "java43",
+  "note": "Java",
+  "topic": "第6章 接口与 lambda",
+  "question": "lambda 表达式体内的 this 指向（ ）。",
+  "options": [
+   "lambda 自身生成的匿名对象",
+   "函数式接口的实例",
+   "外围（外部）类的当前对象",
+   "null"
+  ],
+  "answer": 2,
+  "explanation": "这是 lambda 与匿名内部类的重要区别：匿名内部类的 this 指向内部类实例，lambda 不引入新的 this。",
+  "type": "choice"
+ },
+ {
+  "id": "java44",
+  "note": "Java",
+  "topic": "第7章 异常与日志",
+  "question": "Java 异常体系的根类是（ ）。",
+  "options": [
+   "Exception",
+   "RuntimeException",
+   "Error",
+   "Throwable"
+  ],
+  "answer": 3,
+  "explanation": "Throwable 有两个直接子类：Error（系统级严重错误，不应捕获）与 Exception；后者再分 RuntimeException 与其他受检异常。",
+  "type": "choice"
+ },
+ {
+  "id": "java45",
+  "note": "Java",
+  "topic": "第7章 异常与日志",
+  "question": "下列属于已检查（checked）异常的是（ ）。",
+  "options": [
+   "IOException",
+   "NullPointerException",
+   "ArrayIndexOutOfBoundsException",
+   "ArithmeticException"
+  ],
+  "answer": 0,
+  "explanation": "checked 异常编译器强制 catch 或 throws；RuntimeException 及其子类是 unchecked，应通过修改代码避免。",
+  "type": "choice"
+ },
+ {
+  "id": "java46",
+  "note": "Java",
+  "topic": "第7章 异常与日志",
+  "question": "多个 catch 块的排列顺序必须（ ）。",
+  "options": [
+   "父类在前、子类在后",
+   "子类在前、父类在后",
+   "按字母顺序",
+   "按异常抛出的概率排序"
+  ],
+  "answer": 1,
+  "explanation": "若先 catch (Exception e)，其后的子类 catch 分支不可达，编译报错。",
+  "type": "choice"
+ },
+ {
+  "id": "java47",
+  "note": "Java",
+  "topic": "第7章 异常与日志",
+  "question": "try { return 1; } finally { return 2; } 的返回值是（ ）。",
+  "options": [
+   "1",
+   "编译报错",
+   "2",
+   "运行时抛异常"
+  ],
+  "answer": 2,
+  "explanation": "finally 中的 return 会覆盖 try/catch 的返回值并吞掉尚未抛出的异常，因此绝不要在 finally 里 return。",
+  "type": "choice"
+ },
+ {
+  "id": "java48",
+  "note": "Java",
+  "topic": "第7章 异常与日志",
+  "question": "资源能用于 try-with-resources 的前提是（ ）。",
+  "options": [
+   "实现 Serializable",
+   "声明为 static final",
+   "重写 finalize 方法",
+   "实现 AutoCloseable（或其子接口 Closeable）"
+  ],
+  "answer": 3,
+  "explanation": "资源在 try 后的括号中声明，按声明的逆序自动关闭；close 抛出的异常作为 suppressed 附加到主异常上。",
+  "type": "choice"
+ },
+ {
+  "id": "java49",
+  "note": "Java",
+  "topic": "第7章 异常与日志",
+  "question": "子类覆盖父类方法时，关于 throws 声明正确的是（ ）。",
+  "options": [
+   "不能抛出比父类更宽的受检异常",
+   "必须原样照抄父类的 throws 列表",
+   "可以随意新增受检异常",
+   "任何受检异常都不能声明"
+  ],
+  "answer": 0,
+  "explanation": "可以抛出更少、更具体的异常，或不抛；这是里氏替换在异常契约上的体现。",
+  "type": "choice"
+ },
+ {
+  "id": "java50",
+  "note": "Java",
+  "topic": "第7章 异常与日志",
+  "question": "关于 assert，正确的是（ ）。",
+  "options": [
+   "默认开启，适合校验用户输入",
+   "默认关闭，需 -ea 开启，因此不能用于对外参数校验",
+   "失败时抛出 Error 且不会被关闭",
+   "只能用在静态方法里"
+  ],
+  "answer": 1,
+  "explanation": "断言用于内部不变量自检；用户可关闭断言，故参数校验必须用 if + throw IllegalArgumentException。",
+  "type": "choice"
+ },
+ {
+  "id": "java51",
+  "note": "Java",
+  "topic": "第8章 泛型",
+  "question": "类型擦除后，List<String> 与 List<Integer> 在运行时（ ）。",
+  "options": [
+   "仍是两个不同的 Class 对象",
+   "会互相转换",
+   "都是同一个原始类型 List",
+   "会导致编译失败"
+  ],
+  "answer": 2,
+  "explanation": "JVM 没有泛型；类型变量替换为 Object 或第一个 bound，必要时插入强制转换与桥方法。",
+  "type": "choice"
+ },
+ {
+  "id": "java52",
+  "note": "Java",
+  "topic": "第8章 泛型",
+  "question": "下列泛型声明合法的是（ ）。",
+  "options": [
+   "List<int>",
+   "new List<String>() 直接实例化接口",
+   "List<String>[] arr = new List<String>[10]",
+   "List<Integer>"
+  ],
+  "answer": 3,
+  "explanation": "类型参数不能是基本类型，须用包装类；不能 new T、不能创建泛型数组；接口本身也不能直接 new。",
+  "type": "choice"
+ },
+ {
+  "id": "java53",
+  "note": "Java",
+  "topic": "第8章 泛型",
+  "question": "表达式 obj instanceof List<String>（ ）。",
+  "options": [
+   "非法，运行时泛型信息已擦除",
+   "合法，可精确判断元素类型",
+   "合法但永远返回 false",
+   "仅 JDK 21+ 支持"
+  ],
+  "answer": 0,
+  "explanation": "只能写 instanceof List（原始类型），泛型参数需逐元素校验；这也是泛型不协变设计的根源。",
+  "type": "choice"
+ },
+ {
+  "id": "java54",
+  "note": "Java",
+  "topic": "第8章 泛型",
+  "question": "PECS 原则中，只读（生产者）参数应声明为（ ）。",
+  "options": [
+   "? super T",
+   "? extends T",
+   "T",
+   "?"
+  ],
+  "answer": 1,
+  "explanation": "Producer Extends：List<? extends Number> 可安全读出 Number，但不能写入（除 null）；Consumer Super 反之。",
+  "type": "choice"
+ },
+ {
+  "id": "java55",
+  "note": "Java",
+  "topic": "第8章 泛型",
+  "question": "泛型不协变意味着（ ）。",
+  "options": [
+   "List<String> 可以赋值给 List<Object>",
+   "数组也不能协变",
+   "List<String> 不能赋值给 List<Object>",
+   "所有集合都不可变"
+  ],
+  "answer": 2,
+  "explanation": "若允许赋值，就能往 List<Object> 引用里塞入 Integer 而破坏类型安全；数组是协变的，代价是运行时 ArrayStoreException。",
+  "type": "choice"
+ },
+ {
+  "id": "java56",
+  "note": "Java",
+  "topic": "第8章 泛型",
+  "question": "桥方法（bridge method）的作用是（ ）。",
+  "options": [
+   "提升泛型方法的运行速度",
+   "让泛型支持基本类型",
+   "在运行时保留泛型信息",
+   "在擦除后保持覆盖关系与多态，转发并强转参数"
+  ],
+  "answer": 3,
+  "explanation": "例：Comparable<String> 擦除后为 compareTo(Object)，编译器合成 compareTo(Object) 转发到 compareTo(String)。",
+  "type": "choice"
+ },
+ {
+  "id": "java57",
+  "note": "Java",
+  "topic": "第8章 泛型",
+  "question": "关于泛型类的静态成员，正确的是（ ）。",
+  "options": [
+   "静态字段/方法不能使用类声明的类型变量",
+   "静态字段可以声明为 T 类型",
+   "静态方法可直接使用类的 T 作为返回类型",
+   "静态块里可以用 T"
+  ],
+  "answer": 0,
+  "explanation": "静态成员属于类而非某个参数化实例；需要泛型的静态方法应自己声明类型参数，如 static <T> T first(List<T> l)。",
+  "type": "choice"
+ },
+ {
+  "id": "java58",
+  "note": "Java",
+  "topic": "第9章 集合框架",
+  "question": "关于 Map 与 Collection，正确的是（ ）。",
+  "options": [
+   "Map 继承 Collection",
+   "Map 是独立根接口，不继承 Collection",
+   "Map 继承 Set",
+   "Map 继承 Iterable"
+  ],
+  "answer": 1,
+  "explanation": "Map 处理键值对，遍历需借助 keySet()/entrySet() 等视图；Collection 才继承 Iterable 可直接增强 for。",
+  "type": "choice"
+ },
+ {
+  "id": "java59",
+  "note": "Java",
+  "topic": "第9章 集合框架",
+  "question": "ArrayList 最擅长的操作是（ ）。",
+  "options": [
+   "在头部频繁插入删除，O(1)",
+   "按优先级出队",
+   "按索引随机访问 get(i)，O(1)",
+   "保持键有序"
+  ],
+  "answer": 2,
+  "explanation": "ArrayList 是动态数组，连续内存缓存友好；中间插入删除需搬移元素为 O(n)。LinkedList 头尾增删快但按索引定位仍 O(n)。",
+  "type": "choice"
+ },
+ {
+  "id": "java60",
+  "note": "Java",
+  "topic": "第9章 集合框架",
+  "question": "需要元素不重复且按键有序、支持范围查询，应选（ ）。",
+  "options": [
+   "HashSet",
+   "LinkedHashSet",
+   "ArrayList",
+   "TreeSet"
+  ],
+  "answer": 3,
+  "explanation": "TreeSet 底层红黑树，增删查 O(log n) 且有序，可用 headSet/tailSet；HashSet O(1) 但无序。",
+  "type": "choice"
+ },
+ {
+  "id": "java61",
+  "note": "Java",
+  "topic": "第9章 集合框架",
+  "question": "HashMap 计算桶下标前对 hashCode 做的扰动是（ ）。",
+  "options": [
+   "h ^ (h >>> 16)，让高 16 位也参与运算以减少冲突",
+   "h % 16 直接取低 4 位",
+   "把 h 取绝对值",
+   "把 h 与容量相乘"
+  ],
+  "answer": 0,
+  "explanation": "随后用 (n - 1) & hash 定位（n 为 2 的幂）；高位混入低位可显著降低哈希碰撞。",
+  "type": "choice"
+ },
+ {
+  "id": "java62",
+  "note": "Java",
+  "topic": "第9章 集合框架",
+  "question": "HashMap 链表转红黑树的条件是（ ）。",
+  "options": [
+   "链表长度 ≥ 8 即可",
+   "链表长度 ≥ 8 且数组容量 ≥ 64",
+   "数组容量 ≥ 64 即可",
+   "链表长度 ≥ 6"
+  ],
+  "answer": 1,
+  "explanation": "若容量不足 64，优先扩容而不是树化；树节点数 ≤ 6 时退化为链表，查找复杂度从 O(n) 降到 O(log n)。",
+  "type": "choice"
+ },
+ {
+  "id": "java63",
+  "note": "Java",
+  "topic": "第9章 集合框架",
+  "question": "HashMap 的默认负载因子与扩容方式分别是（ ）。",
+  "options": [
+   "0.5；容量加 1",
+   "1.0；不扩容",
+   "0.75；容量翻倍",
+   "0.75；只扩容链表"
+  ],
+  "answer": 2,
+  "explanation": "阈值 = 容量 × 0.75；JDK 8 扩容时按高位拆分，元素要么留原位要么去 原下标+oldCap，无需重算 hash。",
+  "type": "choice"
+ },
+ {
+  "id": "java64",
+  "note": "Java",
+  "topic": "第9章 集合框架",
+  "question": "用增强 for 遍历 ArrayList 时直接调用 list.remove(...) 会（ ）。",
+  "options": [
+   "正常删除且不影响遍历",
+   "静默跳过该元素",
+   "编译报错",
+   "抛 ConcurrentModificationException（fail-fast）"
+  ],
+  "answer": 3,
+  "explanation": "迭代器用 modCount 检测结构性修改；应改用 Iterator.remove() 或 removeIf，并发场景用 java.util.concurrent 的弱一致迭代器。",
+  "type": "choice"
+ },
+ {
+  "id": "java65",
+  "note": "Java",
+  "topic": "第9章 集合框架",
+  "question": "关于 List.of(\"a\", \"b\")，正确的是（ ）。",
+  "options": [
+   "返回完全不可变列表，add/sort/remove 均抛 UnsupportedOperationException",
+   "返回固定大小但可 set 的列表",
+   "返回可自由修改的 ArrayList",
+   "允许包含 null 元素"
+  ],
+  "answer": 0,
+  "explanation": "List.of/Set.of/Map.of 是 Java 9 不可变工厂且不接受 null；Arrays.asList 才是『固定大小但可 set』。",
+  "type": "choice"
+ },
+ {
+  "id": "java66",
+  "note": "Java",
+  "topic": "第9章 集合框架",
+  "question": "map.keySet()、map.values()、map.entrySet() 返回的是（ ）。",
+  "options": [
+   "独立的深拷贝副本",
+   "原映射的视图，改动会反映到原 Map",
+   "不可修改的只读快照",
+   "数组"
+  ],
+  "answer": 1,
+  "explanation": "keySet().remove(k) 真会删掉映射；要脱离原集合需 new ArrayList<>(...) 或 Collections.unmodifiableXxx。",
+  "type": "choice"
+ },
+ {
+  "id": "java67",
+  "note": "Java",
+  "topic": "第9章 集合框架",
+  "question": "高并发读写键值映射，首选（ ）。",
+  "options": [
+   "HashMap",
+   "Hashtable",
+   "ConcurrentHashMap",
+   "Collections.synchronizedMap(new HashMap<>())"
+  ],
+  "answer": 2,
+  "explanation": "JDK 8 起 ConcurrentHashMap 用桶级 synchronized + CAS，粒度远小于 Hashtable 的全表锁；后者是遗留类且不推荐。",
+  "type": "choice"
+ },
+ {
+  "id": "java68",
+  "note": "Java",
+  "topic": "第10章 GUI 与事件",
+  "question": "Swing 组件的创建与访问应当在（ ）。",
+  "options": [
+   "任意后台线程上进行",
+   "主线程之外的所有线程",
+   "GC 线程中",
+   "EDT（事件派发线程）上进行"
+  ],
+  "answer": 3,
+  "explanation": "耗时任务放 SwingWorker 或线程池，避免阻塞 EDT 导致界面冻结；回投结果用 SwingUtilities.invokeLater。",
+  "type": "choice"
+ },
+ {
+  "id": "java69",
+  "note": "Java",
+  "topic": "第10章 GUI 与事件",
+  "question": "自定义 JPanel 绘制时应（ ）。",
+  "options": [
+   "重写 paintComponent 并先调用 super.paintComponent(g)",
+   "重写 paint 且不要调用父类",
+   "在 main 方法中直接调 Graphics",
+   "重写 toString"
+  ],
+  "answer": 0,
+  "explanation": "不调用 super 会残留上一帧内容；Swing 由 EDT 统一调度绘制，不应主动调用 paintComponent。",
+  "type": "choice"
+ },
+ {
+  "id": "java70",
+  "note": "Java",
+  "topic": "第11章 Swing 组件",
+  "question": "JFrame 内容窗格的默认布局管理器是（ ）。",
+  "options": [
+   "FlowLayout",
+   "BorderLayout",
+   "GridLayout",
+   "null（绝对定位）"
+  ],
+  "answer": 1,
+  "explanation": "JFrame 默认 BorderLayout（东南西北中）；JPanel 默认 FlowLayout（从左到右自动换行）。",
+  "type": "choice"
+ },
+ {
+  "id": "java71",
+  "note": "Java",
+  "topic": "第11章 Swing 组件",
+  "question": "显示带滚动条的长列表，正确做法是（ ）。",
+  "options": [
+   "给 JList 设置 setScrollable(true)",
+   "改用 JComboBox",
+   "把 JList 放进 JScrollPane",
+   "把 JList 放进 JPanel 即可"
+  ],
+  "answer": 2,
+  "explanation": "Swing 组件本身不带滚动条，需由 JScrollPane 提供视口；JList 的数据由 ListModel 管理。",
+  "type": "choice"
+ },
+ {
+  "id": "java72",
+  "note": "Java",
+  "topic": "第12章 并发",
+  "question": "启动新线程的正确方式是（ ）。",
+  "options": [
+   "直接调用 run()",
+   "调用 resume()",
+   "调用 notify()",
+   "调用 Thread 对象的 start()"
+  ],
+  "answer": 3,
+  "explanation": "start() 才会创建新的执行栈并在新线程里跑 run()；直接 run() 只是当前线程里的普通方法调用，且不能重复 start()。",
+  "type": "choice"
+ },
+ {
+  "id": "java73",
+  "note": "Java",
+  "topic": "第12章 并发",
+  "question": "Thread.State 枚举共有几种状态？（ ）",
+  "options": [
+   "6 种（NEW/RUNNABLE/BLOCKED/WAITING/TIMED_WAITING/TERMINATED）",
+   "5 种",
+   "4 种",
+   "7 种"
+  ],
+  "answer": 0,
+  "explanation": "RUNNABLE 合并了操作系统层面的『就绪』与『运行』；JVM 不区分二者。",
+  "type": "choice"
+ },
+ {
+  "id": "java74",
+  "note": "Java",
+  "topic": "第12章 并发",
+  "question": "线程进入 BLOCKED 状态的唯一原因是（ ）。",
+  "options": [
+   "调用了 sleep(1000)",
+   "等待进入 synchronized 监视器锁",
+   "调用了 Object.wait()",
+   "等待 IO 完成"
+  ],
+  "answer": 1,
+  "explanation": "等 ReentrantLock / LockSupport.park 的线程处于 WAITING 或 TIMED_WAITING；sleep/timed wait 属 TIMED_WAITING。",
+  "type": "choice"
+ },
+ {
+  "id": "java75",
+  "note": "Java",
+  "topic": "第12章 并发",
+  "question": "关于 wait() 与 sleep()，正确的是（ ）。",
+  "options": [
+   "两者都释放锁",
+   "wait() 属于 Thread 类，sleep() 属于 Object 类",
+   "wait() 释放锁且须在 synchronized 块内；sleep() 不释放锁",
+   "两者都不需要捕获异常"
+  ],
+  "answer": 2,
+  "explanation": "wait/notify/notifyAll 是 Object 的方法且必须先持有该对象监视器；等待条件应放 while 循环防虚假唤醒。",
+  "type": "choice"
+ },
+ {
+  "id": "java76",
+  "note": "Java",
+  "topic": "第12章 并发",
+  "question": "volatile 关键字能保证（ ）。",
+  "options": [
+   "复合操作的原子性",
+   "线程互斥",
+   "对象不可被 GC",
+   "可见性与禁止特定指令重排序，但不保证 i++ 原子性"
+  ],
+  "answer": 3,
+  "explanation": "i++ 是读-改-写三步，volatile 无法保证；计数应使用 AtomicInteger（CAS）或加锁。",
+  "type": "choice"
+ },
+ {
+  "id": "java77",
+  "note": "Java",
+  "topic": "第12章 并发",
+  "question": "多线程下对 int 计数自增，最轻量且线程安全的做法是（ ）。",
+  "options": [
+   "AtomicInteger.incrementAndGet()",
+   "给变量加 volatile",
+   "把变量声明为 static",
+   "用 String 保存计数"
+  ],
+  "answer": 0,
+  "explanation": "AtomicInteger 基于 CAS + volatile 实现无锁原子更新；高竞争下自旋会有开销，可用 LongAdder 分段。",
+  "type": "choice"
+ },
+ {
+  "id": "java78",
+  "note": "Java",
+  "topic": "第12章 并发",
+  "question": "ThreadPoolExecutor 提交任务后的判断顺序是（ ）。",
+  "options": [
+   "先建到 maximum 线程 → 再入队 → 拒绝",
+   "核心线程未满 → 入队 → 线程数未达 maximum 则建临时线程 → 拒绝",
+   "先入队 → 再建核心线程 → 拒绝",
+   "直接拒绝多余任务"
+  ],
+  "answer": 1,
+  "explanation": "使用无界队列时 maximumPoolSize 几乎不生效；因此生产环境应使用有界队列并明确拒绝策略。",
+  "type": "choice"
+ },
+ {
+  "id": "java79",
+  "note": "Java",
+  "topic": "第12章 并发",
+  "question": "ThreadPoolExecutor 默认的拒绝策略是（ ）。",
+  "options": [
+   "CallerRunsPolicy",
+   "DiscardPolicy",
+   "AbortPolicy（抛 RejectedExecutionException）",
+   "DiscardOldestPolicy"
+  ],
+  "answer": 2,
+  "explanation": "AbortPolicy 让调用方明确感知过载；CallerRunsPolicy 由提交线程自己执行，可天然限流；Discard 系列会静默丢任务。",
+  "type": "choice"
+ },
+ {
+  "id": "java80",
+  "note": "Java",
+  "topic": "第12章 并发",
+  "question": "通过 submit() 提交的任务抛出异常时（ ）。",
+  "options": [
+   "异常立即打印到控制台",
+   "线程池会立即关闭",
+   "异常被自动忽略且无法获取",
+   "异常被封装进 Future，只有调用 get() 时才抛 ExecutionException"
+  ],
+  "answer": 3,
+  "explanation": "execute() 的异常会直接到未捕获异常处理器；submit() 必须 get() 才能发现任务失败，否则等于吞异常。",
+  "type": "choice"
+ },
+ {
+  "id": "java81",
+  "note": "Java",
+  "topic": "补1 JVM 与 GC",
+  "question": "下列全部属于线程共享的内存区域是（ ）。",
+  "options": [
+   "堆与方法区（元空间）",
+   "程序计数器与虚拟机栈",
+   "虚拟机栈与本地方法栈",
+   "栈帧与操作数栈"
+  ],
+  "answer": 0,
+  "explanation": "线程私有：程序计数器、虚拟机栈、本地方法栈；线程共享：堆、方法区/元空间。",
+  "type": "choice"
+ },
+ {
+  "id": "java82",
+  "note": "Java",
+  "topic": "补1 JVM 与 GC",
+  "question": "HotSpot 判断对象是否可回收，采用（ ）。",
+  "options": [
+   "引用计数",
+   "可达性分析（从 GC Roots 沿引用链搜索）",
+   "按对象创建时间排序淘汰",
+   "按对象大小阈值回收"
+  ],
+  "answer": 1,
+  "explanation": "引用计数无法解决循环引用；可达性分析从栈局部变量、静态字段、常量、JNI 引用等 GC Roots 出发。",
+  "type": "choice"
+ },
+ {
+  "id": "java83",
+  "note": "Java",
+  "topic": "补1 JVM 与 GC",
+  "question": "新生代（Young）主流的回收算法是（ ）。",
+  "options": [
+   "标记-清除",
+   "标记-整理",
+   "复制算法（Eden + Survivor S0/S1）",
+   "引用计数"
+  ],
+  "answer": 2,
+  "explanation": "存活对象少，复制到 Survivor 成本低且无碎片；老年代对象存活率高，多用标记-清除或标记-整理。",
+  "type": "choice"
+ },
+ {
+  "id": "java84",
+  "note": "Java",
+  "topic": "补1 JVM 与 GC",
+  "question": "JIT 编译后的本地代码缓存（Code Cache）位于（ ）。",
+  "options": [
+   "堆的新生代",
+   "方法区/元空间内部",
+   "每个线程的虚拟机栈",
+   "堆外的独立内存区域，不属于方法区"
+  ],
+  "answer": 3,
+  "explanation": "方法区/元空间存类元数据、静态变量、运行时常量池；Code Cache 是独立的堆外区域。",
+  "type": "choice"
+ },
+ {
+  "id": "java85",
+  "note": "Java",
+  "topic": "补1 JVM 与 GC",
+  "question": "无限递归最可能导致的错误是（ ）。",
+  "options": [
+   "StackOverflowError",
+   "OutOfMemoryError: Java heap space",
+   "ClassNotFoundException",
+   "NullPointerException"
+  ],
+  "answer": 0,
+  "explanation": "每调一次方法压入一个栈帧，超出 -Xss 栈深度即 StackOverflowError；对象分配过多才是堆 OOM。",
+  "type": "choice"
+ },
+ {
+  "id": "java86",
+  "note": "Java",
+  "topic": "补2 枚举与注解",
+  "question": "Java 枚举的本质是（ ）。",
+  "options": [
+   "一组 static final int 常量",
+   "java.lang.Enum 的子类，常量是 public static final 实例",
+   "一个特殊的接口",
+   "可继承的普通类"
+  ],
+  "answer": 1,
+  "explanation": "枚举构造器隐式私有、不可被继承、天然单例与线程安全；可带字段、方法与构造器，用 EnumSet/EnumMap 更高效。",
+  "type": "choice"
+ },
+ {
+  "id": "java87",
+  "note": "Java",
+  "topic": "补2 枚举与注解",
+  "question": "希望注解能在运行时被反射读取，应使用（ ）。",
+  "options": [
+   "@Retention(RetentionPolicy.SOURCE)",
+   "@Retention(RetentionPolicy.CLASS)",
+   "@Retention(RetentionPolicy.RUNTIME)",
+   "@Target(ElementType.METHOD)"
+  ],
+  "answer": 2,
+  "explanation": "SOURCE 只留在源码（如 @Override），CLASS 是默认值进字节码但运行时不可见，RUNTIME 才能 getAnnotation。",
+  "type": "choice"
+ },
+ {
+  "id": "java88",
+  "note": "Java",
+  "topic": "补2 枚举与注解",
+  "question": "关于注解的作用，正确的是（ ）。",
+  "options": [
+   "标注了注解的方法会自动变成线程安全",
+   "注解会在运行时自动执行其方法",
+   "所有注解都会被 JVM 解释执行",
+   "注解本身不改变语义，需编译器或框架读取后才生效"
+  ],
+  "answer": 3,
+  "explanation": "例如 @Test 靠 JUnit 扫描，@Component 靠 Spring 扫描；注解只是元数据。",
+  "type": "choice"
+ },
+ {
+  "id": "java89",
+  "note": "Java",
+  "topic": "补3 java.time",
+  "question": "关于 java.time 对象，正确的是（ ）。",
+  "options": [
+   "不可变且线程安全，plusDays 返回新对象",
+   "可变，plusDays 就地修改",
+   "月份从 0 开始计数",
+   "DateTimeFormatter 线程不安全，需每次新建"
+  ],
+  "answer": 0,
+  "explanation": "java.time 全部不可变；月份从 1 开始；DateTimeFormatter 可安全复用为 static final；旧 SimpleDateFormat 才线程不安全。",
+  "type": "choice"
+ },
+ {
+  "id": "java90",
+  "note": "Java",
+  "topic": "补3 java.time",
+  "question": "跨时区存储时间点，最适合的类型是（ ）。",
+  "options": [
+   "LocalDateTime",
+   "Instant（UTC 时间线上的瞬间）",
+   "LocalTime",
+   "Period"
+  ],
+  "answer": 1,
+  "explanation": "Instant 与机器时区无关，适合日志与持久化；LocalDateTime 无时区信息，显示时才应结合 ZoneId 转成 ZonedDateTime。",
+  "type": "choice"
+ },
+ {
+  "id": "java91",
+  "note": "Java",
+  "topic": "补4 Stream API",
+  "question": "Stream 中间操作（如 filter、map）的特点是（ ）。",
+  "options": [
+   "立即遍历数据源并返回结果",
+   "每个中间操作都触发一次完整遍历",
+   "惰性，只登记不执行，返回新的 Stream",
+   "只能调用一次"
+  ],
+  "answer": 2,
+  "explanation": "只有终止操作（collect/count/forEach…）才触发计算，多个中间操作会合并成一次遍历（循环合并优化）。",
+  "type": "choice"
+ },
+ {
+  "id": "java92",
+  "note": "Java",
+  "topic": "补4 Stream API",
+  "question": "下列属于终止操作的是（ ）。",
+  "options": [
+   "filter",
+   "map",
+   "sorted",
+   "collect"
+  ],
+  "answer": 3,
+  "explanation": "终止操作返回具体值/集合/Optional 并关闭流；filter/map/sorted/peek/distinct/limit 都是中间操作。",
+  "type": "choice"
+ },
+ {
+  "id": "java93",
+  "note": "Java",
+  "topic": "补4 Stream API",
+  "question": "对同一个 Stream 调用两次终止操作会（ ）。",
+  "options": [
+   "抛 IllegalStateException（流只能消费一次）",
+   "正常返回两次相同结果",
+   "第二次返回空集合",
+   "编译报错"
+  ],
+  "answer": 0,
+  "explanation": "要复用需重新 list.stream()，或用 Supplier<Stream<T>>；并行流还要求操作无状态、无副作用、线程安全。",
+  "type": "choice"
+ },
+ {
+  "id": "java94",
+  "note": "Java",
+  "topic": "补5 NIO.2 与 I/O",
+  "question": "关于 Files.walk / Files.lines 返回的 Stream，正确的是（ ）。",
+  "options": [
+   "可随意丢弃，GC 会自动关闭",
+   "持有文件/目录句柄，必须放在 try-with-resources 中关闭",
+   "返回的是已全部读入内存的集合",
+   "不能用于大文件"
+  ],
+  "answer": 1,
+  "explanation": "流式读取省内存，但底层句柄不会自动释放；忘记关闭会造成句柄泄漏。",
+  "type": "choice"
+ },
+ {
+  "id": "java95",
+  "note": "Java",
+  "topic": "补5 NIO.2 与 I/O",
+  "question": "把字节流桥接成字符流并指定编码，应使用（ ）。",
+  "options": [
+   "new FileReader(file)",
+   "new BufferedInputStream(inputStream)",
+   "new InputStreamReader(inputStream, StandardCharsets.UTF_8)",
+   "new ObjectInputStream(inputStream)"
+  ],
+  "answer": 2,
+  "explanation": "FileReader 使用平台默认编码，换机器易乱码；InputStreamReader/OutputStreamWriter 才是字节↔字符的桥梁。",
+  "type": "choice"
+ },
+ {
+  "id": "java96",
+  "note": "Java",
+  "topic": "补6 对象契约",
+  "question": "equals/hashCode 契约要求（ ）。",
+  "options": [
+   "hashCode 相等的两个对象一定 equals 为 true",
+   "hashCode 可以由随机值生成",
+   "equals 为 true 时 hashCode 必须不同",
+   "若 a.equals(b) 为 true，则 a.hashCode() 必须等于 b.hashCode()"
+  ],
+  "answer": 3,
+  "explanation": "反向不成立：哈希码相等只是落到同一桶，还需 equals 判定；因此重写 equals 必须同时重写 hashCode。",
+  "type": "choice"
+ },
+ {
+  "id": "java97",
+  "note": "Java",
+  "topic": "补6 对象契约",
+  "question": "一个类只重写 equals 不重写 hashCode，放入 HashSet 后（ ）。",
+  "options": [
+   "contains(new 等价对象) 可能返回 false，且能存入两个重复元素",
+   "一切正常，equals 会自动生效",
+   "编译报错",
+   "HashSet 会自动补上 hashCode"
+  ],
+  "answer": 0,
+  "explanation": "默认 hashCode 由对象地址派生，两个逻辑相等对象落到不同桶，根本不会调用 equals 比较。",
+  "type": "choice"
+ },
+ {
+  "id": "java98",
+  "note": "Java",
+  "topic": "补6 对象契约",
+  "question": "实现 hashCode 时，推荐（ ）。",
+  "options": [
+   "返回固定常量 1",
+   "Objects.hash(参与 equals 的所有字段)",
+   "只用第一个字段且忽略其余字段",
+   "返回对象地址"
+  ],
+  "answer": 1,
+  "explanation": "equals 与 hashCode 必须使用同一组字段；引用字段用 Objects.equals、数组用 Arrays.equals、浮点用 Double.compare。",
+  "type": "choice"
+ },
+ {
+  "id": "java99",
+  "note": "Java",
+  "topic": "补7 Java 新特性",
+  "question": "下列全部属于 LTS 版本的是（ ）。",
+  "options": [
+   "8、12、16、20",
+   "9、11、13、17",
+   "8、11、17、21",
+   "10、11、17、21"
+  ],
+  "answer": 2,
+  "explanation": "LTS 长期支持版为 8/11/17/21；其余为每 6 个月一个的特性版。",
+  "type": "choice"
+ },
+ {
+  "id": "java100",
+  "note": "Java",
+  "topic": "补7 Java 新特性",
+  "question": "Java 21 正式引入的虚拟线程最适合（ ）。",
+  "options": [
+   "CPU 密集的矩阵运算",
+   "替代所有 synchronized 同步",
+   "提升单线程算法复杂度",
+   "IO 密集的高并发『每请求一线程』模型"
+  ],
+  "answer": 3,
+  "explanation": "虚拟线程由 JVM 轻量调度，阻塞 IO 时自动让出载体线程；不是为 CPU 密集计算提速，也不改变锁语义。",
+  "type": "choice"
+ },
+ {
+  "id": "java101",
+  "note": "Java",
+  "topic": "补8 工程工具",
+  "question": "用于方法入口参数非空校验的常用工具方法是（ ）。",
+  "options": [
+   "Objects.requireNonNull(obj, \"msg\")",
+   "Objects.isNull(obj)",
+   "Optional.ofNullable(obj)",
+   "assert obj != null"
+  ],
+  "answer": 0,
+  "explanation": "requireNonNull 失败抛 NullPointerException 且默认开启；assert 生产默认关闭，不能用于对外参数校验。",
+  "type": "choice"
+ },
+ {
+  "id": "java102",
+  "note": "Java",
+  "topic": "第1章 概述",
+  "question": "Java 的 int 类型长度固定为 32 位，不随操作系统位数改变。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "体系结构中立/可移植性要求基本类型长度由语言规范固定，而非依赖平台。",
+  "type": "judge"
+ },
+ {
+  "id": "java103",
+  "note": "Java",
+  "topic": "第3章 基本结构",
+  "question": "Java 中局部变量也像实例字段一样拥有默认值（0 / false / null）。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "只有字段和数组元素有默认值；局部变量未初始化就使用会编译报错。",
+  "type": "judge"
+ },
+ {
+  "id": "java104",
+  "note": "Java",
+  "topic": "第4章 对象与类",
+  "question": "Java 只有值传递，方法内不能让调用方的引用变量改指向另一个对象。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "传的是引用值的副本：可改对象内容，不能改外部变量的指向。",
+  "type": "judge"
+ },
+ {
+  "id": "java105",
+  "note": "Java",
+  "topic": "第5章 继承",
+  "question": "static 方法可以被子类覆盖，并参与运行期动态绑定。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "static 方法是『隐藏』，调用版本由编译期引用类型决定。",
+  "type": "judge"
+ },
+ {
+  "id": "java106",
+  "note": "Java",
+  "topic": "第7章 异常与日志",
+  "question": "finally 块中的 return 会覆盖 try 块的返回值，因此应避免在 finally 中 return。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "还会吞掉尚未抛出的异常，属于典型陷阱。",
+  "type": "judge"
+ },
+ {
+  "id": "java107",
+  "note": "Java",
+  "topic": "第8章 泛型",
+  "question": "泛型信息会一直保留到运行时，因此可以在运行时判断一个 List 的元素类型。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "类型擦除后运行时只剩原始类型 List，instanceof List<String> 非法。",
+  "type": "judge"
+ },
+ {
+  "id": "java108",
+  "note": "Java",
+  "topic": "第9章 集合框架",
+  "question": "HashMap 允许一个 null 键和多个 null 值。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "null 键固定映射到桶 0；Hashtable 则完全不允许 null 键。",
+  "type": "judge"
+ },
+ {
+  "id": "java109",
+  "note": "Java",
+  "topic": "第9章 集合框架",
+  "question": "List.of(\"a\", \"b\").sort(...) 可以正常执行排序。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "List.of 返回完全不可变列表，调用 sort 会抛 UnsupportedOperationException。",
+  "type": "judge"
+ },
+ {
+  "id": "java110",
+  "note": "Java",
+  "topic": "第12章 并发",
+  "question": "volatile 能保证可见性与禁止特定指令重排序，但不能保证 i++ 这类复合操作的原子性。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "i++ 是读-改-写三步操作，仍需 AtomicInteger（CAS）或加锁；仅靠 volatile 不够。",
+  "type": "judge"
+ },
+ {
+  "id": "java111",
+  "note": "Java",
+  "topic": "第12章 并发",
+  "question": "wait() / notifyAll() 必须在持有该对象监视器锁的 synchronized 块内调用。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "否则抛 IllegalMonitorStateException；wait 会释放锁，条件判断须放在 while 中。",
+  "type": "judge"
+ },
+ {
+  "id": "java112",
+  "note": "Java",
+  "topic": "补4 Stream API",
+  "question": "同一个 Stream 对象可以被多次消费（调用多次终止操作）。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "终止后流即关闭，再次使用抛 IllegalStateException。",
+  "type": "judge"
+ },
+ {
+  "id": "java113",
+  "note": "Java",
+  "topic": "补3 java.time",
+  "question": "SimpleDateFormat 是线程安全的，可以作为 static final 在多线程间共享。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "它内部持有可变的 Calendar 状态；应改用不可变且线程安全的 DateTimeFormatter。",
+  "type": "judge"
+ },
+ {
+  "id": "java114",
+  "note": "Java",
+  "topic": "第7章 异常与日志",
+  "question": "下列属于已检查（checked）异常的有（ ）。",
+  "options": [
+   "IOException",
+   "SQLException",
+   "InterruptedException",
+   "ClassNotFoundException",
+   "NullPointerException",
+   "IllegalArgumentException"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "explanation": "checked 异常编译器强制处理；后两者是 RuntimeException 子类，属于 unchecked。",
+  "type": "multi"
+ },
+ {
+  "id": "java115",
+  "note": "Java",
+  "topic": "第12章 并发",
+  "question": "下列属于 JVM 线程私有区域的有（ ）。",
+  "options": [
+   "程序计数器",
+   "虚拟机栈",
+   "本地方法栈",
+   "堆",
+   "方法区/元空间"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "堆与方法区被所有线程共享，是 GC 与类元数据的所在。",
+  "type": "multi"
+ },
+ {
+  "id": "java116",
+  "note": "Java",
+  "topic": "第12章 并发",
+  "question": "下列线程安全的集合/容器有（ ）。",
+  "options": [
+   "Vector",
+   "Hashtable",
+   "ConcurrentHashMap",
+   "CopyOnWriteArrayList",
+   "ArrayList",
+   "HashMap"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "explanation": "Vector/Hashtable 是遗留的全表同步类（不推荐但线程安全）；后两者是普通非线程安全集合。",
+  "type": "multi"
+ },
+ {
+  "id": "java117",
+  "note": "Java",
+  "topic": "第6章 接口与 lambda",
+  "question": "下列属于函数式接口的有（ ）。",
+  "options": [
+   "Runnable",
+   "Comparator<T>",
+   "Predicate<T>",
+   "Function<T,R>",
+   "Cloneable",
+   "Serializable"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "explanation": "前四者各有一个抽象方法；Cloneable/Serializable 是无方法的标记接口，不能作为 lambda 目标。",
+  "type": "multi"
+ },
+ {
+  "id": "java118",
+  "note": "Java",
+  "topic": "第8章 泛型",
+  "question": "下列关于泛型限制的说法正确的有（ ）。",
+  "options": [
+   "不能用基本类型实例化类型参数",
+   "不能 new T()",
+   "不能写 instanceof List<String>",
+   "类的静态字段不能使用类的类型变量",
+   "泛型是协变的"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "explanation": "泛型不协变（List<String> 不能赋给 List<Object>），故最后一项错。",
+  "type": "multi"
+ },
+ {
+  "id": "java119",
+  "note": "Java",
+  "topic": "补4 Stream API",
+  "question": "下列属于 Stream 终止操作的有（ ）。",
+  "options": [
+   "collect",
+   "count",
+   "forEach",
+   "findFirst",
+   "filter",
+   "map",
+   "sorted"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "explanation": "终止操作才触发计算；filter/map/sorted 是惰性中间操作。",
+  "type": "multi"
+ },
+ {
+  "id": "java120",
+  "note": "Java",
+  "topic": "第2章 环境",
+  "question": "javac 编译 Java 源文件后生成的字节码文件扩展名是____。",
+  "options": [],
+  "answer": [
+   ".class",
+   "class",
+   "CLASS"
+  ],
+  "explanation": "字节码文件以 .class 结尾，内含常量池、字段表、方法表，由 JVM 加载执行。",
+  "type": "fill"
+ },
+ {
+  "id": "java121",
+  "note": "Java",
+  "topic": "第5章 继承",
+  "question": "Integer 的自动装箱缓存范围是____到 127。",
+  "options": [],
+  "answer": [
+   "-128",
+   "－128",
+   "负128"
+  ],
+  "explanation": "Integer/Long/Short/Byte 缓存 -128~127，Character 缓存 0~127；比较包装类数值一律用 equals。",
+  "type": "fill"
+ },
+ {
+  "id": "java122",
+  "note": "Java",
+  "topic": "第9章 集合框架",
+  "question": "HashMap 中链表转红黑树的长度阈值（TREEIFY_THRESHOLD）是____。",
+  "options": [],
+  "answer": [
+   "8",
+   "八"
+  ],
+  "explanation": "链表长度 ≥8 且数组容量 ≥64 才树化；树节点 ≤6 退化为链表。",
+  "type": "fill"
+ },
+ {
+  "id": "java123",
+  "note": "Java",
+  "topic": "第4章 对象与类",
+  "question": "Java 的方法参数传递方式只有____传递。",
+  "options": [],
+  "answer": [
+   "值",
+   "按值",
+   "value",
+   "值传递"
+  ],
+  "explanation": "引用类型传的也是『引用值』的副本，因此不能让外部变量改指向。",
+  "type": "fill"
+ },
+ {
+  "id": "java124",
+  "note": "Java",
+  "topic": "补7 Java 新特性",
+  "question": "Java 14+ 的 switch 表达式用____代替冒号以消除贯穿，并可用 yield 返回值。",
+  "options": [],
+  "answer": [
+   "->",
+   "箭头",
+   "－>"
+  ],
+  "explanation": "case 1, 2 -> ...；每个分支独立执行，不需要 break。",
+  "type": "fill"
+ },
+ {
+  "id": "java125",
+  "note": "Java",
+  "topic": "第3章 基本结构",
+  "type": "program",
+  "question": "int sum = 0;\nfor (int i = 1; i <= __1__; i++) {\n    __2__;\n}\nSystem.out.println(\"sum=\" + sum);\n/* 预期输出：sum=5050 */",
+  "blanks": [
+   {
+    "answer": [
+     "100"
+    ]
+   },
+   {
+    "answer": [
+     "sum += i",
+     "sum = sum + i",
+     "sum=i+sum",
+     "sum+=i",
+     "sum=sum+i",
+     "sum=i+sum"
+    ]
+   }
+  ],
+  "explanation": "从 1 累加到 100 得 5050；循环上界填 100，累加语句把 i 加到 sum。",
+  "answer": "空1: 100；空2: sum += i / sum = sum + i"
+ },
+ {
+  "id": "java126",
+  "note": "Java",
+  "topic": "第3章 基本结构",
+  "type": "program",
+  "question": "StringBuilder sb = new StringBuilder();\nfor (char c : \"Java\".toCharArray()) {\n    __1__;\n}\nString r = __2__;\nSystem.out.println(r);\n/* 预期输出：avaJ */",
+  "blanks": [
+   {
+    "answer": [
+     "sb.insert(0, c)",
+     "sb.insert(0,c)"
+    ]
+   },
+   {
+    "answer": [
+     "sb.toString()",
+     "sb.toString()"
+    ]
+   }
+  ],
+  "explanation": "每次把字符插到头部即可反转字符串；StringBuilder 需通过 toString() 转回 String。",
+  "answer": "空1: sb.insert(0, c)；空2: sb.toString()"
+ },
+ {
+  "id": "java127",
+  "note": "Java",
+  "topic": "第9章 集合框架",
+  "type": "program",
+  "question": "Map<String, Integer> freq = new HashMap<>();\nfor (String w : \"java java stream\".split(\" \")) {\n    freq.__1__(w, 1, __2__);\n}\nSystem.out.println(freq.get(\"java\"));\n/* 预期输出：2 */",
+  "blanks": [
+   {
+    "answer": [
+     "merge"
+    ]
+   },
+   {
+    "answer": [
+     "Integer::sum",
+     "(a, b) -> a + b",
+     "(a,b)->a+b",
+     "(x, y) -> x + y"
+    ]
+   }
+  ],
+  "explanation": "Map.merge(key, value, remappingFunction)：键不存在则放入 1，存在则用函数合并旧值与新值。",
+  "answer": "空1: merge；空2: Integer::sum（或 (a,b)->a+b）"
+ },
+ {
+  "id": "java128",
+  "note": "Java",
+  "topic": "第7章 异常与日志",
+  "type": "program",
+  "question": "try (__1__ br = Files.newBufferedReader(Path.of(\"a.txt\"), StandardCharsets.UTF_8)) {\n    System.out.println(br.readLine());\n} catch (IOException e) {\n    e.printStackTrace();\n}",
+  "blanks": [
+   {
+    "answer": [
+     "BufferedReader",
+     "Reader"
+    ]
+   }
+  ],
+  "explanation": "try-with-resources 要求资源实现 AutoCloseable；BufferedReader 满足且在代码块结束时自动 close，无需显式 finally。",
+  "answer": "空1: BufferedReader（或 Reader）"
+ },
+ {
+  "id": "java129",
+  "note": "Java",
+  "topic": "补6 对象契约",
+  "question": "说明 equals/hashCode 契约的内容；若一个类只重写 equals 而不重写 hashCode，把它作为 HashSet 元素或 HashMap 键会出现什么现象？为什么？",
+  "options": [],
+  "answer": "契约：自反、对称、传递、一致、x.equals(null) 为 false；且 a.equals(b) 为 true 必须推出 a.hashCode()==b.hashCode()（反之不成立）。只重写 equals 时，两个逻辑相等的对象沿用 Object 的地址派生哈希码，通常不同，于是被分配到 HashSet/HashMap 的不同桶；contains/get 先按 hashCode 定位桶，桶不同就根本不会调用 equals，结果为 false，并且 Set 中能同时存入两个『相等』元素。修正：用同一组字段重写两者，如 return Objects.hash(f1, f2);。",
+  "explanation": "哈希容器先定位桶再比 equals；equals 与 hashCode 必须用同一组字段，且参与比较的字段在入容器后不可变。",
+  "type": "essay"
+ },
+ {
+  "id": "java130",
+  "note": "Java",
+  "topic": "第12章 并发",
+  "question": "写出 ThreadPoolExecutor 的七个构造参数，并说明提交任务后的执行判断顺序与默认拒绝策略。",
+  "options": [],
+  "answer": "七个参数：corePoolSize、maximumPoolSize、keepAliveTime、TimeUnit unit、BlockingQueue workQueue、ThreadFactory、RejectedExecutionHandler。执行顺序：① 当前线程数 < corePoolSize → 新建核心线程执行；② 否则尝试入 workQueue；③ 队列已满且线程数 < maximumPoolSize → 新建非核心线程执行；④ 仍无法接受 → 触发拒绝策略。默认 AbortPolicy，抛 RejectedExecutionException；另有 CallerRunsPolicy（提交线程自己执行）、DiscardPolicy（静默丢弃）、DiscardOldestPolicy（丢队列最老任务再重试）。生产应配有界队列，避免 Executors 无界队列工厂导致 OOM。",
+  "explanation": "注意『先入队再扩到最大线程数』，因此使用无界队列时 maximumPoolSize 几乎不生效。",
+  "type": "essay"
+ },
+ {
+  "id": "java131",
+  "note": "Java",
+  "topic": "第4章 对象与类",
+  "question": "描述创建子类对象时的完整初始化顺序，并说明为什么构造器中不宜调用可覆盖方法。",
+  "options": [],
+  "answer": "顺序：父类静态字段/静态块（类加载时只一次）→ 子类静态字段/静态块 → 父类实例字段默认值 → 父类显式初始化/实例初始化块 → 父类构造器体 → 子类实例字段默认值 → 子类显式初始化/实例块 → 子类构造器体。若父类构造器调用被子类覆盖的方法，动态绑定会分派到子类版本，而此刻子类字段尚未执行显式初始化，方法可能读到 0/false/null，产生难以定位的 bug。因此构造器应只调用 private、final 或 static 方法。",
+  "explanation": "静态先于实例、父类先于子类；动态绑定在构造过程中已经生效，这是『构造器中调用可覆盖方法』危险的根因。",
+  "type": "essay"
  }
 ]
