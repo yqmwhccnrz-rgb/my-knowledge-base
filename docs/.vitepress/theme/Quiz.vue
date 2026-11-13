@@ -27,7 +27,8 @@ const noteOptions = [
   { key: 'Audit', label: '审计笔记（CPA）' },
   { key: 'Finance', label: '金融学笔记' },
   { key: 'FCM', label: '财务成本管理笔记（CPA）' },
-  { key: 'Macro', label: '宏观经济学笔记' }
+  { key: 'Macro', label: '宏观经济学笔记' },
+  { key: 'DataStructure', label: '数据结构笔记' }
 ]
 const selectedNote = ref('all')
 const size = ref(5)

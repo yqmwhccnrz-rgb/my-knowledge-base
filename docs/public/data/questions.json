@@ -35017,5 +35017,1808 @@
   "answer": 3,
   "explanation": "标杆管理含计划、分析、整合、行动、评价五步。",
   "type": "choice"
+ },
+ {
+  "id": "ds1",
+  "note": "DataStructure",
+  "topic": "第1章 绪论",
+  "question": "数据结构的三要素是指（ ）。",
+  "options": [
+   "算法、程序、数据",
+   "逻辑结构、存储结构、运算",
+   "输入、输出、处理",
+   "时间、空间、正确性"
+  ],
+  "answer": 1,
+  "explanation": "数据结构＝逻辑结构×存储结构×运算；逻辑结构描述数据间关系，存储结构描述如何存放，运算是定义在上的操作。",
+  "type": "choice"
+ },
+ {
+  "id": "ds2",
+  "note": "DataStructure",
+  "topic": "第1章 绪论",
+  "question": "算法的五大特性不包括下列哪一项（ ）。",
+  "options": [
+   "确定性",
+   "可行性",
+   "输入/输出",
+   "有穷性",
+   "可移植性"
+  ],
+  "answer": 4,
+  "explanation": "算法五大特性：有穷性、确定性、可行性、输入（0个或多个）、输出（1个或多个）；可移植性是工程属性，不是算法特性。",
+  "type": "choice"
+ },
+ {
+  "id": "ds3",
+  "note": "DataStructure",
+  "topic": "第1章 绪论",
+  "question": "时间复杂度 T(n)=O(f(n)) 中的 O 记号描述的是（ ）。",
+  "options": [
+   "具体的执行步数",
+   "最坏情况下的步数",
+   "算法执行时间的增长率",
+   "平均情况下的步数",
+   "最好情况下的步数"
+  ],
+  "answer": 2,
+  "explanation": "O 记号刻画的是当规模 n 增大时执行时间随 f(n) 增长的渐近趋势，而非具体步数。",
+  "type": "choice"
+ },
+ {
+  "id": "ds4",
+  "note": "DataStructure",
+  "topic": "第1章 绪论",
+  "question": "下列时间复杂度由快到慢的正确顺序是（ ）。",
+  "options": [
+   "O(1)<O(log n)<O(n)<O(n log n)<O(n²)",
+   "O(1)<O(n)<O(log n)<O(n²)<O(n log n)",
+   "O(log n)<O(1)<O(n)<O(n log n)<O(n²)",
+   "O(1)<O(log n)<O(n log n)<O(n)<O(n²)"
+  ],
+  "answer": 0,
+  "explanation": "常见数量级由快到慢为 O(1) < O(log n) < O(n) < O(n log n) < O(n²) < O(n³) < O(2ⁿ)。",
+  "type": "choice"
+ },
+ {
+  "id": "ds5",
+  "note": "DataStructure",
+  "topic": "第1章 绪论",
+  "question": "若一个算法中循环次数固定为 10000 次，其时间复杂度仍为 O(1)。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "复杂度看增长率而非具体步数，与规模 n 无关的常量级操作都是 O(1)。",
+  "type": "judge"
+ },
+ {
+  "id": "ds6",
+  "note": "DataStructure",
+  "topic": "第1章 绪论",
+  "question": "原地工作（in-place）算法指的是其辅助空间为（ ）。",
+  "options": [
+   "O(1)",
+   "O(n log n)",
+   "O(n)",
+   "O(n²)"
+  ],
+  "answer": 0,
+  "explanation": "若辅助空间与输入规模无关（为常数），则称算法原地工作，辅助空间为 O(1)。",
+  "type": "choice"
+ },
+ {
+  "id": "ds7",
+  "note": "DataStructure",
+  "topic": "第1章 绪论",
+  "question": "除特别说明外，算法分析讨论的通常是____情况下的时间复杂度，它是执行时间的上界。",
+  "answer": [
+   "最坏",
+   "最差",
+   "最坏情况",
+   "worst"
+  ],
+  "explanation": "最坏情况时间复杂度给出了算法执行时间的一个上界，最常用。",
+  "type": "fill"
+ },
+ {
+  "id": "ds8",
+  "note": "DataStructure",
+  "topic": "第1章 绪论",
+  "question": "指数阶 O(2ⁿ) 的算法当问题规模 n 稍大时就几乎不可用，应优先选择多项式阶算法。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "指数时间随 n 增长极快，仅适合极小规模；工程上优先多项式阶。",
+  "type": "judge"
+ },
+ {
+  "id": "ds9",
+  "note": "DataStructure",
+  "topic": "第1章 绪论",
+  "question": "下列代码段 for(i=n; i>0; i=i/2) 的时间复杂度是（ ）。",
+  "options": [
+   "O(n log n)",
+   "O(log n)",
+   "O(n)",
+   "O(√n)"
+  ],
+  "answer": 1,
+  "explanation": "i 每次减半，循环次数约为 log₂n，属对数阶。",
+  "type": "choice"
+ },
+ {
+  "id": "ds10",
+  "note": "DataStructure",
+  "topic": "第2章 线性表",
+  "question": "顺序表中第 i 个元素的存储地址为（ ）。",
+  "options": [
+   "LOC(a₁)+(i+1)×L",
+   "LOC(a₁)+i",
+   "LOC(a₁)+(i−1)×L",
+   "LOC(a₁)+i×L"
+  ],
+  "answer": 2,
+  "explanation": "顺序表地址连续，第 i 个元素距首元素 (i−1) 个单元，故 LOC(aᵢ)=LOC(a₁)+(i−1)L。",
+  "type": "choice"
+ },
+ {
+  "id": "ds11",
+  "note": "DataStructure",
+  "topic": "第2章 线性表",
+  "question": "在顺序表中插入一个元素，平均需要移动的元素个数为（ ）。",
+  "options": [
+   "1",
+   "n/2",
+   "n",
+   "(n−1)/2"
+  ],
+  "answer": 1,
+  "explanation": "等概率插入到第 k 位需移动 n−k+1 个，平均 (n+1)/2≈n/2，复杂度 O(n)。",
+  "type": "choice"
+ },
+ {
+  "id": "ds12",
+  "note": "DataStructure",
+  "topic": "第2章 线性表",
+  "question": "在单链表结点 p 之后插入结点 s，正确的指针修改顺序是（ ）。",
+  "options": [
+   "n",
+   "e",
+   "s",
+   " ",
+   "e",
+   "e",
+   "n",
+   ">",
+   "先",
+   "t",
+   "n",
+   "t",
+   "=",
+   "-",
+   "=",
+   "x",
+   "p",
+   ">",
+   "x",
+   "-",
+   "p",
+   "-",
+   "，",
+   " ",
+   "t",
+   ">",
+   "后",
+   "先 s->next=p->next，后 p->next=s",
+   "x",
+   "s"
+  ],
+  "answer": 27,
+  "explanation": "同时赋值 p->next 与 s->next",
+  "type": "choice"
+ },
+ {
+  "id": "ds13",
+  "note": "DataStructure",
+  "topic": "第2章 线性表",
+  "question": "引入头结点的主要目的是（ ）。",
+  "options": [
+   "增加结点信息",
+   "使链表可随机存取",
+   "统一空表与非空表的处理",
+   "节省存储空间",
+   "加快查找速度"
+  ],
+  "answer": 2,
+  "explanation": "头结点位于首元结点之前，使对空表与非空表的操作一致，无需特判。",
+  "type": "choice"
+ },
+ {
+  "id": "ds14",
+  "note": "DataStructure",
+  "topic": "第2章 线性表",
+  "question": "下列对顺序表与单链表的比较，正确的是（ ）。",
+  "options": [
+   "O",
+   "随",
+   "(",
+   "单",
+   "表",
+   "取",
+   ")",
+   "机",
+   "顺序表可随机存取 O(1)，单链表只能顺序存取 O(n)",
+   " ",
+   "链",
+   "可",
+   "1",
+   "存"
+  ],
+  "answer": 8,
+  "explanation": "二者插入删除代价相同",
+  "type": "choice"
+ },
+ {
+  "id": "ds15",
+  "note": "DataStructure",
+  "topic": "第2章 线性表",
+  "question": "循环链表的主要判别空表条件是（ ）。",
+  "options": [
+   "L",
+   "e",
+   "=",
+   "h",
+   "N",
+   " ",
+   "U",
+   "=",
+   "L",
+   "d",
+   "a",
+   "rear->next == head",
+   " "
+  ],
+  "answer": 11,
+  "explanation": "rear == NULL",
+  "type": "choice"
+ },
+ {
+  "id": "ds16",
+  "note": "DataStructure",
+  "topic": "第2章 线性表",
+  "question": "双向链表的删除与插入操作通常需要修改（ ）。",
+  "options": [
+   "两个方向的指针（prior 与 next）",
+   "t",
+   "针",
+   " ",
+   "n",
+   "x",
+   "指",
+   " ",
+   "e",
+   "仅"
+  ],
+  "answer": 0,
+  "explanation": "仅 prior 指针",
+  "type": "choice"
+ },
+ {
+  "id": "ds17",
+  "note": "DataStructure",
+  "topic": "第2章 线性表",
+  "question": "将两个有序顺序表归并为一个有序表的时间复杂度为（ ）。",
+  "options": [
+   "O(n+m)",
+   "O(n²)",
+   "O(n)",
+   "O(n log n)"
+  ],
+  "answer": 0,
+  "explanation": "归并时双指针各推进一次取较小者，时间 O(n+m)、空间 O(n+m)，是归并排序的微观版本。",
+  "type": "choice"
+ },
+ {
+  "id": "ds18",
+  "note": "DataStructure",
+  "topic": "第2章 线性表",
+  "question": "单链表的插入与删除不需移动元素，只需修改指针，但定位前驱仍需 O(n)。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "改链本身 O(1)，但找到插入/删除位置的前驱需遍历。",
+  "type": "judge"
+ },
+ {
+  "id": "ds19",
+  "note": "DataStructure",
+  "topic": "第2章 线性表",
+  "question": "单链表的一个结点通常由____域和____域两部分组成，后者指向下一个结点。",
+  "answer": [
+   "数据",
+   "指针"
+  ],
+  "explanation": "结点＝数据域＋指针域；指针域存放后继结点地址。",
+  "type": "fill"
+ },
+ {
+  "id": "ds20",
+  "note": "DataStructure",
+  "topic": "第2章 线性表",
+  "question": "对于表长难以预知且频繁增删的场合，应优先选用（ ）。",
+  "options": [
+   "顺",
+   "序",
+   "储",
+   "表",
+   "序",
+   "顺",
+   "）",
+   "存",
+   "（",
+   "链式存储（链表）"
+  ],
+  "answer": 9,
+  "explanation": "哈希存储",
+  "type": "choice"
+ },
+ {
+  "id": "ds21",
+  "note": "DataStructure",
+  "topic": "第3章 栈和队列",
+  "question": "栈的基本特征是（ ）。",
+  "options": [
+   "O",
+   "先",
+   "F",
+   "（",
+   "进",
+   "）",
+   "出",
+   "F",
+   "I",
+   "后进先出（LIFO）",
+   "先"
+  ],
+  "answer": 9,
+  "explanation": "随机进出",
+  "type": "choice"
+ },
+ {
+  "id": "ds22",
+  "note": "DataStructure",
+  "topic": "第3章 栈和队列",
+  "question": "队列的基本特征是（ ）。",
+  "options": [
+   "先进先出（FIFO）",
+   "后",
+   "L",
+   "（",
+   "I",
+   "出",
+   "O",
+   "先",
+   "进",
+   "）",
+   "F"
+  ],
+  "answer": 0,
+  "explanation": "随机进出",
+  "type": "choice"
+ },
+ {
+  "id": "ds23",
+  "note": "DataStructure",
+  "topic": "第3章 栈和队列",
+  "question": "递归函数调用之所以能正确返回，主要依靠（ ）。",
+  "options": [
+   "系统栈（递归工作栈）保存返回地址与局部变量",
+   "存",
+   "区",
+   "保",
+   "堆"
+  ],
+  "answer": 0,
+  "explanation": "全局变量",
+  "type": "choice"
+ },
+ {
+  "id": "ds24",
+  "note": "DataStructure",
+  "topic": "第3章 栈和队列",
+  "question": "为区分循环队列的队空与队满，通常采用（ ）。",
+  "options": [
+   "=",
+   "r",
+   "t",
+   "n",
+   "e",
+   "o",
+   "a",
+   " ",
+   "f",
+   " ",
+   "队",
+   "r",
+   "(rear+1)%MAX == front 表示队满",
+   "示",
+   "=",
+   "r",
+   "满",
+   " ",
+   "表"
+  ],
+  "answer": 12,
+  "explanation": "front == rear+1 表示队满",
+  "type": "choice"
+ },
+ {
+  "id": "ds25",
+  "note": "DataStructure",
+  "topic": "第3章 栈和队列",
+  "question": "循环队列中当前元素个数的计算公式是（ ）。",
+  "options": [
+   "r",
+   "n",
+   "o",
+   "f",
+   "e",
+   "r",
+   "a",
+   "r",
+   " ",
+   "−",
+   " ",
+   "(rear − front + MAX) % MAX",
+   "t"
+  ],
+  "answer": 11,
+  "explanation": "(front − rear + MAX) % MAX",
+  "type": "choice"
+ },
+ {
+  "id": "ds26",
+  "note": "DataStructure",
+  "topic": "第3章 栈和队列",
+  "question": "循环队列通过牺牲一个存储单元来区分队空与队满。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "也可用 tag 标志或计数字段区分。",
+  "type": "judge"
+ },
+ {
+  "id": "ds27",
+  "note": "DataStructure",
+  "topic": "第3章 栈和队列",
+  "question": "下列对栈应用的叙述，正确的是（ ）。",
+  "options": [
+   "用",
+   "栈",
+   "归",
+   "于",
+   "递",
+   "不",
+   "能",
+   "可用栈实现表达式求值与括号匹配"
+  ],
+  "answer": 7,
+  "explanation": "队列用于表达式求值",
+  "type": "choice"
+ },
+ {
+  "id": "ds28",
+  "note": "DataStructure",
+  "topic": "第3章 栈和队列",
+  "question": "链队出队最后一个元素后，必须（ ）。",
+  "options": [
+   "o",
+   "为",
+   "e",
+   " ",
+   " ",
+   "r",
+   "r",
+   "置",
+   "n",
+   "r",
+   "f",
+   "t",
+   " ",
+   "a",
+   "将",
+   "将 rear 也置为空，否则成野指针"
+  ],
+  "answer": 15,
+  "explanation": "无需处理",
+  "type": "choice"
+ },
+ {
+  "id": "ds29",
+  "note": "DataStructure",
+  "topic": "第3章 栈和队列",
+  "question": "共享栈是指（ ）。",
+  "options": [
+   "两个栈的栈底分别在数组两端、向中间增长",
+   "用",
+   "顶",
+   "个",
+   "栈",
+   "两",
+   "栈",
+   "共",
+   "一",
+   "个"
+  ],
+  "answer": 0,
+  "explanation": "栈与队列共享空间",
+  "type": "choice"
+ },
+ {
+  "id": "ds30",
+  "note": "DataStructure",
+  "topic": "第3章 栈和队列",
+  "question": "栈的典型应用包括括号匹配、____（中缀转后缀求值）、函数调用与递归、回溯（如八皇后）等。",
+  "answer": [
+   "表达式求值"
+  ],
+  "explanation": "栈在表达式求值、括号匹配、递归/回溯中不可或缺。",
+  "type": "fill"
+ },
+ {
+  "id": "ds31",
+  "note": "DataStructure",
+  "topic": "第4章 串",
+  "question": "BF（朴素）模式匹配算法在最坏情况下的时间复杂度为（ ）。",
+  "options": [
+   "O(n)",
+   "O(m log n)",
+   "O(n+m)",
+   "O(n×m)"
+  ],
+  "answer": 3,
+  "explanation": "主串与模式串每次都失配于末尾，共约 n×m 次比较。",
+  "type": "choice"
+ },
+ {
+  "id": "ds32",
+  "note": "DataStructure",
+  "topic": "第4章 串",
+  "question": "KMP 算法利用 next 数组，使时间复杂度降为（ ）。",
+  "options": [
+   "O(n)",
+   "O(n×m)",
+   "O(m²)",
+   "O(n+m)"
+  ],
+  "answer": 3,
+  "explanation": "KMP 主串指针不回退，仅模式串滑动，总比较 O(n+m)。",
+  "type": "choice"
+ },
+ {
+  "id": "ds33",
+  "note": "DataStructure",
+  "topic": "第4章 串",
+  "question": "KMP 中 next[j] 的取值等于（ ）。",
+  "options": [
+   "式",
+   "模",
+   "模式串前 j−1 个字符最长相等前后缀长度 + 1",
+   "度",
+   "长",
+   "串"
+  ],
+  "answer": 2,
+  "explanation": "主串前 j 个字符长度",
+  "type": "choice"
+ },
+ {
+  "id": "ds34",
+  "note": "DataStructure",
+  "topic": "第4章 串",
+  "question": "手工计算 KMP 的 next 数组时，通常约定 next[1]=（ ）。",
+  "options": [
+   "0",
+   "j",
+   "2",
+   "1"
+  ],
+  "answer": 0,
+  "explanation": "约定 next[1]=0 表示首字符失配时模式串右移一位、主串前进一位。",
+  "type": "choice"
+ },
+ {
+  "id": "ds35",
+  "note": "DataStructure",
+  "topic": "第4章 串",
+  "question": "KMP 算法的核心在于主串指针无需回退，模式串靠 next 数组自行滑动。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "这正是 KMP 优于 BF 的关键。",
+  "type": "judge"
+ },
+ {
+  "id": "ds36",
+  "note": "DataStructure",
+  "topic": "第4章 串",
+  "question": "下列不是串常用存储结构的是（ ）。",
+  "options": [
+   "堆串",
+   "定长顺序串",
+   "二叉链表",
+   "块链串"
+  ],
+  "answer": 2,
+  "explanation": "串常用定长顺序、堆分配、块链三种；二叉链表是树的存储结构。",
+  "type": "choice"
+ },
+ {
+  "id": "ds37",
+  "note": "DataStructure",
+  "topic": "第4章 串",
+  "question": "nextval 数组的作用是（ ）。",
+  "options": [
+   "加",
+   "快",
+   "退",
+   "串",
+   "当 next 位置字符与当前字符相同时进一步回退，减少无效比较",
+   "回",
+   "主"
+  ],
+  "answer": 4,
+  "explanation": "替代模式串",
+  "type": "choice"
+ },
+ {
+  "id": "ds38",
+  "note": "DataStructure",
+  "topic": "第4章 串",
+  "question": "在串的模式匹配中，____算法利用失配函数（next/nextval）避免主串指针回退，时间复杂度 O(n+m)。",
+  "answer": [
+   "KMP"
+  ],
+  "explanation": "KMP 是高效模式匹配代表算法。",
+  "type": "fill"
+ },
+ {
+  "id": "ds39",
+  "note": "DataStructure",
+  "topic": "第5章 数组和广义表",
+  "question": "以行优先存储二维数组 a[m][n]（下标从 1 起），元素 a[i][j] 的地址为（ ）。",
+  "options": [
+   " ",
+   " ",
+   "×",
+   ")",
+   "1",
+   " ",
+   " ",
+   "+",
+   "−",
+   "×",
+   "−",
+   ")",
+   "+",
+   "j",
+   "base + (i−1)×n + (j−1) × L",
+   "i",
+   " ",
+   "(",
+   "m",
+   "b",
+   " ",
+   "1",
+   "L",
+   "e",
+   "(",
+   "a",
+   "s"
+  ],
+  "answer": 14,
+  "explanation": "base + i×n + j × L",
+  "type": "choice"
+ },
+ {
+  "id": "ds40",
+  "note": "DataStructure",
+  "topic": "第5章 数组和广义表",
+  "question": "对称矩阵（aᵢⱼ=aⱼᵢ）的压缩存储通常只保存（ ）。",
+  "options": [
+   "矩",
+   "下三角（或上三角）",
+   "个",
+   "阵",
+   "整"
+  ],
+  "answer": 1,
+  "explanation": "对角线",
+  "type": "choice"
+ },
+ {
+  "id": "ds41",
+  "note": "DataStructure",
+  "topic": "第5章 数组和广义表",
+  "question": "稀疏矩阵的经典压缩表示是（ ）。",
+  "options": [
+   "行",
+   "三元组表 (i, j, v)",
+   "号",
+   "仅",
+   "存"
+  ],
+  "answer": 1,
+  "explanation": "邻接矩阵",
+  "type": "choice"
+ },
+ {
+  "id": "ds42",
+  "note": "DataStructure",
+  "topic": "第5章 数组和广义表",
+  "question": "广义表的元素可以是（ ）。",
+  "options": [
+   "能",
+   "原子或子表",
+   "原",
+   "子",
+   "只",
+   "是"
+  ],
+  "answer": 1,
+  "explanation": "只能是子表",
+  "type": "choice"
+ },
+ {
+  "id": "ds43",
+  "note": "DataStructure",
+  "topic": "第5章 数组和广义表",
+  "question": "数组的维度固定且可随机存取，是很多其他结构（如矩阵）的实现基础。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "数组按下标到地址的映射实现随机存取。",
+  "type": "judge"
+ },
+ {
+  "id": "ds44",
+  "note": "DataStructure",
+  "topic": "第5章 数组和广义表",
+  "question": "行优先与列优先存储的主要区别是（ ）。",
+  "options": [
+   "数",
+   "用",
+   "字",
+   "元素在内存中的排列顺序（地址公式）不同",
+   "不",
+   "占",
+   "的",
+   "同",
+   "节"
+  ],
+  "answer": 3,
+  "explanation": "是否可随机存取",
+  "type": "choice"
+ },
+ {
+  "id": "ds45",
+  "note": "DataStructure",
+  "topic": "第6章 树和二叉树",
+  "question": "对任意二叉树，叶子结点数 n₀ 与度为 2 的结点数 n₂ 满足（ ）。",
+  "options": [
+   "1",
+   " ",
+   "₀",
+   "=",
+   " ",
+   "n",
+   "n",
+   "n₀ = n₂ + 1",
+   "−",
+   "₂",
+   " ",
+   " "
+  ],
+  "answer": 7,
+  "explanation": "n₀ = 2n₂",
+  "type": "choice"
+ },
+ {
+  "id": "ds46",
+  "note": "DataStructure",
+  "topic": "第6章 树和二叉树",
+  "question": "深度为 k 的二叉树最多有（ ）个结点。",
+  "options": [
+   "2",
+   "2ᵏ − 1",
+   "ᵏ"
+  ],
+  "answer": 1,
+  "explanation": "2^{k−1}",
+  "type": "choice"
+ },
+ {
+  "id": "ds47",
+  "note": "DataStructure",
+  "topic": "第6章 树和二叉树",
+  "question": "有 n 个结点的完全二叉树，其深度为（ ）。",
+  "options": [
+   "₂",
+   "n",
+   "⌈",
+   "l",
+   "⌊log₂n⌋ + 1",
+   "o",
+   "g",
+   "⌉"
+  ],
+  "answer": 4,
+  "explanation": "n",
+  "type": "choice"
+ },
+ {
+  "id": "ds48",
+  "note": "DataStructure",
+  "topic": "第6章 树和二叉树",
+  "question": "要唯一确定一棵二叉树，已知遍历序列必须包含（ ）。",
+  "options": [
+   "中序序列 ＋（先序或后序）",
+   "＋",
+   "序",
+   " ",
+   "后",
+   " ",
+   "序",
+   "先"
+  ],
+  "answer": 0,
+  "explanation": "仅先序",
+  "type": "choice"
+ },
+ {
+  "id": "ds49",
+  "note": "DataStructure",
+  "topic": "第6章 树和二叉树",
+  "question": "仅凭先序序列与后序序列不能唯一确定一棵二叉树。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "缺中序无法划分左右子树。",
+  "type": "judge"
+ },
+ {
+  "id": "ds50",
+  "note": "DataStructure",
+  "topic": "第6章 树和二叉树",
+  "question": "一棵 n 结点的二叉树，经线索化后共可利用（ ）个空指针。",
+  "options": [
+   "n + 1",
+   "n"
+  ],
+  "answer": 0,
+  "explanation": "2n",
+  "type": "choice"
+ },
+ {
+  "id": "ds51",
+  "note": "DataStructure",
+  "topic": "第6章 树和二叉树",
+  "question": "哈夫曼树（最优二叉树）使（ ）达到最小。",
+  "options": [
+   "带权路径长度 WPL",
+   "度",
+   "树",
+   "高",
+   "的"
+  ],
+  "answer": 0,
+  "explanation": "结点数",
+  "type": "choice"
+ },
+ {
+  "id": "ds52",
+  "note": "DataStructure",
+  "topic": "第6章 树和二叉树",
+  "question": "将一棵一般的树转换为二叉树，采用（ ）。",
+  "options": [
+   "表",
+   "示",
+   "双",
+   "亲",
+   "法",
+   "孩子兄弟表示法（左孩子、右兄弟）"
+  ],
+  "answer": 5,
+  "explanation": "直接映射",
+  "type": "choice"
+ },
+ {
+  "id": "ds53",
+  "note": "DataStructure",
+  "topic": "第6章 树和二叉树",
+  "question": "森林的先序遍历对应于其转换后二叉树的（ ）。",
+  "options": [
+   "序",
+   "遍",
+   "历",
+   "先序遍历",
+   "中"
+  ],
+  "answer": 3,
+  "explanation": "后序遍历",
+  "type": "choice"
+ },
+ {
+  "id": "ds54",
+  "note": "DataStructure",
+  "topic": "第6章 树和二叉树",
+  "question": "哈夫曼编码是（ ）。",
+  "options": [
+   "前缀码（任一字符编码都不是另一字符编码的前缀）",
+   "码",
+   "等",
+   "长"
+  ],
+  "answer": 0,
+  "explanation": "错误检测码",
+  "type": "choice"
+ },
+ {
+  "id": "ds55",
+  "note": "DataStructure",
+  "topic": "第6章 树和二叉树",
+  "question": "哈夫曼树不唯一（权值相同时合并次序可不同），但最小 WPL 唯一。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "WPL 最小值是确定的。",
+  "type": "judge"
+ },
+ {
+  "id": "ds56",
+  "note": "DataStructure",
+  "topic": "第6章 树和二叉树",
+  "question": "N 皇后问题通常采用（ ）求解。",
+  "options": [
+   "心",
+   "贪",
+   "法",
+   "回溯法"
+  ],
+  "answer": 3,
+  "explanation": "动态规划",
+  "type": "choice"
+ },
+ {
+  "id": "ds57",
+  "note": "DataStructure",
+  "topic": "第7章 图",
+  "question": "无向图的邻接矩阵是（ ），空间复杂度为（ ）。",
+  "options": [
+   "|",
+   ")",
+   "²",
+   "对称矩阵，O(|V|²)",
+   "(",
+   "，",
+   "矩",
+   "V",
+   "O",
+   "|",
+   "称",
+   "阵",
+   "对",
+   "非"
+  ],
+  "answer": 3,
+  "explanation": "稀疏矩阵，O(|V|+|E|)",
+  "type": "choice"
+ },
+ {
+  "id": "ds58",
+  "note": "DataStructure",
+  "topic": "第7章 图",
+  "question": "邻接表的空间复杂度为（ ）。",
+  "options": [
+   "O(|V| + |E|)",
+   "O(|E|)",
+   "O(|V|)",
+   "O(|V|²)"
+  ],
+  "answer": 0,
+  "explanation": "邻接表由顶点表与边链表组成，适合稀疏图。",
+  "type": "choice"
+ },
+ {
+  "id": "ds59",
+  "note": "DataStructure",
+  "topic": "第7章 图",
+  "question": "图的 DFS 与 BFS 遍历的时间复杂度均为（ ）。",
+  "options": [
+   "O(|V|²)",
+   "O(|V| + |E|)",
+   "O(|V| log |V|)",
+   "O(|E| log |E|)"
+  ],
+  "answer": 1,
+  "explanation": "两种遍历每条边、每个顶点访问常数次。",
+  "type": "choice"
+ },
+ {
+  "id": "ds60",
+  "note": "DataStructure",
+  "topic": "第7章 图",
+  "question": "Prim 算法求最小生成树的时间复杂度为（ ），适合（ ）。",
+  "options": [
+   "(",
+   "稀",
+   "|",
+   "o",
+   "E",
+   "，",
+   ")",
+   "|",
+   "图",
+   "E",
+   "|",
+   " ",
+   " ",
+   "O(|V|²)，稠密图",
+   "g",
+   "l",
+   "疏",
+   "|",
+   "O"
+  ],
+  "answer": 13,
+  "explanation": "O(|V|³)，任意图",
+  "type": "choice"
+ },
+ {
+  "id": "ds61",
+  "note": "DataStructure",
+  "topic": "第7章 图",
+  "question": "Kruskal 算法求最小生成树的时间复杂度为（ ），适合（ ）。",
+  "options": [
+   "|",
+   "密",
+   ")",
+   "²",
+   "V",
+   "，",
+   "O",
+   "(",
+   "稠",
+   "O(|E| log |E|)，稀疏图",
+   "图",
+   "|"
+  ],
+  "answer": 9,
+  "explanation": "O(|V|³)，任意图",
+  "type": "choice"
+ },
+ {
+  "id": "ds62",
+  "note": "DataStructure",
+  "topic": "第7章 图",
+  "question": "Dijkstra 单源最短路径算法（经典实现）不能处理（ ）。",
+  "options": [
+   "边",
+   "负权边",
+   "正",
+   "权"
+  ],
+  "answer": 1,
+  "explanation": "有向边",
+  "type": "choice"
+ },
+ {
+  "id": "ds63",
+  "note": "DataStructure",
+  "topic": "第7章 图",
+  "question": "Floyd 算法求各顶点对最短路径的时间复杂度为（ ）。",
+  "options": [
+   "O(|V| log |V|)",
+   "O(|V|²)",
+   "O(|E| log |E|)",
+   "O(|V|³)"
+  ],
+  "answer": 3,
+  "explanation": "Floyd 三重循环动态规划，O(V³)，可处理负权（无负权回路）。",
+  "type": "choice"
+ },
+ {
+  "id": "ds64",
+  "note": "DataStructure",
+  "topic": "第7章 图",
+  "question": "拓扑排序用于（ ）网，若输出顶点数少于 n 则说明（ ）。",
+  "options": [
+   "有",
+   "AOV，有环",
+   "O",
+   "E",
+   "，",
+   "环",
+   "A"
+  ],
+  "answer": 1,
+  "explanation": "AOV，无环",
+  "type": "choice"
+ },
+ {
+  "id": "ds65",
+  "note": "DataStructure",
+  "topic": "第7章 图",
+  "question": "关键路径是 AOE 网中的（ ），决定工程总工期。",
+  "options": [
+   "短",
+   "路",
+   "径",
+   "最长路径",
+   "最"
+  ],
+  "answer": 3,
+  "explanation": "关键活动之和",
+  "type": "choice"
+ },
+ {
+  "id": "ds66",
+  "note": "DataStructure",
+  "topic": "第7章 图",
+  "question": "下列关于图存储的叙述，正确的是（ ）。",
+  "options": [
+   "间",
+   "比",
+   "邻接矩阵无向图对称，邻接表空间与边数相关",
+   "定",
+   "邻",
+   "阵",
+   "表",
+   "接",
+   "空",
+   "接",
+   "矩",
+   "一",
+   "邻",
+   "省"
+  ],
+  "answer": 2,
+  "explanation": "邻接表不能表示有向图",
+  "type": "choice"
+ },
+ {
+  "id": "ds67",
+  "note": "DataStructure",
+  "topic": "第7章 图",
+  "question": "无向图的邻接矩阵一定对称，因为其边 (u,v) 与 (v,u) 等价。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "无向边无方向，矩阵对称。",
+  "type": "judge"
+ },
+ {
+  "id": "ds68",
+  "note": "DataStructure",
+  "topic": "第7章 图",
+  "question": "最小生成树的 Prim 与 Kruskal 本质上都是（ ）算法。",
+  "options": [
+   "规",
+   "划",
+   "动",
+   "态",
+   "贪心"
+  ],
+  "answer": 4,
+  "explanation": "回溯",
+  "type": "choice"
+ },
+ {
+  "id": "ds69",
+  "note": "DataStructure",
+  "topic": "第8章 查找",
+  "question": "顺序查找（线性表）的平均查找长度 ASL 约为（ ）。",
+  "options": [
+   "√n",
+   "(n+1)/2",
+   "log₂n",
+   "n"
+  ],
+  "answer": 1,
+  "explanation": "等概率下平均比较 (n+1)/2，O(n)。",
+  "type": "choice"
+ },
+ {
+  "id": "ds70",
+  "note": "DataStructure",
+  "topic": "第8章 查找",
+  "question": "折半查找要求被查找表必须（ ）。",
+  "options": [
+   "有序且顺序存储",
+   "即",
+   "可",
+   "无",
+   "序"
+  ],
+  "answer": 0,
+  "explanation": "仅链式存储",
+  "type": "choice"
+ },
+ {
+  "id": "ds71",
+  "note": "DataStructure",
+  "topic": "第8章 查找",
+  "question": "二叉排序树（BST）查找、插入、删除的平均时间复杂度为（ ），最坏退化为（ ）。",
+  "options": [
+   ")",
+   "l",
+   "g",
+   "O",
+   "o",
+   "n",
+   "n",
+   "(",
+   ")",
+   "O(log n)，O(n)",
+   "(",
+   "O",
+   " ",
+   "，"
+  ],
+  "answer": 9,
+  "explanation": "O(n log n)，O(n)",
+  "type": "choice"
+ },
+ {
+  "id": "ds72",
+  "note": "DataStructure",
+  "topic": "第8章 查找",
+  "question": "平衡二叉树（AVL）中任意结点的平衡因子绝对值不超过（ ）。",
+  "options": [
+   "3",
+   "0",
+   "2",
+   "1"
+  ],
+  "answer": 3,
+  "explanation": "AVL 平衡因子 ∈{-1,0,1}，失衡用 LL/RR/LR/RL 旋转。",
+  "type": "choice"
+ },
+ {
+  "id": "ds73",
+  "note": "DataStructure",
+  "topic": "第8章 查找",
+  "question": "AVL 树插入失衡后，可能的旋转调整方式是（ ）。",
+  "options": [
+   "/",
+   "种",
+   " ",
+   "旋",
+   "旋",
+   "仅",
+   "左",
+   "两",
+   "LL / RR / LR / RL 四种",
+   " ",
+   "右"
+  ],
+  "answer": 8,
+  "explanation": "仅双旋转",
+  "type": "choice"
+ },
+ {
+  "id": "ds74",
+  "note": "DataStructure",
+  "topic": "第8章 查找",
+  "question": "m 阶 B-树每个结点最多含（ ）个关键字、（ ）棵子树。",
+  "options": [
+   "m",
+   "+",
+   "m",
+   "1",
+   "m−1，m",
+   "，"
+  ],
+  "answer": 4,
+  "explanation": "⌈m/2⌉−1，⌈m/2⌉",
+  "type": "choice"
+ },
+ {
+  "id": "ds75",
+  "note": "DataStructure",
+  "topic": "第8章 查找",
+  "question": "与 B-树相比，B+树的主要特点是（ ）。",
+  "options": [
+   "有",
+   "结",
+   "点",
+   "数",
+   "据",
+   "叶子结点用指针串成有序链表，利于范围查询与全表扫描",
+   "所",
+   "都",
+   "存"
+  ],
+  "answer": 5,
+  "explanation": "不能用于数据库",
+  "type": "choice"
+ },
+ {
+  "id": "ds76",
+  "note": "DataStructure",
+  "topic": "第8章 查找",
+  "question": "哈希表链地址法（拉链法）的平均查找长度约为（ ）。",
+  "options": [
+   "O(log n)",
+   "1",
+   "1 + α/2（α 为装填因子）",
+   "n/2"
+  ],
+  "answer": 2,
+  "explanation": "链地址法 ASL≈1+α/2；α 越大冲突越多。",
+  "type": "choice"
+ },
+ {
+  "id": "ds77",
+  "note": "DataStructure",
+  "topic": "第8章 查找",
+  "question": "红黑树通过「黑高一致」等性质，将树高控制在约（ ），保证查找/插入/删除均 O(log n)。",
+  "options": [
+   "g",
+   "n",
+   "₂",
+   "2log₂(n+1)",
+   "l",
+   "o"
+  ],
+  "answer": 3,
+  "explanation": "n",
+  "type": "choice"
+ },
+ {
+  "id": "ds78",
+  "note": "DataStructure",
+  "topic": "第8章 查找",
+  "question": "根据鸽巢原理，哈希冲突不可避免，只能通过好的哈希函数与冲突处理方法减少。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "冲突只能减少与处理，无法根除。",
+  "type": "judge"
+ },
+ {
+  "id": "ds79",
+  "note": "DataStructure",
+  "topic": "第9章 算法设计",
+  "question": "分治法的基本步骤是（ ）。",
+  "options": [
+   " ",
+   "溯",
+   "→",
+   " ",
+   " ",
+   " ",
+   "回",
+   "分解 → 解决 → 合并",
+   "→",
+   "验",
+   "证",
+   "心",
+   "贪"
+  ],
+  "answer": 7,
+  "explanation": "建表 → 查表 → 删除",
+  "type": "choice"
+ },
+ {
+  "id": "ds80",
+  "note": "DataStructure",
+  "topic": "第9章 算法设计",
+  "question": "对递归方程 T(n)=aT(n/b)+f(n)，主定理中 c 的取值是（ ）。",
+  "options": [
+   " ",
+   "o",
+   "g",
+   "_",
+   "l",
+   "a",
+   "log_b a",
+   "b"
+  ],
+  "answer": 6,
+  "explanation": "a+b",
+  "type": "choice"
+ },
+ {
+  "id": "ds81",
+  "note": "DataStructure",
+  "topic": "第9章 算法设计",
+  "question": "由主定理，归并排序 T(n)=2T(n/2)+n 的时间复杂度为（ ）。",
+  "options": [
+   "Θ",
+   ")",
+   "Θ(n log n)",
+   "(",
+   "n"
+  ],
+  "answer": 2,
+  "explanation": "Θ(n²)",
+  "type": "choice"
+ },
+ {
+  "id": "ds82",
+  "note": "DataStructure",
+  "topic": "第9章 算法设计",
+  "question": "二分查找 T(n)=T(n/2)+1 由主定理得（ ）。",
+  "options": [
+   "Θ",
+   "Θ(log n)",
+   ")",
+   "(",
+   "n"
+  ],
+  "answer": 1,
+  "explanation": "Θ(1)",
+  "type": "choice"
+ },
+ {
+  "id": "ds83",
+  "note": "DataStructure",
+  "topic": "第9章 算法设计",
+  "question": "贪心算法能使用的前提是两个基本要素：（ ）。",
+  "options": [
+   "重",
+   "优",
+   "构",
+   "最",
+   "题",
+   " ",
+   "叠",
+   "子",
+   "结",
+   "与",
+   "贪心选择性质 与 最优子结构",
+   "问",
+   " ",
+   "子"
+  ],
+  "answer": 10,
+  "explanation": "分治 与 递归",
+  "type": "choice"
+ },
+ {
+  "id": "ds84",
+  "note": "DataStructure",
+  "topic": "第9章 算法设计",
+  "question": "活动安排问题采用贪心策略时，通常按（ ）排序后依次选取相容活动。",
+  "options": [
+   "间",
+   "结束时间最早",
+   "早",
+   "最",
+   "时",
+   "始",
+   "开"
+  ],
+  "answer": 1,
+  "explanation": "持续时间最短",
+  "type": "choice"
+ },
+ {
+  "id": "ds85",
+  "note": "DataStructure",
+  "topic": "第9章 算法设计",
+  "question": "0-1 背包问题不能用贪心法求得最优解，而可拆背包（分数背包）可以用贪心法。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "0-1 背包须动态规划；可拆背包贪心得最优。",
+  "type": "judge"
+ },
+ {
+  "id": "ds86",
+  "note": "DataStructure",
+  "topic": "第9章 算法设计",
+  "question": "回溯法中，0-1 背包、子集和等问题对应的解空间树是（ ），共有（ ）片叶子。",
+  "options": [
+   "排",
+   "子集树，2ⁿ",
+   "树",
+   "列",
+   "，",
+   "!",
+   "n"
+  ],
+  "answer": 1,
+  "explanation": "子集树，n!",
+  "type": "choice"
+ },
+ {
+  "id": "ds87",
+  "note": "DataStructure",
+  "topic": "第9章 算法设计",
+  "question": "回溯法中，N 皇后、TSP、全排列等问题对应的解空间树是（ ），共有（ ）片叶子。",
+  "options": [
+   "排列树，n!",
+   "子",
+   "2",
+   "集",
+   "树",
+   "，",
+   "ⁿ"
+  ],
+  "answer": 0,
+  "explanation": "排列树，2ⁿ",
+  "type": "choice"
+ },
+ {
+  "id": "ds88",
+  "note": "DataStructure",
+  "topic": "第9章 算法设计",
+  "question": "与回溯法相比，分支限界法的主要特点是（ ）。",
+  "options": [
+   "先",
+   "求",
+   "有",
+   "所",
+   "深",
+   "解",
+   "度",
+   "用优先队列层次遍历、求一个最优解，效率更高",
+   "优"
+  ],
+  "answer": 7,
+  "explanation": "不使用限界函数",
+  "type": "choice"
+ },
+ {
+  "id": "ds89",
+  "note": "DataStructure",
+  "topic": "第9章 算法设计",
+  "question": "动态规划的两个基本要素是（ ）。",
+  "options": [
+   "最优子结构 与 重叠子问题",
+   "贪",
+   "选",
+   "择",
+   " ",
+   "优",
+   "子",
+   "结",
+   "心",
+   "质",
+   "性",
+   " ",
+   "构",
+   "最",
+   "与"
+  ],
+  "answer": 0,
+  "explanation": "分治 与 合并",
+  "type": "choice"
+ },
+ {
+  "id": "ds90",
+  "note": "DataStructure",
+  "topic": "第9章 算法设计",
+  "question": "0-1 背包的状态转移方程为（ ）。",
+  "options": [
+   "[",
+   "c",
+   "p",
+   "=",
+   "1",
+   "[",
+   "]",
+   "]",
+   "+",
+   "p",
+   "[",
+   "i",
+   "d",
+   "c",
+   "dp[i][c]=max(dp[i−1][c], dp[i−1][c−wᵢ]+vᵢ)",
+   "i",
+   "ᵢ",
+   "v",
+   "[",
+   "]",
+   "]",
+   "−",
+   "d"
+  ],
+  "answer": 14,
+  "explanation": "dp[i][c]=max(dp[i][c−1], dp[i−1][c])",
+  "type": "choice"
+ },
+ {
+  "id": "ds91",
+  "note": "DataStructure",
+  "topic": "第9章 算法设计",
+  "question": "分治要求子问题相互独立；若子问题重叠（如朴素 Fibonacci 递归），应改记忆化/动态规划，否则复杂度退化到指数级。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "重叠子问题用 DP/记忆化可将指数降为多项式。",
+  "type": "judge"
+ },
+ {
+  "id": "ds92",
+  "note": "DataStructure",
+  "topic": "第9章 算法设计",
+  "question": "下列算法中属于动态规划思想的是（ ）。",
+  "options": [
+   "查",
+   "二",
+   "找",
+   "Floyd 各顶点最短路、0-1 背包",
+   "分"
+  ],
+  "answer": 3,
+  "explanation": "Prim 最小生成树",
+  "type": "choice"
+ },
+ {
+  "id": "ds93",
+  "note": "DataStructure",
+  "topic": "第8章 排序",
+  "question": "下列排序算法中，稳定的是（ ）。",
+  "options": [
+   "归并排序",
+   "冒泡排序",
+   "直接插入排序",
+   "快速排序",
+   "基数排序",
+   "堆排序",
+   "简单选择排序"
+  ],
+  "answer": [
+   2,
+   1,
+   0,
+   4
+  ],
+  "explanation": "稳定：插/冒/归/基；不稳定：希/快/选/堆。",
+  "type": "multi"
+ },
+ {
+  "id": "ds94",
+  "note": "DataStructure",
+  "topic": "第9章 算法设计",
+  "question": "下列问题中可以用贪心算法求得最优解的是（ ）。",
+  "options": [
+   "Prim 最小生成树",
+   "TSP 求精确最优（一般不用纯贪心）",
+   "活动安排",
+   "Kruskal 最小生成树",
+   "0-1 背包",
+   "可拆背包"
+  ],
+  "answer": [
+   2,
+   0,
+   3,
+   5
+  ],
+  "explanation": "活动安排、Prim、Kruskal、可拆背包可用贪心；0-1 背包须 DP。",
+  "type": "multi"
+ },
+ {
+  "id": "ds95",
+  "note": "DataStructure",
+  "topic": "第8章 查找",
+  "question": "下列关于红黑树性质的描述，正确的有（ ）。",
+  "options": [
+   "叶子（NIL）为黑色",
+   "红结点的孩子必为黑色（无连续红结点）",
+   "每个结点平衡因子绝对值不超过 1",
+   "任一结点到其所有后代 NIL 叶子的路径含相同数目的黑结点",
+   "根结点为黑色"
+  ],
+  "answer": [
+   4,
+   1,
+   3,
+   0
+  ],
+  "explanation": "红黑树五条性质；平衡因子≤1 是 AVL 的要求。",
+  "type": "multi"
+ },
+ {
+  "id": "ds96",
+  "note": "DataStructure",
+  "topic": "第9章 算法设计",
+  "question": "下列问题中适合用动态规划求解的有（ ）。",
+  "options": [
+   "最长公共子序列 LCS",
+   "二分查找（分治）",
+   "0-1 背包",
+   "Floyd 各顶点最短路",
+   "矩阵连乘",
+   "活动安排（贪心）"
+  ],
+  "answer": [
+   2,
+   0,
+   4,
+   3
+  ],
+  "explanation": "这些均具最优子结构+重叠子问题，属 DP。",
+  "type": "multi"
+ },
+ {
+  "id": "ds97",
+  "note": "DataStructure",
+  "topic": "第1章 绪论",
+  "question": "算法的评价标准通常包括（ ）。",
+  "options": [
+   "高效性（时间/空间）",
+   "可读性",
+   "健壮性",
+   "有穷性",
+   "正确性"
+  ],
+  "answer": [
+   4,
+   1,
+   2,
+   0
+  ],
+  "explanation": "评价：正确性、可读性、健壮性、高效性；有穷性是算法特性而非评价维度（此处有穷性也可算特性，故保留前四项为主）。",
+  "type": "multi"
+ },
+ {
+  "id": "ds98",
+  "note": "DataStructure",
+  "topic": "第6章 树和二叉树",
+  "question": "给定叶子权值 {5, 9, 12, 13, 16, 45}，构造哈夫曼树并求最小带权路径长度 WPL。",
+  "options": [],
+  "answer": "合并过程：5+9=14；12+13=25；14+16=30；25+30=55；45+55=100。WPL = 各次合并代价之和 = 14+25+30+55+100 = 224（亦可用 Σwᵢlᵢ 验证）。",
+  "explanation": "哈夫曼树每次合并权值最小的两棵树，WPL 最小；本题 WPL=224。",
+  "type": "essay"
+ },
+ {
+  "id": "ds99",
+  "note": "DataStructure",
+  "topic": "第4章 串",
+  "question": "求模式串 P=「ababa」的 KMP next 数组（下标从 1 计，next[1]=0）。",
+  "options": [],
+  "answer": "next[1]=0；j=2 时「a」无真前后缀→1；j=3「ab」→1；j=4「aba」最长相等前后缀「a」→2；j=5「abab」最长相等前后缀「ab」→3。故 next = [0,1,1,2,3]。",
+  "explanation": "next[j] 为前 j−1 字符最长相等前后缀长度+1；kmp 手工计算务必用真前后缀。",
+  "type": "essay"
+ },
+ {
+  "id": "ds100",
+  "note": "DataStructure",
+  "topic": "第9章 算法设计",
+  "question": "用主定理判定 T(n)=2T(n/2)+n² 的渐近复杂度并说明类别。",
+  "options": [],
+  "answer": "c=log₂2=1；f(n)=n²=Ω(n^{1+ε})（取 ε=1）且 a·f(n/b)=2·(n/2)²=n²/2 ≤ c·n² 对 c=1/2 成立（正规），属第 3 类，故 T(n)=Θ(f(n))=Θ(n²)。",
+  "explanation": "主定理先算 c=log_b a，再比阶；本题 f(n) 增长快于 n^c，归第 3 类。",
+  "type": "essay"
  }
 ]
