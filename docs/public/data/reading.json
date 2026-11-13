@@ -2173,6 +2173,906 @@
           "zh": "永久的"
         }
       ]
+    },
+    {
+      "id": "pc4-15",
+      "level": "CET-4",
+      "topic": "旅行与交通",
+      "title": "A Trip to the Mountains",
+      "passage": "Last weekend we {1} for the mountains. We {2} the cold morning air and felt excited. On the way we {3} a small village and stopped for tea. When it began to rain, we {4} a wooden shelter nearby. After the rain we {5} walking and finally {6} the top before dark.",
+      "bank": [
+        {
+          "key": "A",
+          "en": "set off",
+          "zh": "出发，动身"
+        },
+        {
+          "key": "B",
+          "en": "take in",
+          "zh": "领略，享受"
+        },
+        {
+          "key": "C",
+          "en": "come across",
+          "zh": "偶然遇到"
+        },
+        {
+          "key": "D",
+          "en": "set out",
+          "zh": "开始，着手"
+        },
+        {
+          "key": "E",
+          "en": "go on",
+          "zh": "继续"
+        },
+        {
+          "key": "F",
+          "en": "reach",
+          "zh": "到达"
+        },
+        {
+          "key": "G",
+          "en": "give up",
+          "zh": "放弃"
+        },
+        {
+          "key": "H",
+          "en": "make for",
+          "zh": "朝……走去"
+        }
+      ],
+      "answers": {
+        "1": "A",
+        "2": "B",
+        "3": "C",
+        "4": "H",
+        "5": "E",
+        "6": "F"
+      },
+      "explain": {
+        "1": "set off 意为「出发、动身」，set off for the mountains 表示动身去山区。",
+        "2": "take in 意为「领略、享受」，与 the cold morning air 搭配。",
+        "3": "come across 意为「偶然遇到、碰见」，指路上偶遇一个小村庄。",
+        "4": "make for 意为「朝……走去」，make for a shelter 即朝避雨棚走去。",
+        "5": "go on 意为「继续」，go on walking 表示雨停后继续步行。",
+        "6": "reach 意为「到达」，reach the top 指抵达山顶。"
+      },
+      "glossary": [
+        {
+          "en": "shelter",
+          "zh": "遮蔽处，避雨棚"
+        },
+        {
+          "en": "steep",
+          "zh": "陡峭的"
+        }
+      ]
+    },
+    {
+      "id": "pc4-16",
+      "level": "CET-4",
+      "topic": "健康与运动",
+      "title": "Keeping a Habit",
+      "passage": "I {1} running three times a week two years ago. At first it was hard, but I {2} and soon began to enjoy it. My friend {3} me to join a local club, where we {4} with other runners every Saturday. The coach told us to {5} our speed on hot days. Now exercise has become part of my life and I never want to {6} .",
+      "bank": [
+        {
+          "key": "A",
+          "en": "took up",
+          "zh": "开始从事"
+        },
+        {
+          "key": "B",
+          "en": "kept at it",
+          "zh": "坚持下去"
+        },
+        {
+          "key": "C",
+          "en": "persuaded",
+          "zh": "说服"
+        },
+        {
+          "key": "D",
+          "en": "work out",
+          "zh": "锻炼"
+        },
+        {
+          "key": "E",
+          "en": "slow down",
+          "zh": "放慢"
+        },
+        {
+          "key": "F",
+          "en": "give it up",
+          "zh": "放弃它"
+        },
+        {
+          "key": "G",
+          "en": "put off",
+          "zh": "推迟"
+        },
+        {
+          "key": "H",
+          "en": "look into",
+          "zh": "调查"
+        }
+      ],
+      "answers": {
+        "1": "A",
+        "2": "B",
+        "3": "C",
+        "4": "D",
+        "5": "E",
+        "6": "F"
+      },
+      "explain": {
+        "1": "take up 意为「开始从事（一项爱好/运动）」，take up running 开始跑步。",
+        "2": "keep at it 意为「坚持下去」，与后文 began to enjoy it 呼应。",
+        "3": "persuade 意为「说服」，persuade sb to do 劝某人做某事。",
+        "4": "work out 意为「锻炼」，与 with other runners 搭配。",
+        "5": "slow down 意为「放慢」，教练建议高温天放慢速度。",
+        "6": "give it up 意为「放弃它」，指不想放弃运动习惯。"
+      },
+      "glossary": [
+        {
+          "en": "coach",
+          "zh": "教练"
+        },
+        {
+          "en": "speed",
+          "zh": "速度"
+        }
+      ]
+    },
+    {
+      "id": "pc4-17",
+      "level": "CET-4",
+      "topic": "科技与学习",
+      "title": "Online Study",
+      "passage": "Many students now {1} online courses to learn new skills. They can {2} the lessons at any time and {3} the parts they find difficult. Teachers often {4} short videos to explain key points. However, it is easy to {5} if you do not make a plan. To learn well, you should {6} a clear weekly schedule.",
+      "bank": [
+        {
+          "key": "A",
+          "en": "sign up for",
+          "zh": "报名参加"
+        },
+        {
+          "key": "B",
+          "en": "go over",
+          "zh": "复习，重看"
+        },
+        {
+          "key": "C",
+          "en": "replay",
+          "zh": "重播"
+        },
+        {
+          "key": "D",
+          "en": "put up",
+          "zh": "发布，上传"
+        },
+        {
+          "key": "E",
+          "en": "fall behind",
+          "zh": "落后"
+        },
+        {
+          "key": "F",
+          "en": "set out",
+          "zh": "制定，着手"
+        },
+        {
+          "key": "G",
+          "en": "give away",
+          "zh": "赠送"
+        },
+        {
+          "key": "H",
+          "en": "take over",
+          "zh": "接管"
+        }
+      ],
+      "answers": {
+        "1": "A",
+        "2": "B",
+        "3": "C",
+        "4": "D",
+        "5": "E",
+        "6": "F"
+      },
+      "explain": {
+        "1": "sign up for 意为「报名参加」，与 online courses 搭配。",
+        "2": "go over 意为「复习、过一遍」，指随时回顾课程。",
+        "3": "replay 意为「重播」，replay the parts 重看难点部分。",
+        "4": "put up 在此意为「发布、上传」，老师上传短视频。",
+        "5": "fall behind 意为「落后」，没有计划容易掉队。",
+        "6": "set out 意为「制定、着手做」，set out a schedule 制定计划。"
+      },
+      "glossary": [
+        {
+          "en": "schedule",
+          "zh": "日程，计划"
+        },
+        {
+          "en": "key point",
+          "zh": "要点"
+        }
+      ]
+    },
+    {
+      "id": "pc4-18",
+      "level": "CET-4",
+      "topic": "饮食与文化",
+      "title": "A Family Dinner",
+      "passage": "On New Year's Eve our family {1} a big dinner at home. My mother {2} the table with red candles, and my father {3} the cooking. We {4} old photos while waiting, and the children {5} opening their gifts. When the meal was ready, everyone {6} and shared the happy moment together.",
+      "bank": [
+        {
+          "key": "A",
+          "en": "put on",
+          "zh": "举办，准备"
+        },
+        {
+          "key": "B",
+          "en": "laid",
+          "zh": "摆放（餐桌）"
+        },
+        {
+          "key": "C",
+          "en": "was in charge of",
+          "zh": "负责"
+        },
+        {
+          "key": "D",
+          "en": "looked through",
+          "zh": "翻看"
+        },
+        {
+          "key": "E",
+          "en": "could hardly wait to",
+          "zh": "迫不及待"
+        },
+        {
+          "key": "F",
+          "en": "sat down",
+          "zh": "坐下"
+        },
+        {
+          "key": "G",
+          "en": "gave up",
+          "zh": "放弃"
+        },
+        {
+          "key": "H",
+          "en": "took over",
+          "zh": "接管"
+        }
+      ],
+      "answers": {
+        "1": "A",
+        "2": "B",
+        "3": "C",
+        "4": "D",
+        "5": "E",
+        "6": "F"
+      },
+      "explain": {
+        "1": "put on 在此意为「举办、准备（一顿饭）」，put on a dinner 办家宴。",
+        "2": "lay the table 意为「摆餐桌」，laid 为 lay 的过去式。",
+        "3": "be in charge of 意为「负责」，父亲负责掌厨。",
+        "4": "look through 意为「翻看」，look through old photos 翻看老照片。",
+        "5": "could hardly wait to 意为「迫不及待」，孩子急着拆礼物。",
+        "6": "sit down 意为「坐下」，大家落座共享晚餐。"
+      },
+      "glossary": [
+        {
+          "en": "candle",
+          "zh": "蜡烛"
+        },
+        {
+          "en": "share",
+          "zh": "分享"
+        }
+      ]
+    },
+    {
+      "id": "pc4-19",
+      "level": "CET-4",
+      "topic": "友谊与社交",
+      "title": "Helping a Friend",
+      "passage": "When Lisa lost her job, I {1} her and listened for hours. She was sad, but talking helped her {2} . A week later she {3} a new plan: to learn design online. I {4} some useful websites, and we {5} her resume together. Slowly her confidence {6} .",
+      "bank": [
+        {
+          "key": "A",
+          "en": "called on",
+          "zh": "拜访，看望"
+        },
+        {
+          "key": "B",
+          "en": "calm down",
+          "zh": "冷静下来"
+        },
+        {
+          "key": "C",
+          "en": "came up with",
+          "zh": "想出"
+        },
+        {
+          "key": "D",
+          "en": "pointed out",
+          "zh": "指出"
+        },
+        {
+          "key": "E",
+          "en": "went over",
+          "zh": "仔细检查"
+        },
+        {
+          "key": "F",
+          "en": "came back",
+          "zh": "恢复"
+        },
+        {
+          "key": "G",
+          "en": "gave away",
+          "zh": "赠送"
+        },
+        {
+          "key": "H",
+          "en": "put off",
+          "zh": "推迟"
+        }
+      ],
+      "answers": {
+        "1": "A",
+        "2": "B",
+        "3": "C",
+        "4": "D",
+        "5": "E",
+        "6": "F"
+      },
+      "explain": {
+        "1": "call on 意为「拜访、看望」，指去探望朋友。",
+        "2": "calm down 意为「冷静下来」，倾诉让她平复情绪。",
+        "3": "come up with 意为「想出」，想出新计划。",
+        "4": "point out 意为「指出」，我指出一些有用的网站。",
+        "5": "go over 意为「仔细检查」，一起梳理简历。",
+        "6": "come back 意为「恢复」，信心逐渐回来。"
+      },
+      "glossary": [
+        {
+          "en": "resume",
+          "zh": "简历"
+        },
+        {
+          "en": "confidence",
+          "zh": "信心"
+        }
+      ]
+    },
+    {
+      "id": "pc4-20",
+      "level": "CET-4",
+      "topic": "环境与生活",
+      "title": "A Cleaner Neighborhood",
+      "passage": "Our community {1} a clean-up day last month. Volunteers {2} the park and {3} bags of rubbish. The local shop {4} free gloves and water. More people began to {5} littering, and the streets {6} much tidier than before.",
+      "bank": [
+        {
+          "key": "A",
+          "en": "organized",
+          "zh": "组织"
+        },
+        {
+          "key": "B",
+          "en": "cleaned up",
+          "zh": "清理"
+        },
+        {
+          "key": "C",
+          "en": "picked up",
+          "zh": "捡起"
+        },
+        {
+          "key": "D",
+          "en": "handed out",
+          "zh": "分发"
+        },
+        {
+          "key": "E",
+          "en": "care about",
+          "zh": "在意，关心"
+        },
+        {
+          "key": "F",
+          "en": "turned out",
+          "zh": "结果是"
+        },
+        {
+          "key": "G",
+          "en": "gave up",
+          "zh": "放弃"
+        },
+        {
+          "key": "H",
+          "en": "looked into",
+          "zh": "调查"
+        }
+      ],
+      "answers": {
+        "1": "A",
+        "2": "B",
+        "3": "C",
+        "4": "D",
+        "5": "E",
+        "6": "F"
+      },
+      "explain": {
+        "1": "organize 意为「组织」，社区组织了清洁日。",
+        "2": "clean up 意为「清理」，志愿者清理公园。",
+        "3": "pick up 意为「捡起」，捡起一袋袋垃圾。",
+        "4": "hand out 意为「分发」，商店分发手套和饮用水。",
+        "5": "care about 意为「关心、在意」，更多人开始在意乱扔垃圾。",
+        "6": "turn out 意为「结果是」，街道变得整洁得多。"
+      },
+      "glossary": [
+        {
+          "en": "volunteer",
+          "zh": "志愿者"
+        },
+        {
+          "en": "littering",
+          "zh": "乱扔垃圾"
+        }
+      ]
+    },
+    {
+      "id": "pc6-15",
+      "level": "CET-6",
+      "topic": "经济与消费",
+      "title": "Smart Spending",
+      "passage": "Rising prices have {1} many families to rethink their budgets. Some {2} unnecessary subscriptions and {3} eating out. Experts {4} building an emergency fund before investing. Although it is tempting to {5} the latest phone, waiting often {6} better long-term value.",
+      "bank": [
+        {
+          "key": "A",
+          "en": "prompted",
+          "zh": "促使"
+        },
+        {
+          "key": "B",
+          "en": "cut back on",
+          "zh": "削减"
+        },
+        {
+          "key": "C",
+          "en": "do away with",
+          "zh": "废除，去掉"
+        },
+        {
+          "key": "D",
+          "en": "advise",
+          "zh": "建议"
+        },
+        {
+          "key": "E",
+          "en": "splurge on",
+          "zh": "在……上挥霍"
+        },
+        {
+          "key": "F",
+          "en": "pays off",
+          "zh": "带来回报"
+        },
+        {
+          "key": "G",
+          "en": "give up",
+          "zh": "放弃"
+        },
+        {
+          "key": "H",
+          "en": "look into",
+          "zh": "调查"
+        }
+      ],
+      "answers": {
+        "1": "A",
+        "2": "B",
+        "3": "C",
+        "4": "D",
+        "5": "E",
+        "6": "F"
+      },
+      "explain": {
+        "1": "prompt 意为「促使、推动」，物价上涨促使家庭重审预算。",
+        "2": "cut back on 意为「削减」，削减不必要的订阅。",
+        "3": "do away with 意为「废除、去掉」，此处指不再外出就餐。",
+        "4": "advise 意为「建议」，专家建议先建应急金。",
+        "5": "splurge on 意为「在……上挥霍」，克制买新手机的冲动。",
+        "6": "pay off 意为「带来回报、划算」，等待往往更值。"
+      },
+      "glossary": [
+        {
+          "en": "subscription",
+          "zh": "订阅"
+        },
+        {
+          "en": "emergency fund",
+          "zh": "应急基金"
+        }
+      ]
+    },
+    {
+      "id": "pc6-16",
+      "level": "CET-6",
+      "topic": "科研与伦理",
+      "title": "Data and Trust",
+      "passage": "Researchers must {1} strict rules when handling private data. A small error can {2} public trust that took years to build. Teams should {3} their methods so others can repeat the work. Before publishing, they {4} the results against earlier studies. Only by being open can science {5} false claims and {6} people's confidence.",
+      "bank": [
+        {
+          "key": "A",
+          "en": "abide by",
+          "zh": "遵守"
+        },
+        {
+          "key": "B",
+          "en": "undermine",
+          "zh": "损害"
+        },
+        {
+          "key": "C",
+          "en": "lay out",
+          "zh": "阐明，列出"
+        },
+        {
+          "key": "D",
+          "en": "check",
+          "zh": "核对"
+        },
+        {
+          "key": "E",
+          "en": "guard against",
+          "zh": "防范"
+        },
+        {
+          "key": "F",
+          "en": "win back",
+          "zh": "赢回"
+        },
+        {
+          "key": "G",
+          "en": "give away",
+          "zh": "泄露"
+        },
+        {
+          "key": "H",
+          "en": "put off",
+          "zh": "推迟"
+        }
+      ],
+      "answers": {
+        "1": "A",
+        "2": "B",
+        "3": "C",
+        "4": "D",
+        "5": "E",
+        "6": "F"
+      },
+      "explain": {
+        "1": "abide by 意为「遵守」，遵守严格规则。",
+        "2": "undermine 意为「损害、削弱」，小错损害公众信任。",
+        "3": "lay out 意为「阐明、列出」，说明方法以便复现。",
+        "4": "check 意为「核对」，与早期研究核对结果。",
+        "5": "guard against 意为「防范」，防范错误论断。",
+        "6": "win back 意为「赢回」，赢回公众信心。"
+      },
+      "glossary": [
+        {
+          "en": "private data",
+          "zh": "隐私数据"
+        },
+        {
+          "en": "repeat",
+          "zh": "重复（实验）"
+        }
+      ]
+    },
+    {
+      "id": "pc6-17",
+      "level": "CET-6",
+      "topic": "城市与社区",
+      "title": "Rethinking the City",
+      "passage": "The old district was once {1} , with empty shops and few visitors. A new plan {2} turning the main street into a walking area. Local artists {3} murals on the walls, which {4} tourists curious about the neighborhood. Small businesses began to {5} , and the area {6} into a lively cultural spot.",
+      "bank": [
+        {
+          "key": "A",
+          "en": "in decline",
+          "zh": "衰落中"
+        },
+        {
+          "key": "B",
+          "en": "called for",
+          "zh": "呼吁，主张"
+        },
+        {
+          "key": "C",
+          "en": "put up",
+          "zh": "绘制，张贴"
+        },
+        {
+          "key": "D",
+          "en": "drew",
+          "zh": "吸引"
+        },
+        {
+          "key": "E",
+          "en": "pick up",
+          "zh": "好转，复兴"
+        },
+        {
+          "key": "F",
+          "en": "transformed",
+          "zh": "转变"
+        },
+        {
+          "key": "G",
+          "en": "gave up",
+          "zh": "放弃"
+        },
+        {
+          "key": "H",
+          "en": "took over",
+          "zh": "接管"
+        }
+      ],
+      "answers": {
+        "1": "A",
+        "2": "B",
+        "3": "C",
+        "4": "D",
+        "5": "E",
+        "6": "F"
+      },
+      "explain": {
+        "1": "in decline 意为「在衰落中」，老街区曾萧条。",
+        "2": "call for 意为「呼吁、主张」，方案主张改步行街。",
+        "3": "put up 意为「绘制、张贴」，艺术家在墙上作画。",
+        "4": "draw 意为「吸引」，draw tourists 吸引游客。",
+        "5": "pick up 意为「好转、复兴」，小生意回暖。",
+        "6": "transform 意为「转变」，街区转变为文化热点。"
+      },
+      "glossary": [
+        {
+          "en": "mural",
+          "zh": "壁画"
+        },
+        {
+          "en": "lively",
+          "zh": "充满活力的"
+        }
+      ]
+    },
+    {
+      "id": "pc6-18",
+      "level": "CET-6",
+      "topic": "心理与压力",
+      "title": "Managing Stress",
+      "passage": "Chronic stress can {1} both body and mind if left unchecked. Simple habits help: {2} your phone an hour before bed, and {3} deep breathing when anxious. People who {4} a hobby often report better sleep. It also helps to {5} tasks into small steps so nothing feels {6} .",
+      "bank": [
+        {
+          "key": "A",
+          "en": "wear down",
+          "zh": "损耗，拖垮"
+        },
+        {
+          "key": "B",
+          "en": "put away",
+          "zh": "收起"
+        },
+        {
+          "key": "C",
+          "en": "take up",
+          "zh": "开始做"
+        },
+        {
+          "key": "D",
+          "en": "pursue",
+          "zh": "从事，追求"
+        },
+        {
+          "key": "E",
+          "en": "break",
+          "zh": "拆分"
+        },
+        {
+          "key": "F",
+          "en": "overwhelming",
+          "zh": "令人难以承受的"
+        },
+        {
+          "key": "G",
+          "en": "give up",
+          "zh": "放弃"
+        },
+        {
+          "key": "H",
+          "en": "look into",
+          "zh": "调查"
+        }
+      ],
+      "answers": {
+        "1": "A",
+        "2": "B",
+        "3": "C",
+        "4": "D",
+        "5": "E",
+        "6": "F"
+      },
+      "explain": {
+        "1": "wear down 意为「损耗、拖垮」，长期压力拖垮身心。",
+        "2": "put away 意为「收起」，睡前收起手机。",
+        "3": "take up 意为「开始做」，开始做深呼吸。",
+        "4": "pursue 意为「从事、追求」，从事一项爱好。",
+        "5": "break 意为「拆分」，把任务拆小。",
+        "6": "overwhelming 意为「令人难以承受的」，避免事情显得压倒性。"
+      },
+      "glossary": [
+        {
+          "en": "chronic",
+          "zh": "长期的"
+        },
+        {
+          "en": "anxious",
+          "zh": "焦虑的"
+        }
+      ]
+    },
+    {
+      "id": "pc6-19",
+      "level": "CET-6",
+      "topic": "媒体与信息",
+      "title": "Reading the News",
+      "passage": "With so much information online, readers must {1} facts from opinions. A careful reader will {2} the source before sharing a story. Some headlines are written to {3} strong emotions and {4} clicks. To avoid misunderstanding, we should {5} claims that sound too good, and {6} several reports before forming a view.",
+      "bank": [
+        {
+          "key": "A",
+          "en": "tell",
+          "zh": "区分"
+        },
+        {
+          "key": "B",
+          "en": "check",
+          "zh": "核实"
+        },
+        {
+          "key": "C",
+          "en": "stir up",
+          "zh": "激起"
+        },
+        {
+          "key": "D",
+          "en": "draw",
+          "zh": "吸引"
+        },
+        {
+          "key": "E",
+          "en": "be suspicious of",
+          "zh": "对……存疑"
+        },
+        {
+          "key": "F",
+          "en": "compare",
+          "zh": "比较"
+        },
+        {
+          "key": "G",
+          "en": "give away",
+          "zh": "泄露"
+        },
+        {
+          "key": "H",
+          "en": "put off",
+          "zh": "推迟"
+        }
+      ],
+      "answers": {
+        "1": "A",
+        "2": "B",
+        "3": "C",
+        "4": "D",
+        "5": "E",
+        "6": "F"
+      },
+      "explain": {
+        "1": "tell 在此与 from 搭配，tell A from B 区分事实与观点。",
+        "2": "check 意为「核实」，分享前核实来源。",
+        "3": "stir up 意为「激起」，标题激起强烈情绪。",
+        "4": "draw 意为「吸引」，吸引点击。",
+        "5": "be suspicious of 意为「对……存疑」，质疑过于美好的说法。",
+        "6": "compare 意为「比较」，对照多篇报道再下结论。"
+      },
+      "glossary": [
+        {
+          "en": "headline",
+          "zh": "标题"
+        },
+        {
+          "en": "misunderstanding",
+          "zh": "误解"
+        }
+      ]
+    },
+    {
+      "id": "pc6-20",
+      "level": "CET-6",
+      "topic": "教育与未来",
+      "title": "Learning for Life",
+      "passage": "Schools are slowly {1} the old model of memorizing facts. Instead, they {2} skills like critical thinking and teamwork. Teachers {3} students to ask questions rather than accept answers. Employers now {4} those who can learn quickly over those with only high scores. In this way education {5} prepare young people for a world that {6} fast.",
+      "bank": [
+        {
+          "key": "A",
+          "en": "moving away from",
+          "zh": "抛弃，远离"
+        },
+        {
+          "key": "B",
+          "en": "emphasize",
+          "zh": "强调"
+        },
+        {
+          "key": "C",
+          "en": "encourage",
+          "zh": "鼓励"
+        },
+        {
+          "key": "D",
+          "en": "prefer",
+          "zh": "更看重"
+        },
+        {
+          "key": "E",
+          "en": "aims to",
+          "zh": "旨在"
+        },
+        {
+          "key": "F",
+          "en": "changes",
+          "zh": "变化"
+        },
+        {
+          "key": "G",
+          "en": "give up",
+          "zh": "放弃"
+        },
+        {
+          "key": "H",
+          "en": "look into",
+          "zh": "调查"
+        }
+      ],
+      "answers": {
+        "1": "A",
+        "2": "B",
+        "3": "C",
+        "4": "D",
+        "5": "E",
+        "6": "F"
+      },
+      "explain": {
+        "1": "move away from 意为「远离、抛弃」，逐渐抛弃旧模式。",
+        "2": "emphasize 意为「强调」，强调批判性思维等能力。",
+        "3": "encourage 意为「鼓励」，鼓励学生提问。",
+        "4": "prefer 意为「更看重」，雇主更看重学得快的人。",
+        "5": "aim to 意为「旨在」，教育旨在培养年轻人。",
+        "6": "change 意为「变化」，世界变化很快。"
+      },
+      "glossary": [
+        {
+          "en": "critical thinking",
+          "zh": "批判性思维"
+        },
+        {
+          "en": "memorize",
+          "zh": "记忆"
+        }
+      ]
     }
   ],
   "reading": [
@@ -4013,6 +4913,678 @@
         {
           "en": "generalise",
           "zh": "推广，泛化"
+        }
+      ]
+    },
+    {
+      "id": "rd4-15",
+      "level": "CET-4",
+      "topic": "校园生活",
+      "title": "The Quiet Study Corner",
+      "passage": "Our school library recently opened a small 'quiet corner' on the second floor. Unlike the busy reading halls, this area has soft chairs, warm lights, and no talking allowed. At first, few students went there. But after a poster described it as 'a place to slow down', more people started to use it between classes. Now it is often full in the afternoon. Librarians say students tell them they can focus better in the calm space, and some even finish homework faster than at home.",
+      "questions": [
+        {
+          "q": "Why was the quiet corner first unpopular?",
+          "type": "inference",
+          "options": [
+            "It was too far from the entrance.",
+            "Few students knew about it at first.",
+            "The chairs were uncomfortable.",
+            "It was only open at night."
+          ],
+          "answer": 1,
+          "explain": "第一段说 At first, few students went there，随后靠海报宣传才更多人使用，说明起初知道的人少。"
+        },
+        {
+          "q": "What can we learn about the quiet corner?",
+          "type": "detail",
+          "options": [
+            "Talking is allowed in small groups.",
+            "It has bright white lights.",
+            "It helps some students focus better.",
+            "It is always empty in the afternoon."
+          ],
+          "answer": 2,
+          "explain": "末句提到学生在安静空间更能集中注意力，有些人比在家完成作业更快。"
+        },
+        {
+          "q": "What is the writer's attitude toward the quiet corner?",
+          "type": "attitude",
+          "options": [
+            "Negative.",
+            "Supportive.",
+            "Uncertain.",
+            "Critical."
+          ],
+          "answer": 1,
+          "explain": "作者用 positive 词汇（focus better, finish faster）描述，态度是支持的。"
+        }
+      ],
+      "glossary": [
+        {
+          "en": "poster",
+          "zh": "海报"
+        },
+        {
+          "en": "calm",
+          "zh": "安静的"
+        }
+      ]
+    },
+    {
+      "id": "rd4-16",
+      "level": "CET-4",
+      "topic": "健康",
+      "title": "Walking to Work",
+      "passage": "A small study followed 200 office workers who changed from driving to walking or cycling to work. After three months, most reported better moods and slept more easily at night. The researchers said the effect was not only from exercise; the time outdoors and the sense of starting the day actively also helped. However, those with very long distances found it hard to keep the habit in bad weather. The team suggested beginning with just two days a week.",
+      "questions": [
+        {
+          "q": "What did most workers experience after three months?",
+          "type": "detail",
+          "options": [
+            "They gained weight.",
+            "They felt happier and slept better.",
+            "They preferred driving again.",
+            "They changed jobs."
+          ],
+          "answer": 1,
+          "explain": "第二段说 most reported better moods and slept more easily，即情绪更好、睡眠更佳。"
+        },
+        {
+          "q": "Besides exercise, what else helped according to the study?",
+          "type": "inference",
+          "options": [
+            "Eating breakfast earlier.",
+            "Time outdoors and an active start.",
+            "Working shorter hours.",
+            "Listening to music."
+          ],
+          "answer": 1,
+          "explain": "研究者指出户外时间与积极开启一天的感觉也起作用。"
+        },
+        {
+          "q": "What did the team suggest for beginners?",
+          "type": "detail",
+          "options": [
+            "Walk every single day.",
+            "Start with two days a week.",
+            "Only cycle in good weather.",
+            "Drive on rainy days only."
+          ],
+          "answer": 1,
+          "explain": "末句团队建议从每周两天开始。"
+        }
+      ],
+      "glossary": [
+        {
+          "en": "mood",
+          "zh": "情绪"
+        },
+        {
+          "en": "habit",
+          "zh": "习惯"
+        }
+      ]
+    },
+    {
+      "id": "rd4-17",
+      "level": "CET-4",
+      "topic": "科技",
+      "title": "Smartphone Reminders",
+      "passage": "Many people use phone reminders to remember meetings, bills, and even to drink water. A survey found that while reminders reduce forgetfulness, they may also make us rely on the phone too much. Some users said they stopped remembering things on their own. Experts suggest using reminders for important tasks but still writing key dates on paper. They believe the act of writing helps the brain keep information.",
+      "questions": [
+        {
+          "q": "What is one problem with phone reminders mentioned?",
+          "type": "inference",
+          "options": [
+            "They are too expensive.",
+            "They may make people depend on the phone.",
+            "They waste too much time.",
+            "They only work at night."
+          ],
+          "answer": 1,
+          "explain": "文中说 reminders 可能让人过度依赖手机，不再自己记忆。"
+        },
+        {
+          "q": "What do experts recommend?",
+          "type": "detail",
+          "options": [
+            "Stop using phones completely.",
+            "Use reminders but also write key dates.",
+            "Only remind others, not yourself.",
+            "Delete all reminders."
+          ],
+          "answer": 1,
+          "explain": "专家建议对重要事项用提醒，但仍把关键日期写在纸上。"
+        },
+        {
+          "q": "Why might writing on paper help?",
+          "type": "detail",
+          "options": [
+            "It is faster than typing.",
+            "The act of writing helps the brain remember.",
+            "Paper is cheaper.",
+            "Phones may break."
+          ],
+          "answer": 1,
+          "explain": "专家认为书写动作有助于大脑保留信息。"
+        }
+      ],
+      "glossary": [
+        {
+          "en": "reminder",
+          "zh": "提醒"
+        },
+        {
+          "en": "forgetfulness",
+          "zh": "健忘"
+        }
+      ]
+    },
+    {
+      "id": "rd4-18",
+      "level": "CET-4",
+      "topic": "社会政策",
+      "title": "Free Weekend Museums",
+      "passage": "The city decided to open its three main museums for free on the first Sunday of every month. Officials hoped more families would visit and learn together. In the first three months, visits rose by 40%. Some visitors said they had never been because of the cost. Museum workers noticed that children asked more questions and seemed more curious. The program will continue next year if the budget allows.",
+      "questions": [
+        {
+          "q": "What was the goal of the free Sunday plan?",
+          "type": "detail",
+          "options": [
+            "To earn more money.",
+            "To let more families visit and learn.",
+            "To close other museums.",
+            "To hire more workers."
+          ],
+          "answer": 1,
+          "explain": "官员希望更多家庭能一起参观学习。"
+        },
+        {
+          "q": "What happened in the first three months?",
+          "type": "inference",
+          "options": [
+            "Visits dropped.",
+            "Visits increased by 40%.",
+            "No one came.",
+            "Only tourists visited."
+          ],
+          "answer": 1,
+          "explain": "前三个月参观量上升了 40%。"
+        },
+        {
+          "q": "Will the program continue?",
+          "type": "detail",
+          "options": [
+            "Yes, forever.",
+            "Only if the budget allows.",
+            "No, it ended.",
+            "Only in summer."
+          ],
+          "answer": 1,
+          "explain": "文中说若预算允许，明年将继续。"
+        }
+      ],
+      "glossary": [
+        {
+          "en": "official",
+          "zh": "官员"
+        },
+        {
+          "en": "budget",
+          "zh": "预算"
+        }
+      ]
+    },
+    {
+      "id": "rd4-19",
+      "level": "CET-4",
+      "topic": "饮食与健康",
+      "title": "Breakfast Matters",
+      "passage": "Skipping breakfast is common among busy students, but a school health report warns against it. The report shows that students who eat a morning meal score higher on memory tests and feel less tired by noon. Teachers also notice better behavior in class. The report does not ask for a big meal; even a piece of fruit and a glass of milk can help. It suggests keeping easy food at home for rushed mornings.",
+      "questions": [
+        {
+          "q": "What does the health report say about breakfast?",
+          "type": "detail",
+          "options": [
+            "It should be a big meal.",
+            "It helps memory and reduces tiredness.",
+            "It is not important.",
+            "It makes students late."
+          ],
+          "answer": 1,
+          "explain": "报告显示吃早餐者在记忆测试中得分更高、中午更不易疲劳。"
+        },
+        {
+          "q": "What do teachers observe?",
+          "type": "inference",
+          "options": [
+            "Worse behavior.",
+            "Better behavior in class.",
+            "More absences.",
+            "Less homework."
+          ],
+          "answer": 1,
+          "explain": "老师注意到课堂行为更好。"
+        },
+        {
+          "q": "What does the report suggest for busy mornings?",
+          "type": "detail",
+          "options": [
+            "Skip breakfast.",
+            "Keep easy food at home.",
+            "Eat at school only.",
+            "Drink only water."
+          ],
+          "answer": 1,
+          "explain": "建议在家备好简便食物应对匆忙的早晨。"
+        }
+      ],
+      "glossary": [
+        {
+          "en": "skip",
+          "zh": "跳过，不吃"
+        },
+        {
+          "en": "rushed",
+          "zh": "匆忙的"
+        }
+      ]
+    },
+    {
+      "id": "rd4-20",
+      "level": "CET-4",
+      "topic": "运动与团队",
+      "title": "The Community Run",
+      "passage": "Every spring, our town holds a 5-kilometer run to raise money for the children's hospital. Last year, over 800 people joined, including whole families and a few dogs. Volunteers gave out water and cheered at every corner. A local baker donated bread for the finish line. The event collected enough to buy new toys and books. Organizers say the real success is not the money but the happy faces.",
+      "questions": [
+        {
+          "q": "What is the purpose of the community run?",
+          "type": "detail",
+          "options": [
+            "To sell books.",
+            "To raise money for a children's hospital.",
+            "To train athletes.",
+            "To celebrate a holiday."
+          ],
+          "answer": 1,
+          "explain": "小镇举办 5 公里跑为儿童医院筹款。"
+        },
+        {
+          "q": "Who took part in the event?",
+          "type": "inference",
+          "options": [
+            "Only professional runners.",
+            "Families, dogs and volunteers.",
+            "Only hospital staff.",
+            "No children."
+          ],
+          "answer": 1,
+          "explain": "800 多人参加，包括全家、几只狗和志愿者。"
+        },
+        {
+          "q": "What does the organizer value most?",
+          "type": "attitude",
+          "options": [
+            "The amount of money.",
+            "The happy faces of people.",
+            "Winning the race.",
+            "The donated bread."
+          ],
+          "answer": 1,
+          "explain": "组织者说真正的成功不是钱，而是人们快乐的笑脸。"
+        }
+      ],
+      "glossary": [
+        {
+          "en": "donate",
+          "zh": "捐赠"
+        },
+        {
+          "en": "finish line",
+          "zh": "终点线"
+        }
+      ]
+    },
+    {
+      "id": "rd6-15",
+      "level": "CET-6",
+      "topic": "环境与城市",
+      "title": "The 15-Minute City",
+      "passage": "The '15-minute city' is an urban plan in which daily needs—work, shops, schools, parks—are reachable within a short walk or bike ride from home. Supporters argue it cuts traffic and pollution while improving community life. Critics worry it may raise housing prices in well-served areas and overlook people who must travel for specialized jobs. Several European cities have tested the idea with mixed results. Planners stress that success depends less on the slogan and more on affordable housing and good public transport.",
+      "questions": [
+        {
+          "q": "What is the core idea of a '15-minute city'?",
+          "type": "detail",
+          "options": [
+            "Cars should be banned everywhere.",
+            "Daily needs are close to home.",
+            "Everyone must ride a bike.",
+            "Shops should close early."
+          ],
+          "answer": 1,
+          "explain": "核心理念是工作、购物、学校等日常需求步行或骑车短时可及。"
+        },
+        {
+          "q": "What is a concern raised by critics?",
+          "type": "inference",
+          "options": [
+            "It increases pollution.",
+            "It may raise housing prices in served areas.",
+            "It removes all parks.",
+            "It forces people to quit jobs."
+          ],
+          "answer": 1,
+          "explain": "批评者担心配套完善区域房价上涨，并忽视需通勤者。"
+        },
+        {
+          "q": "According to planners, what determines success?",
+          "type": "detail",
+          "options": [
+            "The popularity of the slogan.",
+            "Affordable housing and good transport.",
+            "The number of bikes.",
+            "Banning cars completely."
+          ],
+          "answer": 1,
+          "explain": "规划者强调成败更取决于可负担住房与优质公交，而非口号。"
+        },
+        {
+          "q": "What word best describes the test results so far?",
+          "type": "vocab",
+          "options": [
+            "Uniform.",
+            "Mixed.",
+            "Failed.",
+            "Perfect."
+          ],
+          "answer": 1,
+          "explain": "文中用 mixed results 描述试点结果，即喜忧参半。"
+        }
+      ],
+      "glossary": [
+        {
+          "en": "urban plan",
+          "zh": "城市规划"
+        },
+        {
+          "en": "slogan",
+          "zh": "口号"
+        }
+      ]
+    },
+    {
+      "id": "rd6-16",
+      "level": "CET-6",
+      "topic": "心理",
+      "title": "The Science of Rest",
+      "passage": "We often think of rest as simply not working, yet research shows that passive scrolling on a phone is not true rest for the brain. Active rest—such as a walk, a short nap, or focused breathing—lowers stress hormones more effectively. A 2023 study found that workers who took a 20-minute walk at midday reported steadier attention in the afternoon than those who browsed social media. The authors caution that rest is not a reward for finishing work but a condition for doing it well.",
+      "questions": [
+        {
+          "q": "What does the passage say about phone scrolling?",
+          "type": "inference",
+          "options": [
+            "It is the best form of rest.",
+            "It is not true rest for the brain.",
+            "It lowers stress hormones.",
+            "It improves attention most."
+          ],
+          "answer": 1,
+          "explain": "研究指出被动刷手机并非大脑真正的休息。"
+        },
+        {
+          "q": "Which activity lowered stress more in the study?",
+          "type": "detail",
+          "options": [
+            "Browsing social media.",
+            "A 20-minute walk.",
+            "Watching TV.",
+            "Playing video games."
+          ],
+          "answer": 1,
+          "explain": "研究发现午间步行 20 分钟者下午注意力更稳。"
+        },
+        {
+          "q": "How do the authors view rest?",
+          "type": "attitude",
+          "options": [
+            "A reward after work.",
+            "A condition for working well.",
+            "A waste of time.",
+            "Only for the young."
+          ],
+          "answer": 1,
+          "explain": "作者提醒休息不是完成工作后的奖赏，而是做好工作的前提。"
+        }
+      ],
+      "glossary": [
+        {
+          "en": "hormone",
+          "zh": "激素"
+        },
+        {
+          "en": "steadier",
+          "zh": "更稳定的"
+        }
+      ]
+    },
+    {
+      "id": "rd6-17",
+      "level": "CET-6",
+      "topic": "经济与政策",
+      "title": "Remote Work and Cities",
+      "passage": "The shift to remote work has changed more than schedules; it has reshaped city economies. Downtown shops that once served office workers now struggle, while neighborhoods see more foot traffic and new cafes. Some economists predict a slow but lasting move toward 'hub-and-spoke' work, where employees go to a nearby office a few days a week. Others warn that tax bases built on central business districts may need rethinking. The full effect remains uncertain, but the map of daily life has clearly shifted.",
+      "questions": [
+        {
+          "q": "What has remote work changed according to the passage?",
+          "type": "detail",
+          "options": [
+            "Only people's salaries.",
+            "City economies and daily life.",
+            "The weather.",
+            "School schedules only."
+          ],
+          "answer": 1,
+          "explain": "远程办公重塑了城市经济与日常生活地图。"
+        },
+        {
+          "q": "What is 'hub-and-spoke' work?",
+          "type": "vocab",
+          "options": [
+            "Working only from home forever.",
+            "Going to a nearby office a few days a week.",
+            "Quitting jobs entirely.",
+            "Moving to the countryside."
+          ],
+          "answer": 1,
+          "explain": "文中解释为员工每周数天去就近办公室的模式。"
+        },
+        {
+          "q": "What concern do some economists raise?",
+          "type": "inference",
+          "options": [
+            "Cafes will disappear.",
+            "Tax bases relying on city centers may need rethinking.",
+            "Remote work will end soon.",
+            "Shops will all close."
+          ],
+          "answer": 1,
+          "explain": "一些经济学家警告依赖中央商务区的税基可能需要重新考量。"
+        }
+      ],
+      "glossary": [
+        {
+          "en": "foot traffic",
+          "zh": "人流"
+        },
+        {
+          "en": "tax base",
+          "zh": "税基"
+        }
+      ]
+    },
+    {
+      "id": "rd6-18",
+      "level": "CET-6",
+      "topic": "科技与就业",
+      "title": "AI and Routine Jobs",
+      "passage": "As AI tools improve, routine office tasks such as drafting emails and summarizing reports are increasingly automated. This worries some workers, yet many managers report that the technology frees them to focus on judgment and creativity. A survey of 1,000 employees found that those who used AI assistants spent less time on repetitive work and more on problem-solving. The report concludes that the skill of working with AI, not competing against it, will define the next decade of office work.",
+      "questions": [
+        {
+          "q": "What tasks are increasingly automated?",
+          "type": "detail",
+          "options": [
+            "Creative design only.",
+            "Routine tasks like emails and summaries.",
+            "All management decisions.",
+            "Physical labor only."
+          ],
+          "answer": 1,
+          "explain": "起草邮件、总结报告等常规办公任务日益被自动化。"
+        },
+        {
+          "q": "What did the survey of 1,000 employees find?",
+          "type": "inference",
+          "options": [
+            "More time on repetition.",
+            "Less repetitive work, more problem-solving.",
+            "No change at all.",
+            "AI was unused."
+          ],
+          "answer": 1,
+          "explain": "使用 AI 助手者重复性工作减少、解决问题时间增多。"
+        },
+        {
+          "q": "What does the report say will define the next decade?",
+          "type": "detail",
+          "options": [
+            "Avoiding all technology.",
+            "The skill of working with AI.",
+            "Returning to paper.",
+            "Hiring fewer people."
+          ],
+          "answer": 1,
+          "explain": "与 AI 协作的能力而非与之竞争，将定义未来十年。"
+        }
+      ],
+      "glossary": [
+        {
+          "en": "automate",
+          "zh": "自动化"
+        },
+        {
+          "en": "repetitive",
+          "zh": "重复的"
+        }
+      ]
+    },
+    {
+      "id": "rd6-19",
+      "level": "CET-6",
+      "topic": "文化与伦理",
+      "title": "Who Owns a Recipe?",
+      "passage": "When a popular restaurant published its grandmother's recipe online, a debate followed: can a family dish be 'owned'? Food historians note that nearly all recipes are built on earlier ones, borrowed and changed across generations. Copyright law generally protects written expression, not the dish itself, so others may cook and even sell a similar version. Still, many chefs now credit their sources openly, arguing that respect, not law, is what keeps culinary tradition alive.",
+      "questions": [
+        {
+          "q": "What debate did the recipe post cause?",
+          "type": "detail",
+          "options": [
+            "Whether the food was healthy.",
+            "Whether a family dish can be owned.",
+            "Who cooked it best.",
+            "If it should be free."
+          ],
+          "answer": 1,
+          "explain": "争议在于一道家传菜能否被'拥有'。"
+        },
+        {
+          "q": "What does copyright law usually protect?",
+          "type": "inference",
+          "options": [
+            "The taste of a dish.",
+            "Written expression, not the dish.",
+            "Family secrets.",
+            "Cooking methods only."
+          ],
+          "answer": 1,
+          "explain": "版权一般保护书面表达，而非菜肴本身。"
+        },
+        {
+          "q": "How do many chefs show respect today?",
+          "type": "attitude",
+          "options": [
+            "By hiding sources.",
+            "By crediting their sources openly.",
+            "By suing copies.",
+            "By charging more."
+          ],
+          "answer": 1,
+          "explain": "许多厨师公开注明来源以示尊重。"
+        }
+      ],
+      "glossary": [
+        {
+          "en": "copyright",
+          "zh": "版权"
+        },
+        {
+          "en": "culinary",
+          "zh": "烹饪的"
+        }
+      ]
+    },
+    {
+      "id": "rd6-20",
+      "level": "CET-6",
+      "topic": "资源与环境",
+      "title": "The Life of a Smartphone",
+      "passage": "A smartphone's environmental cost begins long before purchase: mining rare metals, building components, and shipping all consume energy and water. Yet the biggest impact often comes from how long we keep the device. Studies show that extending a phone's life by two years can cut its total carbon footprint by nearly a third. Repair-friendly design and second-hand markets help, but consumers' habit of upgrading every year remains the hardest barrier to change.",
+      "questions": [
+        {
+          "q": "When does a smartphone's environmental cost begin?",
+          "type": "detail",
+          "options": [
+            "At the recycling center.",
+            "Long before purchase, during mining and making.",
+            "Only when thrown away.",
+            "After the warranty ends."
+          ],
+          "answer": 1,
+          "explain": "环境成本在购前开采金属、制造与运输阶段就产生了。"
+        },
+        {
+          "q": "What reduces the carbon footprint most, per the studies?",
+          "type": "inference",
+          "options": [
+            "Buying a new model yearly.",
+            "Keeping the phone two years longer.",
+            "Using it only at night.",
+            "Shipping it abroad."
+          ],
+          "answer": 1,
+          "explain": "研究称延长使用两年可削减近三分之一碳足迹。"
+        },
+        {
+          "q": "What is called the hardest barrier?",
+          "type": "detail",
+          "options": [
+            "Lack of repair shops.",
+            "The yearly upgrade habit.",
+            "High metal prices.",
+            "Poor design."
+          ],
+          "answer": 1,
+          "explain": "消费者每年换新的习惯被视为最难改变的障碍。"
+        }
+      ],
+      "glossary": [
+        {
+          "en": "footprint",
+          "zh": "足迹（此处指碳足迹）"
+        },
+        {
+          "en": "barrier",
+          "zh": "障碍"
         }
       ]
     }
