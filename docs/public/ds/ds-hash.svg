@@ -39,8 +39,9 @@
 
   <!-- chain nodes -->
   <g font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">
-    <!-- bucket0: 7 -->
+    <!-- bucket0: 7->14 -->
     <rect x="120" y="80" width="60" height="36" rx="6" fill="#3b82f6"/><text x="150" y="103">7</text>
+    <rect x="200" y="80" width="60" height="36" rx="6" fill="#10b981"/><text x="230" y="103">14</text>
     <!-- bucket1: 8->15->22 -->
     <rect x="120" y="132" width="60" height="36" rx="6" fill="#10b981"/><text x="150" y="155">8</text>
     <rect x="200" y="132" width="60" height="36" rx="6" fill="#10b981"/><text x="230" y="155">15</text>
@@ -61,6 +62,7 @@
 
   <!-- inter-node connectors -->
   <g stroke="#9ca3af" stroke-width="2">
+    <line x1="180" y1="98" x2="200" y2="98"/>
     <line x1="180" y1="150" x2="200" y2="150"/>
     <line x1="260" y1="150" x2="280" y2="150"/>
     <line x1="180" y1="202" x2="200" y2="202"/>

@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 640" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect width="680" height="640" fill="#fafaf9"/>
+  <text x="340" y="30" text-anchor="middle" font-size="20" font-weight="700" fill="#1f2937">AVL 树四种失衡与旋转</text>
+  <text x="340" y="52" text-anchor="middle" font-size="13" fill="#6b7280">失衡因子 BF = h(左子树) − h(右子树)，|BF|&gt;1 即失衡；旋转后高度恢复</text>
+
+  <!-- edges -->
+  <g stroke="#9ca3af" stroke-width="2">
+    <!-- P1 LL before -->
+    <line x1="150" y1="100" x2="110" y2="145"/><line x1="110" y1="145" x2="70" y2="190"/>
+    <!-- P1 LL after -->
+    <line x1="470" y1="100" x2="430" y2="145"/><line x1="470" y1="100" x2="510" y2="145"/>
+    <!-- P2 RR before -->
+    <line x1="150" y1="230" x2="190" y2="275"/><line x1="190" y1="275" x2="230" y2="320"/>
+    <!-- P2 RR after -->
+    <line x1="470" y1="230" x2="430" y2="275"/><line x1="470" y1="230" x2="510" y2="275"/>
+    <!-- P3 LR before -->
+    <line x1="150" y1="360" x2="110" y2="405"/><line x1="110" y1="405" x2="150" y2="450"/>
+    <!-- P3 LR after -->
+    <line x1="470" y1="360" x2="430" y2="405"/><line x1="470" y1="360" x2="510" y2="405"/>
+    <!-- P4 RL before -->
+    <line x1="150" y1="490" x2="190" y2="535"/><line x1="190" y1="535" x2="150" y2="580"/>
+    <!-- P4 RL after -->
+    <line x1="470" y1="490" x2="430" y2="535"/><line x1="470" y1="490" x2="510" y2="535"/>
+  </g>
+
+  <!-- transform arrows -->
+  <g stroke="#ef4444" stroke-width="2" fill="none">
+    <line x1="250" y1="145" x2="318" y2="145"/><polygon points="318,140 328,145 318,150" fill="#ef4444" stroke="none"/>
+    <line x1="250" y1="275" x2="318" y2="275"/><polygon points="318,270 328,275 318,280" fill="#ef4444" stroke="none"/>
+    <line x1="250" y1="405" x2="318" y2="405"/><polygon points="318,400 328,405 318,410" fill="#ef4444" stroke="none"/>
+    <line x1="250" y1="535" x2="318" y2="535"/><polygon points="318,530 328,535 318,540" fill="#ef4444" stroke="none"/>
+  </g>
+  <g font-size="13" font-weight="700" fill="#ef4444" text-anchor="middle">
+    <text x="284" y="138">右旋</text>
+    <text x="284" y="268">左旋</text>
+    <text x="284" y="398">先左后右</text>
+    <text x="284" y="528">先右后左</text>
+  </g>
+
+  <!-- case titles -->
+  <g font-size="14" font-weight="700" fill="#1f2937">
+    <text x="20" y="100">LL 型</text>
+    <text x="20" y="230">RR 型</text>
+    <text x="20" y="360">LR 型</text>
+    <text x="20" y="490">RL 型</text>
+  </g>
+
+  <!-- nodes -->
+  <g font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <!-- P1 before -->
+    <circle cx="150" cy="100" r="18" fill="#3b82f6"/><text x="150" y="106">A</text>
+    <circle cx="110" cy="145" r="18" fill="#3b82f6"/><text x="110" y="151">B</text>
+    <circle cx="70" cy="190" r="18" fill="#10b981"/><text x="70" y="196">C</text>
+    <!-- P1 after -->
+    <circle cx="470" cy="100" r="18" fill="#3b82f6"/><text x="470" y="106">B</text>
+    <circle cx="430" cy="145" r="18" fill="#10b981"/><text x="430" y="151">C</text>
+    <circle cx="510" cy="145" r="18" fill="#3b82f6"/><text x="510" y="151">A</text>
+
+    <!-- P2 before -->
+    <circle cx="150" cy="230" r="18" fill="#3b82f6"/><text x="150" y="236">A</text>
+    <circle cx="190" cy="275" r="18" fill="#3b82f6"/><text x="190" y="281">B</text>
+    <circle cx="230" cy="320" r="18" fill="#10b981"/><text x="230" y="326">C</text>
+    <!-- P2 after -->
+    <circle cx="470" cy="230" r="18" fill="#3b82f6"/><text x="470" y="236">B</text>
+    <circle cx="430" cy="275" r="18" fill="#3b82f6"/><text x="430" y="281">A</text>
+    <circle cx="510" cy="275" r="18" fill="#10b981"/><text x="510" y="281">C</text>
+
+    <!-- P3 before -->
+    <circle cx="150" cy="360" r="18" fill="#3b82f6"/><text x="150" y="366">A</text>
+    <circle cx="110" cy="405" r="18" fill="#3b82f6"/><text x="110" y="411">B</text>
+    <circle cx="150" cy="450" r="18" fill="#10b981"/><text x="150" y="456">C</text>
+    <!-- P3 after -->
+    <circle cx="470" cy="360" r="18" fill="#10b981"/><text x="470" y="366">C</text>
+    <circle cx="430" cy="405" r="18" fill="#3b82f6"/><text x="430" y="411">B</text>
+    <circle cx="510" cy="405" r="18" fill="#3b82f6"/><text x="510" y="411">A</text>
+
+    <!-- P4 before -->
+    <circle cx="150" cy="490" r="18" fill="#3b82f6"/><text x="150" y="496">A</text>
+    <circle cx="190" cy="535" r="18" fill="#3b82f6"/><text x="190" y="541">B</text>
+    <circle cx="150" cy="580" r="18" fill="#10b981"/><text x="150" y="586">C</text>
+    <!-- P4 after -->
+    <circle cx="470" cy="490" r="18" fill="#10b981"/><text x="470" y="496">C</text>
+    <circle cx="430" cy="535" r="18" fill="#3b82f6"/><text x="430" y="541">A</text>
+    <circle cx="510" cy="535" r="18" fill="#3b82f6"/><text x="510" y="541">B</text>
+  </g>
+
+  <g font-size="12" fill="#6b7280" text-anchor="middle">
+    <text x="110" y="121" font-style="italic">BF=2</text>
+    <text x="190" y="251" font-style="italic">BF=-2</text>
+  </g>
+</svg>

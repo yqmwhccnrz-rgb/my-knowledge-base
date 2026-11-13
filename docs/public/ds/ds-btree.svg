@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 600" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect width="680" height="600" fill="#fafaf9"/>
+  <text x="340" y="30" text-anchor="middle" font-size="20" font-weight="700" fill="#1f2937">m 阶 B-树 结构与插入分裂</text>
+  <text x="340" y="52" text-anchor="middle" font-size="13" fill="#6b7280">平衡的多路搜索树：所有叶子同层；m 阶 ⇒ ⌈m/2⌉−1 ≤ 关键字数 n ≤ m−1</text>
+
+  <!-- Section A: node structure -->
+  <g>
+    <text x="40" y="88" font-size="15" font-weight="700" fill="#1f2937">① 结点结构</text>
+    <g>
+      <rect x="120" y="100" width="460" height="48" rx="6" fill="#ffffff" stroke="#3b82f6" stroke-width="2"/>
+      <line x1="212" y1="100" x2="212" y2="148" stroke="#3b82f6"/>
+      <line x1="304" y1="100" x2="304" y2="148" stroke="#3b82f6"/>
+      <line x1="396" y1="100" x2="396" y2="148" stroke="#3b82f6"/>
+      <line x1="488" y1="100" x2="488" y2="148" stroke="#3b82f6"/>
+      <text x="166" y="129" text-anchor="middle" font-size="14" fill="#9ca3af">P0</text>
+      <text x="258" y="129" text-anchor="middle" font-size="15" font-weight="700" fill="#1f2937">K1</text>
+      <text x="350" y="129" text-anchor="middle" font-size="14" fill="#9ca3af">P1</text>
+      <text x="442" y="129" text-anchor="middle" font-size="15" font-weight="700" fill="#1f2937">K2</text>
+      <text x="534" y="129" text-anchor="middle" font-size="14" fill="#9ca3af">P2</text>
+    </g>
+    <text x="120" y="172" font-size="13" fill="#6b7280">n 个关键字 ⇒ n+1 个指针；子树数 = 关键字数 + 1</text>
+  </g>
+
+  <!-- Section B: 3-order example -->
+  <g>
+    <text x="40" y="210" font-size="15" font-weight="700" fill="#1f2937">② 3 阶 B-树示例（m=3）</text>
+    <!-- root -->
+    <rect x="280" y="222" width="120" height="44" rx="6" fill="#3b82f6" stroke="#2563eb"/>
+    <line x1="340" y1="222" x2="340" y2="266" stroke="#ffffff"/>
+    <text x="310" y="249" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">30</text>
+    <text x="370" y="249" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">60</text>
+    <!-- edges -->
+    <g stroke="#9ca3af" stroke-width="2">
+      <line x1="300" y1="266" x2="150" y2="320"/>
+      <line x1="340" y1="266" x2="340" y2="320"/>
+      <line x1="380" y1="266" x2="530" y2="320"/>
+    </g>
+    <!-- children -->
+    <g>
+      <rect x="90" y="320" width="120" height="44" rx="6" fill="#10b981" stroke="#059669"/>
+      <line x1="150" y1="320" x2="150" y2="364" stroke="#ffffff"/>
+      <text x="120" y="347" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">10</text>
+      <text x="180" y="347" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">20</text>
+
+      <rect x="280" y="320" width="120" height="44" rx="6" fill="#10b981" stroke="#059669"/>
+      <line x1="340" y1="320" x2="340" y2="364" stroke="#ffffff"/>
+      <text x="310" y="347" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">40</text>
+      <text x="370" y="347" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">50</text>
+
+      <rect x="470" y="320" width="120" height="44" rx="6" fill="#10b981" stroke="#059669"/>
+      <line x1="530" y1="320" x2="530" y2="364" stroke="#ffffff"/>
+      <text x="500" y="347" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">70</text>
+      <text x="560" y="347" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">80</text>
+    </g>
+    <text x="90" y="392" font-size="13" fill="#6b7280">每结点 ≤ 2 关键字、≤ 3 子树；叶子（10/20、40/50、70/80）同层</text>
+  </g>
+
+  <!-- Section C: split -->
+  <g>
+    <text x="40" y="430" font-size="15" font-weight="700" fill="#1f2937">③ 插入分裂（向 [52,55,58] 插入后溢出）</text>
+    <!-- before -->
+    <text x="60" y="458" font-size="13" fill="#6b7280">插入前</text>
+    <rect x="60" y="466" width="60" height="40" rx="6" fill="#3b82f6" stroke="#2563eb"/>
+    <text x="90" y="491" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">50</text>
+    <rect x="200" y="466" width="180" height="40" rx="6" fill="#ffffff" stroke="#ef4444" stroke-width="2"/>
+    <line x1="260" y1="466" x2="260" y2="506" stroke="#ef4444"/>
+    <line x1="320" y1="466" x2="320" y2="506" stroke="#ef4444"/>
+    <text x="230" y="491" text-anchor="middle" font-size="14" font-weight="700" fill="#1f2937">52</text>
+    <text x="290" y="491" text-anchor="middle" font-size="14" font-weight="700" fill="#1f2937">55</text>
+    <text x="350" y="491" text-anchor="middle" font-size="14" font-weight="700" fill="#1f2937">58</text>
+    <text x="470" y="470" font-size="12" font-weight="700" fill="#ef4444">溢出</text>
+    <text x="470" y="486" font-size="11" fill="#ef4444">3 关键字 &gt; m−1=2</text>
+    <g stroke="#9ca3af" stroke-width="2"><line x1="120" y1="486" x2="200" y2="486"/></g>
+
+    <!-- arrow -->
+    <g stroke="#ef4444" stroke-width="2" fill="none"><line x1="330" y1="520" x2="330" y2="540"/><polygon points="325,540 335,540 330,550" fill="#ef4444" stroke="none"/></g>
+    <text x="360" y="544" font-size="12" font-weight="700" fill="#ef4444">中位数 55 上移</text>
+
+    <!-- after -->
+    <text x="60" y="572" font-size="13" fill="#6b7280">插入后</text>
+    <rect x="60" y="500" width="120" height="40" rx="6" fill="#3b82f6" stroke="#2563eb"/>
+    <line x1="120" y1="500" x2="120" y2="540" stroke="#ffffff"/>
+    <text x="90" y="525" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">50</text>
+    <text x="150" y="525" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">55</text>
+    <rect x="220" y="500" width="60" height="40" rx="6" fill="#10b981" stroke="#059669"/>
+    <text x="250" y="525" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">52</text>
+    <rect x="320" y="500" width="60" height="40" rx="6" fill="#10b981" stroke="#059669"/>
+    <text x="350" y="525" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">58</text>
+  </g>
+</svg>
