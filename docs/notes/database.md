@@ -7,8 +7,7 @@ summary: "数据库原理及应用 全面详解笔记，共 17 章：数据库�
 ::: info 笔记概要
 - **所属课程**：数据库原理及应用（计算机类 / 软件工程等专业核心基础课）。
 - **核心内容**：以「**关系数据库**」为主线——先用三级模式与数据独立性说明数据库系统为何这样组织，再用关系模型与关系代数建立数学基础，接着落到 SQL 与 MySQL 的库表管理、查询、视图索引，然后进入**共享与可靠**（安全、事务并发、备份恢复），最后回到**设计方法论**（需求分析 → 概念/逻辑/物理设计 → 规范化）与**服务端编程**（存储过程、触发器、事件、程序连接）。重点抓三条线：① **结构与抽象**（三级模式、关系模式、ER 模型）；② **语言与手算**（SQL 各子句执行顺序、关系代数表达式、范式分解、事务调度可串行化）；③ **机制与权衡**（索引加速与写入代价、隔离级别与并发性、规范化与反规范化、备份粒度与恢复时间）。
-- **学习建议**：每条 SQL 都要能回答「先执行哪个子句、中间结果是什么、NULL 如何处理」；每个范式都要能举出「异常 → 函数依赖 → 分解」的完整链条；每个设计决策都要说明「牺牲了什么换来了什么」。本笔记在系统学习课程课件的基础上，补齐了课件未展开的实现机制、标准术语与可运行示例，并对课件中缺漏或不够严谨的内容作了补充与订正说明。
-- **本版说明**：**全面详解版**——17 章正文之外，设深挖专题、跨章综合例题精讲、易混概念对照表与「补充与修正汇总」逐条列出课件缺漏与订正；19 张自绘图均已逐格核对，每章配对比表、可运行 SQL 示例、带结果的工作例题、`danger` 易错辨析与 `tip` 补充；附录 A 为语法公式速查，附录 B 为 92 条易错点。文中「课件修正」标注课件本身需订正之处，「补充」标注课件未展开但应掌握的现代知识。
+- **学习建议**：每条 SQL 都要能回答「先执行哪个子句、中间结果是什么、NULL 如何处理」；每个范式都要能举出「异常 → 函数依赖 → 分解」的完整链条；每个设计决策都要说明「牺牲了什么换来了什么」。
 :::
 
 ## 全书目录
@@ -32,7 +31,6 @@ summary: "数据库原理及应用 全面详解笔记，共 17 章：数据库�
 | 15 | 存储过程与函数 | 编程基础、内置函数、存储过程、自定义函数、游标 | ★★★ |
 | 16 | 触发器和事件 | 触发器 BEFORE/AFTER、NEW/OLD、事件调度器 | ★★ |
 | 17 | 编程语言连接 MySQL | 连接 API、游标、事务、预处理语句、连接池 | ★★★ |
-| 补 | 补充与修正汇总 | 课件缺漏订正与现代数据库技术 | ★★ |
 | 综 | 综合例题精讲 | 跨章 SQL、规范化、ER 设计、事务调度大题 | 复习用 |
 | 附 A / B | 速查 | SQL 语法公式速查表、92 条易错点清单 | 复习用 |
 
@@ -59,6 +57,10 @@ summary: "数据库原理及应用 全面详解笔记，共 17 章：数据库�
 
 DBMS 的主要功能：① **数据定义**（DDL）；② **数据操纵**（DML）；③ **数据库运行管理**（并发、安全、完整性、事务）；④ **建立与维护**（转储、恢复、重组织、性能监视）；⑤ 数据通信与转换。
 
+::: tip DBA 的职责（常考简答）
+数据库管理员是数据库系统的**核心管理与维护者**，职责包括：① 决定数据库的**存储结构与存取策略**（参与物理设计）；② 定义数据结构与完整性约束（模式/外模式设计）；③ **安全性与完整性控制**（用户授权、审计）；④ 监控数据库使用与**性能调优**；⑤ **备份与恢复**（制定策略、组织演练）；⑥ 数据库的改进与**重组/重构**。DBS 六要素中「人」的核心角色就是 DBA。
+:::
+
 ![数据库系统组成与三级模式两级映像](/db/db-architecture.svg)
 
 ### 1.2 三级模式结构与两级映像（★★★）
@@ -73,9 +75,8 @@ DBMS 的主要功能：① **数据定义**（DDL）；② **数据操纵**（DM
 - **外模式／模式映像**：定义局部与全局逻辑结构的对应。模式改变（如加字段、加表）时，只需 DBA 改映像，**应用程序不必改** → 保证**逻辑独立性**。
 - **模式／内模式映像**：定义逻辑结构与物理存储的对应。存储结构改变（换存储引擎、加索引、换文件组织）时，改映像即可 → 保证**物理独立性**。
 
-::: tip 补充 · 课件未点明的「两级映像」意义（课件修正）
-课件列出了三级模式的名称，但未把「两级映像」与「数据独立性」的因果关系讲透。答题标准链条是：
-**三级模式 → 两级映像 → 数据独立性**。
+::: tip 两级映像与数据独立性的因果链条
+答题标准链条：**三级模式 → 两级映像 → 数据独立性**。
 其中「**模式只有一个、内模式只有一个、外模式可有多个**」是高频选择题考点；另外「视图」正是外模式在 SQL 中的实现手段（第 7 章）。
 :::
 
@@ -103,12 +104,13 @@ DBMS 的主要功能：① **数据定义**（DDL）；② **数据操纵**（DM
 | 面向对象 / 对象关系 | 对象、类、继承 | 适合复杂数据类型；实现复杂 |
 | E-R 模型 | 实体-联系图 | 属**概念模型**，用于设计阶段而非 DBMS 实现 |
 
-::: tip 补充 · 现代数据库生态（课件提及「新技术与国产数据库」，此处系统展开）
+::: tip 现代数据库生态：NoSQL、NewSQL 与选型
 - **NoSQL**：键值（Redis）、文档（MongoDB）、列族（HBase/Cassandra）、图（Neo4j）；用 BASE 与最终一致性换取水平扩展与灵活模式。
 - **NewSQL / 分布式**：TiDB、OceanBase、CockroachDB、PolarDB；兼顾 SQL/ACID 与分布式扩展，常基于 Raft/Paxos + 分布式事务。
 - **国产数据库**：达梦 DM、人大金仓 KingbaseES、openGauss、OceanBase、TiDB、PolarDB、GaussDB、TDSQL；多用于信创与政企核心系统。
 - **云数据库 / HTAP / 湖仓一体**：RDS、Serverless DB、Aurora；OLTP 与 OLAP 融合（TiDB TiFlash）、Lakehouse（Iceberg/Hudi/Delta Lake）。
-- **典型选型**：强事务与复杂查询 → 关系型；高并发简单键值缓存 → Redis；海量日志/时序 → 列族/时序库；关系网络 → 图数据库。
+- **典型选型**：强事务与复杂查询 → 关系型；高并发简单键值缓存 → Redis；热点数据/会话/限流/分布式锁 → Redis；半结构化与全文检索 → MongoDB / Elasticsearch；海量写入与监控指标 → HBase / InfluxDB 等列族/时序库；关系网络与路径分析 → 图数据库（Neo4j）；大规模聚合分析 → ClickHouse 等列存 OLAP；水平扩展 + 强一致事务 → TiDB / OceanBase。
+- **选型三问**：① 是否需要 **ACID 强事务**？② 数据规模与增长是否需要**水平扩展**？③ 查询模式是**点查/范围**还是**大规模聚合**？此外要考虑运维能力、生态兼容（如 MySQL 协议）、成本与国产化要求。
 :::
 
 ---
@@ -185,12 +187,41 @@ DBMS 的主要功能：① **数据定义**（DDL）；② **数据操纵**（DM
 **要点**：自然连接会**自动按同名属性**拼接并去掉重复列；若两表没有同名属性却直接写 `⋈`，结果退化为笛卡尔积，是常见错误。除运算几乎总对应 SQL 中的 `NOT EXISTS … NOT EXISTS` 双重否定或 `GROUP BY + HAVING COUNT` 写法。
 :::
 
-**关系演算**（补充）：以数理逻辑谓词为基础，是**非过程化**的。元组关系演算（如 ALPHA：`GET W (Student.Sname): Student.Sdept='CS'`）、域关系演算（如 QBE）。SQL 在表达能力上等价于关系代数 + 关系演算，且**具有关系完备性**；实际 SQL 还带聚合、分组、更新等超出的能力。
+**关系演算**：以数理逻辑谓词为基础，是**非过程化**的。元组关系演算（如 ALPHA：`GET W (Student.Sname): Student.Sdept='CS'`）、域关系演算（如 QBE）。SQL 在表达能力上等价于关系代数 + 关系演算，且**具有关系完备性**；实际 SQL 还带聚合、分组、更新等超出的能力。
 
-::: tip 补充 · 连接运算的三个易漏点
+::: tip 连接运算的三个易漏点
 - **等值连接 vs 自然连接**：前者保留两列同名属性，后者去重只留一列。
 - **外连接**：左外连接保留左表全部元组、右表无匹配补 NULL；另有右外连接、全外连接（MySQL 不直接支持 FULL OUTER JOIN，可用 `LEFT JOIN UNION RIGHT JOIN` 模拟）。
 - **悬浮元组**：自然连接中因无匹配而被丢弃的元组；外连接正是为保留它们。
+:::
+
+### 2.4 关系代数与 SQL 对照
+
+| 关系代数 | SQL |
+| --- | --- |
+| `σ_F(R)` | `SELECT * FROM R WHERE F` |
+| `π_A(R)` | `SELECT DISTINCT A FROM R` |
+| `R ∪ S` | `SELECT … FROM R UNION SELECT … FROM S` |
+| `R − S` | `SELECT … FROM R EXCEPT SELECT … FROM S`（MySQL 8.0.31 起原生支持，更早版本用 `NOT EXISTS` / `LEFT JOIN … IS NULL`） |
+| `R ∩ S` | `INTERSECT`（MySQL 8.0.31 起原生支持，更早版本用 `INNER JOIN` / `IN`） |
+| `R × S` | `CROSS JOIN` |
+| `R ⋈ S` | `JOIN … ON` / `NATURAL JOIN` |
+| `R ÷ S` | 双重 `NOT EXISTS` 或 `GROUP BY + HAVING COUNT(DISTINCT)` |
+| `γ_{G, agg}(R)` | `SELECT G, agg(…) FROM R GROUP BY G`（分组聚合是关系代数的扩展） |
+
+::: tip 工作示例 · 除运算的两种 SQL 写法
+查询「选修了全部课程的学生学号」：
+```sql
+-- 写法 A：双重否定（严格对应除运算）
+SELECT DISTINCT s.Sno FROM SC s
+WHERE NOT EXISTS (
+  SELECT 1 FROM Course c
+  WHERE NOT EXISTS (SELECT 1 FROM SC x WHERE x.Sno=s.Sno AND x.Cno=c.Cno));
+-- 写法 B：计数法（课程无重复、SC 无重复选课时等价）
+SELECT Sno FROM SC GROUP BY Sno
+HAVING COUNT(DISTINCT Cno) = (SELECT COUNT(*) FROM Course);
+```
+教学库上两种写法在本例都返回**空集**（无人选修全部 4 门课）。若把课程表只留 3 门，李勇（选 1、2、3）才会被选出。
 :::
 
 ---
@@ -211,7 +242,7 @@ SQL（Structured Query Language）是关系数据库的**标准语言**，集 DD
 
 ![SQL 分类与 MySQL 执行流程](/db/db-sql.svg)
 
-::: tip 补充 · 课件只讲「数据查询/定义/操纵/控制」四功能，需补两点
+::: tip TCL 与 DDL 隐式提交：两个易漏要点
 ① 标准 SQL 还有 **TCL 事务控制**（COMMIT/ROLLBACK/SAVEPOINT），且 `TRUNCATE` 属 DDL（隐式提交、不可回滚、重置自增值）而非 DML；② DDL 在 MySQL 中大多**隐式提交**，无法被事务回滚（MySQL 8.0 的部分原子 DDL 除外），这与 `DELETE` 可回滚形成鲜明对比。
 :::
 
@@ -237,6 +268,28 @@ SQL（Structured Query Language）是关系数据库的**标准语言**，集 DD
 - MySQL 的 `LIMIT n OFFSET m`（或 `LIMIT m, n`）是方言，标准 SQL 用 `OFFSET … FETCH FIRST … ROWS ONLY`。
 - 反引号 `` ` `` 是 MySQL 标识符引用符，标准 SQL 用双引号；字符串统一用单引号。
 - 聚合函数与 `GROUP BY`：MySQL 在非 `ONLY_FULL_GROUP_BY` 模式下允许 SELECT 非分组列，结果**不确定**；标准 SQL 与严格模式都禁止。
+:::
+
+### 3.3 MySQL 8.0 重要新特性
+
+| 特性 | 说明 |
+| --- | --- |
+| **CTE 与递归 CTE** | `WITH cte AS (…) SELECT …`；`WITH RECURSIVE` 处理树形/层级数据 |
+| **窗口函数** | `ROW_NUMBER / RANK / DENSE_RANK / LAG / LEAD / SUM() OVER(PARTITION BY …)`，不折叠行 |
+| JSON 增强 | JSON 类型、JSON 函数、函数索引（Generated Column） |
+| 角色、原子 DDL、降序索引、不可见索引 | 权限批量管理、DDL 崩溃安全、排序优化、索引灰度下线 |
+| `utf8mb4_0900_ai_ci` 默认校对 | 真正 UTF-8、性能更好 |
+| 移除查询缓存 | 高并发下命中率低且锁竞争严重，改用应用层缓存（Redis） |
+| `CHECK` 约束生效、隐藏列、EXPLAIN ANALYZE | 完整性增强与执行计划实测 |
+
+::: tip 工作示例 · 窗口函数：每系成绩排名
+```sql
+SELECT Sno, Sdept, Grade,
+       RANK() OVER (PARTITION BY Sdept ORDER BY Grade DESC) AS rk
+FROM SC JOIN Student USING(Sno)
+WHERE Grade IS NOT NULL;
+```
+`RANK` 并列跳号（1,1,3），`DENSE_RANK` 并列不跳号（1,1,2），`ROW_NUMBER` 强制唯一序号——三者区别是高频考点。
 :::
 
 ---
@@ -518,7 +571,7 @@ HAVING COUNT(DISTINCT Cno) = (SELECT COUNT(*) FROM Course);
 **易错**：`NOT IN` 的子查询只要含一个 NULL，整个结果恒为空（`x NOT IN (1,2,NULL)` → UNKNOWN）；应改用 `NOT EXISTS` 或给子查询加 `WHERE col IS NOT NULL`。
 :::
 
-::: tip 补充 · 查询优化与执行计划（课件未展开）
+::: tip 查询优化与执行计划
 `EXPLAIN SELECT …` 的关键列：`type`（`system > const > eq_ref > ref > range > index > ALL`，出现 **ALL 即全表扫描**）、`possible_keys / key`（候选与实际使用索引）、`rows`（预估扫描行数）、`Extra`（`Using index` 覆盖索引、`Using filesort` 需额外排序、`Using temporary` 用临时表）。
 索引失效的典型原因：对索引列做函数/运算（`WHERE YEAR(date)=2024`）、隐式类型转换（字符串列传数字）、`LIKE '%abc'` 前置通配、违反最左前缀、`OR` 连接非索引列、优化器判断全表扫描更便宜。**改写目标：让条件能直接命中索引列本身。**
 :::
@@ -530,6 +583,38 @@ HAVING COUNT(DISTINCT Cno) = (SELECT COUNT(*) FROM Course);
 - `LIMIT` 必须配合 `ORDER BY` 才有确定的「前 N 名」语义。
 - `UNION` 会去重（有排序开销），业务确认无重复时优先 `UNION ALL`。
 :::
+
+### 6.4 NULL 与三值逻辑（贯穿查询、约束、索引）
+
+```text
+SQL 逻辑值：TRUE / FALSE / UNKNOWN
+NULL = NULL        → UNKNOWN（不是 TRUE！）
+NOT UNKNOWN        → UNKNOWN
+WHERE 只保留 TRUE 的行，FALSE 与 UNKNOWN 都被丢弃
+```
+
+| 场景 | 陷阱 | 正确写法 |
+| --- | --- | --- |
+| 判空 | `WHERE col = NULL` 恒空 | `col IS NULL` / `IS NOT NULL` |
+| 聚合 | `SUM/AVG/MAX/MIN/COUNT(col)` 忽略 NULL | 需当 0 时用 `COALESCE(col,0)`；`COUNT(*)` 计全部行 |
+| `NOT IN` | 子查询含 NULL → 结果恒空 | 改 `NOT EXISTS` 或加 `IS NOT NULL` |
+| 外连接 | 补 NULL 的行仍参与 `COUNT(*)` | 用 `COUNT(右表列)` |
+| 唯一约束 | MySQL 的 UNIQUE 允许多个 NULL | 需"非空唯一"时显式加 `NOT NULL` |
+| 排序 | MySQL 升序时 NULL 排最前 | 用 `ORDER BY col IS NULL, col` 控制 |
+
+### 6.5 常见 SQL 书写规范与性能清单
+
+```text
+✔ 明确列名，避免 SELECT *
+✔ 条件中的列保持"裸列"，不做函数/运算/隐式转换
+✔ 大表分页避免 LIMIT 1000000, 20，改用游标式 WHERE id > last_id LIMIT n
+✔ 用 EXISTS 替代大 IN 集合；UNION ALL 优先于 UNION
+✔ 批量插入用多值 INSERT / LOAD DATA，减少往返
+✔ 事务尽量短，按固定顺序更新多行以防死锁
+✔ 定期 ANALYZE TABLE 更新统计信息，检查慢查询日志
+✘ 在生产库直接跑无 WHERE 的 UPDATE/DELETE（先 SELECT 验证范围）
+✘ 用触发器隐式维护核心业务逻辑（难以排查）
+```
 
 ---
 
@@ -582,7 +667,7 @@ EXPLAIN SELECT * FROM Student WHERE Sdept='CS';
 
 ![B+树索引、最左前缀与覆盖索引](/db/db-index.svg)
 
-::: tip 补充 · B+树、最左前缀与覆盖索引（课件只讲「索引管理」语句，未讲原理）
+::: tip B+树、最左前缀与覆盖索引原理
 **B+树**：非叶子节点只存键值与指针（扇出大、树高通常 3~4 层），**所有数据都在叶子层且叶子间有双向链表**，因此范围查询 `BETWEEN / > / ORDER BY` 只需顺序扫叶子。对比 B 树：B 树各层都可能存数据，范围查询要中序遍历。
 
 **最左前缀**：联合索引 `(Sdept, Sage, Sno)` 相当于按 `Sdept` 排序，同值内按 `Sage`、`Sno` 排序。
@@ -605,6 +690,20 @@ EXPLAIN SELECT * FROM Student WHERE Sdept='CS';
 - `NULL` 值也可以被索引；但低选择性列（如性别）建单列索引通常无用（优化器宁可全表扫描）。
 - 视图是**虚表**，索引是**实结构**；不能对普通视图建索引（物化视图除外，MySQL 不原生支持）。
 :::
+
+### 7.3 索引选择与执行计划诊断
+
+```text
+表 SC(Sno, Cno, Grade)，现有联合索引 idx_sc(Sno, Grade)
+① WHERE Sno='2021001'                       ✔ 用最左列
+② WHERE Sno='2021001' AND Grade>80           ✔ 两列都用（范围列之后停止）
+③ WHERE Grade>80                            ✘ 跳过最左列（全表/全索引扫描）
+④ WHERE Sno LIKE '%001'                     ✘ 前置通配
+⑤ WHERE Sno+''='2021001'                    ✘ 对索引列做运算
+⑥ SELECT Grade FROM SC WHERE Sno='2021001'  ✔ 覆盖索引，无需回表
+```
+
+`EXPLAIN` 中 `type=ALL` 或 `rows` 极大、`Extra` 出现 `Using filesort / Using temporary` 是优化信号；但数据量很小时优化器选择全表扫描是**正确**的（随机 I/O 比顺序扫更贵），不要机械地"强制索引"。
 
 ---
 
@@ -698,8 +797,8 @@ COMMIT;              -- 或 ROLLBACK（全部回滚）
 
 ![事务状态、ACID 与实现机制](/db/db-transaction.svg)
 
-::: tip 补充 · 课件只讲「事务及其性质」，需补上 ACID 缩写与实现映射
-课件用中文描述四个性质但未给出 **ACID** 术语，也未说明它们分别由哪套日志/机制保障。上表是考研与面试的标准答案：**A↔undo、D↔redo、I↔锁/MVCC、C↔最终结果**。另外 MySQL 默认 `autocommit=1`，单条 DML 自动成为一个事务；显式事务需 `START TRANSACTION` 或 `SET autocommit=0`。
+::: tip ACID 缩写与实现机制的映射
+上表是考研与面试的标准答案：**A↔undo、D↔redo、I↔锁/MVCC、C↔最终结果**。另外 MySQL 默认 `autocommit=1`，单条 DML 自动成为一个事务；显式事务需 `START TRANSACTION` 或 `SET autocommit=0`。
 :::
 
 ### 9.2 四类并发异常与四种隔离级别（★★★）
@@ -757,16 +856,38 @@ SET GLOBAL  TRANSACTION ISOLATION LEVEL REPEATABLE READ;
 
 **可串行化调度**：多个事务并发执行的结果，与某一串行执行次序的结果相同。判据可用**优先图（冲突图）**：若图中无环，则调度冲突可串行化。
 
-**死锁**：两个事务互相等待对方已持有的锁。
-- 预防：一次封锁法（一次性申请全部资源，降低并发）、顺序封锁法（按统一顺序加锁，难维护）；
+**死锁**：两个事务互相等待对方已持有的锁。产生死锁需要四个必要条件同时成立：**互斥、请求与保持、不可剥夺、循环等待**——破坏其中任意一个即可预防。
+- 预防：一次封锁法（一次性申请全部资源，破坏"请求与保持"，降低并发）、顺序封锁法（按统一顺序加锁，破坏"循环等待"，难维护）；
 - 诊断与解除：**超时法**、**等待图法（检测环）**；选择**代价最小**的事务回滚并释放其锁；
 - InnoDB 内建死锁检测（`innodb_deadlock_detect`），并会自动回滚较小的事务；也支持 `innodb_lock_wait_timeout` 超时。
 
-::: tip 补充 · MVCC 如何做到「读不加锁」（课件未覆盖）
+::: tip MVCC 如何做到「读不加锁」
 InnoDB 每行有隐藏列 `DB_TRX_ID`（最后修改事务 ID）、`DB_ROLL_PTR`（指向 undo log 中旧版本）；多版本通过回滚指针串成**版本链**。事务发起一致性读时生成 **ReadView**（含当前活跃事务 ID 列表、最小/最大事务 ID），沿版本链找到「对当前 ReadView 可见」的版本返回。
 - `READ COMMITTED`：**每条 SELECT 都生成新 ReadView** → 能看到别的事务新提交的修改（不可重复读）。
 - `REPEATABLE READ`：**只在第一次普通 SELECT 生成 ReadView**，之后复用 → 可重复读。
 - 快照读（普通 SELECT）走 MVCC 不加锁；当前读（`SELECT … FOR UPDATE` / `LOCK IN SHARE MODE` / `UPDATE` / `DELETE`）走锁与 Next-Key Lock。
+:::
+
+### 9.4 事务调度可串行化判定（优先图）
+
+**题**：两个事务（A、B 为数据项）
+```text
+T1: R(A)  W(A)  R(B)  W(B)
+T2: R(A)  W(A)  R(B)  W(B)
+调度 S: R1(A) R2(A) W1(A) W2(A) R2(B) W2(B) R1(B) W1(B)
+```
+**解**：列出**冲突操作**（不同事务、同一数据项、至少一个写）：
+```text
+A 上：R2(A) 在 W1(A) 之前 → T2 → T1；W1(A) 在 W2(A) 之前 → T1 → T2  ⇒ 出现环
+B 上：W2(B) 在 R1(B) 之前 → T2 → T1；R2(B) 在 W1(B) 之前 → T2 → T1
+优先图：T1 ⇄ T2（有环）⇒ 该调度**不是冲突可串行化**的
+```
+若优先图无环，则拓扑序即等价的串行次序（如 T1→T2）。**2PL 保证可串行化但不保证无死锁**；时间戳排序、乐观并发控制（OCC/MVCC）是另外的实现路线。
+
+::: tip 并发控制的三条技术路线（对比记忆）
+- **封锁法（悲观）**：先加锁再操作，2PL 保证可串行化，代价是并发度下降与死锁。
+- **时间戳排序**：每个事务分配全局递增时间戳 TS(T)，冲突时按 TS 决定谁先谁后（TS 小的先执行），TS 大的事务被拒绝则**回滚并重新盖章**，天然无死锁但可能反复重启。
+- **乐观并发控制（OCC）**：读-校验-写三阶段，先不加锁地做，提交前校验读集是否被他人改过，冲突则回滚重试；适合**读多写少、冲突率低**的场景（应用层版本号乐观锁即其简化版）。
 :::
 
 ---
@@ -819,6 +940,16 @@ mysqlbinlog --stop-datetime="2026-11-13 14:29:59" mysql-bin.000003 | mysql -u ro
 ```
 **为什么要两阶段提交**：binlog 与 redo 分属两层，若「redo 已提交但 binlog 没写」→ 主库有数据、从库没有；反之从库多数据。2PC 以 binlog 是否完整写入作为最终提交依据，保证**主库与从库一致**。崩溃恢复时：redo 为 prepare 且 binlog 完整 → 提交；redo 为 prepare 但 binlog 不完整 → 回滚。
 
+::: tip 三类故障与恢复策略（经典考点）
+| 故障 | 例子 | 恢复方法 |
+| --- | --- | --- |
+| **事务内部故障** | 运算溢出、死锁被选为牺牲者、用户 ROLLBACK | **UNDO**：沿 undo log 反向撤销该事务全部修改 |
+| **系统故障（软故障）** | 断电、OS/DBMS 崩溃，内存丢失但磁盘完好 | 重启后**自动恢复**：UNDO 所有未提交事务，REDO 所有已提交但可能未刷盘的事务 |
+| **介质故障（硬故障）** | 磁盘损坏、磁头划伤，数据文件丢失 | **重装数据库 + 转储副本 + 重放日志（REDO）**，需 DBA 介入，代价最大 |
+
+记忆：事务故障靠 UNDO；系统故障 UNDO+REDO；介质故障靠备份+日志重放。恢复子系统核心组件是**日志 + 检查点（checkpoint）**——检查点缩小了崩溃后需要扫描重放的日志范围。
+:::
+
 ::: danger 易错 · 日志与恢复
 - `TRUNCATE` 是 DDL、隐式提交，**不能靠 undo 回滚**；误删表只能靠备份 + binlog 恢复。
 - binlog 是 **Server 层**逻辑日志，redo 是 **InnoDB 层**物理日志；MyISAM 没有 redo。
@@ -842,8 +973,8 @@ mysqlbinlog --stop-datetime="2026-11-13 14:29:59" mysql-bin.000003 | mysql -u ro
 | ⑤ 数据库实施 | 物理设计 | 建库建表、装载数据、编写与调试应用程序、试运行 | 可运行的数据库与应用 |
 | ⑥ 运行与维护 | 上线系统 | 性能监控与调优、备份恢复、安全审计、结构变更、重组织与重构 | 持续运维记录 |
 
-::: tip 补充 · 课件按章节分散讲设计，需补「六阶段」这条主线
-课件第 11 章讲设计任务与需求分析、第 13 章讲概念/逻辑设计、第 14 章讲物理设计与实施维护，但**没有把六阶段串成一条完整链路**（术语「六阶段」在课件文本中未出现）。答题时应能一口气写出上表，并说明各阶段的**输入与产出**；其中「概念结构设计独立于具体 DBMS」与「逻辑结构设计依赖所选数据模型」是两个高频判断点。
+::: tip 「六阶段」主线是答题骨架
+答题时应能一口气写出上表，并说明各阶段的**输入与产出**；其中「概念结构设计独立于具体 DBMS」与「逻辑结构设计依赖所选数据模型」是两个高频判断点。
 :::
 
 ### 11.2 需求分析：DFD 与数据字典（★★）
@@ -909,6 +1040,10 @@ A3 传递律：若 X → Y 且 Y → Z，则 X → Z
 ```
 **属性闭包 `X⁺`**：由 X 在函数依赖集 F 下能推出的全部属性。算法：从 `X⁺=X` 开始，反复把满足 `A ⊆ X⁺` 的 `A→B` 中的 B 并入，直到不再变化。若 `X⁺ = U`，则 X 是**超码**；若再无真子集满足，则是**候选码**。
 
+::: tip 最小函数依赖集（最小覆盖）
+F 的最小覆盖 F_min 满足三条件：① 每个 FD 右部都是**单属性**；② 不存在可用其余 FD 推出的**冗余 FD**；③ 每个 FD 左部不含**冗余属性**（去掉任一属性后闭包不变）。求法：拆右部 → 逐个尝试删 FD → 逐个尝试删左部属性。最小覆盖是 3NF 保持依赖分解算法（综合模式法）的输入，也是「同一 F 的最小覆盖不唯一」这一判断题的来源。
+:::
+
 ::: tip 工作示例 · 求候选码（含完整推导）
 设 `R(A,B,C,D,E)`，`F = { AB→C, C→D, D→E, E→A }`，求候选码。
 
@@ -958,9 +1093,7 @@ F = { (Sno,Cno)→Grade, Sno→Sdept, Sno→Sloc, Sdept→Sloc }
 **每步都要能答**：违反哪个范式、依据哪条函数依赖、按什么拆、拆完有没有丢东西。
 :::
 
-::: tip 补充 · BCNF、4NF 与「无损连接 / 保持依赖」（课件只讲到 3NF）
-课件第 12 章明确定义了 1NF、2NF、3NF，**未出现 BCNF、4NF、Armstrong 公理、候选码闭包、无损连接与保持依赖**，需系统补上：
-
+::: tip BCNF、4NF 与「无损连接 / 保持依赖」
 **BCNF 反例**：`STJ(S, T, J)`（学生、教师、课程），`F = {(S,J)→T, (S,T)→J, T→J}`，候选码 `(S,J)` 与 `(S,T)`。所有属性都是主属性 ⇒ 满足 3NF；但 `T→J` 中 T 不含码 ⇒ **不满足 BCNF**。分解为 `ST(S,T)` + `TJ(T,J)` 达 BCNF，但**丢失了 `(S,J)→T`**（说明 BCNF 分解不保证保持依赖）。
 **4NF 反例**：`CTB(Course, Teacher, Book)`，一门课有多位教师、多套教材且二者相互独立 ⇒ 存在非平凡多值依赖 `Course→→Teacher`、`Course→→Book`，属 BCNF 但不是 4NF；分解为 `CT(Course,Teacher)`、`CB(Course,Book)`。
 
@@ -977,6 +1110,18 @@ F = { (Sno,Cno)→Grade, Sno→Sdept, Sno→Sloc, Sdept→Sloc }
 - 传递依赖要求中间属性 `Y ↛ X`（若 Y 也能决定 X，则是相互决定，不构成传递依赖）。
 :::
 
+### 12.4 无损连接与保持依赖的验证（工作示例）
+
+对 `SL(Sno,Sdept,Sloc)` 分解为 `SD(Sno,Sdept)` + `DL(Sdept,Sloc)`：
+```text
+① 交集 R1∩R2 = {Sdept}
+② R1−R2 = {Sno}；R2−R1 = {Sloc}
+③ 检查 Sdept→Sno？不成立；Sdept→Sloc？F 中有 ✔ ⇒ 无损连接
+④ 保持依赖：F1={Sno→Sdept}、F2={Sdept→Sloc}，
+   二者的并集可推出原 F 中 Sno→Sloc（传递）✔ ⇒ 保持依赖
+```
+作为对照，BCNF 分解 `STJ → ST + TJ` 虽无损，却丢失 `(S,J)→T`（不保持依赖）——这正是「3NF 可同时保证无损+保持依赖，BCNF 只能保证无损」的具体例证。
+
 ---
 
 ## 第 13 章 概念结构设计和逻辑结构设计
@@ -988,7 +1133,7 @@ F = { (Sno,Cno)→Grade, Sno→Sdept, Sno→Sloc, Sdept→Sloc }
 | 实体型 | 矩形 | 学生、课程、部门 |
 | 属性 | 椭圆 | 学号、姓名；**码属性加下划线** |
 | 联系 | 菱形 | 选课、隶属；连线标注 `1:1 / 1:n / m:n` |
-| 特殊 | 双矩形（弱实体）、双菱形（标识联系）、ISA 三角形（泛化/继承） | 课件未展开 |
+| 特殊 | 双矩形（弱实体）、双菱形（标识联系）、ISA 三角形（泛化/继承） | 处理复杂语义时的扩展记号 |
 
 **三类联系与转换思路**：
 
@@ -1040,7 +1185,7 @@ F = { (Sno,Cno)→Grade, Sno→Sdept, Sno→Sloc, Sdept→Sloc }
 | 确定系统配置 | Buffer Pool 大小、连接数、日志大小、刷盘策略、隔离级别 |
 | 评估 | 估算存储空间、I/O 次数与响应时间，权衡时间/空间/维护代价 |
 
-::: tip 补充 · 分区与分库分表（课件只提「存储策略」）
+::: tip 分区与分库分表
 - **分区**：逻辑上一张表、物理上多个段，应用**无感**；分区键必须出现在唯一索引中（MySQL 限制）。
 - **分库分表**：水平拆分（按用户 ID 取模/范围）、垂直拆分（按列拆冷热）；引入**分片键选择、跨片 JOIN、分布式事务、全局唯一 ID（雪花算法）、分页与排序**等难题，通常借助中间件（ShardingSphere、MyCat）或分布式数据库（TiDB、OceanBase）。
 - **读写分离**：主库写、从库读，靠 binlog 复制；须处理**主从延迟**带来的"刚写就读不到"（可强制读主库或等待 GTID）。
@@ -1160,7 +1305,7 @@ DELIMITER ;
 | 返回值 | 通过 OUT 参数/结果集，可无返回值 | **必须** `RETURNS` 且 `RETURN` 单值 |
 | 参数 | IN / OUT / INOUT | 只有 IN |
 | 事务 | 过程内可 `COMMIT/ROLLBACK`（须自行管理） | 一般不允许显式事务 |
-| 声明特征 | 可选 | 必须声明 `DETERMINISTIC / NO SQL / READS SQL DATA` 之一（开启 binlog 时） |
+| 声明特征 | 可选 | 必须声明 `DETERMINISTIC / NO SQL / READS SQL DATA / MODIFIES SQL DATA` 之一（开启 binlog 时） |
 
 游标 `NOT FOUND` 处理器必须在**游标 DECLARE 之后**；否则 `FETCH` 到末尾会直接报错而不是置 done。
 :::
@@ -1317,139 +1462,11 @@ except Exception:
 
 ![编程连接、预处理与连接池](/db/db-connection.svg)
 
-::: tip 补充 · 课件以 API 调用为主，需补的工程结论
-课件第 17 章大量篇幅展示 Python/Java 连接示例，但**未系统讲「预处理语句防注入」「连接池」「事务边界」「资源释放」**四件事。生产代码的关键不在「能不能连上」，而在：① 一律参数化；② 用连接池且正确归还；③ 显式事务、及时提交；④ 处理死锁/超时重试；⑤ 应用账号最小权限。这些同时也是面试高频考点。
+::: tip 编程连接的五条工程结论
+生产代码的关键不在「能不能连上」，而在：① 一律参数化；② 用连接池且正确归还；③ 显式事务、及时提交；④ 处理死锁/超时重试；⑤ 应用账号最小权限。这些同时也是面试高频考点。
 :::
 
 ---
-
-## 各章深挖专题
-
-### 深 1 · NULL 与三值逻辑（贯穿查询、约束、索引）
-
-```text
-SQL 逻辑值：TRUE / FALSE / UNKNOWN
-NULL = NULL        → UNKNOWN（不是 TRUE！）
-NOT UNKNOWN        → UNKNOWN
-WHERE 只保留 TRUE 的行，FALSE 与 UNKNOWN 都被丢弃
-```
-| 场景 | 陷阱 | 正确写法 |
-| --- | --- | --- |
-| 判空 | `WHERE col = NULL` 恒空 | `col IS NULL` / `IS NOT NULL` |
-| 聚合 | `SUM/AVG/MAX/MIN/COUNT(col)` 忽略 NULL | 需当 0 时用 `COALESCE(col,0)`；`COUNT(*)` 计全部行 |
-| `NOT IN` | 子查询含 NULL → 结果恒空 | 改 `NOT EXISTS` 或加 `IS NOT NULL` |
-| 外连接 | 补 NULL 的行仍参与 `COUNT(*)` | 用 `COUNT(右表列)` |
-| 唯一约束 | MySQL 的 UNIQUE 允许多个 NULL | 需"非空唯一"时显式加 `NOT NULL` |
-| 排序 | MySQL 升序时 NULL 排最前 | 用 `ORDER BY col IS NULL, col` 控制 |
-
-### 深 2 · 关系代数 ↔ SQL 对照表
-
-| 关系代数 | SQL |
-| --- | --- |
-| `σ_F(R)` | `SELECT * FROM R WHERE F` |
-| `π_A(R)` | `SELECT DISTINCT A FROM R` |
-| `R ∪ S` | `SELECT … FROM R UNION SELECT … FROM S` |
-| `R − S` | `SELECT … FROM R EXCEPT SELECT … FROM S`（MySQL 用 `NOT EXISTS` / `LEFT JOIN … IS NULL`） |
-| `R ∩ S` | `INTERSECT`（MySQL 用 `INNER JOIN` / `IN`） |
-| `R × S` | `CROSS JOIN` |
-| `R ⋈ S` | `JOIN … ON` / `NATURAL JOIN` |
-| `R ÷ S` | 双重 `NOT EXISTS` 或 `GROUP BY + HAVING COUNT(DISTINCT)` |
-| `γ_{G, agg}(R)` | `SELECT G, agg(…) FROM R GROUP BY G`（分组聚合是关系代数的扩展） |
-
-::: tip 工作示例 · 除运算的两种 SQL 写法
-查询「选修了全部课程的学生学号」：
-```sql
--- 写法 A：双重否定（严格对应除运算）
-SELECT DISTINCT s.Sno FROM SC s
-WHERE NOT EXISTS (
-  SELECT 1 FROM Course c
-  WHERE NOT EXISTS (SELECT 1 FROM SC x WHERE x.Sno=s.Sno AND x.Cno=c.Cno));
--- 写法 B：计数法（课程无重复、SC 无重复选课时等价）
-SELECT Sno FROM SC GROUP BY Sno
-HAVING COUNT(DISTINCT Cno) = (SELECT COUNT(*) FROM Course);
-```
-教学库上两种写法在本例都返回**空集**（无人选修全部 4 门课）。若把课程表只留 3 门，李勇（选 1、2、3）才会被选出。
-:::
-
-### 深 3 · 索引选择与执行计划诊断
-
-```text
-表 SC(Sno, Cno, Grade)，现有联合索引 idx_sc(Sno, Grade)
-① WHERE Sno='2021001'                       ✔ 用最左列
-② WHERE Sno='2021001' AND Grade>80           ✔ 两列都用（范围列之后停止）
-③ WHERE Grade>80                            ✘ 跳过最左列（全表/全索引扫描）
-④ WHERE Sno LIKE '%001'                     ✘ 前置通配
-⑤ WHERE Sno+''='2021001'                    ✘ 对索引列做运算
-⑥ SELECT Grade FROM SC WHERE Sno='2021001'  ✔ 覆盖索引，无需回表
-```
-`EXPLAIN` 中 `type=ALL` 或 `rows` 极大、`Extra` 出现 `Using filesort / Using temporary` 是优化信号；但数据量很小时优化器选择全表扫描是**正确**的（随机 I/O 比顺序扫更贵），不要机械地"强制索引"。
-
-### 深 4 · 事务调度可串行化判定（优先图）
-
-**题**：两个事务（A、B 为数据项）
-```text
-T1: R(A)  W(A)  R(B)  W(B)
-T2: R(A)  W(A)  R(B)  W(B)
-调度 S: R1(A) R2(A) W1(A) W2(A) R2(B) W2(B) R1(B) W1(B)
-```
-**解**：列出**冲突操作**（不同事务、同一数据项、至少一个写）：
-```text
-A 上：R2(A) 在 W1(A) 之前 → T2 → T1；W1(A) 在 W2(A) 之前 → T1 → T2  ⇒ 出现环
-B 上：W2(B) 在 R1(B) 之前 → T2 → T1；R2(B) 在 W1(B) 之前 → T2 → T1
-优先图：T1 ⇄ T2（有环）⇒ 该调度**不是冲突可串行化**的
-```
-若优先图无环，则拓扑序即等价的串行次序（如 T1→T2）。**2PL 保证可串行化但不保证无死锁**；时间戳排序、乐观并发控制（OCC/MVCC）是另外的实现路线。
-
-### 深 5 · 无损连接与保持依赖的验证
-
-对 `SL(Sno,Sdept,Sloc)` 分解为 `SD(Sno,Sdept)` + `DL(Sdept,Sloc)`：
-```text
-① 交集 R1∩R2 = {Sdept}
-② R1−R2 = {Sno}；R2−R1 = {Sloc}
-③ 检查 Sdept→Sno？不成立；Sdept→Sloc？F 中有 ✔ ⇒ 无损连接
-④ 保持依赖：F1={Sno→Sdept}、F2={Sdept→Sloc}，
-   二者的并集可推出原 F 中 Sno→Sloc（传递）✔ ⇒ 保持依赖
-```
-作为对照，BCNF 分解 `STJ → ST + TJ` 虽无损，却丢失 `(S,J)→T`（不保持依赖）——这正是「3NF 可同时保证无损+保持依赖，BCNF 只能保证无损」的具体例证。
-
-### 深 6 · MySQL 8.0 重要新特性（补充）
-
-| 特性 | 说明 |
-| --- | --- |
-| **CTE 与递归 CTE** | `WITH cte AS (…) SELECT …`；`WITH RECURSIVE` 处理树形/层级数据 |
-| **窗口函数** | `ROW_NUMBER / RANK / DENSE_RANK / LAG / LEAD / SUM() OVER(PARTITION BY …)`，不折叠行 |
-| JSON 增强 | JSON 类型、JSON 函数、函数索引（Generated Column） |
-| 角色、原子 DDL、降序索引、不可见索引 | 权限批量管理、DDL 崩溃安全、排序优化、索引灰度下线 |
-| `utf8mb4_0900_ai_ci` 默认校对 | 真正 UTF-8、性能更好 |
-| 移除查询缓存 | 高并发下命中率低且锁竞争严重，改用应用层缓存（Redis） |
-| `CHECK` 约束生效、隐藏列、EXPLAIN ANALYZE | 完整性增强与执行计划实测 |
-
-### 深 7 · 数据库新技术与选型速览（补充）
-
-```text
-单机关系型 MySQL/PostgreSQL       → 事务、复杂查询、中等规模
-缓存 Redis                       → 热点数据、会话、限流、分布式锁
-文档 MongoDB / 搜索 Elasticsearch → 半结构化、全文检索
-列族 HBase / 时序 InfluxDB       → 海量写入、监控指标
-图 Neo4j                         → 关系网络、路径分析
-分布式/HTAP TiDB、OceanBase      → 水平扩展 + 强一致事务
-分析型 ClickHouse / 数据仓库      → 列存、OLAP 聚合
-```
-选型三问：① 是否需要 **ACID 强事务**？② 数据规模与增长是否需要**水平扩展**？③ 查询模式是**点查/范围**还是**大规模聚合**？此外要考虑运维能力、生态兼容（MySQL 协议）、成本与国产化要求。
-
-### 深 8 · 常见 SQL 书写规范与性能清单
-
-```text
-✔ 明确列名，避免 SELECT *
-✔ 条件中的列保持"裸列"，不做函数/运算/隐式转换
-✔ 大表分页避免 LIMIT 1000000, 20，改用游标式 WHERE id > last_id LIMIT n
-✔ 用 EXISTS 替代大 IN 集合；UNION ALL 优先于 UNION
-✔ 批量插入用多值 INSERT / LOAD DATA，减少往返
-✔ 事务尽量短，按固定顺序更新多行以防死锁
-✔ 定期 ANALYZE TABLE 更新统计信息，检查慢查询日志
-✘ 在生产库直接跑无 WHERE 的 UPDATE/DELETE（先 SELECT 验证范围）
-✘ 用触发器隐式维护核心业务逻辑（难以排查）
-```
 
 ## 综合例题精讲（跨章）
 
@@ -1614,47 +1631,6 @@ finally:
     conn.close()
 ```
 **分工原则**：**结构完整性**（PK/FK/CHECK/触发器）放数据库层保证所有写入路径都受约束；**业务逻辑**尽量放应用层便于测试与版本管理；**参数化查询**在应用层杜绝注入；触发器与业务语句在同一事务，抛错即整体回滚。
-
-## 补充与修正汇总（对照课件）
-
-> 「**修正**」＝课件表述需订正或明确边界；「**补充**」＝课件以提纲为主、未展开但应掌握的知识。所属课程一律泛化表述，笔记正文不写版次、作者与出版社。
-
-| # | 章节 | 类型 | 课件现状 | 补充 / 修正内容 |
-| --- | --- | --- | --- | --- |
-| 1 | 1.2 | **修正** | 列出三级模式，未点明「两级映像」与数据独立性的因果 | 补外模式/模式映像 → 逻辑独立性、模式/内模式映像 → 物理独立性；强调模式与内模式各一个、外模式多个 |
-| 2 | 1.3 | 补充 | 提及新技术与国产数据库 | 系统补 NoSQL 四类、NewSQL/分布式、HTAP/湖仓一体、国产数据库与选型三问 |
-| 3 | 2.2 | 补充 | 讲实体与参照完整性 | 补**用户定义完整性**（NOT NULL/UNIQUE/CHECK/触发器）与外码为 NULL 的边界、违约处理（RESTRICT/CASCADE/SET NULL） |
-| 4 | 2.3 | 补充 | 列关系代数运算 | 补自然连接去重列、外连接与悬浮元组、除运算 ↔ SQL 双重否定 / GROUP BY+HAVING 的对应 |
-| 5 | 2.3 | 补充 | 讲关系代数 | 补关系演算（元组/域）与「SQL 具有关系完备性」 |
-| 6 | 3.1 | **补充** | 只讲「查询/定义/操纵/控制」四功能 | 补 **DDL/DML/DQL/DCL/TCL** 标准分类、`TRUNCATE` 属 DDL、DDL 隐式提交不可回滚 |
-| 7 | 3.2 | 补充 | MySQL 简介 | 补一条 SQL 的完整执行路径（连接→解析→预处理→优化器→执行器→存储引擎）、`EXPLAIN` |
-| 8 | 3.2 | 修正 | 未区分标准 SQL 与方言 | 明确 `CONCAT` vs `\|\|`、`LIMIT` vs `FETCH FIRST`、反引号 vs 双引号、`ONLY_FULL_GROUP_BY` |
-| 9 | 4.1 | 补充 | 列 InnoDB/MyISAM/MEMORY | 补 InnoDB 四特性、行锁 vs 表锁、聚簇索引、崩溃恢复，以及引擎选择的业务判据 |
-| 10 | 4.2 | 修正 | 给 `CREATE DATABASE` 语法 | 强调 MySQL `utf8` 实为 utf8mb3、**必须 utf8mb4**；改库默认字符集不转换既有列 |
-| 11 | 5.1 | 补充 | 列数据类型 | 补 `INT(11)` 只是显示宽度、金额必须 DECIMAL、`TIMESTAMP` 时区与 2038 问题、JSON/生成列 |
-| 12 | 5.2 | 补充 | 讲约束 | 补 MySQL 8.0.16 前 `CHECK` 仅解析不生效、UNIQUE 允许多个 NULL、`AUTO_INCREMENT` 条件 |
-| 13 | 5.3 | 补充 | INSERT/UPDATE/DELETE | 补 `TRUNCATE` 与三者对照、`INSERT … SELECT`、忘写 WHERE 的全表事故与 `sql_safe_updates` |
-| 14 | 6.1 | **补充** | 给 SELECT 语法格式 | 补**真实执行顺序** FROM→WHERE→GROUP BY→HAVING→SELECT→ORDER BY→LIMIT，及 WHERE 不能用别名/聚合 |
-| 15 | 6.1 | 补充 | 讲谓词 | 补三值逻辑与 NULL 全套陷阱（IS NULL、NOT IN 含 NULL、COUNT 差异、聚合忽略 NULL） |
-| 16 | 6.2 | 补充 | 讲多关系查询 | 补 LEFT/RIGHT/CROSS JOIN、自连接、`UNION` vs `UNION ALL`、LEFT JOIN 后 `COUNT(右表列)` 的必要性 |
-| 17 | 6.3 | 补充 | 讲子查询 | 补 `EXISTS` 与非相关子查询效率、`NOT EXISTS` 表达「全部」、CTE/派生表、除运算两种写法 |
-| 18 | 6.x | **补充** | 未讲查询优化 | 补 `EXPLAIN` 各列含义、索引失效六类场景、覆盖索引、分页优化 |
-| 19 | 7.1 | 补充 | 讲视图管理 | 补「视图是外模式实现 → 逻辑独立性」、可更新视图限制清单、`WITH CHECK OPTION` |
-| 20 | 7.2 | **补充（重点）** | 只讲索引管理语句 | 系统补 **B+树结构、聚簇/二级索引与回表、最左前缀、覆盖索引、索引失效与「索引不是越多越好」** |
-| 21 | 8.x | **补充** | 讲用户/权限/角色 | 补权限四层级与系统表、`CREATE USER` 先于 `GRANT`、**SQL 注入原理与参数化查询**、最小权限与审计 |
-| 22 | 9.1 | **修正 + 补充** | 用中文描述事务四性质，标题出现「**事物**的隔离级别」笔误 | 订正为「**事务**」；补 **ACID 缩写**与「A↔undo、D↔redo、I↔锁/MVCC、C↔最终结果」实现映射 |
-| 23 | 9.2 | 补充 | 讲并发不一致与隔离级别 | 补**丢失修改/脏读/不可重复读/幻读**四异常对照表、`@@transaction_isolation`、InnoDB RR 下 Next-Key Lock 基本消除幻读 |
-| 24 | 9.3 | **补充（重点）** | 讲排它锁/共享锁与封锁 | 补三级封锁协议、**2PL 两段锁**、优先图与冲突可串行化、死锁检测与解除、意向锁/间隙锁 |
-| 25 | 9.x | **补充** | 未出现 MVCC | 补 undo 版本链、隐藏列、ReadView，解释 RC 每次生成 / RR 首次生成，以及快照读 vs 当前读 |
-| 26 | 10.x | **补充** | 讲 mysqldump 与日志类型 | 补 **binlog（Server 逻辑）/redo（InnoDB 物理）/undo** 三者分工、**WAL 与两阶段提交**、时间点恢复 PITR、RPO/RTO、主从复制不是备份 |
-| 27 | 11.x | **补充** | 分章讲设计任务 | 补「**六阶段**」主线与各阶段输入/产出、DFD 四要素、数据字典五项内容 |
-| 28 | 12.x | **补充（重点）** | 明确定义 1NF/2NF/3NF，**未出现 BCNF** | 补 **Armstrong 公理与属性闭包**、候选码求法、**BCNF 与 4NF/多值依赖**、**无损连接与保持依赖**、3NF 与 BCNF 的取舍定理 |
-| 29 | 13.x | 补充 | 讲 E-R 表示与转换 | 补 1:1 / 1:n / m:n 三条转换规则、四类 E-R 冲突、弱实体与泛化、外模式设计属逻辑阶段 |
-| 30 | 14.x | 补充 | 讲物理设计任务 | 补索引/聚簇/分区具体决策、分区 vs 分库分表、读写分离与主从延迟、在线 DDL 与运维监控清单 |
-| 31 | 15–16 | 补充 | 详细讲存储过程/触发器/事件 | 补 MODIFIES 特征声明、游标 DECLARE 顺序与 NOT FOUND HANDLER、`NEW/OLD` 可用事件矩阵、触发器与事件对照 |
-| 32 | 17.x | **补充** | 大量 Python/Java 连接示例 | 补**参数化预处理防注入、连接池、显式事务边界、资源释放、死锁重试**五项工程结论 |
-| 33 | 全书 | 补充 | 以 MySQL 5.x 语法为主 | 补 MySQL 8.0 CTE/窗口函数/角色/原子 DDL/降序索引/JSON/移除查询缓存 |
-| 34 | 全书 | 修正 | 课件公式多为 PPT 图片、SQL 结果零散 | 本笔记所有 SQL 例题均在关系库实际执行验证并附结果，范式、调度、恢复方案均给出可复核的完整步骤 |
 
 ## 易混概念对照表（速记）
 

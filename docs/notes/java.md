@@ -7,8 +7,7 @@ summary: "Java 程序设计 详细笔记，全书 12 章 + 8 个进阶专题，�
 ::: info 笔记概要
 - **所属课程**：Java 程序设计（计算机类 / 软件工程等专业核心基础课，及软件开发方向通用语言课）。
 - **核心内容**：Java 以"一次编写、到处运行"的 JVM 平台 + 庞大类库著称。笔记按"语言基础 → 面向对象（类/继承/接口/泛型）→ 核心类库（集合/异常/IO/并发）→ 图形界面"主线展开，覆盖第 1–12 章；并在文末补充教材相对单薄、但工程必备的进阶主题（JVM 内存与 GC、枚举/注解、java.time、Stream、NIO.2、对象契约）。
-- **学习建议**：Java 是"强类型 + 面向对象 + 自动内存管理"的语言，学习要抓住三条线——① 语法（类型/运算符/控制流/字符串）是否熟练；② 面向对象三要素（封装/继承/多态）与接口、泛型如何落地；③ 类库（集合、异常、并发、IO）的 API 与适用场景。本笔记在每个关键知识点都配了可运行的代码示例，并补充了教材未深入但易考易错的点（如自动装箱缓存范围、HashMap 底层、equals/hashCode 契约、PECS 通配符、线程安全集合等）。
-- **本版说明**：这是**详细版**——每章在原有精要基础上增设子节，补齐可编译代码、工作示例（含运行结果）、对比表和易错辨析；10 张自绘图均已逐格核对，修正了集合框架体系、异常层次、线程状态转换箭头等图示错误，并新增泛型擦除、HashMap 结构、Stream 流水线、I/O 体系、线程池参数、对象契约等示意图。
+- **学习建议**：Java 是"强类型 + 面向对象 + 自动内存管理"的语言，学习要抓住三条线——① 语法（类型/运算符/控制流/字符串）是否熟练；② 面向对象三要素（封装/继承/多态）与接口、泛型如何落地；③ 类库（集合、异常、并发、IO）的 API 与适用场景。
 :::
 
 ## 全书目录
@@ -27,8 +26,7 @@ summary: "Java 程序设计 详细笔记，全书 12 章 + 8 个进阶专题，�
 | 10 | 图形用户界面程序设计 | Swing 窗体、2D 图形、事件处理 | ★★ 了解 |
 | 11 | Swing 用户界面组件 | 布局、文本/选择组件、菜单、对话框 | ★★ 了解 |
 | 12 | 并发 | 线程状态、同步、锁、线程安全集合、线程池、Future | ★★★ |
-| 补 1–6 | 进阶与补充 | JVM 内存/GC、枚举/注解、java.time、Stream、NIO.2、equals/hashCode 契约 | ★★★ |
-| 补 7–8 | 新特性与工程工具 | Java 8→21 常用新特性、常用类库与构建/测试工具 | ★★ |
+| 13 | 进阶专题 | JVM 内存与 GC、Stream、java.time、equals/hashCode 契约、新版本特性 | ★★ |
 | 附 A / B | 速查 | 结论公式速查表、全书易错点清单 | 复习用 |
 
 ---
@@ -201,7 +199,7 @@ String name = in.nextLine();
 int n = in.nextInt();
 System.out.printf("%.2f%n", 3.14159);   // 格式化输出
 ```
-- 文件读取：`Scanner in2 = new Scanner(Path.of("a.txt"));` 或 `Files.readAllLines(Path.of("a.txt"))`（详见补 5）。
+- 文件读取：`Scanner in2 = new Scanner(Path.of("a.txt"));` 或 `Files.readAllLines(Path.of("a.txt"))`（详见 13.5 节）。
 - `Scanner` 的 `nextInt()` 后紧接 `nextLine()` 会读到残留换行，需先多调用一次 `nextLine()` 消耗掉；`Scanner` 也实现了 `AutoCloseable`，用完应关闭。
 
 ### 3.6 控制流程（★★★）
@@ -225,7 +223,7 @@ int[] a = {1, 2, 3};
 for (int x : a) System.out.println(x);
 ```
 
-### 3.8 深挖 · 类型、运算符与字符串（★★★）
+### 3.8 类型、运算符与字符串（★★★）
 
 #### 3.8.1 基本类型完整速查
 
@@ -277,6 +275,7 @@ long   big = 1_000_000_000L * 10;   // 10000000000，若漏掉 L 会先 int 溢�
 | 11 | `=` `+=` `-=` …（右结合） |
 
 - `&` / `|` 作用于布尔时**不短路**（两边都求值），`&&` / `||` 短路；`^` 是异或。
+- **`%` 取余结果的符号跟随被除数**：`-7 % 3 == -1`、`7 % -3 == 1`；整数除法**向零截断**（`-7 / 3 == -2`）。哈希取桶、循环取模时负数结果可能引发下标越界，惯用 `(x % n + n) % n` 或 `Math.floorMod(x, n)` 归一到非负。
 - `>>` 算术右移（保留符号位，负数补 1），`>>>` 逻辑右移（补 0）；对 `int` 移位次数实际取 `n & 31`。
 - `i++` 与 `++i` 在单独成句时等价，在表达式中前者先取值后自增。
 
@@ -389,7 +388,7 @@ public class Employee {
 - 访问级别：`private`（类内）→ 默认（包内）→ `protected`（包内 + 子类）→ `public`（任意）。
 - `classpath` 告诉 JVM 去哪找类；现代用 jar + 模块（JPMS，了解即可）。
 
-### 4.6 深挖 · 参数传递与对象引用（★★★）
+### 4.6 参数传递与对象引用（★★★）
 
 ```java
 void change(StringBuilder s) { s.append("!"); }            // 改的是同一个对象 → 生效
@@ -401,7 +400,7 @@ void bump(int n) { n++; }                                  // 基本类型副本
 方法参数永远得到**一份副本**：基本类型复制值，引用类型复制「引用（地址）」。因此可以在方法内修改对象**内容**（两个引用指向同一对象），但**不能**让调用方的变量改指向另一个对象。常见考题 `swap(a, b)` 在 Java 里无论怎么写都无法交换两个外部变量。
 :::
 
-### 4.7 深挖 · 完整的对象初始化顺序（★★★）
+### 4.7 完整的对象初始化顺序（★★★）
 
 ```java
 class A {
@@ -422,7 +421,7 @@ new B();
 
 > 由此推出一个重要陷阱：**构造器里调用可覆盖方法**会在子类字段尚未初始化时就执行，可能读到 0/null。构造器应只调用 `private`、`final` 或 `static` 方法。
 
-### 4.8 深挖 · 访问修饰符与封装（★★★）
+### 4.8 访问修饰符与封装（★★★）
 
 | 修饰符 | 同类 | 同包 | 不同包的子类 | 任意位置 |
 | --- | --- | --- | --- | --- |
@@ -434,7 +433,7 @@ new B();
 - 封装不只是"字段私有 + getter/setter"：更关键的是**不返回可变内部对象的引用**（防御性拷贝），以及**在构造器和更改器里校验不变量**。
 - `final` 修饰类（不可继承，如 `String`）、方法（不可覆盖）、字段（引用不可再指向别处，但对象内容仍可变）。
 
-### 4.9 深挖 · 记录类与不可变对象（Java 16+，★★）
+### 4.9 记录类与不可变对象（Java 16+，★★）
 
 ```java
 public record Point(int x, int y) {
@@ -484,7 +483,7 @@ public class Manager extends Employee {      // is-a 关系（Employee 见 4.2�
 
 ### 5.2 Object 类（★★★）
 所有类都隐式继承 `java.lang.Object`，关键方法：
-- `equals(Object)`：默认比较引用（`==`）；**重写须同时重写 `hashCode`**（详见补充六）。
+- `equals(Object)`：默认比较引用（`==`）；**重写须同时重写 `hashCode`**（详见 13.6 节）。
 - `hashCode()`：默认返回对象地址派生值；相等对象必须有相等哈希码。
 - `toString()`：默认 `类名@哈希`，建议覆盖为可读信息；`+` 拼接字符串时对象自动调 `toString`。
 - `getClass()`：返回运行时 `Class` 对象，用于反射与类型判断（`obj.getClass() == other.getClass()`）。
@@ -503,7 +502,7 @@ int b = a;              // 自动拆箱 a.intValue()
 ### 5.4 反射（★★，了解）
 `Class` 类 + `java.lang.reflect` 可在**运行时**探知类的字段/方法/构造器并调用，是框架（Spring、JUnit）的基石，但会绕过访问控制、带来安全风险，普通业务代码少用。
 
-### 5.5 深挖 · 方法调用解析全过程（★★★）
+### 5.5 方法调用解析全过程（★★★）
 
 一次 `obj.method(args)` 其实是**两个阶段**：
 
@@ -523,7 +522,7 @@ p.m();                     // Cm    —— 实例方法动态绑定，看实际�
 字段、`static` 方法、`private` 方法、`final` 方法、`构造器` 都是**静态绑定**；只有可覆盖的**实例方法**才有动态绑定。另外重载在编译期就定死了，所以 `void f(Object)` 与 `void f(String)` 在 `Object o = "x"; f(o);` 时调用的是 `f(Object)` 版本。
 :::
 
-### 5.6 深挖 · 继承的设计原则（★★★）
+### 5.6 继承的设计原则（★★★）
 
 | 原则 | 含义 | 违反后的典型问题 |
 | --- | --- | --- |
@@ -545,7 +544,7 @@ abstract class DataParser {
 
 > 判断"该不该继承"：只有当 **is-a 关系成立且确实需要多态**时才用 `extends`；仅仅是想复用几行代码，应该用组合或工具类。
 
-### 5.7 深挖 · 反射工作示例（★★）
+### 5.7 反射工作示例（★★）
 
 ```java
 Class<?> c1 = String.class;                         // ① 类字面量（最安全，不触发初始化）
@@ -607,7 +606,7 @@ names.sort(Comparator.comparing(String::length));  // 方法引用：按长度�
 - **静态内部类（`static nested`）**：不持有外部类引用，更轻量。
 - **代理（Proxy）**：运行时动态生成实现一组接口的类，AOP、RPC、懒加载等底层机制。
 
-### 6.4 深挖 · 接口 vs 抽象类、默认方法冲突（★★★）
+### 6.4 接口 vs 抽象类、默认方法冲突（★★★）
 
 | 维度 | 接口 `interface` | 抽象类 `abstract class` |
 | --- | --- | --- |
@@ -630,7 +629,7 @@ class C implements A, B {
 ① **类优先**：父类（含 `Object`）的具体方法胜过接口的默认方法；② 两个接口默认方法冲突时，实现类**必须重写**；③ 接口继承链中"子接口版本"胜过"父接口版本"。另外 `Object` 的 `equals/hashCode/toString` 不能由接口默认方法提供（编译报错）。
 :::
 
-### 6.5 深挖 · 函数式接口与 lambda 语法（★★★）
+### 6.5 函数式接口与 lambda 语法（★★★）
 
 | 接口 | 抽象方法 | 用途 | 示例 |
 | --- | --- | --- | --- |
@@ -659,7 +658,7 @@ IntUnaryOperator add = x -> x + base;   // OK，base 未被重新赋值
 ① lambda 的 `this` 指向**外围对象**，匿名内部类的 `this` 指向内部类自身；② lambda 编译为 `invokedynamic`（运行期生成），匿名内部类生成独立 `.class`；③ lambda 只能用于**函数式接口**（恰好一个抽象方法，`Object` 的 public 方法与 `default`/`static` 方法不计入）。局部变量捕获要求 effectively final，本质是因为捕获的是**值副本**，避免生命周期不一致导致的数据错乱。
 :::
 
-### 6.6 深挖 · 内部类四类型与动态代理（★★）
+### 6.6 内部类四类型与动态代理（★★）
 
 | 类型 | 定义位置 | 持有外部引用 | 典型用途 |
 | --- | --- | --- | --- |
@@ -721,6 +720,7 @@ try (InputStream is = new FileInputStream("a.txt");
 }
 ```
 - **捕获顺序**：子类必须写在父类之前。
+- **multi-catch（Java 7+）**：`catch (IOException | SQLException e)` 用一个块捕获多种互不为子类的异常，避免重复代码；此时 `e` 是多类型的"最终有效类型"，不能再赋值。
 - **try-with-resources**（推荐）：资源实现 `AutoCloseable`，自动关闭，无需 `finally`：
 ```java
 try (BufferedReader br = Files.newBufferedReader(Path.of("a.txt"))) {
@@ -733,7 +733,7 @@ try (BufferedReader br = Files.newBufferedReader(Path.of("a.txt"))) {
 - `assert cond : "message";` 用于**内部不变量**检查，生产环境默认关闭（`-ea` 开启），不可用于参数校验（用户可关）。
 - 日志用 `java.util.logging`（JUL）或 Log4j/SLF4J；比 `System.out.println` 更可控（级别、处理器、格式器、可关闭）。
 
-### 7.4 深挖 · finally、throw/throws 与自定义异常（★★★）
+### 7.4 finally、throw/throws 与自定义异常（★★★）
 
 ```java
 static int demo() {
@@ -767,7 +767,7 @@ catch (ScoreException e) {
 
 > 覆盖方法时，子类 `throws` 的异常**不能比父类更宽**（不能新增父类未声明的受检异常），但可以抛出更少或更具体的异常，或者不抛。接口同理。
 
-### 7.5 深挖 · 异常与日志最佳实践（★★）
+### 7.5 异常与日志最佳实践（★★）
 
 | 日志级别（SLF4J / JUL 对照） | 使用场景 |
 | --- | --- |
@@ -847,7 +847,7 @@ public static <T> void copy(List<? super T> dest, List<? extends T> src)
 // dest 只被写入（消费者 → super），src 只被读出（生产者 → extends）
 ```
 
-### 8.5 深挖 · 擦除与桥方法（★★★）
+### 8.5 擦除与桥方法（★★★）
 
 ```java
 // 源码
@@ -867,7 +867,7 @@ public int compareTo(Object o) { return compareTo((String) o); }  // 转发 + �
 `void f(List<String> a)` 与 `void f(List<Integer> a)` **不能共存**：擦除后两者都是 `f(List)`，签名重复。同理 `class X implements Comparable<X>, Comparable<Y>` 非法（同一接口被参数化两次，擦除后相同）。
 :::
 
-### 8.6 深挖 · 泛型局限性完整清单与绕法（★★★）
+### 8.6 泛型局限性完整清单与绕法（★★★）
 
 | 限制 | 根本原因 | 常用绕法 |
 | --- | --- | --- |
@@ -930,7 +930,7 @@ public static <T extends Comparable<? super T>> T max(List<? extends T> list) {
 - 底层是 `Node<K,V>[]` 数组 + 链表/红黑树。容量始终为 2 的幂。
 - 索引：`hash = (h = key.hashCode()) ^ (h >>> 16)` 再 `(n-1) & hash`，高位也参与运算以减少冲突。
 - 链表长度 ≥ **8（TREEIFY_THRESHOLD）** 且数组容量 ≥ 64 时转红黑树；≤ 6 退化为链表。
-- `key` 须正确重写 `equals`+`hashCode`（见补充六），否则找不到对应桶。
+- `key` 须正确重写 `equals`+`hashCode`（见 13.6 节），否则找不到对应桶。
 :::
 
 ### 9.3 迭代器与视图（★★★）
@@ -939,13 +939,17 @@ public static <T extends Comparable<? super T>> T max(List<? extends T> list) {
 - 同步视图：`Collections.synchronizedList(...)`（每次访问加锁，效率低）；并发场景用 `java.util.concurrent`（见第 12 章）。
 - `Collections` 算法：`sort`（依赖 `Comparable`/`Comparator`）、`shuffle`、`binarySearch`、`max/min`。
 
+::: tip 排序算法与稳定性（常考）
+`Arrays.sort` 对**基本类型**用双轴快排（不稳定但无所谓，值相同不可区分）；对**对象数组**与 `Collections.sort`/`List.sort` 用 **TimSort**（归并 + 插入混合，**稳定**：相等元素保持原有相对顺序）。稳定性对"先按 A 排、再按 B 排"的多关键字排序很重要——第二趟稳定排序不会破坏第一趟的结果。`binarySearch` 只对**已排序**的 List/数组有意义，否则结果未定义。
+:::
+
 ### 9.4 实用 API（★★）
 - `List.of(a,b,c)`、`Set.of(...)`、`Map.of(k,v,...)`（Java 9+，不可变）；可变用 `new ArrayList<>()`。
 - 集合 ↔ 数组：`list.toArray(new String[0])`、`Arrays.asList(arr)`（返回**固定大小**的 List，不能 add/remove）。
 
 ![HashMap 底层结构与扩容树化](/java/java-hashmap.svg)
 
-### 9.5 深挖 · HashMap 全流程（★★★）
+### 9.5 HashMap 全流程（★★★）
 
 ```java
 // 定位桶：先扰动哈希，再按位与取下标（n 为 2 的幂时等价于取模但更快）
@@ -970,7 +974,7 @@ static final int hash(Object key) {
 作为键的类必须**同时正确重写 `equals` 和 `hashCode`**，且参与比较的字段在对象放入 Map 后**不可再修改**，否则 `get` 时会定位到另一个桶 ——「存进去却找不到自己」。`HashMap` 完全非线程安全，并发写用 `ConcurrentHashMap`（JDK 8 起桶级 `synchronized` + CAS，不再使用分段锁）。
 :::
 
-### 9.6 深挖 · fail-fast 与视图（★★★）
+### 9.6 fail-fast 与视图（★★★）
 
 ```java
 List<String> l = new ArrayList<>(List.of("a", "b", "c"));
@@ -1037,7 +1041,7 @@ button.addActionListener(e -> System.out.println("clicked"));
 ```
 - `JPanel` 的 `paintComponent` 方法用于自定义绘制（须调用 `super.paintComponent`）。
 
-### 10.3 深挖 · 委托事件模型与 EDT（★★）
+### 10.3 委托事件模型与 EDT（★★）
 
 事件处理由三方协作完成：
 
@@ -1082,7 +1086,7 @@ SwingUtilities.invokeLater(() -> {
 GUI 章节以"会用即可"为目标，考试/面试多集中在**语言基础、集合、并发、JVM**，GUI 通常不是重点，理解事件委托模型与布局即可。
 :::
 
-### 11.3 深挖 · 布局与组件速查（★★）
+### 11.3 布局与组件速查（★★）
 
 | 布局管理器 | 排列方式 | 适用 |
 | --- | --- | --- |
@@ -1170,7 +1174,7 @@ pool.shutdown();
 - `Future` 代表异步计算结果；`CompletableFuture` 支持链式/组合异步（Java 8+）。
 - `fork-join` 框架适合分治型并行计算。
 
-### 12.5 深挖 · 线程创建、状态与中断（★★★）
+### 12.5 线程创建、状态与中断（★★★）
 
 ```java
 // 方式 1：继承 Thread（不推荐，占用唯一的继承名额）
@@ -1199,7 +1203,7 @@ es.shutdown();
 - 守护线程 `setDaemon(true)` 须在 `start()` 前设置；所有非守护线程结束后 JVM 直接退出，守护线程的 `finally` 不保证执行，不适合做关键清理。
 :::
 
-### 12.6 深挖 · synchronized、volatile 与 JMM（★★★）
+### 12.6 synchronized、volatile 与 JMM（★★★）
 
 ```java
 // synchronized 的三种写法，锁对象各不相同
@@ -1239,6 +1243,28 @@ Runnable r2 = () -> { synchronized (lockB) { synchronized (lockA) { } } };
 // 预防：所有线程按**固定全局顺序**获取锁，或用 tryLock 超时后回退重试
 ```
 
+::: tip synchronized 的锁升级（JDK 6+ 性能优化）
+无竞争时 JVM 并不会直接让线程陷入操作系统级互斥量，而是按「**无锁 → 偏向锁 → 轻量级锁（CAS 自旋）→  heavyweight 重量级锁**」逐级升级：只有一个线程访问时偏向锁把线程 ID 记在对象头里，几乎零开销；出现第二个线程竞争时升级为轻量级锁，用 CAS + 短暂自旋避免线程挂起；竞争激烈时才膨胀为重量级锁（真正阻塞线程）。锁只能升级不能降级（偏向锁在新版 JDK 中已默认废弃）。这解释了为什么"低竞争的 synchronized 并不慢"。
+:::
+
+```java
+// 双重检查锁定（DCL）单例：instance 必须 volatile，防止「分配内存→初始化→赋引用」重排序
+class Singleton {
+    private static volatile Singleton instance;
+    public static Singleton getInstance() {
+        if (instance == null) {                      // 第一次检查：避免每次加锁
+            synchronized (Singleton.class) {
+                if (instance == null) {              // 第二次检查：防止重复创建
+                    instance = new Singleton();
+                }
+            }
+        }
+        return instance;
+    }
+}
+// 更简单的写法：静态内部类 Holder（懒加载 + 类加载机制保证线程安全）或枚举单例
+```
+
 ### 12.7 工作示例 · 生产者-消费者（★★★）
 
 ```java
@@ -1271,7 +1297,7 @@ synchronized (queue) {
 }
 ```
 
-### 12.8 深挖 · 线程池参数与异步组合（★★★）
+### 12.8 线程池参数与异步组合（★★★）
 
 ![ThreadPoolExecutor 参数与任务执行流程](/java/java-threadpool.svg)
 
@@ -1294,9 +1320,9 @@ synchronized (queue) {
 
 ---
 
-## 补充与进阶（教材相对单薄、工程必备）
+## 第 13 章 进阶专题（JVM、泛型契约与现代 Java）
 
-### 补 1 JVM 内存模型与垃圾回收（★★★）
+### 13.1 JVM 内存模型与垃圾回收（★★★）
 - **线程私有**：程序计数器、虚拟机栈（栈帧=方法调用）、本地方法栈。
 - **线程共享**：**堆（对象实例，GC 主战场）**、**方法区/元空间（类信息、常量、静态变量、JIT 代码缓存）**。
 - **垃圾回收**：判断对象是否存活用**可达性分析**（从 GC Roots 出发不可达即回收），而非引用计数。常见算法：标记-清除、复制（新生代）、标记-整理（老年代）；分代收集（Young/Old）是主流。
@@ -1304,7 +1330,7 @@ synchronized (queue) {
 
 ![JVM 运行时数据区、GC 分代与可达性分析](/java/java-jvm.svg)
 
-#### 补 1.1 GC Roots 与分代回收流程
+#### 13.1.1 GC Roots 与分代回收流程
 
 **可达性分析**：从 GC Roots 出发沿引用链向下搜索，走过的对象判为存活，未走到的判为可回收（不像引用计数那样无法处理循环引用）。GC Roots 主要包括：
 
@@ -1325,7 +1351,7 @@ synchronized (queue) {
 
 > 大对象可能**直接进老年代**（避免新生代反复复制）；`Minor GC` 频繁但快，`Full GC` 少但停顿长，调优目标就是减少 Full GC 次数与时长。
 
-#### 补 1.2 常见收集器与 JVM 参数
+#### 13.1.2 常见收集器与 JVM 参数
 
 | 收集器 | 代 | 特点 |
 | --- | --- | --- |
@@ -1343,7 +1369,7 @@ synchronized (queue) {
 | `-XX:+UseG1GC` / `-XX:MaxGCPauseMillis=200` | 指定 G1 及停顿目标 |
 | `-XX:+HeapDumpOnOutOfMemoryError` | OOM 时自动导出堆转储，配合 MAT / jmap / jstack 排查 |
 
-#### 补 1.3 四种引用强度
+#### 13.1.3 四种引用强度
 
 | 类型 | 回收时机 | 典型用途 |
 | --- | --- | --- |
@@ -1356,7 +1382,7 @@ synchronized (queue) {
 `ThreadLocal` 的 Key 是**弱引用**，但 Value 是强引用；在线程池中线程长期不销毁，Key 被回收后 Value 仍挂在 `ThreadLocalMap` 里造成**内存泄漏**。使用完毕务必在 `finally` 中调用 `remove()`。
 :::
 
-### 补 2 枚举与注解（★★）
+### 13.2 枚举与注解（★★）
 ```java
 enum Size { SMALL, MEDIUM, LARGE }          // 枚举是类，可加字段/方法
 public @interface Author { String name(); }  // 自定义注解
@@ -1364,7 +1390,7 @@ public @interface Author { String name(); }  // 自定义注解
 - 枚举 `switch` 友好、类型安全，优于 `static final int` 常量。
 - 注解 `@Override/@Deprecated/@FunctionalInterface/@SuppressWarnings` 由编译器或框架读取；可配合反射做配置（Spring 的 `@Component` 等）。
 
-#### 补 2.1 枚举的完整用法
+#### 13.2.1 枚举的完整用法
 
 ```java
 enum Size {
@@ -1387,7 +1413,7 @@ System.out.println(Size.of("M").getCode());     // M
 - `values()` 返回全部常量数组；`EnumSet`（位向量实现，极高效）、`EnumMap`（数组实现）是枚举专用集合；`switch` 对枚举支持良好且编译器能检查覆盖情况。
 - 用枚举替代 `static final int` 常量：类型安全、可读、可携带字段与方法、不会被传入任意整数。
 
-#### 补 2.2 元注解与运行时读取
+#### 13.2.2 元注解与运行时读取
 
 | 元注解 | 作用 |
 | --- | --- |
@@ -1408,7 +1434,7 @@ System.out.println(t.value());       // export
 
 > 注解本身**不改变程序语义**，必须有人（编译器、`javac` 插件、反射代码、框架）去"读"它才产生效果。
 
-### 补 3 日期与时间 java.time（★★★）
+### 13.3 日期与时间 java.time（★★★）
 旧 `Date`/`Calendar` 设计糟糕且线程不安全，Java 8 引入 `java.time`：
 - `LocalDate` / `LocalTime` / `LocalDateTime`：无时区本地时间。
 - `Instant`：时间线上的点（UTC）；`ZonedDateTime`：带时区。
@@ -1419,7 +1445,7 @@ LocalDate next = d.plusDays(31);
 String s = d.format(DateTimeFormatter.ISO_DATE);
 ```
 
-#### 补 3.1 类族速查与工作示例
+#### 13.3.1 类族速查与工作示例
 
 | 类 | 含义 | 典型用途 |
 | --- | --- | --- |
@@ -1454,7 +1480,7 @@ Instant back = old.toInstant();                          // 旧 → 新
 - `SimpleDateFormat` **线程不安全**，多线程请改用 `DateTimeFormatter`；带时区的存储优先用 `Instant` 或 ISO-8601 字符串，避免隐式依赖服务器默认时区。
 :::
 
-### 补 4 函数式数据处理 Stream API（★★★）
+### 13.4 函数式数据处理 Stream API（★★★）
 `Stream` 把集合变成"可链式计算的数据流"，延迟求值、可并行：
 ```java
 List<String> result = words.stream()
@@ -1470,14 +1496,14 @@ long count = words.parallelStream()
 
 ![Stream 流水线与惰性求值](/java/java-stream.svg)
 
-#### 补 4.1 中间操作 / 终止操作一览
+#### 13.4.1 中间操作 / 终止操作一览
 
 | 类别 | 常用 API | 是否惰性 | 返回 |
 | --- | --- | --- | --- |
 | 中间 | `filter`、`map`、`flatMap`、`distinct`、`sorted`、`peek`、`limit`、`skip`、`mapToInt` | ✔（`sorted`/`distinct` 为有状态，需见到全部元素） | `Stream<T>` |
 | 终止 | `collect`、`forEach`、`count`、`reduce`、`min`、`max`、`findFirst`、`anyMatch`、`allMatch`、`noneMatch`、`toArray` | ✘（触发整个流水线） | 具体值 / 集合 / `Optional` |
 
-#### 补 4.2 工作示例 · 分组、归约与 Optional
+#### 13.4.2 工作示例 · 分组、归约与 Optional
 
 ```java
 record Order(String buyer, String category, int amount) {}
@@ -1490,14 +1516,14 @@ Map<String, Integer> byBuyer = orders.stream()
     .collect(Collectors.groupingBy(Order::buyer,
              Collectors.summingInt(Order::amount)));               // {Ann=45, Bob=65}
 Map<Boolean, List<Order>> parts = orders.stream()
-    .collect(Collectors.partitioningBy(o -> o.amount >= 30));      // 按条件分两组
+    .collect(Collectors.partitioningBy(o -> o.amount() >= 30));    // 按条件分两组
 String joined = orders.stream().map(Order::buyer).distinct()
                       .collect(Collectors.joining(", "));          // "Ann, Bob"
 Optional<Order> top = orders.stream().max(Comparator.comparingInt(Order::amount));
 System.out.println(top.orElseThrow().amount());                     // 45
 
 // reduce 三参数形式（初始值 / 累加器 / 并行合并器）
-int sum = orders.parallelStream().reduce(0, (acc, o) -> acc + o.amount, Integer::sum); // 110
+int sum = orders.parallelStream().reduce(0, (acc, o) -> acc + o.amount(), Integer::sum); // 110
 ```
 
 ::: danger 易错 · Stream
@@ -1508,7 +1534,7 @@ int sum = orders.parallelStream().reduce(0, (acc, o) -> acc + o.amount, Integer:
 - `Optional` 用于表达"可能无结果"，优先 `orElse`/`orElseGet`/`orElseThrow`/`map`，不要无脑 `get()`。
 :::
 
-### 补 5 文件与 I/O（NIO.2）（★★★）
+### 13.5 文件与 I/O（NIO.2）（★★★）
 ```java
 Path path = Path.of("data.txt");
 List<String> lines = Files.readAllLines(path);          // 读全部行
@@ -1522,7 +1548,7 @@ try (Stream<String> s = Files.lines(path)) {            // 流式读，省内存
 
 ![I/O 体系：字节流、字符流与 NIO.2](/java/java-io.svg)
 
-#### 补 5.1 NIO.2 常用 API
+#### 13.5.1 NIO.2 常用 API
 
 | 操作 | 写法 |
 | --- | --- |
@@ -1536,7 +1562,7 @@ try (Stream<String> s = Files.lines(path)) {            // 流式读，省内存
 | 监视 | `WatchService` 监听目录创建/修改/删除事件 |
 | 文件系统 | `FileSystems.getDefault()`、`FileSystem`、ZIP 文件系统 provider |
 
-#### 补 5.2 工作示例 · 统计目录下 Java 文件行数
+#### 13.5.2 工作示例 · 统计目录下 Java 文件行数
 
 ```java
 Path dir = Path.of("src");
@@ -1551,7 +1577,7 @@ try (Stream<Path> paths = Files.walk(dir)) {        // walk 返回的流持有�
 }
 ```
 
-#### 补 5.3 序列化与常见陷阱
+#### 13.5.3 序列化与常见陷阱
 
 ```java
 // 对象序列化：类需 implements Serializable，字段也要可序列化
@@ -1574,7 +1600,7 @@ try (ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(Path.
 - 序列化要显式声明 `serialVersionUID`；`transient`/`static` 字段不参与；Java 原生序列化有安全与兼容问题，跨语言/长期存储优先用 JSON（Jackson/Gson）。
 :::
 
-### 补 6 equals 与 hashCode 契约精解（★★★）
+### 13.6 equals 与 hashCode 契约精解（★★★）
 
 ![equals/hashCode 契约与 HashSet 查找过程](/java/java-equals.svg)
 
@@ -1603,7 +1629,7 @@ try (ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(Path.
 - `BigDecimal` 用 `compareTo` 比较数值（不用 `equals`，因 `equals` 还比精度标度）。
 :::
 
-#### 补 6.1 只重写 equals 会发生什么（工作示例）
+#### 13.6.1 只重写 equals 会发生什么（工作示例）
 
 ```java
 class Key {
@@ -1629,7 +1655,7 @@ System.out.println(set.size());               // 2      —— 两个「相等�
 
 ---
 
-### 补 7 Java 8 → 21 常用新特性速览（★★）
+### 13.7 Java 8 → 21 常用新特性速览（★★）
 
 | 版本 | 关键特性 |
 | --- | --- |
@@ -1663,7 +1689,7 @@ sealed interface Shape permits Circle, Square {}         // Java 17+ 限制可�
 
 > 版本选择：生产环境优先 LTS（8 / 11 / 17 / 21），升级前注意 `--release` 编译目标、第三方库兼容性与 GC 变化。虚拟线程适合**IO 密集**高并发（不是 CPU 密集），能大幅简化"每请求一线程"模型，但仍是协作式调度，别在虚拟线程里做长时间 `synchronized` 阻塞。
 
-### 补 8 工程常用类库与工具（★★）
+### 13.8 工程常用类库与工具（★★）
 
 | 工具 / 类 | 作用 |
 | --- | --- |
