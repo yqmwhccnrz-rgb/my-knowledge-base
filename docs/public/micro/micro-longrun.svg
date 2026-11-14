@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">完全竞争长期均衡：零经济利润与三种行业供给曲线</text>
+
+  <rect x="30" y="42" width="310" height="166" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="62" font-size="11" font-weight="700" fill="#334155">① 调整过程（厂商 + 行业同时出清）</text>
+  <text x="42" y="84" font-size="9.8" fill="#334155">短期 π &gt; 0 ⇒ 新厂商进入 ⇒ 行业 S 右移</text>
+  <text x="42" y="102" font-size="9.8" fill="#334155">　　 ⇒ P 下降 ⇒ 单个厂商需求线下移</text>
+  <text x="42" y="120" font-size="9.8" fill="#334155">短期 π &lt; 0 ⇒ 原有厂商退出 ⇒ P 回升</text>
+  <text x="42" y="141" font-size="9.8" font-weight="700" fill="#b91c1c">长期均衡条件：</text>
+  <text x="42" y="160" font-size="10.5" fill="#1d4ed8">P = MR = LMC = SMC = LACmin = SACmin</text>
+  <text x="42" y="180" font-size="9.8" fill="#334155">⇒ 经济利润 = 0，厂商只获得正常利润</text>
+  <text x="42" y="200" font-size="9.3" fill="#64748b">「零利润」不是不赚钱：正常利润已计入隐成本</text>
+
+  <rect x="352" y="42" width="298" height="166" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="364" y="62" font-size="11" font-weight="700" fill="#1e3a8a">② 行业长期供给曲线 LS 的三种形状</text>
+  <rect x="364" y="72" width="274" height="40" rx="5" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="374" y="88" font-size="9.8" font-weight="700" fill="#166534">成本不变行业 → LS 水平</text>
+  <text x="374" y="104" font-size="9.3" fill="#334155">要素价格不随行业产量变化（行业是小买主）</text>
+  <rect x="364" y="116" width="274" height="40" rx="5" fill="#fef3c7" stroke="#d97706"/>
+  <text x="374" y="132" font-size="9.8" font-weight="700" fill="#92400e">成本递增行业 → LS 向右上倾斜（最常见）</text>
+  <text x="374" y="148" font-size="9.3" fill="#334155">扩张推高要素价格，LAC 整体上移，长期 P 上升</text>
+  <rect x="364" y="160" width="274" height="40" rx="5" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="374" y="176" font-size="9.8" font-weight="700" fill="#991b1b">成本递减行业 → LS 向右下倾斜（罕见）</text>
+  <text x="374" y="192" font-size="9.3" fill="#334155">外在经济使要素价格随行业规模下降</text>
+
+  <rect x="30" y="218" width="620" height="86" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="42" y="238" font-size="11" font-weight="700" fill="#166534">③ 效率与福利：为什么完全竞争是基准</text>
+  <text x="42" y="258" font-size="9.8" fill="#334155">P = MC ⇒ 最后一单位的社会评价等于社会成本，资源配置达到帕累托有效；总剩余（CS + PS）最大</text>
+  <text x="42" y="277" font-size="9.8" fill="#334155">消费者剩余 = 需求曲线以下、价格线以上；生产者剩余 = 价格线以下、SMC 以上（= 利润 + TFC）</text>
+  <text x="42" y="296" font-size="9.8" fill="#334155">长期还满足「在 LAC 最低点生产」⇒ 生产效率；厂商数自由进出 ⇒ 无长期超额利润</text>
+
+  <rect x="30" y="314" width="620" height="72" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="42" y="334" font-size="10.5" font-weight="700" fill="#92400e">④ 易错辨析</text>
+  <text x="42" y="353" font-size="9.7" fill="#334155">• 经济租：要素报酬中超出「使其保留在当前用途所需最低报酬」的部分；即使长期利润为零，稀缺要素仍可获租</text>
+  <text x="42" y="372" font-size="9.7" fill="#334155">• 行业需求变化在长期内只改变厂商数量（成本不变行业），不改变价格；短期则先动价格再动数量</text>
+  <text x="42" y="384" font-size="9.7" fill="#334155">• 完全竞争厂商没有「供给曲线」之外独立的价格决策；但不完全竞争市场连供给曲线都不存在</text>
+</svg>

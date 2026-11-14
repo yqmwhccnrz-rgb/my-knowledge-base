@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 410" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="410" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">完全竞争厂商短期均衡：五种情形与两条临界线</text>
+
+  <rect x="30" y="42" width="326" height="184" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="62" font-size="11" font-weight="700" fill="#334155">① MR = MC 定产量，P 与 AC 定盈亏</text>
+  <line x1="52" y1="76" x2="52" y2="210" stroke="#475569"/>
+  <line x1="52" y1="210" x2="330" y2="210" stroke="#475569"/>
+  <text x="30" y="80" font-size="9.5" fill="#334155">P,C</text>
+  <text x="332" y="214" font-size="9.5" fill="#334155">Q</text>
+  <line x1="52" y1="120" x2="322" y2="120" stroke="#2563eb" stroke-width="2"/>
+  <text x="316" y="114" font-size="9" fill="#1d4ed8">d = AR = MR = P</text>
+  <path d="M56,180 C120,140 200,96 326,86" fill="none" stroke="#16a34a" stroke-width="1.6"/>
+  <text x="320" y="82" font-size="9" fill="#15803d">AVC</text>
+  <path d="M56,150 C120,96 210,74 326,72" fill="none" stroke="#7c3aed" stroke-width="1.6"/>
+  <text x="320" y="66" font-size="9" fill="#6d28d9">AC</text>
+  <path d="M62,192 C130,158 210,104 326,60" fill="none" stroke="#dc2626" stroke-width="2"/>
+  <text x="318" y="56" font-size="9" fill="#b91c1c">MC</text>
+  <circle cx="184" cy="120" r="4" fill="#dc2626"/>
+  <line x1="184" y1="120" x2="184" y2="210" stroke="#94a3b8" stroke-dasharray="3 3"/>
+  <text x="180" y="224" font-size="9" fill="#334155">Q*</text>
+  <rect x="52" y="120" width="132" height="8" fill="#fbbf24" opacity="0.55"/>
+  <text x="42" y="238" font-size="8.8" fill="#64748b">P &gt; AC ⇒ 获得超额利润（阴影为平均利润×产量）</text>
+
+  <rect x="368" y="42" width="282" height="184" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="380" y="62" font-size="11" font-weight="700" fill="#1e3a8a">② 五种短期均衡结果</text>
+  <text x="380" y="83" font-size="9.6" fill="#334155">P &gt; ACmin：π &gt; 0，继续生产并吸引新厂商进入</text>
+  <text x="380" y="102" font-size="9.6" fill="#334155">P = ACmin：π = 0（收支相抵点），只获正常利润</text>
+  <text x="380" y="121" font-size="9.6" fill="#334155">AVCmin &lt; P &lt; ACmin：亏损但继续生产</text>
+  <text x="390" y="138" font-size="9.2" fill="#64748b">（可弥补全部可变成本与部分固定成本）</text>
+  <text x="380" y="157" font-size="9.6" fill="#334155">P = AVCmin：停止营业点（关门点），生产与不生产等价</text>
+  <text x="380" y="176" font-size="9.6" fill="#334155">P &lt; AVCmin：立即停产，损失限于 TFC</text>
+  <text x="380" y="198" font-size="9.5" font-weight="700" fill="#b91c1c">短期供给曲线 = SMC 在 AVCmin 以上的部分</text>
+  <text x="380" y="218" font-size="9.2" fill="#64748b">行业短期供给曲线 = 各厂商 SMC 水平加总</text>
+
+  <rect x="30" y="236" width="620" height="92" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="42" y="256" font-size="11" font-weight="700" fill="#166534">③ 工作例题：STC = Q² + 4Q + 36，P = 20（水平需求线）</text>
+  <text x="42" y="276" font-size="9.8" fill="#334155">SMC = 2Q + 4 = MR = 20 ⇒ Q* = 8；TR = 160，STC = 132 ⇒ π = 28（超额利润）</text>
+  <text x="42" y="295" font-size="9.8" fill="#334155">AC = Q + 4 + 36/Q ⇒ 最小值在 Q = 6，ACmin = 16（收支相抵价格）；AVC = Q + 4，下确界 4（关门价格）</text>
+  <text x="42" y="314" font-size="9.8" fill="#334155">若 P = 14：Q = 5，TR = 70，STC = 81 ⇒ 亏 11；但 AVC = 9 &lt; 14 ⇒ 继续生产（比停产亏 36 更好）</text>
+
+  <rect x="30" y="338" width="620" height="58" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="42" y="357" font-size="10.4" font-weight="700" fill="#92400e">④ 完全竞争四条件与利润最大化二阶条件</text>
+  <text x="42" y="376" font-size="9.7" fill="#334155">大量买者卖者 / 产品同质 / 要素完全自由流动 / 信息完全 ⇒ 厂商是价格接受者，AR = MR = P 为水平线</text>
+  <text x="42" y="393" font-size="9.7" fill="#334155">一阶条件 MR = MC；二阶条件 MC 必须处于上升段（否则是利润最小点），故供给曲线取 SMC 上升部分</text>
+</svg>

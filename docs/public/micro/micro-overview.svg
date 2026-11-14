@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 410" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="410" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">微观经济学体系：稀缺 → 选择 → 价格 → 资源配置</text>
+  <defs><marker id="ar" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 z" fill="#2563eb"/></marker></defs>
+
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#334155">① 循环流量图：两个主体、两个市场、两股流量</text>
+  <rect x="30" y="62" width="620" height="150" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <rect x="48" y="110" width="120" height="54" rx="7" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="108" y="133" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a">家庭（消费者）</text>
+  <text x="108" y="151" text-anchor="middle" font-size="9.5" fill="#334155">效用最大化 / 供给要素</text>
+  <rect x="512" y="110" width="120" height="54" rx="7" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="572" y="133" text-anchor="middle" font-size="12" font-weight="700" fill="#166534">厂商（生产者）</text>
+  <text x="572" y="151" text-anchor="middle" font-size="9.5" fill="#334155">利润最大化 / 需求要素</text>
+  <rect x="266" y="80" width="148" height="40" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="340" y="105" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">产品市场</text>
+  <rect x="266" y="156" width="148" height="40" rx="6" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="340" y="181" text-anchor="middle" font-size="11" font-weight="700" fill="#5b21b6">要素市场</text>
+  <line x1="168" y1="122" x2="264" y2="100" stroke="#2563eb" stroke-width="1.6" marker-end="url(#ar)"/>
+  <text x="205" y="103" font-size="9" fill="#1d4ed8">支出 / 需求</text>
+  <line x1="510" y1="122" x2="416" y2="100" stroke="#16a34a" stroke-width="1.6" marker-end="url(#ar)"/>
+  <text x="430" y="103" font-size="9" fill="#15803d">产品 / 供给</text>
+  <line x1="510" y1="152" x2="416" y2="176" stroke="#7c3aed" stroke-width="1.6" marker-end="url(#ar)"/>
+  <text x="430" y="184" font-size="9" fill="#6d28d9">要素 / 需求</text>
+  <line x1="168" y1="152" x2="264" y2="176" stroke="#d97706" stroke-width="1.6" marker-end="url(#ar)"/>
+  <text x="196" y="184" font-size="9" fill="#b45309">劳动资本 / 供给</text>
+
+  <text x="30" y="238" font-size="12" font-weight="700" fill="#334155">② 11 章知识主线</text>
+  <rect x="30" y="248" width="620" height="66" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="42" y="268" font-size="10" fill="#1e3a8a">基础：① 引论与方法 → ② 需求、供给、均衡与弹性（价格如何决定）</text>
+  <text x="42" y="286" font-size="10" fill="#1e3a8a">行为：③ 消费者选择（效用） → ④ 生产函数 → ⑤ 成本（对偶与曲线族）</text>
+  <text x="42" y="304" font-size="10" fill="#1e3a8a">市场：⑥ 完全竞争 → ⑦ 不完全竞争 → ⑧ 要素市场 → ⑩ 博弈论（策略互动）</text>
+
+  <rect x="30" y="324" width="300" height="66" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="42" y="344" font-size="10.5" font-weight="700" fill="#166534">⑨ 一般均衡与福利：效率</text>
+  <text x="42" y="361" font-size="9.5" fill="#334155">帕累托最优三条件、福利经济学两定理</text>
+  <text x="42" y="378" font-size="9.5" fill="#334155">完全竞争 ⇒ 一般均衡 ⇒ 帕累托有效</text>
+  <rect x="342" y="324" width="308" height="66" rx="6" fill="#fef2f2" stroke="#fca5a5"/>
+  <text x="354" y="344" font-size="10.5" font-weight="700" fill="#991b1b">⑪ 市场失灵与微观政策：公平与矫正</text>
+  <text x="354" y="361" font-size="9.5" fill="#334155">垄断 / 外部性 / 公共物品 / 信息不完全</text>
+  <text x="354" y="378" font-size="9.5" fill="#334155">庇古税、科斯产权、管制、信号传递</text>
+</svg>

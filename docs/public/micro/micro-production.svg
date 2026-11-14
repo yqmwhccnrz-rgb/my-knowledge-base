@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">短期生产函数：TP / AP / MP 与生产三阶段</text>
+
+  <rect x="30" y="42" width="326" height="196" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="62" font-size="11" font-weight="700" fill="#334155">① 三条曲线的几何关系</text>
+  <line x1="54" y1="76" x2="54" y2="222" stroke="#475569"/>
+  <line x1="54" y1="222" x2="336" y2="222" stroke="#475569"/>
+  <path d="M54,222 C120,150 190,96 320,78" fill="none" stroke="#2563eb" stroke-width="2"/>
+  <text x="318" y="72" font-size="10" fill="#1d4ed8">TP</text>
+  <path d="M54,196 C130,126 210,132 320,214" fill="none" stroke="#16a34a" stroke-width="1.9"/>
+  <text x="318" y="216" font-size="10" fill="#15803d">AP</text>
+  <path d="M54,182 C120,92 200,150 320,222" fill="none" stroke="#dc2626" stroke-width="1.9"/>
+  <text x="286" y="204" font-size="10" fill="#b91c1c">MP</text>
+  <line x1="130" y1="76" x2="130" y2="222" stroke="#94a3b8" stroke-dasharray="4 3"/>
+  <line x1="196" y1="76" x2="196" y2="222" stroke="#94a3b8" stroke-dasharray="4 3"/>
+  <text x="110" y="234" font-size="8.5" fill="#64748b">L₁</text>
+  <text x="190" y="234" font-size="8.5" fill="#64748b">L₂</text>
+  <text x="42" y="236" font-size="8.5" fill="#64748b">0</text>
+
+  <rect x="368" y="42" width="282" height="196" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="380" y="62" font-size="11" font-weight="700" fill="#1e3a8a">② 必须记住的四个关系</text>
+  <text x="380" y="83" font-size="9.7" fill="#334155">MP = dTP/dL（TP 上切线的斜率）</text>
+  <text x="380" y="101" font-size="9.7" fill="#334155">AP = TP/L（原点向 TP 连线斜率）</text>
+  <text x="380" y="119" font-size="9.7" fill="#334155">MP &gt; AP ⇒ AP 上升；MP &lt; AP ⇒ AP 下降</text>
+  <text x="380" y="137" font-size="9.7" fill="#334155">MP = AP 处 AP 取最大值（MP 从上穿过 AP）</text>
+  <text x="380" y="155" font-size="9.7" fill="#334155">MP = 0 处 TP 最大；MP &lt; 0 时 TP 下降</text>
+  <text x="380" y="176" font-size="9.7" font-weight="700" fill="#b91c1c">三阶段划分（以 L₁ = AP 最大、L₂ = MP = 0 为界）</text>
+  <text x="380" y="194" font-size="9.5" fill="#334155">Ⅰ 区 AP 递增：可变要素投入不足</text>
+  <text x="380" y="211" font-size="9.5" fill="#334155">Ⅱ 区 AP↓但 MP&gt;0：唯一合理生产区间</text>
+  <text x="380" y="228" font-size="9.5" fill="#334155">Ⅲ 区 MP&lt;0：投入越多产量越少，非理性</text>
+
+  <rect x="30" y="248" width="620" height="70" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="42" y="268" font-size="11" font-weight="700" fill="#166534">③ 工作例题：Q = 10L − L²（K 固定）</text>
+  <text x="42" y="287" font-size="9.8" fill="#334155">AP = 10 − L，MP = 10 − 2L；L = 5 时 TP 最大 = 25，MP = 0；L &gt; 5 进入第Ⅲ阶段（MP 为负）</text>
+  <text x="42" y="306" font-size="9.8" fill="#334155">数值表：L=1→TP=9/MP=9；L=3→21/5；L=5→25/1；L=6→24/(−1)；L=10→0/(−9)</text>
+
+  <rect x="30" y="328" width="620" height="58" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="42" y="348" font-size="10.5" font-weight="700" fill="#92400e">④ 边际报酬递减规律的两个前提（缺一不可）</text>
+  <text x="42" y="368" font-size="9.8" fill="#334155">技术水平给定 + 其他要素投入量保持不变；它是「短期」规律，与技术进步（整条曲线上移）、规模报酬（长期）不同</text>
+  <text x="42" y="384" font-size="9.8" fill="#334155">不要把「边际报酬递减」误当成「规模报酬递减」，也别把 AP 最大点当作利润最大点（需结合要素与产品价格）</text>
+</svg>

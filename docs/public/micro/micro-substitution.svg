@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 410" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="410" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">替代效应与收入效应：希克斯 / 斯勒茨基分解</text>
+
+  <rect x="30" y="42" width="330" height="158" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="62" font-size="11" font-weight="700" fill="#334155">① 价格下降的总效应 = 替代效应 + 收入效应</text>
+  <line x1="54" y1="76" x2="54" y2="186" stroke="#475569"/>
+  <line x1="54" y1="186" x2="220" y2="186" stroke="#475569"/>
+  <line x1="54" y1="86" x2="150" y2="186" stroke="#94a3b8" stroke-width="1.6"/>
+  <text x="152" y="188" font-size="8.5" fill="#64748b">原预算线</text>
+  <line x1="54" y1="86" x2="212" y2="186" stroke="#2563eb" stroke-width="1.8"/>
+  <text x="188" y="200" font-size="8.5" fill="#1d4ed8">新预算线</text>
+  <line x1="54" y1="112" x2="174" y2="186" stroke="#d97706" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="176" y="182" font-size="8.5" fill="#b45309">补偿预算线</text>
+  <path d="M66,158 Q104,112 148,108" fill="none" stroke="#16a34a" stroke-width="1.6"/>
+  <path d="M72,164 Q136,96 208,88" fill="none" stroke="#16a34a" stroke-width="1.6"/>
+  <circle cx="104" cy="128" r="3.6" fill="#dc2626"/><circle cx="128" cy="132" r="3.6" fill="#d97706"/><circle cx="168" cy="112" r="3.6" fill="#2563eb"/>
+  <text x="92" y="122" font-size="8.5" fill="#991b1b">A</text>
+  <text x="130" y="148" font-size="8.5" fill="#92400e">B</text>
+  <text x="172" y="106" font-size="8.5" fill="#1d4ed8">C</text>
+  <text x="232" y="106" font-size="9.3" fill="#334155">A→B：替代效应（保持效用/购买力）</text>
+  <text x="232" y="126" font-size="9.3" fill="#334155">B→C：收入效应（实际收入上升）</text>
+  <text x="232" y="146" font-size="9.3" fill="#334155">A→C：总效应 = 价格效应</text>
+  <text x="232" y="170" font-size="9" fill="#64748b">替代效应恒与价格反向</text>
+  <text x="232" y="186" font-size="9" fill="#64748b">（希克斯需求曲线必向下倾）</text>
+
+  <rect x="372" y="42" width="278" height="158" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="384" y="62" font-size="11" font-weight="700" fill="#1e3a8a">② 希克斯 vs 斯勒茨基</text>
+  <text x="384" y="82" font-size="9.6" fill="#334155">希克斯：补偿到「保持原效用水平 U₀」</text>
+  <text x="384" y="99" font-size="9.6" fill="#334155">→ 补偿预算线与新预算线平行、与原 IC 相切</text>
+  <text x="384" y="119" font-size="9.6" fill="#334155">斯勒茨基：补偿到「恰好买得起原组合 A」</text>
+  <text x="384" y="136" font-size="9.6" fill="#334155">→ 补偿预算线过 A 点，与新预算线平行</text>
+  <text x="384" y="156" font-size="9.6" fill="#334155">ΔI = (P₁ − P₀)·X₀（斯勒茨基补偿变量 CV）</text>
+  <text x="384" y="176" font-size="9.3" fill="#64748b">无穷小价格变动下两种分解收敛到同一结果</text>
+  <text x="384" y="192" font-size="9.3" fill="#64748b">斯勒茨基方程（可测）：∂X/∂Px = ∂Xh/∂Px − X·∂X/∂I</text>
+
+  <rect x="30" y="210" width="620" height="94" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="42" y="230" font-size="11" font-weight="700" fill="#166534">③ 工作例题：U = XY，I = 100，Py = 5，Px 由 2 降到 1</text>
+  <text x="42" y="250" font-size="9.8" fill="#334155">起点 A：X₀ = 25，Y₀ = 10，U₀ = 250；终点 C：X₁ = 50，Y₁ = 10 ⇒ 总效应 +25</text>
+  <text x="42" y="269" font-size="9.8" fill="#334155">希克斯补偿：Y = X/5 且 XY = 250 ⇒ Xh = √1250 ≈ 35.36 ⇒ 替代效应 +10.36，收入效应 +14.64</text>
+  <text x="42" y="288" font-size="9.8" fill="#334155">斯勒茨基补偿：I′ = 1×25 + 5×10 = 75 ⇒ Xs = 37.5 ⇒ 替代效应 +12.5，收入效应 +12.5</text>
+
+  <rect x="30" y="314" width="620" height="80" rx="6" fill="#fef2f2" stroke="#fca5a5"/>
+  <text x="42" y="334" font-size="11" font-weight="700" fill="#991b1b">④ 三类商品与吉芬品</text>
+  <text x="42" y="353" font-size="9.8" fill="#334155">正常品：收入效应与价格反向，与替代效应同向 ⇒ 需求曲线向下倾斜（最常见）</text>
+  <text x="42" y="371" font-size="9.8" fill="#334155">低档品：收入效应与价格同向，部分抵消替代效应 ⇒ 仍向下倾斜但较陡</text>
+  <text x="42" y="389" font-size="9.8" fill="#334155">吉芬品：低档且收入效应绝对值超过替代效应 ⇒ 总效应与价格同向，需求曲线右上倾斜（极罕见）</text>
+</svg>

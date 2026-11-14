@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 410" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="410" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">一般均衡与福利经济学：帕累托最优三条件</text>
+
+  <rect x="30" y="42" width="306" height="170" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="62" font-size="11" font-weight="700" fill="#334155">① 埃奇沃思盒与交换的契约曲线</text>
+  <rect x="66" y="76" width="220" height="118" fill="none" stroke="#475569" stroke-width="1.4"/>
+  <text x="52" y="84" font-size="8.8" fill="#334155">O_A</text>
+  <text x="288" y="200" font-size="8.8" fill="#334155">O_B</text>
+  <path d="M66,150 Q140,120 286,88" fill="none" stroke="#2563eb" stroke-width="1.8"/>
+  <text x="250" y="86" font-size="8.5" fill="#1d4ed8">契约曲线 VV′</text>
+  <path d="M80,178 Q126,124 190,110" fill="none" stroke="#93c5fd" stroke-width="1.3"/>
+  <path d="M96,186 Q160,142 232,120" fill="none" stroke="#93c5fd" stroke-width="1.3"/>
+  <path d="M76,124 Q120,88 172,80" fill="none" stroke="#cbd5e1" stroke-width="1.3"/>
+  <circle cx="136" cy="133" r="4" fill="#dc2626"/>
+  <text x="142" y="130" font-size="8.5" fill="#991b1b">切点 E</text>
+  <text x="42" y="210" font-size="8.8" fill="#64748b">切点处 MRS(A,XY) = MRS(B,XY)，无法再使一人变好而不损另一人</text>
+
+  <rect x="348" y="42" width="302" height="170" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="360" y="62" font-size="11" font-weight="700" fill="#1e3a8a">② 三个边际条件（缺一不可）</text>
+  <text x="360" y="84" font-size="9.7" fill="#334155">交换最优：MRS(A,XY) = MRS(B,XY)</text>
+  <text x="370" y="101" font-size="9.1" fill="#64748b">任意两消费者对任意两商品的边际替代率相等</text>
+  <text x="360" y="121" font-size="9.7" fill="#334155">生产最优：MRTS(C,LK) = MRTS(D,LK)</text>
+  <text x="370" y="138" font-size="9.1" fill="#64748b">任意两生产者对任意两要素的边际技术替代率相等</text>
+  <text x="360" y="158" font-size="9.7" fill="#334155">生产与交换最优：MRS(XY) = MRT(XY)</text>
+  <text x="370" y="175" font-size="9.1" fill="#64748b">MRT = |dY/dX| = MCx/MCy，即 PPF 切线斜率</text>
+  <text x="360" y="196" font-size="9.5" fill="#1d4ed8">完全竞争下 Px/Py = MRS = MRT，三条件自动满足</text>
+
+  <rect x="30" y="222" width="620" height="88" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="42" y="242" font-size="11" font-weight="700" fill="#166534">③ 福利经济学两大定理与社会福利函数</text>
+  <text x="42" y="262" font-size="9.7" fill="#334155">第一定理：完全竞争的一般均衡是帕累托有效的（前提是凸性、无外部性、无公共物品、信息完全）</text>
+  <text x="42" y="281" font-size="9.7" fill="#334155">第二定理：任意帕累托有效分配，都可通过「一次总付再分配 + 完全竞争市场」实现 ⇒ 效率与公平可分离</text>
+  <text x="42" y="300" font-size="9.7" fill="#334155">社会福利函数：加法型 W = U_A + U_B（功利主义）、乘法型 W = U_A·U_B、罗尔斯型 W = min(U_A, U_B)（最大最小）</text>
+
+  <rect x="30" y="320" width="620" height="76" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="42" y="340" font-size="10.5" font-weight="700" fill="#92400e">④ 效率 ≠ 公平，以及阿罗不可能</text>
+  <text x="42" y="359" font-size="9.7" fill="#334155">效用可能性边界上每一点都是帕累托有效，但分配可以极不平等；从「效率」到「最优」需要价值判断（社会福利函数）</text>
+  <text x="42" y="378" font-size="9.7" fill="#334155">阿罗不可能定理：满足若干合理公理的社会偏好无法由个人偏好加总得到（不存在完美的社会选择规则）</text>
+  <text x="42" y="393" font-size="9.7" fill="#334155">帕累托改进 = 有人变好且无人变坏；帕累托最优 = 已无帕累托改进空间（不等于「总效用最大」）</text>
+</svg>

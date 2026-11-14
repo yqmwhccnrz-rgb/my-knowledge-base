@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">弹性：五种需求价格弹性与总收益（TR）的关系</text>
+
+  <text x="30" y="50" font-size="11" font-weight="700" fill="#334155">① 弹性谱系（|Ed| 从 ∞ 到 0）</text>
+  <rect x="30" y="60" width="620" height="86" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <rect x="42" y="72" width="116" height="60" rx="5" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="100" y="92" text-anchor="middle" font-size="10" font-weight="700" fill="#1e3a8a">|Ed| = ∞</text>
+  <text x="100" y="108" text-anchor="middle" font-size="9" fill="#334155">完全弹性：水平线</text>
+  <text x="100" y="124" text-anchor="middle" font-size="9" fill="#64748b">略涨价即失去全部</text>
+  <rect x="164" y="72" width="116" height="60" rx="5" fill="#e0f2fe" stroke="#0284c7"/>
+  <text x="222" y="92" text-anchor="middle" font-size="10" font-weight="700" fill="#075985">|Ed| &gt; 1</text>
+  <text x="222" y="108" text-anchor="middle" font-size="9" fill="#334155">富有弹性：奢侈品</text>
+  <text x="222" y="124" text-anchor="middle" font-size="9" fill="#64748b">降价使 TR 增加</text>
+  <rect x="286" y="72" width="116" height="60" rx="5" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="344" y="92" text-anchor="middle" font-size="10" font-weight="700" fill="#334155">|Ed| = 1</text>
+  <text x="344" y="108" text-anchor="middle" font-size="9" fill="#334155">单位弹性</text>
+  <text x="344" y="124" text-anchor="middle" font-size="9" fill="#64748b">TR 与 P 无关（极大）</text>
+  <rect x="408" y="72" width="116" height="60" rx="5" fill="#fef3c7" stroke="#d97706"/>
+  <text x="466" y="92" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">|Ed| &lt; 1</text>
+  <text x="466" y="108" text-anchor="middle" font-size="9" fill="#334155">缺乏弹性：必需品</text>
+  <text x="466" y="124" text-anchor="middle" font-size="9" fill="#64748b">谷贱伤农 / 薄利未必多销</text>
+  <rect x="530" y="72" width="108" height="60" rx="5" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="584" y="92" text-anchor="middle" font-size="10" font-weight="700" fill="#991b1b">|Ed| = 0</text>
+  <text x="584" y="108" text-anchor="middle" font-size="9" fill="#334155">完全无弹性：垂线</text>
+  <text x="584" y="124" text-anchor="middle" font-size="9" fill="#64748b">需求量固定</text>
+
+  <rect x="30" y="156" width="305" height="112" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="42" y="176" font-size="11" font-weight="700" fill="#1e3a8a">② 两套公式别混用</text>
+  <text x="42" y="196" font-size="10" fill="#334155">点弹性 Ed = −(dQ/dP)·(P/Q)（微分，某一点）</text>
+  <text x="42" y="214" font-size="10" fill="#334155">弧弹性（中点公式）</text>
+  <text x="42" y="232" font-size="10" fill="#334155">Ed = −(ΔQ/ΔP)·[(P₁+P₂)/2]/[(Q₁+Q₂)/2]</text>
+  <text x="42" y="252" font-size="9.5" fill="#64748b">中点公式保证涨价与降价算出的值相同</text>
+
+  <rect x="345" y="156" width="305" height="112" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="357" y="176" font-size="11" font-weight="700" fill="#166534">③ 工作例题</text>
+  <text x="357" y="196" font-size="10" fill="#334155">P：5 → 4，Q：20 → 30（弧弹性）</text>
+  <text x="357" y="214" font-size="10" fill="#334155">Ed = (10/1)×(4.5/25) = 1.8 &gt; 1</text>
+  <text x="357" y="232" font-size="10" fill="#334155">TR：5×20 = 100 → 4×30 = 120，降价增收 ✓</text>
+  <text x="357" y="252" font-size="9.5" fill="#64748b">点弹性例：Q = 50 − 2P，P=10 → Ed = 2×10/30 = 0.67</text>
+
+  <rect x="30" y="278" width="620" height="106" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="298" font-size="11" font-weight="700" fill="#334155">④ 四类弹性速查与政策含义</text>
+  <text x="42" y="318" font-size="9.8" fill="#334155">需求收入弹性 eI &gt; 0 正常品（&gt;1 奢侈品）；eI &lt; 0 低档品；恩格尔曲线由收入消费线导出</text>
+  <text x="42" y="336" font-size="9.8" fill="#334155">需求交叉弹性 eXY &gt; 0 替代品；&lt; 0 互补品；≈0 无关品　｜　供给价格弹性 eS &gt; 0</text>
+  <text x="42" y="354" font-size="9.8" fill="#334155">税收归宿由相对弹性决定：税负更多落在「更缺乏弹性」的一方（与向谁征收无关）</text>
+  <text x="42" y="372" font-size="9.8" fill="#334155">线性需求上半段富有弹性、中点单位弹性、下半段缺乏弹性；垄断者绝不在 |Ed| &lt; 1 处生产</text>
+</svg>

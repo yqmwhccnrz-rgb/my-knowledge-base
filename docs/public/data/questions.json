@@ -54147,5 +54147,1997 @@
   "answer": "设 z=f_θ(x) 可逆，p_X(x)=p_Z(f(x))·|det ∂f/∂x|，故 log p_X=log p_Z(z)+log|det J_f|，可直接最大化精确似然。RealNVP 耦合层把 x 切为 (x₁,x₂)：y₁=x₁、y₂=x₂⊙exp(s(x₁))+t(x₁)；Jacobian 为下三角，det J=exp(Σs_i(x₁))，故 log|det J|=Σs=0.4、|det J|≈1.4918，避免 O(d³) 的一般行列式；逆变换 x₂=(y₂−t(y₁))⊙exp(−s(y₁)) 解析可算。",
   "explanation": "双射要求 z 与 x 同维度，不能任意降维；s 数值过大须 tanh 或裁剪防 exp 溢出。",
   "type": "essay"
+ },
+ {
+  "id": "micro1",
+  "note": "Micro",
+  "topic": "第1章 引论",
+  "question": "经济学产生的前提是（ ）。",
+  "options": [
+   "资源相对于人的欲望是稀缺的",
+   "资源绝对不足",
+   "人口过多",
+   "政府存在"
+  ],
+  "answer": 0,
+  "explanation": "稀缺是相对概念，即使富裕社会也面临选择。",
+  "type": "choice"
+ },
+ {
+  "id": "micro2",
+  "note": "Micro",
+  "topic": "第1章 引论",
+  "question": "某人放弃年薪 12 万的工作去创业，同时放弃了 6 万的房租收入与 1.5 万的利息收入，其创业的机会成本是（ ）。",
+  "options": [
+   "19.5 万",
+   "12 万",
+   "6 万",
+   "1.5 万"
+  ],
+  "answer": 1,
+  "explanation": "机会成本是所放弃用途中的最大收益，不是各项之和；19.5 万是隐成本总额。",
+  "type": "choice"
+ },
+ {
+  "id": "micro3",
+  "note": "Micro",
+  "topic": "第1章 引论",
+  "question": "生产可能性边界（PPF）向外凸出的原因是（ ）。",
+  "options": [
+   "机会成本不变",
+   "机会成本递减",
+   "机会成本递增（边际转换率递增）",
+   "资源完全同质"
+  ],
+  "answer": 2,
+  "explanation": "要素并非同质地适合各种用途，先转出的是最适配的，故 MRT 递增。",
+  "type": "choice"
+ },
+ {
+  "id": "micro4",
+  "note": "Micro",
+  "topic": "第1章 引论",
+  "question": "下列属于实证表述的是（ ）。",
+  "options": [
+   "政府应该提高最低工资",
+   "收入分配应当更公平",
+   "垄断是不道德的",
+   "提高最低工资会使该群体就业量下降"
+  ],
+  "answer": 3,
+  "explanation": "实证命题可检验、不含价值判断；含「应该」「应当」的通常是规范命题。",
+  "type": "choice"
+ },
+ {
+  "id": "micro5",
+  "note": "Micro",
+  "topic": "第1章 引论",
+  "question": "比较静态分析研究的是（ ）。",
+  "options": [
+   "外生变量变动前后两个均衡的比较",
+   "均衡调整的时间路径",
+   "某一时点的状态",
+   "变量的总量关系"
+  ],
+  "answer": 0,
+  "explanation": "静态看一点、比较静态看两点、动态看调整过程（如蛛网模型）。",
+  "type": "choice"
+ },
+ {
+  "id": "micro6",
+  "note": "Micro",
+  "topic": "第1章 引论",
+  "question": "已支付且不可收回的支出在边际决策中应当（ ）。",
+  "options": [
+   "计入机会成本",
+   "忽略，因为它是沉没成本",
+   "分摊到未来各期作为固定成本",
+   "作为增量收益处理"
+  ],
+  "answer": 1,
+  "explanation": "沉没成本不影响边际收益与边际成本，理性决策只看增量。",
+  "type": "choice"
+ },
+ {
+  "id": "micro7",
+  "note": "Micro",
+  "topic": "第2章 供求与弹性",
+  "question": "其他条件不变，某商品价格上升导致购买量减少，这称为（ ）。",
+  "options": [
+   "需求的变动",
+   "需求曲线右移",
+   "需求量的变动",
+   "供给的变动"
+  ],
+  "answer": 2,
+  "explanation": "仅由自身价格引起的是沿同一条需求曲线移动。",
+  "type": "choice"
+ },
+ {
+  "id": "micro8",
+  "note": "Micro",
+  "topic": "第2章 供求与弹性",
+  "question": "下列会使某商品需求曲线整体右移的是（ ）。",
+  "options": [
+   "该商品自身价格下降",
+   "生产技术提高",
+   "生产要素价格上升",
+   "消费者收入提高（该商品为正常品）"
+  ],
+  "answer": 3,
+  "explanation": "收入、偏好、相关品价格等属非价格因素，引起曲线平移。",
+  "type": "choice"
+ },
+ {
+  "id": "micro9",
+  "note": "Micro",
+  "topic": "第2章 供求与弹性",
+  "question": "已知 Qd = 50 − 2P，Qs = −10 + 3P，均衡价格与数量分别为（ ）。",
+  "options": [
+   "P=12，Q=26",
+   "P=10，Q=30",
+   "P=15，Q=20",
+   "P=8，Q=34"
+  ],
+  "answer": 0,
+  "explanation": "50−2P = −10+3P ⇒ 5P=60 ⇒ P=12，Q=50−24=26。",
+  "type": "choice"
+ },
+ {
+  "id": "micro10",
+  "note": "Micro",
+  "topic": "第2章 供求与弹性",
+  "question": "上题中若政府设定支持价格 P=15，市场将出现（ ）。",
+  "options": [
+   "短缺 15",
+   "过剩 15",
+   "过剩 20",
+   "既不短缺也不过剩"
+  ],
+  "answer": 1,
+  "explanation": "Qd=20、Qs=35 ⇒ 过剩 15；支持价必须高于均衡价才有效。",
+  "type": "choice"
+ },
+ {
+  "id": "micro11",
+  "note": "Micro",
+  "topic": "第2章 供求与弹性",
+  "question": "P 从 5 降到 4、Q 从 20 增到 30，用中点公式算出的需求价格弹性绝对值是（ ）。",
+  "options": [
+   "2.0",
+   "0.5",
+   "1.8",
+   "1.0"
+  ],
+  "answer": 2,
+  "explanation": "(10/1)×(4.5/25)=1.8，富有弹性，降价使 TR 从 100 增到 120。",
+  "type": "choice"
+ },
+ {
+  "id": "micro12",
+  "note": "Micro",
+  "topic": "第2章 供求与弹性",
+  "question": "线性需求 Q = 50 − 2P 在 P=10 处的点弹性绝对值是（ ）。",
+  "options": [
+   "1.5",
+   "1",
+   "4",
+   "2/3"
+  ],
+  "answer": 3,
+  "explanation": "Ed=(1/b)(P/Q)=2×10/30=0.667；中点 P=12.5 时才等于 1。",
+  "type": "choice"
+ },
+ {
+  "id": "micro13",
+  "note": "Micro",
+  "topic": "第2章 供求与弹性",
+  "question": "某商品需求缺乏弹性，厂商降价后总收益会（ ）。",
+  "options": [
+   "减少",
+   "增加",
+   "不变",
+   "先增后减"
+  ],
+  "answer": 0,
+  "explanation": "dTR/dP = Q(1−|Ed|)；|Ed|<1 时降价使 TR 减少（谷贱伤农）。",
+  "type": "choice"
+ },
+ {
+  "id": "micro14",
+  "note": "Micro",
+  "topic": "第2章 供求与弹性",
+  "question": "需求交叉弹性为正值说明两种商品是（ ）。",
+  "options": [
+   "互补品",
+   "替代品",
+   "无关品",
+   "低档品"
+  ],
+  "answer": 1,
+  "explanation": "eXY>0 表示 Y 涨价使 X 需求增加，如茶与咖啡。",
+  "type": "choice"
+ },
+ {
+  "id": "micro15",
+  "note": "Micro",
+  "topic": "第2章 供求与弹性",
+  "question": "需求收入弹性为负值说明该商品是（ ）。",
+  "options": [
+   "正常品",
+   "奢侈品",
+   "低档品",
+   "吉芬品"
+  ],
+  "answer": 2,
+  "explanation": "eI<0 是低档品定义；吉芬品还要求收入效应超过替代效应。",
+  "type": "choice"
+ },
+ {
+  "id": "micro16",
+  "note": "Micro",
+  "topic": "第2章 供求与弹性",
+  "question": "关于税收归宿，正确的是（ ）。",
+  "options": [
+   "税负全部由法定纳税人承担",
+   "对买方征税时消费者承担更多",
+   "弹性大的一方承担更多",
+   "税负更多落在相对缺乏弹性的一方，与向谁征收无关"
+  ],
+  "answer": 3,
+  "explanation": "相对弹性决定归宿；这是税收无关性定理。",
+  "type": "choice"
+ },
+ {
+  "id": "micro17",
+  "note": "Micro",
+  "topic": "第2章 供求与弹性",
+  "question": "蛛网模型收敛（价格波动逐渐减小）的条件是（ ）。",
+  "options": [
+   "供给价格弹性小于需求价格弹性",
+   "供给弹性大于需求弹性",
+   "需求弹性为零",
+   "供给完全无弹性"
+  ],
+  "answer": 0,
+  "explanation": "|eS|<|Ed| 时，供给对价格的反应弱于需求，摆动收敛；反之发散。",
+  "type": "choice"
+ },
+ {
+  "id": "micro18",
+  "note": "Micro",
+  "topic": "第2章 供求与弹性",
+  "question": "需求与供给同时增加时，可以确定的是（ ）。",
+  "options": [
+   "均衡价格上升，数量不确定",
+   "均衡数量增加，价格变化不确定",
+   "价格与数量都上升",
+   "价格与数量都不变"
+  ],
+  "answer": 1,
+  "explanation": "两条曲线同时右移，Q 必增；P 取决于相对位移大小。",
+  "type": "choice"
+ },
+ {
+  "id": "micro19",
+  "note": "Micro",
+  "topic": "第3章 消费者选择",
+  "question": "边际效用递减规律意味着（ ）。",
+  "options": [
+   "总效用一定下降",
+   "总效用不变",
+   "总效用仍可能增加，只是增速放缓",
+   "边际效用一定为负"
+  ],
+  "answer": 2,
+  "explanation": "只要 MU>0，TU 递增；MU=0 时 TU 最大；MU<0 时 TU 才下降。",
+  "type": "choice"
+ },
+ {
+  "id": "micro20",
+  "note": "Micro",
+  "topic": "第3章 消费者选择",
+  "question": "基数效用论中消费者均衡条件是（ ）。",
+  "options": [
+   "MUx = MUy",
+   "Px = Py",
+   "TUx = TUy",
+   "MUx/Px = MUy/Py = λ"
+  ],
+  "answer": 3,
+  "explanation": "等边际原则；λ 为货币边际效用（假定不变）。",
+  "type": "choice"
+ },
+ {
+  "id": "micro21",
+  "note": "Micro",
+  "topic": "第3章 消费者选择",
+  "question": "无差异曲线凸向原点的直接原因是（ ）。",
+  "options": [
+   "边际替代率递减",
+   "边际效用递减",
+   "收入递减",
+   "价格递减"
+  ],
+  "answer": 0,
+  "explanation": "MRSxy 递减是序数效用论对 IC 形状的独立假设，与基数 MU 递减不同。",
+  "type": "choice"
+ },
+ {
+  "id": "micro22",
+  "note": "Micro",
+  "topic": "第3章 消费者选择",
+  "question": "序数效用论下消费者均衡（内点解）的条件是（ ）。",
+  "options": [
+   "MRSxy = MUy/MUx",
+   "MRSxy = Px/Py",
+   "Px = Py",
+   "MUx = MUy"
+  ],
+  "answer": 1,
+  "explanation": "主观愿意交换的比率等于市场能够交换的比率，几何上是相切。",
+  "type": "choice"
+ },
+ {
+  "id": "micro23",
+  "note": "Micro",
+  "topic": "第3章 消费者选择",
+  "question": "U = XY，I = 100，Px = 2，Py = 5 时，最优消费组合是（ ）。",
+  "options": [
+   "X=50，Y=0",
+   "X=10，Y=25",
+   "X=25，Y=10",
+   "X=20，Y=12"
+  ],
+  "answer": 2,
+  "explanation": "Y/X=0.4 ⇒ Y=0.4X；代入 2X+5Y=100 ⇒ 4X=100 ⇒ X=25，Y=10。",
+  "type": "choice"
+ },
+ {
+  "id": "micro24",
+  "note": "Micro",
+  "topic": "第3章 消费者选择",
+  "question": "完全互补品 U = min(X, 2Y) 的最优解位于（ ）。",
+  "options": [
+   "无差异曲线与预算线相切处",
+   "横轴截距处",
+   "任意一点均可",
+   "L 形无差异曲线的折点 X=2Y 处"
+  ],
+  "answer": 3,
+  "explanation": "L 形 IC 无切线，最优必在折点，此时不满足相切条件（角点解）。",
+  "type": "choice"
+ },
+ {
+  "id": "micro25",
+  "note": "Micro",
+  "topic": "第3章 消费者选择",
+  "question": "价格消费线（PCC）描述的是（ ）。",
+  "options": [
+   "其他条件不变、Px 变动时各均衡点的轨迹",
+   "收入变动时各均衡点的轨迹",
+   "效用水平变动的轨迹",
+   "供给曲线上的点"
+  ],
+  "answer": 0,
+  "explanation": "PCC 可逐点读出 (P, X) 从而导出个人需求曲线。",
+  "type": "choice"
+ },
+ {
+  "id": "micro26",
+  "note": "Micro",
+  "topic": "第3章 消费者选择",
+  "question": "收入消费线为过原点的直线，说明（ ）。",
+  "options": [
+   "所有商品都是低档品",
+   "所有商品的需求收入弹性都等于 1",
+   "所有商品价格弹性为 1",
+   "需求曲线垂直"
+  ],
+  "answer": 1,
+  "explanation": "ICC 为射线意味着需求与收入同比例变化（同位相似偏好）。",
+  "type": "choice"
+ },
+ {
+  "id": "micro27",
+  "note": "Micro",
+  "topic": "第3章 消费者选择",
+  "question": "关于替代效应，正确的是（ ）。",
+  "options": [
+   "对低档品与价格同向",
+   "对吉芬品与价格同向",
+   "恒与价格变动方向相反",
+   "方向取决于收入效应"
+  ],
+  "answer": 2,
+  "explanation": "希克斯替代效应恒为负，这是补偿需求曲线必然向下倾斜的原因。",
+  "type": "choice"
+ },
+ {
+  "id": "micro28",
+  "note": "Micro",
+  "topic": "第3章 消费者选择",
+  "question": "吉芬品必须满足（ ）。",
+  "options": [
+   "是正常品",
+   "需求收入弹性大于 1",
+   "有极多替代品",
+   "是低档品且收入效应绝对值超过替代效应"
+  ],
+  "answer": 3,
+  "explanation": "低档品不一定吉芬；吉芬是低档品中收入效应反超的极端情形。",
+  "type": "choice"
+ },
+ {
+  "id": "micro29",
+  "note": "Micro",
+  "topic": "第3章 消费者选择",
+  "question": "U=XY、I=100、Py=5、Px 从 2 降到 1，斯勒茨基补偿收入为（ ）。",
+  "options": [
+   "75",
+   "100",
+   "50",
+   "125"
+  ],
+  "answer": 0,
+  "explanation": "I′ = 1×25 + 5×10 = 75；由此 Xs=37.5，替代效应 +12.5、收入效应 +12.5。",
+  "type": "choice"
+ },
+ {
+  "id": "micro30",
+  "note": "Micro",
+  "topic": "第3章 消费者选择",
+  "question": "U(W)=√W，p=0.5，W₁=100，W₂=400，则确定性等价 CE 为（ ）。",
+  "options": [
+   "250",
+   "225",
+   "15",
+   "15.81"
+  ],
+  "answer": 1,
+  "explanation": "EU=0.5×10+0.5×20=15 ⇒ CE=15²=225；E(W)=250，风险溢价 25。",
+  "type": "choice"
+ },
+ {
+  "id": "micro31",
+  "note": "Micro",
+  "topic": "第4章 生产函数",
+  "question": "短期与长期的划分标准是（ ）。",
+  "options": [
+   "日历时间长短",
+   "产量大小",
+   "是否至少有一种要素投入量固定",
+   "是否盈利"
+  ],
+  "answer": 2,
+  "explanation": "长期是所有要素都可变，与具体月份无关。",
+  "type": "choice"
+ },
+ {
+  "id": "micro32",
+  "note": "Micro",
+  "topic": "第4章 生产函数",
+  "question": "边际报酬递减规律成立的前提是（ ）。",
+  "options": [
+   "所有要素同比例增加",
+   "技术进步持续发生",
+   "规模报酬递增",
+   "技术给定且其他要素投入量不变"
+  ],
+  "answer": 3,
+  "explanation": "两个前提缺一不可；这是短期规律。",
+  "type": "choice"
+ },
+ {
+  "id": "micro33",
+  "note": "Micro",
+  "topic": "第4章 生产函数",
+  "question": "Q = 10L − L² 中，使总产量最大的劳动投入是（ ）。",
+  "options": [
+   "L=5",
+   "L=10",
+   "L=3",
+   "L=0"
+  ],
+  "answer": 0,
+  "explanation": "MP=10−2L=0 ⇒ L=5，TP=25；此后 MP<0，产量下降。",
+  "type": "choice"
+ },
+ {
+  "id": "micro34",
+  "note": "Micro",
+  "topic": "第4章 生产函数",
+  "question": "MP 与 AP 的关系中，正确的是（ ）。",
+  "options": [
+   "MP = 0 处 AP 最大",
+   "MP = AP 处 AP 取最大值",
+   "MP > AP 时 AP 下降",
+   "MP 始终大于 AP"
+  ],
+  "answer": 1,
+  "explanation": "MP 从上向下穿过 AP 的最高点，这是由 AP 求导直接得出的。",
+  "type": "choice"
+ },
+ {
+  "id": "micro35",
+  "note": "Micro",
+  "topic": "第4章 生产函数",
+  "question": "生产第Ⅲ阶段的特征是（ ）。",
+  "options": [
+   "AP 递增",
+   "MP > AP",
+   "MP < 0，增加可变要素反而减少总产量",
+   "TP 以递增速率增加"
+  ],
+  "answer": 2,
+  "explanation": "第Ⅲ阶段非理性；唯一合理生产区间是第Ⅱ阶段。",
+  "type": "choice"
+ },
+ {
+  "id": "micro36",
+  "note": "Micro",
+  "topic": "第4章 生产函数",
+  "question": "等产量线的斜率（绝对值）是（ ）。",
+  "options": [
+   "要素价格比 w/r",
+   "边际转换率 MRT",
+   "边际替代率 MRS",
+   "边际技术替代率 MRTS(LK)"
+  ],
+  "answer": 3,
+  "explanation": "MRTS = MPL/MPK；等成本线斜率才是 w/r，切点处二者相等。",
+  "type": "choice"
+ },
+ {
+  "id": "micro37",
+  "note": "Micro",
+  "topic": "第4章 生产函数",
+  "question": "成本最小化的要素组合条件是（ ）。",
+  "options": [
+   "MPL/w = MPK/r",
+   "MPL = MPK",
+   "w = r",
+   "L = K"
+  ],
+  "answer": 0,
+  "explanation": "由拉格朗日一阶条件 w=λMPL、r=λMPK 得出，λ=MC，故也等于 1/MC。",
+  "type": "choice"
+ },
+ {
+  "id": "micro38",
+  "note": "Micro",
+  "topic": "第4章 生产函数",
+  "question": "C-D 生产函数 Q = AL^αK^β 中，α+β > 1 表示（ ）。",
+  "options": [
+   "规模报酬不变",
+   "规模报酬递增",
+   "规模报酬递减",
+   "边际报酬递减"
+  ],
+  "answer": 1,
+  "explanation": "齐次次数即 α+β；>1 递增、=1 不变、<1 递减。",
+  "type": "choice"
+ },
+ {
+  "id": "micro39",
+  "note": "Micro",
+  "topic": "第4章 生产函数",
+  "question": "欧拉定理 Q = MPL·L + MPK·K 成立的条件是（ ）。",
+  "options": [
+   "规模报酬递增",
+   "规模报酬递减",
+   "生产函数为一次齐次（规模报酬不变）",
+   "完全互补生产函数"
+  ],
+  "answer": 2,
+  "explanation": "n 次齐次函数满足 nQ = MPL·L + MPK·K；n=1 即产品分配净尽。",
+  "type": "choice"
+ },
+ {
+  "id": "micro40",
+  "note": "Micro",
+  "topic": "第5章 成本",
+  "question": "经济成本与会计成本的差别在于经济成本还包含（ ）。",
+  "options": [
+   "显成本",
+   "沉没成本",
+   "税收",
+   "隐成本（自有要素的机会成本）"
+  ],
+  "answer": 3,
+  "explanation": "经济成本 = 显成本 + 隐成本；正常利润属于隐成本。",
+  "type": "choice"
+ },
+ {
+  "id": "micro41",
+  "note": "Micro",
+  "topic": "第5章 成本",
+  "question": "完全竞争厂商长期经济利润为零，意味着（ ）。",
+  "options": [
+   "厂商仍获得正常利润",
+   "厂商亏损",
+   "厂商应退出",
+   "会计利润也为零"
+  ],
+  "answer": 0,
+  "explanation": "正常利润已计入隐成本，零经济利润时企业仍值得经营。",
+  "type": "choice"
+ },
+ {
+  "id": "micro42",
+  "note": "Micro",
+  "topic": "第5章 成本",
+  "question": "边际成本与固定成本的关系是（ ）。",
+  "options": [
+   "随固定成本增加而上升",
+   "无关，因固定成本的导数为零",
+   "成反比",
+   "相等"
+  ],
+  "answer": 1,
+  "explanation": "SMC = dSTC/dQ = dTVC/dQ，TFC 不进入。",
+  "type": "choice"
+ },
+ {
+  "id": "micro43",
+  "note": "Micro",
+  "topic": "第5章 成本",
+  "question": "SMC 曲线与 AVC、AC 曲线的交点分别是（ ）。",
+  "options": [
+   "各自的最高点",
+   "AVC 最高点与 AC 最低点",
+   "各自的最低点",
+   "两条曲线的原点"
+  ],
+  "answer": 2,
+  "explanation": "MC 从下方向上穿过 AVCmin 与 ACmin，且 ACmin 对应产量更大。",
+  "type": "choice"
+ },
+ {
+  "id": "micro44",
+  "note": "Micro",
+  "topic": "第5章 成本",
+  "question": "STC = Q³ − 6Q² + 15Q + 100 中，AVC 最小值出现在（ ）。",
+  "options": [
+   "Q=5，AVCmin=10",
+   "Q=2，AVCmin=7",
+   "Q=6，AVCmin=15",
+   "Q=3，AVCmin=6"
+  ],
+  "answer": 3,
+  "explanation": "AVC=Q²−6Q+15，求导 2Q−6=0 ⇒ Q=3，AVC=6，且 SMC(3)=6 相等。",
+  "type": "choice"
+ },
+ {
+  "id": "micro45",
+  "note": "Micro",
+  "topic": "第5章 成本",
+  "question": "AC 与 AVC 之间的垂直距离等于（ ）。",
+  "options": [
+   "AFC，且随产量增大而缩小",
+   "SMC，且保持不变",
+   "TFC，且不断增大",
+   "MC 与 AVC 之差"
+  ],
+  "answer": 0,
+  "explanation": "AC = AVC + AFC，AFC = TFC/Q 为递减的双曲线。",
+  "type": "choice"
+ },
+ {
+  "id": "micro46",
+  "note": "Micro",
+  "topic": "第5章 成本",
+  "question": "长期平均成本曲线 LAC 是（ ）。",
+  "options": [
+   "所有 SAC 最低点的连线",
+   "所有短期平均成本曲线的包络线",
+   "所有 SMC 的加总",
+   "一条水平线"
+  ],
+  "answer": 1,
+  "explanation": "SAC ≥ LAC，只在切点相等；仅 LAC 最低点与某 SAC 最低点重合。",
+  "type": "choice"
+ },
+ {
+  "id": "micro47",
+  "note": "Micro",
+  "topic": "第5章 成本",
+  "question": "长期中（ ）。",
+  "options": [
+   "仍有很大的固定成本",
+   "TFC 大于短期",
+   "所有成本都是可变的，无固定成本",
+   "LAC 一定递增"
+  ],
+  "answer": 2,
+  "explanation": "长期所有要素可调，LTC(0)=0。",
+  "type": "choice"
+ },
+ {
+  "id": "micro48",
+  "note": "Micro",
+  "topic": "第5章 成本",
+  "question": "联合生产两种产品比分别生产成本更低，称为（ ）。",
+  "options": [
+   "规模经济",
+   "学习效应",
+   "规模报酬递增",
+   "范围经济"
+  ],
+  "answer": 3,
+  "explanation": "判据 C(Q₁,Q₂) < C(Q₁,0)+C(0,Q₂)，来自共享投入与渠道。",
+  "type": "choice"
+ },
+ {
+  "id": "micro49",
+  "note": "Micro",
+  "topic": "第5章 成本",
+  "question": "学习曲线描述的是平均成本随（ ）下降。",
+  "options": [
+   "累计产量",
+   "当期产量",
+   "产品价格",
+   "要素价格"
+  ],
+  "answer": 0,
+  "explanation": "干中学是动态效应，与规模经济（当期产量）不同。",
+  "type": "choice"
+ },
+ {
+  "id": "micro50",
+  "note": "Micro",
+  "topic": "第6章 完全竞争市场",
+  "question": "完全竞争厂商面对的需求曲线是（ ）。",
+  "options": [
+   "向右下倾斜",
+   "水平线，P = AR = MR",
+   "垂直线",
+   "与市场需求曲线相同"
+  ],
+  "answer": 1,
+  "explanation": "厂商是价格接受者，增减产量不影响市场价格。",
+  "type": "choice"
+ },
+ {
+  "id": "micro51",
+  "note": "Micro",
+  "topic": "第6章 完全竞争市场",
+  "question": "任何厂商利润最大化的一阶条件都是（ ）。",
+  "options": [
+   "P = MC",
+   "AR = AC",
+   "MR = MC",
+   "TR = TC"
+  ],
+  "answer": 2,
+  "explanation": "P=MC 只在完全竞争（MR=P）下成立；还须 MC 处于上升段。",
+  "type": "choice"
+ },
+ {
+  "id": "micro52",
+  "note": "Micro",
+  "topic": "第6章 完全竞争市场",
+  "question": "完全竞争厂商的停止营业点（关门点）是（ ）。",
+  "options": [
+   "P = ACmin",
+   "P = MCmin",
+   "P = 0",
+   "P = AVCmin"
+  ],
+  "answer": 3,
+  "explanation": "低于 AVCmin 时连可变成本都补不上，应立即停产。",
+  "type": "choice"
+ },
+ {
+  "id": "micro53",
+  "note": "Micro",
+  "topic": "第6章 完全竞争市场",
+  "question": "STC = Q² + 4Q + 36、P = 20 时，利润最大化的产量与利润是（ ）。",
+  "options": [
+   "Q=8，π=28",
+   "Q=6，π=16",
+   "Q=10，π=40",
+   "Q=8，π=0"
+  ],
+  "answer": 0,
+  "explanation": "SMC=2Q+4=20 ⇒ Q=8；TR=160，STC=64+32+36=132 ⇒ π=28。",
+  "type": "choice"
+ },
+ {
+  "id": "micro54",
+  "note": "Micro",
+  "topic": "第6章 完全竞争市场",
+  "question": "上题若 P = 14，厂商应（ ）。",
+  "options": [
+   "立即停产",
+   "继续生产，因为 P > AVC",
+   "提高价格",
+   "退出行业"
+  ],
+  "answer": 1,
+  "explanation": "Q=5、亏损 11，但停产亏 TFC=36；AVC=9<14，继续生产更好。",
+  "type": "choice"
+ },
+ {
+  "id": "micro55",
+  "note": "Micro",
+  "topic": "第6章 完全竞争市场",
+  "question": "完全竞争厂商的短期供给曲线是（ ）。",
+  "options": [
+   "整条 SMC 曲线",
+   "AC 曲线上升段",
+   "SMC 在 AVCmin 以上的上升段",
+   "LAC 曲线"
+  ],
+  "answer": 2,
+  "explanation": "低于 AVCmin 时供给量为零，且二阶条件要求 MC 上升。",
+  "type": "choice"
+ },
+ {
+  "id": "micro56",
+  "note": "Micro",
+  "topic": "第6章 完全竞争市场",
+  "question": "完全竞争厂商长期均衡条件是（ ）。",
+  "options": [
+   "P > LACmin",
+   "P = AVCmin",
+   "MR > MC",
+   "P = LMC = LACmin，经济利润为零"
+  ],
+  "answer": 3,
+  "explanation": "自由进出使价格降到 LAC 最低点，厂商只获正常利润。",
+  "type": "choice"
+ },
+ {
+  "id": "micro57",
+  "note": "Micro",
+  "topic": "第6章 完全竞争市场",
+  "question": "成本不变行业的长期供给曲线是（ ）。",
+  "options": [
+   "水平线",
+   "向右上倾斜",
+   "向右下倾斜",
+   "垂直线"
+  ],
+  "answer": 0,
+  "explanation": "要素价格不随行业产量变化，长期需求增加只改变厂商数量。",
+  "type": "choice"
+ },
+ {
+  "id": "micro58",
+  "note": "Micro",
+  "topic": "第6章 完全竞争市场",
+  "question": "生产者剩余等于（ ）。",
+  "options": [
+   "利润减总固定成本",
+   "利润加总固定成本",
+   "总收益",
+   "消费者剩余"
+  ],
+  "answer": 1,
+  "explanation": "PS = TR − TVC = π + TFC；亏损时仍可为正。",
+  "type": "choice"
+ },
+ {
+  "id": "micro59",
+  "note": "Micro",
+  "topic": "第6章 完全竞争市场",
+  "question": "完全竞争均衡实现效率的根本原因是（ ）。",
+  "options": [
+   "厂商数量多",
+   "价格低",
+   "P = MC，最后一单位的社会评价等于社会成本",
+   "利润为零"
+  ],
+  "answer": 2,
+  "explanation": "P 反映边际支付意愿、MC 反映边际成本，相等时总剩余最大。",
+  "type": "choice"
+ },
+ {
+  "id": "micro60",
+  "note": "Micro",
+  "topic": "第7章 不完全竞争市场",
+  "question": "线性需求 P = a − bQ 对应的边际收益曲线是（ ）。",
+  "options": [
+   "MR = a − bQ",
+   "MR = a − 4bQ",
+   "MR = 2a − bQ",
+   "MR = a − 2bQ"
+  ],
+  "answer": 3,
+  "explanation": "MR 与 D 纵截距相同、横截距为其一半。",
+  "type": "choice"
+ },
+ {
+  "id": "micro61",
+  "note": "Micro",
+  "topic": "第7章 不完全竞争市场",
+  "question": "MR = P(1 − 1/|Ed|) 说明垄断者（ ）。",
+  "options": [
+   "绝不会在 |Ed| < 1 的区间生产",
+   "总是选择价格最高处",
+   "一定在 |Ed|=0 处生产",
+   "产量与弹性无关"
+  ],
+  "answer": 0,
+  "explanation": "|Ed|<1 时 MR<0 而 MC≥0，减产提价可同时增收降本。",
+  "type": "choice"
+ },
+ {
+  "id": "micro62",
+  "note": "Micro",
+  "topic": "第7章 不完全竞争市场",
+  "question": "P = 100 − 2Q、MC = 20 时，垄断厂商的产量与价格是（ ）。",
+  "options": [
+   "Q=40，P=20",
+   "Q=20，P=60",
+   "Q=10，P=80",
+   "Q=20，P=20"
+  ],
+  "answer": 1,
+  "explanation": "MR=100−4Q=20 ⇒ Q=20；P=100−40=60；π=800。",
+  "type": "choice"
+ },
+ {
+  "id": "micro63",
+  "note": "Micro",
+  "topic": "第7章 不完全竞争市场",
+  "question": "上题的勒纳指数是（ ）。",
+  "options": [
+   "1/3",
+   "1.5",
+   "2/3",
+   "0.5"
+  ],
+  "answer": 2,
+  "explanation": "L=(60−20)/60=2/3=1/|Ed|，此时 |Ed|=1.5。",
+  "type": "choice"
+ },
+ {
+  "id": "micro64",
+  "note": "Micro",
+  "topic": "第7章 不完全竞争市场",
+  "question": "上题中垄断造成的无谓损失是（ ）。",
+  "options": [
+   "800",
+   "200",
+   "1600",
+   "400"
+  ],
+  "answer": 3,
+  "explanation": "竞争 Qc=40，DWL=½×(60−20)×(40−20)=400。",
+  "type": "choice"
+ },
+ {
+  "id": "micro65",
+  "note": "Micro",
+  "topic": "第7章 不完全竞争市场",
+  "question": "完全价格歧视（一级价格歧视）的福利结果是（ ）。",
+  "options": [
+   "产量达竞争水平、无 DWL，但消费者剩余全被占有",
+   "存在最大 DWL",
+   "消费者剩余最大",
+   "产量低于垄断"
+  ],
+  "answer": 0,
+  "explanation": "效率与分配分离的经典例子。",
+  "type": "choice"
+ },
+ {
+  "id": "micro66",
+  "note": "Micro",
+  "topic": "第7章 不完全竞争市场",
+  "question": "三级价格歧视中定价较高的市场是（ ）。",
+  "options": [
+   "弹性较大的市场",
+   "需求价格弹性绝对值较小的市场",
+   "需求量较大的市场",
+   "成本较高的市场"
+  ],
+  "answer": 1,
+  "explanation": "由 P(1−1/|E|)=MC 得弹性小者加成大、价格高。",
+  "type": "choice"
+ },
+ {
+  "id": "micro67",
+  "note": "Micro",
+  "topic": "第7章 不完全竞争市场",
+  "question": "垄断竞争厂商长期均衡时（ ）。",
+  "options": [
+   "P = LMC",
+   "获得长期超额利润",
+   "经济利润为零，但 P > LMC 且存在过剩产能",
+   "在 LAC 最低点生产"
+  ],
+  "answer": 2,
+  "explanation": "自由进入使 d 与 LAC 相切，切点在 LAC 最低点左侧。",
+  "type": "choice"
+ },
+ {
+  "id": "micro68",
+  "note": "Micro",
+  "topic": "第7章 不完全竞争市场",
+  "question": "P = 18 − (Q₁+Q₂)、MC = 0 的古诺双寡头均衡是（ ）。",
+  "options": [
+   "Q₁=Q₂=9，P=0",
+   "Q₁=Q₂=4.5，P=9",
+   "Q₁=9，Q₂=4.5",
+   "Q₁=Q₂=6，P=6"
+  ],
+  "answer": 3,
+  "explanation": "反应函数 Q₁=9−Q₂/2，对称联立得 6；通式 Qi=(a−c)/(3b)=6。",
+  "type": "choice"
+ },
+ {
+  "id": "micro69",
+  "note": "Micro",
+  "topic": "第7章 不完全竞争市场",
+  "question": "同质产品、同时定价的伯特兰双寡头均衡是（ ）。",
+  "options": [
+   "P = MC，与完全竞争结果相同",
+   "P 等于垄断价格",
+   "P = a/3",
+   "不存在均衡"
+  ],
+  "answer": 0,
+  "explanation": "伯特兰悖论；破解需产品差别、产能约束或重复博弈。",
+  "type": "choice"
+ },
+ {
+  "id": "micro70",
+  "note": "Micro",
+  "topic": "第7章 不完全竞争市场",
+  "question": "关于供给曲线，正确的是（ ）。",
+  "options": [
+   "两者都有",
+   "完全竞争厂商有供给曲线，不完全竞争厂商没有",
+   "两者都没有",
+   "只有垄断厂商有"
+  ],
+  "answer": 1,
+  "explanation": "不完全竞争下价格与产量不再一一对应，取决于需求曲线与对手反应。",
+  "type": "choice"
+ },
+ {
+  "id": "micro71",
+  "note": "Micro",
+  "topic": "第8章 要素市场",
+  "question": "厂商对生产要素的需求属于（ ）。",
+  "options": [
+   "直接需求",
+   "最终需求",
+   "引致需求（派生需求）",
+   "无效需求"
+  ],
+  "answer": 2,
+  "explanation": "需求派生自产品需求与要素的边际生产力。",
+  "type": "choice"
+ },
+ {
+  "id": "micro72",
+  "note": "Micro",
+  "topic": "第8章 要素市场",
+  "question": "完全竞争厂商使用要素的原则是（ ）。",
+  "options": [
+   "MP = w",
+   "P = w",
+   "MR = w",
+   "VMP = P·MP = w"
+  ],
+  "answer": 3,
+  "explanation": "由 π(L)=P·Q(L)−wL 求导得 P·MP = w。",
+  "type": "choice"
+ },
+ {
+  "id": "micro73",
+  "note": "Micro",
+  "topic": "第8章 要素市场",
+  "question": "Q = 10L − L²、P = 5、w = 30 时，最优劳动投入是（ ）。",
+  "options": [
+   "L=2",
+   "L=1",
+   "L=3",
+   "L=5"
+  ],
+  "answer": 0,
+  "explanation": "VMP=5(10−2L)=50−10L=30 ⇒ L=2。",
+  "type": "choice"
+ },
+ {
+  "id": "micro74",
+  "note": "Micro",
+  "topic": "第8章 要素市场",
+  "question": "单个厂商的要素需求曲线是（ ）。",
+  "options": [
+   "整条 VMP 曲线",
+   "VMP 曲线的下降段",
+   "VMP 的上升段",
+   "MP 曲线"
+  ],
+  "answer": 1,
+  "explanation": "只有 MP 递减段满足利润最大化二阶条件。",
+  "type": "choice"
+ },
+ {
+  "id": "micro75",
+  "note": "Micro",
+  "topic": "第8章 要素市场",
+  "question": "市场要素需求曲线比单个厂商需求曲线的简单水平加总（ ）。",
+  "options": [
+   "更平坦",
+   "完全相同",
+   "更陡，因为所有厂商同时扩张会压低产品价格",
+   "是垂直线"
+  ],
+  "answer": 2,
+  "explanation": "产品价格下降使各厂商 VMP 下移，这是课件 8.3 节的重点。",
+  "type": "choice"
+ },
+ {
+  "id": "micro76",
+  "note": "Micro",
+  "topic": "第8章 要素市场",
+  "question": "劳动供给曲线向后弯曲的原因是（ ）。",
+  "options": [
+   "低工资阶段收入效应占优",
+   "劳动边际产量为负",
+   "人口减少",
+   "高工资阶段收入效应超过替代效应"
+  ],
+  "answer": 3,
+  "explanation": "工资上涨的替代效应促增劳动、收入效应促增闲暇，高工资时后者占优。",
+  "type": "choice"
+ },
+ {
+  "id": "micro77",
+  "note": "Micro",
+  "topic": "第8章 要素市场",
+  "question": "就全社会而言，土地供给总量固定意味着（ ）。",
+  "options": [
+   "地租主要由需求决定，是超过机会成本的剩余",
+   "地租由生产成本决定",
+   "地租恒为零",
+   "地租与需求无关"
+  ],
+  "answer": 0,
+  "explanation": "垂直供给曲线 ⇒ 价格完全由需求侧移动决定。",
+  "type": "choice"
+ },
+ {
+  "id": "micro78",
+  "note": "Micro",
+  "topic": "第8章 要素市场",
+  "question": "产品分配净尽定理（欧拉定理）成立的必要条件是（ ）。",
+  "options": [
+   "规模报酬递增",
+   "规模报酬不变",
+   "规模报酬递减",
+   "完全垄断"
+  ],
+  "answer": 1,
+  "explanation": "Q=MPL·L+MPK·K 是一次齐次生产函数的性质。",
+  "type": "choice"
+ },
+ {
+  "id": "micro79",
+  "note": "Micro",
+  "topic": "第8章 要素市场",
+  "question": "5 等分组收入份额 5/10/15/25/45 时，基尼系数约为（ ）。",
+  "options": [
+   "0.31",
+   "0.50",
+   "0.38",
+   "0.19"
+  ],
+  "answer": 2,
+  "explanation": "洛伦兹曲线下面积 0.31 ⇒ G=(0.5−0.31)/0.5=0.38。",
+  "type": "choice"
+ },
+ {
+  "id": "micro80",
+  "note": "Micro",
+  "topic": "第9章 一般均衡与福利",
+  "question": "帕累托最优是指（ ）。",
+  "options": [
+   "总效用最大",
+   "收入分配完全平等",
+   "所有人效用相同",
+   "已不存在任何帕累托改进空间"
+  ],
+  "answer": 3,
+  "explanation": "帕累托最优可有无穷多个，属效率概念而非公平概念。",
+  "type": "choice"
+ },
+ {
+  "id": "micro81",
+  "note": "Micro",
+  "topic": "第9章 一般均衡与福利",
+  "question": "交换的帕累托最优条件是（ ）。",
+  "options": [
+   "MRS(A,XY) = MRS(B,XY)",
+   "MRTS 相等",
+   "MRS = MRT",
+   "Px = MCx"
+  ],
+  "answer": 0,
+  "explanation": "埃奇沃思盒中所有无差异曲线切点的轨迹即交换的契约曲线。",
+  "type": "choice"
+ },
+ {
+  "id": "micro82",
+  "note": "Micro",
+  "topic": "第9章 一般均衡与福利",
+  "question": "生产与交换同时达到帕累托最优的条件是（ ）。",
+  "options": [
+   "MRS = 0",
+   "MRS(XY) = MRT(XY)",
+   "MRT = 1",
+   "MCx = MCy"
+  ],
+  "answer": 1,
+  "explanation": "MRT = MCx/MCy 为 PPF 切线斜率，消费端评价须与生产端转换率相等。",
+  "type": "choice"
+ },
+ {
+  "id": "micro83",
+  "note": "Micro",
+  "topic": "第9章 一般均衡与福利",
+  "question": "福利经济学第一定理说明（ ）。",
+  "options": [
+   "竞争均衡必然公平",
+   "任何有效分配都可由竞争实现",
+   "完全竞争均衡是帕累托有效的（在前提满足时）",
+   "政府干预总是无效"
+  ],
+  "answer": 2,
+  "explanation": "前提包括无外部性、无公共物品、信息完全、凸性、完全竞争。",
+  "type": "choice"
+ },
+ {
+  "id": "micro84",
+  "note": "Micro",
+  "topic": "第9章 一般均衡与福利",
+  "question": "福利经济学第二定理中的再分配必须是（ ）。",
+  "options": [
+   "累进商品税",
+   "价格管制",
+   "比例所得税",
+   "一次总付（不扭曲相对价格）的再分配"
+  ],
+  "answer": 3,
+  "explanation": "扭曲性税收会改变相对价格，从而破坏效率结论。",
+  "type": "choice"
+ },
+ {
+  "id": "micro85",
+  "note": "Micro",
+  "topic": "第9章 一般均衡与福利",
+  "question": "罗尔斯型社会福利函数的形式是（ ）。",
+  "options": [
+   "W = min(UA, UB)",
+   "W = UA + UB",
+   "W = UA·UB",
+   "W = UA/UB"
+  ],
+  "answer": 0,
+  "explanation": "最大最小准则，关注最差者的效用；加法型为功利主义。",
+  "type": "choice"
+ },
+ {
+  "id": "micro86",
+  "note": "Micro",
+  "topic": "第9章 一般均衡与福利",
+  "question": "阿罗不可能定理说明（ ）。",
+  "options": [
+   "多数投票总能得到一致结果",
+   "不存在满足全部合理公理的社会偏好加总规则",
+   "帕累托最优唯一",
+   "社会福利函数必然是加法型"
+  ],
+  "answer": 1,
+  "explanation": "与投票悖论相连，是公共选择理论的基础结论。",
+  "type": "choice"
+ },
+ {
+  "id": "micro87",
+  "note": "Micro",
+  "topic": "第10章 博弈论",
+  "question": "纳什均衡是指（ ）。",
+  "options": [
+   "所有参与人都选占优策略",
+   "总支付最大",
+   "给定他人策略，无人能单独改变策略而获益",
+   "帕累托最优的策略组合"
+  ],
+  "answer": 2,
+  "explanation": "纳什均衡未必帕累托最优（囚徒困境即反例）。",
+  "type": "choice"
+ },
+ {
+  "id": "micro88",
+  "note": "Micro",
+  "topic": "第10章 博弈论",
+  "question": "囚徒困境中，唯一的纳什均衡（ ）。",
+  "options": [
+   "是双方都抵赖",
+   "不存在",
+   "有四个",
+   "是双方都坦白，且帕累托劣于双方都抵赖"
+  ],
+  "answer": 3,
+  "explanation": "个体理性导致集体非理性，是卡特尔不稳定的根源。",
+  "type": "choice"
+ },
+ {
+  "id": "micro89",
+  "note": "Micro",
+  "topic": "第10章 博弈论",
+  "question": "关于纯策略纳什均衡，正确的是（ ）。",
+  "options": [
+   "可能不存在，也可能不唯一",
+   "必定存在且唯一",
+   "必定存在且帕累托最优",
+   "必定不存在"
+  ],
+  "answer": 0,
+  "explanation": "有限博弈保证存在的是混合策略均衡（纳什定理）。",
+  "type": "choice"
+ },
+ {
+  "id": "micro90",
+  "note": "Micro",
+  "topic": "第10章 博弈论",
+  "question": "性别战 (2,1)/(0,0)/(0,0)/(1,2) 中，使乙无差异的 p（甲选芭蕾概率）是（ ）。",
+  "options": [
+   "1/3",
+   "2/3",
+   "1/2",
+   "3/4"
+  ],
+  "answer": 1,
+  "explanation": "用乙的支付：p = 2(1−p) ⇒ 3p=2 ⇒ p=2/3。必须用对方的支付求解。",
+  "type": "choice"
+ },
+ {
+  "id": "micro91",
+  "note": "Micro",
+  "topic": "第10章 博弈论",
+  "question": "条件策略下划线法中，在甲的支付矩阵里应当（ ）。",
+  "options": [
+   "对甲的每一行找最大值",
+   "对甲的每一列找最大值",
+   "对乙的每一列找出甲的最大支付并画线",
+   "找全表最大值"
+  ],
+  "answer": 2,
+  "explanation": "甲的最优反应以乙的策略（列）为条件，故逐列比较。",
+  "type": "choice"
+ },
+ {
+  "id": "micro92",
+  "note": "Micro",
+  "topic": "第10章 博弈论",
+  "question": "剔除不可置信威胁所用的概念是（ ）。",
+  "options": [
+   "占优均衡",
+   "混合策略均衡",
+   "贝叶斯均衡",
+   "子博弈精炼纳什均衡（逆向归纳）"
+  ],
+  "answer": 3,
+  "explanation": "动态博弈中，只有从后往前求解才能保证每个子博弈上都是最优的。",
+  "type": "choice"
+ },
+ {
+  "id": "micro93",
+  "note": "Micro",
+  "topic": "第10章 博弈论",
+  "question": "无限次重复囚徒困境中，合作可持续的条件是（ ）。",
+  "options": [
+   "贴现因子足够大（参与者足够看重未来）",
+   "贴现因子足够小",
+   "博弈次数有限",
+   "没有惩罚机制"
+  ],
+  "answer": 0,
+  "explanation": "δ ≥ (πD−πC)/(πD−πN)；以牙还牙/冷酷战略使背叛得不偿失。",
+  "type": "choice"
+ },
+ {
+  "id": "micro94",
+  "note": "Micro",
+  "topic": "第11章 市场失灵",
+  "question": "负外部性导致私人市场产量（ ）。",
+  "options": [
+   "低于社会最优产量",
+   "高于社会最优产量",
+   "等于社会最优产量",
+   "为零"
+  ],
+  "answer": 1,
+  "explanation": "私人比较 MPB 与 MPC，忽略边际外部成本 ME。",
+  "type": "choice"
+ },
+ {
+  "id": "micro95",
+  "note": "Micro",
+  "topic": "第11章 市场失灵",
+  "question": "MSB = 100 − 2Q、MPC = 2Q + 10、ME = 6 时，社会最优产量是（ ）。",
+  "options": [
+   "22.5",
+   "20",
+   "21",
+   "25"
+  ],
+  "answer": 2,
+  "explanation": "100−2Q = 2Q+16 ⇒ 4Q=84 ⇒ Q=21；私人均衡为 22.5。",
+  "type": "choice"
+ },
+ {
+  "id": "micro96",
+  "note": "Micro",
+  "topic": "第11章 市场失灵",
+  "question": "上题中使厂商自主选择社会最优产量的庇古税是（ ）。",
+  "options": [
+   "4",
+   "1.5",
+   "16",
+   "6"
+  ],
+  "answer": 3,
+  "explanation": "t = ME(Q*) = 6；校验 Q* 处 MSB = MSC = 58。",
+  "type": "choice"
+ },
+ {
+  "id": "micro97",
+  "note": "Micro",
+  "topic": "第11章 市场失灵",
+  "question": "科斯定理中「结果与初始产权归属无关」成立的关键前提是（ ）。",
+  "options": [
+   "产权清晰且交易成本为零或足够低",
+   "政府不干预",
+   "完全竞争",
+   "人数众多"
+  ],
+  "answer": 0,
+  "explanation": "交易成本高、人数众多导致搭便车时科斯谈判失效，需庇古税或许可证。",
+  "type": "choice"
+ },
+ {
+  "id": "micro98",
+  "note": "Micro",
+  "topic": "第11章 市场失灵",
+  "question": "公共物品的最优供给条件是（ ）。",
+  "options": [
+   "各人 MRS 相等并等于 MRT",
+   "各人 MRS 之和等于 MRT",
+   "MRS = 0",
+   "MRT = 1"
+  ],
+  "answer": 1,
+  "explanation": "非竞争性使所有人同时消费同一单位 ⇒ 边际评价纵向相加。",
+  "type": "choice"
+ },
+ {
+  "id": "micro99",
+  "note": "Micro",
+  "topic": "第11章 市场失灵",
+  "question": "逆向选择发生在（ ）。",
+  "options": [
+   "签约之后，源于隐藏行动",
+   "生产之后",
+   "签约之前，源于隐藏信息",
+   "消费之后"
+  ],
+  "answer": 2,
+  "explanation": "道德风险才是签约后隐藏行动；旧车市场是逆向选择的经典例子。",
+  "type": "choice"
+ },
+ {
+  "id": "micro100",
+  "note": "Micro",
+  "topic": "第11章 市场失灵",
+  "question": "关于政府干预，正确的判断标准是（ ）。",
+  "options": [
+   "只要市场失灵就必须干预",
+   "只要政府有能力就应干预",
+   "一律交由市场",
+   "比较市场失灵的损失与政府干预自身的成本"
+  ],
+  "answer": 3,
+  "explanation": "政府失灵（信息不足、寻租、时滞、公共选择困境）同样真实。",
+  "type": "choice"
+ },
+ {
+  "id": "micro101",
+  "note": "Micro",
+  "topic": "第1章 引论",
+  "question": "机会成本等于所放弃的所有其他用途收益之和。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "只取其中最大的一项，不是求和。",
+  "type": "judge"
+ },
+ {
+  "id": "micro102",
+  "note": "Micro",
+  "topic": "第2章 供求与弹性",
+  "question": "对买方征税与对卖方征收同等单位税，最终的均衡价格与数量相同。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "税负归宿与法定纳税人无关，只由相对弹性决定。",
+  "type": "judge"
+ },
+ {
+  "id": "micro103",
+  "note": "Micro",
+  "topic": "第2章 供求与弹性",
+  "question": "线性需求曲线与两轴围成的中点处，需求价格弹性的绝对值恰好等于 1。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "P = a − bQ 时 |Ed| = P/(a−P)，P = a/2 处 |Ed| = 1，此时总收益最大；上半段富有、下半段缺乏弹性。",
+  "type": "judge"
+ },
+ {
+  "id": "micro104",
+  "note": "Micro",
+  "topic": "第3章 消费者选择",
+  "question": "边际效用递减意味着总效用一定下降。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "MU>0 时 TU 仍递增；MU=0 时 TU 最大。",
+  "type": "judge"
+ },
+ {
+  "id": "micro105",
+  "note": "Micro",
+  "topic": "第3章 消费者选择",
+  "question": "吉芬品一定是低档品，但低档品不一定是吉芬品。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "吉芬品还需收入效应绝对值超过替代效应。",
+  "type": "judge"
+ },
+ {
+  "id": "micro106",
+  "note": "Micro",
+  "topic": "第4章 生产函数",
+  "question": "边际报酬递减规律与规模报酬递减是同一规律的不同表述。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "前者是短期、部分要素固定；后者是长期、所有要素同比例变化。",
+  "type": "judge"
+ },
+ {
+  "id": "micro107",
+  "note": "Micro",
+  "topic": "第5章 成本",
+  "question": "长期中仍然存在固定成本，只是数额比短期小。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "长期所有要素都可变，没有固定成本，LTC(0)=0。",
+  "type": "judge"
+ },
+ {
+  "id": "micro108",
+  "note": "Micro",
+  "topic": "第6章 完全竞争市场",
+  "question": "完全竞争厂商在短期亏损时应当立即停止生产。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "只要 P ≥ AVCmin 就应继续生产，可分摊部分固定成本。",
+  "type": "judge"
+ },
+ {
+  "id": "micro109",
+  "note": "Micro",
+  "topic": "第6章 完全竞争市场",
+  "question": "完全竞争长期均衡时厂商的经济利润为零，但会计利润仍为正。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "正常利润计入隐成本，故会计利润大于零。",
+  "type": "judge"
+ },
+ {
+  "id": "micro110",
+  "note": "Micro",
+  "topic": "第7章 不完全竞争市场",
+  "question": "垄断厂商没有唯一的供给曲线。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "价格与产量不再一一对应，还取决于需求曲线形状与对手反应。",
+  "type": "judge"
+ },
+ {
+  "id": "micro111",
+  "note": "Micro",
+  "topic": "第9章 一般均衡与福利",
+  "question": "帕累托最优状态一定意味着收入分配公平。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "帕累托最优可以有多个，极不平等的分配也可能是帕累托最优。",
+  "type": "judge"
+ },
+ {
+  "id": "micro112",
+  "note": "Micro",
+  "topic": "第10章 博弈论",
+  "question": "任何有限博弈都至少存在一个混合策略纳什均衡。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "纳什定理；纯策略均衡则可能存在也可能不存在。",
+  "type": "judge"
+ },
+ {
+  "id": "micro113",
+  "note": "Micro",
+  "topic": "第11章 市场失灵",
+  "question": "公共物品必须由政府直接生产。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "提供（融资）与生产可分离，政府购买私人生产很常见。",
+  "type": "judge"
+ },
+ {
+  "id": "micro114",
+  "note": "Micro",
+  "topic": "第2章 供求与弹性",
+  "question": "下列会使某商品需求曲线右移的有（ ）。",
+  "options": [
+   "消费者收入提高（正常品）",
+   "替代品价格上升",
+   "该商品自身价格下降",
+   "消费者预期未来涨价"
+  ],
+  "answer": [
+   0,
+   1,
+   3
+  ],
+  "explanation": "自身价格下降只引起需求量沿曲线移动，不使曲线平移。",
+  "type": "multi"
+ },
+ {
+  "id": "micro115",
+  "note": "Micro",
+  "topic": "第3章 消费者选择",
+  "question": "关于无差异曲线，正确的有（ ）。",
+  "options": [
+   "通常凸向原点",
+   "任意两条不能相交",
+   "离原点越远效用越高",
+   "斜率恒等于要素价格比"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "斜率是 −MRS，不是要素价格比；要素价格比 w/r 属等成本线。",
+  "type": "multi"
+ },
+ {
+  "id": "micro116",
+  "note": "Micro",
+  "topic": "第5章 成本",
+  "question": "下列成本中与产量无关或不含固定成本的有（ ）。",
+  "options": [
+   "总固定成本 TFC",
+   "边际成本 SMC",
+   "平均可变成本 AVC",
+   "长期总成本 LTC"
+  ],
+  "answer": [
+   0,
+   1
+  ],
+  "explanation": "TFC 与产量无关；SMC 是 TVC 的导数、与 TFC 无关；AVC、LTC 都随 Q 变。",
+  "type": "multi"
+ },
+ {
+  "id": "micro117",
+  "note": "Micro",
+  "topic": "第6章 完全竞争市场",
+  "question": "完全竞争市场的基本条件包括（ ）。",
+  "options": [
+   "买者卖者数量众多",
+   "产品完全同质",
+   "要素完全自由流动",
+   "厂商可以自主提价而不失销量"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "厂商是价格接受者，单方提价会失去全部销量。",
+  "type": "multi"
+ },
+ {
+  "id": "micro118",
+  "note": "Micro",
+  "topic": "第7章 不完全竞争市场",
+  "question": "下列属于价格歧视必要前提的有（ ）。",
+  "options": [
+   "厂商拥有一定市场势力",
+   "能够识别不同支付意愿",
+   "能够阻止套利转售",
+   "产品完全同质且市场不可分"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "市场恰恰需要可分割；产品同质且不可分反而难以歧视。",
+  "type": "multi"
+ },
+ {
+  "id": "micro119",
+  "note": "Micro",
+  "topic": "第11章 市场失灵",
+  "question": "下列属于市场失灵表现的有（ ）。",
+  "options": [
+   "外部性",
+   "公共物品",
+   "不完全信息",
+   "完全竞争下的正常利润"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "完全竞争且无外部性时正常利润不是失灵，恰是长期均衡结果。",
+  "type": "multi"
+ },
+ {
+  "id": "micro120",
+  "note": "Micro",
+  "topic": "第2章 供求与弹性",
+  "question": "Qd = 50 − 2P、Qs = −10 + 3P 的均衡价格是 ______。",
+  "options": [],
+  "answer": "12",
+  "explanation": "解方程 50−2P = −10+3P 得 P=12。",
+  "type": "fill"
+ },
+ {
+  "id": "micro121",
+  "note": "Micro",
+  "topic": "第2章 供求与弹性",
+  "question": "P 从 5 降到 4、Q 从 20 增到 30 时，中点公式算得的需求价格弹性绝对值是 ______。",
+  "options": [],
+  "answer": "1.8",
+  "explanation": "(10/1)×(4.5/25)=1.8。",
+  "type": "fill"
+ },
+ {
+  "id": "micro122",
+  "note": "Micro",
+  "topic": "第3章 消费者选择",
+  "question": "U = XY、I = 100、Px = 2、Py = 5 时最优的 X 消费量是 ______。",
+  "options": [],
+  "answer": "25",
+  "explanation": "Y=0.4X 代入 2X+5Y=100 ⇒ X=25。",
+  "type": "fill"
+ },
+ {
+  "id": "micro123",
+  "note": "Micro",
+  "topic": "第5章 成本",
+  "question": "STC = Q³ − 6Q² + 15Q + 100 中，SMC 的表达式是 ______。",
+  "options": [],
+  "answer": "3Q²-12Q+15",
+  "explanation": "对 STC 求导即得；常数项 100 消失。",
+  "type": "fill"
+ },
+ {
+  "id": "micro124",
+  "note": "Micro",
+  "topic": "第6章 完全竞争市场",
+  "question": "STC = Q² + 4Q + 36、P = 20 时利润最大化的产量是 ______。",
+  "options": [],
+  "answer": "8",
+  "explanation": "SMC = 2Q+4 = 20 ⇒ Q = 8。",
+  "type": "fill"
+ },
+ {
+  "id": "micro125",
+  "note": "Micro",
+  "topic": "第7章 不完全竞争市场",
+  "question": "P = 100 − 2Q、MC = 20 时垄断厂商的利润最大化产量是 ______。",
+  "options": [],
+  "answer": "20",
+  "explanation": "MR = 100−4Q = 20 ⇒ Q = 20。",
+  "type": "fill"
+ },
+ {
+  "id": "micro126",
+  "note": "Micro",
+  "topic": "第7章 不完全竞争市场",
+  "question": "P = 18 − Q、MC = 0 的古诺双寡头均衡中每个厂商的产量是 ______。",
+  "options": [],
+  "answer": "6",
+  "explanation": "反应函数 Q₁=9−Q₂/2 对称联立得 Q₁=Q₂=6。",
+  "type": "fill"
+ },
+ {
+  "id": "micro127",
+  "note": "Micro",
+  "topic": "第11章 市场失灵",
+  "question": "MSB = 100 − 2Q、MPC = 2Q + 10、ME = 6 时，社会最优产量是 ______。",
+  "options": [],
+  "answer": "21",
+  "explanation": "100−2Q = 2Q+16 ⇒ Q = 21。",
+  "type": "fill"
+ },
+ {
+  "id": "micro128",
+  "note": "Micro",
+  "topic": "第2章 供求与弹性",
+  "question": "已知 Qd = 50 − 2P，Qs = −10 + 3P。求均衡价格与数量；若征收单位税 t = 4（对卖方），求税后买方价、卖方实得、交易量及双方税负。",
+  "options": [],
+  "answer": "P*=12，Q*=26；税后 Pd=14.4，Ps=10.4，Q=21.2；消费者负担 2.4，生产者负担 1.6，比例 3:2。",
+  "explanation": "50−2P=−10+3P ⇒ 5P=60 ⇒ P*=12，Q*=26。税后 Ps=Pd−4，供给 Qs=−10+3(Pd−4)=3Pd−22；50−2Pd=3Pd−22 ⇒ Pd=14.4，Ps=10.4，Q=50−28.8=21.2。消费者负担 14.4−12=2.4，生产者负担 12−10.4=1.6。供给斜率 3、需求斜率 2，需求相对缺乏弹性故消费者承担 60%。",
+  "type": "essay"
+ },
+ {
+  "id": "micro129",
+  "note": "Micro",
+  "topic": "第2章 供求与弹性",
+  "question": "P 从 5 降到 4、Q 从 20 增到 30。用中点公式求弧弹性，并说明降价对总收益的影响。",
+  "options": [],
+  "answer": "Ed=1.8（富有弹性）；TR 从 100 增到 120，降价增收。",
+  "explanation": "Ed=−(ΔQ/ΔP)·(Pm/Qm)=(10/1)×(4.5/25)=1.8>1。TR₁=5×20=100，TR₂=4×30=120。由 dTR/dP=Q(1−|Ed|) 可知富有弹性时降价增收（薄利多销）。",
+  "type": "essay"
+ },
+ {
+  "id": "micro130",
+  "note": "Micro",
+  "topic": "第3章 消费者选择",
+  "question": "U = XY，I = 100，Py = 5，Px 从 2 降到 1。分别用希克斯与斯勒茨基方法分解总效应。",
+  "options": [],
+  "answer": "总效应 +25；希克斯：替代 +10.355、收入 +14.645；斯勒茨基：替代 +12.5、收入 +12.5。",
+  "explanation": "起点 X₀=25、Y₀=10、U₀=250；终点 X₁=50。希克斯补偿：Y=X/5 且 XY=250 ⇒ Xh=√1250≈35.355，替代效应 +10.355、收入效应 +14.645。斯勒茨基补偿 I′=1×25+5×10=75 ⇒ Xs=37.5，替代 +12.5、收入 +12.5。两种分解的总和均为 +25，且替代效应恒与价格反向。",
+  "type": "essay"
+ },
+ {
+  "id": "micro131",
+  "note": "Micro",
+  "topic": "第3章 消费者选择",
+  "question": "U(W)=√W，某赌局以 p=0.5 得 100 或以 0.5 得 400。判断风险态度并求确定性等价与风险溢价。",
+  "options": [],
+  "answer": "风险厌恶；CE=225，风险溢价=25。",
+  "explanation": "EU=0.5√100+0.5√400=5+10=15；E(W)=250，U(EW)=√250≈15.811>15 ⇒ 风险厌恶（U 凹）。U(CE)=15 ⇒ CE=225；风险溢价=E(W)−CE=25。",
+  "type": "essay"
+ },
+ {
+  "id": "micro132",
+  "note": "Micro",
+  "topic": "第5章 成本",
+  "question": "STC = Q³ − 6Q² + 15Q + 100。写出 AVC、AC、SMC，并验证 MC 穿过 AVC 与 AC 的最低点。",
+  "options": [],
+  "answer": "AVC=Q²−6Q+15；AC=AVC+100/Q；SMC=3Q²−12Q+15；AVCmin=6(Q=3)，ACmin=30(Q=5)，均等于该处 SMC。",
+  "explanation": "TVC=Q³−6Q²+15Q。AVC 求导 2Q−6=0 ⇒ Q=3，AVC=6，SMC(3)=27−36+15=6 ✓。AC=Q²−6Q+15+100/Q，Q=5 时 AC=30，SMC(5)=75−60+15=30 ✓。ACmin 对应产量 5>3，位于右上方，因 AFC 仍在下降。",
+  "type": "essay"
+ },
+ {
+  "id": "micro133",
+  "note": "Micro",
+  "topic": "第6章 完全竞争市场",
+  "question": "STC = Q² + 4Q + 36。求收支相抵点与停止营业点；P=14 时是否应继续生产？",
+  "options": [],
+  "answer": "ACmin=16(Q=6)；AVC 下界 4；P=14 时应继续生产，亏损 11 < 停产亏损 36。",
+  "explanation": "AC=Q+4+36/Q，dAC/dQ=1−36/Q²=0 ⇒ Q=6，ACmin=16。AVC=Q+4（递增），关门价格取其下界 4。P=14 ⇒ 2Q+4=14 ⇒ Q=5；TR=70，STC=25+20+36=81，亏损 11；停产亏 TFC=36，且 AVC=9<14 能覆盖全部可变成本，故继续生产。",
+  "type": "essay"
+ },
+ {
+  "id": "micro134",
+  "note": "Micro",
+  "topic": "第7章 不完全竞争市场",
+  "question": "P = 100 − 2Q，MC = 20。求垄断产量、价格、利润、勒纳指数与无谓损失，并与竞争结果比较。",
+  "options": [],
+  "answer": "Qm=20，Pm=60，π=800，L=2/3，DWL=400；竞争 Qc=40、P=20。",
+  "explanation": "MR=100−4Q=20 ⇒ Q=20，P=60，π=(60−20)×20=800。|Ed|=(1/2)(60/20)=1.5 ⇒ L=(60−20)/60=2/3=1/1.5 ✓。CS=½×40×20=400。竞争 P=MC=20 ⇒ Q=40；DWL=½×(60−20)×(40−20)=400。",
+  "type": "essay"
+ },
+ {
+  "id": "micro135",
+  "note": "Micro",
+  "topic": "第7章 不完全竞争市场",
+  "question": "市场1：P₁=100−2Q₁；市场2：P₂=80−Q₂；MC=20。求三级价格歧视下两市场的产量、价格与总利润，并与统一定价比较。",
+  "options": [],
+  "answer": "Q₁=20/P₁=60，Q₂=30/P₂=50，π=1700；统一定价 P≈53.33、π≈1666.67，歧视更优。",
+  "explanation": "MR₁=100−4Q₁=20 ⇒ Q₁=20、P₁=60；MR₂=80−2Q₂=20 ⇒ Q₂=30、P₂=50。|E₁|=1.5<1.667=|E₂| ⇒ P₁>P₂ ✓；P₁(1−1/E₁)=20=P₂(1−1/E₂)=MC ✓。π=800+900=1700。统一需求 Q=130−1.5P，π=(P−20)(130−1.5P)，dπ/dP=160−3P=0 ⇒ P=53.33，π≈1666.67。",
+  "type": "essay"
+ },
+ {
+  "id": "micro136",
+  "note": "Micro",
+  "topic": "第7章 不完全竞争市场",
+  "question": "P = 18 − (Q₁+Q₂)、MC=0。推导古诺反应函数并求均衡；再求斯塔克尔伯格（厂商1领导）均衡。",
+  "options": [],
+  "answer": "古诺 Q₁=Q₂=6、Q=12、P=6、π=36；斯塔克尔伯格 Q₁=9、Q₂=4.5、P=4.5、π₁=40.5、π₂=20.25。",
+  "explanation": "π₁=[18−Q₁−Q₂]Q₁，∂π₁/∂Q₁=18−2Q₁−Q₂=0 ⇒ Q₁=9−Q₂/2；对称联立得 6。通式 Qi=(a−c)/[(n+1)b]=18/3=6。领导情形把 R₂ 代入：π₁=(9−Q₁/2)Q₁，求导得 Q₁=9，Q₂=4.5，P=4.5，先动优势明显。",
+  "type": "essay"
+ },
+ {
+  "id": "micro137",
+  "note": "Micro",
+  "topic": "第8章 要素市场",
+  "question": "5 等分组收入份额依次为 5%、10%、15%、25%、45%。用梯形法计算基尼系数。",
+  "options": [],
+  "answer": "G=0.38。",
+  "explanation": "累计收入 0.05、0.15、0.30、0.55、1.00。洛伦兹曲线下面积 B=0.2×[(0+0.05)/2+(0.05+0.15)/2+(0.15+0.30)/2+(0.30+0.55)/2+(0.55+1)/2]=0.2×1.55=0.31。A=0.5−0.31=0.19，G=A/(A+B)=0.19/0.5=0.38。",
+  "type": "essay"
+ },
+ {
+  "id": "micro138",
+  "note": "Micro",
+  "topic": "第10章 博弈论",
+  "question": "性别战支付：(芭蕾,芭蕾)=(2,1)，(拳击,拳击)=(1,2)，不一致=(0,0)。求混合策略纳什均衡。",
+  "options": [],
+  "answer": "甲以 2/3 选芭蕾、乙以 1/3 选芭蕾。",
+  "explanation": "设甲 p 选芭蕾，令乙无差异（用乙的支付）：乙选芭蕾 p、选拳击 2(1−p)，p=2−2p ⇒ p=2/3。设乙 q 选芭蕾，令甲无差异：甲选芭蕾 2q、选拳击 1−q，2q=1−q ⇒ q=1/3。关键：概率由对方的支付决定。",
+  "type": "essay"
+ },
+ {
+  "id": "micro139",
+  "note": "Micro",
+  "topic": "第11章 市场失灵",
+  "question": "MSB = 100 − 2Q，MPC = 2Q + 10，边际外部成本 ME = 6。求私人均衡产量、社会最优产量、庇古税与无谓损失。",
+  "options": [],
+  "answer": "私人 Q=22.5；社会最优 Q*=21；t=6；DWL=4.5。",
+  "explanation": "私人：100−2Q=2Q+10 ⇒ Q=22.5。社会：100−2Q=2Q+10+6 ⇒ Q*=21。t=ME(Q*)=6，厂商面对 MPC+6 自选 Q=21 ✓；校验 MSB=58=MSC。DWL=½×6×(22.5−21)=4.5。",
+  "type": "essay"
+ },
+ {
+  "id": "micro140",
+  "note": "Micro",
+  "topic": "综合 政策评价",
+  "question": "结合供求、弹性、剩余与福利，简述评价一项价格管制政策（如租金上限）的完整分析框架，并说明其可能的非预期后果。",
+  "options": [],
+  "answer": "四步法：① 定竞争基准 P*、Q* 与 CS/PS；② 判断政策造成的曲线移动或楔子，求新 P、Q；③ 逐项算 ΔCS、ΔPS、政府收支与外部成本，得总剩余变化与 DWL；④ 分析分配、前提与替代工具。",
+  "explanation": "租金上限低于均衡价 ⇒ Qd>Qs 短缺；CS 因价格下降而增加（但部分消费者租不到房），PS 下降，DWL 来自成交量萎缩。非预期后果：排队与配给、黑市、搜寻成本、房东降低维护质量、寻租与歧视性筛选；长期供给进一步左移使短缺加剧。替代工具：住房补贴（增加供给而非压价）、增加土地/建房供给、明晰产权与降低交易成本。注意政策评价必须同时回答效率与分配两个问题。",
+  "type": "essay"
  }
 ]

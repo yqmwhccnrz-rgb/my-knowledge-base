@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">价格消费线、收入消费线与恩格尔曲线</text>
+
+  <rect x="30" y="44" width="300" height="152" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="64" font-size="11" font-weight="700" fill="#334155">① 价格消费线 PCC（Px 变动、I 与 Py 不变）</text>
+  <line x1="54" y1="78" x2="54" y2="180" stroke="#475569"/>
+  <line x1="54" y1="180" x2="200" y2="180" stroke="#475569"/>
+  <line x1="54" y1="88" x2="128" y2="180" stroke="#94a3b8" stroke-width="1.4"/>
+  <line x1="54" y1="88" x2="168" y2="180" stroke="#2563eb" stroke-width="1.7"/>
+  <line x1="54" y1="88" x2="196" y2="180" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="4 3"/>
+  <path d="M66,160 Q92,116 126,110" fill="none" stroke="#16a34a" stroke-width="1.4"/>
+  <path d="M70,166 Q120,104 168,100" fill="none" stroke="#16a34a" stroke-width="1.4"/>
+  <path d="M74,172 Q150,96 196,88" fill="none" stroke="#16a34a" stroke-width="1.4"/>
+  <circle cx="104" cy="128" r="3" fill="#dc2626"/><circle cx="136" cy="122" r="3" fill="#dc2626"/><circle cx="162" cy="112" r="3" fill="#dc2626"/>
+  <path d="M104,128 Q136,110 162,112" fill="none" stroke="#dc2626" stroke-width="1.8"/>
+  <text x="42" y="192" font-size="9.3" fill="#64748b">各切点轨迹 = PCC；由 PCC 逐点读出 (Px, X) 即得需求曲线</text>
+
+  <rect x="350" y="44" width="300" height="152" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="362" y="64" font-size="11" font-weight="700" fill="#334155">② 收入消费线 ICC（I 变动、价格不变）</text>
+  <line x1="374" y1="78" x2="374" y2="180" stroke="#475569"/>
+  <line x1="374" y1="180" x2="520" y2="180" stroke="#475569"/>
+  <line x1="374" y1="154" x2="428" y2="180" stroke="#94a3b8" stroke-width="1.4"/>
+  <line x1="374" y1="124" x2="472" y2="180" stroke="#2563eb" stroke-width="1.7"/>
+  <line x1="374" y1="94" x2="516" y2="180" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="4 3"/>
+  <path d="M382,166 Q398,148 422,144" fill="none" stroke="#16a34a" stroke-width="1.3"/>
+  <path d="M382,142 Q418,112 462,106" fill="none" stroke="#16a34a" stroke-width="1.3"/>
+  <path d="M382,112 Q440,80 508,72" fill="none" stroke="#16a34a" stroke-width="1.3"/>
+  <circle cx="402" cy="152" r="3" fill="#dc2626"/><circle cx="432" cy="130" r="3" fill="#dc2626"/><circle cx="464" cy="106" r="3" fill="#dc2626"/>
+  <line x1="402" y1="152" x2="464" y2="106" stroke="#dc2626" stroke-width="1.8"/>
+  <text x="362" y="192" font-size="9.3" fill="#64748b">ICC 为过原点的直线（同位相似偏好）⇒ 所有商品需求收入弹性 = 1</text>
+
+  <rect x="30" y="206" width="620" height="88" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="42" y="226" font-size="11.5" font-weight="700" fill="#1e3a8a">③ 恩格尔曲线：由 ICC 转画「收入 I — 需求量 X」</text>
+  <text x="42" y="246" font-size="10" fill="#334155">必需品：X 随 I 递增但增速递减，曲线凹向 I 轴，0 &lt; eI &lt; 1（食品）</text>
+  <text x="42" y="265" font-size="10" fill="#334155">奢侈品：X 增速快于 I，曲线凸向 I 轴，eI &gt; 1　｜　低档品：eI &lt; 0，曲线向后弯</text>
+  <text x="42" y="284" font-size="9.5" fill="#64748b">恩格尔定律：收入越低，食品支出占比越高；该比重即恩格尔系数</text>
+
+  <rect x="30" y="304" width="620" height="80" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="42" y="324" font-size="11" font-weight="700" fill="#92400e">④ 从 PCC 到市场需求曲线</text>
+  <text x="42" y="343" font-size="9.8" fill="#334155">个人需求曲线由 PCC 上每个价格对应的最优 X 描出；市场需求曲线 = 所有个人需求的水平加总</text>
+  <text x="42" y="362" font-size="9.8" fill="#334155">水平加总意味着在同一价格下把数量相加（不是把价格相加）；加总后曲线更平坦、通常更富有弹性</text>
+  <text x="42" y="380" font-size="9.8" fill="#334155">易错：需求曲线向右下倾斜的根本原因是「替代效应 + 收入效应」，不是边际效用递减本身</text>
+</svg>

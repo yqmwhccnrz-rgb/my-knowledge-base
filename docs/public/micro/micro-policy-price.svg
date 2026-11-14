@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">价格政策与税收归宿：谁真正承担了税负</text>
+
+  <rect x="30" y="44" width="300" height="140" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="64" font-size="11" font-weight="700" fill="#334155">① 支持价格（最低限价，P &gt; P*）</text>
+  <line x1="62" y1="80" x2="62" y2="164" stroke="#475569"/>
+  <line x1="62" y1="164" x2="222" y2="164" stroke="#475569"/>
+  <line x1="78" y1="92" x2="208" y2="152" stroke="#2563eb" stroke-width="1.8"/>
+  <line x1="78" y1="152" x2="208" y2="92" stroke="#16a34a" stroke-width="1.8"/>
+  <line x1="62" y1="108" x2="212" y2="108" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="5 3"/>
+  <text x="216" y="111" font-size="9" fill="#dc2626">Pmin</text>
+  <text x="42" y="178" font-size="9.5" fill="#334155">Qs &gt; Qd ⇒ 过剩；政府须收购或限产（农产品保护价）</text>
+
+  <rect x="350" y="44" width="300" height="140" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="362" y="64" font-size="11" font-weight="700" fill="#334155">② 限制价格（最高限价，P &lt; P*）</text>
+  <line x1="382" y1="80" x2="382" y2="164" stroke="#475569"/>
+  <line x1="382" y1="164" x2="542" y2="164" stroke="#475569"/>
+  <line x1="398" y1="92" x2="528" y2="152" stroke="#2563eb" stroke-width="1.8"/>
+  <line x1="398" y1="152" x2="528" y2="92" stroke="#16a34a" stroke-width="1.8"/>
+  <line x1="382" y1="140" x2="532" y2="140" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="5 3"/>
+  <text x="536" y="143" font-size="9" fill="#dc2626">Pmax</text>
+  <text x="362" y="178" font-size="9.5" fill="#334155">Qd &gt; Qs ⇒ 短缺；配给、排队、黑市与寻租</text>
+
+  <rect x="30" y="196" width="620" height="104" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="42" y="216" font-size="11.5" font-weight="700" fill="#1e3a8a">③ 单位税归宿工作例题：Qd = 50 − 2P，Qs = −10 + 3P，对卖方征 t = 4</text>
+  <text x="42" y="236" font-size="10" fill="#334155">税后 Ps = Pd − 4，供给变为 Qs = −10 + 3(Pd − 4) = 3Pd − 22</text>
+  <text x="42" y="254" font-size="10" fill="#334155">50 − 2Pd = 3Pd − 22 ⇒ Pd = 14.4，Ps = 10.4，Q = 21.2（原 P* = 12）</text>
+  <text x="42" y="272" font-size="10" fill="#334155">消费者负担 14.4 − 12 = 2.4；生产者负担 12 − 10.4 = 1.6；比例 3 : 2</text>
+  <text x="42" y="290" font-size="9.5" fill="#64748b">斜率比 = 3 : 2（供给 : 需求），弹性比 |Es| : |Ed| = 3 : 2 ⇒ 需求更缺乏弹性，消费者多承担</text>
+
+  <rect x="30" y="310" width="620" height="76" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="42" y="330" font-size="11" font-weight="700" fill="#92400e">④ 三条易考结论</text>
+  <text x="42" y="349" font-size="9.8" fill="#334155">• 税收楔子楔在 Pd 与 Ps 之间；对买方还是卖方征税，归宿完全相同（无关性定理）</text>
+  <text x="42" y="367" font-size="9.8" fill="#334155">• 弹性越小（曲线越陡）越难逃避，承担份额越大；极端：Es = 0 时全部由供给方承担</text>
+  <text x="42" y="383" font-size="9.8" fill="#334155">• 税额过大或存在外部性时，税收还产生超额负担（无谓损失），损失随 t 的平方增长</text>
+</svg>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">长期生产：等产量线、等成本线与最优要素组合</text>
+
+  <rect x="30" y="42" width="318" height="176" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="62" font-size="11" font-weight="700" fill="#334155">① 切点条件：MRTS = w/r</text>
+  <line x1="52" y1="76" x2="52" y2="204" stroke="#475569"/>
+  <line x1="52" y1="204" x2="240" y2="204" stroke="#475569"/>
+  <text x="30" y="80" font-size="9.5" fill="#334155">K</text>
+  <text x="242" y="208" font-size="9.5" fill="#334155">L</text>
+  <line x1="52" y1="90" x2="226" y2="204" stroke="#dc2626" stroke-width="1.9"/>
+  <text x="206" y="196" font-size="9" fill="#b91c1c">等成本线 C = wL + rK</text>
+  <path d="M74,176 Q116,108 232,86" fill="none" stroke="#2563eb" stroke-width="2"/>
+  <text x="230" y="80" font-size="10" fill="#1d4ed8">Q₂</text>
+  <path d="M64,192 Q108,144 196,124" fill="none" stroke="#93c5fd" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="196" y="120" font-size="9" fill="#64748b">Q₁</text>
+  <circle cx="132" cy="140" r="4.5" fill="#dc2626"/>
+  <text x="138" y="136" font-size="9.5" font-weight="700" fill="#991b1b">E*</text>
+  <line x1="52" y1="140" x2="132" y2="140" stroke="#94a3b8" stroke-dasharray="3 3"/>
+  <line x1="132" y1="140" x2="132" y2="204" stroke="#94a3b8" stroke-dasharray="3 3"/>
+  <text x="42" y="216" font-size="9" fill="#64748b">斜率：等成本线 −w/r；等产量线 −MRTS</text>
+
+  <rect x="360" y="42" width="290" height="176" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="372" y="62" font-size="11" font-weight="700" fill="#1e3a8a">② 两组对偶问题</text>
+  <text x="372" y="83" font-size="9.8" fill="#334155">成本最小化：给定 Q，min C = wL + rK</text>
+  <text x="372" y="101" font-size="9.8" fill="#334155">产量最大化：给定 C，max Q = f(L, K)</text>
+  <text x="372" y="119" font-size="9.8" fill="#334155">二者给出同一条件 MPL/w = MPK/r = 1/MC</text>
+  <text x="372" y="140" font-size="9.8" font-weight="700" fill="#b91c1c">MRTS(LK) = MPL/MPK 递减 ⇒ 等产量线凸向原点</text>
+  <text x="372" y="160" font-size="9.8" fill="#334155">扩展线：所有等成本线—等产量线切点的轨迹</text>
+  <text x="372" y="178" font-size="9.8" fill="#334155">（要素价格不变时，长期扩张沿扩展线进行）</text>
+  <text x="372" y="198" font-size="9.5" fill="#64748b">特例：完全替代 → 直线等产量线（角点解）；</text>
+  <text x="372" y="214" font-size="9.5" fill="#64748b">里昂惕夫固定比例 → L 形（直角点解）</text>
+
+  <rect x="30" y="228" width="620" height="86" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="42" y="248" font-size="11" font-weight="700" fill="#166534">③ 规模报酬（长期、所有要素同比例变化）</text>
+  <text x="42" y="268" font-size="9.8" fill="#334155">f(λL, λK) 与 λf(L,K) 比较：大于 → 递增；等于 → 不变；小于 → 递减</text>
+  <text x="42" y="287" font-size="9.8" fill="#334155">C-D 生产函数 Q = AL^αK^β：α+β &gt; 1 递增、= 1 不变、&lt; 1 递减；且 α、β 分别是 L、K 的产出弹性</text>
+  <text x="42" y="306" font-size="9.8" fill="#334155">Q = 2L^0.6K^0.6 ⇒ α+β = 1.2 递增；Q = L^0.5K^0.5 ⇒ 不变（且满足欧拉定理 Q = MPL·L + MPK·K）</text>
+
+  <rect x="30" y="324" width="620" height="62" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="42" y="344" font-size="10.5" font-weight="700" fill="#92400e">④ 辨析：规模报酬 vs 规模经济 vs 边际报酬</text>
+  <text x="42" y="364" font-size="9.8" fill="#334155">规模报酬是技术性质（生产函数齐次性，实物量）；规模经济是成本性质（LAC 随产量下降，含要素价格变化）</text>
+  <text x="42" y="381" font-size="9.8" fill="#334155">边际报酬递减是短期、至少一种要素固定；规模报酬讨论的是长期所有要素同时变化</text>
+</svg>

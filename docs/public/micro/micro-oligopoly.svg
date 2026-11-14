@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 410" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="410" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">寡头：古诺、斯塔克尔伯格、伯特兰与垄断竞争</text>
+
+  <rect x="30" y="42" width="316" height="168" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="62" font-size="11" font-weight="700" fill="#334155">① 古诺反应曲线与均衡</text>
+  <line x1="54" y1="76" x2="54" y2="196" stroke="#475569"/>
+  <line x1="54" y1="196" x2="248" y2="196" stroke="#475569"/>
+  <text x="32" y="80" font-size="9" fill="#334155">Q₂</text>
+  <text x="250" y="200" font-size="9" fill="#334155">Q₁</text>
+  <line x1="54" y1="90" x2="212" y2="196" stroke="#2563eb" stroke-width="1.9"/>
+  <text x="196" y="186" font-size="8.8" fill="#1d4ed8">R₁(Q₂)</text>
+  <line x1="54" y1="176" x2="146" y2="76" stroke="#dc2626" stroke-width="1.9"/>
+  <text x="140" y="76" font-size="8.8" fill="#b91c1c">R₂(Q₁)</text>
+  <circle cx="112" cy="137" r="4.5" fill="#16a34a"/>
+  <text x="118" y="132" font-size="9" font-weight="700" fill="#166534">E（古诺均衡）</text>
+  <text x="42" y="210" font-size="8.8" fill="#64748b">交点：双方都在对方给定产量下选了最优产量 = 纳什均衡</text>
+
+  <rect x="358" y="42" width="292" height="168" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="370" y="62" font-size="11" font-weight="700" fill="#1e3a8a">② 四个模型的均衡比较（P = a − Q，MC = 0）</text>
+  <text x="370" y="83" font-size="9.6" fill="#334155">卡特尔/垄断：Q = a/2，P = a/2，总利润最大</text>
+  <text x="370" y="102" font-size="9.6" fill="#334155">古诺（同时定产量）：Q = 2a/3，P = a/3</text>
+  <text x="370" y="121" font-size="9.6" fill="#334155">斯塔克尔伯格（先后定产量）：Q = 3a/4，P = a/4</text>
+  <text x="370" y="140" font-size="9.6" fill="#334155">伯特兰（同时定价格，同质品）：P = MC = 0</text>
+  <text x="370" y="159" font-size="9.6" fill="#334155">完全竞争：Q = a，P = 0（与伯特兰结论相同）</text>
+  <text x="370" y="180" font-size="9.4" font-weight="700" fill="#b91c1c">伯特兰悖论：仅两家也足以得到竞争结果</text>
+  <text x="370" y="199" font-size="9.2" fill="#64748b">破解：产品差别、产能约束、重复博弈、信息不完全</text>
+
+  <rect x="30" y="220" width="620" height="92" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="42" y="240" font-size="11" font-weight="700" fill="#166534">③ 工作例题（课件原题）：P = 18 − Q = 18 − (Q₁ + Q₂)，MC = 0</text>
+  <text x="42" y="260" font-size="9.8" fill="#334155">π₁ = [18 − Q₁ − Q₂]Q₁ ⇒ ∂π₁/∂Q₁ = 18 − 2Q₁ − Q₂ = 0 ⇒ 反应函数 Q₁ = 9 − Q₂/2</text>
+  <text x="42" y="279" font-size="9.8" fill="#334155">对称联立 ⇒ Q₁ = Q₂ = 6，Q = 12，P = 6，π₁ = π₂ = 36；通式 P = a − bQ、MC = c 时 Qi = (a−c)/(3b)</text>
+  <text x="42" y="298" font-size="9.8" fill="#334155">斯塔克尔伯格（1 为领导）：代入 R₂ 得 π₁ = (9 − Q₁/2)Q₁ ⇒ Q₁ = 9，Q₂ = 4.5，P = 4.5，先动优势 π₁ = 40.5 &gt; π₂ = 20.25</text>
+
+  <rect x="30" y="322" width="620" height="74" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="42" y="342" font-size="10.5" font-weight="700" fill="#92400e">④ 垄断竞争与不同市场比较</text>
+  <text x="42" y="361" font-size="9.7" fill="#334155">垄断竞争：厂商众多、产品有差别、进出较易；主观需求曲线 d（对手不跟随）比客观需求曲线 D（全体同时调整）更平坦</text>
+  <text x="42" y="380" font-size="9.7" fill="#334155">短期 MR = MC 可盈亏；长期自由进入使 d 与 LAC 相切 ⇒ π = 0，但 P &gt; LMC、存在过剩产能（未达 LAC 最低点）</text>
+  <text x="42" y="394" font-size="9.7" fill="#334155">效率排序（产量由大到小 / 价格由低到高）：完全竞争 &gt; 垄断竞争 &gt; 寡头 &gt; 垄断；斯威齐弯折需求曲线解释价格刚性</text>
+</svg>

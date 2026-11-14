@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 410" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="410" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">市场失灵四类表现与微观经济政策</text>
+
+  <rect x="30" y="42" width="302" height="178" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="62" font-size="11" font-weight="700" fill="#334155">① 四类失灵与矫正工具</text>
+  <rect x="42" y="72" width="278" height="34" rx="5" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="50" y="86" font-size="9.6" font-weight="700" fill="#991b1b">不完全竞争 → 反托拉斯法、价格管制、引入竞争</text>
+  <text x="50" y="100" font-size="9" fill="#334155">寻租损失可能远超哈伯格三角形</text>
+  <rect x="42" y="110" width="278" height="34" rx="5" fill="#fef3c7" stroke="#d97706"/>
+  <text x="50" y="124" font-size="9.6" font-weight="700" fill="#92400e">外部影响 → 庇古税/津贴、企业合并、科斯产权、可交易许可证</text>
+  <text x="50" y="138" font-size="9" fill="#334155">使 MPC + ME = MSB，私人边际 = 社会边际</text>
+  <rect x="42" y="148" width="278" height="34" rx="5" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="50" y="162" font-size="9.6" font-weight="700" fill="#1e3a8a">公共物品 → 政府供给、成本收益分析、投票/偏好显示机制</text>
+  <text x="50" y="176" font-size="9" fill="#334155">非排他 + 非竞争 ⇒ 搭便车 ⇒ 私人供给不足</text>
+  <rect x="42" y="186" width="278" height="28" rx="5" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="50" y="204" font-size="9.6" font-weight="700" fill="#5b21b6">不完全信息 → 信号传递、甄别、声誉、信息披露管制、保险契约设计</text>
+
+  <rect x="344" y="42" width="306" height="178" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="356" y="62" font-size="11" font-weight="700" fill="#1e3a8a">② 庇古税工作例题</text>
+  <text x="356" y="83" font-size="9.6" fill="#334155">设 MSB = 100 − 2Q，MPC = 2Q + 10，边际外部成本 ME = 6</text>
+  <text x="356" y="102" font-size="9.6" fill="#334155">私人均衡：100 − 2Q = 2Q + 10 ⇒ Q = 22.5（过量）</text>
+  <text x="356" y="121" font-size="9.6" fill="#334155">社会最优：100 − 2Q = 2Q + 10 + 6 ⇒ Q* = 21</text>
+  <text x="356" y="140" font-size="10.2" font-weight="700" fill="#1d4ed8">t = ME(Q*) = 6 ⇒ 校验 MSB = MSC = 58</text>
+  <text x="356" y="160" font-size="9.6" fill="#334155">科斯定理：产权清晰且交易成本为零时，无论初始产权归谁，谈判都可达 Q*（但收入效应、策略行为、高交易成本会失效）</text>
+  <text x="356" y="181" font-size="9.6" fill="#334155">公共物品最优：ΣMRS = MRT（萨缪尔森条件）</text>
+  <text x="356" y="198" font-size="9.4" fill="#64748b">例：MRS_A=3、MRS_B=2、MRT=4 ⇒ ΣMRS=5&gt;4，应增加供给</text>
+  <text x="356" y="215" font-size="9.4" fill="#64748b">公共资源（竞争性但难排他）⇒ 公地悲剧，需配额或产权</text>
+
+  <rect x="30" y="230" width="620" height="88" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="42" y="250" font-size="11" font-weight="700" fill="#166534">③ 信息不对称：逆向选择 vs 道德风险</text>
+  <text x="42" y="270" font-size="9.7" fill="#334155">逆向选择（签约前、隐藏信息）：旧车市场「柠檬问题」，低质量品把高质量品逐出市场 ⇒ 市场萎缩甚至消失</text>
+  <text x="42" y="289" font-size="9.7" fill="#334155">道德风险（签约后、隐藏行动）：投保后疏于防范 ⇒ 免赔额、共保、监督；委托—代理问题需激励相容契约</text>
+  <text x="42" y="308" font-size="9.7" fill="#334155">矫正：信号传递（教育文凭、质保、品牌）、信息甄别（差别合同菜单）、声誉机制、第三方认证与强制披露</text>
+
+  <rect x="30" y="328" width="620" height="68" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="42" y="348" font-size="10.5" font-weight="700" fill="#92400e">④ 政府干预的两个边界</text>
+  <text x="42" y="367" font-size="9.7" fill="#334155">政府失灵：信息不足、寻租、官僚低效、政策时滞与公共选择困境 ⇒ 干预的收益须大于其自身成本</text>
+  <text x="42" y="386" font-size="9.7" fill="#334155">易错：外部性不必然要求「禁止生产」，有效率的结果通常是把产量调整到 MSC = MSB，而非零污染</text>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 410" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="410" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">要素市场：引致需求、劳动供给、地租与洛伦兹曲线</text>
+
+  <rect x="30" y="42" width="316" height="168" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="62" font-size="11" font-weight="700" fill="#334155">① 向后弯曲的劳动供给曲线</text>
+  <line x1="54" y1="76" x2="54" y2="196" stroke="#475569"/>
+  <line x1="54" y1="196" x2="240" y2="196" stroke="#475569"/>
+  <text x="30" y="80" font-size="9" fill="#334155">w</text>
+  <text x="242" y="200" font-size="9" fill="#334155">L</text>
+  <path d="M58,190 C100,140 128,108 148,92 C168,108 176,142 166,186" fill="none" stroke="#2563eb" stroke-width="2.1"/>
+  <text x="158" y="88" font-size="9" fill="#1d4ed8">S(L)</text>
+  <line x1="54" y1="160" x2="232" y2="160" stroke="#94a3b8" stroke-dasharray="4 3"/>
+  <line x1="54" y1="120" x2="232" y2="120" stroke="#94a3b8" stroke-dasharray="4 3"/>
+  <text x="42" y="212" font-size="8.9" fill="#64748b">低工资：替代效应 &gt; 收入效应 → 工资↑劳动↑</text>
+  <text x="42" y="226" font-size="8.9" fill="#64748b">高工资：收入效应 &gt; 替代效应 → 工资↑劳动↓</text>
+
+  <rect x="358" y="42" width="292" height="168" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="370" y="62" font-size="11" font-weight="700" fill="#1e3a8a">② 要素使用原则：VMP = w</text>
+  <text x="370" y="83" font-size="9.7" fill="#334155">引致需求：对要素的需求派生自产品需求</text>
+  <text x="370" y="102" font-size="9.7" fill="#334155">边际产品价值 VMP = P · MP(L)</text>
+  <text x="370" y="121" font-size="9.7" fill="#334155">完全竞争厂商：MRP = VMP；要素边际成本 = w</text>
+  <text x="370" y="140" font-size="10.3" fill="#1d4ed8">P · MP(L) = w（利润最大化的要素用量）</text>
+  <text x="370" y="160" font-size="9.7" fill="#334155">单个厂商要素需求曲线 = VMP 下降段</text>
+  <text x="370" y="179" font-size="9.7" fill="#334155">市场需求曲线 ≠ 简单加总（须考虑所有厂商同时调整时 P 下降，故更陡）</text>
+  <text x="370" y="199" font-size="9.3" fill="#64748b">卖方垄断：MRP = MR·MP &lt; VMP，要素用量更少</text>
+
+  <rect x="30" y="238" width="620" height="88" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="42" y="258" font-size="11" font-weight="700" fill="#166534">③ 工资、地租、利息与欧拉定理</text>
+  <text x="42" y="278" font-size="9.7" fill="#334155">劳动：均衡工资由劳动供求决定；工会/最低工资/效率工资会造成结构性失业与工资刚性</text>
+  <text x="42" y="297" font-size="9.7" fill="#334155">土地：供给总量固定（对用途而言），供给曲线垂直 ⇒ 地租纯由需求决定；经济租 = 超出机会成本的部分；准租金是短期固定要素的报酬</text>
+  <text x="42" y="316" font-size="9.7" fill="#334155">资本：跨期选择，均衡利率使储蓄 = 投资；欧拉定理（规模报酬不变）Q = MPL·L + MPK·K ⇒ 产品分配净尽</text>
+
+  <rect x="30" y="336" width="620" height="60" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="42" y="355" font-size="10.5" font-weight="700" fill="#92400e">④ 洛伦兹曲线与基尼系数工作例题</text>
+  <text x="42" y="374" font-size="9.7" fill="#334155">5 等分组收入份额 5/10/15/25/45 ⇒ 累计 0.05 / 0.15 / 0.30 / 0.55 / 1.00；梯形法面积 = 0.31</text>
+  <text x="42" y="391" font-size="9.7" fill="#334155">G = (0.5 − 0.31)/0.5 = 0.38；G = A/(A+B)，0 为绝对平等、1 为绝对不平等，越弯曲越不平等</text>
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">需求、供给与均衡价格：曲线移动 vs 沿曲线移动</text>
+
+  <!-- 坐标轴 -->
+  <line x1="60" y1="60" x2="60" y2="286" stroke="#475569" stroke-width="1.6"/>
+  <line x1="60" y1="286" x2="300" y2="286" stroke="#475569" stroke-width="1.6"/>
+  <text x="28" y="72" font-size="10" fill="#334155">P</text>
+  <text x="304" y="290" font-size="10" fill="#334155">Q</text>
+  <text x="34" y="176" font-size="9" fill="#64748b">P*</text>
+  <text x="168" y="300" font-size="9" fill="#64748b">Q*</text>
+  <!-- D / S -->
+  <line x1="82" y1="88" x2="272" y2="264" stroke="#2563eb" stroke-width="2.2"/>
+  <text x="268" y="278" font-size="11" font-weight="700" fill="#1d4ed8">D</text>
+  <line x1="82" y1="262" x2="272" y2="90" stroke="#16a34a" stroke-width="2.2"/>
+  <text x="268" y="88" font-size="11" font-weight="700" fill="#15803d">S</text>
+  <circle cx="177" cy="176" r="4" fill="#dc2626"/>
+  <line x1="60" y1="176" x2="177" y2="176" stroke="#dc2626" stroke-dasharray="4 3" stroke-width="1"/>
+  <line x1="177" y1="176" x2="177" y2="286" stroke="#dc2626" stroke-dasharray="4 3" stroke-width="1"/>
+  <text x="80" y="60" font-size="10.5" font-weight="700" fill="#334155">① 均衡：Qd(P*) = Qs(P*)</text>
+  <!-- 需求右移 -->
+  <line x1="120" y1="88" x2="292" y2="246" stroke="#7c3aed" stroke-width="1.7" stroke-dasharray="6 3"/>
+  <text x="256" y="240" font-size="10" fill="#6d28d9">D′</text>
+  <circle cx="206" cy="146" r="3.5" fill="#7c3aed"/>
+  <text x="70" y="316" font-size="9.5" fill="#334155">需求右移（收入↑/偏好↑）⇒ P↑ Q↑；供给右移 ⇒ P↓ Q↑</text>
+
+  <!-- 右栏：移动对照表 -->
+  <rect x="330" y="52" width="320" height="150" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="342" y="72" font-size="11.5" font-weight="700" fill="#334155">② 最容易混淆的两组概念</text>
+  <text x="342" y="94" font-size="10" fill="#1d4ed8">需求量的变动：仅由商品自身价格引起</text>
+  <text x="352" y="111" font-size="9.5" fill="#64748b">→ 沿同一条需求曲线「点的移动」</text>
+  <text x="342" y="131" font-size="10" fill="#7c3aed">需求的变动：收入、相关品价格、偏好、预期、人数</text>
+  <text x="352" y="148" font-size="9.5" fill="#64748b">→ 整条需求曲线「平移」</text>
+  <text x="342" y="170" font-size="10" fill="#15803d">供给的变动：技术、投入价格、税收、厂商数量</text>
+  <text x="342" y="190" font-size="9.5" fill="#64748b">供给量的变动同样只由自身价格引起</text>
+
+  <rect x="330" y="212" width="320" height="88" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="342" y="232" font-size="11" font-weight="700" fill="#1e3a8a">③ 工作例题：Qd = 50 − 2P，Qs = −10 + 3P</text>
+  <text x="342" y="252" font-size="10" fill="#334155">50 − 2P = −10 + 3P ⇒ 5P = 60 ⇒ P* = 12，Q* = 26</text>
+  <text x="342" y="272" font-size="10" fill="#334155">P = 15（支持价）：Qd = 20，Qs = 35 ⇒ 过剩 15</text>
+  <text x="342" y="290" font-size="10" fill="#334155">P = 8（限制价）：Qd = 34，Qs = 14 ⇒ 短缺 20</text>
+
+  <rect x="30" y="330" width="620" height="54" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="42" y="350" font-size="10.5" font-weight="700" fill="#92400e">④ 供求同时移动：一条结论不确定</text>
+  <text x="42" y="369" font-size="9.8" fill="#334155">需求与供给同向都增 ⇒ Q 必增、P 不定；反向移动 ⇒ P 方向确定、Q 不定。必须画两条新曲线再比较。</text>
+</svg>
