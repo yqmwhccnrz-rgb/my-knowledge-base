@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 410" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="410" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">重积分：二重 / 三重积分、换序与三种坐标系</text>
+
+  <rect x="30" y="42" width="306" height="168" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="62" font-size="11" font-weight="700" fill="#334155">① 二重积分：化累次积分</text>
+  <text x="42" y="84" font-size="9.7" fill="#334155">X 型（先 y 后 x）：D: a≤x≤b, φ₁(x)≤y≤φ₂(x)</text>
+  <text x="42" y="102" font-size="9.7" fill="#334155">∬f dxdy = ∫ₐᵇdx ∫_{φ₁}^{φ₂} f(x,y)dy</text>
+  <text x="42" y="121" font-size="9.7" fill="#334155">Y 型（先 x 后 y）：类似地交换角色</text>
+  <text x="42" y="141" font-size="9.7" font-weight="700" fill="#b91c1c">换序三步：画区域 → 重写不等式 → 必要时分块</text>
+  <text x="42" y="160" font-size="9.7" fill="#334155">例：∫₀¹dx∫ₓ¹ f dy = ∫₀¹dy∫₀ʸ f dx（三角域 y≥x）</text>
+  <text x="42" y="180" font-size="9.7" font-weight="700" fill="#1d4ed8">极坐标：x=r cosθ, y=r sinθ, dxdy = r dr dθ</text>
+  <text x="42" y="199" font-size="9.5" fill="#334155">适用：区域含圆/扇形、被积函数含 x²+y²</text>
+  <text x="42" y="210" font-size="9.2" fill="#64748b">别漏雅可比 r；对称性（奇偶 + 轮换）可大幅化简</text>
+
+  <rect x="348" y="42" width="302" height="168" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="360" y="62" font-size="11" font-weight="700" fill="#1e3a8a">② 三重积分：三种坐标</text>
+  <text x="360" y="84" font-size="9.7" fill="#334155">直角坐标：投影法（先 z 后 xy）或截面法（先 xy 后 z）</text>
+  <text x="360" y="104" font-size="9.7" font-weight="700" fill="#1d4ed8">柱坐标 x=r cosθ, y=r sinθ, z=z；dV = r dr dθ dz</text>
+  <text x="360" y="123" font-size="9.5" fill="#334155">适用：旋转体、含 x²+y² 的区域</text>
+  <text x="360" y="143" font-size="9.7" font-weight="700" fill="#1d4ed8">球坐标 x=ρ sinφ cosθ, y=ρ sinφ sinθ, z=ρ cosφ</text>
+  <text x="360" y="162" font-size="9.5" fill="#334155">dV = ρ² sinφ dρ dφ dθ；适用：球体、锥体、含 x²+y²+z²</text>
+  <text x="360" y="182" font-size="9.7" fill="#334155">一般换元：dV = |J| du dv dw，J=∂(x,y,z)/∂(u,v,w)</text>
+  <text x="360" y="201" font-size="9.2" fill="#64748b">φ 是「与 z 轴正向夹角」，范围 [0,π]；θ∈[0,2π]</text>
+
+  <rect x="30" y="220" width="620" height="94" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="42" y="240" font-size="11" font-weight="700" fill="#166534">③ 工作例题</text>
+  <text x="42" y="260" font-size="9.7" fill="#334155">∬_{x²+y²≤a²} e^{−(x²+y²)}dxdy = 2π∫₀ᵃ r e^{−r²}dr = π(1−e^{−a²})；a=1 ⇒ ≈ 1.9859</text>
+  <text x="42" y="279" font-size="9.7" fill="#334155">∭_{x²+y²+z²≤R²} 1 dV = 4πR³/3（R=1 ⇒ 4π/3）；∭_{上半球} z dV = π/4</text>
+  <text x="42" y="298" font-size="9.7" fill="#334155">∬_{[0,1]²}(x+y)dxdy = 1；被积函数可分离时 ∬f(x)g(y)dxdy = (∫f dx)(∫g dy)</text>
+  <text x="42" y="312" font-size="9.2" fill="#64748b">教材经典例题 ∬e^{−y²}dxdy 必须换序（先对 x 积分），否则原函数非初等</text>
+
+  <rect x="30" y="324" width="620" height="72" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="42" y="344" font-size="10.5" font-weight="700" fill="#92400e">④ 应用与易错</text>
+  <text x="42" y="363" font-size="9.7" fill="#334155">曲面面积 A=∬_D√(1+zₓ²+zᵧ²)dxdy；平面薄片质量/质心/转动惯量；引力</text>
+  <text x="42" y="382" font-size="9.7" fill="#334155">易错：换元后雅可比、积分限必须同步改；球坐标别把 sinφ 写成 cosφ；换序后若区域非 X/Y 简单型必须分块</text>
+  <text x="42" y="394" font-size="9.2" fill="#64748b">二重积分中值定理：∬_D f dσ = f(ξ,η)·Area(D)（f 连续）</text>
+</svg>

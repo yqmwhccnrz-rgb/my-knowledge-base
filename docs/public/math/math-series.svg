@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 410" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="410" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">无穷级数：判敛决策树、幂级数与傅里叶级数</text>
+
+  <rect x="30" y="42" width="306" height="176" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="62" font-size="11" font-weight="700" fill="#334155">① 常数项级数判敛流程</text>
+  <text x="42" y="83" font-size="9.7" font-weight="700" fill="#b91c1c">第 0 步：lim uₙ ≠ 0 ⇒ 立即发散（必要条件）</text>
+  <text x="42" y="103" font-size="9.7" fill="#334155">正项级数：比较（含极限形式）→ 比值 ρ=lim uₙ₊₁/uₙ</text>
+  <text x="42" y="122" font-size="9.7" fill="#334155">→ 根值 ρ=lim ⁿ√uₙ → 积分判别；ρ&lt;1 收敛，ρ&gt;1 发散，=1 失效</text>
+  <text x="42" y="142" font-size="9.7" fill="#334155">基准：几何级数 Σqⁿ (|q|&lt;1 收敛)、p 级数 Σ1/nᵖ (p&gt;1 收敛)</text>
+  <text x="42" y="162" font-size="9.7" fill="#334155">交错级数：莱布尼茨判别（uₙ 单调↓且→0 ⇒ 收敛）</text>
+  <text x="42" y="181" font-size="9.7" fill="#334155">绝对收敛 ⇒ 收敛；条件收敛（如 Σ(−1)ⁿ⁺¹/n = ln 2）</text>
+  <text x="42" y="200" font-size="9.7" fill="#334155">性质：收敛级数可逐项加减、加括号；</text>
+  <text x="42" y="214" font-size="9.2" fill="#64748b">绝对收敛可任意重排，条件收敛重排可改变和（黎曼定理）</text>
+
+  <rect x="348" y="42" width="302" height="176" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="360" y="62" font-size="11" font-weight="700" fill="#1e3a8a">② 幂级数与和函数</text>
+  <text x="360" y="84" font-size="9.7" fill="#334155">Σaₙxⁿ：R = lim |aₙ/aₙ₊₁|（或 1/lim ⁿ√|aₙ|）</text>
+  <text x="360" y="103" font-size="9.7" fill="#334155">收敛区间 (−R,R)，端点须单独判断 ⇒ 收敛域</text>
+  <text x="360" y="123" font-size="9.7" fill="#334155">阿贝尔定理：内闭一致收敛；可逐项求导/积分，R 不变</text>
+  <text x="360" y="143" font-size="9.7" fill="#334155">和函数求法：逐项求导或积分化为几何级数再还原</text>
+  <text x="360" y="163" font-size="9.7" font-weight="700" fill="#1d4ed8">Σₙ₌₀ xⁿ=1/(1−x) ⇒ Σₙ₌₁ n xⁿ = x/(1−x)²</text>
+  <text x="360" y="182" font-size="9.7" fill="#334155">五个麦克劳林展开：eˣ, sin x, cos x, ln(1+x), (1+x)^α</text>
+  <text x="360" y="201" font-size="9.7" fill="#334155">Σ(−1)ⁿ⁺¹/n = ln2；Σ(−1)ⁿ⁺¹/n² = π²/12</text>
+  <text x="360" y="214" font-size="9.2" fill="#64748b">x=0.5 时 Σ n xⁿ = 0.5/0.25 = 2 ✓</text>
+
+  <rect x="30" y="228" width="620" height="94" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="42" y="248" font-size="11" font-weight="700" fill="#166534">③ 傅里叶级数（周期 2π）</text>
+  <text x="42" y="268" font-size="9.7" fill="#334155">f(x) ~ a₀/2 + Σ(aₙcos nx + bₙsin nx)；aₙ=(1/π)∫_{−π}^{π}f cos nx dx，bₙ=(1/π)∫_{−π}^{π}f sin nx dx</text>
+  <text x="42" y="287" font-size="9.7" fill="#334155">狄利克雷收敛定理：一个周期上连续或只有有限个第一类间断点且分段单调 ⇒ 收敛到 f（连续点）或 [f(x⁻)+f(x⁺)]/2（间断点）</text>
+  <text x="42" y="306" font-size="9.7" fill="#334155">奇函数 ⇒ 只含正弦（正弦级数）；偶函数 ⇒ 只含余弦（余弦级数）；[0,π] 上可作奇/偶延拓</text>
+  <text x="42" y="318" font-size="9.2" fill="#64748b">周期 2l：把 nx 换成 nπx/l；x = 2Σ(−1)ⁿ⁺¹sin(nx)/n (−π,π) 是经典展开</text>
+
+  <rect x="30" y="332" width="620" height="64" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="42" y="352" font-size="10.5" font-weight="700" fill="#92400e">④ 用级数求数项级数的和</text>
+  <text x="42" y="371" font-size="9.7" fill="#334155">x=π/2 代入 x 的正弦级数 ⇒ 1 − 1/3 + 1/5 − … = π/4；x=π 代入 |x| 的余弦级数 ⇒ Σ1/(2k−1)² = π²/8</text>
+  <text x="42" y="389" font-size="9.2" fill="#64748b">一致收敛（魏尔斯特拉斯 M 判别法）保证逐项积分/求导与连续性、可微性传递</text>
+</svg>

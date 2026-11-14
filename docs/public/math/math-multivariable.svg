@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 410" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="410" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">多元函数微分学：偏导数、全微分、方向导数与梯度</text>
+
+  <rect x="30" y="42" width="306" height="166" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="42" y="62" font-size="11" font-weight="700" fill="#1e3a8a">① 极限、连续、偏导、可微的关系（二元）</text>
+  <text x="42" y="84" font-size="9.8" font-weight="700" fill="#1d4ed8">偏导连续 ⇒ 可微 ⇒ 连续 ⇒ 极限存在</text>
+  <text x="42" y="103" font-size="9.8" font-weight="700" fill="#1d4ed8">可微 ⇒ 偏导数存在（且方向导数都存在）</text>
+  <text x="42" y="124" font-size="9.7" fill="#334155">但偏导数存在 ⇏ 连续、⇏ 可微（与一元截然不同）</text>
+  <text x="42" y="143" font-size="9.7" fill="#334155">二重极限存在要求「沿任意路径」极限都相同；</text>
+  <text x="42" y="161" font-size="9.7" fill="#334155">用沿 y=kx 或 y=x² 得到不同值即可判定不存在</text>
+  <text x="42" y="180" font-size="9.7" fill="#334155">累次极限存在且不等 ⇒ 二重极限不存在（反之不成立）</text>
+  <text x="42" y="200" font-size="9.2" fill="#64748b">可微定义：Δz = AΔx+BΔy+o(ρ)，ρ=√(Δx²+Δy²)</text>
+
+  <rect x="348" y="42" width="302" height="166" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="360" y="62" font-size="11" font-weight="700" fill="#166534">② 复合与隐函数求导</text>
+  <text x="360" y="84" font-size="9.7" fill="#334155">链式法则（画变量关系图，一分多合）：</text>
+  <text x="360" y="102" font-size="9.7" fill="#334155">z=f(u,v), u=u(x,y), v=v(x,y)：</text>
+  <text x="360" y="120" font-size="9.7" fill="#334155">∂z/∂x = fᵤuₓ + f_vvₓ；∂z/∂y 同理</text>
+  <text x="360" y="141" font-size="9.7" fill="#334155">一阶全微分形式不变性：dz = fᵤdu + f_vdv</text>
+  <text x="360" y="161" font-size="9.7" font-weight="700" fill="#166534">隐函数 F(x,y,z)=0：∂z/∂x = −Fₓ/F_z</text>
+  <text x="360" y="180" font-size="9.7" fill="#334155">方程组情形用雅可比行列式 J=∂(F,G)/∂(u,v) ≠ 0</text>
+  <text x="360" y="200" font-size="9.2" fill="#64748b">二阶混合偏导在连续条件下相等（克莱罗定理）</text>
+
+  <rect x="30" y="218" width="620" height="92" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="238" font-size="11" font-weight="700" fill="#334155">③ 方向导数与梯度、几何应用</text>
+  <text x="42" y="258" font-size="9.7" fill="#334155">方向导数（可微时）∂f/∂l = fₓcos α + fᵧcos β = ∇f · e_l；梯度 ∇f=(fₓ,fᵧ,f_z)</text>
+  <text x="42" y="277" font-size="9.7" fill="#334155">梯度方向是函数增长最快方向，模 |∇f| 是最大变化率；负梯度方向下降最快（机器学习梯度下降的来源）</text>
+  <text x="42" y="296" font-size="9.7" fill="#334155">曲面 F=0 法向量 ∇F ⇒ 切平面 Fₓ(x−x₀)+Fᵧ(y−y₀)+F_z(z−z₀)=0；空间曲线切线用 r′(t)</text>
+  <text x="42" y="308" font-size="9.2" fill="#64748b">等值线/等值面与梯度正交；∇f=0 的点为驻点（可能为极值或鞍点）</text>
+
+  <rect x="30" y="320" width="620" height="76" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="42" y="340" font-size="10.5" font-weight="700" fill="#92400e">④ 工作例题</text>
+  <text x="42" y="359" font-size="9.7" fill="#334155">f=x²y+sin(xy) ⇒ fₓ=2xy+y cos(xy)，fᵧ=x²+x cos(xy)；在 (0,1)：∇f=(1,0)</text>
+  <text x="42" y="378" font-size="9.7" fill="#334155">沿 u=(1/√2, 1/√2) 的方向导数 = 1/√2 ≈ 0.7071；最大方向导数 = |∇f| = 1（沿 x 轴正向）</text>
+  <text x="42" y="393" font-size="9.2" fill="#64748b">易错：方向导数定义式不要求可微；只有可微时才能用 ∇f·e_l 计算</text>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 410" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="410" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">向量代数与空间解析几何：三种积、平面与直线</text>
+
+  <rect x="30" y="42" width="306" height="168" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="42" y="62" font-size="11" font-weight="700" fill="#1e3a8a">① 三种积</text>
+  <text x="42" y="84" font-size="9.8" font-weight="700" fill="#1d4ed8">数量积 a·b = |a||b|cosθ = aₓbₓ+aᵧbᵧ+a_zb_z（标量）</text>
+  <text x="52" y="101" font-size="9.4" fill="#334155">用途：夹角、投影、垂直判定（a·b=0）</text>
+  <text x="42" y="120" font-size="9.8" font-weight="700" fill="#1d4ed8">向量积 a×b（向量，⊥a 且 ⊥b，右手系）</text>
+  <text x="52" y="137" font-size="9.4" fill="#334155">|a×b| = |a||b|sinθ = 平行四边形面积；平行 ⇔ a×b=0</text>
+  <text x="42" y="156" font-size="9.8" font-weight="700" fill="#1d4ed8">混合积 [a b c] = (a×b)·c（行列式）</text>
+  <text x="52" y="173" font-size="9.4" fill="#334155">绝对值 = 平行六面体体积；共面 ⇔ 混合积 = 0</text>
+  <text x="42" y="193" font-size="9.7" fill="#334155">工作例题：a=(1,2,−1)、b=(3,0,2)</text>
+  <text x="42" y="208" font-size="9.5" fill="#166534">a·b = 1；a×b = (4,−5,−6)；|a| = √6 ≈ 2.449</text>
+
+  <rect x="348" y="42" width="302" height="168" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="360" y="62" font-size="11" font-weight="700" fill="#166534">② 平面与直线方程</text>
+  <text x="360" y="84" font-size="9.7" font-weight="700" fill="#166534">平面点法式 A(x−x₀)+B(y−y₀)+C(z−z₀)=0</text>
+  <text x="360" y="102" font-size="9.7" font-weight="700" fill="#166534">一般式 Ax+By+Cz+D=0，法向量 n=(A,B,C)</text>
+  <text x="360" y="121" font-size="9.7" fill="#334155">点到平面距离 d=|Ax₀+By₀+Cz₀+D|/√(A²+B²+C²)</text>
+  <text x="360" y="141" font-size="9.7" font-weight="700" fill="#166534">直线对称式 (x−x₀)/m=(y−y₀)/n=(z−z₀)/p</text>
+  <text x="360" y="159" font-size="9.7" fill="#334155">参数式 x=x₀+mt, y=y₀+nt, z=z₀+pt；方向向量 s=(m,n,p)</text>
+  <text x="360" y="178" font-size="9.7" fill="#334155">两平面夹角 = 法向量夹角（取锐角）；线面夹角 = π/2 − s 与 n 夹角</text>
+  <text x="360" y="198" font-size="9.5" fill="#b91c1c">例：平面 2x−y+2z−3=0，点 (0,0,0) 距离 d = 3/3 = 1</text>
+
+  <rect x="30" y="220" width="620" height="90" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="240" font-size="11" font-weight="700" fill="#334155">③ 位置关系判定与常用公式</text>
+  <text x="42" y="260" font-size="9.7" fill="#334155">两直线平行 ⇔ s₁×s₂=0；垂直 ⇔ s₁·s₂=0；共面 ⇔ [s₁ s₂ P₁P₂]=0（否则异面）</text>
+  <text x="42" y="279" font-size="9.7" fill="#334155">平面束：过两平面交线的所有平面可写为 (A₁x+B₁y+C₁z+D₁)+λ(A₂x+B₂y+C₂z+D₂)=0</text>
+  <text x="42" y="298" font-size="9.7" fill="#334155">投影曲线：消去 z 得投影柱面，与 z=0 联立即 xOy 面上的投影曲线</text>
+  <text x="42" y="310" font-size="9.2" fill="#64748b">旋转曲面：绕 z 轴旋转时把母线方程中的 x 换成 ±√(x²+y²)</text>
+
+  <rect x="30" y="320" width="620" height="76" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="42" y="340" font-size="10.5" font-weight="700" fill="#92400e">④ 易错</text>
+  <text x="42" y="359" font-size="9.7" fill="#334155">• a×b = −b×a（反交换），a·b = b·a；混合积轮换对称、对换变号</text>
+  <text x="42" y="378" font-size="9.7" fill="#334155">• 直线一般式是两个平面的交线，方向向量 s = n₁×n₂；不要把法向量当方向向量</text>
+  <text x="42" y="393" font-size="9.7" fill="#334155">• 夹角公式一律取绝对值cos，得到锐角/直角；异面直线距离用混合积除以 |s₁×s₂|</text>
+</svg>

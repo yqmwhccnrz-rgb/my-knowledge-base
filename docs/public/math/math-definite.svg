@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 410" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="410" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">定积分与反常积分：微积分基本定理与简化技巧</text>
+
+  <rect x="30" y="42" width="306" height="158" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="62" font-size="11" font-weight="700" fill="#334155">① 黎曼和与几何意义</text>
+  <line x1="54" y1="80" x2="54" y2="184" stroke="#475569"/>
+  <line x1="54" y1="184" x2="228" y2="184" stroke="#475569"/>
+  <path d="M58,176 C100,120 150,96 216,88" fill="none" stroke="#2563eb" stroke-width="2"/>
+  <rect x="80" y="140" width="22" height="44" fill="#93c5fd" opacity="0.7" stroke="#2563eb"/>
+  <rect x="108" y="122" width="22" height="62" fill="#93c5fd" opacity="0.7" stroke="#2563eb"/>
+  <rect x="136" y="110" width="22" height="74" fill="#93c5fd" opacity="0.7" stroke="#2563eb"/>
+  <rect x="164" y="102" width="22" height="82" fill="#93c5fd" opacity="0.7" stroke="#2563eb"/>
+  <text x="234" y="106" font-size="9.4" fill="#334155">∫ₐᵇf dx = lim Σ f(ξᵢ)Δxᵢ</text>
+  <text x="234" y="124" font-size="9.4" fill="#334155">几何：曲边梯形代数面积</text>
+  <text x="234" y="144" font-size="9.4" fill="#334155">（x 轴下方为负）</text>
+  <text x="234" y="164" font-size="9.4" fill="#64748b">可积 ⇒ 有界；连续 / 单调 /</text>
+  <text x="234" y="180" font-size="9.4" fill="#64748b">有限个间断点 ⇒ 可积</text>
+  <text x="42" y="198" font-size="9" fill="#64748b">积分中值定理：∫ₐᵇf dx = f(ξ)(b−a)</text>
+
+  <rect x="348" y="42" width="302" height="158" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="360" y="62" font-size="11" font-weight="700" fill="#1e3a8a">② 微积分基本定理</text>
+  <text x="360" y="84" font-size="10" font-weight="700" fill="#1d4ed8">Φ(x)=∫ₐˣ f(t)dt ⇒ Φ′(x)=f(x)</text>
+  <text x="360" y="103" font-size="9.7" fill="#334155">变限求导通式：</text>
+  <text x="360" y="120" font-size="9.7" fill="#334155">d/dx ∫_{α(x)}^{β(x)} f(t)dt = f(β)β′ − f(α)α′</text>
+  <text x="360" y="141" font-size="10" font-weight="700" fill="#1d4ed8">牛顿–莱布尼茨：∫ₐᵇ f dx = F(b)−F(a)</text>
+  <text x="360" y="160" font-size="9.7" fill="#334155">把「求和的极限」化为「原函数增量」，全书主轴</text>
+  <text x="360" y="180" font-size="9.7" fill="#334155">f 连续 ⇒ Φ 可导；f 可积 ⇒ Φ 连续（不必可导）</text>
+  <text x="360" y="196" font-size="9.2" fill="#64748b">被积函数含参数时须先分离变量（换元）再求导</text>
+
+  <rect x="30" y="210" width="620" height="94" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="42" y="230" font-size="11" font-weight="700" fill="#166534">③ 四个简化技巧与三个必记积分</text>
+  <text x="42" y="250" font-size="9.7" fill="#334155">奇偶性：对称区间上奇函数积分为 0、偶函数为 2∫₀ᵃ；周期性：∫ₐ^{a+T}f = ∫₀ᵀf</text>
+  <text x="42" y="269" font-size="9.7" fill="#334155">区间再现（King 公式）：∫ₐᵇf dx = ∫ₐᵇ f(a+b−x) dx ⇒ 常用于 ∫₀^{π/2} 与 ∫₀^π 的三角积分</text>
+  <text x="42" y="288" font-size="9.7" fill="#334155">华里士公式 Iₙ=∫₀^{π/2}sinⁿx dx：n 偶 ⇒ (n−1)!!/n!! · π/2；n 奇 ⇒ (n−1)!!/n!!</text>
+  <text x="42" y="302" font-size="9.2" fill="#64748b">∫₀^{π/2}sin²x dx = π/4；∫₀¹ x eˣdx = 1；∫₀¹dx/(1+x²) = π/4</text>
+
+  <rect x="30" y="314" width="620" height="82" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="42" y="334" font-size="10.5" font-weight="700" fill="#92400e">④ 反常积分（两类）与判敛</text>
+  <text x="42" y="353" font-size="9.7" fill="#334155">无穷区间：∫ₐ^∞ f dx = lim_{b→∞}∫ₐᵇ f dx；无界函数（瑕积分）：瑕点在端点或内部需分段</text>
+  <text x="42" y="372" font-size="9.7" font-weight="700" fill="#b91c1c">∫₁^∞ dx/xᵖ 收敛 ⇔ p &gt; 1；∫₀¹ dx/xᵖ 收敛 ⇔ p &lt; 1（方向相反，最易记反）</text>
+  <text x="42" y="390" font-size="9.7" fill="#334155">∫₀^∞ e^{−x²}dx = √π/2；比较判别、极限比较、柯西判别；绝对收敛 ⇒ 收敛</text>
+</svg>

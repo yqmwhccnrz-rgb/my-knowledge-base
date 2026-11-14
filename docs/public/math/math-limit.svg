@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 410" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="410" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">极限：定义、存在准则、等价无穷小与两个重要极限</text>
+
+  <rect x="30" y="42" width="306" height="140" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="42" y="62" font-size="11" font-weight="700" fill="#1e3a8a">① ε–δ / ε–N 定义与左右极限</text>
+  <text x="42" y="83" font-size="9.6" fill="#334155">limₓ→ₓ₀ f(x)=A ⇔ ∀ε&gt;0 ∃δ&gt;0：</text>
+  <text x="42" y="101" font-size="9.6" fill="#334155">0 &lt; |x−x₀| &lt; δ ⇒ |f(x)−A| &lt; ε</text>
+  <text x="42" y="120" font-size="9.6" fill="#334155">数列：lim aₙ=A ⇔ ∀ε&gt;0 ∃N, n&gt;N ⇒ |aₙ−A| &lt; ε</text>
+  <text x="42" y="140" font-size="9.6" font-weight="700" fill="#b91c1c">limₓ→ₓ₀ f 存在 ⇔ 左极限 = 右极限 = A</text>
+  <text x="42" y="159" font-size="9.4" fill="#64748b">x→∞、f→∞ 的情形仿此用 M / X 表述</text>
+  <text x="42" y="176" font-size="9.4" fill="#64748b">注意定义中「去心」：f(x₀) 可无定义或不等于 A</text>
+
+  <rect x="348" y="42" width="302" height="140" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="360" y="62" font-size="11" font-weight="700" fill="#166534">② 两个重要极限与存在准则</text>
+  <text x="360" y="83" font-size="10" fill="#334155">limₓ→₀ sin x / x = 1</text>
+  <text x="360" y="102" font-size="10" fill="#334155">limₓ→∞ (1 + 1/x)ˣ = e ／ limₓ→₀ (1+x)^(1/x) = e</text>
+  <text x="360" y="122" font-size="9.6" fill="#334155">夹逼准则、单调有界准则（数列）</text>
+  <text x="360" y="141" font-size="9.6" fill="#334155">无穷小 × 有界量 = 无穷小；有限个无穷小之和仍是无穷小</text>
+  <text x="360" y="160" font-size="9.6" fill="#334155">lim f = A ≠ 0 且 lim g = 0 ⇒ lim f/g = ∞</text>
+  <text x="360" y="177" font-size="9.2" fill="#64748b">推广：lim(1+α)^(1/α) = e，其中 α→0</text>
+
+  <rect x="30" y="192" width="620" height="100" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="212" font-size="11" font-weight="700" fill="#334155">③ 常用等价无穷小（x→0，只能在「乘除因子」中替换！）</text>
+  <text x="42" y="232" font-size="9.7" fill="#334155">sin x ~ x ~ tan x ~ arcsin x ~ arctan x ~ ln(1+x) ~ eˣ − 1</text>
+  <text x="42" y="251" font-size="9.7" fill="#334155">1 − cos x ~ x²/2　｜　(1+x)^α − 1 ~ αx　｜　x − sin x ~ x³/6　｜　tan x − sin x ~ x³/2</text>
+  <text x="42" y="270" font-size="9.7" fill="#334155">x − ln(1+x) ~ x²/2　｜　arcsin x − x ~ x³/6　｜　tan x − x ~ x³/3</text>
+  <text x="42" y="287" font-size="9.4" font-weight="700" fill="#b91c1c">加减项中替换需谨慎：必须保证替换后主阶不被抵消（否则用泰勒展开）</text>
+
+  <rect x="30" y="302" width="620" height="94" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="42" y="322" font-size="10.5" font-weight="700" fill="#92400e">④ 七类未定式的标准处理</text>
+  <text x="42" y="341" font-size="9.6" fill="#334155">0/0、∞/∞：洛必达（须验证条件）或泰勒/等价无穷小；∞−∞：通分、有理化、提公因式</text>
+  <text x="42" y="359" font-size="9.6" fill="#334155">0·∞：化为 0/0 或 ∞/∞；1^∞、0⁰、∞⁰：取对数化为 e^{lim g·ln f}</text>
+  <text x="42" y="377" font-size="9.6" fill="#334155">1^∞ 速算：若 lim f = 1、lim g = ∞，则 lim f^g = e^{lim g(f−1)}</text>
+  <text x="42" y="393" font-size="9.2" fill="#64748b">例：lim(1+2/n)ⁿ = e²；limₓ→₀(tan x − sin x)/x³ = 1/2（不可用 sin x~x 直接减）</text>
+</svg>

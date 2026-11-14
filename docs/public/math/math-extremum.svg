@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">多元函数极值：无条件极值、条件极值与最值</text>
+
+  <rect x="30" y="42" width="306" height="170" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="62" font-size="11" font-weight="700" fill="#334155">① 无条件极值（二元）</text>
+  <text x="42" y="84" font-size="9.8" font-weight="700" fill="#1d4ed8">必要条件：fₓ=fᵧ=0（驻点）或偏导不存在点</text>
+  <text x="42" y="104" font-size="9.8" font-weight="700" fill="#1d4ed8">充分条件：记 A=fₓₓ, B=fₓᵧ, C=fᵧᵧ, Δ=AC−B²</text>
+  <text x="42" y="124" font-size="9.6" fill="#334155">Δ &gt; 0 且 A &lt; 0 ⇒ 极大；Δ &gt; 0 且 A &gt; 0 ⇒ 极小</text>
+  <text x="42" y="143" font-size="9.6" fill="#334155">Δ &lt; 0 ⇒ 鞍点（非极值）；Δ = 0 ⇒ 失效，须回定义判别</text>
+  <text x="42" y="164" font-size="9.7" fill="#334155">海森矩阵 H=[[A,B],[B,C]]：正定 ⇒ 极小，负定 ⇒ 极大，不定 ⇒ 鞍点</text>
+  <text x="42" y="184" font-size="9.7" fill="#334155">例：f=x²+y² 在 (0,0)：A=C=2,B=0 ⇒ Δ=4&gt;0, A&gt;0 ⇒ 极小 0</text>
+  <text x="42" y="203" font-size="9.7" fill="#334155">f=xy 在 (0,0)：A=C=0,B=1 ⇒ Δ=−1&lt;0 ⇒ 鞍点</text>
+
+  <rect x="348" y="42" width="302" height="170" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="360" y="62" font-size="11" font-weight="700" fill="#1e3a8a">② 条件极值与拉格朗日乘数法</text>
+  <text x="360" y="84" font-size="9.7" fill="#334155">目标 z=f(x,y)，约束 φ(x,y)=0：</text>
+  <text x="360" y="103" font-size="9.9" font-weight="700" fill="#1d4ed8">L=f(x,y)+λφ(x,y)，解 ∇L=0（三个方程）</text>
+  <text x="360" y="123" font-size="9.7" fill="#334155">多约束：L=f+Σλᵢφᵢ；几何含义：∇f 与 ∇φ 平行</text>
+  <text x="360" y="144" font-size="9.7" fill="#334155">求出的是「可能极值点」，还要比较大小或结合实际判断</text>
+  <text x="360" y="164" font-size="9.7" font-weight="700" fill="#166534">例：f=x²+y² 约束 x+y=1</text>
+  <text x="360" y="182" font-size="9.5" fill="#334155">L=x²+y²−λ(x+y−1) ⇒ x=y=1/2，f_min=1/2</text>
+  <text x="360" y="201" font-size="9.2" fill="#64748b">f=xy 约束 x²+y²=1 ⇒ 极大 1/2（x=y）、极小 −1/2</text>
+
+  <rect x="30" y="222" width="620" height="88" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="42" y="242" font-size="11" font-weight="700" fill="#166534">③ 闭区域上最值的完整流程</text>
+  <text x="42" y="262" font-size="9.7" fill="#334155">① 求 D 内部所有驻点及函数值；② 求边界上的最值（代入边界方程化一元，或对边界再用拉格朗日）；③ 比较全部候选值</text>
+  <text x="42" y="281" font-size="9.7" fill="#334155">有界闭区域上的连续函数必有最大最小值（Weierstrass 定理）；实际问题时若最值显然存在且内部唯一驻点，可直接取之</text>
+  <text x="42" y="300" font-size="9.2" fill="#64748b">二元泰勒公式：f(x₀+h,y₀+k)=f+(h∂ₓ+k∂ᵧ)f+½(h∂ₓ+k∂ᵧ)²f+…，是极值充分条件的证明基础</text>
+
+  <rect x="30" y="320" width="620" height="66" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="42" y="340" font-size="10.5" font-weight="700" fill="#92400e">④ 易错</text>
+  <text x="42" y="359" font-size="9.7" fill="#334155">• 极值是局部概念；驻点不一定是极值点（鞍点）；极值点也可能偏导不存在（如 z=√(x²+y²) 在原点取极小）</text>
+  <text x="42" y="378" font-size="9.7" fill="#334155">• 拉格朗日乘数 λ 本身不是所求；约束若含不等式，需另外检查边界与 KKT 条件</text>
+</svg>

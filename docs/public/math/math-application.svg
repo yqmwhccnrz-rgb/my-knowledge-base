@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">导数应用：单调、凹凸、极值、渐近线与曲率</text>
+
+  <rect x="30" y="42" width="306" height="170" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="62" font-size="11" font-weight="700" fill="#334155">① 一阶导与二阶导的分工</text>
+  <rect x="42" y="72" width="282" height="42" rx="5" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="52" y="89" font-size="9.7" font-weight="700" fill="#1e3a8a">f′(x) &gt; 0 ⇒ 单调递增；f′(x) &lt; 0 ⇒ 递减</text>
+  <text x="52" y="106" font-size="9.4" fill="#334155">驻点 f′=0 或不可导点 ⇒ 候选极值点</text>
+  <rect x="42" y="118" width="282" height="42" rx="5" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="52" y="135" font-size="9.7" font-weight="700" fill="#166534">f″(x) &gt; 0 ⇒ 凹（下凸/∪）；f″ &lt; 0 ⇒ 凸（上凸/∩）</text>
+  <text x="52" y="152" font-size="9.4" fill="#334155">f″ 变号点（且曲线连续）⇒ 拐点 (x₀, f(x₀))</text>
+  <text x="42" y="178" font-size="9.7" font-weight="700" fill="#b91c1c">极值判别：一阶导变号（充分必要）；或 f′=0 且 f″≠0</text>
+  <text x="42" y="196" font-size="9.5" fill="#334155">f″(x₀)&lt;0 极大、&gt;0 极小；f″=0 时需更高阶或回到定义</text>
+  <text x="42" y="210" font-size="9.2" fill="#64748b">注意：拐点是曲线上的「点」，须写坐标；极值点是 x 值</text>
+
+  <rect x="348" y="42" width="302" height="170" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="360" y="62" font-size="11" font-weight="700" fill="#1e3a8a">② 三类渐近线</text>
+  <text x="360" y="84" font-size="9.7" fill="#334155">水平：limₓ→±∞ f(x) = A ⇒ y = A</text>
+  <text x="360" y="103" font-size="9.7" fill="#334155">铅直：limₓ→x₀ f(x) = ∞ ⇒ x = x₀（找无定义点）</text>
+  <text x="360" y="122" font-size="9.7" fill="#334155">斜：a = lim f(x)/x，b = lim [f(x)−ax] ⇒ y = ax+b</text>
+  <text x="360" y="143" font-size="9.7" font-weight="700" fill="#b91c1c">同一方向水平与斜渐近线至多各一条；</text>
+  <text x="360" y="160" font-size="9.7" fill="#334155">x→+∞ 与 x→−∞ 要分别求（结果可不同）</text>
+  <text x="360" y="180" font-size="9.7" fill="#334155">最值：比较驻点、不可导点、区间端点（闭区间）</text>
+  <text x="360" y="200" font-size="9.2" fill="#64748b">曲率 κ=|y″|/(1+y′²)^{3/2}；曲率半径 ρ=1/κ</text>
+
+  <rect x="30" y="222" width="620" height="88" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="42" y="242" font-size="11" font-weight="700" fill="#166534">③ 函数作图的七步流程</text>
+  <text x="42" y="262" font-size="9.7" fill="#334155">① 定义域与对称性（奇偶/周期）→ ② 求 f′、f″ 并找全部零点与不存在点 → ③ 列表划分区间</text>
+  <text x="42" y="281" font-size="9.7" fill="#334155">④ 判单调与极值 → ⑤ 判凹凸与拐点 → ⑥ 求三类渐近线 → ⑦ 描特殊点（截距）并连线</text>
+  <text x="42" y="300" font-size="9.2" fill="#64748b">列表法（+ / 0 / − / 不存在）是最不易失分的书写格式</text>
+
+  <rect x="30" y="320" width="620" height="66" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="42" y="340" font-size="10.5" font-weight="700" fill="#92400e">④ 常见错误</text>
+  <text x="42" y="359" font-size="9.7" fill="#334155">• 极值是局部概念，最值是全局概念；极值不一定唯一，也不一定比最值小</text>
+  <text x="42" y="378" font-size="9.7" fill="#334155">• f″(x₀) = 0 既非拐点的充分条件也非必要条件（如 f=x⁴ 在 0 不是拐点；f=x^(1/3) 在 0 是拐点但二阶导不存在）</text>
+</svg>

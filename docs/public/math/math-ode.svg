@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 410" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="410" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">常微分方程：分类决策树与标准解法</text>
+
+  <rect x="30" y="42" width="306" height="170" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="42" y="62" font-size="11" font-weight="700" fill="#1e3a8a">① 一阶方程（先看能否解出 y′）</text>
+  <text x="42" y="83" font-size="9.7" font-weight="700" fill="#1d4ed8">可分离变量 y′ = f(x)g(y)</text>
+  <text x="52" y="100" font-size="9.4" fill="#334155">∫dy/g(y) = ∫f(x)dx + C</text>
+  <text x="42" y="119" font-size="9.7" font-weight="700" fill="#1d4ed8">齐次 y′ = φ(y/x) ⇒ 令 u=y/x</text>
+  <text x="42" y="138" font-size="9.7" font-weight="700" fill="#1d4ed8">一阶线性 y′+P(x)y = Q(x)</text>
+  <text x="52" y="155" font-size="9.4" fill="#334155">通解 y = e^{−∫P}[∫Q e^{∫P}dx + C]</text>
+  <text x="42" y="174" font-size="9.7" font-weight="700" fill="#1d4ed8">伯努利 y′+Py = Qyⁿ ⇒ z=y^{1−n} 化线性</text>
+  <text x="42" y="193" font-size="9.7" fill="#334155">全微分 M dx+N dy=0（∂M/∂y=∂N/∂x）⇒ 凑原函数 u(x,y)=C</text>
+  <text x="42" y="208" font-size="9.2" fill="#64748b">可降阶：y″=f(x) 直接积两次；y″=f(x,y′) 令 p=y′；y″=f(y,y′) 令 p=y′ 且 y″=p dp/dy</text>
+
+  <rect x="348" y="42" width="302" height="170" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="360" y="62" font-size="11" font-weight="700" fill="#166534">② 二阶常系数线性方程</text>
+  <text x="360" y="84" font-size="9.8" font-weight="700" fill="#166534">齐次 y″+py′+qy=0 → 特征方程 r²+pr+q=0</text>
+  <text x="360" y="103" font-size="9.5" fill="#334155">两不等实根 r₁,r₂ ⇒ C₁e^{r₁x}+C₂e^{r₂x}</text>
+  <text x="360" y="121" font-size="9.5" fill="#334155">重根 r ⇒ (C₁+C₂x)e^{rx}</text>
+  <text x="360" y="139" font-size="9.5" fill="#334155">共轭复根 α±iβ ⇒ e^{αx}(C₁cos βx+C₂sin βx)</text>
+  <text x="360" y="160" font-size="9.8" font-weight="700" fill="#166534">非齐次 = 齐次通解 + 一个特解（叠加原理）</text>
+  <text x="360" y="179" font-size="9.5" fill="#334155">f(x)=e^{λx}Pₘ(x) ⇒ 设 y*=xᵏ e^{λx}Qₘ(x)，k 为 λ 是特征根的重数</text>
+  <text x="360" y="198" font-size="9.5" fill="#334155">f(x)=e^{αx}[A cos βx+B sin βx] ⇒ 同形设特解，k 由 α+iβ 是否特征根定</text>
+
+  <rect x="30" y="222" width="620" height="86" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="242" font-size="11" font-weight="700" fill="#334155">③ 解的结构与初值问题</text>
+  <text x="42" y="262" font-size="9.7" fill="#334155">n 阶线性方程通解含 n 个独立任意常数；齐次解的线性组合仍是解（叠加原理）</text>
+  <text x="42" y="281" font-size="9.7" fill="#334155">非齐次两解之差是齐次解；两非齐次方程解可叠加；y₁,y₂ 线性无关 ⇔ 朗斯基行列式 ≠ 0</text>
+  <text x="42" y="300" font-size="9.7" fill="#334155">欧拉方程 x²y″+pxy′+qy=f(x) ⇒ 令 x=eᵗ 化为常系数（或设 y=xᵏ）</text>
+
+  <rect x="30" y="318" width="620" height="78" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="42" y="338" font-size="10.5" font-weight="700" fill="#92400e">④ 工作例题</text>
+  <text x="42" y="357" font-size="9.7" fill="#334155">y′+2y=eˣ：积分因子 e^{2x} ⇒ y = e^{−2x}[⅓e^{3x}+C] = ⅓eˣ + Ce^{−2x}</text>
+  <text x="42" y="376" font-size="9.7" fill="#334155">y″−3y′+2y=0 ⇒ r=1,2 ⇒ y=C₁eˣ+C₂e^{2x}　｜　y″+4y=sin x ⇒ y*=(1/3)sin x</text>
+  <text x="42" y="393" font-size="9.2" fill="#64748b">y″+4y=0 ⇒ y=C₁cos2x+C₂sin2x；特解设错（漏 xᵏ 因子）是最高频失分点</text>
+</svg>

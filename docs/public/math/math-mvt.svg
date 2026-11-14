@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 410" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="410" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">微分中值定理：罗尔 → 拉格朗日 → 柯西 → 泰勒</text>
+
+  <rect x="30" y="42" width="306" height="164" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="62" font-size="11" font-weight="700" fill="#334155">① 罗尔定理的几何：至少一条水平切线</text>
+  <line x1="54" y1="78" x2="54" y2="190" stroke="#475569"/>
+  <line x1="54" y1="190" x2="230" y2="190" stroke="#475569"/>
+  <path d="M62,150 C100,88 170,88 222,150" fill="none" stroke="#2563eb" stroke-width="2"/>
+  <line x1="62" y1="150" x2="222" y2="150" stroke="#94a3b8" stroke-dasharray="3 3"/>
+  <line x1="100" y1="112" x2="184" y2="112" stroke="#dc2626" stroke-width="1.8"/>
+  <circle cx="142" cy="112" r="3.5" fill="#dc2626"/>
+  <text x="146" y="106" font-size="9" fill="#991b1b">ξ：f′(ξ)=0</text>
+  <text x="238" y="106" font-size="9.4" fill="#334155">条件：[a,b] 连续、</text>
+  <text x="238" y="124" font-size="9.4" fill="#334155">(a,b) 可导、f(a)=f(b)</text>
+  <text x="238" y="145" font-size="9.4" fill="#334155">结论：∃ξ∈(a,b) 使 f′(ξ)=0</text>
+  <text x="238" y="167" font-size="9.4" fill="#64748b">三个条件缺一不可</text>
+  <text x="42" y="202" font-size="9" fill="#64748b">推广：f′ 的零点个数 ≤ f 的零点个数 − 1（罗尔反复用）</text>
+
+  <rect x="348" y="42" width="302" height="164" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="360" y="62" font-size="11" font-weight="700" fill="#1e3a8a">② 拉格朗日与柯西</text>
+  <text x="360" y="84" font-size="9.8" font-weight="700" fill="#1d4ed8">拉格朗日：f(b)−f(a) = f′(ξ)(b−a)</text>
+  <text x="360" y="102" font-size="9.5" fill="#334155">几何：存在切线平行于端点弦</text>
+  <text x="360" y="122" font-size="9.8" font-weight="700" fill="#1d4ed8">柯西：[f(b)−f(a)]/[g(b)−g(a)] = f′(ξ)/g′(ξ)</text>
+  <text x="360" y="140" font-size="9.5" fill="#334155">参数曲线版中值定理；是洛必达的证明基础</text>
+  <text x="360" y="160" font-size="9.8" font-weight="700" fill="#1d4ed8">泰勒：带拉格朗日余项的 n 阶展开</text>
+  <text x="360" y="178" font-size="9.5" fill="#334155">n=0 时泰勒退化为拉格朗日中值定理</text>
+  <text x="360" y="198" font-size="9.2" fill="#64748b">ξ 只知存在、不知具体值 ⇒ 用于「存在性」证明</text>
+
+  <rect x="30" y="216" width="620" height="94" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="42" y="236" font-size="11" font-weight="700" fill="#166534">③ 证明题的辅助函数构造法</text>
+  <text x="42" y="256" font-size="9.7" fill="#334155">证 f′(ξ)+g′(ξ)f(ξ)=0 ⇒ 构造 F(x)=e^{g(x)}f(x)（找原函数后乘积分因子）</text>
+  <text x="42" y="275" font-size="9.7" fill="#334155">证 f′(ξ)=k ⇒ 构造 F(x)=f(x)−kx；证 f′(ξ)/g′(ξ)=k ⇒ 用柯西</text>
+  <text x="42" y="294" font-size="9.7" fill="#334155">含 f″(ξ) ⇒ 两次罗尔，或对 f′ 用拉格朗日；含积分 ⇒ 用积分中值定理</text>
+  <text x="42" y="306" font-size="9.2" fill="#64748b">口诀：把待证等式改写为「某函数导数 = 0」，再反推该函数</text>
+
+  <rect x="30" y="320" width="620" height="76" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="42" y="340" font-size="10.5" font-weight="700" fill="#92400e">④ 洛必达法则的四个前提（常被忽略）</text>
+  <text x="42" y="359" font-size="9.7" fill="#334155">① 属 0/0 或 ∞/∞；② 去心邻域内 f′、g′ 存在且 g′ ≠ 0；③ lim f′/g′ 存在（或为 ∞）；</text>
+  <text x="42" y="377" font-size="9.7" fill="#334155">④ 若 lim f′/g′ 振荡不存在，洛必达失效（应改用泰勒或定义），如 limₓ→∞ (x+sin x)/x = 1</text>
+  <text x="42" y="393" font-size="9.2" fill="#64748b">洛必达不是万能：1^∞ 等须先取对数；加减型未定式应先化简</text>
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 410" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="410" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">曲线积分、曲面积分与三大公式（场论初步）</text>
+
+  <rect x="30" y="42" width="306" height="164" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="42" y="62" font-size="11" font-weight="700" fill="#1e3a8a">① 两类线积分 / 两类面积分</text>
+  <text x="42" y="83" font-size="9.7" fill="#334155">第一类（对弧长）∫_L f ds：标量，与方向无关</text>
+  <text x="42" y="102" font-size="9.7" fill="#334155">第二类（对坐标）∫_L Pdx+Qdy：与方向有关，反向变号</text>
+  <text x="42" y="121" font-size="9.7" fill="#334155">联系：∫Pdx+Qdy = ∫(P cos α+Q cos β)ds</text>
+  <text x="42" y="141" font-size="9.7" fill="#334155">第一类面积分 ∬_Σ f dS（对面积，无方向）</text>
+  <text x="42" y="160" font-size="9.7" fill="#334155">第二类面积分 ∬_Σ P dydz+Q dzdx+R dxdy（对坐标，与侧有关）</text>
+  <text x="42" y="180" font-size="9.7" fill="#334155">计算：投影到坐标面 + 代入曲面方程；高斯/斯托克斯可大幅化简</text>
+  <text x="42" y="200" font-size="9.2" fill="#64748b">对称性：第一类可利用奇偶性，第二类须先定侧</text>
+
+  <rect x="348" y="42" width="302" height="164" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="360" y="62" font-size="11" font-weight="700" fill="#166534">② 三大公式（广义斯托克斯的一维/二维/三维形式）</text>
+  <text x="360" y="84" font-size="9.7" font-weight="700" fill="#166534">格林 ∮_L Pdx+Qdy = ∬_D (∂Q/∂x − ∂P/∂y)dxdy</text>
+  <text x="360" y="103" font-size="9.7" font-weight="700" fill="#166534">高斯 ∯_Σ P dydz+Q dzdx+R dxdy = ∭_Ω(∂P/∂x+∂Q/∂y+∂R/∂z)dV</text>
+  <text x="360" y="123" font-size="9.7" font-weight="700" fill="#166534">斯托克斯 ∮_Γ Pdx+Qdy+Rdz = ∬_Σ rot A · n dS</text>
+  <text x="360" y="144" font-size="9.7" fill="#334155">散度 div A = ∇·A；旋度 rot A = ∇×A；梯度 ∇f</text>
+  <text x="360" y="163" font-size="9.7" fill="#334155">路径无关 ⇔ ∂P/∂y = ∂Q/∂x（单连通域）⇔ 存在原函数 u</text>
+  <text x="360" y="182" font-size="9.7" fill="#334155">全微分求积：u(x,y)=∫_{(x₀,y₀)}^{(x,y)} Pdx+Qdy（沿折线）</text>
+  <text x="360" y="201" font-size="9.2" fill="#64748b">条件：闭曲线正向（逆时针/外侧）、P,Q,R 有一阶连续偏导</text>
+
+  <rect x="30" y="216" width="620" height="96" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="236" font-size="11" font-weight="700" fill="#334155">③ 工作例题</text>
+  <text x="42" y="256" font-size="9.7" fill="#334155">∮_L x dy − y dx（逆时针闭曲线）= 2·Area(D)；单位圆 ⇒ 2π ≈ 6.2832</text>
+  <text x="42" y="275" font-size="9.7" fill="#334155">高斯：∯_S x dydz+y dzdx+z dxdy = 3V；单位球 V=4π/3 ⇒ 4π ≈ 12.5664</text>
+  <text x="42" y="294" font-size="9.7" fill="#334155">div(x,y,z)=3；rot(−y,x,0)=(0,0,2)；∇(x²+y²+z²)=(2x,2y,2z)</text>
+  <text x="42" y="310" font-size="9.2" fill="#64748b">∮_{单位圆}(x dy−y dx)/(x²+y²)=2π：奇点 (0,0) 在内部，不能直接用格林，需挖去小圆</text>
+
+  <rect x="30" y="322" width="620" height="74" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="42" y="342" font-size="10.5" font-weight="700" fill="#92400e">④ 应用与陷阱</text>
+  <text x="42" y="361" font-size="9.7" fill="#334155">应用：曲线弧长与质量、变力做功、通量与环流量、平面面积（取 P=−y/2, Q=x/2）</text>
+  <text x="42" y="380" font-size="9.7" fill="#334155">陷阱：非闭曲线须补线成闭；区域内有奇点须挖洞；高斯公式要求闭曲面取外侧；补面/补线要减去相应贡献</text>
+  <text x="42" y="394" font-size="9.2" fill="#64748b">通量 = ∬_Σ A·n dS；沿任意闭曲面积分为零 ⇔ div A = 0（无源场）</text>
+</svg>

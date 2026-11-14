@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">函数：四要素、四性质与常见函数族</text>
+
+  <rect x="30" y="44" width="300" height="152" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="42" y="64" font-size="11.5" font-weight="700" fill="#1e3a8a">① 两个基本要素与四类性质</text>
+  <text x="42" y="85" font-size="9.8" fill="#334155">函数两要素：定义域 D + 对应规则 f（二者相同即同一函数）</text>
+  <text x="42" y="104" font-size="9.8" fill="#334155">有界：|f(x)| ≤ M　｜　单调：x₁ &lt; x₂ ⇒ f(x₁) ≤ f(x₂)</text>
+  <text x="42" y="123" font-size="9.8" fill="#334155">奇偶：f(−x) = −f(x) / f(x)（定义域须关于原点对称）</text>
+  <text x="42" y="142" font-size="9.8" fill="#334155">周期：f(x+T) = f(x)；常见 sin x、cos x 周期 2π，tan x 周期 π</text>
+  <text x="42" y="164" font-size="9.8" font-weight="700" fill="#b91c1c">反函数存在 ⇔ 原函数一一对应（严格单调是充分条件）</text>
+  <text x="42" y="184" font-size="9.5" fill="#64748b">复合函数 f∘g 要求 g 的值域落在 f 的定义域内</text>
+
+  <rect x="342" y="44" width="308" height="152" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="354" y="64" font-size="11.5" font-weight="700" fill="#166534">② 基本初等函数（五类）与初等函数</text>
+  <text x="354" y="85" font-size="9.7" fill="#334155">幂函数 x^a｜指数函数 a^x｜对数函数 logₐ x</text>
+  <text x="354" y="104" font-size="9.7" fill="#334155">三角函数 sin/cos/tan｜反三角函数 arcsin/arctan</text>
+  <text x="354" y="123" font-size="9.7" fill="#334155">初等函数 = 基本初等函数经有限次四则与复合、</text>
+  <text x="354" y="140" font-size="9.7" fill="#334155">且能用一个解析式表示；在其定义区间内连续</text>
+  <text x="354" y="161" font-size="9.7" font-weight="700" fill="#b91c1c">非初等但常考：符号函数 sgn x、取整函数 [x]、</text>
+  <text x="354" y="178" font-size="9.7" font-weight="700" fill="#b91c1c">狄利克雷函数、分段函数、积分上限函数 Φ(x)=∫ₐˣf(t)dt</text>
+
+  <rect x="30" y="206" width="620" height="88" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="226" font-size="11" font-weight="700" fill="#334155">③ 反函数、复合函数与隐函数的求导链条</text>
+  <text x="42" y="246" font-size="9.8" fill="#334155">反函数：dy/dx = 1 / (dx/dy)；二阶 d²x/dy² = −y″/(y′)³</text>
+  <text x="42" y="265" font-size="9.8" fill="#334155">复合函数（链式法则）：y=f(u), u=g(x) ⇒ dy/dx = f′(u)·g′(x)</text>
+  <text x="42" y="284" font-size="9.8" fill="#334155">隐函数 F(x,y)=0 ⇒ dy/dx = −Fₓ/Fᵧ（Fᵧ ≠ 0）；参数方程 dy/dx = y′(t)/x′(t)</text>
+
+  <rect x="30" y="304" width="620" height="82" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="42" y="324" font-size="10.5" font-weight="700" fill="#92400e">④ 高频易错</text>
+  <text x="42" y="343" font-size="9.7" fill="#334155">• 分段函数在分界点必须单独用定义判别连续/可导，不能只代公式</text>
+  <text x="42" y="361" font-size="9.7" fill="#334155">• 奇偶性判定的第一步是检查定义域是否关于原点对称（不对称则非奇非偶）</text>
+  <text x="42" y="379" font-size="9.7" fill="#334155">• arcsin(sin x) ≠ x（仅在主值区间成立）；√(x²) = |x| 而非 x</text>
+</svg>

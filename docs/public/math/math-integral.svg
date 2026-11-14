@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 410" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="410" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">不定积分：三种主要积分法与三类可积函数</text>
+
+  <rect x="30" y="42" width="306" height="168" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="42" y="62" font-size="11" font-weight="700" fill="#1e3a8a">① 直接积分法与基本公式</text>
+  <text x="42" y="83" font-size="9.7" fill="#334155">∫f(x)dx = F(x) + C ⇔ F′(x) = f(x)（原函数族）</text>
+  <text x="42" y="102" font-size="9.7" fill="#334155">∫x^a dx = x^{a+1}/(a+1)+C (a≠−1)；∫dx/x = ln|x|+C</text>
+  <text x="42" y="121" font-size="9.7" fill="#334155">∫eˣdx=eˣ+C；∫aˣdx=aˣ/ln a+C；∫sin x dx=−cos x+C</text>
+  <text x="42" y="140" font-size="9.7" fill="#334155">∫dx/(1+x²)=arctan x+C；∫dx/√(1−x²)=arcsin x+C</text>
+  <text x="42" y="159" font-size="9.7" fill="#334155">∫sec x dx=ln|sec x+tan x|+C；∫dx/(a²+x²)=(1/a)arctan(x/a)+C</text>
+  <text x="42" y="180" font-size="9.5" font-weight="700" fill="#b91c1c">不要漏常数 C；分段积分时各段常数须保证连续性</text>
+  <text x="42" y="200" font-size="9.2" fill="#64748b">∫f′(x)/f(x)dx = ln|f(x)|+C 是最高频的凑微分</text>
+
+  <rect x="348" y="42" width="302" height="168" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="360" y="62" font-size="11" font-weight="700" fill="#166534">② 换元与分部</text>
+  <text x="360" y="84" font-size="9.7" font-weight="700" fill="#166534">第一换元（凑微分）</text>
+  <text x="360" y="101" font-size="9.5" fill="#334155">∫f(φ(x))φ′(x)dx = ∫f(u)du, u=φ(x)</text>
+  <text x="360" y="121" font-size="9.7" font-weight="700" fill="#166534">第二换元（变量代换）</text>
+  <text x="360" y="138" font-size="9.5" fill="#334155">x=ψ(t) 单调可导 ⇒ ∫f(x)dx = ∫f(ψ(t))ψ′(t)dt</text>
+  <text x="360" y="156" font-size="9.5" fill="#334155">三角代换：√(a²−x²)→x=a sin t；√(a²+x²)→x=a tan t；</text>
+  <text x="360" y="173" font-size="9.5" fill="#334155">√(x²−a²)→x=a sec t；倒代换 x=1/t 处理高次分母</text>
+  <text x="360" y="193" font-size="9.7" font-weight="700" fill="#166534">分部积分 ∫u dv = uv − ∫v du</text>
+  <text x="360" y="207" font-size="9.2" fill="#64748b">取 u 优先级：反对幂指三（反三角、对数、幂、指数、三角）</text>
+
+  <rect x="30" y="220" width="620" height="92" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="42" y="240" font-size="11" font-weight="700" fill="#334155">③ 三类常见可积函数</text>
+  <text x="42" y="260" font-size="9.7" fill="#334155">有理函数：真分式 → 部分分式分解 → 逐项积分（分母因式分解，含重根与二次不可约）</text>
+  <text x="42" y="279" font-size="9.7" fill="#334155">三角有理式 R(sin x, cos x)：万能代换 t = tan(x/2)，sin x = 2t/(1+t²)，cos x = (1−t²)/(1+t²)</text>
+  <text x="42" y="298" font-size="9.7" fill="#334155">简单无理函数：根式整体代换；∫R(x, √(ax+b))dx 令 t=√(ax+b)</text>
+  <text x="42" y="310" font-size="9.2" fill="#64748b">注意：e^{−x²}、sin x/x、(sin x)/x、1/ln x 等原函数不是初等函数，不能「硬算」</text>
+
+  <rect x="30" y="322" width="620" height="74" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="42" y="342" font-size="10.5" font-weight="700" fill="#92400e">④ 工作例题</text>
+  <text x="42" y="361" font-size="9.7" fill="#334155">∫x eˣdx：取 u=x ⇒ (x−1)eˣ+C　｜　∫ln x dx = x ln x − x + C</text>
+  <text x="42" y="380" font-size="9.7" fill="#334155">∫x cos x dx = x sin x + cos x + C（分部一次）　｜　∫dx/(x²+a²) = (1/a)arctan(x/a)+C</text>
+  <text x="42" y="394" font-size="9.2" fill="#64748b">验算习惯：对结果求导，看是否回到被积函数</text>
+</svg>

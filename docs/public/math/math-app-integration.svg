@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect x="0" y="0" width="680" height="400" fill="#fbfdff"/>
+  <text x="340" y="27" text-anchor="middle" font-size="17" font-weight="700" fill="#1e3a8a">定积分的应用：微元法与几何 / 物理公式表</text>
+
+  <rect x="30" y="42" width="620" height="74" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="42" y="62" font-size="11" font-weight="700" fill="#1e3a8a">① 微元法（元素法）三步</text>
+  <text x="42" y="82" font-size="9.8" fill="#334155">在 [x, x+dx] 上把所求量 U 的局部近似写成 dU = f(x)dx（或 dA、dV、dW），要求 dU 与 ΔU 之差是 dx 的高阶无穷小</text>
+  <text x="42" y="101" font-size="9.8" fill="#334155">然后 U = ∫ₐᵇ f(x)dx；关键是「以直代曲 / 以匀代变」在微元上成立，且微元可加</text>
+  <text x="42" y="113" font-size="9.2" fill="#64748b">微元法把物理/几何问题统一成「选变量 → 写微元 → 定上下限 → 积分」</text>
+
+  <rect x="30" y="126" width="306" height="164" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="42" y="146" font-size="11" font-weight="700" fill="#166534">② 几何应用（直角坐标）</text>
+  <text x="42" y="167" font-size="9.7" fill="#334155">平面面积 A = ∫ₐᵇ |f(x)−g(x)| dx</text>
+  <text x="42" y="186" font-size="9.7" fill="#334155">极坐标 A = ½∫ₐᵝ r²(θ) dθ</text>
+  <text x="42" y="205" font-size="9.7" fill="#334155">旋转体（绕 x 轴）V = π∫ₐᵇ f²(x)dx</text>
+  <text x="42" y="224" font-size="9.7" fill="#334155">绕 y 轴（柱壳）V = 2π∫ₐᵇ x f(x)dx</text>
+  <text x="42" y="243" font-size="9.7" fill="#334155">截面面积已知 V = ∫ₐᵇ A(x)dx</text>
+  <text x="42" y="262" font-size="9.7" fill="#334155">弧长 s = ∫ₐᵇ√(1+y′²)dx；</text>
+  <text x="42" y="280" font-size="9.7" fill="#334155">参数式 s=∫√(ẋ²+ẏ²)dt；极坐标 s=∫√(r²+r′²)dθ</text>
+
+  <rect x="348" y="126" width="302" height="164" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="360" y="146" font-size="11" font-weight="700" fill="#334155">③ 物理应用</text>
+  <text x="360" y="167" font-size="9.7" fill="#334155">变力做功 W = ∫ₐᵇ F(x)dx</text>
+  <text x="360" y="186" font-size="9.7" fill="#334155">液体侧压力 P = ∫ ρg h(x)·w(x) dx</text>
+  <text x="360" y="205" font-size="9.7" fill="#334155">引力、质心、转动惯量、平均值</text>
+  <text x="360" y="224" font-size="9.7" fill="#334155">函数平均值 f̄ = (1/(b−a))∫ₐᵇ f(x)dx</text>
+  <text x="360" y="243" font-size="9.7" fill="#334155">均方根 √[(1/(b−a))∫ₐᵇ f²dx]（交流电有效值）</text>
+  <text x="360" y="265" font-size="9.7" font-weight="700" fill="#b91c1c">质心：x̄ = ∫x dm / ∫dm（dm 由线/面密度给出）</text>
+  <text x="360" y="283" font-size="9.2" fill="#64748b">多元推广：曲面面积、重心、转动惯量见第 10–11 章</text>
+
+  <rect x="30" y="300" width="620" height="86" rx="6" fill="#fef3c7" stroke="#d97706"/>
+  <text x="42" y="320" font-size="10.5" font-weight="700" fill="#92400e">④ 工作例题（均已核算）</text>
+  <text x="42" y="339" font-size="9.7" fill="#334155">y=x² (0≤x≤1) 绕 x 轴：V = π∫₀¹x⁴dx = π/5 ≈ 0.6283</text>
+  <text x="42" y="358" font-size="9.7" fill="#334155">y=sin x (0≤x≤π) 与 x 轴围成面积 A = ∫₀^π sin x dx = 2</text>
+  <text x="42" y="377" font-size="9.7" fill="#334155">星形线 x=cos³t, y=sin³t 全长 s = 6a（a=1 时 6）；抛物线 y=x² 在 [0,1] 弧长 = ½(√5 + ½ln(2+√5))</text>
+</svg>

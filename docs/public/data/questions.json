@@ -56139,5 +56139,2000 @@
   "answer": "四步法：① 定竞争基准 P*、Q* 与 CS/PS；② 判断政策造成的曲线移动或楔子，求新 P、Q；③ 逐项算 ΔCS、ΔPS、政府收支与外部成本，得总剩余变化与 DWL；④ 分析分配、前提与替代工具。",
   "explanation": "租金上限低于均衡价 ⇒ Qd>Qs 短缺；CS 因价格下降而增加（但部分消费者租不到房），PS 下降，DWL 来自成交量萎缩。非预期后果：排队与配给、黑市、搜寻成本、房东降低维护质量、寻租与歧视性筛选；长期供给进一步左移使短缺加剧。替代工具：住房补贴（增加供给而非压价）、增加土地/建房供给、明晰产权与降低交易成本。注意政策评价必须同时回答效率与分配两个问题。",
   "type": "essay"
+ },
+ {
+  "id": "math1",
+  "note": "Math",
+  "topic": "第1章 函数极限连续",
+  "question": "函数 y = ln(x−1) + √(4−x²) 的定义域是（ ）。",
+  "options": [
+   "(1, 2]",
+   "(1, 2)",
+   "[1, 2]",
+   "(−2, 2)"
+  ],
+  "answer": 0,
+  "explanation": "需 x−1>0 且 4−x²≥0 ⇒ x>1 且 −2≤x≤2 ⇒ 1<x≤2。",
+  "type": "choice"
+ },
+ {
+  "id": "math2",
+  "note": "Math",
+  "topic": "第1章 函数极限连续",
+  "question": "lim_{x→0} sin(3x)/(5x) 的值是（ ）。",
+  "options": [
+   "5/3",
+   "3/5",
+   "1",
+   "0"
+  ],
+  "answer": 1,
+  "explanation": "由重要极限 sin u/u→1，原式=(3/5)·lim sin(3x)/(3x)=3/5。",
+  "type": "choice"
+ },
+ {
+  "id": "math3",
+  "note": "Math",
+  "topic": "第1章 函数极限连续",
+  "question": "lim_{x→0} (eˣ − 1 − x)/x² 的值是（ ）。",
+  "options": [
+   "1",
+   "0",
+   "1/2",
+   "2"
+  ],
+  "answer": 2,
+  "explanation": "泰勒 eˣ=1+x+x²/2+o(x²) ⇒ 分子=x²/2+o(x²) ⇒ 1/2。",
+  "type": "choice"
+ },
+ {
+  "id": "math4",
+  "note": "Math",
+  "topic": "第1章 函数极限连续",
+  "question": "lim_{x→0} (tan x − sin x)/x³ 的值是（ ）。",
+  "options": [
+   "1/6",
+   "1/3",
+   "0",
+   "1/2"
+  ],
+  "answer": 3,
+  "explanation": "tan x=x+x³/3、sin x=x−x³/6 ⇒ 差=x³/2；加减型不可直接用等价无穷小替换。",
+  "type": "choice"
+ },
+ {
+  "id": "math5",
+  "note": "Math",
+  "topic": "第1章 函数极限连续",
+  "question": "lim_{n→∞} (1 + 2/n)ⁿ 的值是（ ）。",
+  "options": [
+   "e²",
+   "e",
+   "2e",
+   "1"
+  ],
+  "answer": 0,
+  "explanation": "属 1^∞，取对数 n·ln(1+2/n)→2 ⇒ e²≈7.389。",
+  "type": "choice"
+ },
+ {
+  "id": "math6",
+  "note": "Math",
+  "topic": "第1章 函数极限连续",
+  "question": "当 x→0 时，与 x 等价的无穷小是（ ）。",
+  "options": [
+   "1−cos x",
+   "ln(1+x)",
+   "x−sin x",
+   "tan x−x"
+  ],
+  "answer": 1,
+  "explanation": "ln(1+x)~x；1−cos x~x²/2、x−sin x~x³/6、tan x−x~x³/3 都是更高阶。",
+  "type": "choice"
+ },
+ {
+  "id": "math7",
+  "note": "Math",
+  "topic": "第1章 函数极限连续",
+  "question": "x=0 是函数 f(x)=sin x / x 的（ ）。",
+  "options": [
+   "跳跃间断点",
+   "无穷间断点",
+   "可去间断点",
+   "振荡间断点"
+  ],
+  "answer": 2,
+  "explanation": "左右极限都等于 1 但 f(0) 无定义，属第一类可去间断。",
+  "type": "choice"
+ },
+ {
+  "id": "math8",
+  "note": "Math",
+  "topic": "第1章 函数极限连续",
+  "question": "x=0 是函数 f(x)=sin(1/x) 的（ ）。",
+  "options": [
+   "可去间断点",
+   "跳跃间断点",
+   "无穷间断点",
+   "振荡间断点"
+  ],
+  "answer": 3,
+  "explanation": "x→0 时函数值在 −1 与 1 之间无限振荡，极限不存在且不趋于无穷。",
+  "type": "choice"
+ },
+ {
+  "id": "math9",
+  "note": "Math",
+  "topic": "第1章 函数极限连续",
+  "question": "关于等价无穷小替换，正确的是（ ）。",
+  "options": [
+   "只能在乘除因子中替换，加减项须防主阶抵消",
+   "任何情形都可替换",
+   "只能在加减项替换",
+   "只能替换分子的因子"
+  ],
+  "answer": 0,
+  "explanation": "反例 (tan x−sin x)/x³ 若逐项替换会得 0，正确答案为 1/2。",
+  "type": "choice"
+ },
+ {
+  "id": "math10",
+  "note": "Math",
+  "topic": "第1章 函数极限连续",
+  "question": "闭区间上连续函数不一定具有的性质是（ ）。",
+  "options": [
+   "有界",
+   "处处可导",
+   "取得最大值与最小值",
+   "满足介值定理"
+  ],
+  "answer": 1,
+  "explanation": "连续只保证四条性质（有界、最值、介值、零点），|x| 在 0 连续但不可导。",
+  "type": "choice"
+ },
+ {
+  "id": "math11",
+  "note": "Math",
+  "topic": "第2章 导数与微分",
+  "question": "一元函数「可导」与「可微」的关系是（ ）。",
+  "options": [
+   "可导必可微但反之不成立",
+   "可微必可导但反之不成立",
+   "等价",
+   "互不相关"
+  ],
+  "answer": 2,
+  "explanation": "一元情形可导 ⇔ 可微；多元情形二者不再等价。",
+  "type": "choice"
+ },
+ {
+  "id": "math12",
+  "note": "Math",
+  "topic": "第2章 导数与微分",
+  "question": "f(x)=|x| 在 x=0 处（ ）。",
+  "options": [
+   "可导但不连续",
+   "既不可导也不连续",
+   "可导且连续",
+   "连续但不可导"
+  ],
+  "answer": 3,
+  "explanation": "左右极限都为 0 故连续；左导数 −1、右导数 1 不相等故不可导。",
+  "type": "choice"
+ },
+ {
+  "id": "math13",
+  "note": "Math",
+  "topic": "第2章 导数与微分",
+  "question": "y = xˣ 的导数是（ ）。",
+  "options": [
+   "xˣ(ln x + 1)",
+   "x·x^{x−1}",
+   "xˣ ln x",
+   "xˣ/x"
+  ],
+  "answer": 0,
+  "explanation": "取对数 ln y=x ln x ⇒ y′/y=ln x+1 ⇒ y′=xˣ(ln x+1)（x>0）。",
+  "type": "choice"
+ },
+ {
+  "id": "math14",
+  "note": "Math",
+  "topic": "第2章 导数与微分",
+  "question": "由 x² + y² = 1 确定的隐函数，dy/dx 等于（ ）。",
+  "options": [
+   "x/y",
+   "−x/y",
+   "−y/x",
+   "y/x"
+  ],
+  "answer": 1,
+  "explanation": "两边求导 2x+2y y′=0 ⇒ y′=−x/y（y≠0）。",
+  "type": "choice"
+ },
+ {
+  "id": "math15",
+  "note": "Math",
+  "topic": "第2章 导数与微分",
+  "question": "参数方程 x=a cos t, y=b sin t 的 dy/dx 是（ ）。",
+  "options": [
+   "−(b/a)tan t",
+   "(b/a)cot t",
+   "−(b/a)cot t",
+   "−(a/b)tan t"
+  ],
+  "answer": 2,
+  "explanation": "ẋ=−a sin t, ẏ=b cos t ⇒ dy/dx=ẏ/ẋ=−(b/a)cot t。",
+  "type": "choice"
+ },
+ {
+  "id": "math16",
+  "note": "Math",
+  "topic": "第2章 导数与微分",
+  "question": "(sin x)⁽ⁿ⁾ 等于（ ）。",
+  "options": [
+   "cos(x + nπ/2)",
+   "(−1)ⁿ sin x",
+   "n·cos x",
+   "sin(x + nπ/2)"
+  ],
+  "answer": 3,
+  "explanation": "每求一次导相位加 π/2；cos x 的 n 阶导为 cos(x+nπ/2)。",
+  "type": "choice"
+ },
+ {
+  "id": "math17",
+  "note": "Math",
+  "topic": "第2章 导数与微分",
+  "question": "函数 f(x) 在 x₀ 可导是 f(x) 在 x₀ 连续的（ ）。",
+  "options": [
+   "充分非必要条件",
+   "必要非充分条件",
+   "充分必要条件",
+   "既不充分也不必要"
+  ],
+  "answer": 0,
+  "explanation": "可导必连续；连续未必可导（|x| 在 0）。",
+  "type": "choice"
+ },
+ {
+  "id": "math18",
+  "note": "Math",
+  "topic": "第2章 导数与微分",
+  "question": "设 f(x) 可导，则 d/dx [f(x²)] 等于（ ）。",
+  "options": [
+   "f′(x²)",
+   "2x f′(x²)",
+   "2x f(x²)",
+   "x² f′(x²)"
+  ],
+  "answer": 1,
+  "explanation": "链式法则：外层导数 f′(x²) 乘内层导数 2x。",
+  "type": "choice"
+ },
+ {
+  "id": "math19",
+  "note": "Math",
+  "topic": "第2章 导数与微分",
+  "question": "分段函数在分界点求导的正确做法是（ ）。",
+  "options": [
+   "对两侧表达式求导后代入",
+   "只需求一侧导数",
+   "用定义分别求左右导数并比较",
+   "用洛必达法则"
+  ],
+  "answer": 2,
+  "explanation": "只有导函数连续时代入法才等价，一般必须用定义。",
+  "type": "choice"
+ },
+ {
+  "id": "math20",
+  "note": "Math",
+  "topic": "第3章 中值定理与导数应用",
+  "question": "罗尔定理的三个条件是（ ）。",
+  "options": [
+   "闭区间可导、开区间连续、端点相等",
+   "处处连续、处处可导、端点不等",
+   "只要有界且可导",
+   "闭区间连续、开区间可导、两端点函数值相等"
+  ],
+  "answer": 3,
+  "explanation": "三者缺一不可；结论是存在 ξ∈(a,b) 使 f′(ξ)=0。",
+  "type": "choice"
+ },
+ {
+  "id": "math21",
+  "note": "Math",
+  "topic": "第3章 中值定理与导数应用",
+  "question": "拉格朗日中值定理的结论是（ ）。",
+  "options": [
+   "f(b) − f(a) = f′(ξ)(b − a)",
+   "f′(ξ)=0",
+   "f(b)/f(a)=f′(ξ)",
+   "f″(ξ)=0"
+  ],
+  "answer": 0,
+  "explanation": "几何含义：存在一点切线平行于端点连线（弦）。",
+  "type": "choice"
+ },
+ {
+  "id": "math22",
+  "note": "Math",
+  "topic": "第3章 中值定理与导数应用",
+  "question": "洛必达法则失效的典型情形是（ ）。",
+  "options": [
+   "属 0/0 型",
+   "lim f′/g′ 振荡不存在",
+   "属 ∞/∞ 型",
+   "分子分母都可导"
+  ],
+  "answer": 1,
+  "explanation": "反例 lim(x+sin x)/x = 1，但 f′/g′=1+cos x 无极限。",
+  "type": "choice"
+ },
+ {
+  "id": "math23",
+  "note": "Math",
+  "topic": "第3章 中值定理与导数应用",
+  "question": "f(x)=x³−3x²+1 的极大值点是（ ）。",
+  "options": [
+   "x=2",
+   "x=1",
+   "x=0",
+   "x=3"
+  ],
+  "answer": 2,
+  "explanation": "f′=3x(x−2)，在 x=0 处 f′ 由正变负 ⇒ 极大 f(0)=1；x=2 为极小 −3。",
+  "type": "choice"
+ },
+ {
+  "id": "math24",
+  "note": "Math",
+  "topic": "第3章 中值定理与导数应用",
+  "question": "曲线 y=x³−3x²+1 的拐点是（ ）。",
+  "options": [
+   "(0, 1)",
+   "(2, −3)",
+   "无拐点",
+   "(1, −1)"
+  ],
+  "answer": 3,
+  "explanation": "f″=6x−6=0 ⇒ x=1 且两侧变号；f(1)=1−3+1=−1 ⇒ 拐点 (1,−1)。",
+  "type": "choice"
+ },
+ {
+  "id": "math25",
+  "note": "Math",
+  "topic": "第3章 中值定理与导数应用",
+  "question": "关于拐点，正确的是（ ）。",
+  "options": [
+   "f″(x₀)=0 既非充分也非必要条件",
+   "f″(x₀)=0 必为拐点",
+   "拐点处必有 f″=0",
+   "f″>0 处是拐点"
+  ],
+  "answer": 0,
+  "explanation": "f=x⁴ 在 0 有 f″=0 但非拐点；f=x^{1/3} 在 0 是拐点但二阶导不存在。",
+  "type": "choice"
+ },
+ {
+  "id": "math26",
+  "note": "Math",
+  "topic": "第3章 中值定理与导数应用",
+  "question": "曲线 y=(2x−1)/x 的水平与铅直渐近线分别是（ ）。",
+  "options": [
+   "y=0 与 x=0",
+   "y=2 与 x=0",
+   "y=2 与 x=1/2",
+   "无渐近线"
+  ],
+  "answer": 1,
+  "explanation": "y=2−1/x ⇒ x→∞ 时 y→2（水平）；x→0 时 y→∞（铅直）。",
+  "type": "choice"
+ },
+ {
+  "id": "math27",
+  "note": "Math",
+  "topic": "第3章 中值定理与导数应用",
+  "question": "函数 f 在 x₀ 处 f′(x₀)=0 是 f 在 x₀ 取极值的（ ）。",
+  "options": [
+   "充分必要条件",
+   "充分非必要条件",
+   "必要非充分条件（f 可导时）",
+   "既不充分也不必要"
+  ],
+  "answer": 2,
+  "explanation": "可导时极值必有 f′=0；但 f=x³ 在 0 有 f′=0 却非极值。",
+  "type": "choice"
+ },
+ {
+  "id": "math28",
+  "note": "Math",
+  "topic": "第3章 中值定理与导数应用",
+  "question": "曲率公式为（ ）。",
+  "options": [
+   "κ = |y″|/(1+y′²)",
+   "κ = |y′|/(1+y″²)",
+   "κ = 1/|y′|",
+   "κ = |y″| / (1 + y′²)^{3/2}"
+  ],
+  "answer": 3,
+  "explanation": "曲率半径 ρ=1/κ；直线 y″=0 ⇒ κ=0。",
+  "type": "choice"
+ },
+ {
+  "id": "math29",
+  "note": "Math",
+  "topic": "第4章 不定积分",
+  "question": "∫ x eˣ dx 等于（ ）。",
+  "options": [
+   "(x−1)eˣ + C",
+   "x eˣ + C",
+   "(x+1)eˣ + C",
+   "eˣ + C"
+  ],
+  "answer": 0,
+  "explanation": "分部取 u=x；验算 [(x−1)eˣ]′=eˣ+(x−1)eˣ=x eˣ ✓。",
+  "type": "choice"
+ },
+ {
+  "id": "math30",
+  "note": "Math",
+  "topic": "第4章 不定积分",
+  "question": "∫ ln x dx 等于（ ）。",
+  "options": [
+   "ln x − x + C",
+   "x ln x − x + C",
+   "x ln x + C",
+   "1/x + C"
+  ],
+  "answer": 1,
+  "explanation": "分部取 u=ln x ⇒ x ln x−∫x·(1/x)dx=x ln x−x+C。",
+  "type": "choice"
+ },
+ {
+  "id": "math31",
+  "note": "Math",
+  "topic": "第4章 不定积分",
+  "question": "∫ dx/(a²+x²) 等于（ ）。",
+  "options": [
+   "arctan(x/a) + C",
+   "(1/a)arcsin(x/a) + C",
+   "(1/a)arctan(x/a) + C",
+   "ln(a²+x²) + C"
+  ],
+  "answer": 2,
+  "explanation": "令 x=a tan t 或直接对 arctan(x/a) 求导验证。",
+  "type": "choice"
+ },
+ {
+  "id": "math32",
+  "note": "Math",
+  "topic": "第4章 不定积分",
+  "question": "∫ 1/x dx 等于（ ）。",
+  "options": [
+   "ln x + C",
+   "1/x² + C",
+   "−1/x² + C",
+   "ln|x| + C"
+  ],
+  "answer": 3,
+  "explanation": "x<0 时也成立，绝对值不能省。",
+  "type": "choice"
+ },
+ {
+  "id": "math33",
+  "note": "Math",
+  "topic": "第4章 不定积分",
+  "question": "计算 ∫√(a²−x²) dx 应选用的代换是（ ）。",
+  "options": [
+   "x = a sin t",
+   "x = a tan t",
+   "x = a sec t",
+   "x = 1/t"
+  ],
+  "answer": 0,
+  "explanation": "三种三角代换分别对应 a²−x²、a²+x²、x²−a²，倒代换用于高次分母。",
+  "type": "choice"
+ },
+ {
+  "id": "math34",
+  "note": "Math",
+  "topic": "第4章 不定积分",
+  "question": "分部积分公式是（ ）。",
+  "options": [
+   "∫u dv = uv + ∫v du",
+   "∫u dv = uv − ∫v du",
+   "∫u dv = u′v − ∫uv′dx",
+   "∫u dv = uv"
+  ],
+  "answer": 1,
+  "explanation": "取 u 的优先级口诀「反对幂指三」。",
+  "type": "choice"
+ },
+ {
+  "id": "math35",
+  "note": "Math",
+  "topic": "第4章 不定积分",
+  "question": "下列函数中没有初等原函数的是（ ）。",
+  "options": [
+   "x eˣ",
+   "1/(1+x²)",
+   "e^{−x²}",
+   "sin²x"
+  ],
+  "answer": 2,
+  "explanation": "由刘维尔定理，e^{−x²}、sin x/x、1/ln x 等原函数非初等；可用误差函数或级数表示。",
+  "type": "choice"
+ },
+ {
+  "id": "math36",
+  "note": "Math",
+  "topic": "第4章 不定积分",
+  "question": "三角有理式 R(sin x, cos x) 的万能代换是（ ）。",
+  "options": [
+   "t = tan x",
+   "t = sin x",
+   "t = cos 2x",
+   "t = tan(x/2)"
+  ],
+  "answer": 3,
+  "explanation": "sin x=2t/(1+t²), cos x=(1−t²)/(1+t²), dx=2dt/(1+t²)。",
+  "type": "choice"
+ },
+ {
+  "id": "math37",
+  "note": "Math",
+  "topic": "第5章 定积分与反常积分",
+  "question": "变限函数 Φ(x)=∫₀ˣ sin(t²)dt 的导数 Φ′(x) 是（ ）。",
+  "options": [
+   "sin(x²)",
+   "cos(x²)",
+   "2x sin(x²)",
+   "sin(x²)/x"
+  ],
+  "answer": 0,
+  "explanation": "微积分基本定理：d/dx∫ₐˣf(t)dt=f(x)，直接把上限代入被积函数。",
+  "type": "choice"
+ },
+ {
+  "id": "math38",
+  "note": "Math",
+  "topic": "第5章 定积分与反常积分",
+  "question": "∫₀^{π/2} sin²x dx 的值是（ ）。",
+  "options": [
+   "π/2",
+   "π/4",
+   "1/2",
+   "π/8"
+  ],
+  "answer": 1,
+  "explanation": "由 sin²x=(1−cos2x)/2 或华里士公式 I₂=(1/2)(π/2)=π/4。",
+  "type": "choice"
+ },
+ {
+  "id": "math39",
+  "note": "Math",
+  "topic": "第5章 定积分与反常积分",
+  "question": "∫₀¹ x eˣ dx 的值是（ ）。",
+  "options": [
+   "e−1",
+   "0",
+   "1",
+   "e"
+  ],
+  "answer": 2,
+  "explanation": "[(x−1)eˣ]₀¹ = 0 − (−1) = 1。",
+  "type": "choice"
+ },
+ {
+  "id": "math40",
+  "note": "Math",
+  "topic": "第5章 定积分与反常积分",
+  "question": "∫_{−1}^{1} x³cos x dx 的值是（ ）。",
+  "options": [
+   "1",
+   "2",
+   "π/4",
+   "0"
+  ],
+  "answer": 3,
+  "explanation": "x³ 奇、cos x 偶 ⇒ 被积函数为奇函数，对称区间积分为 0。",
+  "type": "choice"
+ },
+ {
+  "id": "math41",
+  "note": "Math",
+  "topic": "第5章 定积分与反常积分",
+  "question": "∫₀^π x sin x dx 的值是（ ）。",
+  "options": [
+   "π",
+   "π/2",
+   "2",
+   "0"
+  ],
+  "answer": 0,
+  "explanation": "区间再现：I=(π/2)∫₀^π sin x dx=(π/2)·2=π。",
+  "type": "choice"
+ },
+ {
+  "id": "math42",
+  "note": "Math",
+  "topic": "第5章 定积分与反常积分",
+  "question": "反常积分 ∫₁^∞ dx/xᵖ 收敛的条件是（ ）。",
+  "options": [
+   "p < 1",
+   "p > 1",
+   "p ≥ 1",
+   "p ≠ 1"
+  ],
+  "answer": 1,
+  "explanation": "无穷区间 p>1 收敛；瑕积分 ∫₀¹dx/xᵖ 则是 p<1 收敛，方向相反。",
+  "type": "choice"
+ },
+ {
+  "id": "math43",
+  "note": "Math",
+  "topic": "第5章 定积分与反常积分",
+  "question": "∫₀^∞ e^{−x²} dx 的值是（ ）。",
+  "options": [
+   "√π",
+   "π/2",
+   "√π/2",
+   "1/2"
+  ],
+  "answer": 2,
+  "explanation": "泊松积分；用二重积分极坐标 I²=π/4 ⇒ I=√π/2≈0.8862。",
+  "type": "choice"
+ },
+ {
+  "id": "math44",
+  "note": "Math",
+  "topic": "第5章 定积分与反常积分",
+  "question": "积分中值定理 ∫ₐᵇ f(x)dx = f(ξ)(b−a) 要求（ ）。",
+  "options": [
+   "f 在 [a,b] 上可导",
+   "f 仅有界",
+   "f 单调",
+   "f 在 [a,b] 上连续"
+  ],
+  "answer": 3,
+  "explanation": "由闭区间连续函数的最值性质与介值定理保证 ξ 存在，且 ξ∈[a,b]（加强版可在开区间）。",
+  "type": "choice"
+ },
+ {
+  "id": "math45",
+  "note": "Math",
+  "topic": "第5章 定积分与反常积分",
+  "question": "下列结论正确的是（ ）。",
+  "options": [
+   "可积函数必有界，但有界函数未必可积",
+   "可积必连续",
+   "有界必可积",
+   "连续函数未必可积"
+  ],
+  "answer": 0,
+  "explanation": "可积的必要条件是有界；狄利克雷函数有界但不可积；连续必可积。",
+  "type": "choice"
+ },
+ {
+  "id": "math46",
+  "note": "Math",
+  "topic": "第6章 定积分应用",
+  "question": "y=x² (0≤x≤1) 绕 x 轴旋转所得旋转体体积是（ ）。",
+  "options": [
+   "π/3",
+   "π/5",
+   "π/2",
+   "2π/5"
+  ],
+  "answer": 1,
+  "explanation": "V=π∫₀¹(x²)²dx=π∫₀¹x⁴dx=π/5≈0.6283。",
+  "type": "choice"
+ },
+ {
+  "id": "math47",
+  "note": "Math",
+  "topic": "第6章 定积分应用",
+  "question": "y=sin x (0≤x≤π) 与 x 轴围成图形的面积是（ ）。",
+  "options": [
+   "1",
+   "π",
+   "2",
+   "4"
+  ],
+  "answer": 2,
+  "explanation": "A=∫₀^π sin x dx=[−cos x]₀^π=2。",
+  "type": "choice"
+ },
+ {
+  "id": "math48",
+  "note": "Math",
+  "topic": "第6章 定积分应用",
+  "question": "曲线 y=f(x) 在 [a,b] 上的弧长公式是（ ）。",
+  "options": [
+   "∫ₐᵇ(1+y′)dx",
+   "∫ₐᵇ√(1+y′)dx",
+   "∫ₐᵇ(1+y′²)dx",
+   "∫ₐᵇ√(1 + y′²) dx"
+  ],
+  "answer": 3,
+  "explanation": "由微元 ds=√(dx²+dy²)=√(1+y′²)dx；参数式 ds=√(ẋ²+ẏ²)dt。",
+  "type": "choice"
+ },
+ {
+  "id": "math49",
+  "note": "Math",
+  "topic": "第6章 定积分应用",
+  "question": "极坐标曲线 r=r(θ) 在 [α,β] 上围成的扇形面积是（ ）。",
+  "options": [
+   "½∫ₐᵝ r²(θ)dθ",
+   "∫ₐᵝ r(θ)dθ",
+   "½∫ₐᵝ r(θ)dθ",
+   "∫ₐᵝ r²(θ)dθ"
+  ],
+  "answer": 0,
+  "explanation": "微元 dA=½r²dθ（扇形面积公式）。",
+  "type": "choice"
+ },
+ {
+  "id": "math50",
+  "note": "Math",
+  "topic": "第6章 定积分应用",
+  "question": "函数 f 在 [a,b] 上的平均值是（ ）。",
+  "options": [
+   "∫ₐᵇ f(x)dx",
+   "(1/(b−a))∫ₐᵇ f(x)dx",
+   "(b−a)∫ₐᵇ f(x)dx",
+   "f((a+b)/2)"
+  ],
+  "answer": 1,
+  "explanation": "由积分中值定理：平均值恰是某个 f(ξ)，但一般不等于中点函数值。",
+  "type": "choice"
+ },
+ {
+  "id": "math51",
+  "note": "Math",
+  "topic": "第7章 常微分方程",
+  "question": "微分方程 y′ + 2y = eˣ 的通解是（ ）。",
+  "options": [
+   "y = eˣ + Ce^{−2x}",
+   "y = ⅓eˣ + Ce^{2x}",
+   "y = ⅓eˣ + Ce^{−2x}",
+   "y = e^{−2x} + Ceˣ"
+  ],
+  "answer": 2,
+  "explanation": "积分因子 e^{2x} ⇒ (e^{2x}y)′=e^{3x} ⇒ y=⅓eˣ+Ce^{−2x}。",
+  "type": "choice"
+ },
+ {
+  "id": "math52",
+  "note": "Math",
+  "topic": "第7章 常微分方程",
+  "question": "y″ − 3y′ + 2y = 0 的通解是（ ）。",
+  "options": [
+   "(C₁+C₂x)eˣ",
+   "C₁cos x + C₂sin 2x",
+   "C₁e^{−x}+C₂e^{−2x}",
+   "C₁eˣ + C₂e^{2x}"
+  ],
+  "answer": 3,
+  "explanation": "特征方程 r²−3r+2=0 ⇒ r=1,2。",
+  "type": "choice"
+ },
+ {
+  "id": "math53",
+  "note": "Math",
+  "topic": "第7章 常微分方程",
+  "question": "y″ + 4y = 0 的通解是（ ）。",
+  "options": [
+   "C₁cos 2x + C₂sin 2x",
+   "C₁e^{2x}+C₂e^{−2x}",
+   "C₁cos x + C₂sin x",
+   "(C₁+C₂x)e^{2x}"
+  ],
+  "answer": 0,
+  "explanation": "特征根 r=±2i（α=0, β=2）。",
+  "type": "choice"
+ },
+ {
+  "id": "math54",
+  "note": "Math",
+  "topic": "第7章 常微分方程",
+  "question": "y″ + 4y = sin x 的一个特解是（ ）。",
+  "options": [
+   "sin x",
+   "(1/3)sin x",
+   "−(1/3)sin x",
+   "x sin x"
+  ],
+  "answer": 1,
+  "explanation": "设 y*=A sin x ⇒ (−A+4A)sin x=3A sin x=sin x ⇒ A=1/3；i 不是特征根故不必乘 x。",
+  "type": "choice"
+ },
+ {
+  "id": "math55",
+  "note": "Math",
+  "topic": "第7章 常微分方程",
+  "question": "y″ + 4y = sin 2x 的特解应设为（ ）。",
+  "options": [
+   "A cos 2x + B sin 2x",
+   "A sin 2x",
+   "x(A cos 2x + B sin 2x)",
+   "e^{2x}(A cos 2x+B sin 2x)"
+  ],
+  "answer": 2,
+  "explanation": "2i 是特征根（共振），必须乘 xᵏ（k=1）。",
+  "type": "choice"
+ },
+ {
+  "id": "math56",
+  "note": "Math",
+  "topic": "第7章 常微分方程",
+  "question": "伯努利方程 y′ + P(x)y = Q(x)yⁿ（n≠0,1）应作的代换是（ ）。",
+  "options": [
+   "z = yⁿ",
+   "z = ln y",
+   "z = 1/y",
+   "z = y^{1−n}"
+  ],
+  "answer": 3,
+  "explanation": "除以 yⁿ 后令 z=y^{1−n} 即化为一阶线性方程。",
+  "type": "choice"
+ },
+ {
+  "id": "math57",
+  "note": "Math",
+  "topic": "第7章 常微分方程",
+  "question": "二阶常系数齐次方程有两个相等实根 r 时，通解是（ ）。",
+  "options": [
+   "(C₁ + C₂x)e^{rx}",
+   "C₁e^{rx}+C₂e^{−rx}",
+   "C₁e^{rx}",
+   "e^{rx}(C₁cos x+C₂sin x)"
+  ],
+  "answer": 0,
+  "explanation": "重根情形第二个线性无关解为 x e^{rx}。",
+  "type": "choice"
+ },
+ {
+  "id": "math58",
+  "note": "Math",
+  "topic": "第7章 常微分方程",
+  "question": "欧拉方程 x²y″ + pxy′ + qy = f(x) 的常用代换是（ ）。",
+  "options": [
+   "x = t²",
+   "x = eᵗ",
+   "y = eᵗ",
+   "x = 1/t"
+  ],
+  "answer": 1,
+  "explanation": "令 t=ln x 后化为常系数线性方程；齐次情形也可设 y=xᵏ。",
+  "type": "choice"
+ },
+ {
+  "id": "math59",
+  "note": "Math",
+  "topic": "第7章 常微分方程",
+  "question": "关于非齐次线性方程解的结构，正确的是（ ）。",
+  "options": [
+   "通解 = 齐次通解",
+   "任意两个特解之和仍是特解",
+   "通解 = 齐次通解 + 一个非齐次特解",
+   "特解含全部任意常数"
+  ],
+  "answer": 2,
+  "explanation": "两非齐次特解之差是齐次解；特解不含任意常数。",
+  "type": "choice"
+ },
+ {
+  "id": "math60",
+  "note": "Math",
+  "topic": "第8章 空间解析几何",
+  "question": "a=(1,2,−1) 与 b=(3,0,2) 的数量积 a·b 是（ ）。",
+  "options": [
+   "3",
+   "−1",
+   "5",
+   "1"
+  ],
+  "answer": 3,
+  "explanation": "1×3+2×0+(−1)×2=3−2=1。",
+  "type": "choice"
+ },
+ {
+  "id": "math61",
+  "note": "Math",
+  "topic": "第8章 空间解析几何",
+  "question": "上题中 a×b 等于（ ）。",
+  "options": [
+   "(4, −5, −6)",
+   "(4, 5, 6)",
+   "(−4, 5, 6)",
+   "(2, −2, −6)"
+  ],
+  "answer": 0,
+  "explanation": "按行列式展开：i(2·2−(−1)·0)−j(1·2−(−1)·3)+k(1·0−2·3)=(4,−5,−6)。",
+  "type": "choice"
+ },
+ {
+  "id": "math62",
+  "note": "Math",
+  "topic": "第8章 空间解析几何",
+  "question": "三向量 a, b, c 共面的充要条件是（ ）。",
+  "options": [
+   "a·b=0",
+   "混合积 (a×b)·c = 0",
+   "a×b=0",
+   "|a|=|b|=|c|"
+  ],
+  "answer": 1,
+  "explanation": "混合积绝对值等于平行六面体体积，为 0 即三向量共面。",
+  "type": "choice"
+ },
+ {
+  "id": "math63",
+  "note": "Math",
+  "topic": "第8章 空间解析几何",
+  "question": "平面 2x − y + 2z − 3 = 0 的法向量是（ ）。",
+  "options": [
+   "(2, 1, 2)",
+   "(2, −1, −3)",
+   "(2, −1, 2)",
+   "(1, 1, 1)"
+  ],
+  "answer": 2,
+  "explanation": "一般式 Ax+By+Cz+D=0 的系数 (A,B,C) 即法向量，常数 D 不参与。",
+  "type": "choice"
+ },
+ {
+  "id": "math64",
+  "note": "Math",
+  "topic": "第8章 空间解析几何",
+  "question": "点 (0,0,0) 到平面 2x−y+2z−3=0 的距离是（ ）。",
+  "options": [
+   "3",
+   "1/3",
+   "0",
+   "1"
+  ],
+  "answer": 3,
+  "explanation": "d=|−3|/√(4+1+4)=3/3=1。",
+  "type": "choice"
+ },
+ {
+  "id": "math65",
+  "note": "Math",
+  "topic": "第8章 空间解析几何",
+  "question": "两平面夹角公式中使用的是（ ）。",
+  "options": [
+   "两法向量夹角的余弦绝对值",
+   "两法向量叉积的模",
+   "两法向量之和",
+   "常数项之差"
+  ],
+  "answer": 0,
+  "explanation": "cosθ=|n₁·n₂|/(|n₁||n₂|)，取绝对值保证得到锐角。",
+  "type": "choice"
+ },
+ {
+  "id": "math66",
+  "note": "Math",
+  "topic": "第8章 空间解析几何",
+  "question": "下列方程表示柱面的是（ ）。",
+  "options": [
+   "x²+y²+z²=1",
+   "x² + y² = 1",
+   "z=x²+y²",
+   "x²+y²−z²=1"
+  ],
+  "answer": 1,
+  "explanation": "方程缺变量 z ⇒ 母线平行于 z 轴，是圆柱面。",
+  "type": "choice"
+ },
+ {
+  "id": "math67",
+  "note": "Math",
+  "topic": "第8章 空间解析几何",
+  "question": "直线一般式（两平面交线）的方向向量应由（ ）得到。",
+  "options": [
+   "两平面法向量的数量积",
+   "两平面方程相加",
+   "两平面法向量的向量积",
+   "其中任一平面的法向量"
+  ],
+  "answer": 2,
+  "explanation": "s=n₁×n₂，同时垂直于两个法向量。",
+  "type": "choice"
+ },
+ {
+  "id": "math68",
+  "note": "Math",
+  "topic": "第9章 多元函数微分学",
+  "question": "关于二元函数，正确的是（ ）。",
+  "options": [
+   "偏导数存在必连续",
+   "偏导数存在必可微",
+   "连续必偏导存在",
+   "偏导数存在不能保证连续，更不能保证可微"
+  ],
+  "answer": 3,
+  "explanation": "多元与一元不同；偏导数连续 ⇒ 可微 ⇒ 连续是常用充分条件链。",
+  "type": "choice"
+ },
+ {
+  "id": "math69",
+  "note": "Math",
+  "topic": "第9章 多元函数微分学",
+  "question": "f(x,y) 在 (x₀,y₀) 可微的充分条件是（ ）。",
+  "options": [
+   "两个偏导数在该点邻域内存在且连续",
+   "两个偏导数存在",
+   "函数连续",
+   "各方向方向导数存在"
+  ],
+  "answer": 0,
+  "explanation": "偏导连续 ⇒ 可微（教材标准定理）；其余都只是必要或无关条件。",
+  "type": "choice"
+ },
+ {
+  "id": "math70",
+  "note": "Math",
+  "topic": "第9章 多元函数微分学",
+  "question": "f=x²y+sin(xy) 在 (0,1) 处的梯度是（ ）。",
+  "options": [
+   "(0, 1)",
+   "(1, 0)",
+   "(1, 1)",
+   "(0, 0)"
+  ],
+  "answer": 1,
+  "explanation": "fₓ=2xy+y cos(xy)=1，fᵧ=x²+x cos(xy)=0 ⇒ ∇f=(1,0)。",
+  "type": "choice"
+ },
+ {
+  "id": "math71",
+  "note": "Math",
+  "topic": "第9章 多元函数微分学",
+  "question": "上题中沿方向 e=(1/√2, 1/√2) 的方向导数是（ ）。",
+  "options": [
+   "1",
+   "0",
+   "1/√2",
+   "√2"
+  ],
+  "answer": 2,
+  "explanation": "可微时 ∂f/∂l=∇f·e=1·(1/√2)+0=1/√2≈0.7071。",
+  "type": "choice"
+ },
+ {
+  "id": "math72",
+  "note": "Math",
+  "topic": "第9章 多元函数微分学",
+  "question": "梯度 ∇f 的方向是（ ）。",
+  "options": [
+   "函数下降最快的方向",
+   "等值线的切线方向",
+   "函数值为零的方向",
+   "函数增长最快的方向"
+  ],
+  "answer": 3,
+  "explanation": "|∇f| 是最大方向导数；−∇f 是下降最快方向；梯度与等值面正交。",
+  "type": "choice"
+ },
+ {
+  "id": "math73",
+  "note": "Math",
+  "topic": "第9章 多元函数微分学",
+  "question": "曲面 F(x,y,z)=0 在点 P₀ 处的法向量是（ ）。",
+  "options": [
+   "∇F(P₀)",
+   "曲面上任一切向量",
+   "(1,1,1)",
+   "F(P₀) 本身"
+  ],
+  "answer": 0,
+  "explanation": "切平面方程 Fₓ(x−x₀)+Fᵧ(y−y₀)+F_z(z−z₀)=0。",
+  "type": "choice"
+ },
+ {
+  "id": "math74",
+  "note": "Math",
+  "topic": "第9章 多元函数微分学",
+  "question": "二元函数极值判别中 Δ=AC−B²<0 表示（ ）。",
+  "options": [
+   "极大值",
+   "鞍点（非极值点）",
+   "极小值",
+   "判别失效"
+  ],
+  "answer": 1,
+  "explanation": "二次型不定，沿不同方向 Δf 符号相反。Δ=0 才是判别失效。",
+  "type": "choice"
+ },
+ {
+  "id": "math75",
+  "note": "Math",
+  "topic": "第9章 多元函数微分学",
+  "question": "f=x²+y² 在约束 x+y=1 下的最小值是（ ）。",
+  "options": [
+   "1",
+   "1/4",
+   "1/2",
+   "0"
+  ],
+  "answer": 2,
+  "explanation": "拉格朗日 L=x²+y²−λ(x+y−1) ⇒ x=y=1/2 ⇒ f=1/4+1/4=1/2。",
+  "type": "choice"
+ },
+ {
+  "id": "math76",
+  "note": "Math",
+  "topic": "第9章 多元函数微分学",
+  "question": "二阶混合偏导 fₓᵧ = fᵧₓ 成立的条件是（ ）。",
+  "options": [
+   "f 连续",
+   "fₓ, fᵧ 存在",
+   "f 可微",
+   "两个二阶混合偏导连续"
+  ],
+  "answer": 3,
+  "explanation": "克莱罗（施瓦茨）定理；不连续时可能不等。",
+  "type": "choice"
+ },
+ {
+  "id": "math77",
+  "note": "Math",
+  "topic": "第10章 重积分",
+  "question": "交换积分次序：∫₀¹dx∫ₓ¹ f(x,y)dy 等于（ ）。",
+  "options": [
+   "∫₀¹dy∫₀ʸ f(x,y)dx",
+   "∫₀¹dy∫_y¹ f dx",
+   "∫₀¹dy∫₀¹ f dx",
+   "∫ₓ¹dy∫₀¹ f dx"
+  ],
+  "answer": 0,
+  "explanation": "区域 0≤x≤y≤1，换序后先对 x 从 0 到 y。",
+  "type": "choice"
+ },
+ {
+  "id": "math78",
+  "note": "Math",
+  "topic": "第10章 重积分",
+  "question": "极坐标下的面积元是（ ）。",
+  "options": [
+   "dr dθ",
+   "r dr dθ",
+   "r² dr dθ",
+   "2πr dr"
+  ],
+  "answer": 1,
+  "explanation": "雅可比 |∂(x,y)/∂(r,θ)|=r，漏 r 是最高频错误。",
+  "type": "choice"
+ },
+ {
+  "id": "math79",
+  "note": "Math",
+  "topic": "第10章 重积分",
+  "question": "∬_{x²+y²≤1} e^{−(x²+y²)}dxdy 的值是（ ）。",
+  "options": [
+   "π",
+   "π/2",
+   "π(1 − e⁻¹)",
+   "1 − e⁻¹"
+  ],
+  "answer": 2,
+  "explanation": "2π∫₀¹ r e^{−r²}dr = π(1−e⁻¹)≈1.9859。",
+  "type": "choice"
+ },
+ {
+  "id": "math80",
+  "note": "Math",
+  "topic": "第10章 重积分",
+  "question": "球坐标下的体积元是（ ）。",
+  "options": [
+   "ρ² dρ dφ dθ",
+   "ρ sinφ dρ dφ dθ",
+   "ρ² cosφ dρ dφ dθ",
+   "ρ² sinφ dρ dφ dθ"
+  ],
+  "answer": 3,
+  "explanation": "φ 是与 z 轴正向夹角（0≤φ≤π），雅可比含 sinφ。",
+  "type": "choice"
+ },
+ {
+  "id": "math81",
+  "note": "Math",
+  "topic": "第10章 重积分",
+  "question": "半径为 R 的球体体积用三重积分计算的结果是（ ）。",
+  "options": [
+   "4πR³/3",
+   "πR³",
+   "4πR²",
+   "2πR³/3"
+  ],
+  "answer": 0,
+  "explanation": "球坐标 ∫₀^{2π}dθ∫₀^π sinφ dφ∫₀^R ρ²dρ = 2π·2·R³/3。",
+  "type": "choice"
+ },
+ {
+  "id": "math82",
+  "note": "Math",
+  "topic": "第10章 重积分",
+  "question": "上半球体（x²+y²+z²≤1, z≥0）上 ∭ z dV 的值是（ ）。",
+  "options": [
+   "π/2",
+   "π/4",
+   "π/8",
+   "4π/3"
+  ],
+  "answer": 1,
+  "explanation": "2π·∫₀^{π/2}sinφcosφ dφ·∫₀¹ρ³dρ = 2π·(1/2)·(1/4)=π/4。",
+  "type": "choice"
+ },
+ {
+  "id": "math83",
+  "note": "Math",
+  "topic": "第10章 重积分",
+  "question": "曲面 z=z(x,y) 的面积公式是（ ）。",
+  "options": [
+   "A = ∬(1+zₓ+zᵧ)dxdy",
+   "A = ∬ z dxdy",
+   "A = ∬√(1 + zₓ² + zᵧ²) dxdy",
+   "A = ∬√(1+zₓ)dxdy"
+  ],
+  "answer": 2,
+  "explanation": "由面积微元 dS=√(1+zₓ²+zᵧ²)dxdy（投影到 xOy 面）。",
+  "type": "choice"
+ },
+ {
+  "id": "math84",
+  "note": "Math",
+  "topic": "第10章 重积分",
+  "question": "∬_D e^{−y²}dxdy（D: 0≤x≤y≤1）的正确做法是（ ）。",
+  "options": [
+   "先对 y 积分",
+   "用极坐标直接算",
+   "用分部积分",
+   "交换积分次序先对 x 积分"
+  ],
+  "answer": 3,
+  "explanation": "e^{−y²} 无初等原函数，换序后 ∫₀¹ y e^{−y²}dy=½(1−e⁻¹)。",
+  "type": "choice"
+ },
+ {
+  "id": "math85",
+  "note": "Math",
+  "topic": "第11章 曲线曲面积分与场论",
+  "question": "第一类曲线积分 ∫_L f ds 的特点是（ ）。",
+  "options": [
+   "与曲线方向无关",
+   "反向积分变号",
+   "必须指定起点",
+   "只适用于闭曲线"
+  ],
+  "answer": 0,
+  "explanation": "对弧长积分是标量累加；第二类（对坐标）才与方向有关、反向变号。",
+  "type": "choice"
+ },
+ {
+  "id": "math86",
+  "note": "Math",
+  "topic": "第11章 曲线曲面积分与场论",
+  "question": "格林公式 ∮_L Pdx+Qdy = ∬_D(Qₓ−Pᵧ)dxdy 要求 L 为（ ）。",
+  "options": [
+   "任意曲线",
+   "正向（逆时针）分段光滑闭曲线",
+   "顺时针闭曲线",
+   "开曲线"
+  ],
+  "answer": 1,
+  "explanation": "还要求 P,Q 在 D 上有一阶连续偏导；区域内有奇点须挖洞。",
+  "type": "choice"
+ },
+ {
+  "id": "math87",
+  "note": "Math",
+  "topic": "第11章 曲线曲面积分与场论",
+  "question": "单位圆（逆时针）上 ∮ x dy − y dx 的值是（ ）。",
+  "options": [
+   "π",
+   "0",
+   "2π",
+   "4π"
+  ],
+  "answer": 2,
+  "explanation": "取 P=−y, Q=x ⇒ Qₓ−Pᵧ=2 ⇒ ∬_D 2dxdy=2π；参数化也直接得 ∫₀^{2π}dt。",
+  "type": "choice"
+ },
+ {
+  "id": "math88",
+  "note": "Math",
+  "topic": "第11章 曲线曲面积分与场论",
+  "question": "单位球面上 ∯ x dydz + y dzdx + z dxdy 的值是（ ）。",
+  "options": [
+   "4π/3",
+   "2π",
+   "0",
+   "4π"
+  ],
+  "answer": 3,
+  "explanation": "高斯：∭3dV=3·(4π/3)=4π。",
+  "type": "choice"
+ },
+ {
+  "id": "math89",
+  "note": "Math",
+  "topic": "第11章 曲线曲面积分与场论",
+  "question": "高斯公式中曲面 Σ 应取（ ）。",
+  "options": [
+   "闭曲面的外侧",
+   "闭曲面的内侧",
+   "任意开曲面",
+   "任意侧均可"
+  ],
+  "answer": 0,
+  "explanation": "取内侧则整体变号；非闭曲面需补面后再减去。",
+  "type": "choice"
+ },
+ {
+  "id": "math90",
+  "note": "Math",
+  "topic": "第11章 曲线曲面积分与场论",
+  "question": "向量场 A=(x, y, z) 的散度 div A 是（ ）。",
+  "options": [
+   "0",
+   "3",
+   "(1,1,1)",
+   "x+y+z"
+  ],
+  "answer": 1,
+  "explanation": "∂x/∂x+∂y/∂y+∂z/∂z=3；散度是标量不是向量。",
+  "type": "choice"
+ },
+ {
+  "id": "math91",
+  "note": "Math",
+  "topic": "第11章 曲线曲面积分与场论",
+  "question": "向量场 A=(−y, x, 0) 的旋度 rot A 是（ ）。",
+  "options": [
+   "(0, 0, 0)",
+   "2",
+   "(0, 0, 2)",
+   "(1, 1, 0)"
+  ],
+  "answer": 2,
+  "explanation": "rot A=(∂R/∂y−∂Q/∂z, ∂P/∂z−∂R/∂x, ∂Q/∂x−∂P/∂y)=(0,0,1−(−1))=(0,0,2)。",
+  "type": "choice"
+ },
+ {
+  "id": "math92",
+  "note": "Math",
+  "topic": "第11章 曲线曲面积分与场论",
+  "question": "单连通域内曲线积分与路径无关的充要条件是（ ）。",
+  "options": [
+   "P = Q",
+   "Pₓ = Qᵧ",
+   "∮ 沿一条闭曲线为 0 即可（对任意闭曲线不要求）",
+   "∂P/∂y = ∂Q/∂x"
+  ],
+  "answer": 3,
+  "explanation": "还等价于 Pdx+Qdy 为某函数 u 的全微分；注意必须是单连通域。",
+  "type": "choice"
+ },
+ {
+  "id": "math93",
+  "note": "Math",
+  "topic": "第12章 无穷级数",
+  "question": "级数 Σuₙ 收敛的必要条件是（ ）。",
+  "options": [
+   "lim uₙ = 0",
+   "lim uₙ = 1",
+   "Σ|uₙ| 收敛",
+   "uₙ 单调递减"
+  ],
+  "answer": 0,
+  "explanation": "只是必要非充分：调和级数 Σ1/n 通项趋于 0 但发散。",
+  "type": "choice"
+ },
+ {
+  "id": "math94",
+  "note": "Math",
+  "topic": "第12章 无穷级数",
+  "question": "p 级数 Σ1/nᵖ 收敛的条件是（ ）。",
+  "options": [
+   "p < 1",
+   "p > 1",
+   "p ≥ 1",
+   "p ≠ 1"
+  ],
+  "answer": 1,
+  "explanation": "积分判别法：∫₁^∞x^{−p}dx 仅当 p>1 收敛。",
+  "type": "choice"
+ },
+ {
+  "id": "math95",
+  "note": "Math",
+  "topic": "第12章 无穷级数",
+  "question": "比值判别法中 ρ = lim uₙ₊₁/uₙ = 1 时（ ）。",
+  "options": [
+   "级数收敛",
+   "级数发散",
+   "判别法失效，需换其他方法",
+   "级数条件收敛"
+  ],
+  "answer": 2,
+  "explanation": "Σ1/n 与 Σ1/n² 的 ρ 都等于 1，但敛散不同。",
+  "type": "choice"
+ },
+ {
+  "id": "math96",
+  "note": "Math",
+  "topic": "第12章 无穷级数",
+  "question": "幂级数 Σ xⁿ/n 的收敛域是（ ）。",
+  "options": [
+   "(−1, 1)",
+   "(−1, 1]",
+   "[−1, 1]",
+   "[−1, 1)"
+  ],
+  "answer": 3,
+  "explanation": "R=1；x=1 时 Σ1/n 发散，x=−1 时交错调和级数收敛。",
+  "type": "choice"
+ },
+ {
+  "id": "math97",
+  "note": "Math",
+  "topic": "第12章 无穷级数",
+  "question": "Σ_{n=1}^∞ n xⁿ 的和函数（|x|<1）是（ ）。",
+  "options": [
+   "x/(1−x)²",
+   "1/(1−x)²",
+   "x/(1−x)",
+   "1/(1−x)"
+  ],
+  "answer": 0,
+  "explanation": "由 Σxⁿ=1/(1−x) 逐项求导乘 x；验算 x=1/2 得 2。",
+  "type": "choice"
+ },
+ {
+  "id": "math98",
+  "note": "Math",
+  "topic": "第12章 无穷级数",
+  "question": "Σ_{n=1}^∞ 1/[n(n+1)] 的和是（ ）。",
+  "options": [
+   "1/2",
+   "1",
+   "2",
+   "ln 2"
+  ],
+  "answer": 1,
+  "explanation": "裂项 1/n−1/(n+1) ⇒ 部分和 1−1/(N+1)→1。",
+  "type": "choice"
+ },
+ {
+  "id": "math99",
+  "note": "Math",
+  "topic": "第12章 无穷级数",
+  "question": "交错级数 Σ(−1)ⁿ⁺¹/n（ ）。",
+  "options": [
+   "绝对收敛",
+   "发散",
+   "条件收敛",
+   "无法判断"
+  ],
+  "answer": 2,
+  "explanation": "莱布尼茨判收敛；但 Σ1/n 发散 ⇒ 非绝对收敛，和为 ln 2。",
+  "type": "choice"
+ },
+ {
+  "id": "math100",
+  "note": "Math",
+  "topic": "第12章 无穷级数",
+  "question": "周期为 2π 的函数 f(x)=x（−π,π）的傅里叶级数（ ）。",
+  "options": [
+   "只含余弦项",
+   "同时含正余弦",
+   "只含常数项",
+   "只含正弦项"
+  ],
+  "answer": 3,
+  "explanation": "f 为奇函数 ⇒ 所有 aₙ=0，展开为 x=2Σ(−1)ⁿ⁺¹sin(nx)/n。",
+  "type": "choice"
+ },
+ {
+  "id": "math101",
+  "note": "Math",
+  "topic": "第1章 函数极限连续",
+  "question": "两个重要极限之一是 lim_{x→0}(1+x)^{1/x} = e。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "与 lim_{x→∞}(1+1/x)ˣ=e 等价。",
+  "type": "judge"
+ },
+ {
+  "id": "math102",
+  "note": "Math",
+  "topic": "第1章 函数极限连续",
+  "question": "在加减运算中可以随意使用等价无穷小替换。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "主阶可能被抵消；加减型须用泰勒展开。",
+  "type": "judge"
+ },
+ {
+  "id": "math103",
+  "note": "Math",
+  "topic": "第2章 导数与微分",
+  "question": "函数在某点可导，则它在该点必定连续。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "一元情形可导 ⇒ 连续；多元偏导存在则不能保证连续。",
+  "type": "judge"
+ },
+ {
+  "id": "math104",
+  "note": "Math",
+  "topic": "第3章 中值定理与导数应用",
+  "question": "f″(x₀)=0 是曲线在 x₀ 处有拐点的充分条件。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "既非充分也非必要；f=x⁴ 在 0 有 f″=0 但不是拐点。",
+  "type": "judge"
+ },
+ {
+  "id": "math105",
+  "note": "Math",
+  "topic": "第4章 不定积分",
+  "question": "连续函数一定存在原函数。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "积分上限函数就是一个原函数；但有第一类间断点的函数没有原函数。",
+  "type": "judge"
+ },
+ {
+  "id": "math106",
+  "note": "Math",
+  "topic": "第5章 定积分与反常积分",
+  "question": "反常积分 ∫₀¹ dx/xᵖ 当 p>1 时收敛。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "瑕积分需 p<1 才收敛；p>1 是无穷区间的收敛条件。",
+  "type": "judge"
+ },
+ {
+  "id": "math107",
+  "note": "Math",
+  "topic": "第7章 常微分方程",
+  "question": "若 λ 是特征方程的单根，则非齐次特解需多乘一个因子 x。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "共振修正：k 为 λ 作为特征根的重数。",
+  "type": "judge"
+ },
+ {
+  "id": "math108",
+  "note": "Math",
+  "topic": "第8章 空间解析几何",
+  "question": "向量积满足交换律 a×b = b×a。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "向量积反交换：a×b = −b×a；数量积才满足交换律。",
+  "type": "judge"
+ },
+ {
+  "id": "math109",
+  "note": "Math",
+  "topic": "第9章 多元函数微分学",
+  "question": "二元函数两个偏导数都存在，则函数必定连续。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "多元与一元不同，偏导存在甚至不能保证连续。",
+  "type": "judge"
+ },
+ {
+  "id": "math110",
+  "note": "Math",
+  "topic": "第10章 重积分",
+  "question": "极坐标下的面积元是 dr dθ。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "应为 r dr dθ，雅可比 r 不可漏。",
+  "type": "judge"
+ },
+ {
+  "id": "math111",
+  "note": "Math",
+  "topic": "第11章 曲线曲面积分与场论",
+  "question": "第二类曲线积分在路径反向时其值变号。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "第一类（对弧长）与方向无关，第二类与方向有关。",
+  "type": "judge"
+ },
+ {
+  "id": "math112",
+  "note": "Math",
+  "topic": "第11章 曲线曲面积分与场论",
+  "question": "对含奇点的区域应用格林公式前，须先挖去奇点的邻域（挖洞）。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 0,
+  "explanation": "环形域内偏导连续可用格林；经典例 ∮(x dy−y dx)/(x²+y²) 沿单位圆结果为 2π 而非 0。",
+  "type": "judge"
+ },
+ {
+  "id": "math113",
+  "note": "Math",
+  "topic": "第12章 无穷级数",
+  "question": "若级数 Σuₙ 收敛，则 Σ|uₙ| 必定收敛。",
+  "options": [
+   "正确",
+   "错误"
+  ],
+  "answer": 1,
+  "explanation": "交错调和级数收敛但 Σ1/n 发散，属条件收敛。",
+  "type": "judge"
+ },
+ {
+  "id": "math114",
+  "note": "Math",
+  "topic": "第1章 函数极限连续",
+  "question": "下列极限中，值为 1 的有（ ）。",
+  "options": [
+   "lim_{x→0} sin x/x",
+   "lim_{x→0} ln(1+x)/x",
+   "lim_{x→0}(1−cos x)/x²",
+   "lim_{x→0}(eˣ−1)/x"
+  ],
+  "answer": [
+   0,
+   1,
+   3
+  ],
+  "explanation": "(1−cos x)/x² → 1/2，其余三个都趋于 1。",
+  "type": "multi"
+ },
+ {
+  "id": "math115",
+  "note": "Math",
+  "topic": "第3章 中值定理与导数应用",
+  "question": "下列属于闭区间上连续函数性质的有（ ）。",
+  "options": [
+   "有界性",
+   "最大值最小值定理",
+   "介值定理",
+   "处处可导"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "连续不保证可导（|x| 在 0）。",
+  "type": "multi"
+ },
+ {
+  "id": "math116",
+  "note": "Math",
+  "topic": "第5章 定积分与反常积分",
+  "question": "下列定积分值为 0 的有（ ）。",
+  "options": [
+   "∫_{−1}^{1} x³ dx",
+   "∫_{−1}^{1} sin x dx",
+   "∫_{−1}^{1} x² dx",
+   "∫_{−π}^{π} sin x cos x dx"
+  ],
+  "answer": [
+   0,
+   1,
+   3
+  ],
+  "explanation": "奇函数在对称区间积分为 0；∫_{−1}^{1}x²dx=2/3 不为 0。",
+  "type": "multi"
+ },
+ {
+  "id": "math117",
+  "note": "Math",
+  "topic": "第7章 常微分方程",
+  "question": "下列属于一阶微分方程标准类型的有（ ）。",
+  "options": [
+   "可分离变量方程",
+   "齐次方程 y′=φ(y/x)",
+   "一阶线性方程",
+   "伯努利方程"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "explanation": "四类均为一阶方程的常见可解类型（全微分方程也属其一）。",
+  "type": "multi"
+ },
+ {
+  "id": "math118",
+  "note": "Math",
+  "topic": "第9章 多元函数微分学",
+  "question": "关于梯度与方向导数，正确的有（ ）。",
+  "options": [
+   "梯度方向是函数增长最快的方向",
+   "|∇f| 是最大方向导数",
+   "梯度与等值面正交",
+   "可微时方向导数等于 ∇f·e"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "explanation": "四项都是梯度的基本性质；方向导数定义式本身不要求可微。",
+  "type": "multi"
+ },
+ {
+  "id": "math119",
+  "note": "Math",
+  "topic": "第12章 无穷级数",
+  "question": "下列级数收敛的有（ ）。",
+  "options": [
+   "Σ1/n²",
+   "Σ(−1)ⁿ⁺¹/n",
+   "Σ1/[n(n+1)]",
+   "Σ1/√n"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "Σ1/√n 是 p=1/2 的 p 级数，发散；前三项分别绝对收敛、条件收敛、收敛于 1。",
+  "type": "multi"
+ },
+ {
+  "id": "math120",
+  "note": "Math",
+  "topic": "第1章 函数极限连续",
+  "question": "lim_{x→0} (tan x − sin x)/x³ = ______。",
+  "options": [],
+  "answer": "1/2",
+  "explanation": "tan x−sin x ~ x³/2。",
+  "type": "fill"
+ },
+ {
+  "id": "math121",
+  "note": "Math",
+  "topic": "第3章 中值定理与导数应用",
+  "question": "曲线 y=x³−3x²+1 的拐点横坐标是 ______。",
+  "options": [],
+  "answer": "1",
+  "explanation": "f″=6x−6=0 ⇒ x=1。",
+  "type": "fill"
+ },
+ {
+  "id": "math122",
+  "note": "Math",
+  "topic": "第4章 不定积分",
+  "question": "∫ x eˣ dx = ______ + C。",
+  "options": [],
+  "answer": "(x-1)e^x",
+  "explanation": "分部积分；验算求导得 x eˣ。",
+  "type": "fill"
+ },
+ {
+  "id": "math123",
+  "note": "Math",
+  "topic": "第5章 定积分与反常积分",
+  "question": "∫₀^{π/2} sin²x dx = ______。",
+  "options": [],
+  "answer": "π/4",
+  "explanation": "华里士公式 I₂=π/4。",
+  "type": "fill"
+ },
+ {
+  "id": "math124",
+  "note": "Math",
+  "topic": "第7章 常微分方程",
+  "question": "y″−3y′+2y=0 的特征方程的两个根是 ______。",
+  "options": [],
+  "answer": "1和2",
+  "explanation": "r²−3r+2=(r−1)(r−2)=0。",
+  "type": "fill"
+ },
+ {
+  "id": "math125",
+  "note": "Math",
+  "topic": "第9章 多元函数微分学",
+  "question": "f=x²+y² 在约束 x+y=1 下的最小值是 ______。",
+  "options": [],
+  "answer": "1/2",
+  "explanation": "拉格朗日乘数法得 x=y=1/2。",
+  "type": "fill"
+ },
+ {
+  "id": "math126",
+  "note": "Math",
+  "topic": "第10章 重积分",
+  "question": "半径为 1 的球体体积为 ______。",
+  "options": [],
+  "answer": "4π/3",
+  "explanation": "∭1 dV = 4πR³/3，R=1。",
+  "type": "fill"
+ },
+ {
+  "id": "math127",
+  "note": "Math",
+  "topic": "第12章 无穷级数",
+  "question": "Σ_{n=1}^∞ 1/[n(n+1)] 的和是 ______。",
+  "options": [],
+  "answer": "1",
+  "explanation": "裂项相消。",
+  "type": "fill"
+ },
+ {
+  "id": "math128",
+  "note": "Math",
+  "topic": "第1章 函数极限连续",
+  "question": "求极限 lim_{x→0} (eˣ − 1 − x)/x²，并说明为何不能直接用洛必达之外的等价无穷小替换。",
+  "options": [],
+  "answer": "1/2。",
+  "explanation": "方法一（泰勒）：eˣ=1+x+x²/2+o(x²) ⇒ 分子=x²/2+o(x²) ⇒ 极限 1/2。方法二（洛必达两次）：第一次得 (eˣ−1)/(2x) 仍为 0/0，第二次得 eˣ/2 → 1/2。若把 eˣ−1 直接替换成 x，分子变成 0，主阶被抵消 ⇒ 加减型必须使用泰勒展开。数值验证 x=1e−4 时约 0.50002。",
+  "type": "essay"
+ },
+ {
+  "id": "math129",
+  "note": "Math",
+  "topic": "第2章 导数与微分",
+  "question": "设 f(x)=x² sin(1/x)（x≠0）且 f(0)=0，判断 f 在 x=0 是否可导、导函数是否连续，并给出理由。",
+  "options": [],
+  "answer": "可导，f′(0)=0；但导函数在 0 处不连续。",
+  "explanation": "由定义 f′(0)=lim_{x→0}[x²sin(1/x)]/x=lim x sin(1/x)=0（无穷小×有界量）。当 x≠0 时 f′(x)=2x sin(1/x)−cos(1/x)，其中 cos(1/x) 在 x→0 时振荡无极限 ⇒ f′ 在 0 不连续。这是「可导但导函数不连续」的标准反例。",
+  "type": "essay"
+ },
+ {
+  "id": "math130",
+  "note": "Math",
+  "topic": "第3章 中值定理与导数应用",
+  "question": "求 f(x)=x³−3x²+1 的单调区间、极值、拐点与渐近线。",
+  "options": [],
+  "answer": "增区间 (−∞,0) 与 (2,+∞)，减区间 (0,2)；极大 f(0)=1、极小 f(2)=−3；拐点 (1,−1)；无渐近线。",
+  "explanation": "f′=3x²−6x=3x(x−2)，驻点 0、2；列表判符号得单调与极值。f″=6x−6=0 ⇒ x=1 且两侧变号，f(1)=−1 ⇒ 拐点 (1,−1)。多项式在有限点无定义不存在、x→±∞ 时 f→±∞ 无水平线，且 f/x→∞ 无斜渐近线。",
+  "type": "essay"
+ },
+ {
+  "id": "math131",
+  "note": "Math",
+  "topic": "第3章 中值定理与导数应用",
+  "question": "证明：当 x>0 时 ln(1+x) < x。",
+  "options": [],
+  "answer": "令 F(x)=x−ln(1+x)，由 F(0)=0 且 F′(x)=x/(1+x)>0（x>0）得 F(x)>0 ⇒ ln(1+x)<x。",
+  "explanation": "构造辅助函数 + 单调性是最标准的证明模板。也可由拉格朗日中值定理：ln(1+x)=x/(1+ξ)（0<ξ<x）<x。注意严格不等号来自 x>0 与 ξ>0。",
+  "type": "essay"
+ },
+ {
+  "id": "math132",
+  "note": "Math",
+  "topic": "第4章 不定积分",
+  "question": "计算 ∫ x cos x dx 与 ∫ ln x dx，并对结果求导验算。",
+  "options": [],
+  "answer": "∫x cos x dx = x sin x + cos x + C；∫ln x dx = x ln x − x + C。",
+  "explanation": "分部取 u=x、dv=cos x dx ⇒ x sin x−∫sin x dx=x sin x+cos x+C；验算 (x sin x+cos x)′=sin x+x cos x−sin x=x cos x ✓。∫ln x dx=x ln x−∫x·(1/x)dx=x ln x−x+C；验算 (x ln x−x)′=ln x+1−1=ln x ✓。",
+  "type": "essay"
+ },
+ {
+  "id": "math133",
+  "note": "Math",
+  "topic": "第5章 定积分与反常积分",
+  "question": "计算 ∫₀^{π/2} sin²x dx、∫₀¹ x eˣ dx、∫₀^π x sin x dx，并说明所用技巧。",
+  "options": [],
+  "answer": "分别为 π/4、1、π。",
+  "explanation": "① sin²x=(1−cos2x)/2 ⇒ [x/2−sin2x/4]₀^{π/2}=π/4（或华里士 I₂）。② 分部得 [(x−1)eˣ]₀¹=0−(−1)=1。③ 区间再现：令 t=π−x 得 I=∫₀^π(π−t)sin t dt=π∫₀^π sin t dt−I ⇒ 2I=π·2 ⇒ I=π。数值验证：Simpson 积分分别得 0.78539816、1.0、3.14159265。",
+  "type": "essay"
+ },
+ {
+  "id": "math134",
+  "note": "Math",
+  "topic": "第5章 定积分与反常积分",
+  "question": "判定 ∫₁^∞ dx/xᵖ 与 ∫₀¹ dx/xᵖ 的敛散条件，并计算 p=2 时第一个积分的值。",
+  "options": [],
+  "answer": "无穷区间 p>1 收敛；瑕积分 p<1 收敛；p=2 时 ∫₁^∞dx/x²=1。",
+  "explanation": "p≠1 时 ∫₁^b x^{−p}dx=(b^{1−p}−1)/(1−p)，b→∞ 仅当 p>1 有有限极限 1/(p−1)；p=1 时得 ln b→∞。同理 ∫_ε¹ x^{−p}dx 在 ε→0 时仅当 p<1 收敛于 1/(1−p)。两处方向相反，最易记反。",
+  "type": "essay"
+ },
+ {
+  "id": "math135",
+  "note": "Math",
+  "topic": "第7章 常微分方程",
+  "question": "求 y′+2y=eˣ 的通解，并求 y″+4y=sin x 的通解。",
+  "options": [],
+  "answer": "y=⅓eˣ+Ce^{−2x}；y=C₁cos2x+C₂sin2x+(1/3)sin x。",
+  "explanation": "① 积分因子 e^{2x} ⇒ (e^{2x}y)′=e^{3x} ⇒ e^{2x}y=⅓e^{3x}+C ⇒ y=⅓eˣ+Ce^{−2x}；代入验算 y′+2y=eˣ ✓。② 特征根 ±2i ⇒ 齐次解 C₁cos2x+C₂sin2x；因 i 不是特征根设 y*=A sin x，代入得 3A=1 ⇒ A=1/3。若右端为 sin 2x 则共振，须乘 x。",
+  "type": "essay"
+ },
+ {
+  "id": "math136",
+  "note": "Math",
+  "topic": "第8章 空间解析几何",
+  "question": "已知 a=(1,2,−1)、b=(3,0,2)，求 a·b、a×b、|a|，并求点 (0,0,0) 到平面 2x−y+2z−3=0 的距离。",
+  "options": [],
+  "answer": "a·b=1；a×b=(4,−5,−6)；|a|=√6；点到平面距离 d=1。",
+  "explanation": "a·b=3+0−2=1。叉积分量：(2·2−(−1)·0, (−1)·3−1·2, 1·0−2·3)=(4,−5,−6)；验算与 a、b 都正交（点积均为 0）。|a|=√(1+4+1)=√6。平面法向量 (2,−1,2)，模 3 ⇒ d=|−3|/3=1。",
+  "type": "essay"
+ },
+ {
+  "id": "math137",
+  "note": "Math",
+  "topic": "第9章 多元函数微分学",
+  "question": "求 f=x²y+sin(xy) 在 (0,1) 的梯度、沿 e=(1/√2,1/√2) 的方向导数，以及 f=x²+y² 在 x+y=1 下的最小值。",
+  "options": [],
+  "answer": "∇f=(1,0)；方向导数 1/√2≈0.7071；条件最小值 1/2。",
+  "explanation": "fₓ=2xy+y cos(xy)、fᵧ=x²+x cos(xy)，在 (0,1) 得 (1,0)。可微时 ∂f/∂l=∇f·e=1/√2；最大方向导数 |∇f|=1。条件极值：L=x²+y²−λ(x+y−1) ⇒ 2x=λ, 2y=λ ⇒ x=y=1/2 ⇒ f=1/2。",
+  "type": "essay"
+ },
+ {
+  "id": "math138",
+  "note": "Math",
+  "topic": "第10章 重积分",
+  "question": "计算 ∬_{x²+y²≤1} e^{−(x²+y²)}dxdy，并把 ∫₀¹dx∫ₓ¹f(x,y)dy 交换积分次序。",
+  "options": [],
+  "answer": "π(1−e⁻¹)≈1.9859；换序结果为 ∫₀¹dy∫₀ʸ f(x,y)dx。",
+  "explanation": "① 极坐标：∫₀^{2π}dθ∫₀¹e^{−r²}r dr=2π·[−½e^{−r²}]₀¹=π(1−e⁻¹)。② 原区域 0≤x≤1、x≤y≤1 即三角形 0≤x≤y≤1，改为先 x 后 y ⇒ 0≤y≤1、0≤x≤y。",
+  "type": "essay"
+ },
+ {
+  "id": "math139",
+  "note": "Math",
+  "topic": "第11章 曲线曲面积分与场论",
+  "question": "用格林公式计算单位圆（逆时针）上的 ∮ x dy − y dx，并说明为何 ∮(x dy−y dx)/(x²+y²) 不能直接套用格林公式。",
+  "options": [],
+  "answer": "前者 2π；后者因原点为奇点，需挖洞，结果仍为 2π。",
+  "explanation": "前者取 P=−y, Q=x ⇒ Qₓ−Pᵧ=2 ⇒ ∬_D 2dxdy=2π（也可参数化 x=cos t,y=sin t 得 ∫₀^{2π}dt=2π）。后者 P,Q 在原点无定义、偏导不连续，直接算旋度为 0 会错误地得 0；正确做法是挖去半径 ε 的小圆，在环形域用格林（旋度为 0）⇒ 原积分等于小圆上的积分 = 2π。",
+  "type": "essay"
+ },
+ {
+  "id": "math140",
+  "note": "Math",
+  "topic": "第12章 无穷级数",
+  "question": "判定 Σ1/n²、Σ(−1)ⁿ⁺¹/n、Σ n/2ⁿ 的敛散性，求 Σ_{n=1}^∞ n xⁿ 的和函数并验证 x=1/2。",
+  "options": [],
+  "answer": "前三者分别绝对收敛、条件收敛、收敛；和函数 x/(1−x)²（|x|<1），x=1/2 时为 2。",
+  "explanation": "① p=2>1 收敛（且绝对收敛）。② 莱布尼茨判收敛，但 Σ1/n 发散 ⇒ 条件收敛，和为 ln2。③ 比值 ρ=lim[(n+1)/2^{n+1}]/[n/2ⁿ]=1/2<1 ⇒ 收敛。④ 由 Σxⁿ=1/(1−x) 逐项求导得 Σn x^{n−1}=1/(1−x)²，乘 x 得 Σn xⁿ=x/(1−x)²；x=1/2 ⇒ 0.5/0.25=2，前 50 项部分和亦为 2.0000。",
+  "type": "essay"
  }
 ]
