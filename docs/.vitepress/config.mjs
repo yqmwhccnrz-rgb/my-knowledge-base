@@ -75,7 +75,7 @@ const PAGE_DESCRIPTIONS = {
   'quiz.md': '按 23 门科目随机抽题，覆盖单选、多选、判断、填空、程序设计与计算分析题，提交后即时判分并查看解析。',
   'listening.md': '75 段英语听力真题，按章节与分段筛选，支持逐句高亮对照英文原文与中文翻译。',
   'dictation.md': '200 个听写片段，盲听打字后逐词比对，可逐题查看英文原文与中文翻译。',
-  'reading.md': '英语阅读练习：四六级词组填空与短篇阅读选择，含中文释义与逐题解析，可按 CET-4 / CET-6 难度切换。'
+  'reading.md': '英语练习：四六级词组填空、短篇阅读、写作练习与翻译练习四大题型，写作与翻译附思路提纲、参考范文/译文与考点点拨，可按 CET-4 / CET-6 难度切换。'
 }
 
 function readNoteDescription(file) {
@@ -184,7 +184,7 @@ export default defineConfig({
       { text: '首页', link: '/' },
       { text: '笔记', link: notes[0]?.link ?? '/' },
       { text: '习题测试', link: '/quiz.html' },
-      { text: '英语阅读', link: '/reading.html' },
+      { text: '英语练习', link: '/reading.html' },
       { text: '听力训练', link: '/dictation.html' }
     ],
     sidebar: [
@@ -214,7 +214,7 @@ export default defineConfig({
         text: '练习',
         items: [
           { text: '习题测试', link: '/quiz.html' },
-          { text: '英语阅读', link: '/reading.html' },
+          { text: '英语练习', link: '/reading.html' },
           { text: '听力训练', link: '/dictation.html' }
         ]
       }

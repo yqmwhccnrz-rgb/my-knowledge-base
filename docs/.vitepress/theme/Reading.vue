@@ -8,9 +8,11 @@ const dataPromise = import.meta.env.SSR
 
 const phrases = ref([])
 const readings = ref([])
+const writings = ref([])
+const translations = ref([])
 const ready = ref(false)
 
-// 题型：phrase=词组填空，reading=短篇阅读；难度：all / CET-4 / CET-6
+// 题型：phrase=词组填空，reading=短篇阅读，writing=写作练习，translation=翻译练习；难度：all / CET-4 / CET-6
 const mode = ref('phrase')
 const level = ref('all')
 
@@ -19,17 +21,23 @@ const idx = ref(0)
 // 作答状态：phrase 用 { 空号: 选项字母 }，reading 用 { 题号: 选项下标 }
 const answers = reactive({})
 const submitted = ref(false)
+// 写作/翻译为主观题：草稿文本与「对照参考」开关，不自动判分
+const draft = ref('')
+const revealed = ref(false)
 
 onMounted(async () => {
   const d = await dataPromise
   if (d && Array.isArray(d.phrase)) phrases.value = d.phrase
   if (d && Array.isArray(d.reading)) readings.value = d.reading
+  if (d && Array.isArray(d.writing)) writings.value = d.writing
+  if (d && Array.isArray(d.translation)) translations.value = d.translation
   ready.value = true
   pick(0)
 })
 
+const SRC = { phrase: phrases, reading: readings, writing: writings, translation: translations }
 const list = computed(() => {
-  const src = mode.value === 'phrase' ? phrases.value : readings.value
+  const src = (SRC[mode.value] || phrases).value
   return level.value === 'all' ? src : src.filter((x) => x.level === level.value)
 })
 const current = computed(() => list.value[idx.value] || null)
@@ -38,6 +46,8 @@ function pick(n) {
   const len = list.value.length
   idx.value = len ? ((n % len) + len) % len : 0
   submitted.value = false
+  revealed.value = false
+  draft.value = ''
   for (const k of Object.keys(answers)) delete answers[k]
 }
 function next() { pick(idx.value + 1) }
@@ -53,8 +63,19 @@ function onLevel() { pick(0) }
 function submit() { submitted.value = true }
 function reset() {
   submitted.value = false
+  revealed.value = false
+  draft.value = ''
   for (const k of Object.keys(answers)) delete answers[k]
 }
+
+// 主观题（写作/翻译）字数统计：英文按单词、中文按字
+function draftWords() {
+  const t = draft.value.trim()
+  if (!t) return 0
+  const en = t.match(/[A-Za-z']+/g)
+  return en ? en.length : 0
+}
+const MODE_NAME = { phrase: '词组填空', reading: '短篇阅读', writing: '写作练习', translation: '翻译练习' }
 
 // ---------- 词组填空 ----------
 const blanks = computed(() => {
@@ -101,6 +122,8 @@ const QTYPE = { detail: '细节理解', inference: '推理判断', vocab: '词�
       <div class="rd-tabs" role="tablist">
         <button type="button" :class="{ on: mode === 'phrase' }" @click="switchMode('phrase')">词组填空</button>
         <button type="button" :class="{ on: mode === 'reading' }" @click="switchMode('reading')">短篇阅读</button>
+        <button type="button" :class="{ on: mode === 'writing' }" @click="switchMode('writing')">写作练习</button>
+        <button type="button" :class="{ on: mode === 'translation' }" @click="switchMode('translation')">翻译练习</button>
       </div>
       <label class="rd-level">
         难度
@@ -123,11 +146,13 @@ const QTYPE = { detail: '细节理解', inference: '推理判断', vocab: '词�
     <template v-else>
       <!-- 说明条 -->
       <p class="rd-tip">
-        <strong>{{ mode === 'phrase' ? '词组填空' : '短篇阅读' }}</strong>
+        <strong>{{ MODE_NAME[mode] }}</strong>
         · <span class="rd-badge" :class="current.level === 'CET-6' ? 'c6' : 'c4'">{{ current.level }}</span>
-        · {{ current.topic }} · 共 {{ list.length }} {{ mode === 'phrase' ? '段' : '篇' }}
+        · {{ current.topic }} · 共 {{ list.length }} {{ mode === 'phrase' ? '段' : mode === 'reading' ? '篇' : '题' }}
         <span v-if="mode === 'phrase'"> · 本段 {{ blanks.length }} 空</span>
-        <span v-else> · 本篇 {{ current.questions.length }} 题 · 约 {{ current.passage.split(' ').length }} 词</span>
+        <span v-else-if="mode === 'reading'"> · 本篇 {{ current.questions.length }} 题 · 约 {{ current.passage.split(' ').length }} 词</span>
+        <span v-else-if="mode === 'writing'"> · 建议用时 10 分钟</span>
+        <span v-else> · 建议用时 5 分钟</span>
       </p>
 
       <!-- ============ 词组填空 ============ -->
@@ -195,7 +220,7 @@ const QTYPE = { detail: '细节理解', inference: '推理判断', vocab: '词�
       </div>
 
       <!-- ============ 短篇阅读 ============ -->
-      <div v-else class="rd-card">
+      <div v-else-if="mode === 'reading'" class="rd-card">
         <h3 class="rd-title">{{ current.title }}</h3>
         <p class="rd-hint">先通读短文，再回答后面的选择题。</p>
 
@@ -254,6 +279,109 @@ const QTYPE = { detail: '细节理解', inference: '推理判断', vocab: '词�
             <button class="rd-btn primary" type="button" @click="next">下一篇 ›</button>
           </template>
           <span v-if="!submitted && !readingAnswered(current)" class="rd-foot-hint">请完成所有题目</span>
+        </div>
+      </div>
+
+      <!-- ============ 写作练习 ============ -->
+      <div v-else-if="mode === 'writing'" class="rd-card">
+        <h3 class="rd-title">{{ current.title }}</h3>
+        <p class="rd-hint">先审题列提纲，再在下方写 2–3 段短文；写完可对照思路提纲与参考范文自查。</p>
+
+        <div class="rd-prompt">{{ current.prompt }}</div>
+        <p v-if="current.promptZh" class="rd-prompt-zh">题意：{{ current.promptZh }}</p>
+
+        <details class="rd-gloss">
+          <summary>写作思路提纲（{{ current.outline.length }} 条）</summary>
+          <ol class="rd-outline">
+            <li v-for="(o, oi) in current.outline" :key="oi">{{ o }}</li>
+          </ol>
+        </details>
+
+        <div class="rd-write">
+          <div class="rd-write-head">
+            <span>我的作文</span>
+            <span class="rd-count">已写约 {{ draftWords() }} 词</span>
+          </div>
+          <textarea
+            v-model="draft"
+            class="rd-textarea"
+            rows="10"
+            placeholder="在这里写下你的短文（建议 80–120 词）…"
+          ></textarea>
+        </div>
+
+        <div class="rd-footer">
+          <button v-if="!revealed" class="rd-btn primary" type="button" :disabled="!draft.trim()" @click="revealed = true">
+            写完，对照参考
+          </button>
+          <template v-else>
+            <button class="rd-btn" type="button" @click="revealed = false">收起参考</button>
+            <button class="rd-btn primary" type="button" @click="next">下一题 ›</button>
+          </template>
+          <span v-if="!revealed && !draft.trim()" class="rd-foot-hint">先写几句再对照参考</span>
+        </div>
+
+        <div v-if="revealed" class="rd-ref">
+          <div class="rd-ref-t">参考范文 Model Essay</div>
+          <div class="rd-article">{{ current.model }}</div>
+          <div class="rd-bank">
+            <div class="rd-bank-t">亮点表达 Expressions</div>
+            <div class="rd-bank-list">
+              <span v-for="(e, ei) in current.expressions" :key="ei" class="rd-bank-item">
+                <b>{{ e.en }}</b> <em>{{ e.zh }}</em>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ 翻译练习 ============ -->
+      <div v-else class="rd-card">
+        <h3 class="rd-title">{{ current.title }}</h3>
+        <p class="rd-hint">将下面的中文段落译成英文（2–3 句）；可先查看关键词组提示，再对照参考译文与考点。</p>
+
+        <div class="rd-source">{{ current.source }}</div>
+
+        <details class="rd-gloss" open>
+          <summary>关键词组提示（{{ current.hints.length }}）</summary>
+          <div class="rd-gloss-list">
+            <span v-for="(h, hi) in current.hints" :key="hi"><b>{{ h.zh }}</b> {{ h.en }}</span>
+          </div>
+        </details>
+
+        <div class="rd-write">
+          <div class="rd-write-head">
+            <span>我的译文</span>
+            <span class="rd-count">已写约 {{ draftWords() }} 词</span>
+          </div>
+          <textarea
+            v-model="draft"
+            class="rd-textarea"
+            rows="6"
+            placeholder="在这里写下你的英文译文…"
+          ></textarea>
+        </div>
+
+        <div class="rd-footer">
+          <button v-if="!revealed" class="rd-btn primary" type="button" :disabled="!draft.trim()" @click="revealed = true">
+            译完，对照参考
+          </button>
+          <template v-else>
+            <button class="rd-btn" type="button" @click="revealed = false">收起参考</button>
+            <button class="rd-btn primary" type="button" @click="next">下一题 ›</button>
+          </template>
+          <span v-if="!revealed && !draft.trim()" class="rd-foot-hint">先译出来再对照参考</span>
+        </div>
+
+        <div v-if="revealed" class="rd-ref">
+          <div class="rd-ref-t">参考译文 Reference Translation</div>
+          <div class="rd-article">{{ current.ref }}</div>
+          <div class="rd-bank">
+            <div class="rd-bank-t">考点点拨 Key Points</div>
+            <ol class="rd-outline">
+              <li v-for="(p, pi) in current.points" :key="pi">{{ p }}</li>
+            </ol>
+          </div>
         </div>
       </div>
     </template>
@@ -333,6 +461,35 @@ const QTYPE = { detail: '细节理解', inference: '推理判断', vocab: '词�
   padding: 16px 18px; background: var(--vp-c-bg-soft, #f4f4f2);
   border: 1px solid var(--vp-c-divider); border-radius: 10px;
 }
+.rd-prompt {
+  font-size: 14.5px; line-height: 1.95; color: var(--vp-c-text-1);
+  padding: 14px 18px; background: var(--vp-c-bg-soft, #f4f4f2);
+  border: 1px solid var(--vp-c-divider); border-left: 3px solid var(--vp-c-brand-1, #3f403f);
+  border-radius: 10px; white-space: pre-line;
+}
+.rd-prompt-zh { margin: 10px 2px 0; font-size: 12.5px; color: var(--vp-c-text-2); }
+.rd-source {
+  font-size: 15.5px; line-height: 2.1; color: var(--vp-c-text-1);
+  padding: 16px 18px; background: var(--vp-c-bg-soft, #f4f4f2);
+  border: 1px solid var(--vp-c-divider); border-left: 3px solid var(--vp-c-brand-1, #3f403f);
+  border-radius: 10px;
+}
+.rd-outline { margin: 10px 4px 4px; padding-left: 20px; font-size: 13px; line-height: 1.9; color: var(--vp-c-text-1); }
+.rd-write { margin-top: 16px; }
+.rd-write-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 8px; font-size: 12.5px; font-weight: 600; color: var(--vp-c-text-2);
+}
+.rd-count { font-weight: 400; color: var(--vp-c-text-3); }
+.rd-textarea {
+  width: 100%; padding: 12px 14px; font-size: 14px; line-height: 1.9;
+  font-family: inherit; color: var(--vp-c-text-1);
+  background: var(--vp-c-bg, #fff); border: 1px solid var(--vp-c-divider);
+  border-radius: 10px; resize: vertical; outline: none;
+}
+.rd-textarea:focus { border-color: var(--vp-c-brand-1, #3f403f); }
+.rd-ref { margin-top: 18px; }
+.rd-ref-t { margin-bottom: 8px; font-size: 12.5px; font-weight: 600; color: var(--vp-c-brand-1, #3f403f); letter-spacing: .02em; }
 .rd-gloss { margin: 12px 0 4px; font-size: 12.5px; color: var(--vp-c-text-2); }
 .rd-gloss summary { cursor: pointer; }
 .rd-gloss-list { display: flex; flex-wrap: wrap; gap: 6px 20px; padding: 10px 4px; }
