@@ -10,9 +10,10 @@ const phrases = ref([])
 const readings = ref([])
 const writings = ref([])
 const translations = ref([])
+const phrasebook = ref([])
 const ready = ref(false)
 
-// 题型：phrase=词组填空，reading=短篇阅读，writing=写作练习，translation=翻译练习；难度：all / CET-4 / CET-6
+// 题型：phrase=词组填空，reading=短篇阅读，writing=写作练习，translation=翻译练习，phrasebook=词组短语（背诵）；难度：all / CET-4 / CET-6
 const mode = ref('phrase')
 const level = ref('all')
 
@@ -24,6 +25,9 @@ const submitted = ref(false)
 // 写作/翻译为主观题：草稿文本与「对照参考」开关，不自动判分
 const draft = ref('')
 const revealed = ref(false)
+// 词组短语背诵：recite=背诵模式（遮住中文与例句），pbRevealed 记录每条已揭晓的短语序号
+const recite = ref(false)
+const pbRevealed = reactive({})
 
 onMounted(async () => {
   const d = await dataPromise
@@ -31,11 +35,12 @@ onMounted(async () => {
   if (d && Array.isArray(d.reading)) readings.value = d.reading
   if (d && Array.isArray(d.writing)) writings.value = d.writing
   if (d && Array.isArray(d.translation)) translations.value = d.translation
+  if (d && Array.isArray(d.phrasebook)) phrasebook.value = d.phrasebook
   ready.value = true
   pick(0)
 })
 
-const SRC = { phrase: phrases, reading: readings, writing: writings, translation: translations }
+const SRC = { phrase: phrases, reading: readings, writing: writings, translation: translations, phrasebook: phrasebook }
 const list = computed(() => {
   const src = (SRC[mode.value] || phrases).value
   return level.value === 'all' ? src : src.filter((x) => x.level === level.value)
@@ -49,6 +54,8 @@ function pick(n) {
   revealed.value = false
   draft.value = ''
   for (const k of Object.keys(answers)) delete answers[k]
+  // 词组短语背诵：切换分组时重置「已揭晓」与统计
+  for (const k of Object.keys(pbRevealed)) delete pbRevealed[k]
 }
 function next() { pick(idx.value + 1) }
 function prev() { pick(idx.value - 1) }
@@ -75,7 +82,25 @@ function draftWords() {
   const en = t.match(/[A-Za-z']+/g)
   return en ? en.length : 0
 }
-const MODE_NAME = { phrase: '词组填空', reading: '短篇阅读', writing: '写作练习', translation: '翻译练习' }
+const MODE_NAME = { phrase: '词组填空', reading: '短篇阅读', writing: '写作练习', translation: '翻译练习', phrasebook: '词组短语' }
+
+// ---------- 词组短语（背诵） ----------
+// 背诵模式下遮住中文释义与例句；某条揭晓后（pbRevealed[i]）则显示该条完整内容
+function pbHidden(i) {
+  return recite.value && !pbRevealed[i]
+}
+function pbToggle(i) {
+  if (!recite.value) return
+  pbRevealed[i] = !pbRevealed[i]
+}
+function pbRevealAll() {
+  const n = current.value ? current.value.items.length : 0
+  for (let i = 0; i < n; i++) pbRevealed[i] = true
+}
+function pbHideAll() {
+  for (const k of Object.keys(pbRevealed)) delete pbRevealed[k]
+}
+const pbRevealedCount = computed(() => Object.values(pbRevealed).filter(Boolean).length)
 
 // ---------- 词组填空 ----------
 const blanks = computed(() => {
@@ -121,6 +146,7 @@ const QTYPE = { detail: '细节理解', inference: '推理判断', vocab: '词�
     <div class="rd-bar">
       <div class="rd-tabs" role="tablist">
         <button type="button" :class="{ on: mode === 'phrase' }" @click="switchMode('phrase')">词组填空</button>
+        <button type="button" :class="{ on: mode === 'phrasebook' }" @click="switchMode('phrasebook')">词组短语</button>
         <button type="button" :class="{ on: mode === 'reading' }" @click="switchMode('reading')">短篇阅读</button>
         <button type="button" :class="{ on: mode === 'writing' }" @click="switchMode('writing')">写作练习</button>
         <button type="button" :class="{ on: mode === 'translation' }" @click="switchMode('translation')">翻译练习</button>
@@ -148,9 +174,10 @@ const QTYPE = { detail: '细节理解', inference: '推理判断', vocab: '词�
       <p class="rd-tip">
         <strong>{{ MODE_NAME[mode] }}</strong>
         · <span class="rd-badge" :class="current.level === 'CET-6' ? 'c6' : 'c4'">{{ current.level }}</span>
-        · {{ current.topic }} · 共 {{ list.length }} {{ mode === 'phrase' ? '段' : mode === 'reading' ? '篇' : '题' }}
+        · {{ current.topic }} · 共 {{ list.length }} {{ mode === 'phrase' ? '段' : mode === 'reading' ? '篇' : mode === 'phrasebook' ? '组' : '题' }}
         <span v-if="mode === 'phrase'"> · 本段 {{ blanks.length }} 空</span>
         <span v-else-if="mode === 'reading'"> · 本篇 {{ current.questions.length }} 题 · 约 {{ current.passage.split(' ').length }} 词</span>
+        <span v-else-if="mode === 'phrasebook'"> · 本组 {{ current.items.length }} 个短语</span>
         <span v-else-if="mode === 'writing'"> · 建议用时 10 分钟</span>
         <span v-else> · 建议用时 5 分钟</span>
       </p>
@@ -216,6 +243,46 @@ const QTYPE = { detail: '细节理解', inference: '推理判断', vocab: '词�
             <button class="rd-btn primary" type="button" @click="next">下一组 ›</button>
           </template>
           <span v-if="!submitted && !phraseAnswered()" class="rd-foot-hint">请填完所有空格</span>
+        </div>
+      </div>
+
+      <!-- ============ 词组短语（背诵） ============ -->
+      <div v-else-if="mode === 'phrasebook'" class="rd-card">
+        <div class="rd-pb-head">
+          <div>
+            <h3 class="rd-title">{{ current.title }}</h3>
+            <p class="rd-hint">看英文 → 想中文与用法 → 点开核对。开启「背诵模式」会遮住中文释义与例句，逐条回想后再揭晓。</p>
+          </div>
+          <label class="rd-pb-switch">
+            <input type="checkbox" v-model="recite" @change="pbHideAll" />
+            <span>背诵模式</span>
+          </label>
+        </div>
+
+        <div class="rd-pb-list">
+          <div
+            v-for="(it, i) in current.items"
+            :key="i"
+            class="rd-pb-item"
+            :class="{ hidden: pbHidden(i), clickable: recite }"
+            @click="pbToggle(i)"
+          >
+            <div class="rd-pb-main">
+              <span class="rd-pb-no">{{ i + 1 }}</span>
+              <span class="rd-pb-en">{{ it.en }}</span>
+              <span class="rd-pb-zh">{{ it.zh }}</span>
+            </div>
+            <div class="rd-pb-eg">
+              <p class="rd-pb-eg-en">{{ it.eg }}</p>
+              <p class="rd-pb-eg-zh">{{ it.egz }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div v-if="recite" class="rd-footer">
+          <button class="rd-btn" type="button" @click="pbRevealAll">全部揭晓</button>
+          <button class="rd-btn" type="button" @click="pbHideAll">全部遮住</button>
+          <span class="rd-foot-hint">已揭晓 {{ pbRevealedCount }} / {{ current.items.length }} · 点击任意短语可单独揭晓或遮住</span>
         </div>
       </div>
 
@@ -537,10 +604,51 @@ const QTYPE = { detail: '细节理解', inference: '推理判断', vocab: '词�
 .rd-footer { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 20px; }
 .rd-foot-hint { font-size: 12px; color: var(--vp-c-text-3); }
 
+/* ---------- 词组短语（背诵） ---------- */
+.rd-pb-head { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 12px; }
+.rd-pb-head > div { flex: 1 1 260px; }
+.rd-pb-switch {
+  flex: none; display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 12px; font-size: 13px; color: var(--vp-c-text-1);
+  border: 1px solid var(--vp-c-brand-1, #3f403f); border-radius: 999px;
+  cursor: pointer; user-select: none; white-space: nowrap;
+}
+.rd-pb-switch input { accent-color: var(--vp-c-brand-1, #3f403f); cursor: pointer; }
+.rd-pb-list { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+.rd-pb-item {
+  padding: 12px 16px; border: 1px solid var(--vp-c-divider);
+  border-radius: 10px; background: var(--vp-c-bg-soft, #f4f4f2);
+  transition: background .15s, border-color .15s;
+}
+.rd-pb-item.clickable { cursor: pointer; }
+.rd-pb-item.clickable:hover { border-color: var(--vp-c-brand-1, #3f403f); }
+.rd-pb-main { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.rd-pb-no {
+  display: inline-flex; align-items: center; justify-content: center; flex: none;
+  width: 20px; height: 20px; border-radius: 50%; font-size: 11px; font-weight: 600;
+  color: #fff; background: var(--vp-c-text-3, #8d8f8d);
+}
+.rd-pb-en { font-size: 15.5px; font-weight: 650; color: var(--vp-c-brand-1, #3f403f); }
+.rd-pb-zh { font-size: 13px; color: var(--vp-c-text-2); }
+.rd-pb-eg { margin-top: 8px; }
+.rd-pb-eg-en { margin: 0; font-size: 13px; line-height: 1.7; color: var(--vp-c-text-1); }
+.rd-pb-eg-zh { margin: 2px 0 0; font-size: 12px; line-height: 1.7; color: var(--vp-c-text-3, #8d8f8d); }
+/* 背诵模式：遮住中文释义与例句，用占位提示代替 */
+.rd-pb-item.hidden .rd-pb-zh::after {
+  content: '点击揭晓释义';
+  font-size: 12px; color: var(--vp-c-text-3, #8d8f8d);
+  padding: 1px 10px; border: 1px dashed var(--vp-c-divider); border-radius: 999px;
+}
+.rd-pb-item.hidden .rd-pb-zh { color: transparent; }
+.rd-pb-item.hidden .rd-pb-eg { display: none; }
+
 @media (max-width: 640px) {
   .rd-card { padding: 16px 14px; }
   .rd-nav { margin-left: 0; width: 100%; justify-content: space-between; }
   .rd-passage, .rd-article { font-size: 14px; padding: 12px 13px; }
   .rd-blank { min-width: 76px; }
+  .rd-pb-item { padding: 10px 12px; }
+  .rd-pb-en { font-size: 14.5px; }
+  .rd-pb-switch { align-self: flex-start; }
 }
 </style>
