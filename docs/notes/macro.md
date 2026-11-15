@@ -527,7 +527,8 @@ M ↑ → LM 右移 → r ↓ → I ↑ → Y ↑。**传导链**：M ↑ → r 
 
 **资本积累方程（人均形式）**：
 
-$\Delta k= s \cdot f(k)-(n+ \delta) \cdot k$
+$$\Delta k= s \cdot f(k)-(n+ \delta) \cdot k$$
+
 
 | 项 | 含义 |
 | --- | --- |

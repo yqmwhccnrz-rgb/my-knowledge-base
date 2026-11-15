@@ -1032,15 +1032,27 @@ select:focus-visible {
 .vp-doc li > .katex-display:first-child {
   margin-top: 0.6em;
 }
-/* 表格单元格里的公式：禁止在公式内部断行（否则末尾下标会掉到下一行）；
-   含分式的公式略放大，让分子分母与上下标有足够空间、不再挤成一团。 */
+/* 表格单元格内的公式：独占一行居中，像独立公式那样显示。
+   注意：这条只作用于表格，正文段落里若把行内公式设为 block，
+   会把完整句子从公式处劈成两半（「…上升为」/「倍：」分列上下）。 */
+.vp-doc td .katex:has(.mfrac),
+.vp-doc th .katex:has(.mfrac) {
+  display: block;
+  margin: 0.6em auto;
+  text-align: center;
+  font-size: 1.16em;
+  white-space: nowrap;
+}
+/* 真正的 $$ 块级公式：淡底圆角卡片，强化「单独成块」的观感 */
+.vp-doc .katex-display {
+  background: var(--vp-c-bg-soft);
+  border-radius: 8px;
+  padding: 0.7em 1em;
+}
+/* 表格单元格里的公式：禁止在公式内部断行（否则末尾下标会掉到下一行） */
 .vp-doc td .katex,
 .vp-doc th .katex {
   white-space: nowrap;
-}
-.vp-doc td .katex:has(.mfrac),
-.vp-doc th .katex:has(.mfrac) {
-  font-size: 1.16em;
 }
 /* 含公式的表格：首列标签不断行，避免被宽公式挤成两行 */
 .vp-doc table:has(.katex) td:first-child,

@@ -542,8 +542,11 @@ $L[y]=y^{(n)}+a_{1}(x)y^{(n-1)}+ \cdots+a_{n}(x)y$ 是**线性算子**，故：
 
 ::: tip 工作例题 · 三种积手算
 $a=(1,2,- 1)$，`b=(3,0,2)`：
-$a \cdot b= 3+ 0- 2= 1$；
-$a \times b=(2 \cdot 2-(- 1) \cdot 0,(- 1) \cdot 3- 1 \cdot 2, 1 \cdot 0- 2 \cdot 3)=(4,- 5,- 6)$；
+
+$$a \cdot b= 3+ 0- 2= 1$$
+
+$$a \times b=(2 \cdot 2-(- 1) \cdot 0,(- 1) \cdot 3- 1 \cdot 2, 1 \cdot 0- 2 \cdot 3)=(4,- 5,- 6)$$
+
 $|a|= \sqrt{1+4+1}= \sqrt{6} \approx 2.449$；$\cos \theta= \frac{1}{\sqrt{6} \cdot \sqrt{13}} \approx 0.1132$。
 校验：$(a \times b) \cdot a= 4- 10+6= 0$ 且 $(a \times b) \cdot b= 12+0- 12= 0$ ✓（垂直于两者）。
 :::
@@ -883,7 +886,9 @@ $e^{x}$、`sin x`、`cos x` 为 $(- \infty,+ \infty)$；`ln(1+x)` 为 `(−1,1]`
 ### 12.3 傅里叶级数
 
 周期为 $2\pi$ 的函数：
-$\frac{f(x) \sim a_{0}}{2}+ \sum_{n=1}^\infty(a_{n} \cos nx+ b_{n} \sin nx)$，
+
+$$\frac{f(x) \sim a_{0}}{2}+ \sum_{n=1}^\infty(a_{n} \cos nx+ b_{n} \sin nx)$$
+
 $a_{n}=\left(\frac{1}{\pi}\right) \int_{- \pi}^{\pi} f(x)\cos nx dx$，$b_{n}=\left(\frac{1}{\pi}\right) \int_{- \pi}^{\pi} f(x)\sin nx dx$。
 
 **狄利克雷收敛定理**（教材核心）：若 `f` 在一个周期上连续或只有有限个第一类间断点，且只有有限个极值点，则级数收敛，且
@@ -1300,8 +1305,11 @@ $$
 ### 推 1 · 华里士公式的递推
 
 设 $I_{n}= \int_{0}^{\frac{\pi}{2}} \sin^{n}x dx$。分部取 $u=\sin^{n- 1}x, dv=\sin x dx$：
-$I_{n}=[- \sin^{n- 1}x \cos x]_{0}^{\frac{\pi}{2}}+(n- 1) \int_{0}^{\frac{\pi}{2}} \sin^{n- 2}x \cos^{2}x dx$
-$=(n- 1) \int \sin^{n- 2}x(1- \sin^{2}x)dx=(n- 1)(I_{n-2}- I_{n})$
+
+$$I_{n}=[- \sin^{n- 1}x \cos x]_{0}^{\frac{\pi}{2}}+(n- 1) \int_{0}^{\frac{\pi}{2}} \sin^{n- 2}x \cos^{2}x dx$$
+
+$$=(n- 1) \int \sin^{n- 2}x(1- \sin^{2}x)dx=(n- 1)(I_{n-2}- I_{n})$$
+
 ⇒ $n I_{n}=(n- 1)I_{n-2}$ ⇒ $I_{n}= \frac{n- 1}{n} \cdot I_{n-2}$。
 由 $I_{0}=\frac{\pi}{2}$、$I_{1}=1$ 递推得偶/奇两套结果；令 `n=2` 得 $I_{2}= \frac{1}{2} \frac{\cdot \pi}{2}= \frac{\pi}{4}$ ✓。
 
@@ -1353,7 +1361,9 @@ $\Delta f \approx \frac{1}{2}(A h^{2}+ 2B hk+ C k^{2})$，这是关于 `(h,k)` �
 ### 推 8 · 欧拉公式 $e^{ix}= \cos x+ i \sin x$
 
 把 $e^z= \sum \frac{z^{n}}{n}!$ 中令 `z=ix`，按偶次/奇次分组：
-$e^{ix}=[1- \frac{x^{2}}{2}!+ \frac{x^{4}}{4}!- \cdots]+ i[x- \frac{x^{3}}{3}!+ \frac{x^{5}}{5}!- \cdots]= \cos x+ i \sin x$。
+
+$$e^{ix}=[1- \frac{x^{2}}{2}!+ \frac{x^{4}}{4}!- \cdots]+ i[x- \frac{x^{3}}{3}!+ \frac{x^{5}}{5}!- \cdots]= \cos x+ i \sin x$$
+
 取 $x=\pi$ 得 $e^{i\pi}+1=0$；由此复数可写 $z=re^{i\theta}$，是常系数方程复根解 $e^{\alpha x}(C_{1}\cos \beta x+C_{2}\sin \beta x)$ 的来源。
 
 ---

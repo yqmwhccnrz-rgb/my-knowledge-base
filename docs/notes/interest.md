@@ -314,7 +314,8 @@ $$\ddot{a}_{n}= \frac{1- v^{n}}{d}=(1+i) \cdot a_{n}= 1+ a_{(n-1)}$$
 | 期初付 m 次 | $\ddot{a}_{n}^{(m)}= \frac{1- v^{n}}{d^{(m)}}=\left(\frac{i}{d^{(m)}}\right) \cdot a_{n}$ | $\ddot{s}_{n}^{(m)}= \frac{(1+i)^{n}- 1}{d^{(m)}}=\left(\frac{i}{d^{(m)}}\right) \cdot s_{n}$ |
 | 永续 | $a_{\infty}^{(m)}= \frac{1}{i^{(m)}}\;;\quad \ddot{a}_{\infty}^{(m)}= \frac{1}{d^{(m)}}$ | — |
 
-- $\ddot{a}_{n}^{(m)}=(1+i)^{\frac{1}{m}} \cdot a_{n}^{(m)}$
+$$\ddot{a}_{n}^{(m)}=(1+i)^{\frac{1}{m}} \cdot a_{n}^{(m)}$$
+
 - **注意**：公式假设「每年付款总额为 1」；若每次付 X 元、每年 m 次，则年总额为 mX，现值 = $mX \cdot a_{n}^{(m)}$
 - 期末付年金分 m 次支付后价值上升（付款提前）；期初付分 m 次后价值**下降**为 $\frac{i}{d^{(m)}}$ 倍相对期末——方向别搞反
 
