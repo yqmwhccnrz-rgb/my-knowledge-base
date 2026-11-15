@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <marker id="arM" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#475569"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="480" fill="#ffffff"/>
+  <text x="450" y="26" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">收益率体系：IRR → 币值加权 / 时间加权 → 修正收益率</text>
+
+  <!-- NPV curve -->
+  <text x="220" y="58" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1e3a8a">净现值曲线与收益率（IRR）</text>
+  <g stroke="#cbd5e1" stroke-width="1">
+    <line x1="60" y1="200" x2="400" y2="200"/>
+    <line x1="60" y1="80" x2="60" y2="300"/>
+  </g>
+  <path d="M70,95 Q200,170 390,285" fill="none" stroke="#2563eb" stroke-width="2.4"/>
+  <circle cx="238" cy="200" r="5" fill="#dc2626"/>
+  <text x="246" y="192" font-size="11.5" fill="#dc2626">NPV(i₀)=0 → i₀ 即收益率</text>
+  <text x="230" y="318" font-size="11" fill="#334155">利率 i</text>
+  <text x="40" y="200" font-size="11" fill="#334155" transform="rotate(-90 40,200)">NPV(i)</text>
+  <text x="230" y="240" font-size="10.5" fill="#64748b">常规现金流：NPV 单调递减 → 收益率唯一</text>
+  <text x="230" y="258" font-size="10.5" fill="#64748b">符号改变多次：可能多重收益率 / 不存在</text>
+
+  <!-- two weighted rates -->
+  <rect x="440" y="46" width="430" height="130" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="655" y="70" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">币值加权收益率（Dollar-weighted / IRR）</text>
+  <text x="655" y="94" text-anchor="middle" font-size="11.5" fill="#334155">解方程：A₀(1+i) + ΣCₜ(1+i)^(1−t) = A₁</text>
+  <text x="655" y="114" text-anchor="middle" font-size="11.5" fill="#334155">近似：i ≈ I / [A₀ + ΣCₜ(1−t)]，I = A₁ − A₀ − ΣCₜ</text>
+  <text x="655" y="138" text-anchor="middle" font-size="11.5" fill="#475569">衡量「投资者个人」实际赚了多少（受申赎时机影响）</text>
+  <text x="655" y="160" text-anchor="middle" font-size="11" fill="#64748b">EXCEL：IRR / XIRR（不规则日期）</text>
+
+  <rect x="440" y="190" width="430" height="130" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="655" y="214" text-anchor="middle" font-size="13" font-weight="700" fill="#15803d">时间加权收益率（Time-weighted）</text>
+  <text x="655" y="238" text-anchor="middle" font-size="11.5" fill="#334155">1+i = (1+j₁)(1+j₂)⋯(1+jₙ₊₁)</text>
+  <text x="655" y="258" text-anchor="middle" font-size="11.5" fill="#334155">jₖ = 第 k 子区间收益率（在每次申赎前估值）</text>
+  <text x="655" y="282" text-anchor="middle" font-size="11.5" fill="#475569">衡量「基金经理」业绩（剔除资金进出影响）</text>
+  <text x="655" y="304" text-anchor="middle" font-size="11" fill="#64748b">缺点：需要在每次新增投资前对基金估值</text>
+
+  <!-- MIRR + reinvestment -->
+  <rect x="60" y="336" width="810" height="60" rx="10" fill="#fff7ed" stroke="#ea580c" stroke-width="1.4"/>
+  <text x="465" y="360" text-anchor="middle" font-size="12.5" font-weight="700" fill="#c2410c">再投资与修正收益率 MIRR：利息只能按较低利率 j 再投资时会拉低总收益</text>
+  <text x="465" y="382" text-anchor="middle" font-size="11.5" fill="#334155">(1+MIRR)ⁿ = 流入按再投资利率 j 的累积值 ÷ 流出按筹资利率的现值；多重收益率时也用它评价项目</text>
+
+  <!-- income allocation -->
+  <rect x="60" y="410" width="810" height="52" rx="10" fill="#fdf2f8" stroke="#db2777" stroke-width="1.4"/>
+  <text x="465" y="432" text-anchor="middle" font-size="12.5" font-weight="700" fill="#be185d">收益分配两法</text>
+  <text x="465" y="452" text-anchor="middle" font-size="11.5" fill="#334155">组合方法：全员按基金平均收益率分（利率下降期吸引新资金）；投资年度方法：新资金前几年按投资年度利率、之后按组合利率（利率上升期吸引新资金）</text>
+</svg>

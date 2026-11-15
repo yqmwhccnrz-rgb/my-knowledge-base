@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <marker id="arK" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#475569"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="500" fill="#ffffff"/>
+  <text x="450" y="26" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">债务偿还双轨制：分期偿还法 vs 偿债基金法</text>
+
+  <!-- left: amortization -->
+  <rect x="30" y="48" width="400" height="330" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="230" y="74" text-anchor="middle" font-size="14.5" font-weight="700" fill="#1e3a8a">分期偿还法 Amortization</text>
+  <text x="230" y="96" text-anchor="middle" font-size="11.5" fill="#334155">每期还一笔钱 = 当期利息 + 部分本金</text>
+
+  <text x="52" y="126" font-size="12" fill="#1e293b">每期偿还额：R = L₀ / aₙ</text>
+  <text x="52" y="150" font-size="12" fill="#1e293b">第 k 期利息：Iₖ = R(1 − v^(n−k+1)) = i·Lₖ₋₁</text>
+  <text x="52" y="174" font-size="12" fill="#1e293b">第 k 期还本：Pₖ = R·v^(n−k+1)（等比递增）</text>
+  <text x="52" y="198" font-size="12" fill="#1e293b">本金余额（过去法）：Lₖ = L₀(1+i)ᵏ − R·sₖ</text>
+  <text x="52" y="222" font-size="12" fill="#1e293b">本金余额（将来法）：Lₖ = R·a₍ₙ₋ₖ₎</text>
+
+  <rect x="52" y="240" width="356" height="56" rx="6" fill="#dbeafe" stroke="#60a5fa"/>
+  <text x="230" y="262" text-anchor="middle" font-size="11.5" fill="#1e40af">规律：利息逐期递减、本金逐期递增、总额恒定</text>
+  <text x="230" y="282" text-anchor="middle" font-size="11.5" fill="#1e40af">利息总额 = n − aₙ（每 1 元还款额），期限越长占比越高</text>
+
+  <rect x="52" y="308" width="356" height="52" rx="6" fill="#ffffff" stroke="#93c5fd"/>
+  <text x="230" y="328" text-anchor="middle" font-size="11.5" fill="#334155">变额分期：等额本金法（每期本金相等，总额递减）</text>
+  <text x="230" y="348" text-anchor="middle" font-size="11.5" fill="#334155">负偿还 → 本金余额反而增加（按贷款利率资本化）</text>
+
+  <!-- right: sinking fund -->
+  <rect x="470" y="48" width="400" height="330" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="670" y="74" text-anchor="middle" font-size="14.5" font-weight="700" fill="#15803d">偿债基金法 Sinking Fund</text>
+  <text x="670" y="96" text-anchor="middle" font-size="11.5" fill="#334155">每期只付利息 + 往基金存钱，到期基金还本</text>
+
+  <text x="492" y="126" font-size="12" fill="#1e293b">每期付息：I = i·L₀（恒定，按贷款利率 i）</text>
+  <text x="492" y="150" font-size="12" fill="#1e293b">每期存款：D = L₀ / sₙ⌐ⱼ（按基金利率 j）</text>
+  <text x="492" y="174" font-size="12" fill="#1e293b">每期总额：R = iL₀ + L₀/sₙ⌐ⱼ</text>
+  <text x="492" y="198" font-size="12" fill="#1e293b">贷款净额：Lₖ = L₀ − D·sₖ⌐ⱼ</text>
+
+  <rect x="492" y="240" width="356" height="56" rx="6" fill="#dcfce7" stroke="#4ade80"/>
+  <text x="670" y="262" text-anchor="middle" font-size="11.5" fill="#166534">当 j = i 时：两法完全等价</text>
+  <text x="670" y="282" text-anchor="middle" font-size="11.5" fill="#166534">I + D = R，且 L₀ − D·sₙ = R·aₙ</text>
+
+  <rect x="492" y="308" width="356" height="52" rx="6" fill="#ffffff" stroke="#86efac"/>
+  <text x="670" y="328" text-anchor="middle" font-size="11.5" fill="#334155">j &lt; i 时总额更大；等价分期利率近似：</text>
+  <text x="670" y="348" text-anchor="middle" font-size="11.5" fill="#334155">r ≈ i + 0.5(i − j)</text>
+
+  <!-- bottom: key difference -->
+  <rect x="30" y="398" width="840" height="84" rx="10" fill="#fffbeb" stroke="#d97706" stroke-width="1.3"/>
+  <text x="450" y="422" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">本质区别：已偿还本金按什么利率计息？</text>
+  <text x="450" y="446" text-anchor="middle" font-size="12" fill="#78350f">分期偿还法：已还本金不再计息（等同按贷款利率 i「省」下来）；偿债基金法：已还本金存入基金，按基金利率 j 赚取利息</text>
+  <text x="450" y="468" text-anchor="middle" font-size="12" fill="#78350f">j &lt; i 时借款人吃亏（基金赚得少）→ 等额偿债基金法的年付款总额 &gt; 等额分期偿还法</text>
+</svg>

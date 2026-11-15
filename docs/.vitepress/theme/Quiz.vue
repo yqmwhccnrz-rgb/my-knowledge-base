@@ -39,7 +39,8 @@ const noteOptions = [
   { key: 'MLTheory', label: '机器学习原理笔记' },
   { key: 'Micro', label: '西方经济学（微观部分）笔记' },
   { key: 'Math', label: '高等数学笔记' },
-  { key: 'Securities', label: '证券投资学笔记' }
+  { key: 'Securities', label: '证券投资学笔记' },
+  { key: 'Interest', label: '利息理论笔记' }
 ]
 const selectedNote = ref('all')
 const size = ref(5)

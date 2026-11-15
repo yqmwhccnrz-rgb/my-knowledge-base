@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <marker id="arL" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#475569"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="560" fill="#ffffff"/>
+  <text x="450" y="26" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">债券定价四公式 与 利率风险三工具</text>
+
+  <!-- top: pricing formulas -->
+  <text x="230" y="56" text-anchor="middle" font-size="14" font-weight="700" fill="#1e3a8a">① 债券价格四公式（P 为价格）</text>
+  <rect x="30" y="68" width="400" height="188" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="48" y="94" font-size="12" fill="#1e293b">基本公式：P = rF·aₙ + C·vⁿ</text>
+  <text x="48" y="118" font-size="12" fill="#1e293b">溢价公式：P = C[1 + (g − i)·aₙ]</text>
+  <text x="64" y="138" font-size="11" fill="#64748b">g = rF/C 修正息票率；溢价 = C(g−i)aₙ</text>
+  <text x="48" y="162" font-size="12" fill="#1e293b">基价公式：P = G + (C − G)vⁿ，G = rF/i</text>
+  <text x="48" y="186" font-size="12" fill="#1e293b">Makeham：P = (g/i)(C − K) + K，K = Cvⁿ</text>
+  <text x="48" y="212" font-size="11.5" fill="#475569">g &gt; i → 溢价发行；g &lt; i → 折价；g = i → 平价</text>
+  <text x="48" y="234" font-size="11.5" fill="#475569">账面值递推：Vₜ = Vₜ₋₁(1+i) − rF</text>
+
+  <!-- top right: price-yield convexity sketch -->
+  <text x="670" y="56" text-anchor="middle" font-size="14" font-weight="700" fill="#1e3a8a">② 价格—收益率曲线（下凸）</text>
+  <g stroke="#cbd5e1" stroke-width="1">
+    <line x1="500" y1="240" x2="860" y2="240"/>
+    <line x1="500" y1="240" x2="500" y2="72"/>
+  </g>
+  <path d="M510,86 Q560,150 640,190 T850,232" fill="none" stroke="#dc2626" stroke-width="2.6"/>
+  <line x1="600" y1="205" x2="830" y2="120" stroke="#2563eb" stroke-width="1.6" stroke-dasharray="6,4" marker-end="url(#arL)"/>
+  <circle cx="640" cy="190" r="5" fill="#1e3a8a"/>
+  <text x="648" y="182" font-size="11" fill="#1e3a8a">P₀ (y₀)</text>
+  <text x="700" y="112" font-size="10.5" fill="#2563eb">切线：修正久期 D（线性近似）</text>
+  <text x="560" y="110" font-size="10.5" fill="#dc2626">曲线：真实价格</text>
+  <text x="690" y="258" font-size="11" fill="#334155">到期收益率 y</text>
+  <text x="474" y="160" font-size="11" fill="#334155" transform="rotate(-90 474,160)">价格 P</text>
+  <text x="670" y="278" text-anchor="middle" font-size="10.5" fill="#64748b">弯曲程度 = 凸度 C（对投资者总是有利）</text>
+
+  <!-- bottom: three tools -->
+  <text x="450" y="312" text-anchor="middle" font-size="14" font-weight="700" fill="#1e3a8a">③ 利率风险度量：久期与凸度家族</text>
+
+  <rect x="30" y="326" width="270" height="106" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.4"/>
+  <text x="165" y="348" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1e3a8a">麦考利久期 Dᴹ（基于 δ）</text>
+  <text x="165" y="370" text-anchor="middle" font-size="11.5" fill="#334155">Dᴹ = Σt·Rₜvᵗ / P = −P′(δ)/P(δ)</text>
+  <text x="165" y="390" text-anchor="middle" font-size="11.5" fill="#334155">是「时间」概念：加权平均到期时间</text>
+  <text x="165" y="412" text-anchor="middle" font-size="11.5" fill="#475569">零息债券 Dᴹ = n；永续年金 Dᴹ = (1+i)/i</text>
+
+  <rect x="320" y="326" width="270" height="106" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.4"/>
+  <text x="455" y="348" text-anchor="middle" font-size="12.5" font-weight="700" fill="#b91c1c">修正久期 D（基于 y）</text>
+  <text x="455" y="370" text-anchor="middle" font-size="11.5" fill="#334155">D = −P′(y)/P(y) = Dᴹ/(1+y/m)</text>
+  <text x="455" y="390" text-anchor="middle" font-size="11.5" fill="#334155">是「强度」概念：价格单位变化率</text>
+  <text x="455" y="412" text-anchor="middle" font-size="11.5" fill="#475569">ΔP/P ≈ −D·Δy</text>
+
+  <rect x="610" y="326" width="260" height="106" rx="8" fill="#faf5ff" stroke="#9333ea" stroke-width="1.4"/>
+  <text x="740" y="348" text-anchor="middle" font-size="12.5" font-weight="700" fill="#7e22ce">有效久期 Dᴱ（数值近似）</text>
+  <text x="740" y="372" text-anchor="middle" font-size="11.5" fill="#334155">Dᴱ = (P₋ − P₊)/(2·P₀·Δy)</text>
+  <text x="740" y="392" text-anchor="middle" font-size="11.5" fill="#334155">适用现金流不确定（可赎回债）</text>
+  <text x="740" y="414" text-anchor="middle" font-size="11.5" fill="#475569">有效凸度 Cᴱ = (P₊+P₋−2P₀)/(P₀·Δy²)</text>
+
+  <!-- convexity + price change -->
+  <rect x="30" y="448" width="420" height="94" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="1.3"/>
+  <text x="240" y="470" text-anchor="middle" font-size="12.5" font-weight="700" fill="#c2410c">凸度与价格变化二阶近似</text>
+  <text x="240" y="492" text-anchor="middle" font-size="11.5" fill="#334155">C = P″(y)/P(y) = Σt(t+1)Rₜvᵗ⁻² / [P(1+y/m)²]</text>
+  <text x="240" y="512" text-anchor="middle" font-size="11.5" fill="#334155">C = (Dᴹ + Cᴹ)(1+i)⁻²；Cᴹ = Σt²Rₜvᵗ/P = Cᴹᴹ+σ²</text>
+  <text x="240" y="532" text-anchor="middle" font-size="11.5" fill="#9a3412">ΔP/P ≈ −D·Δy + ½·C·(Δy)²</text>
+
+  <!-- immunization -->
+  <rect x="470" y="448" width="400" height="94" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.3"/>
+  <text x="670" y="470" text-anchor="middle" font-size="12.5" font-weight="700" fill="#15803d">免疫策略三条件</text>
+  <text x="670" y="492" text-anchor="middle" font-size="11.5" fill="#334155">Redington：PV(A)=PV(L)、D(A)=D(L)、C(A)&gt;C(L)</text>
+  <text x="670" y="512" text-anchor="middle" font-size="11.5" fill="#334155">完全免疫：前两条件 + 负债到期日夹在两笔资产之间</text>
+  <text x="670" y="532" text-anchor="middle" font-size="11.5" fill="#166534">现金流配比：逐笔期限金额全匹配（无需再调整）</text>
+</svg>
