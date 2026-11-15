@@ -972,12 +972,10 @@ select:focus-visible {
   font-size: 1.08em;
   line-height: 1.5;
 }
-/* 上下标、极限与求和的上下限整体等比缩小。
-   KaTeX 这些结构内部的字号、top、height 全部用 em 表达，
-   在 .msupsub 上缩放父字体，内容与定位会同步变小，不会错位。 */
-.vp-doc .katex .msupsub {
-  font-size: 0.88em;
-}
+/* 上下标保持 KaTeX 默认字号。
+   KaTeX 的 top/height/pstrut 全用 em 定位，缩放 .msupsub 父字体或 .sizing
+   字号都会让上下标位移、与分数线挤在一起；分母里加 \displaystyle/\textstyle
+   同样会把上标压到下方。表格内改为放大整个公式（见本段末尾）来提升清晰度。 */
 /* 行内公式左右留一点空气，避免紧贴中文或标点 */
 .vp-doc p .katex,
 .vp-doc li .katex,
@@ -1033,4 +1031,19 @@ select:focus-visible {
 /* 列表项内紧跟文字的块级公式收紧一点 */
 .vp-doc li > .katex-display:first-child {
   margin-top: 0.6em;
+}
+/* 表格单元格里的公式：禁止在公式内部断行（否则末尾下标会掉到下一行）；
+   含分式的公式略放大，让分子分母与上下标有足够空间、不再挤成一团。 */
+.vp-doc td .katex,
+.vp-doc th .katex {
+  white-space: nowrap;
+}
+.vp-doc td .katex:has(.mfrac),
+.vp-doc th .katex:has(.mfrac) {
+  font-size: 1.16em;
+}
+/* 含公式的表格：首列标签不断行，避免被宽公式挤成两行 */
+.vp-doc table:has(.katex) td:first-child,
+.vp-doc table:has(.katex) th:first-child {
+  white-space: nowrap;
 }
