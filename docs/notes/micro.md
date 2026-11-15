@@ -145,7 +145,7 @@ $50- 2P=- 10+ 3P \Rightarrow 5P= 60 \Rightarrow P*= 12$，`Q* = 26`。
 
 | 弹性 | 定义式 | 符号与含义 |
 | --- | --- | --- |
-| 需求价格弹性 | $Ed=-(\frac{dQ}{dP}) \cdot(\frac{P}{Q})$（点）；$Ed=- \frac{(\frac{\Delta Q}{\Delta P}) \cdot[\frac{P_{1}+P_{2}}{2}]}{[\frac{Q_{1}+Q_{2}}{2}]}$（弧/中点） | 通常取绝对值；`>1` 富有、`=1` 单位、`<1` 缺乏 |
+| 需求价格弹性 | $Ed=-(\frac{dQ}{dP}) \cdot(\frac{P}{Q})$（点）；$Ed=- \frac{(\frac{\Delta Q}{\Delta P}) \cdot[\frac{P_{1}+P_{2}}{2}]}{\frac{Q_{1}+Q_{2}}{2}}$（弧/中点） | 通常取绝对值；`>1` 富有、`=1` 单位、`<1` 缺乏 |
 | 需求收入弹性 | $eI= \frac{\frac{\Delta Q}{Q}}{\frac{\Delta I}{I}}$ | `>0` 正常品（`>1` 奢侈品）；`<0` 低档品 |
 | 需求交叉弹性 | $eXY= \frac{\frac{\Delta Qx}{Qx}}{\frac{\Delta Py}{Py}}$ | `>0` 替代品；`<0` 互补品；$\approx 0$ 无关 |
 | 供给价格弹性 | $eS= \frac{\frac{\Delta Q}{Q}}{\frac{\Delta P}{P}}$ | 时间越长越大；土地等固定供给 `eS = 0` |
@@ -160,7 +160,7 @@ $50- 2P=- 10+ 3P \Rightarrow 5P= 60 \Rightarrow P*= 12$，`Q* = 26`。
 
 ::: tip 工作例题 · 弧弹性与总收益
 $P: 5 \to 4$，$Q: 20 \to 30$：
-$Ed=(\frac{10}{1}) \times \frac{[\frac{5+4}{2}]}{[\frac{20+30}{2}]}= 10 \times \frac{4.5}{25}= 1.8> 1$（富有弹性）。
+$Ed=(\frac{10}{1}) \times \frac{\frac{5+4}{2}}{\frac{20+30}{2}}= 10 \times \frac{4.5}{25}= 1.8> 1$（富有弹性）。
 $TR: 5 \times 20= 100 \to 4 \times 30= 120$，降价增收 ✓ 与理论一致。
 
 **点弹性**：$Q= 50- 2P$，$\frac{dQ}{dP}=- 2$：
@@ -352,7 +352,7 @@ $CE= EU^{2}= 225$，**风险溢价 = 250 − 225 = 25**：此人最多愿花 25 
 - 马歇尔需求 $X= \frac{I}{2Px}$、$Y= \frac{I}{2Py}$；
 - 间接效用 $v= \frac{I^{2}}{4PxPy}$；
 - 支出函数 $e(p,U)= 2\sqrt{U \cdot PxPy}$；
-- 验算罗伊恒等式：$- \frac{\frac{\partial v}{\partial Px}}{\frac{\partial v}{\partial I}}= \frac{[\frac{I^{2}}{4Px^{2}Py}]}{[\frac{2I}{4PxPy}]}= \frac{I}{2Px}= X$ ✓。
+- 验算罗伊恒等式：$- \frac{\frac{\partial v}{\partial Px}}{\frac{\partial v}{\partial I}}= \frac{\frac{I^{2}}{4Px^{2}Py}}{\frac{2I}{4PxPy}}= \frac{I}{2Px}= X$ ✓。
 :::
 
 ### 3.7 补偿变化 CV、等价变化 EV 与消费者剩余
@@ -740,7 +740,7 @@ $P_{1}(1- 1|E_{1}|)= P_{2}(1- 1|E_{2}|)= MC$ ⇒ **需求弹性小的市场定�
 $\pi_{1}=[18-(Q_{1}+Q_{2})]Q_{1}$，$\partial \pi_{1} \partial Q_{1}= 18- 2Q_{1}- Q_{2}= 0$ ⇒ 反应函数 $Q_{1}= 9- \frac{Q_{2}}{2}$；对称 $Q_{2}= 9- \frac{Q_{1}}{2}$。
 联立 ⇒ $Q_{1}= Q_{2}= 6$，`Q = 12`，`P = 6`，$\pi_{1}= \pi_{2}= 36$。
 
-- **通式**：$P= a- bQ$、`MC = c` 时 $Qi= \frac{a- c}{3b}$，n 家同质寡头 $Q= \frac{n(a- c)}{[(n+1)b]}$；$n \to_{\infty}$ 时 $\frac{Q \to(a- c)}{b}$（竞争结果），`n = 1` 时回到垄断。
+- **通式**：$P= a- bQ$、`MC = c` 时 $Qi= \frac{a- c}{3b}$，n 家同质寡头 $Q= \frac{n(a- c)}{(n+1)b}$；$n \to_{\infty}$ 时 $\frac{Q \to(a- c)}{b}$（竞争结果），`n = 1` 时回到垄断。
 - **斯塔克尔伯格**（1 为领导）：把 $R_{2}= 9- \frac{Q_{1}}{2}$ 代入 ⇒ $\pi_{1}=(9- \frac{Q_{1}}{2})Q_{1}$，求导得 $Q_{1}= 9$，$Q_{2}= 4.5$，`P = 4.5`，$\pi_{1}= 40.5> \pi_{2}= 20.25$（先动优势）。
 - **卡特尔**：`Q = 9, P = 9`，总利润 81，各 40.5 > 古诺的 $36 \Rightarrow$ 合谋有吸引力，但单方偷偷增产可获益 ⇒ 卡特尔天然不稳定（第 10 章囚徒困境）。
 :::
@@ -764,7 +764,7 @@ $\pi_{1}=[18-(Q_{1}+Q_{2})]Q_{1}$，$\partial \pi_{1} \partial Q_{1}= 18- 2Q_{1}
 ### 7.6 古诺 n 家推广与合谋维持条件
 
 $P= a- bQ$，n 家同质、`MC = c`：
-对称均衡 $Qi= \frac{a- c}{[(n+1)b]}$，$Q= \frac{n(a- c)}{[(n+1)b]}$，$P= \frac{a+ n \cdot c}{n+1}$，$\pi_{i}= \frac{(a- c)^{2}}{[(n+1)^{2}b]}$。
+对称均衡 $Qi= \frac{a- c}{(n+1)b}$，$Q= \frac{n(a- c)}{(n+1)b}$，$P= \frac{a+ n \cdot c}{n+1}$，$\pi_{i}= \frac{(a- c)^{2}}{(n+1)^{2}b}$。
 - `n = 1` ⇒ 垄断；$n \to_{\infty}$ ⇒ $P \to c$（竞争），说明**厂商数量本身即可逼近竞争结果**（无需假设完全信息的价格接受行为）。
 - **勒纳指数** `(P−c)/P = 1/(n·|Ed|市场)`（古诺情形）：市场集中度越高，加成越大（HHI 指数的理论基础）。
 
@@ -1139,7 +1139,7 @@ $$
 
 $$
 \text{已知：} \; P_{1}= 5, Q_{1}= 20 \; \text{；} \; P_{2}= 4, Q_{2}= 30 \\
-\text{(1)} \; \text{中点公式：} \; Ed=-(\frac{\Delta Q}{\Delta P}) \times \frac{[\frac{P_{1}+P_{2}}{2}]}{[\frac{Q_{1}+Q_{2}}{2}]} \\
+\text{(1)} \; \text{中点公式：} \; Ed=-(\frac{\Delta Q}{\Delta P}) \times \frac{\frac{P_{1}+P_{2}}{2}}{\frac{Q_{1}+Q_{2}}{2}} \\
 \Delta Q=+10, \Delta P=- 1 \to-(10- 1)= 10 \\
 \text{Pm = 4.5, Qm = 25} \\
 Ed= 10 \times \frac{4.5}{25}= 1.8 \; \text{（富有弹性）} \\
@@ -1243,7 +1243,7 @@ $$
 \text{(3)} \; \text{联立：} \; Q_{1}= 9- \frac{9- \frac{Q_{1}}{2}}{2}= 4.5+ \frac{Q_{1}}{4} \\
 (\frac{3}{4})Q_{1}= 4.5 \to Q_{1}= Q_{2}= 6 \\
 \text{(4) Q = 12} \; \text{，} \; \text{P = 6} \; \text{，} \; \pi_{1}= \pi_{2}= 6 \times 6= 36 \\
-\text{(5)} \; \text{通式} \; Qi= \frac{a- c}{[(n+1)b]}= \frac{18}{3 \times 1}= 6 \checkmark \\
+\text{(5)} \; \text{通式} \; Qi= \frac{a- c}{(n+1)b}= \frac{18}{3 \times 1}= 6 \checkmark \\
 \text{【斯塔克尔伯格（} \; \text{1} \; \text{领导）】} \\
 \text{(6)} \; \text{把} \; R_{2} \; \text{代入：} \; \pi_{1}=[18- Q_{1}-(9- \frac{Q_{1}}{2})]Q_{1}=(9- \frac{Q_{1}}{2})Q_{1} \\
 d\pi_{1} dQ_{1}= 9- Q_{1}= 0 \to Q_{1}= 9 \; \text{，} \; Q_{2}= 4.5 \; \text{，} \; \text{Q = 13.5} \; \text{，} \; \text{P = 4.5} \\
@@ -1571,7 +1571,7 @@ $MSB= 100- 2Q$，`MPC = 2Q + 10`，`ME = 6`。
 | 均衡 | `Qd(P*) = Qs(P*)` |
 | 机会成本 | 放弃的其他用途中的**最大**收益；`PPF` 斜率 = $MRT=|\frac{\Delta Y}{\Delta X}|$ |
 | 需求点弹性 | $Ed=-(\frac{dQ}{dP})(\frac{P}{Q})$（常取绝对值） |
-| 需求弧弹性（中点） | $Ed=- \frac{(\frac{\Delta Q}{\Delta P}) \cdot[\frac{P_{1}+P_{2}}{2}]}{[\frac{Q_{1}+Q_{2}}{2}]}$ |
+| 需求弧弹性（中点） | $Ed=- \frac{(\frac{\Delta Q}{\Delta P}) \cdot[\frac{P_{1}+P_{2}}{2}]}{\frac{Q_{1}+Q_{2}}{2}}$ |
 | 收入 / 交叉 / 供给弹性 | $eI= \frac{\frac{\Delta Q}{Q}}{\frac{\Delta I}{I}}$；$eXY= \frac{\frac{\Delta Qx}{Qx}}{\frac{\Delta Py}{Py}}$；$eS= \frac{\frac{\Delta Q}{Q}}{\frac{\Delta P}{P}}$ |
 | 弹性与总收益 | $\frac{dTR}{dP}= Q(1-|Ed|)$；`|Ed| > 1` 降价增收 |
 | 线性需求弹性 | $P= a- bQ \Rightarrow|Ed|=(\frac{1}{b})(\frac{P}{Q})= \frac{P}{a- P}$ |
@@ -1618,7 +1618,7 @@ $MSB= 100- 2Q$，`MPC = 2Q + 10`，`ME = 6`。
 | MR 与弹性 | $MR= P(1- 1|Ed|)$ ⇒ 勒纳指数 $L= \frac{P- MC}{P}= 1|Ed|$ |
 | 加成法则 | $P= MC \cdot|Ed|(|Ed|- 1)$ |
 | 三级价格歧视 | $MR_{1}= MR_{2}= MC$ ⇔ $P_{1}(1- 1|E_{1}|)= P_{2}(1- 1|E_{2}|)= MC$ |
-| 古诺 | $P= a- bQ, MC= c$：$Qi= \frac{a- c}{[(n+1)b]}$，$P= \frac{a+nc}{n+1}$ |
+| 古诺 | $P= a- bQ, MC= c$：$Qi= \frac{a- c}{(n+1)b}$，$P= \frac{a+nc}{n+1}$ |
 | 垄断 DWL | $\frac{1}{2}(Pm- MC)(Qc- Qm)$（线性情形） |
 
 ### A.5 要素、福利与失灵（第 8–11 章）

@@ -393,9 +393,9 @@ $$
 | 指标 | 公式 | 用途 |
 | --- | --- | --- |
 | 调整 R² | $\bar{R}^{2}= 1- \frac{(1- R^{2})(n- 1)}{n- k- 1}$ | 惩罚加变量；**可能为负**；可比较同被解释变量模型 |
-| 整体 F | $F= \frac{\frac{R^{2}}{k}}{[\frac{1- R^{2}}{n- k- 1}]} \sim F(k, n- k- 1)$ | 检验 H0: $\beta_{1}= \cdots=\beta_{k}=0$ |
+| 整体 F | $F= \frac{\frac{R^{2}}{k}}{\frac{1- R^{2}}{n- k- 1}} \sim F(k, n- k- 1)$ | 检验 H0: $\beta_{1}= \cdots=\beta_{k}=0$ |
 | AIC / SC(BIC) | $\ln(\frac{SSE}{n})+ \frac{2(k+1)}{n}$ / $\cdots+ \frac{(k+1)\ln(n)}{n}$ | 越小越好；SC 对变量个数惩罚更重 |
-| 约束 F | $\frac{[\frac{SSE_{r}- SSE_{u}}{q}]}{[\frac{SSE_{u}}{n- k- 1}]} \sim F(q, n- k- 1)$ | q 个线性约束的联合检验 |
+| 约束 F | $\frac{\frac{SSE_{r}- SSE_{u}}{q}}{\frac{SSE_{u}}{n- k- 1}} \sim F(q, n- k- 1)$ | q 个线性约束的联合检验 |
 
 **三大检验原理**（大样本渐近等价，小样本可能不同）：`Wald`（只估无约束模型，看约束离 0 多远）、`LM / 得分检验`（只估约束模型，看得分是否接近 0，$LM= nR^{2}_{aux}$）、`LR`（两者都估，比较似然值 $2(lnL_{u}- lnL_{r})$），三者均渐近 $\sim \chi^{2}(q)$。一般 `Wald > LR > LM`。
 
@@ -403,7 +403,7 @@ $$
 无约束模型 $n=30, k=3, R^{2}_{u}=0.86$；施加 `q=2` 个约束后 $R^{2}_{r}=0.62$。
 
 $$
-F= \frac{[\frac{0.86- 0.62}{2}]}{[\frac{1- 0.86}{30- 3- 1}]} \\
+F= \frac{\frac{0.86- 0.62}{2}}{\frac{1- 0.86}{30- 3- 1}} \\
 = \frac{0.12}{\frac{0.14}{26}}= \frac{0.12}{0.0053846}= 22.29 \\
 F_{0}._{05}(2,26) \approx 3.37 \to \; \text{拒绝约束，说明被排除的两个变量联合显著} \\
 \bar{R}^{2}= 1- \frac{(1- 0.86) \times 29}{26}= 1- 0.1562= 0.8438 \\
@@ -438,7 +438,7 @@ $$
 ::: tip 补充考点 · Chow 检验的完整操作步骤
 检验两个子样本（如改革前/后）的回归系数是否发生结构性变化：
 ① 分别对子样本 1（n1）、子样本 2（n2）与合并样本回归，得 `SSE1、SSE2、SSE_p`（p = pooled）；
-② $F= \frac{[\frac{SSE_{p}-(SSE_{1}+SSE_{2})}{k+1}]}{[\frac{SSE_{1}+SSE_{2}}{n_{1}+n_{2}- 2(k+1)}]} \sim F(k+1, n_{1}+n_{2}- 2k- 2)$，q = k+1（所有系数含截距）；
+② $F= \frac{\frac{SSE_{p}-(SSE_{1}+SSE_{2})}{k+1}}{\frac{SSE_{1}+SSE_{2}}{n_{1}+n_{2}- 2(k+1)}} \sim F(k+1, n_{1}+n_{2}- 2k- 2)$，q = k+1（所有系数含截距）；
 ③ F 大于临界值 ⇒ 结构发生变化，应分段建模或加虚拟变量交互项。
 **注意**：任一子样本观测数少于待估参数个数时 Chow 检验失效，改用**虚拟变量法**（D 与各变量交互）等价检验；它本质就是 4.3 节约束 F 检验的特例。
 :::
@@ -744,13 +744,13 @@ $$
 $$
 \text{无约束：} \; Y_{t}= \alpha+ \sum a_{i} Y_{t- i}+ \sum b_{j} X_{t- j}+ u_{t} \to SSE_{u} \\
 \text{受约束：} \; \text{Y\_t = α + Σa\_i Y\_\{t−i\} + u\_t  (H0:} \; \text{全部} \; \text{b\_j = 0) → SSE\_r} \\
-F= \frac{[\frac{SSE_{r}- SSE_{u}}{q}]}{[\frac{SSE_{u}}{n- k}]} \sim F(q, n- k)
+F= \frac{\frac{SSE_{r}- SSE_{u}}{q}}{\frac{SSE_{u}}{n- k}} \sim F(q, n- k)
 $$
 
 ::: tip 工作示例 · Granger F 统计量
 `SSE_r = 1200`，`SSE_u = 900`，滞后阶 `q=2`，`n=60`，无约束模型参数 `k=5`：
 $$
-F= \frac{[\frac{1200- 900}{2}]}{[\frac{900}{60- 5}]}= \frac{150}{16.364}= 9.17 \\
+F= \frac{\frac{1200- 900}{2}}{\frac{900}{60- 5}}= \frac{150}{16.364}= 9.17 \\
 F_{0}._{05}(2,55) \approx 3.17 \to \; \text{拒绝} \; H_{0} \; \text{，} \; \text{X Granger} \; \text{引起} \; \text{Y}
 $$
 **三个前提**：① 变量平稳（非平稳须先差分或做协整/VECM）；② 滞后阶数由 AIC/SC 选，结论可能对阶数敏感；③ 存在共同原因、预期先行、遗漏第三变量时「Granger 因果」会被误读。反向也须检验（Y 是否 Granger 引起 X），可能出现双向反馈。
@@ -1195,8 +1195,8 @@ $$
 
 **解**：
 $$
-F= \frac{[\frac{R^{2}_{u}- R^{2}_{r}}{q}]}{[\frac{1- R^{2}_{u}}{n- k- 1}]} \\
-= \frac{[\frac{0.86- 0.62}{2}]}{[\frac{0.14}{26}]}= \frac{0.12}{0.0053846}= 22.29 \\
+F= \frac{\frac{R^{2}_{u}- R^{2}_{r}}{q}}{\frac{1- R^{2}_{u}}{n- k- 1}} \\
+= \frac{\frac{0.86- 0.62}{2}}{\frac{0.14}{26}}= \frac{0.12}{0.0053846}= 22.29 \\
 F_{0}._{05}(2,26) \approx 3.37 \to \; \text{拒绝约束（被排除变量联合显著）} \\
 \bar{R}^{2}= 1- \frac{(1- 0.86) \times 29}{26}= 0.8438 \\
 \text{整体} \; F= \frac{\frac{0.86}{3}}{\frac{0.14}{26}}= 53.24> F_{0}._{05}(3,26) \approx 2.98 \to \; \text{方程整体显著}
@@ -1258,7 +1258,7 @@ $$
 \text{短期乘数} \; \text{= 0.5} \\
 \text{长期乘数} \; = \beta_{0}(1- \lambda)= \frac{0.5}{0.4}= 1.25 \\
 \text{平均滞后} \; \approx \frac{\lambda}{1- \lambda}= 1.5 \; \text{期（调整较慢）} \\
-F= \frac{[\frac{1200- 900}{2}]}{[\frac{900}{60- 5}]}= \frac{150}{16.364}= 9.17> F_{0}._{05}(2,55) \approx 3.17 \\
+F= \frac{\frac{1200- 900}{2}}{\frac{900}{60- 5}}= \frac{150}{16.364}= 9.17> F_{0}._{05}(2,55) \approx 3.17 \\
 \to \; \text{拒绝「} \; \text{X} \; \text{的滞后项联合为} \; \text{0} \; \text{」，} \; \text{X Granger} \; \text{引起} \; \text{Y}
 $$
 **解读边界**：这只是**增量预测能力**，不等于结构因果；若变量非平稳需先差分或做 VECM；滞后阶数换一档结论可能改变，应报告稳健性。
@@ -1339,8 +1339,8 @@ $$
 | 7 | 系数标准误 | $se(\hat{\beta}_{1})=\sqrt{\frac{\hat{\sigma}^{2}}{Sxx}}$；多元取 $\hat{\sigma}^{2}(X′X)^{-1}$ 对角元开方 |
 | 8 | t 检验 | $t=\frac{\hat{\beta}- \beta_{H0}}{se(\hat{\beta})} \sim t(n- k- 1)$；$F=t^{2}$ |
 | 9 | 置信区间 | $\hat{\beta} ± t_{\frac{\alpha}{2}} \cdot se(\hat{\beta})$；大样本用 1.96 |
-| 10 | 整体 F | $F= \frac{\frac{R^{2}}{k}}{[\frac{1- R^{2}}{n- k- 1}]}$ |
-| 11 | 约束 F | $F= \frac{[\frac{SSE_{r}- SSE_{u}}{q}]}{[\frac{SSE_{u}}{n- k- 1}]}$ |
+| 10 | 整体 F | $F= \frac{\frac{R^{2}}{k}}{\frac{1- R^{2}}{n- k- 1}}$ |
+| 11 | 约束 F | $F= \frac{\frac{SSE_{r}- SSE_{u}}{q}}{\frac{SSE_{u}}{n- k- 1}}$ |
 | 12 | 三大检验 | Wald / LM / LR 渐近 $\sim \chi^{2}(q)$；$LM= n \cdot R^{2}_{aux}$ |
 | 13 | 信息准则 | $AIC= \ln(\frac{SSE}{n})+\frac{2(k+1)}{n}$；$SC= \ln(\frac{SSE}{n})+\frac{(k+1)\ln(n)}{n}$ |
 | 14 | 遗漏变量偏误 | $plim \tilde{\beta}_{1}= \beta_{1}+ \beta_{2} \cdot \delta_{1}$（δ1 为 X2 对 X1 辅助回归斜率） |
@@ -1359,7 +1359,7 @@ $$
 | 27 | 分布滞后 | $Y_{t}=\alpha+\sum \beta_{iX}_{t- i}+u_{t}$；长期乘数 $\sum \beta_{i}$ |
 | 28 | Koyck / 部分调整 | $Y_{t}=\alpha(1- \lambda)+\beta_{0}X_{t}+\lambda Y_{t- 1}+v_{t}$；长期乘数 $\beta_{0}(1- \lambda)$ |
 | 29 | 平均滞后 | $\approx \frac{\lambda}{1- \lambda}$ |
-| 30 | Granger F | $F=\frac{[\frac{SSE_{r}- SSE_{u}}{q}]}{[\frac{SSE_{u}}{n- k}]}$ |
+| 30 | Granger F | $F=\frac{\frac{SSE_{r}- SSE_{u}}{q}}{\frac{SSE_{u}}{n- k}}$ |
 | 31 | AR(1) 平稳 | $|\phi|<1$；$\phi=1$ 为单位根 |
 | 32 | ADF | $\Delta Y_{t}=\alpha+\beta t+\gamma Y_{t- 1}+\sum \delta_{i}\Delta Y_{t- i}+\epsilon_{t}$；$H_{0}: \gamma=0$，用 MacKinnon 临界值 |
 | 33 | 单整 | $Y \sim I(d)$ 表示差分 d 次平稳 |

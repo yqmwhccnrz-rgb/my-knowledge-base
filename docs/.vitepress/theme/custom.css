@@ -965,35 +965,66 @@ select:focus-visible {
 
 /* ==========================================================================
    KaTeX 数学公式渲染样式
-   需求：垂直分式（\frac）、字体与行距比正文略大一点但不夸张、不拥挤。
-   katex.min.css 默认 .katex 为 1.21em，这里收敛到 1.08em 并微调行高，
-   块级公式（$$...$$）加上下留白，超宽时横向滚动而不撑破版面。
+   目标：垂直分式（\frac）为主；公式与中文之间留白、行距宽松、基线稳定，
+   长公式独立成块居中；字号比正文略大但不夸张。
    ========================================================================== */
 .vp-doc .katex {
-  font-size: 1.1em;
-  line-height: 1.4;
+  font-size: 1.12em;
+  line-height: 1.5;
 }
+/* 行内公式左右留一点空气，避免紧贴中文或标点 */
 .vp-doc p .katex,
 .vp-doc li .katex,
 .vp-doc td .katex,
 .vp-doc th .katex {
-  /* 行内公式含分式/根式时略微抬高行距，避免上下被裁切或贴得太紧 */
-  padding: 0.1em 0;
+  margin: 0 0.12em;
 }
+/* 含分式的行内公式再放宽些，视觉上自成一个小整体 */
+.vp-doc p .katex:has(.mfrac),
+.vp-doc li .katex:has(.mfrac),
+.vp-doc td .katex:has(.mfrac),
+.vp-doc th .katex:has(.mfrac) {
+  margin: 0 0.24em;
+  padding: 0.06em 0.1em;
+}
+/* 含分式的行抬高行高，避免分式顶到上一行、压住下一行（块级公式容器除外） */
+.vp-doc p:not(.katex-block):has(.katex .mfrac),
+.vp-doc li:has(.katex .mfrac),
+.vp-doc td:has(.katex .mfrac),
+.vp-doc th:has(.katex .mfrac) {
+  line-height: 2.05;
+}
+/* 表格单元格：给公式上下多一点空间 */
+.vp-doc td:has(.katex),
+.vp-doc th:has(.katex) {
+  padding-top: 0.7em;
+  padding-bottom: 0.7em;
+}
+/* 块级公式：居中、上下留白充足、超宽时横向滚动而不撑破版面 */
 .vp-doc .katex-display {
-  margin: 1.2em 0;
-  padding: 0.4em 0.5em;
+  margin: 1.45em auto;
+  padding: 0.45em 0.6em;
   overflow-x: auto;
   overflow-y: hidden;
   scrollbar-width: thin;
 }
 .vp-doc .katex-display > .katex {
-  font-size: 1.14em;
+  font-size: 1.16em;
   white-space: normal;
 }
-/* 表格单元格内的块级公式不需要大留白 */
+/* 块级公式内部的 .katex 不继承上面的行内留白规则 */
+.vp-doc .katex-display > .katex:has(.mfrac),
+.vp-doc .katex-display > .katex {
+  margin: 0;
+  padding: 0;
+}
+/* 表格内的块级公式不需要大留白 */
 .vp-doc td .katex-display,
 .vp-doc th .katex-display {
-  margin: 0.4em 0;
-  padding: 0.1em 0.2em;
+  margin: 0.45em 0;
+  padding: 0.15em 0.2em;
+}
+/* 列表项内紧跟文字的块级公式收紧一点 */
+.vp-doc li > .katex-display:first-child {
+  margin-top: 0.6em;
 }

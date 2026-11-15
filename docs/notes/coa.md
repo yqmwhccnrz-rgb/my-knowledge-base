@@ -118,7 +118,7 @@ $$
 ::: tip 工作示例 · Amdahl 定律
 某程序中浮点运算占执行时间的 `40%`，若把浮点部件加速 `10` 倍：
 $$
-S= \frac{1}{[(1- 0.4)+ \frac{0.4}{10}]}= \frac{1}{0.6+ 0.04}= \frac{1}{0.64} \approx 1.5625
+S= \frac{1}{(1- 0.4)+ \frac{0.4}{10}}= \frac{1}{0.6+ 0.04}= \frac{1}{0.64} \approx 1.5625
 $$
 即使把浮点部件加速到无穷大（$\frac{0.4}{\infty} \to 0$），整体加速比上限也只有 $\frac{1}{0.6} \approx 1.67$。**结论：优化必须针对占比最大的部分**；"只优化一小块代码"收益有限。
 
@@ -1007,7 +1007,7 @@ $$
 \text{非流水时间} \; \text{T\_} \; \text{非} \; = n \cdot k \cdot t \\
 \text{流水时间} \; \text{T\_} \; \text{流} \; =(k+ n- 1) \cdot t \; \text{（首条填满流水线需} \; \text{k} \; \text{拍，之后每拍流出} \; \text{1} \; \text{条）} \\
 \text{加速比} \; \text{S = T\_} \; \text{非} \; \text{/ T\_} \; \text{流} \; = \frac{n \cdot k}{k+ n- 1} \to n \to_{\infty} \; \text{时} \; S \to k \\
-\text{吞吐率} \; TP= \frac{n}{[(k+n- 1) \cdot t]} \; \text{，最大} \; TP_\max= \frac{1}{t} \\
+\text{吞吐率} \; TP= \frac{n}{(k+n- 1) \cdot t} \; \text{，最大} \; TP_\max= \frac{1}{t} \\
 \text{效率} \; E= \frac{S}{k}= \frac{n}{k+n- 1} \; \text{（时空图中被占用的面积占比）}
 $$
 
@@ -1364,7 +1364,7 @@ $$
 \text{(1)} \; \text{优化前：} \; \text{CPU} \; \text{时间} \; = IC \times \frac{CPI}{f} \to 2 \times 10^{10} \times \frac{1.0}{2 \times 10^{9}}= 10 s \checkmark \; \text{（与题给一致）} \\
 \text{(2)} \; \text{优化后：时间} \; = 1.6 \times 10^{10} \times \frac{1.2}{2 \times 10^{9}}= 9.6 s \to \; \text{缩短} \; \text{0.4 s} \; \text{（提速约} \; \text{1.04} \; \text{倍），划算} \\
 \text{MIPS} \; \text{前} \; = \frac{f}{CPI \times 10^{6}}= 2000 \; \text{；} \; \text{MIPS} \; \text{后} \; \approx 1667 \to MIPS \; \text{下降但时间更短，再次说明} \; \text{MIPS} \; \text{不可靠} \\
-\text{(3) Amdahl} \; \text{：} \; S= \frac{1}{[(1- 0.3)+ \frac{0.3}{5}]}= \frac{1}{0.7+0.06} \approx 1.316 \\
+\text{(3) Amdahl} \; \text{：} \; S= \frac{1}{(1- 0.3)+ \frac{0.3}{5}}= \frac{1}{0.7+0.06} \approx 1.316 \\
 \text{上限} \; = \frac{1}{0.7} \approx 1.43 \; \text{（即使该模块无限快也无法超过）}
 $$
 
@@ -1468,7 +1468,7 @@ $$
 | 扩展操作码 | 少用一条短格式指令可多换得 `2^剩余字段位数` 条长格式指令 |
 | 单周期时钟周期 | 由最慢指令（通常 lw）的各部件延迟之和决定 |
 | 微程序控存 | 容量 = 微指令条数 × 微指令字长 |
-| 流水线 | `T_流 = (k+n−1)t`；$S= \frac{nk}{k+n- 1} \to k$；$TP= \frac{n}{[(k+n- 1)t]}$；$E= \frac{n}{k+n- 1}$ |
+| 流水线 | `T_流 = (k+n−1)t`；$S= \frac{nk}{k+n- 1} \to k$；$TP= \frac{n}{(k+n- 1)t}$；$E= \frac{n}{k+n- 1}$ |
 | 实际 CPI | `理想 CPI + 结构/数据/控制停顿 + 存储缺失停顿` |
 | 总线带宽 | `宽度(bit)/8 × 频率 × 每周期传送次数` |
 | 磁盘存取时间 | `寻道 + 旋转延迟 + 传输 + 控制器开销`；平均旋转延迟 = 半圈时间 |

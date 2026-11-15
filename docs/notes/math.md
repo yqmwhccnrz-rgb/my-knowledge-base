@@ -162,7 +162,7 @@ $f(x)= \sum_{k=0}\frac{^{n} f^{(k)}(x_{0})(x- x_{0})^{k}}{k}!+ R_{n}(x)$：
 
 ![导数定义、几何意义与可导连续关系](/math/math-derivative.svg)
 
-$f′(x_{0})= \lim_{\Delta x \to 0}\frac{[f(x_{0}+\Delta x)- f(x_{0})]}{\Delta x}$，几何上是切线斜率 $\tan \alpha$，物理上是瞬时速度。
+$f′(x_{0})= \lim_{\Delta x \to 0}\frac{f(x_{0}+\Delta x)- f(x_{0})}{\Delta x}$，几何上是切线斜率 $\tan \alpha$，物理上是瞬时速度。
 **微分** `dy = f′(x)dx`，且 $\Delta y= dy+ o(\Delta x)$ ——「以直代曲」是微元法的理论基础。
 
 | 关系（一元） | 结论 |
@@ -209,7 +209,7 @@ $f(x)= x^{2} \sin(\frac{1}{x})$（x≠0）、`f(0)=0`：在 0 处 $f′(0)= \lim
 | 费马引理 | `f` 在 $x_{0}$ 可导且取极值 | $f′(x_{0})=0$ |
 | 罗尔 | `[a,b]` 连续、`(a,b)` 可导、`f(a)=f(b)` | $\exists \xi \in(a,b)$, $f′(\xi)=0$ |
 | 拉格朗日 | `[a,b]` 连续、`(a,b)` 可导 | $f(b)- f(a)= f′(\xi)(b- a)$ |
-| 柯西 | `f,g` 满足上述条件且 $g′=0$ | $\frac{[f(b)- f(a)]}{[g(b)- g(a)]}= f′\frac{\xi}{g}′(\xi)$ |
+| 柯西 | `f,g` 满足上述条件且 $g′=0$ | $\frac{f(b)- f(a)}{g(b)- g(a)}= f′\frac{\xi}{g}′(\xi)$ |
 | 泰勒 | `n+1` 阶可导 | 带拉格朗日余项的 `n` 阶展开（`n=0` 退化为拉格朗日） |
 
 **逻辑链**：罗尔（特殊）→ 拉格朗日（罗尔 + 辅助函数）→ 柯西（参数形式）→ 泰勒（高阶），而**柯西是洛必达法则的证明基础**。
@@ -609,7 +609,7 @@ $|a|= \sqrt{1+4+1}= \sqrt{6} \approx 2.449$；$\cos \theta= \frac{1}{\sqrt{6} \c
 | --- | --- |
 | 二重极限 | $\forall \epsilon>0 \exists \delta>0, 0<\sqrt{(x- x_{0})^{2}+(y- y_{0})^{2}}<\delta \Rightarrow|f- A|<\epsilon$；要求**沿任意路径**趋于同一值 |
 | 累次极限 | `lim_x lim_y f` 与 `lim_y lim_x f`；二者存在且不等 ⇒ 二重极限不存在（反之不成立） |
-| 偏导数 | $f_{x}(x_{0},y_{0})=\lim \frac{[f(x_{0}+h,y_{0})- f(x_{0},y_{0})]}{h}$（固定其余变量） |
+| 偏导数 | $f_{x}(x_{0},y_{0})=\lim \frac{f(x_{0}+h,y_{0})- f(x_{0},y_{0})}{h}$（固定其余变量） |
 | 全微分 | $\Delta z= A\Delta x+B\Delta y+o(\rho)$，$\rho=\sqrt{\Delta x^{2}+\Delta y^{2}}$ ⇒ $dz=f_{x}dx+f_{gamma}dy$ |
 
 **关系图（二元，与一元差别很大）**：
@@ -848,7 +848,7 @@ $\sum u_{n}$ 收敛 ⇔ 部分和序列 $S_{n}= \sum_{k=1}^{n} u_{k}$ 收敛。*
 $$
 \text{(1)} \; \text{几何级数} \; \sum_{n=0}^\infty q^{n}= \frac{1}{1- q} \; \text{（} \; \text{|q|<1} \; \text{）；} \; |q| \ge 1 \; \text{发散} \\
 \text{(2) p} \; \text{级数} \; \frac{\sum 1}{n^{p}} \; \text{：} \; \text{p>1} \; \text{收敛、} \; p \le 1 \; \text{发散；} \; \frac{\sum 1}{n} \; \text{发散（调和级数）} \\
-\text{(3)} \; \text{裂项} \; \sum_{n=1}^\infty \frac{1}{[n(n+1)]}= \sum(\frac{1}{n}- \frac{1}{n+1})= 1 \\
+\text{(3)} \; \text{裂项} \; \sum_{n=1}^\infty \frac{1}{n(n+1)}= \sum(\frac{1}{n}- \frac{1}{n+1})= 1 \\
 \text{(4)} \; \text{交错调和} \; \frac{\sum(- 1)^{n+1}}{n}= \ln 2 \approx 0.693147 \; \text{（条件收敛）} \\
 (5) \frac{\sum(- 1)^{n+1}}{n^{2}}= \pi^{2} 12 \approx 0.822467 \; \text{（绝对收敛）}
 $$
@@ -888,8 +888,8 @@ $a_{n}=(\frac{1}{\pi}) \int_{- \pi}^{\pi} f(x)\cos nx dx$，$b_{n}=(\frac{1}{\pi
 
 **狄利克雷收敛定理**（教材核心）：若 `f` 在一个周期上连续或只有有限个第一类间断点，且只有有限个极值点，则级数收敛，且
 - 在连续点收敛于 `f(x)`；
-- 在间断点收敛于 $\frac{[f(x^{-})+f(x^{+})]}{2}$；
-- 在端点 $±\pi$ 收敛于 $\frac{[f(- \pi^{+})+f(\pi^{-})]}{2}$。
+- 在间断点收敛于 $\frac{f(x^{-})+f(x^{+})}{2}$；
+- 在端点 $±\pi$ 收敛于 $\frac{f(- \pi^{+})+f(\pi^{-})}{2}$。
 
 | 情形 | 展开形式 |
 | --- | --- |
@@ -989,7 +989,7 @@ $$
 
 $$
 (1) f(x)=x^{2} \sin(\frac{1}{x})(x=0), f(0)=0 \; \text{，求} \; \text{f′(0)} \\
-\text{定义：} \; f′(0)=\lim_{x \to 0}\frac{[x^{2} \sin(\frac{1}{x})- 0]}{x}= \lim x \sin(\frac{1}{x})= 0 \; \text{（有界} \; \times \; \text{无穷小）} \\
+\text{定义：} \; f′(0)=\lim_{x \to 0}\frac{x^{2} \sin(\frac{1}{x})- 0}{x}= \lim x \sin(\frac{1}{x})= 0 \; \text{（有界} \; \times \; \text{无穷小）} \\
 \text{但} \; x=0 \; \text{时} \; f′(x)=2x \sin(\frac{1}{x})- \cos(\frac{1}{x}) \; \text{，} \; x \to 0 \; \text{无极限} \; \Rightarrow f′ \; \text{在} \; \text{0} \; \text{不连续} \\
 (2) x^{2}+ y^{2}= 1 \; \text{求} \; \text{dy/dx} \; \text{与} \; \frac{d^{2}y}{dx^{2}} \\
 \text{隐函数：} \; 2x+ 2y y′= 0 \Rightarrow y′=- \frac{x}{y} \\
@@ -1002,7 +1002,7 @@ $$
 $$
 \text{题：证明} \; f(x)=x^{3}- 3x \; \text{在} \; \text{[0,1]} \; \text{上满足拉格朗日定理，并求} \; \xi \; \text{。} \\
 \text{(1)} \; \text{验证：多项式在} \; \text{[0,1]} \; \text{连续、} \; \text{(0,1)} \; \text{可导} \; \checkmark \\
-(2) f(1)=- 2, f(0)=0 \Rightarrow \frac{[f(1)- f(0)]}{1- 0}=- 2 \\
+(2) f(1)=- 2, f(0)=0 \Rightarrow \frac{f(1)- f(0)}{1- 0}=- 2 \\
 (3) f′(x)=3x^{2}- 3=- 2 \Rightarrow 3x^{2}=1 \Rightarrow x=\frac{1}{\sqrt{3}} \in(0,1) \checkmark \Rightarrow \xi=\frac{1}{\sqrt{3}} \\
 \text{题：求} \; f(x)=x^{3}- 3x^{2}+1 \; \text{的单调区间、极值与拐点。} \\
 (1) f′=3x^{2}- 6x=3x(x- 2) \; \text{，驻点} \; \text{x=0,2} \\
@@ -1114,13 +1114,13 @@ $$
 ### 演 12 · 级数 · 第 12 章
 
 $$
-\text{(1)} \; \text{判敛} \; \sum \frac{n}{2^{n}} \; \text{：比值} \; \rho=\lim \frac{[\frac{n+1}{2^{n+1}}]}{[\frac{n}{2^{n}}]}= \frac{1}{2}< 1 \Rightarrow \; \text{收敛} \\
+\text{(1)} \; \text{判敛} \; \sum \frac{n}{2^{n}} \; \text{：比值} \; \rho=\lim \frac{\frac{n+1}{2^{n+1}}}{\frac{n}{2^{n}}}= \frac{1}{2}< 1 \Rightarrow \; \text{收敛} \\
 \text{(2)} \; \text{判敛} \; \sum \frac{1}{n^{2}} \; \text{：} \; p=2>1 \Rightarrow \; \text{收敛；} \; \frac{\sum 1}{n} \; \text{：} \; p=1 \Rightarrow \; \text{发散} \\
 \text{(3)} \; \text{收敛半径} \; \sum \frac{x^{n}}{n} \; \text{：} \; R=\lim|\frac{a_{n}}{a_{n+1}}|= \lim \frac{n+1}{n}= 1 \\
 \text{端点} \; x=1 \Rightarrow \frac{\sum 1}{n} \; \text{发散；} \; x=- 1 \Rightarrow \frac{\sum(- 1)^{n}}{n} \; \text{收敛} \; \Rightarrow \; \text{收敛域} \; \text{[−1,1)} \\
 \text{(4)} \; \text{和函数} \; \sum_{n=1}^\infty n x^{n} \; \text{：由} \; \sum x^{n}=\frac{1}{1- x} \; \text{逐项求导乘} \; \text{x} \\
 \Rightarrow \frac{x}{(1- x)^{2}} \; \text{（} \; \text{|x|<1} \; \text{）；验算} \; x=\frac{1}{2} \Rightarrow 2 \\
-(5) \frac{\sum 1}{[n(n+1)]}= \sum(\frac{1}{n}- \frac{1}{n+1})= 1- \lim \frac{1}{N+1}= 1 \\
+(5) \frac{\sum 1}{n(n+1)}= \sum(\frac{1}{n}- \frac{1}{n+1})= 1- \lim \frac{1}{N+1}= 1 \\
 (6) \frac{\sum(- 1)^{n+1}}{n}= \ln 2 \; \text{（条件收敛）；} \; \frac{\sum(- 1)^{n+1}}{n^{2}}= \pi^{2} 12 \; \text{（绝对收敛）}
 $$
 
@@ -1365,7 +1365,7 @@ $e^{ix}=[1- \frac{x^{2}}{2}!+ \frac{x^{4}}{4}!- \cdots]+ i[x- \frac{x^{3}}{3}!+ 
 题：设 `f(x)` 在 `x=0` 二阶可导，$\lim_{x \to 0}[\frac{f(x)}{x}+ \sin \frac{x}{x^{2}}]= 1$，求 `f(0)`、`f′(0)`，并讨论 `f″(0)` 能否确定。
 
 $$
-\text{(1)} \; \text{通分：} \; \lim \frac{[x f(x)+ \sin x]}{x^{2}}= 1 \; \text{（有限）} \; \Rightarrow \; \text{分子必须为} \; O(x^{2}) \\
+\text{(1)} \; \text{通分：} \; \lim \frac{x f(x)+ \sin x}{x^{2}}= 1 \; \text{（有限）} \; \Rightarrow \; \text{分子必须为} \; O(x^{2}) \\
 \text{(2)} \; \text{若} \; f(0)=0 \; \text{，则} \; \text{x f(x) ~ f(0)x} \; \text{而} \; \sin x \sim x \Rightarrow \; \text{分子} \; \text{~ (f(0)+1)x} \\
 \text{要使其为} \; O(x^{2}) \; \text{必须} \; f(0)=- 1 \\
 \text{(3)} \; \text{泰勒：} \; f(x)=- 1+ f′(0)x+ \frac{1}{2} f″(0)x^{2}+ o(x^{2}) \; \text{，} \; \sin x= x- \frac{x^{3}}{6}+ o(x^{3}) \\
@@ -1606,7 +1606,7 @@ $$
 
 | 项目 | 公式 |
 | --- | --- |
-| 定义 | $f′(x_{0})=\lim \frac{[f(x_{0}+\Delta x)- f(x_{0})]}{\Delta x}$；`dy=f′(x)dx` |
+| 定义 | $f′(x_{0})=\lim \frac{f(x_{0}+\Delta x)- f(x_{0})}{\Delta x}$；`dy=f′(x)dx` |
 | 四则 | `(uv)′=u′v+uv′`；$(\frac{u}{v})′=\frac{u′v- uv′}{v^{2}}$ |
 | 链式 / 反函数 | $\frac{dy}{dx}=f′(u)g′(x)$；$\frac{dx}{dy}=\frac{1}{y}′$ |
 | 隐函数 / 参数 | $\frac{dy}{dx}=- \frac{F_{x}}{F_{gamma}}$；$\frac{dy}{dx}=\frac{\dot{y}}{\dot{x}}$，$\frac{d^{2}y}{dx^{2}}=\frac{\frac{d}{dt(\frac{dy}{dx})}}{\dot{x}}$ |
@@ -1618,7 +1618,7 @@ $$
 
 | 项目 | 公式 |
 | --- | --- |
-| 罗尔 / 拉格朗日 / 柯西 | $f′(\xi)=0$；$f(b)- f(a)=f′(\xi)(b- a)$；$\frac{[f(b)- f(a)]}{[g(b)- g(a)]}=f′\frac{\xi}{g}′(\xi)$ |
+| 罗尔 / 拉格朗日 / 柯西 | $f′(\xi)=0$；$f(b)- f(a)=f′(\xi)(b- a)$；$\frac{f(b)- f(a)}{g(b)- g(a)}=f′\frac{\xi}{g}′(\xi)$ |
 | 洛必达 | $\lim \frac{f}{g}= \lim f′ g′$（须验证四前提） |
 | 单调 / 凹凸 | `f′>0` 增；`f″>0` 凹（∪） |
 | 极值充分 | $f′(x_{0})=0, f″(x_{0})<0$ 极大、`>0` 极小 |
@@ -1692,13 +1692,13 @@ $$
 | 项目 | 公式 |
 | --- | --- |
 | 必要条件 | $\sum u_{n}$ 收敛 ⇒ $\lim u_{n}=0$ |
-| 基准级数 | $\sum q^{n}$ 收敛 ⇔ `|q|<1`；$\frac{\sum 1}{n^{p}}$ 收敛 ⇔ `p>1`；$\frac{\sum 1}{[n(n+1)]}=1$ |
+| 基准级数 | $\sum q^{n}$ 收敛 ⇔ `|q|<1`；$\frac{\sum 1}{n^{p}}$ 收敛 ⇔ `p>1`；$\frac{\sum 1}{n(n+1)}=1$ |
 | 比值 / 根值 | $\rho=\lim \frac{u_{n+1}}{u_{n}}$ 或 $\lim^{n}\sqrt{u}_{n}$；$\rho<1$ 收敛、`>1` 发散、`=1` 失效 |
 | 交错 | 莱布尼茨：$u_{n}↓0$ ⇒ 收敛，$|r_{n}| \le u_{n+1}$ |
 | 幂级数 | $R=\lim|\frac{a_{n}}{a_{n+1}}|$；逐项求导/积分 R 不变 |
 | 常用和函数 | $\sum x^{n}=\frac{1}{1- x}$；$\sum n x^{n}=\frac{x}{(1- x)^{2}}$；$\frac{\sum x^{n}}{n}=- \ln(1- x)$；$\frac{\sum(- 1)^{n+1}}{n}=\ln 2$ |
 | 傅里叶系数 | $a_{n}=(\frac{1}{\pi}) \int_{- \pi}^{\pi}f \cos nx dx$，$b_{n}=(\frac{1}{\pi}) \int_{- \pi}^{\pi}f \sin nx dx$ |
-| 狄利克雷 | 间断点收敛于 $\frac{[f(x^{-})+f(x^{+})]}{2}$ |
+| 狄利克雷 | 间断点收敛于 $\frac{f(x^{-})+f(x^{+})}{2}$ |
 | 帕塞瓦尔 | $(\frac{1}{\pi}) \int_{- \pi}^{\pi}f^{2}dx= \frac{a_{0}^{2}}{2}+\sum(a_{n}^{2}+b_{n}^{2})$ |
 
 ### A.10 一页纸解题索引
