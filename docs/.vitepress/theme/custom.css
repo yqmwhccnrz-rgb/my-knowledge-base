@@ -1079,3 +1079,49 @@ select:focus-visible {
   overflow-x: auto;
   scrollbar-width: thin;
 }
+
+/* ==========================================================================
+   公式突出显示：所有等式 / 含分式的公式统一「拿个框框起来」。
+   - 块级 $$ 公式：居中淡底卡片 + 细边框
+   - 正文里被提升为块级的等式：同一个框
+   - 表格等处仍行内的公式：小圆角标签框，不拆断句子
+   简单符号（$i$、$a(t)$）不含 .mrel/.mfrac，不加框，避免满屏小框。
+   用直接子元素 > 排除 .katex-display 内部的 .katex，防止嵌套双框。
+   ========================================================================== */
+.vp-doc :is(p, li, td, th, strong, em) > .katex:has(.mrel),
+.vp-doc :is(p, li, td, th, strong, em) > .katex:has(.mfrac),
+.vp-doc .katex-display {
+  border: 1px solid var(--vp-c-divider);
+  border-color: color-mix(in srgb, var(--vp-c-brand-1) 42%, var(--vp-c-divider));
+  background: var(--vp-c-bg-soft);
+  border-radius: 7px;
+  box-decoration-break: clone;
+}
+/* 表格内的行内小框补一点内边距，避免边框贴住分子分母 */
+.vp-doc :is(td, th) > .katex:has(.mrel),
+.vp-doc :is(td, th) > .katex:has(.mfrac) {
+  padding: 0.2em 0.45em;
+}
+
+/* ==========================================================================
+   公式突出显示：所有等式 / 含分式的公式统一「拿个框框起来」。
+   - 块级 $$ 公式：居中淡底卡片 + 细边框
+   - 正文里被提升为块级的等式：同一个框
+   - 表格等处仍行内的公式：小圆角标签框，不拆断句子
+   简单符号（$i$、$a(t)$）不含 .mrel/.mfrac，不加框，避免满屏小框。
+   用直接子元素 > 排除 .katex-display 内部的 .katex，防止嵌套双框。
+   ========================================================================== */
+.vp-doc :is(p, li, td, th, strong, em) > .katex:has(.mrel),
+.vp-doc :is(p, li, td, th, strong, em) > .katex:has(.mfrac),
+.vp-doc .katex-display {
+  border: 1px solid var(--vp-c-divider);
+  border-color: color-mix(in srgb, var(--vp-c-brand-1) 42%, var(--vp-c-divider));
+  background: var(--vp-c-bg-soft);
+  border-radius: 7px;
+  box-decoration-break: clone;
+}
+/* 表格内的行内小框补一点内边距，避免边框贴住分子分母 */
+.vp-doc :is(td, th) > .katex:has(.mrel),
+.vp-doc :is(td, th) > .katex:has(.mfrac) {
+  padding: 0.2em 0.45em;
+}
