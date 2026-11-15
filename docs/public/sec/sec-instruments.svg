@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" width="100%" style="max-width:900px;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#94a3b8"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="470" fill="#ffffff"/>
+  <text x="450" y="30" text-anchor="middle" font-size="18" font-weight="700" fill="#1e3a8a">证券投资工具四大类：债权 · 股权 · 集合 · 衍生</text>
+
+  <g font-size="12" fill="#1f2937">
+    <rect x="24" y="56" width="200" height="120" rx="8" fill="#dbeafe" stroke="#93c5fd"/>
+    <text x="124" y="80" text-anchor="middle" font-weight="700" fill="#1e40af">债券（债权凭证）</text>
+    <text x="124" y="103" text-anchor="middle" font-size="11">四要素：面值·票面利率</text>
+    <text x="124" y="120" text-anchor="middle" font-size="11">付息期·偿还期</text>
+    <text x="124" y="142" text-anchor="middle" font-size="11">四特征：偿还性·流通性</text>
+    <text x="124" y="159" text-anchor="middle" font-size="11">安全性·收益性</text>
+
+    <rect x="240" y="56" width="200" height="120" rx="8" fill="#dcfce7" stroke="#86efac"/>
+    <text x="340" y="80" text-anchor="middle" font-weight="700" fill="#166534">股票（所有权凭证）</text>
+    <text x="340" y="103" text-anchor="middle" font-size="11">五特征：不可偿还·参与</text>
+    <text x="340" y="120" text-anchor="middle" font-size="11">收益·流通·波动风险</text>
+    <text x="340" y="142" text-anchor="middle" font-size="11">普通股 vs 优先股</text>
+    <text x="340" y="159" text-anchor="middle" font-size="11">A/B/H/N/S 股</text>
+
+    <rect x="456" y="56" width="200" height="120" rx="8" fill="#fef3c7" stroke="#fcd34d"/>
+    <text x="556" y="80" text-anchor="middle" font-weight="700" fill="#92400e">证券投资基金</text>
+    <text x="556" y="103" text-anchor="middle" font-size="11">组合投资·专业管理</text>
+    <text x="556" y="120" text-anchor="middle" font-size="11">利益共享·风险共担</text>
+    <text x="556" y="142" text-anchor="middle" font-size="11">契约型 vs 公司型</text>
+    <text x="556" y="159" text-anchor="middle" font-size="11">封闭式 vs 开放式</text>
+
+    <rect x="672" y="56" width="204" height="120" rx="8" fill="#fce7f3" stroke="#f9a8d4"/>
+    <text x="774" y="80" text-anchor="middle" font-weight="700" fill="#9d174d">金融衍生工具</text>
+    <text x="774" y="103" text-anchor="middle" font-size="11">期货：标准化合约</text>
+    <text x="774" y="120" text-anchor="middle" font-size="11">交易所·杠杆·双向</text>
+    <text x="774" y="142" text-anchor="middle" font-size="11">期权：看涨/看跌</text>
+    <text x="774" y="159" text-anchor="middle" font-size="11">欧式/美式·场内场外</text>
+  </g>
+
+  <text x="24" y="212" font-size="14" font-weight="700" fill="#1e3a8a">衍生工具三类参与者与期权到期损益</text>
+  <g font-size="12" fill="#1f2937">
+    <rect x="24" y="226" width="180" height="54" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="114" y="248" text-anchor="middle" font-weight="600" fill="#1e3a8a">对冲者 hedgers</text>
+    <text x="114" y="266" text-anchor="middle" font-size="11" fill="#374151">规避、转移风险</text>
+    <rect x="214" y="226" width="180" height="54" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="304" y="248" text-anchor="middle" font-weight="600" fill="#1e3a8a">投机者 speculators</text>
+    <text x="304" y="266" text-anchor="middle" font-size="11" fill="#374151">制造风险并从中获利</text>
+    <rect x="404" y="226" width="180" height="54" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="494" y="248" text-anchor="middle" font-weight="600" fill="#1e3a8a">套利者 arbitrageurs</text>
+    <text x="494" y="266" text-anchor="middle" font-size="11" fill="#374151">利用价差获利</text>
+
+    <rect x="600" y="226" width="276" height="54" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="738" y="247" text-anchor="middle" font-weight="600" fill="#1e3a8a">看涨期权买方到期净收益</text>
+    <text x="738" y="266" text-anchor="middle" font-size="12" fill="#374151">π = max(S_T − X, 0) − C</text>
+  </g>
+
+  <text x="24" y="318" font-size="14" font-weight="700" fill="#1e3a8a">另类投资工具（公开交易平台之外）</text>
+  <g font-size="12" fill="#1f2937">
+    <rect x="24" y="332" width="272" height="52" rx="8" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="160" y="354" text-anchor="middle" font-weight="600" fill="#334155">金融衍生品</text>
+    <text x="160" y="372" text-anchor="middle" font-size="11" fill="#475569">ABS 资产支持证券 · CDO · CDS</text>
+    <rect x="312" y="332" width="272" height="52" rx="8" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="448" y="354" text-anchor="middle" font-weight="600" fill="#334155">私募股权 PE</text>
+    <text x="448" y="372" text-anchor="middle" font-size="11" fill="#475569">与传统投资相关性小</text>
+    <rect x="600" y="332" width="276" height="52" rx="8" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="738" y="354" text-anchor="middle" font-weight="600" fill="#334155">大宗商品</text>
+    <text x="738" y="372" text-anchor="middle" font-size="11" fill="#475569">能源·基础原材料·农副产品</text>
+  </g>
+
+  <g font-size="12">
+    <rect x="24" y="404" width="852" height="48" rx="8" fill="#fff7ed" stroke="#fed7aa"/>
+    <text x="44" y="426" font-weight="700" fill="#9a3412">易错点</text>
+    <text x="44" y="444" fill="#7c2d12" font-size="11.5">只有股份有限公司才能发行股票；基金是「投资的投资」（以股债为对象）；期货是零和市场，期权买方风险有限（最多损失期权费）、收益无限。</text>
+  </g>
+</svg>
