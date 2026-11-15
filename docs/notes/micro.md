@@ -145,7 +145,7 @@ $50- 2P=- 10+ 3P \Rightarrow 5P= 60 \Rightarrow P*= 12$，`Q* = 26`。
 
 | 弹性 | 定义式 | 符号与含义 |
 | --- | --- | --- |
-| 需求价格弹性 | $Ed=-(\frac{dQ}{dP}) \cdot(\frac{P}{Q})$（点）；$Ed=- \frac{(\frac{\Delta Q}{\Delta P}) \cdot[\frac{P_{1}+P_{2}}{2}]}{\frac{Q_{1}+Q_{2}}{2}}$（弧/中点） | 通常取绝对值；`>1` 富有、`=1` 单位、`<1` 缺乏 |
+| 需求价格弹性 | $Ed=-\left(\frac{dQ}{dP}\right) \cdot\left(\frac{P}{Q}\right)$（点）；$Ed=- \frac{\left(\frac{\Delta Q}{\Delta P}\right) \cdot[\frac{P_{1}+P_{2}}{2}]}{\frac{Q_{1}+Q_{2}}{2}}$（弧/中点） | 通常取绝对值；`>1` 富有、`=1` 单位、`<1` 缺乏 |
 | 需求收入弹性 | $eI= \frac{\frac{\Delta Q}{Q}}{\frac{\Delta I}{I}}$ | `>0` 正常品（`>1` 奢侈品）；`<0` 低档品 |
 | 需求交叉弹性 | $eXY= \frac{\frac{\Delta Qx}{Qx}}{\frac{\Delta Py}{Py}}$ | `>0` 替代品；`<0` 互补品；$\approx 0$ 无关 |
 | 供给价格弹性 | $eS= \frac{\frac{\Delta Q}{Q}}{\frac{\Delta P}{P}}$ | 时间越长越大；土地等固定供给 `eS = 0` |
@@ -160,7 +160,7 @@ $50- 2P=- 10+ 3P \Rightarrow 5P= 60 \Rightarrow P*= 12$，`Q* = 26`。
 
 ::: tip 工作例题 · 弧弹性与总收益
 $P: 5 \to 4$，$Q: 20 \to 30$：
-$Ed=(\frac{10}{1}) \times \frac{\frac{5+4}{2}}{\frac{20+30}{2}}= 10 \times \frac{4.5}{25}= 1.8> 1$（富有弹性）。
+$Ed=\left(\frac{10}{1}\right) \times \frac{\frac{5+4}{2}}{\frac{20+30}{2}}= 10 \times \frac{4.5}{25}= 1.8> 1$（富有弹性）。
 $TR: 5 \times 20= 100 \to 4 \times 30= 120$，降价增收 ✓ 与理论一致。
 
 **点弹性**：$Q= 50- 2P$，$\frac{dQ}{dP}=- 2$：
@@ -192,18 +192,18 @@ $50- 2Pd= 3Pd- 22 \Rightarrow Pd= 14.4$，`Ps = 10.4`，`Q = 21.2`。
 
 ### 2.5 弹性的高阶结论与税负归宿一般式
 
-1. **线性需求上的弹性分布**：$P= a- bQ$，$|Ed|=(\frac{1}{b})(\frac{P}{Q})= \frac{P}{a- P}$。纵截距 $|Ed| \to_{\infty}$、中点 $P= \frac{a}{2}$ 处 `|Ed| = 1`、横截距 `|Ed| = 0`。所以"需求曲线陡 = 缺乏弹性"只在**同一坐标系、同一价格处**成立，跨图比较必须看弹性而非斜率。
+1. **线性需求上的弹性分布**：$P= a- bQ$，$|Ed|=\left(\frac{1}{b}\right)\left(\frac{P}{Q}\right)= \frac{P}{a- P}$。纵截距 $|Ed| \to_{\infty}$、中点 $P= \frac{a}{2}$ 处 `|Ed| = 1`、横截距 `|Ed| = 0`。所以"需求曲线陡 = 缺乏弹性"只在**同一坐标系、同一价格处**成立，跨图比较必须看弹性而非斜率。
 2. **总收益与边际收益**：$MR= P(1- 1|Ed|)$ ⇒ `|Ed| > 1` 时 `MR > 0`（降价增收）、`|Ed| = 1` 时 `MR = 0`（TR 极大）、`|Ed| < 1` 时 `MR < 0`（降价减收）。这条式子把第 2 章与第 7 章接了起来。
 3. **税负归宿一般式**：单位税 `t` 下 $\frac{dPd}{dt}= \frac{eS}{eS+|Ed|}$、$\frac{dPs}{dt}=-|Ed|(eS+|Ed|)$（以弹性表示）。**弹性较小（更陡）的一方承担更多**；$eS \to_{\infty}$ 时全部转嫁给消费者，$|Ed| \to 0$ 时亦全部由消费者承担。
 
 ::: tip 工作例题 · 弹性形式的归宿验算
-沿用 2.4 例题：均衡 `P*=12, Q*=26`，$|Ed|=(\frac{1}{2}) \cdot(\frac{12}{26}) \cdot 2= \frac{12}{13} \approx 0.923$（注意 $\frac{dQ}{dP}=- 2$），$eS= 3 \cdot(\frac{12}{26})= \frac{18}{13} \approx 1.385$。
+沿用 2.4 例题：均衡 `P*=12, Q*=26`，$|Ed|=\left(\frac{1}{2}\right) \cdot\left(\frac{12}{26}\right) \cdot 2= \frac{12}{13} \approx 0.923$（注意 $\frac{dQ}{dP}=- 2$），$eS= 3 \cdot\left(\frac{12}{26}\right)= \frac{18}{13} \approx 1.385$。
 $\frac{dPd}{dt}= \frac{1.385}{1.385+0.923}= 0.6$ ⇒ $\Delta Pd= 4 \times 0.6= 2.4$ ✓ 与方程解一致。
 （用斜率比 `3 : 2` 更快，但弹性形式可推广到非线性曲线。）
 :::
 
 ::: tip 补充考点 · 税收无谓损失的弹性公式
-单位税 `t` 造成的无谓损失可用弹性近似表示：$DWL \approx \frac{1}{2} \cdot t^{2} \cdot(Q* P*) \cdot[|Ed| \frac{\cdot eS}{|Ed|+eS}]$。含义：**DWL 随税额的平方增长**（税率翻倍、损失翻两番），且供需双方弹性越大损失越大。沿用 2.4 例题验算：$\frac{1}{2} \times 16 \times(\frac{26}{12}) \times(\frac{0.923 \times 1.385}{2.308}) \approx 9.6$，与三角形法 $\frac{1}{2} \times 4 \times 4.8= 9.6$ 一致 ✓。
+单位税 `t` 造成的无谓损失可用弹性近似表示：$DWL \approx \frac{1}{2} \cdot t^{2} \cdot(Q* P*) \cdot[|Ed| \frac{\cdot eS}{|Ed|+eS}]$。含义：**DWL 随税额的平方增长**（税率翻倍、损失翻两番），且供需双方弹性越大损失越大。沿用 2.4 例题验算：$\frac{1}{2} \times 16 \times\left(\frac{26}{12}\right) \times\left(\frac{0.923 \times 1.385}{2.308}\right) \approx 9.6$，与三角形法 $\frac{1}{2} \times 4 \times 4.8= 9.6$ 一致 ✓。
 :::
 
 ---
@@ -238,7 +238,7 @@ $\frac{dPd}{dt}= \frac{1.385}{1.385+0.923}= 0.6$ ⇒ $\Delta Pd= 4 \times 0.6= 2
 
 **边际替代率** $MRSxy=- \frac{dY}{dX}= \frac{MUx}{MUy}$：消费者愿意为多得一单位 X 而放弃的 Y 的数量。
 
-**预算线** `Pxx + Pyy = I` ⇒ $y= \frac{I}{Py}-(\frac{Px}{Py})x$；斜率 $- \frac{Px}{Py}$（市场允许的交换比率），截距 `I/Px`、`I/Py`。
+**预算线** `Pxx + Pyy = I` ⇒ $y= \frac{I}{Py}-\left(\frac{Px}{Py}\right)x$；斜率 $- \frac{Px}{Py}$（市场允许的交换比率），截距 `I/Px`、`I/Py`。
 
 | 变动 | 预算线变化 |
 | --- | --- |
@@ -286,7 +286,7 @@ $MRS= \frac{MUx}{MUy}= \frac{Y}{X}= \frac{Px}{Py}= 0.4 \Rightarrow Y= 0.4X$。
 | 希克斯 | 保持**原效用水平 U0** | 与新预算线平行、与原无差异曲线相切 | 对应补偿变量 CV、等价变量 EV，用于福利度量 |
 | 斯勒茨基 | 保持**原消费组合可负担** | 过原均衡点 A、与新预算线平行 | $\Delta I=(P_{1}- P_{0})X_{0}$，可直接观测，导出可测的斯勒茨基方程 |
 
-**斯勒茨基方程**（连续形式）：$\frac{\partial X}{\partial Px}= \frac{\partial Xh}{\partial Px}- X \cdot( \frac{\partial X}{\partial I})$
+**斯勒茨基方程**（连续形式）：$\frac{\partial X}{\partial Px}= \frac{\partial Xh}{\partial Px}- X \cdot\left( \frac{\partial X}{\partial I}\right)$
 即「价格总效应 = 替代效应（希克斯需求，恒为负）+ 收入效应」。无穷小价格变动下两种分解收敛。
 
 ::: tip 工作例题 · 两种分解的完整手算
@@ -295,7 +295,7 @@ $MRS= \frac{MUx}{MUy}= \frac{Y}{X}= \frac{Px}{Py}= 0.4 \Rightarrow Y= 0.4X$。
 - 起点 A：$X_{0}= \frac{I}{2Px}= 25$，$Y_{0}= 10$，$U_{0}= 250$；终点 C：$X_{1}= \frac{100}{2 \times 1}= 50$，$Y_{1}= 10$ ⇒ **总效应 +25**。
 - **希克斯补偿**：新价格比 $\frac{Px}{Py}= \frac{1}{5}$，切点条件 $\frac{Y}{X}= \frac{1}{5} \Rightarrow Y= \frac{X}{5}$；保持 $XY= 250 \Rightarrow \frac{X^{2}}{5}= 250 \Rightarrow Xh= \sqrt{1250} \approx 35.355$。
   ⇒ 替代效应 $35.355- 25=+10.355$，收入效应 $50- 35.355=+14.645$。
-- **斯勒茨基补偿**：买得起原组合所需收入 $I′= 1 \times 25+ 5 \times 10= 75$；$Xs= \frac{75}{2 \times 1}= 37.5$。
+- **斯勒茨基补偿**：买得起原组合所需收入 $I'= 1 \times 25+ 5 \times 10= 75$；$Xs= \frac{75}{2 \times 1}= 37.5$。
   ⇒ 替代效应 $37.5- 25=+12.5$，收入效应 $50- 37.5=+12.5$。
 - 两种分解都满足「总效应 = 25」，且替代效应恒与价格反向、收入效应对正常品加强它。
 :::
@@ -416,7 +416,7 @@ $AP= 10- L$，$MP= 10- 2L$；`L = 5` 时 `MP = 0`、`TP` 最大 = 25；`L > 5` �
 | 工具 | 方程 / 定义 | 斜率 |
 | --- | --- | --- |
 | 等产量线 | $f(L,K)= Q_{0}$ | $- MRTS(LK)=- \frac{MPL}{MPK}$（递减 ⇒ 凸向原点） |
-| 等成本线 | `C = wL + rK` ⇒ $K= \frac{C}{r}-(\frac{w}{r})L$ | $- \frac{w}{r}$ |
+| 等成本线 | `C = wL + rK` ⇒ $K= \frac{C}{r}-\left(\frac{w}{r}\right)L$ | $- \frac{w}{r}$ |
 | 最优组合 | $MRTS(LK)= \frac{w}{r}$ ⇔ $\frac{MPL}{w}= \frac{MPK}{r}= \frac{1}{MC}$ | 切点 |
 | 扩展线 | 各等成本线—等产量线切点的轨迹 | 要素价格不变时的长期扩张路径 |
 
@@ -424,8 +424,8 @@ $AP= 10- L$，$MP= 10- 2L$；`L = 5` 时 `MP = 0`、`TP` 最大 = 25；`L > 5` �
 
 **特例**：
 - 完全替代（线性生产函数 `Q = aL + bK`）：等产量线为直线，一般取**角点解**（比较 `a/w` 与 `b/r`）。
-- 里昂惕夫固定比例（$Q= \min(\frac{L}{a}, \frac{K}{b})$）：L 形等产量线，最优在直角顶点 $\frac{L}{a}= \frac{K}{b}$，不满足相切条件。
-- 柯布–道格拉斯 $Q= AL^\alpha K^\beta$：$MRTS=(\frac{\alpha}{\beta})(\frac{K}{L})$；$\alpha$、$\beta$ 分别为 L、K 的**产出弹性**。
+- 里昂惕夫固定比例（$Q= \min\left(\frac{L}{a}, \frac{K}{b}\right)$）：L 形等产量线，最优在直角顶点 $\frac{L}{a}= \frac{K}{b}$，不满足相切条件。
+- 柯布–道格拉斯 $Q= AL^\alpha K^\beta$：$MRTS=\left(\frac{\alpha}{\beta}\right)\left(\frac{K}{L}\right)$；$\alpha$、$\beta$ 分别为 L、K 的**产出弹性**。
 
 ### 4.3 规模报酬与生产函数齐次性
 
@@ -549,13 +549,13 @@ $TVC= Q^{3}- 6Q^{2}+15Q$，$AVC= Q^{2}- 6Q+15$，$AC= AVC+ \frac{100}{Q}$，$SMC
 ### 5.5 生产—成本对偶的严格推导
 
 $L= wL+ rK+ \lambda(Q_{0}- f(L,K))$ ⇒ 一阶条件 $w= \lambda \cdot MPL$、$r= \lambda \cdot MPK$ ⇒ $\frac{MPL}{w}= \frac{MPK}{r}= \frac{1}{\lambda}$。
-由包络定理 $dC* dQ= \lambda$ ⇒ **$\lambda= MC$**，故 $\frac{MPL}{w}= \frac{MPK}{r}= \frac{1}{MC}$。
+由包络定理 $dC* dQ= \lambda$ ⇒ $\lambda= MC$，故 $\frac{MPL}{w}= \frac{MPK}{r}= \frac{1}{MC}$。
 $C(Q)= \min{wL+ rK : f(L,K) \ge Q}$ 关于 `(w,r)` 是一次齐次、凹函数；由谢泼德引理 $\frac{\partial C}{\partial w}= L*(Q,w,r)$。
 
 **成本函数的形状由生产函数决定**：规模报酬递增（$\alpha+\beta>1$）⇒ `LAC` 递减；不变 ⇒ `LAC` 水平；递减 ⇒ `LAC` 递增。短期 U 形 SAC 则来自"至少一种要素固定 + 边际报酬递减"。
 
 ::: tip 工作例题 · 由 C-D 生产函数解成本函数
-`Q = L^{0.5}K^{0.5}`，$MRTS= \frac{K}{L}= \frac{w}{r} \Rightarrow K=(\frac{w}{r})L$；代入 $Q= L\sqrt{\frac{w}{r}} \Rightarrow L= Q\sqrt{\frac{r}{w}}$，$K= Q\sqrt{\frac{w}{r}}$。
+`Q = L^{0.5}K^{0.5}`，$MRTS= \frac{K}{L}= \frac{w}{r} \Rightarrow K=\left(\frac{w}{r}\right)L$；代入 $Q= L\sqrt{\frac{w}{r}} \Rightarrow L= Q\sqrt{\frac{r}{w}}$，$K= Q\sqrt{\frac{w}{r}}$。
 $C= wL+ rK= Q\sqrt{wr}+ Q\sqrt{wr}= 2Q\sqrt{wr}$ ⇒ $LAC= LMC= 2\sqrt{wr}$（常数，规模报酬不变）。
 验算要素价格齐次性：w、r 同乘 $2 \Rightarrow C$ 乘 2 ✓。
 :::
@@ -595,7 +595,7 @@ $\pi(Q)= TR(Q)- STC(Q)$ ⇒ 一阶条件 $\frac{dTR}{dQ}= \frac{dSTC}{dQ}$，即
 
 ::: tip 工作例题 · 短期均衡、盈亏与关门决策
 $STC= Q^{2}+ 4Q+ 36$（`SMC = 2Q + 4`，$AC= Q+ 4+ \frac{36}{Q}$，`AVC = Q + 4`）。
-- `P = 20`：$2Q+ 4= 20 \Rightarrow Q*= 8$；`TR = 160`，`STC = 132` ⇒ **$\pi= 28$**。
+- `P = 20`：$2Q+ 4= 20 \Rightarrow Q*= 8$；`TR = 160`，`STC = 132` ⇒ $\pi= 28$。
 - 收支相抵：`AC` 最小 ⇒ $\frac{dAC}{dQ}= 1- \frac{36}{Q^{2}}= 0 \Rightarrow Q= 6$，`ACmin = 16`。
 - 关门价格：`AVC = Q + 4` 递增，下确界为 4（严格设 U 形时应取 AVCmin）。
 - `P = 14`：`Q = 5`，`TR = 70`，`STC = 81` ⇒ **亏 11**；但 `AVC = 9 < 14` ⇒ **继续生产**（比停产亏 36 好得多）。
@@ -648,7 +648,7 @@ $STC= Q^{2}+ 4Q+ 36$（`SMC = 2Q + 4`，$AC= Q+ 4+ \frac{36}{Q}$，`AVC = Q + 4`
 ### 6.5 完全竞争福利最大化的数学证明
 
 设社会总剩余 $W(Q)= \int_{0}^Q P(x)dx- C(Q)$（`P(x)` 为反需求函数）。
-$\frac{dW}{dQ}= P(Q)- MC(Q)= 0 \Rightarrow P= MC$ ⇒ 竞争均衡使 W 最大；$\frac{d^{2}W}{dQ^{2}}= P′(Q)- MC′(Q)< 0$（需求递减、MC 递增）保证极大。
+$\frac{dW}{dQ}= P(Q)- MC(Q)= 0 \Rightarrow P= MC$ ⇒ 竞争均衡使 W 最大；$\frac{d^{2}W}{dQ^{2}}= P'(Q)- MC'(Q)< 0$（需求递减、MC 递增）保证极大。
 因此 `P = MC` 不是"假设"，而是**福利最大化的一阶条件**；任何造成 $Q= Q*$ 的干预都产生 $DWL= \int_{Q*}^{Q}[P(x)- MC(x)]dx$，线性近似即 $\frac{1}{2} \cdot|\Delta Q| \cdot|\Delta P|$。
 
 ---
@@ -682,8 +682,8 @@ $MR= P(1- 1|Ed|)$ ⇒ **勒纳指数** $L= \frac{P- MC}{P}= 1|Ed|$。
 ::: tip 工作例题 · 垄断均衡与无谓损失完整计算
 $P= 100- 2Q$，`MC = 20`（常数，TFC = 0）：
 - $MR= 100- 4Q= 20 \Rightarrow Qm= 20$，`Pm = 60`，$\pi=(60- 20) \times 20= 800$。
-- $CS= \frac{1}{2} \times(100- 60) \times 20= 400$；$|Ed|=(\frac{1}{2})(\frac{P}{Q})=(\frac{1}{2}) \times 3= 1.5$，$L= \frac{40}{60}= \frac{2}{3}= \frac{1}{1.5}$ ✓。
-- 竞争结果：$P= MC= 20 \Rightarrow Qc= 40$；**$DWL= \frac{1}{2} \times(60- 20) \times(40- 20)= 400$**。
+- $CS= \frac{1}{2} \times(100- 60) \times 20= 400$；$|Ed|=\left(\frac{1}{2}\right)\left(\frac{P}{Q}\right)=\left(\frac{1}{2}\right) \times 3= 1.5$，$L= \frac{40}{60}= \frac{2}{3}= \frac{1}{1.5}$ ✓。
+- 竞争结果：$P= MC= 20 \Rightarrow Qc= 40$；$DWL= \frac{1}{2} \times(60- 20) \times(40- 20)= 400$。
 - 一般式（线性需求 $P= a- bQ$、`MC = c`）：$Qm= \frac{a- c}{2b}$，$Pm= \frac{a+c}{2}$，$|Ed|= \frac{a+c}{a- c}$。
 :::
 
@@ -707,7 +707,7 @@ $P_{1}(1- 1|E_{1}|)= P_{2}(1- 1|E_{2}|)= MC$ ⇒ **需求弹性小的市场定�
 市场1 $P_{1}= 100- 2Q_{1}$，市场2 $P_{2}= 80- Q_{2}$，`MC = 20`（常数）：
 - $MR_{1}= 100- 4Q_{1}= 20 \Rightarrow Q_{1}= 20, P_{1}= 60$；$|E_{1}|= \frac{100+20}{100- 20}= 1.5$。
 - $MR_{2}= 80- 2Q_{2}= 20 \Rightarrow Q_{2}= 30, P_{2}= 50$；$|E_{2}|= \frac{80+20}{80- 20} \approx 1.667$。
-- 验算：$60 \times(1- \frac{1}{1.5})= 20$，$50 \times(1- \frac{1}{1.667})= 20$ ✓；弹性较小的市场1 定价更高 ✓。
+- 验算：$60 \times\left(1- \frac{1}{1.5}\right)= 20$，$50 \times\left(1- \frac{1}{1.667}\right)= 20$ ✓；弹性较小的市场1 定价更高 ✓。
 - $\pi=(60- 20) \times 20+(50- 20) \times 30= 800+ 900= 1700$。
 - **统一定价**：总需求 $Q= \frac{100- P}{2}+(80- P)= 130- 1.5P$，$\pi=(P- 20)(130- 1.5P)$，求导 $130- 1.5P- 1.5(P- 20)= 0 \Rightarrow P= 53.33$，$\pi \approx 1666.67$。
 - 结论：可分割且弹性不同时，**价格歧视提高利润**（1700 > 1666.67）；但若两市场弹性相同，歧视无收益。
@@ -741,7 +741,7 @@ $\pi_{1}=[18-(Q_{1}+Q_{2})]Q_{1}$，$\partial \pi_{1} \partial Q_{1}= 18- 2Q_{1}
 联立 ⇒ $Q_{1}= Q_{2}= 6$，`Q = 12`，`P = 6`，$\pi_{1}= \pi_{2}= 36$。
 
 - **通式**：$P= a- bQ$、`MC = c` 时 $Qi= \frac{a- c}{3b}$，n 家同质寡头 $Q= \frac{n(a- c)}{(n+1)b}$；$n \to_{\infty}$ 时 $\frac{Q \to(a- c)}{b}$（竞争结果），`n = 1` 时回到垄断。
-- **斯塔克尔伯格**（1 为领导）：把 $R_{2}= 9- \frac{Q_{1}}{2}$ 代入 ⇒ $\pi_{1}=(9- \frac{Q_{1}}{2})Q_{1}$，求导得 $Q_{1}= 9$，$Q_{2}= 4.5$，`P = 4.5`，$\pi_{1}= 40.5> \pi_{2}= 20.25$（先动优势）。
+- **斯塔克尔伯格**（1 为领导）：把 $R_{2}= 9- \frac{Q_{1}}{2}$ 代入 ⇒ $\pi_{1}=\left(9- \frac{Q_{1}}{2}\right)Q_{1}$，求导得 $Q_{1}= 9$，$Q_{2}= 4.5$，`P = 4.5`，$\pi_{1}= 40.5> \pi_{2}= 20.25$（先动优势）。
 - **卡特尔**：`Q = 9, P = 9`，总利润 81，各 40.5 > 古诺的 $36 \Rightarrow$ 合谋有吸引力，但单方偷偷增产可获益 ⇒ 卡特尔天然不稳定（第 10 章囚徒困境）。
 :::
 
@@ -844,8 +844,8 @@ $Q= MPL \cdot L+ MPK \cdot K$，两边乘 P 得 `TR = wL + rK` ⇒ 总收入恰�
 5 等分组的收入份额依次为 `5%、10%、15%、25%、45%` ⇒ 累计收入份额 `0.05, 0.15, 0.30, 0.55, 1.00`。
 用梯形法求洛伦兹曲线下面积（每组宽 0.2）：
 $B= 0.2 \times[\frac{0+0.05}{2}+ \frac{0.05+0.15}{2}+ \frac{0.15+0.30}{2}+ \frac{0.30+0.55}{2}+ \frac{0.55+1.00}{2}]= 0.2 \times 1.55= 0.31$。
-$A= 0.5- 0.31= 0.19$ ⇒ **$G= \frac{0.19}{0.5}= 0.38$**。
-也可用等价公式 $G= 1-(\frac{1}{n}) \cdot \sum(2 \cdot \sum ...)$ 快速验证；注意分组数越多、算出的 G 越精确，同一数据不同分组口径不可直接比较。
+$A= 0.5- 0.31= 0.19$ ⇒ $G= \frac{0.19}{0.5}= 0.38$。
+也可用等价公式 $G= 1-\left(\frac{1}{n}\right) \cdot \sum\left(2 \cdot \sum ...\right)$ 快速验证；注意分组数越多、算出的 G 越精确，同一数据不同分组口径不可直接比较。
 :::
 
 ::: danger 易错 · 分配
@@ -1139,7 +1139,7 @@ $$
 
 $$
 \text{已知：} \; P_{1}= 5, Q_{1}= 20 \; \text{；} \; P_{2}= 4, Q_{2}= 30 \\
-\text{(1)} \; \text{中点公式：} \; Ed=-(\frac{\Delta Q}{\Delta P}) \times \frac{\frac{P_{1}+P_{2}}{2}}{\frac{Q_{1}+Q_{2}}{2}} \\
+\text{(1)} \; \text{中点公式：} \; Ed=-\left(\frac{\Delta Q}{\Delta P}\right) \times \frac{\frac{P_{1}+P_{2}}{2}}{\frac{Q_{1}+Q_{2}}{2}} \\
 \Delta Q=+10, \Delta P=- 1 \to-(10- 1)= 10 \\
 \text{Pm = 4.5, Qm = 25} \\
 Ed= 10 \times \frac{4.5}{25}= 1.8 \; \text{（富有弹性）} \\
@@ -1178,7 +1178,7 @@ Xh= \sqrt{1250}= 35.355 \\
 \text{收入效应} \; = 50- 35.355=+14.645 \\
 \text{校验：} \; \text{10.355 + 14.645 = 25 }\checkmark \\
 \text{(4)} \; \text{斯勒茨基补偿（买得起原组合）：} \\
-I′= 1 \times 25+ 5 \times 10= 75 \\
+I'= 1 \times 25+ 5 \times 10= 75 \\
 Xs= \frac{75}{2 \times 1}= 37.5 \\
 \text{替代效应} \; \text{= +12.5} \; \text{，收入效应} \; = 50- 37.5=+12.5 \\
 \text{(5)} \; \text{分解方向：正常品} \; \Rightarrow \; \text{两效应同号，需求曲线向下倾斜}
@@ -1224,7 +1224,7 @@ $$
 (1) TR= 100Q- 2Q^{2} \to MR= 100- 4Q \\
 \text{(2) MR = MC} \; \text{：} \; 100- 4Q= 20 \to Qm= 20 \; \text{，} \; Pm= 100- 40= 60 \\
 (3) \pi=(60- 20) \times 20= 800 \\
-(4)|Ed|=(\frac{1}{b})(\frac{P}{Q})=(\frac{1}{2})(\frac{60}{20})= 1.5 \\
+(4)|Ed|=\left(\frac{1}{b}\right)\left(\frac{P}{Q}\right)=\left(\frac{1}{2}\right)\left(\frac{60}{20}\right)= 1.5 \\
 L= \frac{P- MC}{P}= \frac{40}{60}= \frac{2}{3}= \frac{1}{1.5} \checkmark \\
 \text{(5)} \; \text{竞争基准：} \; P= MC= 20 \to Qc= \frac{100- 20}{2}= 40 \\
 (6) CS= \frac{1}{2} \times(100- 60) \times 20= 400 \\
@@ -1241,11 +1241,11 @@ $$
 \partial \pi_{1} \partial Q_{1}= 18- 2Q_{1}- Q_{2}= 0 \to R_{1} \; \text{：} \; Q_{1}= 9- \frac{Q_{2}}{2} \\
 \text{(2)} \; \text{对称} \; R_{2} \; \text{：} \; Q_{2}= 9- \frac{Q_{1}}{2} \\
 \text{(3)} \; \text{联立：} \; Q_{1}= 9- \frac{9- \frac{Q_{1}}{2}}{2}= 4.5+ \frac{Q_{1}}{4} \\
-(\frac{3}{4})Q_{1}= 4.5 \to Q_{1}= Q_{2}= 6 \\
+\left(\frac{3}{4}\right)Q_{1}= 4.5 \to Q_{1}= Q_{2}= 6 \\
 \text{(4) Q = 12} \; \text{，} \; \text{P = 6} \; \text{，} \; \pi_{1}= \pi_{2}= 6 \times 6= 36 \\
 \text{(5)} \; \text{通式} \; Qi= \frac{a- c}{(n+1)b}= \frac{18}{3 \times 1}= 6 \checkmark \\
 \text{【斯塔克尔伯格（} \; \text{1} \; \text{领导）】} \\
-\text{(6)} \; \text{把} \; R_{2} \; \text{代入：} \; \pi_{1}=[18- Q_{1}-(9- \frac{Q_{1}}{2})]Q_{1}=(9- \frac{Q_{1}}{2})Q_{1} \\
+\text{(6)} \; \text{把} \; R_{2} \; \text{代入：} \; \pi_{1}=[18- Q_{1}-\left(9- \frac{Q_{1}}{2}\right)]Q_{1}=\left(9- \frac{Q_{1}}{2}\right)Q_{1} \\
 d\pi_{1} dQ_{1}= 9- Q_{1}= 0 \to Q_{1}= 9 \; \text{，} \; Q_{2}= 4.5 \; \text{，} \; \text{Q = 13.5} \; \text{，} \; \text{P = 4.5} \\
 \pi_{1}= 40.5 \; \text{，} \; \pi_{2}= 20.25 \; \text{（先动优势）} \\
 \text{【卡特尔】} \; \text{Q = 9} \; \text{，} \; \text{P = 9} \; \text{，总} \; \pi= 81 \; \text{（各} \; \text{40.5} \; \text{，但有背叛动机）}
@@ -1259,8 +1259,8 @@ $$
 (2) MR_{2}= 80- 2Q_{2}= 20 \to Q_{2}= 30 \; \text{，} \; P_{2}= 50 \\
 (3)|E_{1}|= \frac{a+c}{a- c}= \frac{120}{80}= 1.5 \\
 |E_{2}|= \frac{100}{60}= 1.667 \\
-P_{1}(1- \frac{1}{E_{1}})= 60 \times(\frac{1}{3})= 20= MC \checkmark \\
-P_{2}(1- \frac{1}{E_{2}})= 50 \times 0.4= 20= MC \checkmark \\
+P_{1}\left(1- \frac{1}{E_{1}}\right)= 60 \times\left(\frac{1}{3}\right)= 20= MC \checkmark \\
+P_{2}\left(1- \frac{1}{E_{2}}\right)= 50 \times 0.4= 20= MC \checkmark \\
 |E_{1}|<|E_{2}| \Rightarrow P_{1}> P_{2} \; \text{（弹性小者价高）} \; \checkmark \\
 (4) \pi=(60- 20) \times 20+(50- 20) \times 30= 800+ 900= 1700 \\
 \text{(5)} \; \text{统一价：} \; Q= \frac{100- P}{2}+(80- P)= 130- 1.5P \\
@@ -1310,8 +1310,8 @@ p= 2- 2p \to 3p= 2 \to p= \frac{2}{3} \\
 \text{甲选拳击} \; = 0 \times q+ 1 \times(1- q)= 1- q \\
 2q= 1- q \to q= \frac{1}{3} \\
 \text{(4)} \; \text{均衡：甲} \; \text{(2/3, 1/3)} \; \text{，乙} \; \text{(1/3, 2/3)} \\
-\text{甲期望支付} \; = 2 \times(\frac{2}{3})(\frac{1}{3})+ 1 \times(\frac{1}{3})(\frac{2}{3})= \frac{2}{3} \\
-\text{错配概率} \; =(\frac{2}{3})(\frac{2}{3})+(\frac{1}{3})(\frac{1}{3})= \frac{5}{9} \\
+\text{甲期望支付} \; = 2 \times\left(\frac{2}{3}\right)\left(\frac{1}{3}\right)+ 1 \times\left(\frac{1}{3}\right)\left(\frac{2}{3}\right)= \frac{2}{3} \\
+\text{错配概率} \; =\left(\frac{2}{3}\right)\left(\frac{2}{3}\right)+\left(\frac{1}{3}\right)\left(\frac{1}{3}\right)= \frac{5}{9} \\
 \text{易错警示：第} \; \text{(2)} \; \text{步必须用乙的支付} \; \text{1} \; \text{和} \; \text{2} \; \text{，不能用甲的} \; \text{2} \; \text{和} \; \text{1}
 $$
 
@@ -1353,7 +1353,7 @@ $$
 
 $Qd= 50- 2P$，$Qs=- 10+ 3P$。
 ① 求均衡：`P* = 12, Q* = 26`。
-② 在均衡点求点弹性：$|Ed|= 2 \times(\frac{12}{26})= \frac{12}{13} \approx 0.923$，$eS= 3 \times(\frac{12}{26})= \frac{18}{13} \approx 1.385$。
+② 在均衡点求点弹性：$|Ed|= 2 \times\left(\frac{12}{26}\right)= \frac{12}{13} \approx 0.923$，$eS= 3 \times\left(\frac{12}{26}\right)= \frac{18}{13} \approx 1.385$。
 ③ 征收单位税 `t = 4`：`Pd = 14.4, Ps = 10.4, Q = 21.2`；消费者负担 `2.4`、生产者负担 `1.6`。
 ④ 税收收入 $= 4 \times 21.2= 84.8$；$DWL= \frac{1}{2} \times t \times(26- 21.2)= \frac{1}{2} \times 4 \times 4.8= 9.6$；`CS + PS` 减少 `84.8 + 9.6 = 94.4`。
 ⑤ 若改为对买方征税，`Pd、Ps、Q` 不变（仅名义报价口径改变）⇒ 归宿无关性。
@@ -1570,11 +1570,11 @@ $MSB= 100- 2Q$，`MPC = 2Q + 10`，`ME = 6`。
 | --- | --- |
 | 均衡 | `Qd(P*) = Qs(P*)` |
 | 机会成本 | 放弃的其他用途中的**最大**收益；`PPF` 斜率 = $MRT=|\frac{\Delta Y}{\Delta X}|$ |
-| 需求点弹性 | $Ed=-(\frac{dQ}{dP})(\frac{P}{Q})$（常取绝对值） |
-| 需求弧弹性（中点） | $Ed=- \frac{(\frac{\Delta Q}{\Delta P}) \cdot[\frac{P_{1}+P_{2}}{2}]}{\frac{Q_{1}+Q_{2}}{2}}$ |
+| 需求点弹性 | $Ed=-\left(\frac{dQ}{dP}\right)\left(\frac{P}{Q}\right)$（常取绝对值） |
+| 需求弧弹性（中点） | $Ed=- \frac{\left(\frac{\Delta Q}{\Delta P}\right) \cdot[\frac{P_{1}+P_{2}}{2}]}{\frac{Q_{1}+Q_{2}}{2}}$ |
 | 收入 / 交叉 / 供给弹性 | $eI= \frac{\frac{\Delta Q}{Q}}{\frac{\Delta I}{I}}$；$eXY= \frac{\frac{\Delta Qx}{Qx}}{\frac{\Delta Py}{Py}}$；$eS= \frac{\frac{\Delta Q}{Q}}{\frac{\Delta P}{P}}$ |
 | 弹性与总收益 | $\frac{dTR}{dP}= Q(1-|Ed|)$；`|Ed| > 1` 降价增收 |
-| 线性需求弹性 | $P= a- bQ \Rightarrow|Ed|=(\frac{1}{b})(\frac{P}{Q})= \frac{P}{a- P}$ |
+| 线性需求弹性 | $P= a- bQ \Rightarrow|Ed|=\left(\frac{1}{b}\right)\left(\frac{P}{Q}\right)= \frac{P}{a- P}$ |
 | 税负归宿 | $\frac{dPd}{dt}= \frac{eS}{eS+|Ed|}$；弹性小者承担多；与向谁征收无关 |
 | 税收 DWL | $\frac{1}{2} \cdot t \cdot \Delta Q$（线性近似） |
 
@@ -1584,9 +1584,9 @@ $MSB= 100- 2Q$，`MPC = 2Q + 10`，`ME = 6`。
 | --- | --- |
 | 基数效用均衡 | $\frac{MUx}{Px}= \frac{MUy}{Py}= \cdots= \lambda$，$\sum PiXi= I$ |
 | 序数效用均衡 | $MRSxy= \frac{MUx}{MUy}= \frac{Px}{Py}$，且 `Pxx + Pyy = I` |
-| 预算线 | $y= \frac{I}{Py}-(\frac{Px}{Py})x$ |
+| 预算线 | $y= \frac{I}{Py}-\left(\frac{Px}{Py}\right)x$ |
 | C-D 需求 | $U= X^\alpha Y^\beta \Rightarrow X*= \frac{[\frac{\alpha}{\alpha+\beta}]I}{Px}$，$Y*= \frac{[\frac{\beta}{\alpha+\beta}]I}{Py}$ |
-| 斯勒茨基方程 | $\frac{\partial X}{\partial Px}= \frac{\partial X^{h}}{\partial Px}- X \cdot( \frac{\partial X}{\partial I})$（总 = 替代 + 收入） |
+| 斯勒茨基方程 | $\frac{\partial X}{\partial Px}= \frac{\partial X^{h}}{\partial Px}- X \cdot\left( \frac{\partial X}{\partial I}\right)$（总 = 替代 + 收入） |
 | 希克斯补偿 | 保持 $U_{0}$；斯勒茨基补偿 $\Delta I=(P_{1}- P_{0})X_{0}$ |
 | 罗伊恒等式 | $x_{i}=- \frac{\frac{\partial v}{\partial p_{i}}}{\frac{\partial v}{\partial I}}$；谢泼德引理 $x_{i}^{h}= \frac{\partial e}{\partial p_{i}}$ |
 | 期望效用 | $EU= pU(W_{1})+(1- p)U(W_{2})$；`U(CE) = EU`；风险溢价 $= E(W)- CE$ |
@@ -1643,7 +1643,7 @@ $MSB= 100- 2Q$，`MPC = 2Q + 10`，`ME = 6`。
 | 见到 | 立即想到 |
 | --- | --- |
 | "求均衡价格/数量" | `Qd = Qs` 解方程，再代回验算 |
-| "弹性" | 先判断是点还是弧；线性需求用 $|Ed|=(\frac{1}{b})(\frac{P}{Q})$ |
+| "弹性" | 先判断是点还是弧；线性需求用 $|Ed|=\left(\frac{1}{b}\right)\left(\frac{P}{Q}\right)$ |
 | "总收益/薄利多销/谷贱伤农" | $\frac{dTR}{dP}= Q(1-|Ed|)$ |
 | "效用最大" | $MRS= \frac{Px}{Py}$ + 预算线；C-D 直接套份额公式 |
 | "价格下降的效应分解" | 先算总效应，再定补偿标准（希克斯/斯勒茨基） |

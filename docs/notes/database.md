@@ -180,7 +180,7 @@ $$
 \text{(2)} \; \text{查询选修了「数据库」且成绩} \; \text{> 80} \; \text{的学生姓名（三关系连接）：} \\
 \pi \text{\_Sname(}\sigma \text{\_Cname='} \; \text{数据库} \; \text{' ∧ Grade>80 (Student ⋈ SC ⋈ Course))} \\
 \text{(3)} \; \text{查询选修了「全部课程」的学生学号（除运算的经典用法）：} \\
-\pi_{Sno},Cno(SC) ÷ \pi_{Cno}(Course) \\
+\pi_{Sno},Cno(SC) \div  \pi_{Cno}(Course) \\
 \text{(4)} \; \text{查询未选修任何课程的学生姓名：} \\
 \pi_{Sname}(Student)- \pi_{Sname}(Student ⋈ SC)
 $$
@@ -1663,7 +1663,7 @@ finally:
 | 1 | 三级模式 | 外模式（多个）— 外模式/模式映像 → 逻辑独立性；模式（唯一）— 模式/内模式映像 → 物理独立性；内模式（唯一） |
 | 2 | 关系模式 | `R(U, D, DOM, F)`，简写 $R(A_{1}, \cdots,A_{n})$；关系 = 元组的有限集合 |
 | 3 | 关系代数 | $\sigma_{F}(R)$ 选择、$\pi_{A}(R)$ 投影、`R⋈S` 连接、`R÷S` 除、$\frac{R \cup S}{R}- \frac{\frac{S}{R \cap S}}{R \times S}$ |
-| 4 | 除运算 | $\pi_{Sno,Cno}(SC) ÷ \pi_{Cno}(Course)$ = 选修全部课程的学生 |
+| 4 | 除运算 | $\pi_{Sno,Cno}(SC) \div  \pi_{Cno}(Course)$ = 选修全部课程的学生 |
 | 5 | 建库 | $CREATE DATABASE[IF NOT EXISTS] db DEFAULT CHARACTER SET utf8mb4[COLLATE \cdots];$ |
 | 6 | 建表 | `CREATE TABLE t (col type [约束], …, [表级约束]) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;` |
 | 7 | 六类约束 | $\frac{PRIMARY KEY}{FOREIGN KEY} \cdots \frac{\frac{\frac{\frac{REFERENCES}{UNIQUE}}{NOT NULL}}{DEFAULT}}{CHECK}$ |
