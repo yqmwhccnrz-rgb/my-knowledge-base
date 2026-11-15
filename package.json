@@ -7,7 +7,8 @@
     "sync": "node scripts/sync-originals.mjs",
     "dev": "npm run sync && vitepress dev docs",
     "build": "npm run sync && vitepress build docs",
-    "preview": "vitepress preview docs"
+    "preview": "vitepress preview docs",
+    "formulas": "python3 scripts/render_formulas.py"
   },
   "devDependencies": {
     "vitepress": "^1.6.4"

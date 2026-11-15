@@ -238,7 +238,7 @@ print(df.loc[df['专业'] == 'CS', ['姓名', '成绩']])
 ```
 
 ::: tip 工作例题 · Series.std() 的 ddof
-`pd.Series([178,165,170]).std()` 用 **ddof=1**（除以 $n- 1=2$）：均值 171，偏差平方 49+36+1=86，86/2=43，√43≈**6.5574**。而 `numpy.std()` 默认 **ddof=0**（除以 n=3）得 $\sqrt{\frac{86}{3}} \approx 5.3541$。这是 pandas 与 numpy 最经典的数值差异。
+`pd.Series([178,165,170]).std()` 用 **ddof=1**（除以 <img class="fml" src="/formulas/c06a67f28c3168.png" alt="n- 1=2" width="80" height="33">）：均值 171，偏差平方 49+36+1=86，86/2=43，√43≈**6.5574**。而 `numpy.std()` 默认 **ddof=0**（除以 n=3）得 <img class="fml" src="/formulas/8774b882fe056d.png" alt="\sqrt{\frac{86}{3}} \approx 5.3541" width="114" height="41">。这是 pandas 与 numpy 最经典的数值差异。
 :::
 
 ::: danger 易错 · Python 基础
@@ -273,13 +273,13 @@ print(df.loc[df['专业'] == 'CS', ['姓名', '成绩']])
 
 | 类别 | 统计量 | 公式 / 定义 | pandas 方法 |
 | --- | --- | --- | --- |
-| 集中趋势 | 均值 | x̄ = $\frac{\sum x_{i}}{n}$ | `mean()` |
+| 集中趋势 | 均值 | x̄ = <img class="fml" src="/formulas/96a3523c87fe19.png" alt="\frac{\sum x_{i}}{n}" width="37" height="33"> | `mean()` |
 | 集中趋势 | 中位数 | 排序后居中值（偶数取中间两数均值） | `median()` |
 | 集中趋势 | 众数 | 频数最高的取值 | `mode()` |
-| 离散程度 | 极差 | $\max- \min$ | `max()-min()` |
-| 离散程度 | 方差 | $s^{2}= \frac{\sum(x_{i}- \bar{x})^{2}}{n- 1}$ | `var()` |
-| 离散程度 | 标准差 | $s= \sqrt{s}^{2}$ | `std()` |
-| 离散程度 | 四分位距 | IQR = $Q3- Q1$ | `quantile(.75)-quantile(.25)` |
+| 离散程度 | 极差 | <img class="fml" src="/formulas/7bfefc159a9afa.png" alt="\max- \min" width="89" height="33"> | `max()-min()` |
+| 离散程度 | 方差 | <img class="fml" src="/formulas/beecd1bd0d4791.png" alt="s^{2}= \frac{\sum(x_{i}- \bar{x})^{2}}{n- 1}" width="106" height="35"> | `var()` |
+| 离散程度 | 标准差 | <img class="fml" src="/formulas/4794d1ebccecef.png" alt="s= \sqrt{s}^{2}" width="69" height="33"> | `std()` |
+| 离散程度 | 四分位距 | IQR = <img class="fml" src="/formulas/44e3d13db2078a.png" alt="Q3- Q1" width="74" height="33"> | `quantile(.75)-quantile(.25)` |
 | 离散程度 | 变异系数 | CV = s / x̄（无量纲，可跨量纲比较） | `std()/mean()` |
 | 分布形态 | 偏度 | 三阶标准矩，右偏为正 | `skew()` |
 | 分布形态 | 峰度 | 四阶标准矩，尖峰厚尾为正 | `kurt()` |
@@ -296,11 +296,11 @@ print('IQR', x.quantile(.75) - x.quantile(.25), 'CV', round(x.std()/x.mean(), 4)
 ```
 
 ::: tip 工作例题 · 手算全过程（2, 4, 5, 7, 9）
-$\bar{x}=\dfrac{27}{5}=5.4$；中位数 **5**；
-偏差平方：$11.56+1.96+0.16+2.56+12.96=29.20$；
-样本方差 $s^{2}= \frac{29.20}{4}=7.30$（ddof=1）；$s= \sqrt{7.30}=2.7019$；
-Q1=4、$Q3=7 \to IQR=3$ 上界 $7+1.5 \times 3=11.5$，无异常值；
-$CV= \frac{2.7019}{5.4}=0.5003$。
+<img class="fml" src="/formulas/87b1b529198276.png" alt="\bar{x}=\dfrac{27}{5}=5.4" width="109" height="44">；中位数 **5**；
+偏差平方：<img class="fml" src="/formulas/2379dbb898ff8f.png" alt="11.56+1.96+0.16+2.56+12.96=29.20" width="334" height="33">；
+样本方差 <img class="fml" src="/formulas/8296f4745bb2de.png" alt="s^{2}= \frac{29.20}{4}=7.30" width="134" height="33">（ddof=1）；<img class="fml" src="/formulas/bdb211eeaaac5b.png" alt="s= \sqrt{7.30}=2.7019" width="158" height="33">；
+Q1=4、<img class="fml" src="/formulas/ca22018c5c27a4.png" alt="Q3=7 \to IQR=3" width="159" height="33"> 上界 <img class="fml" src="/formulas/bc74d3eac6b573.png" alt="7+1.5 \times 3=11.5" width="146" height="33">，无异常值；
+<img class="fml" src="/formulas/66229f50aea352.png" alt="CV= \frac{2.7019}{5.4}=0.5003" width="171" height="33">。
 :::
 
 ::: danger 易错 · 方差与偏度
@@ -334,7 +334,7 @@ print(cat.value_counts(normalize=True).round(2))
 ```
 
 ::: tip 异常值判定
-箱线图用 $[Q1- 1.5 \cdot IQR, Q3+ 1.5 \cdot IQR]$ 作「内篱笆」，超出即标为异常点；3σ 法（|z| &gt; 3）则假定近似正态。异常值不一定是错误——先判断是录入错误、真实极端值还是新现象，再决定删除、缩尾（winsorize）还是保留。
+箱线图用 <img class="fml" src="/formulas/44008ba312b94a.png" alt="[Q1- 1.5 \cdot IQR, Q3+ 1.5 \cdot IQR]" width="259" height="33"> 作「内篱笆」，超出即标为异常点；3σ 法（|z| &gt; 3）则假定近似正态。异常值不一定是错误——先判断是录入错误、真实极端值还是新现象，再决定删除、缩尾（winsorize）还是保留。
 :::
 
 ### 2.2 数据的透视分析（★★★）
@@ -396,7 +396,7 @@ print(pd.crosstab(df['性别'], df['专业'], normalize='index').round(2))
 
 ::: tip 数据预处理三板斧：缺失、编码、标准化
 - **缺失值**：`dropna()` 删除（缺失少且非 MNAR 时）、`fillna(均值/中位数/众数)`、`interpolate()`（时序插值）、或建缺失指示列；填补必须在训练集内拟合（见 4.8 节数据泄露）。
-- **分类变量编码**：定类变量用**独热编码** `pd.get_dummies()` / `OneHotEncoder`（无序，避免引入虚假大小）；有序等级可用标签编码 `map` 成 $1,2,3 \cdots$；高基数类别可考虑目标编码（防泄露须交叉拟合）。
+- **分类变量编码**：定类变量用**独热编码** `pd.get_dummies()` / `OneHotEncoder`（无序，避免引入虚假大小）；有序等级可用标签编码 `map` 成 <img class="fml" src="/formulas/277fd5b4c8a729.png" alt="1,2,3 \cdots" width="73" height="33">；高基数类别可考虑目标编码（防泄露须交叉拟合）。
 - **标准化/归一化**：`StandardScaler`（z 分数，PCA/回归/距离计算前必做）与 `MinMaxScaler`（0–1 区间，对异常值敏感）；树模型（决策树、随机森林、GBDT）**不需要**标准化。
 :::
 
@@ -414,15 +414,15 @@ print(pd.crosstab(df['性别'], df['专业'], normalize='index').round(2))
 
 | 分布 | 参数 | E(X) | Var(X) | 典型用途 |
 | --- | --- | --- | --- | --- |
-| 正态 $N(\mu,\sigma^{2})$ | $\mu, \sigma^{2}$ | μ | σ² | 测量误差、连续变量 |
+| 正态 <img class="fml" src="/formulas/a0d7718c316436.png" alt="N(\mu,\sigma^{2})" width="73" height="33"> | <img class="fml" src="/formulas/92841736014a0a.png" alt="\mu, \sigma^{2}" width="43" height="33"> | μ | σ² | 测量误差、连续变量 |
 | 标准正态 N(0,1) | — | 0 | 1 | Z 检验、置信区间 |
-| t(n) | 自由度 n | 0 (n&gt;1) | $\frac{n}{n- 2}$&gt;2) | 小样本、σ 未知 |
-| $\chi^{2}(k)$ | 自由度 k | k | 2k | 方差检验、拟合优度 |
-| $F(d_{1},d_{2})$ | 两个自由度 | $\frac{d_{2}}{d_{2}- 2}$ | — | 方差分析、回归整体检验 |
-| 二项 B(n,p) | n, p | np | $np(1- p)$ | n 次独立试验成功次数 |
-| 泊松 $P(\lambda)$ | λ | λ | λ | 单位时间稀有事件计数 |
-| 均匀 U(a,b) | a, b | (a+b)/2 | $\frac{(b- a)^{2}}{12}$ | 随机数生成基础 |
-| 指数 $Exp(\lambda)$ | λ | 1/λ | $\frac{1}{\lambda}^{2}$ | 等待时间、寿命 |
+| t(n) | 自由度 n | 0 (n&gt;1) | <img class="fml" src="/formulas/a865587a779287.png" alt="\frac{n}{n- 2}" width="34" height="33">&gt;2) | 小样本、σ 未知 |
+| <img class="fml" src="/formulas/e9224be89a2b1a.png" alt="\chi^{2}(k)" width="48" height="33"> | 自由度 k | k | 2k | 方差检验、拟合优度 |
+| <img class="fml" src="/formulas/84a406d88fd597.png" alt="F(d_{1},d_{2})" width="75" height="33"> | 两个自由度 | <img class="fml" src="/formulas/8191b56477b729.png" alt="\frac{d_{2}}{d_{2}- 2}" width="38" height="34"> | — | 方差分析、回归整体检验 |
+| 二项 B(n,p) | n, p | np | <img class="fml" src="/formulas/b776c38fd16287.png" alt="np(1- p)" width="79" height="33"> | n 次独立试验成功次数 |
+| 泊松 <img class="fml" src="/formulas/0e410597fd91d3.png" alt="P(\lambda)" width="44" height="33"> | λ | λ | λ | 单位时间稀有事件计数 |
+| 均匀 U(a,b) | a, b | (a+b)/2 | <img class="fml" src="/formulas/4fba8b906ce91a.png" alt="\frac{(b- a)^{2}}{12}" width="47" height="34"> | 随机数生成基础 |
+| 指数 <img class="fml" src="/formulas/1a237ea8bdb5a4.png" alt="Exp(\lambda)" width="64" height="33"> | λ | 1/λ | <img class="fml" src="/formulas/a73b2320231463.png" alt="\frac{1}{\lambda}^{2}" width="25" height="33"> | 等待时间、寿命 |
 
 ```python
 import numpy as np
@@ -438,12 +438,12 @@ print(rng.poisson(lam=2, size=5))        # 泊松；E=Var=2
 - **中心极限定理**说的是「样本**均值**的分布近似正态」，不是「总体变成正态」；总体可以严重偏态。
 - t 分布比正态**尾部更厚**，自由度越小越明显；n→∞ 时 t 趋近标准正态。
 - 泊松分布的均值 = 方差 = λ，若实际数据方差远大于均值（过度离散），应考虑负二项模型。
-- $\chi^{2}$ 与 F 分布只取非负值，检验是**单侧**的（拒绝域在右尾）。
+- <img class="fml" src="/formulas/0b9a7a0d4e1914.png" alt="\chi^{2}" width="24" height="33"> 与 F 分布只取非负值，检验是**单侧**的（拒绝域在右尾）。
 :::
 
 ### 3.2 随机模拟及其应用（蒙特卡罗）
 
-**蒙特卡罗（Monte Carlo）模拟**：以概率统计理论为基础，用大量随机抽样近似求解难以解析计算的问题。四步：① 建立概率模型 → ② 按分布生成随机数 → ③ 重复 N 次试验 → ④ 用频率近似概率 / 用样本均值近似期望。理论依据是**大数定律**（频率收敛于概率）与中心极限定理（误差约 $O\left(\frac{1}{\sqrt{N}}\right)$）。
+**蒙特卡罗（Monte Carlo）模拟**：以概率统计理论为基础，用大量随机抽样近似求解难以解析计算的问题。四步：① 建立概率模型 → ② 按分布生成随机数 → ③ 重复 N 次试验 → ④ 用频率近似概率 / 用样本均值近似期望。理论依据是**大数定律**（频率收敛于概率）与中心极限定理（误差约 <img class="fml" src="/formulas/abd9d6df6c0192.png" alt="O\left(\frac{1}{\sqrt{N}}\right)" width="71" height="40">）。
 
 ```python
 import numpy as np
@@ -456,7 +456,7 @@ print(f'π ≈ {pi_hat:.4f}, 绝对误差 {abs(pi_hat - np.pi):.4f}')
 ```
 
 ::: tip 工作例题 · 投针估算 π
-单位正方形内四分之一圆面积占比 = $\frac{\pi}{4}$，故 π ≈ 4×(落入圆内点数/N)。以 seed=42、N=100000 的古典伪随机数实算约 **3.1373**（误差约 0.004）；把 N 提高 100 倍，误差约缩小 10 倍，这正是 $O\left(\frac{1}{\sqrt{N}}\right)$ 收敛速度。
+单位正方形内四分之一圆面积占比 = <img class="fml" src="/formulas/00b546d8c5e2c6.png" alt="\frac{\pi}{4}" width="18" height="33">，故 π ≈ 4×(落入圆内点数/N)。以 seed=42、N=100000 的古典伪随机数实算约 **3.1373**（误差约 0.004）；把 N 提高 100 倍，误差约缩小 10 倍，这正是 <img class="fml" src="/formulas/abd9d6df6c0192.png" alt="O\left(\frac{1}{\sqrt{N}}\right)" width="71" height="40"> 收敛速度。
 :::
 
 ::: tip 模拟的常见用途
@@ -481,12 +481,12 @@ print(f'π ≈ {pi_hat:.4f}, 绝对误差 {abs(pi_hat - np.pi):.4f}')
 | ② | 选择检验统计量并明确其抽样分布 |
 | ③ | 给定显著性水平 α（常用 0.05、0.01） |
 | ④ | 由样本计算统计量与 p 值 |
-| ⑤ | $p \le \alpha$ 则拒绝 H0，否则「不拒绝」 |
+| ⑤ | <img class="fml" src="/formulas/7f7fe972580adc.png" alt="p \le \alpha" width="50" height="33"> 则拒绝 H0，否则「不拒绝」 |
 | ⑥ | 结合业务含义解释（统计显著 ≠ 实际重要） |
 
 | 真实情况 \ 决策 | 不拒绝 H0 | 拒绝 H0 |
 | --- | --- | --- |
-| H0 为真 | 正确 $(1- \alpha)$ | **第一类错误**（概率 α） |
+| H0 为真 | 正确 <img class="fml" src="/formulas/d17e8196edc6bf.png" alt="(1- \alpha)" width="62" height="33"> | **第一类错误**（概率 α） |
 | H0 为假 | **第二类错误**（概率 β） | 正确（功效 1−β） |
 
 ```python
@@ -502,8 +502,8 @@ print(f'95% CI = [{xbar - tcrit*se:.3f}, {xbar + tcrit*se:.3f}]')
 ```
 
 ::: tip 工作例题 · 单样本 t 检验
-n=16，x̄=52，s=4，检验 $H_{0}: \mu=50$（$\alpha=0.05$，双侧）。
-$t= \frac{52- 50}{\frac{4}{\sqrt{16}}}=2.00$，df=15，临界值 t0.025(15)=**2.131**。
+n=16，x̄=52，s=4，检验 <img class="fml" src="/formulas/a5f2ec5ab66c4d.png" alt="H_{0}: \mu=50" width="95" height="33">（<img class="fml" src="/formulas/5b6d66e517449f.png" alt="\alpha=0.05" width="73" height="33">，双侧）。
+<img class="fml" src="/formulas/8bcea8e7dd7214.png" alt="t= \frac{52- 50}{\frac{4}{\sqrt{16}}}=2.00" width="131" height="40">，df=15，临界值 t0.025(15)=**2.131**。
 因 |t| &lt; 2.131（p &gt; 0.05）→ **不拒绝 H0**；95% 置信区间 **[49.869, 54.131]** 包含 50，结论一致。
 :::
 
@@ -529,16 +529,18 @@ $t= \frac{52- 50}{\frac{4}{\sqrt{16}}}=2.00$，df=15，临界值 t0.025(15)=**2.
 
 #### 3.3.2 单变量（一元）线性回归模型与预测
 
-模型 $y= \beta_{0}+ \beta_{1}x+ \epsilon$，最小二乘解：
+模型 <img class="fml" src="/formulas/45b5ab80cb26a3.png" alt="y= \beta_{0}+ \beta_{1}x+ \epsilon" width="135" height="33">，最小二乘解：
 
-$$
-\begin{gathered}
+
+
+<p class="fml-block"><img class="fml" src="/formulas/097c397412ebbe.png" alt="\begin{gathered}
 \hat{\beta}_{1}= \frac{\sum(x_{i}-\bar{x})(y_{i}-\bar{y})}{\sum(x_{i}-\bar{x})^{2}}= \frac{Sxy}{Sxx} \\
 \hat{\beta}_{0}= \bar{y}- \hat{\beta}_{1} \cdot \bar{x} \\
 \hat{y}_{i}= \hat{\beta}_{0}+ \hat{\beta}_{1}x_{i}; e_{i}= y_{i}- \hat{y}_{i} \\
 R^{2}= 1- \frac{SSE}{SST}= \frac{SSR}{SST}
-\end{gathered}
-$$
+\end{gathered}" width="251" height="150"></p>
+
+
 
 ```python
 import numpy as np
@@ -561,7 +563,7 @@ print('拟合值', fit, ' x=6 预测', b0 + b1*6)
 ::: tip 工作例题 · 完整手算
 x=[1,2,3,4,5]、y=[2,4,5,7,9]：x̄=3、ȳ=5.4，Sxx=10、Sxy=17 → **β̂1=1.7、β̂0=0.3**，即 ŷ=0.3+1.7x。
 拟合值 [2.0, 3.7, 5.4, 7.1, 8.8]、残差 [0, 0.3, −0.4, −0.1, 0.2]；
-SSE=0.30、SST=29.20 → $R^{2}=0.989726$；$se(\hat{\beta}_{1})=\sqrt{\frac{\frac{0.30}{3}}{10}}=0.1$ **t=17**（极显著）。
+SSE=0.30、SST=29.20 → <img class="fml" src="/formulas/84f9e5c946465d.png" alt="R^{2}=0.989726" width="118" height="33">；<img class="fml" src="/formulas/e19d4b47fbe46d.png" alt="se(\hat{\beta}_{1})=\sqrt{\frac{\frac{0.30}{3}}{10}}=0.1" width="167" height="41"> **t=17**（极显著）。
 x=6 时 ŷ=**10.5**，但已超出样本范围，属**外推**，需谨慎。
 :::
 
@@ -577,7 +579,7 @@ print(fm.predict(pd.DataFrame({'x': [6, 7]})))   # 对新数据预测
 
 ::: danger 易错 · 一元回归
 - 回归显著 ≠ 存在因果；可能存在共同原因、反向因果或纯偶然相关。
-- $R^{2}$ 高不代表模型前提成立：仍须看残差图（非线性、异方差）、Q-Q 图（正态性）、异常点。
+- <img class="fml" src="/formulas/b5f2662fd9704d.png" alt="R^{2}" width="27" height="33"> 高不代表模型前提成立：仍须看残差图（非线性、异方差）、Q-Q 图（正态性）、异常点。
 - `predict()` 要求传入 **DataFrame 且列名与公式中的自变量一致**，传数组或列名不符会报错。
 - 区分「均值的置信区间」与「单个新观测的预测区间」，后者更宽。
 :::
@@ -588,14 +590,14 @@ print(fm.predict(pd.DataFrame({'x': [6, 7]})))   # 对新数据预测
 
 | 概念 | 含义 | 记号 |
 | --- | --- | --- |
-| 总体分布 | 全体个体的取值分布 | $X \sim(\mu, \sigma^{2})$ |
+| 总体分布 | 全体个体的取值分布 | <img class="fml" src="/formulas/88f87105081ada.png" alt="X \sim(\mu, \sigma^{2})" width="97" height="33"> |
 | 样本分布 | 一次抽样的 n 个观测的直方图 | 近似总体形状 |
-| 抽样分布 | 统计量（如 x̄）在反复抽样下的分布 | x̄ ~ $N(\mu, \sigma^{2} n)$ |
+| 抽样分布 | 统计量（如 x̄）在反复抽样下的分布 | x̄ ~ <img class="fml" src="/formulas/e662e34fe367c3.png" alt="N(\mu, \sigma^{2} n)" width="84" height="33"> |
 
-**标准误** $SE= \frac{\sigma}{\sqrt{n}}$（σ 未知时用 s 估计）。中心极限定理保证 n 足够大时 x̄ 近似正态，与总体分布形状无关；这就是 t 检验/置信区间的理论依据。
+**标准误** <img class="fml" src="/formulas/f7ecf0378213c4.png" alt="SE= \frac{\sigma}{\sqrt{n}}" width="78" height="36">（σ 未知时用 s 估计）。中心极限定理保证 n 足够大时 x̄ 近似正态，与总体分布形状无关；这就是 t 检验/置信区间的理论依据。
 
 ::: tip 工作例题 · 标准误与样本量
-总体 $\sigma=10$、$n=25 \to SE= \frac{10}{5}=2$；若 n 提高到 $100 \to SE=1$，精度提升 2 倍。要把标准误减半，样本量须**翻 4 倍**（$SE \propto \frac{1}{\sqrt{n}}$），这是样本量估算的核心权衡。
+总体 <img class="fml" src="/formulas/f10daade89e059.png" alt="\sigma=10" width="59" height="33">、<img class="fml" src="/formulas/524e8776297212.png" alt="n=25 \to SE= \frac{10}{5}=2" width="186" height="33">；若 n 提高到 <img class="fml" src="/formulas/54a3221d08fdd1.png" alt="100 \to SE=1" width="119" height="33">，精度提升 2 倍。要把标准误减半，样本量须**翻 4 倍**（<img class="fml" src="/formulas/2fade2c93fb1d6.png" alt="SE \propto \frac{1}{\sqrt{n}}" width="78" height="36">），这是样本量估算的核心权衡。
 :::
 
 ### 3.5 检验功效、效应量与样本量
@@ -611,11 +613,11 @@ print(round(power, 4))          # 0.516
 ```
 
 ::: tip 工作例题 · 功效
-$\alpha=0.05$ 双侧（临界值 1.96），真实效应 θ=2、se=1 → 功效 ≈ **0.516**，即约有一半概率漏检（第二类错误 $\beta \approx 0.484$）。要达到常用 0.8 的功效，须增大 n（降低 se）或接受更大 α。这解释了「p &gt; 0.05」不能直接下「无效应」结论。
+<img class="fml" src="/formulas/5b6d66e517449f.png" alt="\alpha=0.05" width="73" height="33"> 双侧（临界值 1.96），真实效应 θ=2、se=1 → 功效 ≈ **0.516**，即约有一半概率漏检（第二类错误 <img class="fml" src="/formulas/8e630f7677c1b0.png" alt="\beta \approx 0.484" width="82" height="33">）。要达到常用 0.8 的功效，须增大 n（降低 se）或接受更大 α。这解释了「p &gt; 0.05」不能直接下「无效应」结论。
 :::
 
 ::: tip 效应量
-$Cohen's d= \frac{\bar{x}- \mu_{0}}{s}$ 衡量差异**大小**，不受 n 影响；置信区间同时给出方向与精度。论文与考试都应「p 值 + 效应量 + 置信区间」三者一起报告。
+<img class="fml" src="/formulas/ebd9e774006fb2.png" alt="Cohen&#x27;s d= \frac{\bar{x}- \mu_{0}}{s}" width="138" height="33"> 衡量差异**大小**，不受 n 影响；置信区间同时给出方向与精度。论文与考试都应「p 值 + 效应量 + 置信区间」三者一起报告。
 :::
 
 ---
@@ -630,15 +632,17 @@ $Cohen's d= \frac{\bar{x}- \mu_{0}}{s}$ 衡量差异**大小**，不受 n 影响
 
 ![多元相关分析与散点图判读](/dm/dm-correlation.svg)
 
-协方差 $\operatorname{Cov}(X,Y)=\frac{\sum(x_{i}- \bar{x})(y_{i}- \bar{y})}{n- 1}$ 带量纲、无法横向比较，故标准化为 **Pearson 相关系数**：
+协方差 <img class="fml" src="/formulas/559908f01f3e75.png" alt="\operatorname{Cov}(X,Y)=\frac{\sum(x_{i}- \bar{x})(y_{i}- \bar{y})}{n- 1}" width="205" height="33"> 带量纲、无法横向比较，故标准化为 **Pearson 相关系数**：
 
-$$
-\begin{gathered}
+
+
+<p class="fml-block"><img class="fml" src="/formulas/908a68da5c7f57.png" alt="\begin{gathered}
 r= \frac{\operatorname{Cov}(X,Y)}{s_{x} \cdot s_{y}}= \frac{\sum(x_{i}- \bar{x})(y_{i}- \bar{y})}{\sqrt{\sum(x_{i}- \bar{x})^{2} \cdot \sum(y_{i}- \bar{y})^{2}}} \\
 \text{取值范围} \; [- 1, 1] \; \text{；} \; \text{|r|} \; \text{越大线性相关越强} \\
 \text{检验} \; H_{0}: \rho=0 \; \text{用} \; t= r \cdot \sqrt{\frac{n- 2}{1- r^{2}}} \; \text{，} \; df= n- 2
-\end{gathered}
-$$
+\end{gathered}" width="386" height="129"></p>
+
+
 
 ```python
 import pandas as pd, numpy as np, math
@@ -657,8 +661,8 @@ print(f't = {t:.3f}, df = {n-2}')        # t = 3.182, df = 18
 ```
 
 ::: tip 工作例题 · 相关系数检验
-n=20、$r=0.6 \to t= 0.6 \times \sqrt{\frac{18}{0.64}}= 0.6 \times 5.3033=3.182$，df=18，临界值 2.101 → **相关显著**。
-注意：显著性强烈依赖 $n-- n=10$ 时同样的 r=0.6 得 $t=0.6 \times \sqrt{\frac{8}{0.64}}=2.121$，df=8 临界值 2.306，就不显著了。
+n=20、<img class="fml" src="/formulas/41dea8e30a57b0.png" alt="r=0.6 \to t= 0.6 \times \sqrt{\frac{18}{0.64}}= 0.6 \times 5.3033=3.182" width="391" height="41">，df=18，临界值 2.101 → **相关显著**。
+注意：显著性强烈依赖 <img class="fml" src="/formulas/22d17e13dc8873.png" alt="n-- n=10" width="105" height="33"> 时同样的 r=0.6 得 <img class="fml" src="/formulas/841a4f5b8388ed.png" alt="t=0.6 \times \sqrt{\frac{8}{0.64}}=2.121" width="190" height="41">，df=8 临界值 2.306，就不显著了。
 :::
 
 | r 的绝对值 | 常用描述 | 注意事项 |
@@ -675,14 +679,14 @@ n=20、$r=0.6 \to t= 0.6 \times \sqrt{\frac{18}{0.64}}= 0.6 \times 5.3033=3.182$
 :::
 
 ::: tip 多重共线性诊断
-$VIF_{j}= \frac{1}{1- R_{j}^{2}}$，其中 Rj² 是用其余自变量回归 Xj 的决定系数。经验阈值：VIF &gt; 5 需警惕，VIF &gt; 10 视为严重。例：某自变量与其他变量的相关达 0.95 → VIF≈**10.26**；r=0.9 → VIF≈**5.26**。处理方式：剔除冗余变量、增大样本、岭回归 / 主成分回归。
+<img class="fml" src="/formulas/0f8d020a24ae86.png" alt="VIF_{j}= \frac{1}{1- R_{j}^{2}}" width="107" height="38">，其中 Rj² 是用其余自变量回归 Xj 的决定系数。经验阈值：VIF &gt; 5 需警惕，VIF &gt; 10 视为严重。例：某自变量与其他变量的相关达 0.95 → VIF≈**10.26**；r=0.9 → VIF≈**5.26**。处理方式：剔除冗余变量、增大样本、岭回归 / 主成分回归。
 :::
 
 #### 4.1.2 多元线性回归：估计、检验与评判
 
 ![多元线性回归估计、检验与评判](/dm/dm-multireg.svg)
 
-**矩阵形式**：$Y= X\beta+ \epsilon$（X 首列为常数列，$n \times(k+1)$），最小二乘解 $\hat{\beta}=(X^{T}X)^{-1}X^{T}Y$，拟合值 $\hat{Y}= X\hat{\beta}$，残差 $e= Y- \hat{Y}$。前提假设：线性、误差零均值且同方差、无自相关、自变量无完全共线；正态性主要用于小样本推断。
+**矩阵形式**：<img class="fml" src="/formulas/b47fe81a98247b.png" alt="Y= X\beta+ \epsilon" width="100" height="33">（X 首列为常数列，<img class="fml" src="/formulas/8138c72af5aa0c.png" alt="n \times(k+1)" width="93" height="33">），最小二乘解 <img class="fml" src="/formulas/3f276599705bd6.png" alt="\hat{\beta}=(X^{T}X)^{-1}X^{T}Y" width="154" height="33">，拟合值 <img class="fml" src="/formulas/e87ca9018f498c.png" alt="\hat{Y}= X\hat{\beta}" width="71" height="33">，残差 <img class="fml" src="/formulas/185af04735a6a3.png" alt="e= Y- \hat{Y}" width="89" height="33">。前提假设：线性、误差零均值且同方差、无自相关、自变量无完全共线；正态性主要用于小样本推断。
 
 ```python
 import numpy as np
@@ -703,14 +707,14 @@ print('β̂', beta.round(3), 'R²', round(R2, 4), '调整R²', round(adj_R2, 4),
 
 | 层次 | 假设 | 统计量 | 判定 |
 | --- | --- | --- | --- |
-| 整体显著 | $H_{0}: \beta_{1}= \cdots=\beta_{k}=0$ | $F= \frac{\frac{SSR}{k}}{\frac{SSE}{n- k- 1}}$ ~ F(k, n−k−1) | F 大 / p 小 → 模型整体有用 |
-| 单个系数 | $H_{0}: \beta_{j}=0$ | $t= \frac{\hat{\beta}_{j}}{se(\hat{\beta}_{j})}$，$df=n- k- 1$ | 逐个判断变量必要性 |
+| 整体显著 | <img class="fml" src="/formulas/0d7427cc8ed066.png" alt="H_{0}: \beta_{1}= \cdots=\beta_{k}=0" width="179" height="33"> | <img class="fml" src="/formulas/afbb3641bde9d4.png" alt="F= \frac{\frac{SSR}{k}}{\frac{SSE}{n- k- 1}}" width="81" height="41"> ~ F(k, n−k−1) | F 大 / p 小 → 模型整体有用 |
+| 单个系数 | <img class="fml" src="/formulas/11cebff42b181a.png" alt="H_{0}: \beta_{j}=0" width="92" height="33"> | <img class="fml" src="/formulas/333e776c8e772d.png" alt="t= \frac{\hat{\beta}_{j}}{se(\hat{\beta}_{j})}" width="74" height="41">，<img class="fml" src="/formulas/2962edb2a67c15.png" alt="df=n- k- 1" width="123" height="33"> | 逐个判断变量必要性 |
 | 拟合优度 | — | R²、调整 R²、AIC/BIC、残差标准误 | 越接近 1（或越小）越好 |
 
-::: tip 工作例题 · 数值演算（$n=30, k=3, R^{2}=0.86$）
-- 调整 $R^{2}= 1-(1- 0.86) \times\left(\frac{29}{26}\right)= 1- 0.15615=0.8438$；
-- 整体 $F= \frac{\frac{0.86}{3}}{\frac{0.14}{26}}= \frac{0.28667}{0.0053846}=53.24$（远大于临界值，模型整体显著）；
-- 若约束 q=2 个系数后受限模型 $R^{2}=0.62$，则 $F= \frac{\frac{0.86- 0.62}{2}}{\frac{0.14}{26}}= \frac{0.12}{0.0053846}=22.29$，拒绝约束。
+::: tip 工作例题 · 数值演算（<img class="fml" src="/formulas/174e51e51f3fee.png" alt="n=30, k=3, R^{2}=0.86" width="193" height="33">）
+- 调整 <img class="fml" src="/formulas/ef2d529c2a510f.png" alt="R^{2}= 1-(1- 0.86) \times\left(\frac{29}{26}\right)= 1- 0.15615=0.8438" width="399" height="33">；
+- 整体 <img class="fml" src="/formulas/b5e2c1528b20d3.png" alt="F= \frac{\frac{0.86}{3}}{\frac{0.14}{26}}= \frac{0.28667}{0.0053846}=53.24" width="214" height="40">（远大于临界值，模型整体显著）；
+- 若约束 q=2 个系数后受限模型 <img class="fml" src="/formulas/de5423483610cc.png" alt="R^{2}=0.62" width="82" height="33">，则 <img class="fml" src="/formulas/25737f3c6bf041.png" alt="F= \frac{\frac{0.86- 0.62}{2}}{\frac{0.14}{26}}= \frac{0.12}{0.0053846}=22.29" width="237" height="40">，拒绝约束。
 :::
 
 ```python
@@ -739,14 +743,16 @@ print('R²', m.rsquared, '调整R²', m.rsquared_adj, 'F', m.fvalue, 'AIC', m.ai
 
 构建原则：**目的性、全面性、可测性、独立性、层次性**（目标层 → 准则层 → 指标层）。核心难点是把不同量纲、不同方向的指标变成可加的分数。
 
-$$
-\begin{gathered}
+
+
+<p class="fml-block"><img class="fml" src="/formulas/562cc3ced30033.png" alt="\begin{gathered}
 \text{正向指标（越大越好）：} \; z= \frac{x- \min}{\max- \min} \\
 \text{负向指标（越小越好）：} \; z= \frac{\max- x}{\max- \min} \\
 \text{标准分数法：} \; z= \frac{x- \bar{x}}{s} \\
 \text{适度指标（越接近某值越好）：} \; z= 1-|x- x*| \max|x- x*|
-\end{gathered}
-$$
+\end{gathered}" width="493" height="154"></p>
+
+
 
 ::: danger 易错 · 指标方向
 把「成本」「污染」「失业率」等**逆向指标**未正向化就直接加权，方向反了结论必错。正向化后再标准化，且全体样本必须使用**同一套 min/max 参数**，不能用各自分组的极值。
@@ -757,8 +763,8 @@ $$
 | 方法 | 类型 | 做法 | 优点 / 局限 |
 | --- | --- | --- | --- |
 | 德尔菲法 | 主观 | 多轮匿名专家打分、反馈直至收敛，用均值/中位数定权 | 能纳入经验；耗时、主观 |
-| 层次分析法 AHP | 主观 | 1–9 标度建判断矩阵，求 $\lambda \max$ 与特征向量 | 结构清晰；须通过一致性检验 |
-| 变异系数法 | 客观 | $CV_{j}= \frac{s_{j}}{\bar{x}_{j}}$，$w_{j}= \frac{CV_{j}}{\sum CV_{j}}$ | 区分度大的指标权重大；依赖样本 |
+| 层次分析法 AHP | 主观 | 1–9 标度建判断矩阵，求 <img class="fml" src="/formulas/e190e6815a67b5.png" alt="\lambda \max" width="53" height="33"> 与特征向量 | 结构清晰；须通过一致性检验 |
+| 变异系数法 | 客观 | <img class="fml" src="/formulas/1fb498779645a6.png" alt="CV_{j}= \frac{s_{j}}{\bar{x}_{j}}" width="78" height="36">，<img class="fml" src="/formulas/f8630ea9c90d1a.png" alt="w_{j}= \frac{CV_{j}}{\sum CV_{j}}" width="91" height="36"> | 区分度大的指标权重大；依赖样本 |
 | 熵权法 | 客观 | 信息熵越小（离散度越大）权重越大 | 完全由数据驱动 |
 | CRITIC | 客观 | 对比强度（标准差）× 冲突性（1−相关系数） | 兼顾信息量与独立性 |
 | 组合赋权 | 混合 | 主客观权重线性/乘法合成 | 平衡专家经验与数据 |
@@ -784,27 +790,29 @@ print(f'λmax={lam:.4f}, CI={CI:.4f}, CR={CR:.4f}', '通过一致性检验' if C
 ```
 
 ::: tip AHP 判定规则
-$CI= \frac{\lambda \max- n}{n- 1}$，$CR= \frac{CI}{RI(n)}$。仅当 **CR &lt; 0.1** 时判断矩阵一致性可接受，权重才可用；否则须重新调整两两比较标度。RI 查表：$n=3 \to 0.58$、$4 \to 0.90$、$5 \to 1.12$。
+<img class="fml" src="/formulas/a76a9358cc8bcc.png" alt="CI= \frac{\lambda \max- n}{n- 1}" width="110" height="33">，<img class="fml" src="/formulas/bb27f50709271f.png" alt="CR= \frac{CI}{RI(n)}" width="95" height="35">。仅当 **CR &lt; 0.1** 时判断矩阵一致性可接受，权重才可用；否则须重新调整两两比较标度。RI 查表：<img class="fml" src="/formulas/af12bf57335c8f.png" alt="n=3 \to 0.58" width="109" height="33">、<img class="fml" src="/formulas/9c80bfad34a430.png" alt="4 \to 0.90" width="74" height="33">、<img class="fml" src="/formulas/a01f0f4c0147ca.png" alt="5 \to 1.12" width="74" height="33">。
 :::
 
 #### 4.2.3 两种综合评分法（工作例题）
 
-$$
-\begin{gathered}
+
+
+<p class="fml-block"><img class="fml" src="/formulas/da55cf735eeb9d.png" alt="\begin{gathered}
 \text{简单平均法（隐含等权）：} \; S= \frac{z_{1}+ z_{2}+ \cdots+ z_{p}}{p} \\
 \text{加权综合评分法：} \; S= \sum w_{j} \cdot z_{j}
-\end{gathered}
-$$
+\end{gathered}" width="389" height="80"></p>
+
+
 
 ::: tip 工作例题
 某单位三个指标标准化得分 z=(0.8, 0.6, 0.4)：
-- 等权简单平均：$S= \frac{1.8}{3}=0.60$；
-- 权重 $w=(0.5,\,0.3,\,0.2)$：$S=0.4+0.18+0.08=0.66$。
+- 等权简单平均：<img class="fml" src="/formulas/abdd668fb318cb.png" alt="S= \frac{1.8}{3}=0.60" width="118" height="33">；
+- 权重 <img class="fml" src="/formulas/7400e6926a6a05.png" alt="w=(0.5,\,0.3,\,0.2)" width="147" height="33">：<img class="fml" src="/formulas/81a9f19e0f6dd3.png" alt="S=0.4+0.18+0.08=0.66" width="227" height="33">。
 同一对象因权重不同而排名可能变化，故必须做**敏感性分析**并公开权重来源。
 :::
 
 ::: tip TOPSIS 逼近理想解排序法
-构造正理想解 Z+（各指标最优）与负理想解 Z-，计算每个对象到二者的加权欧氏距离 $D^{+}, D^{-}$，贴近度 $C= \frac{D^{-}}{D^{+}+D^{-}}$，C 越大越优。相比加权求和，TOPSIS 利用了指标空间的距离信息，对「单项突出但其他项很差」的对象更敏感。完整算例见 4.5 节。
+构造正理想解 Z+（各指标最优）与负理想解 Z-，计算每个对象到二者的加权欧氏距离 <img class="fml" src="/formulas/ff672e5747f7da.png" alt="D^{+}, D^{-}" width="66" height="33">，贴近度 <img class="fml" src="/formulas/9f06d0f306d155.png" alt="C= \frac{D^{-}}{D^{+}+D^{-}}" width="95" height="33">，C 越大越优。相比加权求和，TOPSIS 利用了指标空间的距离信息，对「单项突出但其他项很差」的对象更敏感。完整算例见 4.5 节。
 :::
 
 ### 4.3 主成分分析 PCA（★★★）
@@ -813,18 +821,20 @@ $$
 
 #### 4.3.1 基本思想与推导
 
-把 p 个**彼此相关**的原始变量 $X_{1}, \cdots,X_{p}$ 作正交变换，得到互不相关的综合变量 $F_{1}, \cdots,F_{p}$：
+把 p 个**彼此相关**的原始变量 <img class="fml" src="/formulas/bc34e83e043f44.png" alt="X_{1}, \cdots,X_{p}" width="93" height="33"> 作正交变换，得到互不相关的综合变量 <img class="fml" src="/formulas/83aaa17b9cac15.png" alt="F_{1}, \cdots,F_{p}" width="86" height="33">：
 
-$$
-\begin{gathered}
+
+
+<p class="fml-block"><img class="fml" src="/formulas/e31ec63684983c.png" alt="\begin{gathered}
 F_{j}= a_{j1}X_{1}+ a_{j2}X_{2}+ \cdots+ a_{jp}X_{p} \\
 \text{约束：} \; (1) \operatorname{Cov}(F_{i}, F_{j})=0(i=j) \; \text{；} \; (2) a_{j} \; \text{为单位向量；} \; (3) \operatorname{Var}(F_{1}) \ge \operatorname{Var}(F_{2}) \ge \cdots \\
 \text{求解：对标准化后的相关矩阵} \; \text{R} \; \text{求特征值} \; \lambda_{j} \; \text{与单位特征向量} \; a_{j} \\
 \operatorname{Var}(F_{j})=\lambda_{j} \; \text{，且} \; \sum \lambda_{j}= p \; \text{（标准化后）} \\
 \text{方差贡献率} \; = \lambda_{j} \sum \lambda_{i} \; \text{；累计贡献率} \; = \frac{\lambda_{1}+ \cdots+\lambda_{m}}{\sum} \lambda_{i} \\
 \text{载荷} \; = a_{ji} \cdot \sqrt{\lambda}_{j} \; \text{（用于解释主成分的实际含义）}
-\end{gathered}
-$$
+\end{gathered}" width="665" height="193"></p>
+
+
 
 **几何解释**：找到数据方差最大的方向作第一主轴，再在与已选轴正交的方向上依次找次大方差方向。降维即保留前 m 个主轴、丢弃方差小的方向。
 
@@ -855,10 +865,10 @@ print('主成分得分\n', score.round(3))
 ```
 
 ::: tip 工作例题 · 贡献率手算
-p=4 个变量，特征值 $\lambda=(2.4, 0.9, 0.5, 0.2)$，$\sum \lambda=4.0$：
-贡献率依次为 **60%、22.5%、12.5%、5%**；前两个累计 $82.5\% \ge 80\%$ → 取 m=2。
-综合得分若按归一化权重：$F=\left(\frac{60}{82.5}\right)F_{1}+\left(\frac{22.5}{82.5}\right)F_{2}$ $0.727F_{1}+ 0.273F_{2}$；
-若直接用贡献率加权则为 $F= 0.60F_{1}+ 0.225F_{2}$。两种写法须**明确说明**并前后一致。
+p=4 个变量，特征值 <img class="fml" src="/formulas/197b93a816f7a8.png" alt="\lambda=(2.4, 0.9, 0.5, 0.2)" width="169" height="33">，<img class="fml" src="/formulas/0df62b22a4c2b4.png" alt="\sum \lambda=4.0" width="85" height="33">：
+贡献率依次为 **60%、22.5%、12.5%、5%**；前两个累计 <img class="fml" src="/formulas/b0b979d7b80273.png" alt="82.5\% \ge 80\%" width="109" height="33"> → 取 m=2。
+综合得分若按归一化权重：<img class="fml" src="/formulas/6516cbaf320546.png" alt="F=\left(\frac{60}{82.5}\right)F_{1}+\left(\frac{22.5}{82.5}\right)F_{2}" width="194" height="33"> <img class="fml" src="/formulas/f9dd544e71a8fd.png" alt="0.727F_{1}+ 0.273F_{2}" width="146" height="33">；
+若直接用贡献率加权则为 <img class="fml" src="/formulas/d395dc1e016284.png" alt="F= 0.60F_{1}+ 0.225F_{2}" width="175" height="33">。两种写法须**明确说明**并前后一致。
 :::
 
 ::: danger 易错 · PCA
@@ -879,15 +889,15 @@ p=4 个变量，特征值 $\lambda=(2.4, 0.9, 0.5, 0.2)$，$\sum \lambda=4.0$：
 
 | 类别 | 度量 | 公式 / 说明 | 值域含义 |
 | --- | --- | --- | --- |
-| 距离（Q 型，样品间） | 欧氏 | $d= \sqrt{\sum}(x_{i}- y_{i})^{2}$ | 越小越相似 |
-| 距离 | 曼哈顿 | $d= \sum\vert x_{i}- y_{i}\vert $ | 对异常值较稳健 |
-| 距离 | 闵可夫斯基 | $d=\left(\sum\vert x_{i}- y_{i}\vert ^p\right)^{\frac{1}{p}}$ | p=1 曼哈顿、p=2 欧氏 |
-| 距离 | 马氏 | $d= \sqrt{(x- y)^{T} S^{-1}(x- y)}$ | 消除量纲与变量相关 |
-| 相似系数（R 型，变量间） | 夹角余弦 | $\cos\theta=\dfrac{X\cdot Y}{\lvert X\rvert\cdot\lvert Y\rvert}$ | 越大越相似 |
+| 距离（Q 型，样品间） | 欧氏 | <img class="fml" src="/formulas/17e30f8f852ec6.png" alt="d= \sqrt{\sum}(x_{i}- y_{i})^{2}" width="148" height="33"> | 越小越相似 |
+| 距离 | 曼哈顿 | <img class="fml" src="/formulas/ba813603301c99.png" alt="d= \sum\vert x_{i}- y_{i}\vert" width="122" height="33"> | 对异常值较稳健 |
+| 距离 | 闵可夫斯基 | <img class="fml" src="/formulas/80726404553074.png" alt="d=\left(\sum\vert x_{i}- y_{i}\vert ^p\right)^{\frac{1}{p}}" width="153" height="34"> | p=1 曼哈顿、p=2 欧氏 |
+| 距离 | 马氏 | <img class="fml" src="/formulas/4c575727c314a1.png" alt="d= \sqrt{(x- y)^{T} S^{-1}(x- y)}" width="206" height="33"> | 消除量纲与变量相关 |
+| 相似系数（R 型，变量间） | 夹角余弦 | <img class="fml" src="/formulas/36a096de462466.png" alt="\cos\theta=\dfrac{X\cdot Y}{\lvert X\rvert\cdot\lvert Y\rvert}" width="133" height="49"> | 越大越相似 |
 | 相似系数 | Pearson r | 线性相关程度 | 越大越相似 |
 
 ::: tip 工作例题 · 欧氏距离
-点 (1,2) 与 (4,6)：$d= \sqrt{(4- 1)^{2}+(6- 2)^{2}}= \sqrt{9+16}=5$。
+点 (1,2) 与 (4,6)：<img class="fml" src="/formulas/56f991afd3c4b7.png" alt="d= \sqrt{(4- 1)^{2}+(6- 2)^{2}}= \sqrt{9+16}=5" width="320" height="33">。
 若两变量量纲不同（如身高 cm 与成绩 分），欧氏距离会被量纲大的变量支配 → 先标准化或改用马氏距离。
 :::
 
@@ -928,39 +938,43 @@ for method in ['single', 'complete', 'average', 'ward']:
 ::: tip K-means 与 DBSCAN
 **K-means**：先定 K 个初始质心 → 每个点归到最近质心 → 重算质心 → 迭代至收敛。适合大样本、球形簇，但对初始质心与异常值敏感；用肘部法/轮廓系数选 K，并多次初始化（`n_init`）。
 **DBSCAN**：基于密度，自动识别任意形状簇并标记噪声点，无需预设 K，但对 `eps`、`min_samples` 参数敏感。
-**轮廓系数** $s \in[- 1, 1]$，越大表示类内紧、类间分得开。
+**轮廓系数** <img class="fml" src="/formulas/c7318a39e24772.png" alt="s \in[- 1, 1]" width="86" height="33">，越大表示类内紧、类间分得开。
 :::
 
 ### 4.5 相关与回归的代数联系
 
 **一元回归中，决定系数恰等于相关系数的平方**：
 
-$$
-R^{2}= \frac{SSR}{SST}= \frac{Sxy^{2}}{Sxx \cdot Syy}= r^{2}
-$$
+
+
+<p class="fml-block"><img class="fml" src="/formulas/7867f57f037094.png" alt="R^{2}= \frac{SSR}{SST}= \frac{Sxy^{2}}{Sxx \cdot Syy}= r^{2}" width="197" height="36"></p>
+
+
 
 ::: tip 工作例题 · 验证
-沿用 $x=[1..5],\,y=[2,4,5,7,9]$：$S_{xx}=10$、$S_{yy}=29.20$、$S_{xy}=17$
-→ $r= \frac{17}{\sqrt{10 \times 29.2}}= \frac{17}{17.088}=0.99485$，$r^{2}=0.989726$；
-而 3.3.2 手算 $R^{2}= 1- \frac{0.30}{29.20}=0.989726$，两者完全一致。
-这也说明：一元线性回归的 F 检验与相关系数 t 检验等价（$F= t^{2}$）。
+沿用 <img class="fml" src="/formulas/33e3e025ac5f5c.png" alt="x=[1..5],\,y=[2,4,5,7,9]" width="208" height="33">：<img class="fml" src="/formulas/539ac0764e0ad3.png" alt="S_{xx}=10" width="74" height="33">、<img class="fml" src="/formulas/d08853be236b79.png" alt="S_{yy}=29.20" width="95" height="33">、<img class="fml" src="/formulas/7fb92daa08b706.png" alt="S_{xy}=17" width="73" height="33">
+→ <img class="fml" src="/formulas/8d54a00c01669c.png" alt="r= \frac{17}{\sqrt{10 \times 29.2}}= \frac{17}{17.088}=0.99485" width="243" height="36">，<img class="fml" src="/formulas/5196cec6807c7e.png" alt="r^{2}=0.989726" width="113" height="33">；
+而 3.3.2 手算 <img class="fml" src="/formulas/c1c05e8998067c.png" alt="R^{2}= 1- \frac{0.30}{29.20}=0.989726" width="205" height="33">，两者完全一致。
+这也说明：一元线性回归的 F 检验与相关系数 t 检验等价（<img class="fml" src="/formulas/52ee0aeb8e590d.png" alt="F= t^{2}" width="57" height="33">）。
 :::
 
-::: danger 易错 · $R^{2}= r^{2}$ 的适用条件
-该等式**只在含截距的一元线性回归**成立；多元回归中没有「单个 $r^{2}= R^{2}$」的简单对应，过原点回归的 R² 定义也不同，不能混用。
+::: danger 易错 · <img class="fml" src="/formulas/82b0695e41ad7d.png" alt="R^{2}= r^{2}" width="66" height="33"> 的适用条件
+该等式**只在含截距的一元线性回归**成立；多元回归中没有「单个 <img class="fml" src="/formulas/8c8e8a61eda36c.png" alt="r^{2}= R^{2}" width="66" height="33">」的简单对应，过原点回归的 R² 定义也不同，不能混用。
 :::
 
 ### 4.6 多重共线性的补救：岭回归与 Lasso
 
 OLS 遇到严重共线时系数方差被放大、极不稳定。正则化在损失函数中加惩罚项：
 
-$$
-\begin{gathered}
+
+
+<p class="fml-block"><img class="fml" src="/formulas/68ed009427a01e.png" alt="\begin{gathered}
 \text{岭回归} \; \text{(L2)} \; \text{：} \; \min \sum(y- X\beta)^{2}+ \lambda \cdot \sum \beta_{j}^{2} \to \; \text{系数缩小但不为} \; \text{0} \; \text{，稳住共线} \\
 \text{Lasso  (L1)} \; \text{：} \; \min \sum(y- X\beta)^{2}+ \lambda \cdot \sum|\beta_{j}| \to \; \text{部分系数恰为} \; \text{0} \; \text{，可自动选变量} \\
 \text{弹性网：} \; \text{L1 + L2} \; \text{折中。} \; \lambda \; \text{由交叉验证选；使用前必须标准化自变量。}
-\end{gathered}
-$$
+\end{gathered}" width="640" height="97"></p>
+
+
 
 ```python
 from sklearn.linear_model import Ridge, Lasso
@@ -979,7 +993,7 @@ for lam in (0.1, 1.0, 10.0):
 
 ### 4.7 熵权法与 TOPSIS 完整计算
 
-**熵权法**：先按列归一化 $p_{ij}= \frac{z_{ij}}{\sum}_{i}z_{ij}$，再算熵 $e_{j}=- \sum_{i}\frac{p_{ij} \cdot \ln(p_{ij})}{\ln}(n)$，差异系数 $g_{j}= 1- e_{j}$，权重 $w_{j}= \frac{g_{j}}{\sum g_{j}}$。熵越小（该指标取值越分散）权重越大。
+**熵权法**：先按列归一化 <img class="fml" src="/formulas/1b55f49ff90a09.png" alt="p_{ij}= \frac{z_{ij}}{\sum}_{i}z_{ij}" width="93" height="36">，再算熵 <img class="fml" src="/formulas/f76846503f6d50.png" alt="e_{j}=- \sum_{i}\frac{p_{ij} \cdot \ln(p_{ij})}{\ln}(n)" width="170" height="33">，差异系数 <img class="fml" src="/formulas/e162e3e3ca60e6.png" alt="g_{j}= 1- e_{j}" width="91" height="33">，权重 <img class="fml" src="/formulas/8ac1de966d7df7.png" alt="w_{j}= \frac{g_{j}}{\sum g_{j}}" width="80" height="36">。熵越小（该指标取值越分散）权重越大。
 
 ::: tip 工作例题 · 两种客观赋权对照（3 对象 × 3 指标）
 标准化矩阵 Z = [[0.8,0.6,0.4],[0.5,0.9,0.7],[0.2,0.3,1.0]]：
@@ -988,12 +1002,12 @@ for lam in (0.1, 1.0, 10.0):
 两种方法都让「指标 1」权重最高，但数值不同 → 客观赋权也**不是唯一的**，须说明方法。
 :::
 
-**TOPSIS**：正理想解 Z+（各列最大）、负理想解 Z-（各列最小），加权距离 $D^{+}= \sqrt{\sum} w_{j}(z_{j}- z^{+}_{j})^{2}$、$D^{-}= \sqrt{\sum} w_{j}(z_{j}- z^{-}_{j})^{2}$，贴近度 $C= \frac{D^{-}}{D^{+}+D^{-}}$。
+**TOPSIS**：正理想解 Z+（各列最大）、负理想解 Z-（各列最小），加权距离 <img class="fml" src="/formulas/b99a435acbab70.png" alt="D^{+}= \sqrt{\sum} w_{j}(z_{j}- z^{+}_{j})^{2}" width="190" height="33">、<img class="fml" src="/formulas/4f2f4c131ca201.png" alt="D^{-}= \sqrt{\sum} w_{j}(z_{j}- z^{-}_{j})^{2}" width="190" height="33">，贴近度 <img class="fml" src="/formulas/9f06d0f306d155.png" alt="C= \frac{D^{-}}{D^{+}+D^{-}}" width="95" height="33">。
 
 ::: tip 工作例题 · TOPSIS
-Z = [[1.0,0.2],[0.6,0.8],[0.2,1.0]]、$w=(0.5,0.5) \to Z^{+}=(1,1)$、$Z^{-}=(0.2,0.2)$：
+Z = [[1.0,0.2],[0.6,0.8],[0.2,1.0]]、<img class="fml" src="/formulas/ac89759848c4ab.png" alt="w=(0.5,0.5) \to Z^{+}=(1,1)" width="226" height="33">、<img class="fml" src="/formulas/8243bf1ebc8b3f.png" alt="Z^{-}=(0.2,0.2)" width="121" height="33">：
 对象 1：D+=D-=0.5657 → C=**0.500**；
-对象 2：$D^{+}=0.3162$、D-=0.5099 → C=**0.6172**；
+对象 2：<img class="fml" src="/formulas/9861b1d3bc3484.png" alt="D^{+}=0.3162" width="105" height="33">、D-=0.5099 → C=**0.6172**；
 对象 3：D+=D-=0.5657 → C=**0.500**。
 排序 **2 &gt; 1 = 3**：TOPSIS 偏好「各项均衡」，单项极端但另一项很差的 1、3 反而落后——这正是它与简单加权求和的区别。
 :::
@@ -1026,9 +1040,11 @@ Z = [[1.0,0.2],[0.6,0.8],[0.2,1.0]]、$w=(0.5,0.5) \to Z^{+}=(1,1)$、$Z^{-}=(0.
 
 **严平稳**：任意时间平移后联合分布不变；**宽平稳**（实际常用）：均值恒定、方差恒定、自协方差只依赖滞后阶数 k 而与时间 t 无关。
 
-$$
-\text{白噪声} \; u_{t} \; \text{：} \; E(u_{t})=0, \operatorname{Var}(u_{t})=\sigma^{2}, \operatorname{Cov}(u_{t}, u_{s})=0(t=s) \; \text{，常记作} \; u_{t} \sim N(0, \sigma^{2})
-$$
+
+
+<p class="fml-block"><img class="fml" src="/formulas/ec13dec4a43324.png" alt="\text{白噪声} \; u_{t} \; \text{：} \; E(u_{t})=0, \operatorname{Var}(u_{t})=\sigma^{2}, \operatorname{Cov}(u_{t}, u_{s})=0(t=s) \; \text{，常记作} \; u_{t} \sim N(0, \sigma^{2})" width="658" height="33"></p>
+
+
 
 ::: danger 易错 · 平稳性
 - 「均值看起来不变」不等于平稳：方差随时间变化（如异方差、波动聚集）也是非平稳。
@@ -1058,8 +1074,8 @@ print(simple_ret.round(4).tolist())
 ```
 
 ::: tip 工作例题 · 收益率
-价格 $100 \to 102$：简单收益率 2/100 = **0.0200**；$102 \to 101$：$\frac{101- 102}{102}$ $- 0.0098$；
-对数收益率 $\ln\left(\frac{101}{102}\right) \approx- 0.00985$。对数收益率可跨期相加、近似对称，金融建模更常用。
+价格 <img class="fml" src="/formulas/de5a811c4ae71d.png" alt="100 \to 102" width="87" height="33">：简单收益率 2/100 = **0.0200**；<img class="fml" src="/formulas/a1ebeb17fb355c.png" alt="102 \to 101" width="87" height="33">：<img class="fml" src="/formulas/3684f7da516ad2.png" alt="\frac{101- 102}{102}" width="58" height="33"> <img class="fml" src="/formulas/7f96278aad1dd5.png" alt="- 0.0098" width="69" height="33">；
+对数收益率 <img class="fml" src="/formulas/fc9bb1ed002beb.png" alt="\ln\left(\frac{101}{102}\right) \approx- 0.00985" width="159" height="33">。对数收益率可跨期相加、近似对称，金融建模更常用。
 :::
 
 #### 5.1.2 差分与平稳化
@@ -1077,25 +1093,27 @@ print('原序列', price.tolist(), '一阶差分', d1.tolist())
 :::
 
 ::: tip 时间序列的三大成分与分解
-任何时序可视为三种成分的组合：**趋势（Trend）**长期上升/下降、**季节（Seasonal）**固定周期的重复波动、**残差（Residual）**去势去季节后的随机部分。组合方式有加法模型 `y = T + S + R`（季节幅度不随水平变化）与乘法模型 $y= T \times S \times R$（季节幅度随水平放大，常见于经济数据，可先取对数转为加法）。Python 用 `statsmodels.tsa.seasonal.seasonal_decompose(y, model='additive')`；分解图是判断 d 与季节差分 D 的第一步。另外**格兰杰因果检验**（`grangercausalitytests`）判断的是「X 的历史能否改进对 Y 的预测」，是**预测意义**上的因果，不是真实因果机制。
+任何时序可视为三种成分的组合：**趋势（Trend）**长期上升/下降、**季节（Seasonal）**固定周期的重复波动、**残差（Residual）**去势去季节后的随机部分。组合方式有加法模型 `y = T + S + R`（季节幅度不随水平变化）与乘法模型 <img class="fml" src="/formulas/ba6cb689a6791b.png" alt="y= T \times S \times R" width="121" height="33">（季节幅度随水平放大，常见于经济数据，可先取对数转为加法）。Python 用 `statsmodels.tsa.seasonal.seasonal_decompose(y, model='additive')`；分解图是判断 d 与季节差分 D 的第一步。另外**格兰杰因果检验**（`grangercausalitytests`）判断的是「X 的历史能否改进对 Y 的预测」，是**预测意义**上的因果，不是真实因果机制。
 :::
 
 ### 5.2 时间序列分析模型
 
 | 模型 | 表达式 | 适用 |
 | --- | --- | --- |
-| AR(p) 自回归 | $y_{t}= \phi_{1}y_{t-1}+ \cdots+ \phi_{p}y_{t-p}+ u_{t}$ | 平稳，历史值影响当前 |
-| MA(q) 移动平均 | $y_{t}= u_{t}+ \theta_{1}u_{t-1}+ \cdots+ \theta_{q} u_{t-}q$ | 平稳，历史冲击影响当前 |
+| AR(p) 自回归 | <img class="fml" src="/formulas/27c48719a6a8d5.png" alt="y_{t}= \phi_{1}y_{t-1}+ \cdots+ \phi_{p}y_{t-p}+ u_{t}" width="242" height="33"> | 平稳，历史值影响当前 |
+| MA(q) 移动平均 | <img class="fml" src="/formulas/b0403c6420786b.png" alt="y_{t}= u_{t}+ \theta_{1}u_{t-1}+ \cdots+ \theta_{q} u_{t-}q" width="242" height="33"> | 平稳，历史冲击影响当前 |
 | ARMA(p,q) | AR + MA 组合 | **平稳**序列 |
 | ARIMA(p,d,q) | 先 d 阶差分，再对差分序列建 ARMA | 非平稳但可差分平稳 |
 | SARIMA | 再加季节项 (P,D,Q,s) | 有季节周期 |
 
-$$
-\begin{gathered}
+
+
+<p class="fml-block"><img class="fml" src="/formulas/f90113f9d313b5.png" alt="\begin{gathered}
 \text{ARIMA(p,d,q)} \; \text{：} \; \text{p=} \; \text{自回归阶数，} \; \text{d=} \; \text{差分次数，} \; \text{q=} \; \text{移动平均阶数} \\
 \text{Box-Jenkins} \; \text{方法：识别} \; \to \; \text{估计} \; \to \; \text{诊断} \; \to \; \text{预测，四步循环}
-\end{gathered}
-$$
+\end{gathered}" width="549" height="56"></p>
+
+
 
 ::: danger 易错 · 模型记号
 `ARIMA(p,d,q)` 中的 **d 是差分阶数**，不是「因变量个数」；`ARIMA(1,1,1)` 表示对原序列做 1 阶差分后建 ARMA(1,1)。部分资料把 q 误印为 `g`（如 `ARIMA(p,d,g)`），那是排版错误，统一以 `ARIMA(p,d,q)` 为准。
@@ -1105,8 +1123,8 @@ $$
 
 #### 5.3.1 相关性检验：ACF 与 PACF
 
-- **ACF（自相关函数）**：$\rho_{k}= \frac{\operatorname{Cov}(y_{t}, y_{t-k})}{\operatorname{Var}(y_{t})}$，衡量 yt 与 $y_{t-k}$ 的直接 + 间接相关。
-- **PACF（偏自相关函数）**：剔除中间变量 $y_{t-1}, \cdots,y_{t-k+1}$ 影响后 yt 与 $y_{t-k}$ 的**净相关**。
+- **ACF（自相关函数）**：<img class="fml" src="/formulas/6f268347de698a.png" alt="\rho_{k}= \frac{\operatorname{Cov}(y_{t}, y_{t-k})}{\operatorname{Var}(y_{t})}" width="119" height="35">，衡量 yt 与 <img class="fml" src="/formulas/f8e56477563e80.png" alt="y_{t-k}" width="37" height="33"> 的直接 + 间接相关。
+- **PACF（偏自相关函数）**：剔除中间变量 <img class="fml" src="/formulas/b43966c3bd87aa.png" alt="y_{t-1}, \cdots,y_{t-k+1}" width="126" height="33"> 影响后 yt 与 <img class="fml" src="/formulas/f8e56477563e80.png" alt="y_{t-k}" width="37" height="33"> 的**净相关**。
 
 | 模型 | ACF | PACF | 定阶 |
 | --- | --- | --- | --- |
@@ -1129,15 +1147,17 @@ plt.show()
 
 #### 5.3.2 平稳性检验：DF 与 ADF
 
-**DF 检验**：对 $\Delta y_{t}= \gamma \cdot y_{t-1}+ u_{t}$ 检验 $H_{0}: \gamma=0$（存在单位根、非平稳）。
+**DF 检验**：对 <img class="fml" src="/formulas/9dcef54abaf739.png" alt="\Delta y_{t}= \gamma \cdot y_{t-1}+ u_{t}" width="149" height="33"> 检验 <img class="fml" src="/formulas/e28af2fdb3f16f.png" alt="H_{0}: \gamma=0" width="86" height="33">（存在单位根、非平稳）。
 **ADF（扩展 DF）**：在回归式中加入滞后差分项以消除残差自相关，并可能包含常数项/趋势项：
 
-$$
-\begin{gathered}
+
+
+<p class="fml-block"><img class="fml" src="/formulas/f430e55a38726a.png" alt="\begin{gathered}
 \Delta y_{t}= \alpha+ \beta t+ \gamma \cdot y_{t-1}+ \sum \delta_{i} \cdot \Delta y_{t-i}+ u_{t} \\
-H_{0}: \gamma= 0 \; \text{（有单位根，非平稳）；} \; H_{1}: \gamma< 0 \; \text{（平稳）}
-\end{gathered}
-$$
+H_{0}: \gamma= 0 \; \text{（有单位根，非平稳）；} \; H_{1}: \gamma&lt; 0 \; \text{（平稳）}
+\end{gathered}" width="439" height="63"></p>
+
+
 
 ```python
 from statsmodels.tsa.stattools import adfuller
@@ -1173,16 +1193,18 @@ print('最小 AIC 模型', best)
 
 **定阶准则**：
 
-$$
-\begin{gathered}
+
+
+<p class="fml-block"><img class="fml" src="/formulas/cd8b157f6edc0f.png" alt="\begin{gathered}
 AIC=- 2 \cdot \ln(L)+ 2k \; \text{（} \; \text{k} \; \text{为待估参数个数）} \\
 BIC=- 2 \cdot \ln(L)+ \ln(n) \cdot k \; \text{（} \; \text{n} \; \text{为样本量，惩罚更重）} \\
 \text{两者都是越小越好；} \; \text{BIC} \; \text{倾向更简洁的模型，} \; \text{AIC} \; \text{倾向预测更优的模型}
-\end{gathered}
-$$
+\end{gathered}" width="573" height="83"></p>
+
+
 
 ::: tip 工作例题 · AIC 与 BIC 分歧
-n=200，$\ln(n) \approx 5.298$。模型 A：k=2、lnL=−120 → AIC=**244.00**、BIC=**250.60**；
+n=200，<img class="fml" src="/formulas/9e28fa9bba7d2b.png" alt="\ln(n) \approx 5.298" width="110" height="33">。模型 A：k=2、lnL=−120 → AIC=**244.00**、BIC=**250.60**；
 模型 B：k=3、lnL=−118.5 → AIC=**243.00**、BIC=**252.89**。
 AIC 选 B（243 &lt; 244），BIC 选 A（250.60 &lt; 252.89）——正体现「BIC 惩罚更重、偏好简约」。
 :::
@@ -1252,7 +1274,7 @@ print(re.sub(r'\s+', '', text))                       # 删除所有空白
 | 操作 | 方法 | 易错点 |
 | --- | --- | --- |
 | 统计 | `len()`、`count()` | `count` 不重叠计数 |
-| 连接 | `+`、`join()` | 循环用 `+` 拼字符串是 $O(n^{2})$，应改用 `join` |
+| 连接 | `+`、`join()` | 循环用 `+` 拼字符串是 <img class="fml" src="/formulas/10999089d04da9.png" alt="O(n^{2})" width="52" height="33">，应改用 `join` |
 | 拆分 | `split(sep)`、`rsplit` | 不传 sep 时按任意空白切分并丢弃空串 |
 | 查询 | `in`、`find`、`index`、`startswith` | `find` 返回 −1，`index` 抛异常 |
 | 替换 | `replace`、`re.sub` | `replace` 默认替换**全部**匹配 |
@@ -1335,7 +1357,7 @@ print(area)          # 117.05
 
 ### 6.4 数据库技术与 SQLite
 
-Python 通过统一的 **DB-API** 访问数据库：$connect() \to cursor() \to execute() \to commit() \to close()$。SQLite 是零配置的文件型数据库，适合教学与中小规模数据落地。
+Python 通过统一的 **DB-API** 访问数据库：<img class="fml" src="/formulas/0fb07bb71ec9ae.png" alt="connect() \to cursor() \to execute() \to commit() \to close()" width="458" height="33">。SQLite 是零配置的文件型数据库，适合教学与中小规模数据落地。
 
 ```python
 import sqlite3, pandas as pd
@@ -1428,20 +1450,22 @@ print(pd.DataFrame(clean))
 | CNKI E-Study / CiteSpace / VOSviewer | 题录管理与可视化 | 标准化后的题录数据库 |
 
 ::: tip 文献计量三大经典定律
-**洛特卡定律**（作者发文频次分布：写 n 篇论文的作者数约与 $\frac{1}{n^{2}}$ 成正比）、**布拉德福定律**（期刊文献集中与分散）、**齐普夫/普赖斯定律**（词频分布与核心作者/文献的老化）。
+**洛特卡定律**（作者发文频次分布：写 n 篇论文的作者数约与 <img class="fml" src="/formulas/f5488fb5c4a276.png" alt="\frac{1}{n^{2}}" width="23" height="33"> 成正比）、**布拉德福定律**（期刊文献集中与分散）、**齐普夫/普赖斯定律**（词频分布与核心作者/文献的老化）。
 :::
 
 ### 7.2 文献数据的收集与分析
 
 #### 7.2.1 分析流程
 
-$$
-\begin{gathered}
+
+
+<p class="fml-block"><img class="fml" src="/formulas/dafba42d282858.png" alt="\begin{gathered}
 \text{(1)} \; \text{确定检索式与数据库} \; \to(2) \; \text{导出题录（含参考文献）} \; \to(3) \; \text{去重与字段清洗} \\
 \to(4) \; \text{描述统计（年度、机构、基金、作者、关键词）} \; \to(5) \; \text{共现} \; \text{/} \; \text{共被引矩阵} \\
 \to(6) \; \text{知识图谱与聚类} \; \to(7) \; \text{科研评价与前沿解读}
-\end{gathered}
-$$
+\end{gathered}" width="637" height="83"></p>
+
+
 
 ```python
 import pandas as pd
@@ -1489,13 +1513,13 @@ print(kw.value_counts())
 | --- | --- | --- |
 | h 指数 | 某作者有 **h 篇**论文每篇至少被引 **h 次**，且其余论文被引均不超过 h | 受学科、学术年限、自引、合作署名影响；不利于青年学者 |
 | 总被引 / 篇均被引 | 影响力总量与平均质量 | 易被少数高被引论文拉高 |
-| g 指数 | 前 g 篇累计被引 ≥ $g^{2}$ | 比 h 更重视顶尖论文 |
+| g 指数 | 前 g 篇累计被引 ≥ <img class="fml" src="/formulas/008ef097a51677.png" alt="g^{2}" width="22" height="33"> | 比 h 更重视顶尖论文 |
 | 期刊影响因子 | 期刊前两年论文在当年的平均被引 | 不能用于评价单篇论文或单个作者 |
 | FWCI / Altmetric | 学科归一化被引 / 社会关注度 | 需同领域同年份归一化 |
 
 ::: tip 工作例题 · h 指数手算
 某作者 8 篇论文被引次数降序：**25, 14, 9, 6, 5, 3, 1, 0**。
-逐位检查「第 i 篇被引 ≥ i」：$i=1(25 \ge 1)$ ✓ $\cdots i=5(5 \ge 5)$ ✓，i=6(3 &lt; 6) ✗ → **h = 5**。
+逐位检查「第 i 篇被引 ≥ i」：<img class="fml" src="/formulas/a492fc75a707c9.png" alt="i=1(25 \ge 1)" width="109" height="33"> ✓ <img class="fml" src="/formulas/7d0079e6459675.png" alt="\cdots i=5(5 \ge 5)" width="124" height="33"> ✓，i=6(3 &lt; 6) ✗ → **h = 5**。
 注意 h 指数不能跨学科直接比较，也不能单独作为人才评价依据。
 :::
 
@@ -1549,7 +1573,7 @@ CiteSpace（突现词、时间线、共被引聚类）、VOSviewer（密度/叠�
 
 | 表示 | 形式 | 适用 |
 | --- | --- | --- |
-| 邻接矩阵 A | $a_{ij}= 1$（或权重）表示 i 与 j 相连；无向图对称 | 小规模稠密图、矩阵运算 |
+| 邻接矩阵 A | <img class="fml" src="/formulas/4a477e91bab1bb.png" alt="a_{ij}= 1" width="59" height="33">（或权重）表示 i 与 j 相连；无向图对称 | 小规模稠密图、矩阵运算 |
 | 边表 / 邻接表 | `(u, v, weight)` 逐条记录 | 大规模稀疏图（实际更常用） |
 | networkx 图对象 | `G = nx.Graph()` / `nx.DiGraph()` | Python 建模与分析 |
 
@@ -1570,8 +1594,8 @@ print('接近中心性', {k: round(v,3) for k,v in nx.closeness_centrality(G).it
 ::: tip 工作例题 · 手算核对（左图，n=5）
 边共 6 条：A-B、A-C、B-C、B-D、C-E、D-E。
 度：A=2、B=3、C=3、D=2、E=2 → 总度数 12 = 2×边数 ✓；
-无向完全图最多 $\frac{5 \times 4}{2}= 10$ 条边 → **密度 = 6/10 = 0.6**；
-标准化点度中心度 = $\frac{3}{5- 1}=0.75$（B、C 并列最高）；
+无向完全图最多 <img class="fml" src="/formulas/94ab59a4279b93.png" alt="\frac{5 \times 4}{2}= 10" width="74" height="33"> 条边 → **密度 = 6/10 = 0.6**；
+标准化点度中心度 = <img class="fml" src="/formulas/75ad368be298b0.png" alt="\frac{3}{5- 1}=0.75" width="88" height="33">（B、C 并列最高）；
 B、C 是连接左簇 {A,B,C} 与右簇 {D,E} 的**桥节点**，故介数中心性最高。
 :::
 
@@ -1579,7 +1603,7 @@ B、C 是连接左簇 {A,B,C} 与右簇 {D,E} 的**桥节点**，故介数中心
 
 | 层次 | 指标 | 含义 |
 | --- | --- | --- |
-| 个体 | 点度中心度 | 直接邻居数 / $(n- 1)$，衡量「活跃度」 |
+| 个体 | 点度中心度 | 直接邻居数 / <img class="fml" src="/formulas/42e43b8a85b965.png" alt="(n- 1)" width="61" height="33">，衡量「活跃度」 |
 | 个体 | 接近中心度 | 到其他所有节点平均最短路径的倒数，衡量「信息效率」 |
 | 个体 | 中介中心度 | 经过该节点的最短路径占比，衡量「桥梁 / 控制力」 |
 | 个体 | 特征向量中心度 / PageRank | 「邻居也重要则更重要」，衡量声望 |
@@ -1601,14 +1625,16 @@ B、C 是连接左簇 {A,B,C} 与右簇 {D,E} 的**桥节点**，故介数中心
 
 ### 8.4 模块度与 PageRank
 
-$$
-\begin{gathered}
+
+
+<p class="fml-block"><img class="fml" src="/formulas/176da672a9d9ac.png" alt="\begin{gathered}
 \text{模块度} \; Q=\left(\frac{1}{2m}\right) \cdot \sum_{ij}[A_{ij}- \frac{k_{i}k_{j}}{2m}] \cdot \delta(c_{i}, c_{j}) \\
 \text{（} \; \text{m} \; \text{为边数，} \; k_{i} \; \text{为节点} \; \text{i} \; \text{的度，} \; \delta \; \text{表示} \; \text{i} \; \text{、} \; \text{j} \; \text{属于同一社区）} \\
 \text{Q} \; \text{越大表示社区内部连边显著多于随机期望；} \; \text{Louvain} \; \text{通过贪心优化} \; \text{Q} \; \text{发现社群。} \\
 \text{PageRank} \; \text{：} \; PR(v)= \frac{1- d}{N}+ d \cdot \sum_{u \to v}\frac{PR(u)}{out(u)} \; \text{，} \; \text{d} \; \text{常取} \; \text{0.85}
-\end{gathered}
-$$
+\end{gathered}" width="657" height="166"></p>
+
+
 
 ::: danger 易错 · 图算法
 - 模块度存在「分辨率极限」：大网络中过小的社区可能被合并，Q 高不必然等于业务上合理。
@@ -1626,8 +1652,8 @@ $$
 
 **解**：
 ① Σ=780 → x̄=**78**；中位数=(75+80)/2=**77.5**；偏差平方和：
-676+100+49+49+9+4+49+100+196+400 = **1632** → $s^{2}=\frac{1632}{9 \approx}=181.33$，s≈**13.47**。
-② CS 前 5 人：$52+68+71+71+75=337\to$ 平均 **67.4**；MA 后 5 人：$80+85+88+92+98=443\to$ 平均 **88.6**。
+676+100+49+49+9+4+49+100+196+400 = **1632** → <img class="fml" src="/formulas/aad1a3b4c55e80.png" alt="s^{2}=\frac{1632}{9 \approx}=181.33" width="148" height="33">，s≈**13.47**。
+② CS 前 5 人：<img class="fml" src="/formulas/493687ccfd194d.png" alt="52+68+71+71+75=337\to" width="256" height="33"> 平均 **67.4**；MA 后 5 人：<img class="fml" src="/formulas/cc888023c6e0d7.png" alt="80+85+88+92+98=443\to" width="256" height="33"> 平均 **88.6**。
 ③ 用 pandas 线性插值：Q1 位置 (10−1)×0.25=2.25 → 71+0.25×(71−71)=**71**；Q3 位置 6.75 → 85+0.75×(88−85)=**87.25**；IQR=16.25 → 下界 71−24.375=**46.625**、上界 87.25+24.375=**111.625**，全部成绩在区间内 → **无异常值**。
 
 ::: tip 解题要点
@@ -1636,38 +1662,38 @@ $$
 
 ### 综 2 相关 → 回归 → 共线诊断（第 3–4 章）
 
-**题**：已知 x=[1,2,3,4,5]、y=[2,4,5,7,9]，求①r；②一元回归方程与 R²；③验证 $r^{2}=R^{2}$；④若再加入一个与 x 相关性达 0.95 的变量，说明风险与对策。
+**题**：已知 x=[1,2,3,4,5]、y=[2,4,5,7,9]，求①r；②一元回归方程与 R²；③验证 <img class="fml" src="/formulas/d44f5ab4b29846.png" alt="r^{2}=R^{2}" width="66" height="33">；④若再加入一个与 x 相关性达 0.95 的变量，说明风险与对策。
 
 **解**：
 ① Sxx=10、Syy=29.2、Sxy=17 → r=17/√(10×29.2)=**0.99485**。
 ② β̂1=17/10=**1.7**、β̂0=5.4−1.7×3=**0.3** → ŷ=0.3+1.7x；SSE=0.30 → R²=1−0.30/29.2=**0.989726**。
-③ r²=(0.99485)²=**0.989726** = $R^{2}$ ✓（含截距的一元回归恒等）。
+③ r²=(0.99485)²=**0.989726** = <img class="fml" src="/formulas/b5f2662fd9704d.png" alt="R^{2}" width="27" height="33"> ✓（含截距的一元回归恒等）。
 ④ r=0.95 → VIF≈1/(1−0.9025)=**10.26 &gt; 10**，严重共线：系数符号/大小不稳、t 值变小但整体 F 仍显著。对策：剔除其一、主成分回归、岭回归，或增大样本。
 
 ### 综 3 t 检验 + 功效 + 置信区间（第 3 章）
 
-**题**：n=16、x̄=52、s=4，检验 $H_{0}: \mu=50$（$\alpha=0.05$ 双侧），给结论并讨论「不拒绝」的含义。
+**题**：n=16、x̄=52、s=4，检验 <img class="fml" src="/formulas/a5f2ec5ab66c4d.png" alt="H_{0}: \mu=50" width="95" height="33">（<img class="fml" src="/formulas/5b6d66e517449f.png" alt="\alpha=0.05" width="73" height="33"> 双侧），给结论并讨论「不拒绝」的含义。
 
-**解**：t=2/(4/4)=**2.00**，df=15，t0.025(15)=**2.131**；|t| &lt; 2.131 → **不拒绝 H0**；95%CI = 52 ± $2.131 \times 1$ **[49.869, 54.131]**，含 50，与检验一致。
-「不拒绝」不等于「$\mu=50$ 成立」：可能是真实差异存在但样本量不足。由 3.5 节可知，在 θ=2、se=1 的情形功效仅约 **0.516**，漏检概率约 48%。应报告效应量 d=(52−50)/4=**0.5**（中等）并考虑扩大样本。
+**解**：t=2/(4/4)=**2.00**，df=15，t0.025(15)=**2.131**；|t| &lt; 2.131 → **不拒绝 H0**；95%CI = 52 ± <img class="fml" src="/formulas/b19a4269a2d718.png" alt="2.131 \times 1" width="77" height="33"> **[49.869, 54.131]**，含 50，与检验一致。
+「不拒绝」不等于「<img class="fml" src="/formulas/c076736e905308.png" alt="\mu=50" width="58" height="33"> 成立」：可能是真实差异存在但样本量不足。由 3.5 节可知，在 θ=2、se=1 的情形功效仅约 **0.516**，漏检概率约 48%。应报告效应量 d=(52−50)/4=**0.5**（中等）并考虑扩大样本。
 
 ### 综 4 PCA + 聚类 + 综合评价（第 4 章）
 
-**题**：4 个指标的特征值 $\lambda=(2.4,0.9,0.5,0.2)$。①求各贡献率与应取主成分数；②给归一化综合得分权重；③说明为什么 PCA 之前必须标准化；④若要对 5 个样品聚类，列出完整步骤。
+**题**：4 个指标的特征值 <img class="fml" src="/formulas/fafa5f73cf41a8.png" alt="\lambda=(2.4,0.9,0.5,0.2)" width="169" height="33">。①求各贡献率与应取主成分数；②给归一化综合得分权重；③说明为什么 PCA 之前必须标准化；④若要对 5 个样品聚类，列出完整步骤。
 
 **解**：
-① $\sum \lambda=4$ 贡献率 **60%、22.5%、12.5%、5%**；前两个累计 $82.5\% \ge 80\%$ → 取 m=2。
-② 归一化权重 (60/82.5, 22.5/82.5) = **(0.727, 0.273)** → $F= 0.727F_{1}+ 0.273F_{2}$。
+① <img class="fml" src="/formulas/61912624963719.png" alt="\sum \lambda=4" width="71" height="33"> 贡献率 **60%、22.5%、12.5%、5%**；前两个累计 <img class="fml" src="/formulas/b0b979d7b80273.png" alt="82.5\% \ge 80\%" width="109" height="33"> → 取 m=2。
+② 归一化权重 (60/82.5, 22.5/82.5) = **(0.727, 0.273)** → <img class="fml" src="/formulas/25c6cee83ac2a9.png" alt="F= 0.727F_{1}+ 0.273F_{2}" width="184" height="33">。
 ③ 未标准化时量纲大的变量方差主导相关矩阵，第一主成分将只反映该变量，降维失去意义；相关矩阵等价于对各变量做标准化后的协方差矩阵。
 ④ 步骤：正向化 → 标准化 → 选距离（欧氏/马氏）→ 计算距离矩阵 → 选类间距离法（建议 average 或 Ward）→ 层次合并得谱系图 → 按跳跃高度定类数 → 用轮廓系数/业务含义验证 → 解释各类特征。
 
 ### 综 5 ARIMA 完整建模（第 5 章）
 
-**题**：某非平稳序列一阶差分后平稳，ACF 拖尾、PACF 在 1 阶截尾；n=200，两个候选模型 $A(k=2, lnL=- 120)$、$B(k=3, lnL=- 118.5)$。给出建模方案与选择。
+**题**：某非平稳序列一阶差分后平稳，ACF 拖尾、PACF 在 1 阶截尾；n=200，两个候选模型 <img class="fml" src="/formulas/7aca9ddbedd17f.png" alt="A(k=2, lnL=- 120)" width="177" height="33">、<img class="fml" src="/formulas/099f3e320cf9e5.png" alt="B(k=3, lnL=- 118.5)" width="192" height="33">。给出建模方案与选择。
 
 **解**：
 ① 原序列 ADF 不拒绝单位根 → **d=1**；② 差分后 ACF 拖尾、PACF 一阶截尾 → **AR(1)**，即 ARIMA(1,1,0)；③ 估计参数并检验显著性；
-④ AIC/BIC：A → $244.00/250.60$，B → $243.00/252.89$ → **AIC 选 B、BIC 选 A**；结合「PACF 一阶截尾」支持更简约的 A；
+④ AIC/BIC：A → <img class="fml" src="/formulas/4be379f709dc8e.png" alt="244.00/250.60" width="114" height="33">，B → <img class="fml" src="/formulas/0c53472109a249.png" alt="243.00/252.89" width="114" height="33"> → **AIC 选 B、BIC 选 A**；结合「PACF 一阶截尾」支持更简约的 A；
 ⑤ 对残差做 Ljung-Box 检验（须 p &gt; 0.05，即白噪声），并检查参数平稳/可逆条件；⑥ 用 `get_forecast(steps=5)` 预测并给预测区间；
 ⑦ 评估用时间序列切分的样本外 MAE/RMSE，随新数据滚动重估。
 
@@ -1720,20 +1746,20 @@ $$
 | 1 | 数据挖掘 | 机器学习 | 前者是完整流程（含业务/准备/评估/部署），后者是建模方法集合 |
 | 2 | 描述统计 | 统计推断 | 描述样本 vs 由样本推总体（含抽样分布与不确定性） |
 | 3 | 方差 var() (pandas) | 方差 np.var() | ddof=1（样本） vs ddof=0（总体） |
-| 4 | 标准差 | 标准误 | 数据离散度 vs 统计量抽样波动（$\frac{\sigma}{\sqrt{n}}$） |
+| 4 | 标准差 | 标准误 | 数据离散度 vs 统计量抽样波动（<img class="fml" src="/formulas/5ec883407a0ae0.png" alt="\frac{\sigma}{\sqrt{n}}" width="28" height="36">） |
 | 5 | 均值 | 中位数 | 敏感 vs 稳健；右偏时均值更大 |
 | 6 | 偏度 | 峰度 | 不对称方向 vs 尾部厚度 |
 | 7 | groupby | pivot_table | 单/多键分组聚合 vs 行×列二维交叉（默认 mean） |
 | 8 | pivot | pivot_table | 不允许重复组合 vs 自动聚合重复组合 |
 | 9 | count | size | 不计 NaN vs 计所有行 |
-| 10 | 第一类错误 | 第二类错误 | α：弃真 $vs \beta$：取伪；功效 = $1- \beta$ |
+| 10 | 第一类错误 | 第二类错误 | α：弃真 <img class="fml" src="/formulas/48c52bc98d158f.png" alt="vs \beta" width="35" height="33">：取伪；功效 = <img class="fml" src="/formulas/dfa10968c0706d.png" alt="1- \beta" width="48" height="33"> |
 | 11 | p 值 | 效应量 | 「证据强度」 vs 「差异大小」；大样本下可显著但微小 |
 | 12 | 置信区间 | 预测区间 | 均值的不确定性 vs 单个新观测（更宽） |
 | 13 | 相关 | 因果 | 共同原因/反向因果/偶然都会产生相关 |
 | 14 | Pearson | Spearman | 线性 vs 单调（秩）；后者抗异常值 |
 | 15 | R² | 调整 R² | 加变量必不降 vs 惩罚变量数，可下降 |
-| 16 | F 检验 | t 检验 | 模型整体 vs 单个系数；一元时 $F= t^{2}$ |
-| 17 | 协方差 | 相关系数 | 带量纲不可比 vs 标准化到 $[- 1,1]$ |
+| 16 | F 检验 | t 检验 | 模型整体 vs 单个系数；一元时 <img class="fml" src="/formulas/52ee0aeb8e590d.png" alt="F= t^{2}" width="57" height="33"> |
+| 17 | 协方差 | 相关系数 | 带量纲不可比 vs 标准化到 <img class="fml" src="/formulas/b768c3141a0411.png" alt="[- 1,1]" width="56" height="33"> |
 | 18 | 相关矩阵 | 协方差矩阵 | 标准化变量的协方差 = 相关矩阵 |
 | 19 | PCA | 因子分析 | 方差最大化降维 vs 潜在公共因子建模（可旋转） |
 | 20 | PCA | LDA | 无监督 vs 有监督（利用类别标签） |
@@ -1747,12 +1773,12 @@ $$
 | 28 | 平稳序列 | 白噪声 | 均值方差恒定、可有自相关 vs 完全无自相关 |
 | 29 | ARMA | ARIMA | 直接建平稳序列 vs 先差分（多一个 d） |
 | 30 | ACF | PACF | 含间接相关 vs 剔除中间变量后的净相关 |
-| 31 | AIC | BIC | 惩罚 2k $vs \ln(n) \cdot k$；BIC 更偏简约 |
+| 31 | AIC | BIC | 惩罚 2k <img class="fml" src="/formulas/62f2dead4b9bb5.png" alt="vs \ln(n) \cdot k" width="89" height="33">；BIC 更偏简约 |
 | 32 | DF | ADF | 不含滞后差分 vs 含滞后项消除残差自相关 |
 | 33 | 简单收益率 | 对数收益率 | 不可跨期相加 vs 可相加、近似对称 |
 | 34 | 大数据 4V | 分布式计算 | 数据特征描述 vs 处理基础设施（Hadoop/Spark） |
-| 35 | `+` 拼接 | `join()` | 循环拼接 $O(n^{2}) vs$ 一次性高效 |
-| 36 | `find()` | `index()` | 找不到返回 $- 1 vs$ 抛异常 |
+| 35 | `+` 拼接 | `join()` | 循环拼接 <img class="fml" src="/formulas/40f2180b4d854b.png" alt="O(n^{2}) vs" width="70" height="33"> 一次性高效 |
+| 36 | `find()` | `index()` | 找不到返回 <img class="fml" src="/formulas/e56d77933b81c7.png" alt="- 1 vs" width="47" height="33"> 抛异常 |
 | 37 | 共被引 | 文献耦合 | 被后来文献共同引用 vs 共同引用相同文献 |
 | 38 | h 指数 | 影响因子 | 评价作者 vs 评价期刊（不能评价单篇论文） |
 | 39 | 点度中心度 | 介数中心度 | 直接邻居多 vs 处于最短路径上（桥梁） |
@@ -1768,11 +1794,11 @@ $$
 
 | 项目 | 公式 / 写法 |
 | --- | --- |
-| 均值 | $\bar{x}= \frac{\sum x_{i}}{n}$；`mean()` |
-| 样本方差 | $s^{2}= \frac{\sum(x_{i}- \bar{x})^{2}}{n- 1}$；`var()`（ddof=1） |
-| 样本标准差 | $s= \sqrt{s}^{2}$；`std()` |
-| 变异系数 | $CV= \frac{s}{\bar{x}}$ |
-| 四分位距 | $IQR= Q3- Q1$；异常界 $[Q1- 1.5IQR, Q3+1.5IQR]$ |
+| 均值 | <img class="fml" src="/formulas/bdb4f53f4b321f.png" alt="\bar{x}= \frac{\sum x_{i}}{n}" width="71" height="33">；`mean()` |
+| 样本方差 | <img class="fml" src="/formulas/beecd1bd0d4791.png" alt="s^{2}= \frac{\sum(x_{i}- \bar{x})^{2}}{n- 1}" width="106" height="35">；`var()`（ddof=1） |
+| 样本标准差 | <img class="fml" src="/formulas/4794d1ebccecef.png" alt="s= \sqrt{s}^{2}" width="69" height="33">；`std()` |
+| 变异系数 | <img class="fml" src="/formulas/31714322fc3480.png" alt="CV= \frac{s}{\bar{x}}" width="70" height="33"> |
+| 四分位距 | <img class="fml" src="/formulas/825c3e5e13f4d2.png" alt="IQR= Q3- Q1" width="135" height="33">；异常界 <img class="fml" src="/formulas/7c3809a059c879.png" alt="[Q1- 1.5IQR, Q3+1.5IQR]" width="233" height="33"> |
 | 偏度 / 峰度 | `skew()` / `kurt()`；&gt;0 右偏 / 尖峰 |
 | 全量概括 | `describe()`；分类列用 `include='object'` |
 | 分组 | `df.groupby(键).agg({'列':['mean','std']})` |
@@ -1788,17 +1814,17 @@ $$
 
 | 项目 | 公式 / 写法 |
 | --- | --- |
-| 标准误 | $SE= \frac{\sigma}{\sqrt{n}}$（未知用 s） |
-| 单样本 t | $t= \frac{\bar{x}- \mu_{0}}{\frac{s}{\sqrt{n}}}$，$df= n- 1$ |
-| 置信区间 | $\bar{x} ± \frac{t_{\frac{\alpha}{2}}(n- 1) \cdot s}{\sqrt{n}}$ |
-| 两类错误 | α（弃真）、β（取伪）、功效 = $1- \beta$ |
-| 效应量 | $Cohen's d= \frac{\bar{x}- \mu_{0}}{s}$ |
-| 相关系数 | $r= \frac{\operatorname{Cov}(X,Y)}{s_{x}s_{y}}$ |
-| 相关检验 | $t= r\sqrt{\frac{n- 2}{1- r^{2}}}$，$df=n- 2$ |
-| 二项 | $E=np, \operatorname{Var}=np(1- p)$ |
-| 泊松 | $E=\operatorname{Var}=\lambda$ |
-| 均匀 | $E=\frac{a+b}{2}, \operatorname{Var}=\frac{(b- a)^{2}}{12}$ |
-| 正态随机数 | $rng.normal(\mu, \sigma, size)$ |
+| 标准误 | <img class="fml" src="/formulas/f7ecf0378213c4.png" alt="SE= \frac{\sigma}{\sqrt{n}}" width="78" height="36">（未知用 s） |
+| 单样本 t | <img class="fml" src="/formulas/28f20dee640569.png" alt="t= \frac{\bar{x}- \mu_{0}}{\frac{s}{\sqrt{n}}}" width="70" height="39">，<img class="fml" src="/formulas/9e9b38acf3784a.png" alt="df= n- 1" width="91" height="33"> |
+| 置信区间 | <img class="fml" src="/formulas/16f80613b5d8dc.png" alt="\bar{x} ± \frac{t_{\frac{\alpha}{2}}(n- 1) \cdot s}{\sqrt{n}}" width="100" height="40"> |
+| 两类错误 | α（弃真）、β（取伪）、功效 = <img class="fml" src="/formulas/dfa10968c0706d.png" alt="1- \beta" width="48" height="33"> |
+| 效应量 | <img class="fml" src="/formulas/ebd9e774006fb2.png" alt="Cohen&#x27;s d= \frac{\bar{x}- \mu_{0}}{s}" width="138" height="33"> |
+| 相关系数 | <img class="fml" src="/formulas/1bd0c5e2978106.png" alt="r= \frac{\operatorname{Cov}(X,Y)}{s_{x}s_{y}}" width="99" height="36"> |
+| 相关检验 | <img class="fml" src="/formulas/3fc9ebe9c2e7b3.png" alt="t= r\sqrt{\frac{n- 2}{1- r^{2}}}" width="94" height="41">，<img class="fml" src="/formulas/c3f2b8d29ec4e2.png" alt="df=n- 2" width="91" height="33"> |
+| 二项 | <img class="fml" src="/formulas/95123bb39dc18a.png" alt="E=np, \operatorname{Var}=np(1- p)" width="198" height="33"> |
+| 泊松 | <img class="fml" src="/formulas/75ebdfc3c7b326.png" alt="E=\operatorname{Var}=\lambda" width="108" height="33"> |
+| 均匀 | <img class="fml" src="/formulas/6691c41d748bec.png" alt="E=\frac{a+b}{2}, \operatorname{Var}=\frac{(b- a)^{2}}{12}" width="172" height="34"> |
+| 正态随机数 | <img class="fml" src="/formulas/d8d4223f6fcd8e.png" alt="rng.normal(\mu, \sigma, size)" width="181" height="33"> |
 | 整数随机数 | `rng.integers(low, high, size)` |
 | 蒙特卡罗 | `π ≈ 4×(落入 1/4 圆点数)/N` |
 
@@ -1806,45 +1832,45 @@ $$
 
 | 项目 | 公式 / 写法 |
 | --- | --- |
-| 一元回归 | $\hat{\beta}_{1}=\frac{Sxy}{Sxx}, \hat{\beta}_{0}=\bar{y}- \hat{\beta}_{1}\bar{x}$ |
-| 决定系数 | $R^{2}= 1- \frac{SSE}{SST}$；一元时 $R^{2}= r^{2}$ |
-| 多元估计 | $\hat{\beta}=(X^{T}X)^{-1}X^{T}Y$；用 `np.linalg.solve` / `lstsq` |
-| 调整 R² | $1- \frac{(1- R^{2})(n- 1)}{n- k- 1}$ |
-| 整体 F | $F= \frac{\frac{SSR}{k}}{\frac{SSE}{n- k- 1}}$ |
-| 约束 F | $F= \frac{\frac{R^{2}_{u}- R^{2}_{r}}{q}}{\frac{1- R^{2}_{u}}{n- k- 1}}$ |
-| 系数 t | $t= \frac{\hat{\beta}_{j}}{se(\hat{\beta}_{j})}$ |
-| VIF | $VIF_{j}= \frac{1}{1- R_{j}^{2}}$；&gt;10 严重共线 |
-| 岭 / Lasso | $\min \sum(y- X\beta)^{2}+ \lambda \sum \beta^{2}$ / $+ \lambda \sum\vert \beta\vert $ |
+| 一元回归 | <img class="fml" src="/formulas/ae19b7fa1f7b58.png" alt="\hat{\beta}_{1}=\frac{Sxy}{Sxx}, \hat{\beta}_{0}=\bar{y}- \hat{\beta}_{1}\bar{x}" width="182" height="33"> |
+| 决定系数 | <img class="fml" src="/formulas/89a2329183e27f.png" alt="R^{2}= 1- \frac{SSE}{SST}" width="112" height="33">；一元时 <img class="fml" src="/formulas/82b0695e41ad7d.png" alt="R^{2}= r^{2}" width="66" height="33"> |
+| 多元估计 | <img class="fml" src="/formulas/3f276599705bd6.png" alt="\hat{\beta}=(X^{T}X)^{-1}X^{T}Y" width="154" height="33">；用 `np.linalg.solve` / `lstsq` |
+| 调整 R² | <img class="fml" src="/formulas/3dae9579f72a3f.png" alt="1- \frac{(1- R^{2})(n- 1)}{n- k- 1}" width="115" height="35"> |
+| 整体 F | <img class="fml" src="/formulas/afbb3641bde9d4.png" alt="F= \frac{\frac{SSR}{k}}{\frac{SSE}{n- k- 1}}" width="81" height="41"> |
+| 约束 F | <img class="fml" src="/formulas/16b2f8d5c412ba.png" alt="F= \frac{\frac{R^{2}_{u}- R^{2}_{r}}{q}}{\frac{1- R^{2}_{u}}{n- k- 1}}" width="84" height="54"> |
+| 系数 t | <img class="fml" src="/formulas/333e776c8e772d.png" alt="t= \frac{\hat{\beta}_{j}}{se(\hat{\beta}_{j})}" width="74" height="41"> |
+| VIF | <img class="fml" src="/formulas/0f8d020a24ae86.png" alt="VIF_{j}= \frac{1}{1- R_{j}^{2}}" width="107" height="38">；&gt;10 严重共线 |
+| 岭 / Lasso | <img class="fml" src="/formulas/03100157f216f1.png" alt="\min \sum(y- X\beta)^{2}+ \lambda \sum \beta^{2}" width="212" height="33"> / <img class="fml" src="/formulas/b87adcb935fb93.png" alt="+ \lambda \sum\vert \beta\vert" width="76" height="33"> |
 | smf.ols | `smf.ols('y ~ x1 + x2', data=df).fit().summary()` |
-| 正向化 | $z=\frac{x- \min}{\max- \min}$；负向 $z=\frac{\max- x}{\max- \min}$ |
-| 变异系数权 | $w_{j}= \frac{CV_{j}}{\sum CV_{j}}$ |
-| 熵权 | $e_{j}=- \sum p_{ij}\ln \frac{p_{ij}}{\ln} n$；$w_{j}=\frac{1- e_{j}}{\sum}(1- e)$ |
-| AHP | $CI=\dfrac{\lambda_{\max}-n}{n-1}$；$CR=\dfrac{CI}{RI}<0.1$ |
-| TOPSIS | $C= \frac{D^{-}}{D^{+}+D^{-}}$，越大越优 |
-| PCA | 相关矩阵特征值 $\lambda_{j}$；贡献率 $\lambda_{j} \sum \lambda_{i}$；累计 ≥80% 定 m |
-| 载荷 | $a_{ji}\sqrt{\lambda}_{j}$ |
-| 欧氏距离 | $d=\sqrt{\sum}(x_{i}- y_{i})^{2}$ |
+| 正向化 | <img class="fml" src="/formulas/43be02a24cabca.png" alt="z=\frac{x- \min}{\max- \min}" width="102" height="33">；负向 <img class="fml" src="/formulas/569410d0734929.png" alt="z=\frac{\max- x}{\max- \min}" width="102" height="33"> |
+| 变异系数权 | <img class="fml" src="/formulas/f8630ea9c90d1a.png" alt="w_{j}= \frac{CV_{j}}{\sum CV_{j}}" width="91" height="36"> |
+| 熵权 | <img class="fml" src="/formulas/3b3b0ed065c1ef.png" alt="e_{j}=- \sum p_{ij}\ln \frac{p_{ij}}{\ln} n" width="154" height="33">；<img class="fml" src="/formulas/96d86bc508d5c7.png" alt="w_{j}=\frac{1- e_{j}}{\sum}(1- e)" width="133" height="35"> |
+| AHP | <img class="fml" src="/formulas/83032bfcf9f450.png" alt="CI=\dfrac{\lambda_{\max}-n}{n-1}" width="124" height="46">；<img class="fml" src="/formulas/4d8fcbd754b2b1.png" alt="CR=\dfrac{CI}{RI}&lt;0.1" width="132" height="45"> |
+| TOPSIS | <img class="fml" src="/formulas/9f06d0f306d155.png" alt="C= \frac{D^{-}}{D^{+}+D^{-}}" width="95" height="33">，越大越优 |
+| PCA | 相关矩阵特征值 <img class="fml" src="/formulas/9f79675a51332f.png" alt="\lambda_{j}" width="23" height="33">；贡献率 <img class="fml" src="/formulas/9be6370752ccf2.png" alt="\lambda_{j} \sum \lambda_{i}" width="64" height="33">；累计 ≥80% 定 m |
+| 载荷 | <img class="fml" src="/formulas/2dfebcf31e6e8e.png" alt="a_{ji}\sqrt{\lambda}_{j}" width="59" height="33"> |
+| 欧氏距离 | <img class="fml" src="/formulas/cf834efd7d9f72.png" alt="d=\sqrt{\sum}(x_{i}- y_{i})^{2}" width="148" height="33"> |
 | 夹角余弦 | `cosθ = X·Y/(|X||Y|)` |
-| 轮廓系数 | $s=\frac{b- a}{\max}(a,b) \in[- 1,1]$ |
+| 轮廓系数 | <img class="fml" src="/formulas/072046a485324a.png" alt="s=\frac{b- a}{\max}(a,b) \in[- 1,1]" width="176" height="33"> |
 | PCA 代码 | `StandardScaler().fit_transform(X); PCA().fit(Z)` |
-| 层次聚类 | $pdist \to linkage(method='ward') \to fcluster(t=K)$ |
+| 层次聚类 | <img class="fml" src="/formulas/b8d6ca2dcea6e9.png" alt="pdist \to linkage(method=&#x27;ward&#x27;) \to fcluster(t=K)" width="432" height="33"> |
 
 ### A.4 时间序列
 
 | 项目 | 公式 / 写法 |
 | --- | --- |
-| 收益率 | 简单 `pct_change()`；对数 $\ln\left(\frac{P_{t}}{P_{t-1}}\right)$ |
+| 收益率 | 简单 `pct_change()`；对数 <img class="fml" src="/formulas/6555b321d9ba8a.png" alt="\ln\left(\frac{P_{t}}{P_{t-1}}\right)" width="73" height="40"> |
 | 差分 | `diff()`；`ARIMA(p,d,q)` 中 d 为差分阶数 |
-| AR(p) | $y_{t}= \sum \phi_{i}y_{t-i}+ u_{t}$ |
-| MA(q) | $y_{t}= u_{t}+ \sum \theta_{i}u_{t-i}$ |
-| 白噪声 | $E=0, \operatorname{Var}=\sigma^{2}, \operatorname{Cov}=0(t=s)$ |
-| ACF / PACF | $\rho_{k}= \frac{\operatorname{Cov}(y_{t},y_{t-k})}{\operatorname{Var}(y_{t})}$；PACF 剔除中间变量 |
+| AR(p) | <img class="fml" src="/formulas/ec2cbd7820d5d7.png" alt="y_{t}= \sum \phi_{i}y_{t-i}+ u_{t}" width="147" height="33"> |
+| MA(q) | <img class="fml" src="/formulas/2d64ae66ee7c5f.png" alt="y_{t}= u_{t}+ \sum \theta_{i}u_{t-i}" width="146" height="33"> |
+| 白噪声 | <img class="fml" src="/formulas/e18c14b4e4ae24.png" alt="E=0, \operatorname{Var}=\sigma^{2}, \operatorname{Cov}=0(t=s)" width="257" height="33"> |
+| ACF / PACF | <img class="fml" src="/formulas/3d72abeb190131.png" alt="\rho_{k}= \frac{\operatorname{Cov}(y_{t},y_{t-k})}{\operatorname{Var}(y_{t})}" width="119" height="35">；PACF 剔除中间变量 |
 | 定阶 | AR: PACF 截尾；MA: ACF 截尾；ARMA: AIC/BIC 网格 |
-| ADF | $\Delta y_{t}= \alpha+ \beta t+ \gamma y_{t-1}+ \sum \delta_{i}\Delta y_{t-i}+ u_{t}$，$H_{0}: \gamma=0$ |
+| ADF | <img class="fml" src="/formulas/f832bad308c0e6.png" alt="\Delta y_{t}= \alpha+ \beta t+ \gamma y_{t-1}+ \sum \delta_{i}\Delta y_{t-i}+ u_{t}" width="309" height="33">，<img class="fml" src="/formulas/e28af2fdb3f16f.png" alt="H_{0}: \gamma=0" width="86" height="33"> |
 | 临界值 | 用 MacKinnon 表（`adfuller` 返回 `crit`），非 1.96 |
-| AIC / BIC | $- 2lnL+2k$ / $- 2lnL+\ln(n)k$，越小越好 |
+| AIC / BIC | <img class="fml" src="/formulas/4d39a7cffc10a2.png" alt="- 2lnL+2k" width="98" height="33"> / <img class="fml" src="/formulas/c56341f65079e5.png" alt="- 2lnL+\ln(n)k" width="129" height="33">，越小越好 |
 | 残差诊断 | Ljung-Box：p &gt; 0.05 才为白噪声 |
-| 预测 | $\frac{m.get_{forecast}(steps=h).predicted_{mean}}{conf_{int}()}$ |
+| 预测 | <img class="fml" src="/formulas/c742940c1589e2.png" alt="\frac{m.get_{forecast}(steps=h).predicted_{mean}}{conf_{int}()}" width="209" height="36"> |
 
 ### A.5 大数据、文献计量与网络
 
@@ -1855,13 +1881,13 @@ $$
 | 正则 | `re.findall(r'\d+\.?\d*', s)`、`re.sub(r'\s+','',s)` |
 | 爬虫 | `requests.get(url, headers, timeout)` → `BeautifulSoup` → `select()` |
 | 选择器 | `.class` / `#id` / `tag` / `a[href]` / `div .title` |
-| DB-API | $connect \to cursor \to execute(?, params) \to commit \to close$ |
+| DB-API | <img class="fml" src="/formulas/1590bd04a8ecaa.png" alt="connect \to cursor \to execute(?, params) \to commit \to close" width="479" height="33"> |
 | 参数化 | `cur.execute('... WHERE x &gt;= ?', (v,))` |
 | h 指数 | 有 h 篇每篇被引 ≥ h 次 |
-| 模块度 | $Q=\left(\frac{1}{2m}\right)\sum_{ij}[A_{ij}- \frac{k_{i}k_{j}}{2m}]\delta(c_{i},c_{j})$ |
-| PageRank | $PR(v)=\frac{1- d}{N}+ d \cdot \sum_{u \to v}\frac{PR(u)}{out(u)}$ |
-| 密度 | 无向图 $2\vert E\vert (\vert V\vert (\vert V\vert - 1))$ |
-| 度中心度 | $\frac{deg(v)}{n- 1}$ |
+| 模块度 | <img class="fml" src="/formulas/5c7e690511b68d.png" alt="Q=\left(\frac{1}{2m}\right)\sum_{ij}[A_{ij}- \frac{k_{i}k_{j}}{2m}]\delta(c_{i},c_{j})" width="255" height="34"> |
+| PageRank | <img class="fml" src="/formulas/1421181fafa686.png" alt="PR(v)=\frac{1- d}{N}+ d \cdot \sum_{u \to v}\frac{PR(u)}{out(u)}" width="241" height="35"> |
+| 密度 | 无向图 <img class="fml" src="/formulas/c74c64c7c120ea.png" alt="2\vert E\vert (\vert V\vert (\vert V\vert - 1))" width="146" height="33"> |
+| 度中心度 | <img class="fml" src="/formulas/9abf030a28a0ae.png" alt="\frac{deg(v)}{n- 1}" width="45" height="33"> |
 | networkx | `nx.Graph(); add_edges_from(); nx.degree_centrality(G)` |
 
 ---
@@ -1886,7 +1912,7 @@ $$
 16. 右偏分布中 均值 &gt; 中位数 &gt; 众数；均值对异常值敏感，中位数稳健。
 17. 偏度 &gt; 0 为右偏、峰度 &gt; 0 为尖峰厚尾；小样本不宜过度解读二者。
 18. `describe()` 默认只处理数值列，分类列须 `include='object'` 或 `include='all'`。
-19. 箱线图异常判据是 $[Q1- 1.5IQR, Q3+1.5IQR]$；3σ 法假定近似正态。
+19. 箱线图异常判据是 <img class="fml" src="/formulas/7c3809a059c879.png" alt="[Q1- 1.5IQR, Q3+1.5IQR]" width="233" height="33">；3σ 法假定近似正态。
 20. 异常值不一定是错误，须区分录入错误、真实极端值与新现象后再处置。
 21. `groupby()` 返回 GroupBy 中间对象，不接聚合函数不会输出表格。
 22. `pivot_table` 默认 `aggfunc='mean'` 且能聚合重复组合；`pivot` 遇到重复组合会报错。
@@ -1895,23 +1921,23 @@ $$
 25. 中心极限定理说的是「样本均值的分布」趋近正态，不是总体变正态。
 26. t 分布尾部比正态厚，自由度越小越明显；n→∞ 时趋近标准正态。
 27. 泊松分布均值 = 方差 = λ；实际方差远大于均值时为过度离散，应考虑负二项。
-28. $\chi^{2}$ 与 F 分布只取非负值，拒绝域在右尾（单侧）。
+28. <img class="fml" src="/formulas/0b9a7a0d4e1914.png" alt="\chi^{2}" width="24" height="33"> 与 F 分布只取非负值，拒绝域在右尾（单侧）。
 29. `np.random.seed()` 只保证可复现，不改变分布，也不提高精度。
 30. p 值不是「H0 为真的概率」，而是「H0 成立时观察到当前或更极端结果的概率」。
 31. 「不拒绝 H0」≠「证明 H0 成立」，可能只是功效不足（第二类错误）。
-32. 第一类错误概率 α、第二类错误概率 β、功效 = $1- \beta$；三者不可同时最优。
+32. 第一类错误概率 α、第二类错误概率 β、功效 = <img class="fml" src="/formulas/dfa10968c0706d.png" alt="1- \beta" width="48" height="33">；三者不可同时最优。
 33. 置信区间是「均值的不确定性」，预测区间是「单个新观测」，后者更宽。
 34. 一元回归 `predict()` 须传 DataFrame 且列名与公式一致；超出样本范围是外推。
 35. 相关 ≠ 因果：共同原因、反向因果、纯偶然都会产生高相关。
 36. `r=0` 只说明无线性相关，U 形等非线性关系可能很强，必须先看散点图。
 37. 异常点会显著拉高或拉低 r；单调非线性关系应用 Spearman/Kendall 秩相关。
 38. 相关系数显著性强烈依赖 n：同样 r=0.6，n=20 显著而 n=10 不显著。
-39. 增加变量 R² 必不降，比较不同变量数的模型须用调整 $R^{2}$。
+39. 增加变量 R² 必不降，比较不同变量数的模型须用调整 <img class="fml" src="/formulas/b5f2662fd9704d.png" alt="R^{2}" width="27" height="33">。
 40. F 显著但个别 t 不显著，常见原因是多重共线性，不是「变量一定无用」。
-41. $VIF= \frac{1}{1- R_{j}^{2}}$，&gt;10 严重共线；共线时 $X^{T}X$ 近奇异，应用 `lstsq`/`solve`。
+41. <img class="fml" src="/formulas/b24be7f0a60727.png" alt="VIF= \frac{1}{1- R_{j}^{2}}" width="103" height="38">，&gt;10 严重共线；共线时 <img class="fml" src="/formulas/21c6ae4de571ce.png" alt="X^{T}X" width="48" height="33"> 近奇异，应用 `lstsq`/`solve`。
 42. 多元回归前提：线性、零均值、同方差、无自相关、无完全共线；正态性用于小样本推断。
 43. 残差诊断四项：残差-拟合图、Q-Q 图、DW 自相关、Cook 距离强影响点。
-44. $R^{2}= r^{2}$ 只在**含截距的一元**回归成立，多元回归没有简单对应。
+44. <img class="fml" src="/formulas/82b0695e41ad7d.png" alt="R^{2}= r^{2}" width="66" height="33"> 只在**含截距的一元**回归成立，多元回归没有简单对应。
 45. 综合评价前必须把逆向指标（成本、污染）正向化，方向反了结论必错。
 46. 全体样本须用同一套 min/max 做无量纲化，不能分组各自取极值。
 47. AHP 必须做一致性检验 CR &lt; 0.1，否则判断矩阵权重不可用。
@@ -1936,12 +1962,12 @@ $$
 66. `ARIMA(p,d,q)` 中 d 是差分阶数，不是变量个数；d 不同不能直接比 AIC。
 67. AR 看 PACF 截尾、MA 看 ACF 截尾、两者拖尾用 AIC/BIC 网格定阶。
 68. 定阶后残差必须是白噪声（Ljung-Box p &gt; 0.05），否则说明信息未提干净。
-69. AIC 惩罚 2k、BIC 惩罚 $\ln(n) \cdot k$；BIC 更偏简约，二者分歧时须说明取舍目标。
+69. AIC 惩罚 2k、BIC 惩罚 <img class="fml" src="/formulas/5fba32a9d2501a.png" alt="\ln(n) \cdot k" width="68" height="33">；BIC 更偏简约，二者分歧时须说明取舍目标。
 70. 多步预测区间随步长变宽并回归均值，是平稳模型的性质，不是模型失效。
 71. 时序评估必须用按时间前向切分，随机 K 折会用未来信息泄露。
 72. 大数据 4V 是数据特征描述，不等于用了 Hadoop/Spark 分布式平台。
 73. 第 6 章入门实操（单机字符串/爬虫/SQLite）属大数据分析的「数据准备入门」，不等于分布式大数据平台。
-74. 循环用 `+` 拼接字符串是 $O(n^{2})$，应改用 `join()`。
+74. 循环用 `+` 拼接字符串是 <img class="fml" src="/formulas/10999089d04da9.png" alt="O(n^{2})" width="52" height="33">，应改用 `join()`。
 75. `find()` 找不到返回 −1，`index()` 找不到抛异常，二者不可互换。
 76. 正则适合字段后处理，结构性提取优先用 CSS 选择器 / XPath。
 77. 爬取前须检查 robots.txt 与服务条款，优先官方 API，控制频率并只取公开数据。

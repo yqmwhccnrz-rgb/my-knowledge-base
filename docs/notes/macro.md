@@ -51,9 +51,9 @@ summary: "宏观经济学 11 章精读笔记：以马工程版知识框架为主
 | --- | --- | --- |
 | **古典经济学**（18 世纪末—1930s） | 萨伊定律「供给创造自身的需求」，工资价格完全弹性，经济自动趋向充分就业 | 自由放任，不干预 |
 | **凯恩斯革命**（1936《就业、利息和货币通论》） | **有效需求不足**导致非自愿失业；三大心理规律：边际消费倾向递减、资本边际效率递减、流动性偏好 | 政府用**财政政策**干预，需求管理，赤字财政 |
-| **新古典综合**（$1940s- 60s$，希克斯、汉森、萨缪尔森） | 提出 IS-LM 模型、引入菲利普斯曲线，微宏结合 | 财政与货币政策并用 |
-| **货币主义**（$1960s- 70s$，弗里德曼） | 「通胀无论何时何地都是一种货币现象」；自然失业率假说，否定长期菲利普斯曲线 | **单一规则**：固定货币增长率 |
-| **理性预期 / 新古典宏观**（$1970s- 80s$，卢卡斯、萨金特） | 理性预期、政策无效性命题、实际经济周期（RBC） | 被预期到的政策不影响实际变量 |
+| **新古典综合**（<img class="fml" src="/formulas/5e3a5d584b3477.png" alt="1940s- 60s" width="98" height="33">，希克斯、汉森、萨缪尔森） | 提出 IS-LM 模型、引入菲利普斯曲线，微宏结合 | 财政与货币政策并用 |
+| **货币主义**（<img class="fml" src="/formulas/300df1d00ba0e9.png" alt="1960s- 70s" width="98" height="33">，弗里德曼） | 「通胀无论何时何地都是一种货币现象」；自然失业率假说，否定长期菲利普斯曲线 | **单一规则**：固定货币增长率 |
+| **理性预期 / 新古典宏观**（<img class="fml" src="/formulas/a504c5a352a259.png" alt="1970s- 80s" width="98" height="33">，卢卡斯、萨金特） | 理性预期、政策无效性命题、实际经济周期（RBC） | 被预期到的政策不影响实际变量 |
 | **新凯恩斯主义**（1980s 至今，曼昆、斯蒂格利茨） | 为工资价格黏性提供微观基础（菜单成本、效率工资） | 市场不完善，货币政策仍有效 |
 | **新增长理论**（1980s，罗默、卢卡斯） | 把技术进步与人力资本**内生化**（知识外溢、研发、干中学） | 补贴研发与教育 |
 
@@ -131,7 +131,7 @@ summary: "宏观经济学 11 章精读笔记：以马工程版知识框架为主
 | 实际 GDP | 按**基期**价格计算，剔除价格变动 |
 | **GDP 平减指数** | 名义 GDP ÷ 实际 GDP × 100 |
 
-**换算公式**：**实际 GDP = 名义 GDP ÷ (价格指数 ÷ 100)**。例：1970 年名义 GDP 7500 亿，价格指数（1960=100）为 120，则按 1960 年价格计的实际 GDP $=\dfrac{7500}{1.2}=6250\,\text{亿}$。
+**换算公式**：**实际 GDP = 名义 GDP ÷ (价格指数 ÷ 100)**。例：1970 年名义 GDP 7500 亿，价格指数（1960=100）为 120，则按 1960 年价格计的实际 GDP <img class="fml" src="/formulas/f4e9e15e0a6e3e.png" alt="=\dfrac{7500}{1.2}=6250\,\text{亿}" width="145" height="44">。
 
 | 指数 | 篮子 | 关键区别 |
 | --- | --- | --- |
@@ -187,10 +187,10 @@ summary: "宏观经济学 11 章精读笔记：以马工程版知识框架为主
 
 | 概念 | 公式 | 性质 |
 | --- | --- | --- |
-| 边际消费倾向 MPC | $\frac{\Delta C}{\Delta Y}= b$ | 0 < b < 1 |
-| 平均消费倾向 APC | $\frac{C}{Y}= \frac{a}{Y}+ b$ | 随收入上升而**递减**，恒大于 MPC |
-| 储蓄函数 | $S= Y- C=- a+(1- b)Y$ | 由消费函数直接推出 |
-| 边际储蓄倾向 MPS | $\frac{\Delta S}{\Delta Y}= 1- b$ | **MPC + MPS = 1** |
+| 边际消费倾向 MPC | <img class="fml" src="/formulas/aadc50a0a3321e.png" alt="\frac{\Delta C}{\Delta Y}= b" width="62" height="33"> | 0 < b < 1 |
+| 平均消费倾向 APC | <img class="fml" src="/formulas/8ec5badc7f1c80.png" alt="\frac{C}{Y}= \frac{a}{Y}+ b" width="88" height="33"> | 随收入上升而**递减**，恒大于 MPC |
+| 储蓄函数 | <img class="fml" src="/formulas/574b123d3d9a32.png" alt="S= Y- C=- a+(1- b)Y" width="228" height="33"> | 由消费函数直接推出 |
+| 边际储蓄倾向 MPS | <img class="fml" src="/formulas/5c8b79318f8ec0.png" alt="\frac{\Delta S}{\Delta Y}= 1- b" width="93" height="33"> | **MPC + MPS = 1** |
 | 平均储蓄倾向 APS | S / Y | **APC + APS = 1** |
 
 **三大心理规律之一：边际消费倾向递减**——收入越高，新增收入中用于消费的比例越小，这是消费需求不足的根源。
@@ -202,7 +202,7 @@ summary: "宏观经济学 11 章精读笔记：以马工程版知识框架为主
 | 理论 | 提出者 | 核心观点 |
 | --- | --- | --- |
 | **相对收入** | 杜森贝利 | **示范效应**（攀比）与**棘轮效应**（消费不可逆，由俭入奢易、由奢入俭难） |
-| **生命周期** | 莫迪利安尼 | 按一生总收入平滑消费，工作期储蓄、退休期动用储蓄；$C= \alpha W+ \beta Y$ |
+| **生命周期** | 莫迪利安尼 | 按一生总收入平滑消费，工作期储蓄、退休期动用储蓄；<img class="fml" src="/formulas/245f8226d31db7.png" alt="C= \alpha W+ \beta Y" width="122" height="33"> |
 | **持久收入** | 弗里德曼 | 消费取决于**持久收入**，暂时收入影响很小；解释短期 MPC 小于长期 MPC |
 
 ### 3.4 投资函数
@@ -215,31 +215,31 @@ summary: "宏观经济学 11 章精读笔记：以马工程版知识框架为主
 | 投资的边际效率 MEI | 考虑资本品价格上涨后随投资增加而递减的收益率 |
 | **托宾 q** | 企业市场价值 ÷ 资本重置成本；**q > 1** 时投资有利可图 |
 
-另受预期收益、风险、融资约束影响。IS-LM 中常写 $I= I_{0}- d \cdot r$，d 为投资对利率的敏感度。
+另受预期收益、风险、融资约束影响。IS-LM 中常写 <img class="fml" src="/formulas/26ecbfeaa7ff18.png" alt="I= I_{0}- d \cdot r" width="107" height="33">，d 为投资对利率的敏感度。
 
 ### 3.5 各部门的均衡收入
 
 | 部门 | 均衡条件 | 均衡收入（Y） |
 | --- | --- | --- |
-| 两部门 | Y = C + I | $Y= \frac{a+ I_{0}}{1- b}$ |
-| 三部门 | Y = C + I + G，$T= T_{0}+ tY$ | $Y= \frac{a+ I_{0}+ G_{0}- bT_{0}+ bTR_{0}}{1- b(1- t)}$ |
-| 四部门 | Y = C + I + G + NX，$M= M_{0}+ mY$ | 分母再加 m：$Y= \frac{\cdots}{1- b(1- t)+ m}$ |
+| 两部门 | Y = C + I | <img class="fml" src="/formulas/6257838ef03cd3.png" alt="Y= \frac{a+ I_{0}}{1- b}" width="76" height="33"> |
+| 三部门 | Y = C + I + G，<img class="fml" src="/formulas/a8e8ef10742651.png" alt="T= T_{0}+ tY" width="103" height="33"> | <img class="fml" src="/formulas/40bec77ad0d7e3.png" alt="Y= \frac{a+ I_{0}+ G_{0}- bT_{0}+ bTR_{0}}{1- b(1- t)}" width="167" height="35"> |
+| 四部门 | Y = C + I + G + NX，<img class="fml" src="/formulas/84052b268bb415.png" alt="M= M_{0}+ mY" width="125" height="33"> | 分母再加 m：<img class="fml" src="/formulas/804dc4db595ed9.png" alt="Y= \frac{\cdots}{1- b(1- t)+ m}" width="121" height="35"> |
 
 > 分母里的每一項（储蓄、税收、进口）都是**漏出**，漏出越多，均衡收入越小、乘数越小。
 
 ### 3.6 乘数理论（★ 计算核心）
 
-**机制**：自发支出增加 $\Delta A$ 收入增加 $\Delta A$ 其中 $b \cdot \Delta A$ 用于消费 → 又形成他人收入 → 无限递推：
+**机制**：自发支出增加 <img class="fml" src="/formulas/4f6252ff3871e6.png" alt="\Delta A" width="34" height="33"> 收入增加 <img class="fml" src="/formulas/4f6252ff3871e6.png" alt="\Delta A" width="34" height="33"> 其中 <img class="fml" src="/formulas/26d1512f8f5835.png" alt="b \cdot \Delta A" width="55" height="33"> 用于消费 → 又形成他人收入 → 无限递推：
 
-$\Delta Y= \Delta A \times(1+ b+ b^{2}+ \cdots)= \frac{\Delta A}{1- b}$，故 **乘数 k = ΔY/ΔA = 1 / (1 − MPC) = 1 / MPS**。
+<img class="fml" src="/formulas/d39470f6e11fad.png" alt="\Delta Y= \Delta A \times(1+ b+ b^{2}+ \cdots)= \frac{\Delta A}{1- b}" width="293" height="33">，故 **乘数 k = ΔY/ΔA = 1 / (1 − MPC) = 1 / MPS**。
 
 | 乘数 | 公式 | 说明 |
 | --- | --- | --- |
 | 投资乘数 k_I | 1 / (1 − b) | 与政府购买乘数相同 |
 | 政府购买乘数 k_G | 1 / (1 − b) | 直接构成总需求 |
-| 税收乘数 k_T | $- \frac{b}{1- b}$ | 负号：增税减少收入；绝对值比 k_G 小 1 |
+| 税收乘数 k_T | <img class="fml" src="/formulas/9e7a114c0ef6a6.png" alt="- \frac{b}{1- b}" width="46" height="33"> | 负号：增税减少收入；绝对值比 k_G 小 1 |
 | 转移支付乘数 k_TR | b / (1 − b) | 先影响可支配收入再影响消费 |
-| **平衡预算乘数** | **k_G + k_T = 1** | $\Delta G= \Delta T$ 时，收入仍等额增加 |
+| **平衡预算乘数** | **k_G + k_T = 1** | <img class="fml" src="/formulas/720d4ab89fd98f.png" alt="\Delta G= \Delta T" width="86" height="33"> 时，收入仍等额增加 |
 | 对外贸易乘数 k_F | 1 / (MPS + MPM) | 开放后进口漏出使乘数变小 |
 
 **乘数发挥作用的前提（易考简答）**：
@@ -254,7 +254,7 @@ $\Delta Y= \Delta A \times(1+ b+ b^{2}+ \cdots)= \frac{\Delta A}{1- b}$，故 **
 ### 3.7 易错点
 
 - 税收乘数为**负**、绝对值小于政府购买乘数；平衡预算乘数**等于 1** 而不是 0。
-- APC > MPC（因为 a/Y > 0）；$MPC+MPS=1$ 与 $APC+APS=1$ 是两组不同等式。
+- APC > MPC（因为 a/Y > 0）；<img class="fml" src="/formulas/10efe1125491a2.png" alt="MPC+MPS=1" width="153" height="33"> 与 <img class="fml" src="/formulas/bf3a0de4ef78fe.png" alt="APC+APS=1" width="141" height="33"> 是两组不同等式。
 - 未售出的产品计入**存货投资**而非从 GDP 中扣除。
 - 「投资」在宏观里指**实际资本形成**（厂房、设备、住宅、存货），买股票不算投资。
 
@@ -268,9 +268,9 @@ $\Delta Y= \Delta A \times(1+ b+ b^{2}+ \cdots)= \frac{\Delta A}{1- b}$，故 **
 
 **IS 曲线**：使产品市场均衡（I = S）的所有利率 r 与收入 Y 的组合。
 
-以两部门、$I= I_{0}- d \cdot r$ 为例：
+以两部门、<img class="fml" src="/formulas/26ecbfeaa7ff18.png" alt="I= I_{0}- d \cdot r" width="107" height="33"> 为例：
 
-$Y= \frac{a+ I_{0}- d \cdot r}{1- b}$，即 $r= \frac{a+ I_{0}}{d}-[\frac{1- b}{d}] \cdot Y$
+<img class="fml" src="/formulas/35c15d02392720.png" alt="Y= \frac{a+ I_{0}- d \cdot r}{1- b}" width="101" height="33">，即 <img class="fml" src="/formulas/ea440c6424fa22.png" alt="r= \frac{a+ I_{0}}{d}-[\frac{1- b}{d}] \cdot Y" width="154" height="33">
 
 | 性质 | 结论 |
 | --- | --- |
@@ -282,20 +282,20 @@ $Y= \frac{a+ I_{0}- d \cdot r}{1- b}$，即 $r= \frac{a+ I_{0}}{d}-[\frac{1- b}{
 
 ### 4.2 货币市场均衡与 LM 曲线
 
-**凯恩斯流动性偏好**：$L= L_{1}(Y)+ L_{2}(r)= kY- hr$
+**凯恩斯流动性偏好**：<img class="fml" src="/formulas/0419a9ebc1df2b.png" alt="L= L_{1}(Y)+ L_{2}(r)= kY- hr" width="242" height="33">
 
 - 交易动机 + 预防动机 → 随收入 Y **正向**变动（系数 k）；
 - 投机动机 → 随利率 r **反向**变动（系数 h，即货币需求的利率弹性）。
 
-货币供给：名义 M 由央行**外生**决定，实际货币供给 = M/P。均衡条件 $\frac{M}{P}= kY- hr$，整理得
+货币供给：名义 M 由央行**外生**决定，实际货币供给 = M/P。均衡条件 <img class="fml" src="/formulas/bc0637ec0891c1.png" alt="\frac{M}{P}= kY- hr" width="112" height="33">，整理得
 
-**LM 方程：$r=\dfrac{k}{h}Y-\dfrac{1}{h}\cdot\dfrac{M}{P}$**
+**LM 方程：<img class="fml" src="/formulas/0b3905d045fb24.png" alt="r=\dfrac{k}{h}Y-\dfrac{1}{h}\cdot\dfrac{M}{P}" width="140" height="45">**
 
 | 性质 | 结论 |
 | --- | --- |
 | 斜率 | **向右上方倾斜**：Y ↑ → 交易性货币需求 ↑ → r ↑ 以恢复均衡 |
-| **凯恩斯区域**（水平段） | 利率极低、$h \to_{\infty}$（流动性陷阱），LM 水平 |
-| **古典区域**（垂直段） | $h \to 0$，货币需求与利率无关，LM 垂直 |
+| **凯恩斯区域**（水平段） | 利率极低、<img class="fml" src="/formulas/7767f09a2d68fd.png" alt="h \to_{\infty}" width="53" height="33">（流动性陷阱），LM 水平 |
+| **古典区域**（垂直段） | <img class="fml" src="/formulas/497190e546b0bc.png" alt="h \to 0" width="53" height="33">，货币需求与利率无关，LM 垂直 |
 | 中间区域 | 正常向右上方倾斜 |
 | 右移因素 | 名义货币供给 M ↑、价格水平 P ↓ |
 | 左移因素 | M ↓、P ↑ |
@@ -324,8 +324,8 @@ G ↑ → IS 右移 → Y ↑、r ↑ → 利率上升**挤掉私人投资**，�
 | --- | --- |
 | 投资对利率敏感度 **d 越大** | 挤出**越大**，财政效果越弱 |
 | 货币需求对利率敏感度 **h 越小**（LM 越陡） | 利率上升越多，挤出**越大** |
-| LM 水平（$h \to_{\infty}$，流动性陷阱） | 利率不升，**挤出为零**，财政政策**最有效** |
-| LM 垂直（$h \to 0$，古典区） | **完全挤出**，财政政策**完全无效**（只推高利率） |
+| LM 水平（<img class="fml" src="/formulas/7767f09a2d68fd.png" alt="h \to_{\infty}" width="53" height="33">，流动性陷阱） | 利率不升，**挤出为零**，财政政策**最有效** |
+| LM 垂直（<img class="fml" src="/formulas/497190e546b0bc.png" alt="h \to 0" width="53" height="33">，古典区） | **完全挤出**，财政政策**完全无效**（只推高利率） |
 
 #### 货币政策与流动性陷阱
 
@@ -505,9 +505,9 @@ M ↑ → LM 右移 → r ↓ → I ↑ → Y ↑。**传导链**：M ↑ → r 
 
 ### 7.2 增长核算
 
-**增长核算方程**：$\frac{\Delta Y}{Y}= \frac{\Delta A}{A}+ \alpha \cdot\left(\frac{\Delta K}{K}\right)+ \beta \cdot\left(\frac{\Delta L}{L}\right)$（α、β 为资本与劳动的产出弹性，规模报酬不变时 $\alpha+ \beta= 1$）
+**增长核算方程**：<img class="fml" src="/formulas/1dccfc63eed516.png" alt="\frac{\Delta Y}{Y}= \frac{\Delta A}{A}+ \alpha \cdot\left(\frac{\Delta K}{K}\right)+ \beta \cdot\left(\frac{\Delta L}{L}\right)" width="253" height="33">（α、β 为资本与劳动的产出弹性，规模报酬不变时 <img class="fml" src="/formulas/b7cde121f961c1.png" alt="\alpha+ \beta= 1" width="83" height="33">）
 
-**索洛剩余（全要素生产率 TFP）**：$\frac{\Delta A}{A}= \frac{\Delta Y}{Y}- \alpha \frac{\cdot \Delta K}{K}- \beta \frac{\cdot \Delta L}{L}$，即产出增长中无法由要素投入解释的部分，主要来自技术进步，是**长期人均收入增长最重要的源泉**。
+**索洛剩余（全要素生产率 TFP）**：<img class="fml" src="/formulas/79e828061d937b.png" alt="\frac{\Delta A}{A}= \frac{\Delta Y}{Y}- \alpha \frac{\cdot \Delta K}{K}- \beta \frac{\cdot \Delta L}{L}" width="201" height="33">，即产出增长中无法由要素投入解释的部分，主要来自技术进步，是**长期人均收入增长最重要的源泉**。
 
 三个直接源泉：劳动投入（数量 + 人力资本质量）、资本积累、技术进步（TFP）。
 
@@ -527,15 +527,19 @@ M ↑ → LM 右移 → r ↓ → I ↑ → Y ↑。**传导链**：M ↑ → r 
 
 **资本积累方程（人均形式）**：
 
-$$\Delta k= s \cdot f(k)-(n+ \delta) \cdot k$$
+
+
+<p class="fml-block"><img class="fml" src="/formulas/8d9727f1c12a4e.png" alt="\Delta k= s \cdot f(k)-(n+ \delta) \cdot k" width="210" height="33"></p>
+
+
 
 
 | 项 | 含义 |
 | --- | --- |
-| $s \cdot f(k)$ | 人均储蓄 / 投资，推动**资本深化** |
+| <img class="fml" src="/formulas/6e4f4241a7bbc8.png" alt="s \cdot f(k)" width="62" height="33"> | 人均储蓄 / 投资，推动**资本深化** |
 | (n + δ)k | 为新增人口配备资本 + 补充折旧，即**资本广化** |
 
-**稳态条件**：**s·f(k\*) = (n + δ)k\***，此时 $\Delta k= 0$，人均资本 k\* 与人均产出 y\* 都**不再增长**。
+**稳态条件**：**s·f(k\*) = (n + δ)k\***，此时 <img class="fml" src="/formulas/3cb087fef6844c.png" alt="\Delta k= 0" width="63" height="33">，人均资本 k\* 与人均产出 y\* 都**不再增长**。
 
 | 外生变化 | 稳态影响 |
 | --- | --- |
@@ -543,11 +547,11 @@ $$\Delta k= s \cdot f(k)-(n+ \delta) \cdot k$$
 | 人口增长率 n ↑ | 资本被摊薄，k\*、y\* **降低** |
 | 折旧率 δ ↑ | k\*、y\* 降低 |
 
-**黄金律（稳态人均消费最大）**：$c= f(k)-(n+ \delta)k$，最大化条件 $f'(k_{gold})= n+ \delta$，即 $MPK= n+ \delta$（有技术进步时为 $n+ g+ \delta$）。若稳态资本超过黄金律水平，则存在**动态无效率**（储蓄过多、消费反而更少）。
+**黄金律（稳态人均消费最大）**：<img class="fml" src="/formulas/4b190fb68a45d1.png" alt="c= f(k)-(n+ \delta)k" width="159" height="33">，最大化条件 <img class="fml" src="/formulas/95e5005d7db3b9.png" alt="f&#x27;(k_{gold})= n+ \delta" width="133" height="33">，即 <img class="fml" src="/formulas/c83ebbf5339aec.png" alt="MPK= n+ \delta" width="121" height="33">（有技术进步时为 <img class="fml" src="/formulas/7515974aa5487d.png" alt="n+ g+ \delta" width="78" height="33">）。若稳态资本超过黄金律水平，则存在**动态无效率**（储蓄过多、消费反而更少）。
 
 > **资料勘误（原框架前后矛盾，此处已修正）**：
 > 1. 原框架在「引入技术进步」处同时写了「稳态时人均产出增长率 = 0」和「人均产出增长率 = g」，二者矛盾。**正确的是**：无技术进步时，稳态**人均产出增长率 = 0、总产出增长率 = n**；引入劳动增进型技术进步（Y = F(K, AL)，A 以 g 增长）后，稳态**单位有效劳动产出增长率 = 0，人均产出增长率 = g，总产出增长率 = n + g**。人均生活水平持续提高的**唯一源泉是技术进步**。
-> 2. 原框架把黄金律写成「资本的**净**边际产出等于**经济增长率**」，应修正为「资本**边际产出 MPK = n + δ**（含技术进步时 $n+ g+ \delta$）」，即等于**持平投资所需的人口增长与折旧之和**，而不是等于经济增长率。
+> 2. 原框架把黄金律写成「资本的**净**边际产出等于**经济增长率**」，应修正为「资本**边际产出 MPK = n + δ**（含技术进步时 <img class="fml" src="/formulas/7515974aa5487d.png" alt="n+ g+ \delta" width="78" height="33">）」，即等于**持平投资所需的人口增长与折旧之和**，而不是等于经济增长率。
 > 3. 结论要点：索洛模型中**储蓄率只能改变稳态水平，不能改变长期人均增长率**——这是最常考、也最常被写错的结论。
 
 **收敛假说**：绝对收敛（穷国无条件更快，实证支持有限）；**条件收敛**（控制储蓄率、人口增长、人力资本后穷国趋同更快，实证支持较强）。
@@ -556,7 +560,7 @@ $$\Delta k= s \cdot f(k)-(n+ \delta) \cdot k$$
 
 | 模型 | 核心 |
 | --- | --- |
-| **AK 模型** | Y = AK，资本边际产出**不变**（无递减），$\frac{\Delta k}{k}= sA-(n+ \delta)$，**无稳态**，增长可永久持续；政策能永久改变长期增长率 |
+| **AK 模型** | Y = AK，资本边际产出**不变**（无递减），<img class="fml" src="/formulas/7288b19cc0ac23.png" alt="\frac{\Delta k}{k}= sA-(n+ \delta)" width="150" height="33">，**无稳态**，增长可永久持续；政策能永久改变长期增长率 |
 | 罗默（知识外溢 / 研发） | 知识是非竞争性投入，研发有正外部性 → 市场投入不足 → 需专利保护与研发补贴 |
 | 卢卡斯（人力资本） | 人力资本积累是增长核心，具有正外部性 → 政府应补贴教育 |
 
@@ -564,7 +568,7 @@ $$\Delta k= s \cdot f(k)-(n+ \delta) \cdot k$$
 
 ### 7.6 易错点
 
-- 索洛稳态 $\Delta k= 0= k= 0$，更不是「经济不增长」：总产出仍以 n（或 n+g）增长。
+- 索洛稳态 <img class="fml" src="/formulas/b839a8fdc291b5.png" alt="\Delta k= 0= k= 0" width="130" height="33">，更不是「经济不增长」：总产出仍以 n（或 n+g）增长。
 - 储蓄率提高**只有水平效应**；长期人均增长靠技术进步。
 - 黄金律是**人均消费最大**，不是人均产出最大（后者要求储蓄率趋于 1，消费反而为零）。
 - 哈罗德—多马是「刀刃均衡」，索洛通过资本—劳动可替代解决了这一不稳定性。
@@ -600,7 +604,7 @@ $$\Delta k= s \cdot f(k)-(n+ \delta) \cdot k$$
 ### 8.3 乘数—加速数模型（萨缪尔森）
 
 - **乘数原理**：投资变动 → 收入成倍变动（收入对投资的反向决定）；
-- **加速原理**：收入变动 → 投资变动，$I_{t}= v(Y_{t- 1}- Y_{t- 2})$（投资取决于产出的**变化量**而非水平）；
+- **加速原理**：收入变动 → 投资变动，<img class="fml" src="/formulas/a2797671b881c7.png" alt="I_{t}= v(Y_{t- 1}- Y_{t- 2})" width="152" height="33">（投资取决于产出的**变化量**而非水平）；
 - **相互作用**：投资 ↑ →（乘数）收入更大 ↑ →（加速数）投资再 ↑ → 繁荣；受资源与需求约束后收入增速放缓 → 加速数使投资 ↓ →（乘数）收入继续 ↓ → 衰退；固定资产更新又触发新一轮投资 → 复苏。
 
 解释了「为什么投资波动远大于消费波动」，也说明政府可用干预减轻周期破坏性。
@@ -712,16 +716,16 @@ $$\Delta k= s \cdot f(k)-(n+ \delta) \cdot k$$
 | --- | --- |
 | 名义汇率 e | 两国货币兑换比率；**直接标价法**：1 单位外币 = 若干本币（我国采用），e 上升＝本币贬值 |
 | 间接标价法 | 1 单位本币 = 若干外币 |
-| **实际汇率** | $**\epsilon= e \cdot P$\*/P**（P\* 国外价格、P 国内价格），衡量两国商品相对价格；ε 上升＝本币实际贬值 |
+| **实际汇率** | <img class="fml" src="/formulas/a906d8e6aa6c6d.png" alt="**\epsilon= e \cdot P" width="98" height="33">\*/P**（P\* 国外价格、P 国内价格），衡量两国商品相对价格；ε 上升＝本币实际贬值 |
 | 有效汇率 | 对一篮子贸易伙伴货币的加权平均汇率 |
 
 **汇率决定理论**：
 
 | 理论 | 结论 |
 | --- | --- |
-| 购买力平价 PPP | 一价定律 → $e=\dfrac{P}{P^{*}}$（直接标价法）；受非贸易品、贸易壁垒、产品差异影响，短期常不成立 |
+| 购买力平价 PPP | 一价定律 → <img class="fml" src="/formulas/58dd8aec3cfc14.png" alt="e=\dfrac{P}{P^{*}}" width="63" height="45">（直接标价法）；受非贸易品、贸易壁垒、产品差异影响，短期常不成立 |
 | 利率平价 IRP | 两国利差 = 远期汇率升贴水率，资本流动使套利消失 |
-| **马歇尔—勒纳条件** | 本币贬值改善贸易收支要求 $\|\eta_{X}+ \eta_{M}\|> 1$（进出口需求价格弹性绝对值之和大于 1） |
+| **马歇尔—勒纳条件** | 本币贬值改善贸易收支要求 <img class="fml" src="/formulas/acada9cca6a390.png" alt="\|\eta_{X}+ \eta_{M}\|&gt; 1" width="123" height="33">（进出口需求价格弹性绝对值之和大于 1） |
 | **J 曲线效应** | 贬值后贸易收支**先恶化、后改善**（合同与数量调整存在时滞） |
 | 资产市场法 | 汇率由金融资产存量供求决定 |
 
@@ -778,26 +782,26 @@ $$\Delta k= s \cdot f(k)-(n+ \delta) \cdot k$$
 | 支出法 GDP | Y = C + I + G + NX |
 | 三 / 四部门恒等式 | I + G = S + T；I + G + X = S + T + M |
 | GDP 平减指数 | 名义 GDP ÷ 实际 GDP × 100 |
-| 消费 / 储蓄函数 | C = a + bY；$S=- a+(1- b)Y$；MPC + MPS = 1 |
-| 两部门均衡收入 | $Y= \frac{a+ I_{0}}{1- b}$ |
-| 各类乘数 | $k_{G}= k_{I}= \frac{1}{1- b}$；$k_{T}=- \frac{b}{1- b}$；$k_{TR}= \frac{b}{1- b}$；**平衡预算乘数 = 1** |
-| IS 方程 | $r= \frac{a+ I_{0}}{d}-[\frac{1- b}{d}] \cdot Y$ |
-| LM 方程 | $r=\left(\frac{k}{h}\right) \cdot Y-\left(\frac{1}{h}\right) \cdot\left(\frac{M}{P}\right)$ |
+| 消费 / 储蓄函数 | C = a + bY；<img class="fml" src="/formulas/315c4404e49c4d.png" alt="S=- a+(1- b)Y" width="154" height="33">；MPC + MPS = 1 |
+| 两部门均衡收入 | <img class="fml" src="/formulas/6257838ef03cd3.png" alt="Y= \frac{a+ I_{0}}{1- b}" width="76" height="33"> |
+| 各类乘数 | <img class="fml" src="/formulas/0377f1c5e8d835.png" alt="k_{G}= k_{I}= \frac{1}{1- b}" width="116" height="33">；<img class="fml" src="/formulas/c113164892c3f6.png" alt="k_{T}=- \frac{b}{1- b}" width="89" height="33">；<img class="fml" src="/formulas/7451a49c1e205b.png" alt="k_{TR}= \frac{b}{1- b}" width="84" height="33">；**平衡预算乘数 = 1** |
+| IS 方程 | <img class="fml" src="/formulas/ea440c6424fa22.png" alt="r= \frac{a+ I_{0}}{d}-[\frac{1- b}{d}] \cdot Y" width="154" height="33"> |
+| LM 方程 | <img class="fml" src="/formulas/634cef4c14157b.png" alt="r=\left(\frac{k}{h}\right) \cdot Y-\left(\frac{1}{h}\right) \cdot\left(\frac{M}{P}\right)" width="190" height="33"> |
 | 货币供给 | M = 基础货币 B × 货币乘数 m |
-| 增长核算 | $\frac{\Delta Y}{Y}= \frac{\Delta A}{A}+ \alpha \frac{\cdot \Delta K}{K}+ \beta \frac{\cdot \Delta L}{L}$ |
-| 索洛资本积累 | $\Delta k= s \cdot f(k)-(n+ \delta)k$；稳态 s·f(k\*) = (n + δ)k\* |
-| 黄金律 | MPK = $n+ \delta$（含技术进步 $n+ g+ \delta$） |
+| 增长核算 | <img class="fml" src="/formulas/3cd9d4a860a06a.png" alt="\frac{\Delta Y}{Y}= \frac{\Delta A}{A}+ \alpha \frac{\cdot \Delta K}{K}+ \beta \frac{\cdot \Delta L}{L}" width="201" height="33"> |
+| 索洛资本积累 | <img class="fml" src="/formulas/a1e2368074589c.png" alt="\Delta k= s \cdot f(k)-(n+ \delta)k" width="197" height="33">；稳态 s·f(k\*) = (n + δ)k\* |
+| 黄金律 | MPK = <img class="fml" src="/formulas/aeb8f470d9fcb7.png" alt="n+ \delta" width="47" height="33">（含技术进步 <img class="fml" src="/formulas/7515974aa5487d.png" alt="n+ g+ \delta" width="78" height="33">） |
 | 附加预期 PC | π = πᵉ − ε(u − u\*) |
 | 奥肯定律 | 失业率高于自然率 1 个百分点 → 实际 GDP 低于潜在 GDP 约 2~3 个百分点 |
 | 泰勒规则 | i = r\* + π + 0.5(π − π\*) + 0.5·(y − y\*)/y\* |
-| 实际汇率 | $\epsilon= e \cdot P$\*/P（直接标价法） |
-| 马歇尔—勒纳条件 | \|$\eta_{X}+ \eta_{M}$\| > 1 |
+| 实际汇率 | <img class="fml" src="/formulas/a9bd04b0669ce4.png" alt="\epsilon= e \cdot P" width="72" height="33">\*/P（直接标价法） |
+| 马歇尔—勒纳条件 | \|<img class="fml" src="/formulas/f706296790970b.png" alt="\eta_{X}+ \eta_{M}" width="72" height="33">\| > 1 |
 
 ### 11.2 曲线速记
 
 | 曲线 | 形状 | 移动因素 |
 | --- | --- | --- |
-| IS | 右下倾 | G↑ / T↓ / $I_{0}$↑ / a↑ → 右移 |
+| IS | 右下倾 | G↑ / T↓ / <img class="fml" src="/formulas/32dea6f6f2b465.png" alt="I_{0}" width="21" height="33">↑ / a↑ → 右移 |
 | LM | 右上倾 | M↑ / P↓ → 右移；h→∞ 水平（陷阱），h→0 垂直（古典） |
 | AD | 右下倾 | 凡使 IS 或 LM 右移者 → AD 右移 |
 | 长期 AS | 垂直（Y_f） | 劳动、资本、技术 → 右移 |
@@ -822,14 +826,14 @@ $$\Delta k= s \cdot f(k)-(n+ \delta) \cdot k$$
 **修正的错误知识点**
 
 1. **索洛模型稳态增长率自相矛盾**：原框架「引入技术进步」处同时写「稳态人均产出增长率 = 0」与「人均产出增长率 = g」。已统一为：无技术进步时人均增长 0、总产出增长 n；有技术进步时人均增长 **g**、总产出增长 **n + g**；单位有效劳动产出增长 0。
-2. **黄金律表述错误**：原框架写「资本的**净**边际产出等于**经济增长率**」，已修正为「资本**边际产出 MPK = n + δ**（含技术进步 $n+ g+ \delta$）」。
+2. **黄金律表述错误**：原框架写「资本的**净**边际产出等于**经济增长率**」，已修正为「资本**边际产出 MPK = n + δ**（含技术进步 <img class="fml" src="/formulas/7515974aa5487d.png" alt="n+ g+ \delta" width="78" height="33">）」。
 3. **三大心理规律的变量归属**：期末 PPT 把「货币供给」列为三大心理规律涉及的四个变量之一；实际三大规律对应的是边际消费倾向、资本边际效率、**货币需求**（流动性偏好），货币供给是央行外生变量，已在第 4 章澄清。
-4. **泰勒规则符号**：原框架 $i= i*+ \pi+ \cdots$ 中的 `i*` 易被误读为名义利率目标，已明确为**均衡实际利率 r\***。
+4. **泰勒规则符号**：原框架 <img class="fml" src="/formulas/8b44c1d9ced24a.png" alt="i= i*+ \pi+ \cdots" width="126" height="33"> 中的 `i*` 易被误读为名义利率目标，已明确为**均衡实际利率 r\***。
 5. **习题册解析错位**：PDF 每页的页码被粘在题号前（如「4 26.」），直接抽题会导致题干与选项错配；本次生成习题时已剥离页码再配对答案。
 
 **补全的缺失知识点**
 
-- 五个国民收入总量指标（GDP → $GNI \to NDP \to NI \to PI$）的完整换算链；
+- 五个国民收入总量指标（GDP → <img class="fml" src="/formulas/9b924c49aed2d6.png" alt="GNI \to NDP \to NI \to PI" width="223" height="33">）的完整换算链；
 - 实际 GDP 与名义 GDP 的**换算公式及数值例题**；
 - 乘数效应的**级数推导**与乘数发挥作用的四个前提、膨胀/紧缩性缺口；
 - **货币乘数与基础货币**（原框架只在习题中出现，正文缺）；

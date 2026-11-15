@@ -964,175 +964,47 @@ select:focus-visible {
 }
 
 /* ==========================================================================
-   KaTeX 数学公式渲染样式
-   目标：垂直分式（\frac）为主；公式与中文之间留白、行距宽松、基线稳定，
-   长公式独立成块居中；字号比正文略大但不夸张。
+   Python 生成的静态公式图（替代 LaTeX 渲染）
+   图片按 2 倍分辨率渲染、透明背景；width/height 属性给出 CSS 尺寸，
+   height:auto + max-width:100% 保证缩放时不变形。
+   暗色主题用 invert 把深色字形转成浅色，透明背景不受影响。
    ========================================================================== */
-.vp-doc .katex {
-  font-size: 1.08em;
-  line-height: 1.5;
-}
-/* 上下标保持 KaTeX 默认字号。
-   KaTeX 的 top/height/pstrut 全用 em 定位，缩放 .msupsub 父字体或 .sizing
-   字号都会让上下标位移、与分数线挤在一起；分母里加 \displaystyle/\textstyle
-   同样会把上标压到下方。表格内改为放大整个公式（见本段末尾）来提升清晰度。 */
-/* 行内公式左右留一点空气，避免紧贴中文或标点 */
-.vp-doc p .katex,
-.vp-doc li .katex,
-.vp-doc td .katex,
-.vp-doc th .katex {
-  margin: 0 0.12em;
-}
-/* 含分式的行内公式再放宽些，视觉上自成一个小整体 */
-.vp-doc p .katex:has(.mfrac),
-.vp-doc li .katex:has(.mfrac),
-.vp-doc td .katex:has(.mfrac),
-.vp-doc th .katex:has(.mfrac) {
-  margin: 0 0.24em;
-  padding: 0.06em 0.1em;
-}
-/* 含分式的行抬高行高，避免分式顶到上一行、压住下一行（块级公式容器除外） */
-.vp-doc p:not(.katex-block):has(.katex .mfrac),
-.vp-doc li:has(.katex .mfrac),
-.vp-doc td:has(.katex .mfrac),
-.vp-doc th:has(.katex .mfrac) {
-  line-height: 2.05;
-}
-/* 表格单元格：给公式上下多一点空间 */
-.vp-doc td:has(.katex),
-.vp-doc th:has(.katex) {
-  padding-top: 0.7em;
-  padding-bottom: 0.7em;
-}
-/* 块级公式：居中、上下留白充足、超宽时横向滚动而不撑破版面 */
-.vp-doc .katex-display {
-  margin: 1.45em auto;
-  padding: 0.45em 0.6em;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scrollbar-width: thin;
-}
-.vp-doc .katex-display > .katex {
-  font-size: 1.12em;
-  white-space: normal;
-}
-/* 块级公式内部的 .katex 不继承上面的行内留白规则 */
-.vp-doc .katex-display > .katex:has(.mfrac),
-.vp-doc .katex-display > .katex {
-  margin: 0;
-  padding: 0;
-}
-/* 表格内的块级公式不需要大留白 */
-.vp-doc td .katex-display,
-.vp-doc th .katex-display {
-  margin: 0.45em 0;
-  padding: 0.15em 0.2em;
-}
-/* 列表项内紧跟文字的块级公式收紧一点 */
-.vp-doc li > .katex-display:first-child {
-  margin-top: 0.6em;
-}
-/* 表格单元格内的公式：独占一行居中，像独立公式那样显示。
-   注意：这条只作用于表格，正文段落里若把行内公式设为 block，
-   会把完整句子从公式处劈成两半（「…上升为」/「倍：」分列上下）。 */
-.vp-doc td .katex:has(.mfrac),
-.vp-doc th .katex:has(.mfrac) {
-  display: block;
-  margin: 0.6em auto;
-  text-align: center;
-  font-size: 1.16em;
-  white-space: nowrap;
-}
-
-/* ==========================================================================
-   公式纯净排版：不加任何边框、底色卡片。
-   - $$ 块级公式：单独居中显示、上下留白，超宽可横向滚动
-   - 正文等式：inline-block 留在句子里，不拆断句子
-   - 表格内含分式的公式：独占一行居中、略放大
-   简单符号（$i$、$a(t)$）始终行内。
-   ========================================================================== */
-.vp-doc .katex-display {
-  display: block;
-  width: fit-content;
-  max-width: 100%;
-  margin: 1.05em auto;
-  padding: 0.15em 0.25em;
-  background: none;
-  border: 0;
-  border-radius: 0;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scrollbar-width: thin;
-}
-/* 表格单元格里的公式：禁止在公式内部断行（否则末尾下标会掉到下一行） */
-.vp-doc td .katex,
-.vp-doc th .katex {
-  white-space: nowrap;
-}
-/* 含公式的表格：首列标签不断行 */
-.vp-doc table:has(.katex) td:first-child,
-.vp-doc table:has(.katex) th:first-child {
-  white-space: nowrap;
-}
-/* 正文等式/分式公式：保持行内，句子完整，无框 */
-.vp-doc :is(p:not(.katex-block), li, strong, em) > .katex:has(.mrel),
-.vp-doc :is(p:not(.katex-block), li, strong, em) > .katex:has(.mfrac) {
+img.fml {
   display: inline-block;
-  width: fit-content;
   max-width: 100%;
-  margin: 0.12em 0.22em;
-  padding: 0;
-  vertical-align: baseline;
-  white-space: nowrap;
-  background: none;
-  border: 0;
-  border-radius: 0;
+  height: auto;
+  vertical-align: -0.22em;
 }
-/* 表格内含分式/等式的公式仍独占一行居中放大（无框） */
-.vp-doc :is(td, th) > .katex:has(.mfrac),
-.vp-doc :is(td, th) > .katex:has(.mrel) {
-  width: fit-content;
-  max-width: 100%;
-  margin: 0.4em auto;
-  padding: 0;
-  font-size: 1.1em;
-  background: none;
-  border: 0;
+p.fml-block {
+  text-align: center;
+  margin: 1.1em 0;
 }
-/* 行内公式与中文之间留出空气，避免字符与文字粘连 */
-.vp-doc :is(p, li, td, th) > .katex {
-  margin-left: 0.16em;
-  margin-right: 0.16em;
+p.fml-block img.fml {
+  vertical-align: middle;
 }
-/* 公式内部任何情况下都不允许换行或拆字符 */
-.vp-doc .katex,
-.vp-doc .katex-html {
-  white-space: nowrap;
-  word-break: keep-all;
+html.dark img.fml {
+  filter: invert(1);
 }
 
 /* ==========================================================================
-   表格内公式防溢出：超宽时在本单元格内部横向滚动，
-   绝不越界压到相邻单元格的文字/公式上（此前 Δ=AC−B² 曾压住右列 ">0 且"）。
-   vertical-align:middle 规避 overflow 非 visible 时 inline-block 基线漂移。
+   Python 生成的静态公式图（替代 LaTeX 渲染）
+   图片按 2 倍分辨率渲染、透明背景；width/height 属性给出 CSS 尺寸，
+   height:auto + max-width:100% 保证缩放时不变形。
+   暗色主题用 invert 把深色字形转成浅色，透明背景不受影响。
    ========================================================================== */
-.vp-doc :is(td, th) > .katex {
+img.fml {
+  display: inline-block;
   max-width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-  vertical-align: middle;
-  scrollbar-width: thin;
+  height: auto;
+  vertical-align: -0.22em;
 }
-
-/* ==========================================================================
-   表格内公式防溢出：超宽时在本单元格内部横向滚动，
-   绝不越界压到相邻单元格的文字/公式上（此前 Δ=AC−B² 曾压住右列 ">0 且"）。
-   vertical-align:middle 规避 overflow 非 visible 时 inline-block 基线漂移。
-   ========================================================================== */
-.vp-doc :is(td, th) > .katex {
-  max-width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
+p.fml-block {
+  text-align: center;
+  margin: 1.1em 0;
+}
+p.fml-block img.fml {
   vertical-align: middle;
-  scrollbar-width: thin;
+}
+html.dark img.fml {
+  filter: invert(1);
 }

@@ -14,7 +14,6 @@ import ExportPdf from './ExportPdf.vue'
 import InstallApp from './InstallApp.vue'
 import Favorites from './Favorites.vue'
 import HomeNotes from './HomeNotes.vue'
-import 'katex/dist/katex.min.css'
 import './custom.css'
 
 export default {
