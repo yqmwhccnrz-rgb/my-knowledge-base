@@ -532,10 +532,12 @@ $t= \frac{52- 50}{\frac{4}{\sqrt{16}}}$ **2.00**，df=15，临界值 t0.025(15)=
 模型 $y= \beta_{0}+ \beta_{1}x+ \epsilon$，最小二乘解：
 
 $$
+\begin{gathered}
 \hat{\beta}_{1}= \frac{\sum(x_{i}-\bar{x})(y_{i}-\bar{y})}{\sum(x_{i}-\bar{x})^{2}}= \frac{Sxy}{Sxx} \\
 \hat{\beta}_{0}= \bar{y}- \hat{\beta}_{1} \cdot \bar{x} \\
 \hat{y}_{i}= \hat{\beta}_{0}+ \hat{\beta}_{1}x_{i}; e_{i}= y_{i}- \hat{y}_{i} \\
 R^{2}= 1- \frac{SSE}{SST}= \frac{SSR}{SST}
+\end{gathered}
 $$
 
 ```python
@@ -631,9 +633,11 @@ $Cohen's d= \frac{\bar{x}- \mu_{0}}{s}$ 衡量差异**大小**，不受 n 影响
 协方差 $\operatorname{Cov}(X,Y)=\frac{\sum(x_{i}- \bar{x})(y_{i}- \bar{y})}{n- 1}$ 带量纲、无法横向比较，故标准化为 **Pearson 相关系数**：
 
 $$
+\begin{gathered}
 r= \frac{\operatorname{Cov}(X,Y)}{s_{x} \cdot s_{y}}= \frac{\sum(x_{i}- \bar{x})(y_{i}- \bar{y})}{\sqrt{\sum(x_{i}- \bar{x})^{2} \cdot \sum(y_{i}- \bar{y})^{2}}} \\
 \text{取值范围} \; [- 1, 1] \; \text{；} \; \text{|r|} \; \text{越大线性相关越强} \\
 \text{检验} \; H_{0}: \rho=0 \; \text{用} \; t= r \cdot \sqrt{\frac{n- 2}{1- r^{2}}} \; \text{，} \; df= n- 2
+\end{gathered}
 $$
 
 ```python
@@ -736,10 +740,12 @@ print('R²', m.rsquared, '调整R²', m.rsquared_adj, 'F', m.fvalue, 'AIC', m.ai
 构建原则：**目的性、全面性、可测性、独立性、层次性**（目标层 → 准则层 → 指标层）。核心难点是把不同量纲、不同方向的指标变成可加的分数。
 
 $$
+\begin{gathered}
 \text{正向指标（越大越好）：} \; z= \frac{x- \min}{\max- \min} \\
 \text{负向指标（越小越好）：} \; z= \frac{\max- x}{\max- \min} \\
 \text{标准分数法：} \; z= \frac{x- \bar{x}}{s} \\
 \text{适度指标（越接近某值越好）：} \; z= 1-|x- x*| \max|x- x*|
+\end{gathered}
 $$
 
 ::: danger 易错 · 指标方向
@@ -784,8 +790,10 @@ $CI= \frac{\lambda \max- n}{n- 1}$，$CR= \frac{CI}{RI(n)}$。仅当 **CR &lt; 0
 #### 4.2.3 两种综合评分法（工作例题）
 
 $$
+\begin{gathered}
 \text{简单平均法（隐含等权）：} \; S= \frac{z_{1}+ z_{2}+ \cdots+ z_{p}}{p} \\
 \text{加权综合评分法：} \; S= \sum w_{j} \cdot z_{j}
+\end{gathered}
 $$
 
 ::: tip 工作例题
@@ -808,12 +816,14 @@ $$
 把 p 个**彼此相关**的原始变量 $X_{1}, \cdots,X_{p}$ 作正交变换，得到互不相关的综合变量 $F_{1}, \cdots,F_{p}$：
 
 $$
+\begin{gathered}
 F_{j}= a_{j1}X_{1}+ a_{j2}X_{2}+ \cdots+ a_{jp}X_{p} \\
 \text{约束：} \; (1) \operatorname{Cov}(F_{i}, F_{j})=0(i=j) \; \text{；} \; (2) a_{j} \; \text{为单位向量；} \; (3) \operatorname{Var}(F_{1}) \ge \operatorname{Var}(F_{2}) \ge \cdots \\
 \text{求解：对标准化后的相关矩阵} \; \text{R} \; \text{求特征值} \; \lambda_{j} \; \text{与单位特征向量} \; a_{j} \\
 \operatorname{Var}(F_{j})=\lambda_{j} \; \text{，且} \; \sum \lambda_{j}= p \; \text{（标准化后）} \\
 \text{方差贡献率} \; = \lambda_{j} \sum \lambda_{i} \; \text{；累计贡献率} \; = \frac{\lambda_{1}+ \cdots+\lambda_{m}}{\sum} \lambda_{i} \\
 \text{载荷} \; = a_{ji} \cdot \sqrt{\lambda}_{j} \; \text{（用于解释主成分的实际含义）}
+\end{gathered}
 $$
 
 **几何解释**：找到数据方差最大的方向作第一主轴，再在与已选轴正交的方向上依次找次大方差方向。降维即保留前 m 个主轴、丢弃方差小的方向。
@@ -945,9 +955,11 @@ $$
 OLS 遇到严重共线时系数方差被放大、极不稳定。正则化在损失函数中加惩罚项：
 
 $$
+\begin{gathered}
 \text{岭回归} \; \text{(L2)} \; \text{：} \; \min \sum(y- X\beta)^{2}+ \lambda \cdot \sum \beta_{j}^{2} \to \; \text{系数缩小但不为} \; \text{0} \; \text{，稳住共线} \\
 \text{Lasso  (L1)} \; \text{：} \; \min \sum(y- X\beta)^{2}+ \lambda \cdot \sum|\beta_{j}| \to \; \text{部分系数恰为} \; \text{0} \; \text{，可自动选变量} \\
 \text{弹性网：} \; \text{L1 + L2} \; \text{折中。} \; \lambda \; \text{由交叉验证选；使用前必须标准化自变量。}
+\end{gathered}
 $$
 
 ```python
@@ -1079,8 +1091,10 @@ print('原序列', price.tolist(), '一阶差分', d1.tolist())
 | SARIMA | 再加季节项 (P,D,Q,s) | 有季节周期 |
 
 $$
+\begin{gathered}
 \text{ARIMA(p,d,q)} \; \text{：} \; \text{p=} \; \text{自回归阶数，} \; \text{d=} \; \text{差分次数，} \; \text{q=} \; \text{移动平均阶数} \\
 \text{Box-Jenkins} \; \text{方法：识别} \; \to \; \text{估计} \; \to \; \text{诊断} \; \to \; \text{预测，四步循环}
+\end{gathered}
 $$
 
 ::: danger 易错 · 模型记号
@@ -1119,8 +1133,10 @@ plt.show()
 **ADF（扩展 DF）**：在回归式中加入滞后差分项以消除残差自相关，并可能包含常数项/趋势项：
 
 $$
+\begin{gathered}
 \Delta y_{t}= \alpha+ \beta t+ \gamma \cdot y_{t-1}+ \sum \delta_{i} \cdot \Delta y_{t-i}+ u_{t} \\
 H_{0}: \gamma= 0 \; \text{（有单位根，非平稳）；} \; H_{1}: \gamma< 0 \; \text{（平稳）}
+\end{gathered}
 $$
 
 ```python
@@ -1158,9 +1174,11 @@ print('最小 AIC 模型', best)
 **定阶准则**：
 
 $$
+\begin{gathered}
 AIC=- 2 \cdot \ln(L)+ 2k \; \text{（} \; \text{k} \; \text{为待估参数个数）} \\
 BIC=- 2 \cdot \ln(L)+ \ln(n) \cdot k \; \text{（} \; \text{n} \; \text{为样本量，惩罚更重）} \\
 \text{两者都是越小越好；} \; \text{BIC} \; \text{倾向更简洁的模型，} \; \text{AIC} \; \text{倾向预测更优的模型}
+\end{gathered}
 $$
 
 ::: tip 工作例题 · AIC 与 BIC 分歧
@@ -1418,9 +1436,11 @@ print(pd.DataFrame(clean))
 #### 7.2.1 分析流程
 
 $$
+\begin{gathered}
 \text{(1)} \; \text{确定检索式与数据库} \; \to(2) \; \text{导出题录（含参考文献）} \; \to(3) \; \text{去重与字段清洗} \\
 \to(4) \; \text{描述统计（年度、机构、基金、作者、关键词）} \; \to(5) \; \text{共现} \; \text{/} \; \text{共被引矩阵} \\
 \to(6) \; \text{知识图谱与聚类} \; \to(7) \; \text{科研评价与前沿解读}
+\end{gathered}
 $$
 
 ```python
@@ -1582,10 +1602,12 @@ B、C 是连接左簇 {A,B,C} 与右簇 {D,E} 的**桥节点**，故介数中心
 ### 8.4 模块度与 PageRank
 
 $$
+\begin{gathered}
 \text{模块度} \; Q=\left(\frac{1}{2m}\right) \cdot \sum_{ij}[A_{ij}- \frac{k_{i}k_{j}}{2m}] \cdot \delta(c_{i}, c_{j}) \\
 \text{（} \; \text{m} \; \text{为边数，} \; k_{i} \; \text{为节点} \; \text{i} \; \text{的度，} \; \delta \; \text{表示} \; \text{i} \; \text{、} \; \text{j} \; \text{属于同一社区）} \\
 \text{Q} \; \text{越大表示社区内部连边显著多于随机期望；} \; \text{Louvain} \; \text{通过贪心优化} \; \text{Q} \; \text{发现社群。} \\
 \text{PageRank} \; \text{：} \; PR(v)= \frac{1- d}{N}+ d \cdot \sum_{u \to v}\frac{PR(u)}{out(u)} \; \text{，} \; \text{d} \; \text{常取} \; \text{0.85}
+\end{gathered}
 $$
 
 ::: danger 易错 · 图算法

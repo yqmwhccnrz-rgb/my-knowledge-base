@@ -1061,67 +1061,113 @@ select:focus-visible {
 }
 
 /* ==========================================================================
-   全部等式/算式「单独显示」：凡含关系符（= ≈ ≤ ≥ →）或分式的行内公式，
-   一律提升为独占一行、居中、淡底圆角卡片，与 $$ 块级公式观感一致。
-   单个符号（$i$、$a(t)$ 等）不含 .mrel/.mfrac，仍保持行内。
-   用直接子元素 > 排除 .katex-display 内部（那已是块级，不要二次包裹）。
+   正文里的等式/分式公式：行内小框，句子保持完整。
+   之前用 display:block 把公式提到独立一行，会把「…价值上升为」与「倍：」
+   从中间劈开（断链）；改为 inline-block 后公式带框嵌在句中，不拆句。
    ========================================================================== */
 .vp-doc :is(p:not(.katex-block), li, strong, em) > .katex:has(.mrel),
 .vp-doc :is(p:not(.katex-block), li, strong, em) > .katex:has(.mfrac) {
-  display: block;
-  margin: 0.75em auto;
-  padding: 0.6em 0.9em;
+  display: inline-block;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0.12em 0.22em;
+  padding: 0.1em 0.38em;
   text-align: center;
-  font-size: 1.16em;
+  font-size: 1.08em;
+  line-height: 1.5;
   white-space: nowrap;
+  vertical-align: baseline;
   background: var(--vp-c-bg-soft);
-  border-radius: 8px;
+  border-radius: 6px;
+}
+
+/* ==========================================================================
+   公式突出显示：所有等式 / 含分式的公式统一「拿个框框起来」。
+   - 块级 $$ 公式：居中淡底卡片 + 细边框
+   - 正文里被提升为块级的等式：同一个框
+   - 表格等处仍行内的公式：小圆角标签框，不拆断句子
+   简单符号（$i$、$a(t)$）不含 .mrel/.mfrac，不加框，避免满屏小框。
+   用直接子元素 > 排除 .katex-display 内部的 .katex，防止嵌套双框。
+   ========================================================================== */
+.vp-doc :is(p, li, td, th, strong, em) > .katex:has(.mrel),
+.vp-doc :is(p, li, td, th, strong, em) > .katex:has(.mfrac),
+.vp-doc .katex-display {
+  border: 1px solid var(--vp-c-divider);
+  border-color: color-mix(in srgb, var(--vp-c-brand-1) 42%, var(--vp-c-divider));
+  background: var(--vp-c-bg-soft);
+  border-radius: 7px;
+  box-decoration-break: clone;
+}
+/* 表格内的行内小框补一点内边距，避免边框贴住分子分母 */
+.vp-doc :is(td, th) > .katex:has(.mrel),
+.vp-doc :is(td, th) > .katex:has(.mfrac) {
+  padding: 0.2em 0.45em;
+}
+
+/* ==========================================================================
+   框尺寸收敛：所有公式框贴合内容宽度，不再撑满整行；收紧内边距。
+   同时给行内符号与中文之间留白，避免「字符和字符串接了」。
+   ========================================================================== */
+.vp-doc .katex-display {
+  width: fit-content;
+  max-width: 100%;
+  margin: 1.05em auto;
+  padding: 0.45em 0.75em;
   overflow-x: auto;
+  overflow-y: hidden;
   scrollbar-width: thin;
 }
-
-/* ==========================================================================
-   公式突出显示：所有等式 / 含分式的公式统一「拿个框框起来」。
-   - 块级 $$ 公式：居中淡底卡片 + 细边框
-   - 正文里被提升为块级的等式：同一个框
-   - 表格等处仍行内的公式：小圆角标签框，不拆断句子
-   简单符号（$i$、$a(t)$）不含 .mrel/.mfrac，不加框，避免满屏小框。
-   用直接子元素 > 排除 .katex-display 内部的 .katex，防止嵌套双框。
-   ========================================================================== */
-.vp-doc :is(p, li, td, th, strong, em) > .katex:has(.mrel),
-.vp-doc :is(p, li, td, th, strong, em) > .katex:has(.mfrac),
-.vp-doc .katex-display {
-  border: 1px solid var(--vp-c-divider);
-  border-color: color-mix(in srgb, var(--vp-c-brand-1) 42%, var(--vp-c-divider));
-  background: var(--vp-c-bg-soft);
-  border-radius: 7px;
-  box-decoration-break: clone;
+/* 表格里独占一行的公式框同样缩小 */
+.vp-doc :is(td, th) > .katex:has(.mfrac),
+.vp-doc :is(td, th) > .katex:has(.mrel) {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0.4em auto;
+  padding: 0.16em 0.4em;
+  font-size: 1.1em;
 }
-/* 表格内的行内小框补一点内边距，避免边框贴住分子分母 */
-.vp-doc :is(td, th) > .katex:has(.mrel),
-.vp-doc :is(td, th) > .katex:has(.mfrac) {
-  padding: 0.2em 0.45em;
+/* 行内公式（含无框的简单符号）与中文之间留出空气 */
+.vp-doc :is(p, li, td, th) > .katex {
+  margin-left: 0.16em;
+  margin-right: 0.16em;
+}
+/* 公式内部任何情况下都不允许换行或拆字符 */
+.vp-doc .katex,
+.vp-doc .katex-html {
+  white-space: nowrap;
+  word-break: keep-all;
 }
 
 /* ==========================================================================
-   公式突出显示：所有等式 / 含分式的公式统一「拿个框框起来」。
-   - 块级 $$ 公式：居中淡底卡片 + 细边框
-   - 正文里被提升为块级的等式：同一个框
-   - 表格等处仍行内的公式：小圆角标签框，不拆断句子
-   简单符号（$i$、$a(t)$）不含 .mrel/.mfrac，不加框，避免满屏小框。
-   用直接子元素 > 排除 .katex-display 内部的 .katex，防止嵌套双框。
+   框尺寸收敛：所有公式框贴合内容宽度，不再撑满整行；收紧内边距。
+   同时给行内符号与中文之间留白，避免「字符和字符串接了」。
    ========================================================================== */
-.vp-doc :is(p, li, td, th, strong, em) > .katex:has(.mrel),
-.vp-doc :is(p, li, td, th, strong, em) > .katex:has(.mfrac),
 .vp-doc .katex-display {
-  border: 1px solid var(--vp-c-divider);
-  border-color: color-mix(in srgb, var(--vp-c-brand-1) 42%, var(--vp-c-divider));
-  background: var(--vp-c-bg-soft);
-  border-radius: 7px;
-  box-decoration-break: clone;
+  width: fit-content;
+  max-width: 100%;
+  margin: 1.05em auto;
+  padding: 0.45em 0.75em;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
 }
-/* 表格内的行内小框补一点内边距，避免边框贴住分子分母 */
-.vp-doc :is(td, th) > .katex:has(.mrel),
-.vp-doc :is(td, th) > .katex:has(.mfrac) {
-  padding: 0.2em 0.45em;
+/* 表格里独占一行的公式框同样缩小 */
+.vp-doc :is(td, th) > .katex:has(.mfrac),
+.vp-doc :is(td, th) > .katex:has(.mrel) {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0.4em auto;
+  padding: 0.16em 0.4em;
+  font-size: 1.1em;
+}
+/* 行内公式（含无框的简单符号）与中文之间留出空气 */
+.vp-doc :is(p, li, td, th) > .katex {
+  margin-left: 0.16em;
+  margin-right: 0.16em;
+}
+/* 公式内部任何情况下都不允许换行或拆字符 */
+.vp-doc .katex,
+.vp-doc .katex-html {
+  white-space: nowrap;
+  word-break: keep-all;
 }

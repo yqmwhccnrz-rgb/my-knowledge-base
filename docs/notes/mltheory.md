@@ -61,9 +61,11 @@ summary: "机器学习原理与方法 全面详解笔记，共 12 章：导论�
 ### 1.2 经验风险最小化与归纳偏好
 
 $$
+\begin{gathered}
 \text{期望风险} \; \text{R(f) = E\_{(x,y)~P} [L(f(x), y)]} \; \text{（不可直接计算，} \; \text{P} \; \text{未知）} \\
 \text{经验风险} \; \hat{R}(f)=\left(\frac{1}{N}\right) \sum_{i} L(f(x_{i}), y_{i}) \; \text{（可计算，用训练集近似）} \\
 \text{结构风险} \; = \hat{R}(f)+ \lambda \cdot \Omega(f) \; \text{（加正则项控制复杂度）}
+\end{gathered}
 $$
 
 学习算法 = 「**假设空间 + 优化目标 + 求解算法 + 归纳偏好**」四要素。假设空间太小会欠拟合、太大易过拟合；正则项 $\Omega(f)$（如 $\| w \|^{2}$）体现「偏好更简单的模型」这一归纳偏好。
@@ -79,10 +81,12 @@ $$
 对回归问题，在平方损失下可严格分解：
 
 $$
+\begin{gathered}
 Err(x)= Bias^{2}(\hat{f})+ \operatorname{Var}(\hat{f})+ \sigma^{2} \\
 Bias= E_{D}[\hat{f}(x)]- f(x) \; \text{（平均预测与真值的偏离）} \\
 \operatorname{Var}= E_{D}[(\hat{f}(x)- E_{D}[\hat{f}(x)])^{2}] \; \text{（对训练集扰动的敏感度）} \\
 \sigma^{2}= \; \text{数据本身的不可约噪声}
+\end{gathered}
 $$
 
 | 状态 | 训练误差 | 验证误差 | 主导项 | 对策 |
@@ -106,12 +110,14 @@ $$
 设真实模型 $y=f(x)+\epsilon$，$E[\epsilon]=0$、$\operatorname{Var}(\epsilon)=\sigma^{2}$，`f̂` 是随训练集 D 变化的估计。对固定 x，平方损失期望为：
 
 $$
+\begin{gathered}
 E_{D},\epsilon[(y- \hat{f})^{2}]= E[(f+\epsilon- \hat{f})^{2}] \\
 = E[(f- \hat{f})^{2}]+ 2E[(f- \hat{f})\epsilon]+ E[\epsilon^{2}] \\
 = E[(f- \hat{f})^{2}]+ \sigma^{2} \; \text{（} \; \epsilon \; \text{与} \; \text{f̂} \; \text{独立，交叉项为} \; \text{0} \; \text{）} \\
 = E[((f- E \hat{f})+(E \hat{f}- \hat{f}))^{2}]+ \sigma^{2} \\
 =(f- E \hat{f})^{2}+ E[(\hat{f}- E \hat{f})^{2}]+ \sigma^{2} \\
 = Bias^{2}(\hat{f})+ \operatorname{Var}(\hat{f})+ \sigma^{2} \; \text{（交叉项} \; 2(f- E \hat{f}) \cdot E[E \hat{f}- \hat{f}]= 0 \; \text{）}
+\end{gathered}
 $$
 
 ::: tip 工作例题 · 数值验证
@@ -130,9 +136,11 @@ $$
 **VC 维** `d_VC`：假设空间能「打散」（shatter，即对任意标签指派都存在完美分类器）的最大样本点数。d 维线性分类器的 `d_VC = d+1`。
 
 $$
+\begin{gathered}
 \text{无限} \; \text{|H|} \; \text{的泛化界（粗型）：} \\
 R(h)- \hat{R}(h) \lesssim O\left( \sqrt{\frac{d_{VC} \cdot \log\left(\frac{N}{d_{VC}}\right)+ \log\left(\frac{1}{\delta}\right)}{N}}\right) \\
 \text{经验法则：训练样本量宜} \; \ge 10 \times d_{VC} \; \text{，否则极易过拟合}
+\end{gathered}
 $$
 
 ::: tip 工作例题
@@ -188,10 +196,12 @@ $$
 ### 2.2 信息论与决策论
 
 $$
+\begin{gathered}
 \text{熵} \; H(X)=- \sum p(x) \log p(x) \; \text{（不确定性，等概率时最大）} \\
 \text{交叉熵} \; H(p,q)=- \sum p(x) \log q(x) \; \text{（用} \; \text{q} \; \text{编码} \; \text{p} \; \text{的平均代价）} \\
 \text{KL} \; \text{散度} \; D_{KL}(p \| q)= \sum p \log\left(\frac{p}{q}\right) \ge 0 \; \text{（非对称，} \; \text{p=q} \; \text{时为} \; \text{0} \; \text{；不是距离）} \\
 \text{互信息} \; I(X;Y)= H(X)- H(X|Y)= D_{KL}(p(x,y) \| p(x)p(y))
+\end{gathered}
 $$
 
 **最小风险决策**：给定后验 `p(C_k|x)` 与损失 `λ(决策, 真类)`，选期望损失（条件风险）最小的类别；当损失为 0-1 时退化为「选后验概率最大的类」。
@@ -246,8 +256,10 @@ def sgd(X, y, lr=0.01, epochs=100, batch=32, seed=42):
 **逻辑回归的交叉熵不是「拍脑袋选的」，而是 Bernoulli 的负对数似然。** 设 $p(y=1|x)=\sigma(w^{T}x)$、$p(y=0|x)=1- \sigma$，则单样本似然 $p(y|x)=\hat{y}^y(1- \hat{y})^{1- y}$，取负对数：
 
 $$
+\begin{gathered}
 - \log p(y|x)=-[ y \log \hat{y}+(1- y) \log(1- \hat{y})] \leftarrow \; \text{正是二元交叉熵} \\
 \nabla_{w} L=(\hat{y}- y)x \; \text{；} \; H= E[ \partial^{2}\frac{L}{\partial w^{2}}]= X^{T}RX \; \text{，} \; R= diag(\hat{y}_{i}(1- \hat{y}_{i}))
+\end{gathered}
 $$
 
 同理，softmax + 多元交叉熵来自多类 Bernoulli（Categorical）的 MLE；线性回归的均方误差来自「$y=x^{T}w+\epsilon, \epsilon \sim N(0,\sigma^{2})$」的高斯似然。**损失函数由标签的噪声模型决定**，这是统一第 3、4 章的钥匙。
@@ -255,8 +267,10 @@ $$
 **牛顿法 / IRLS**（用二阶信息，比一阶梯度下降迭代次数少但每步更贵）：
 
 $$
+\begin{gathered}
 w \leftarrow w- H^{-1} \nabla L= w+(X^{T}RX)^{-1} X^{T}(y- \hat{y}) \\
 \text{等价视角：每步求解一个加权最小二乘问题（} \; \text{IRLS} \; \text{，迭代重加权最小二乘）}
+\end{gathered}
 $$
 
 ::: tip 工作例题 · 一步牛顿更新
@@ -283,9 +297,11 @@ $H=X^{T}RX$ 半正定；当特征完全共线或数据线性可分（$\frac{\hat
 设扩充特征向量 $x=(x_{1}, \cdots,x_{d},1)^{T}$、权向量 `w`，模型 $y= w^{T}x$（截距并入 w）。给训练集 ${(x_{i},y_{i})}_{i=1}^{N}$，用平方损失：
 
 $$
+\begin{gathered}
 L(w)= \frac{1}{2} \sum_{i}(y_{i}- w^{T}x_{i})^{2}= \frac{1}{2} \| Xw- y \|^{2} \\
 \nabla_{w} L= X^{T}(Xw- y) \\
 \text{闭式解} \; w*=(X^{T}X)^{-1}X^{T}y \; \text{（正规方程，要求} \; X^{T}X \; \text{可逆）}
+\end{gathered}
 $$
 
 ```python
@@ -371,10 +387,12 @@ $R^{2}= 1- \frac{SS_{res}}{SS_{tot}}$（残差平方和 / 总平方和）度量�
 ### 4.2 逻辑回归与 softmax
 
 $$
+\begin{gathered}
 \text{二分类：} \; p(y=1|x)= \sigma(w^{T}x)= \frac{1}{1+\exp(- w^{T}x)} \\
 \text{交叉熵损失：} \; L(w)=- \sum_{i}[y_{i} \log \hat{y}_{i}+(1- y_{i}) \log(1- \hat{y}_{i})] \\
 \text{梯度：} \; \nabla_{w} L= X^{T}(\hat{y}- y) \; \text{（与线性回归形式相似，但} \; \text{ŷ} \; \text{经过} \; \text{sigmoid} \; \text{）} \\
 \text{多分类：} \; p(C_{k}|x)= \frac{\exp(a_{k})}{\sum}_{j} \exp(a_{j}) \; \text{，损失} \; =- \sum_{i} \log p(y_{i}|x_{i})
+\end{gathered}
 $$
 
 ```python
@@ -557,8 +575,10 @@ $$
 | 概念漂移 | `p(y|x)` 变（规律本身变） | 只能用**延迟到达的真实标签**监控性能衰减 |
 
 $$
+\begin{gathered}
 \text{PSI = }\sum \text{\_bins (} \; \text{实际占比} \; - \; \text{期望占比} \; ) \cdot \ln( \; \text{实际占比} \; \text{/} \; \text{期望占比} \; \text{)} \\
 \text{经验阈值：} \; \text{PSI < 0.1} \; \text{稳定；} \; 0.1- 0.25 \; \text{需关注；} \; \text{> 0.25} \; \text{显著漂移}
+\end{gathered}
 $$
 
 ::: tip 补充 · 公平性指标
@@ -634,12 +654,14 @@ $$\phi(x)=\left(1, \sqrt{2x}_{1}, \sqrt{2x}_{2}, x_{1}^{2}, x_{2}^{2}, \sqrt{2x}
 ### 6.2 最大间隔分类器与对偶
 
 $$
+\begin{gathered}
 \text{原问题（硬间隔）：} \; \min_{w,b} \frac{1}{2} \| w \|^{2} s.t. y_{i}(w^{T}x_{i}+b) \ge 1 \\
 \text{几何间隔} \; \gamma= \frac{2}{\|w\|} \; \text{，最大化间隔} \; \Leftrightarrow \; \text{最小化} \; \| w \|^{2} \\
 \text{拉格朗日：} \; L= \frac{1}{2} \| w \|^{2}- \sum \alpha_{i}[y_{i}(w^{T}x_{i}+b)- 1] \; \text{，} \; \alpha_{i} \ge 0 \\
 \text{对偶问题：} \; \max_\alpha \sum_{i}\alpha_{i}- \frac{1}{2} \sum_{ij} \alpha_{i}\alpha_{j}y_{i}y_{j} x_{i}^{T}x_{j} \\
 s.t. \sum_{i}\alpha_{i}y_{i}= 0, \alpha_{i} \ge 0 \\
 \text{决策函数：} \; f(x)= sgn\left(\sum_{i} \alpha_{i}y_{i} k(x_{i},x)+ b\right)
+\end{gathered}
 $$
 
 **KKT 互补松弛** $\alpha_{i}[y_{i}(w^{T}x_{i}+b)- 1]=0$ 说明：只有落在间隔边界上的样本（**支持向量**）才可能有 $\alpha_{i}>0$，其余样本对解无影响——这是 SVM 稀疏性与抗噪性的来源。
@@ -654,8 +676,10 @@ $\| w \|=\sqrt{2}$ → 几何间隔 $\gamma= \frac{2}{\sqrt{2}}= \sqrt{2} \appro
 数据线性不可分或含噪声时引入松弛变量 $\xi_{i} \ge 0$ 与惩罚参数 `C`：
 
 $$
+\begin{gathered}
 \min \frac{1}{2} \| w \|^{2}+ C \sum_{i} \xi_{i} s.t. y_{i}(w^{T}x_{i}+b) \ge 1- \xi_{i}, \xi_{i} \ge 0 \\
 \text{对偶中约束变为} \; 0 \le \alpha_{i} \le C \; \text{（} \; \text{C} \; \text{为} \; \alpha \; \text{的上界）}
+\end{gathered}
 $$
 
 | 核 | 形式 | 特点 |
@@ -681,8 +705,10 @@ SVM 本质是二分类器，多分类常用 **one-vs-rest / one-vs-one** 组合�
 把软间隔 SVM 的原问题改写成「正则化 + 经验损失」的无约束形式：
 
 $$
+\begin{gathered}
 \min_{w} \frac{1}{2} \| w \|^{2}+ C \sum_{i} \max(0, 1- y_{i}(w^{T}x_{i}+b))= \frac{1}{2} \| w \|^{2}+ C \sum_{i} L_{hinge}(y_{i}f_{i}) \\
 C \to_{\infty} \; \text{时逼近硬间隔；} \; \text{L2-SVM} \; \text{用} \; \max(0,1- yf)^{2} \; \text{得处处可导的目标}
+\end{gathered}
 $$
 
 **hinge 的关键性质**：当 $y_{i}f_{i} \ge 1$（样本被正确分类且在间隔外）时损失与梯度**恒为 0**，因此只有支持向量参与优化——这从损失角度解释了 SVM 的稀疏性；对比之下交叉熵对所有样本都有梯度，逻辑回归的解不稀疏。
@@ -690,10 +716,12 @@ $$
 **SMO（序列最小优化）** 是求解 SVM 对偶的经典算法：
 
 $$
+\begin{gathered}
 \text{对偶约束} \; \sum \alpha_{i}y_{i}=0 \; \text{使「只优化一个} \; \alpha \; \text{」不可能（其余确定的话它也被确定）} \\
 \Rightarrow \; \text{每次选两个变量} \; \alpha_{i} \; \text{、} \; \alpha_{j} \; \text{，固定其余，用等式约束把} \; \alpha_{j} \; \text{表成} \; \alpha_{i} \; \text{的线性函数} \\
 \Rightarrow \; \text{对偶目标化为单变量二次函数，解析求无约束极值} \; \to \; \text{裁剪到} \; \text{[0, C]} \; \text{可行域} \\
 \Rightarrow \; \text{更新} \; \text{b} \; \text{与误差缓存，按} \; \text{KKT} \; \text{违反程度选下一对，循环至收敛}
+\end{gathered}
 $$
 
 ::: danger 易错 · SVM 求解
@@ -705,6 +733,7 @@ $$
 ### 6.5 SVM 对偶与 KKT 完整推导
 
 $$
+\begin{gathered}
 L(w,b,\alpha)= \frac{1}{2} \| w \|^{2}- \sum_{i} \alpha_{i}[y_{i}(w^{T}x_{i}+b)- 1] \; \text{，} \; \alpha_{i} \ge 0 \\
 \frac{\partial L}{\partial w}= 0 \Rightarrow w= \sum_{i} \alpha_{i} y_{i} x_{i} \; \text{（最优} \; \text{w} \; \text{是支持向量的线性组合）} \\
 \frac{\partial L}{\partial b}= 0 \Rightarrow \sum_{i} \alpha_{i} y_{i}= 0 \\
@@ -712,6 +741,7 @@ L(w,b,\alpha)= \frac{1}{2} \| w \|^{2}- \sum_{i} \alpha_{i}[y_{i}(w^{T}x_{i}+b)-
 \max_\alpha \sum_{i}\alpha_{i}- \frac{1}{2} \sum_{ij} \alpha_{i}\alpha_{j}y_{i}y_{j} x_{i}^{T}x_{j}, s.t. \alpha_{i} \ge 0, \sum_{i}\alpha_{i}y_{i}= 0 \\
 \text{把} \; x_{i}^{T}x_{j} \; \text{换成} \; k(x_{i},x_{j}) \; \text{即得核} \; \text{SVM} \; \text{（核技巧）} \\
 \text{b} \; \text{由任一支持向量满足} \; y_{j}\left(\sum_{i}\alpha_{i}y_{i}k(x_{i},x_{j})+b\right)=1 \; \text{解出}
+\end{gathered}
 $$
 
 **KKT 互补松弛** $\alpha_{i}[y_{i}(w^{T}x_{i}+b)- 1]=0$ 给出三类点：$\alpha_{i}=0$（间隔外，不影响解）、$0<\alpha_{i}<C$（恰在间隔边界，支持向量）、$\alpha_{i}=C$（间隔内或错分，软间隔情形）。
@@ -737,11 +767,13 @@ $$
 | CART | 基尼指数 $Gini(D)=1- \sum p_{k}^{2}$ | **二叉** | 分类用基尼、回归用平方误差 |
 
 $$
+\begin{gathered}
 \text{熵} \; H(D)=- \sum_{k} p_{k} \log_{2} p_{k} \\
 \text{条件熵} \; H(D|A)= \sum_{v}(|D_{v}||D|) H(D_{v}) \\
 \text{信息增益} \; G(D,A)= H(D)- H(D|A) \leftarrow \; \text{取最大} \\
 \text{分裂信息} \; SplitInfo_{A}=- \sum_{v}(|D_{v}||D|) \log_{2}(|D_{v}||D|) \\
 \text{基尼指数} \; Gini_{index}(D,A)= \sum_{v}(|D_{v}||D|) Gini(D_{v}) \leftarrow \; \text{取最小}
+\end{gathered}
 $$
 
 ::: tip 工作例题 · 三种准则完整手算
@@ -786,10 +818,12 @@ $$H(D)=-\left(\frac{9}{14}\right)\log_{2}\left(\frac{9}{14}\right)-\left(\frac{5
 | 并行性 | 可并行 | 不可并行（XGBoost 在特征层面并行） |
 
 $$
+\begin{gathered}
 \text{AdaBoost} \; \text{第} \; \text{t} \; \text{轮：} \\
 \epsilon_{t}= \; \text{加权错误率；} \; \alpha_{t}= \frac{1}{2} \ln\left(\frac{1- \epsilon_{t}}{\epsilon}_{t}\right) \\
 w_{i} \leftarrow w_{i} \cdot \exp(- \alpha_{t} y_{i} h_{t}(x_{i})) \; \text{，再归一化} \\
 \text{GBDT} \; \text{：每一轮拟合当前损失函数的负梯度（伪残差），逐步加法建模}
+\end{gathered}
 $$
 
 ::: tip 工作例题 · AdaBoost 权重更新
@@ -813,6 +847,7 @@ $\epsilon_{t}=0.3$ → $\alpha_{t}= \frac{1}{2} \ln\left(\frac{0.7}{0.3}\right)=
 AdaBoost 那些「看起来像启发式」的权重公式其实可以严格推导出来。设加法模型 $f(x)=\sum_{t} \alpha_{t}h_{t}(x)$，取**指数损失** $L(y,f)=\exp(- yf)$，用**前向分步**（每轮只加一个基学习器，固定已有部分）：
 
 $$
+\begin{gathered}
 \text{第} \; \text{t} \; \text{轮：} \; \min_{\alpha,h} \sum_{i} \exp(- y_{i}[f_{t- 1}(x_{i})+ \alpha h(x_{i})]) \\
 = \sum_{i} w_{i}^{(t)} \exp(- \alpha y_{i} h(x_{i})) \; \text{，其中} \; w_{i}^{(t)}= \exp(- y_{i} f_{t- 1}(x_{i})) \; \text{与} \; \alpha,h \; \text{无关} \\
 \text{(1)} \; \text{固定} \; \alpha \; \text{，最小化} \; \sum w_{i} \exp(- \alpha y_{i} h(x_{i})) \Rightarrow \; \text{等价于最小化加权分类误差} \; \epsilon_{t} \\
@@ -821,6 +856,7 @@ $$
 -(1- \epsilon_{t})e^{- \alpha}+ \epsilon_{t} e^{\alpha}= 0 \Rightarrow \alpha_{t}= \frac{1}{2} \ln\left(\frac{1- \epsilon_{t}}{\epsilon}_{t}\right) \leftarrow \; \text{课件公式的来源} \\
 \text{(3)} \; \text{代入} \; f_{t}= f_{t- 1}+ \alpha_{t}h_{t} \; \text{得权重更新} \\
 w_{i} \leftarrow w_{i} \exp(- \alpha_{t} y_{i} h_{t}(x_{i})) \; \text{，再归一化} \; \leftarrow \; \text{错分样本权重升高}
+\end{gathered}
 $$
 
 **结论**：AdaBoost 等价于在指数损失上做**梯度下降式的前向分步优化**；GBDT 则把指数损失换成任意可微损失并拟合其**负梯度**（伪残差），二者是同一框架的不同损失选择。
@@ -842,10 +878,12 @@ $\epsilon_{t}=0.3$ → $\alpha_{t}= \frac{1}{2} \ln\left(\frac{0.7}{0.3}\right) 
 GBDT 每轮拟合**负梯度**（伪残差）；XGBoost 进一步对损失作**二阶泰勒展开**并显式加正则：
 
 $$
+\begin{gathered}
 Obj \approx \sum_{i}[g_{i} f_{t}(x_{i})+ \frac{1}{2} h_{i} f_{t}^{2}(x_{i})]+ \Omega(f_{t}) \; \text{，} \; g_{i}= \frac{\partial ℓ}{\partial \hat{y}} \; \text{，} \; h_{i}= \partial^{2}\frac{ℓ}{\partial \hat{y}^{2}} \\
 \Omega(f)= \gamma \cdot T+ \frac{1}{2} \lambda \| w \|^{2} \; \text{（} \; \text{T} \; \text{叶数、} \; \text{w} \; \text{叶权重）} \\
 \text{最优叶权重} \; w*_{j}=- \frac{G_{j}}{H_{j}+\lambda} \\
 \text{分裂增益} \; Gain= \frac{1}{2}[ \frac{G_{L}^{2}}{H_{L}+\lambda}+ \frac{G_{R}^{2}}{H_{R}+\lambda}- \frac{(G_{L}+G_{R})^{2}}{H_{L}+H_{R}+\lambda}]- \gamma
+\end{gathered}
 $$
 
 ::: tip 工作例题 · 一次分裂增益
@@ -866,8 +904,10 @@ $\gamma$ 是「分裂最小收益门槛」，起预剪枝作用。
 单个神经元：$z= \sum_{j} w_{j}x_{j}+ b= w^{T}x+ b$，$a= \phi(z)$。多层感知机（MLP / 前馈网络）逐层计算：
 
 $$
+\begin{gathered}
 z^{(l)}= W^{(l)} a^{(l- 1)}+ b^{(l)} \\
 a^{(l)}= \phi(z^{(l)}) \; \text{（} \; \text{a((0)) = x} \; \text{）}
+\end{gathered}
 $$
 
 **万能逼近定理**：一个含足够多神经元的单隐层网络，用非多项式非线性激活，可任意精度逼近紧集上的连续函数。但「能表示」不代表「能学到」，深度网络用**多层非线性**以更少参数表示层次化特征。
@@ -897,10 +937,12 @@ $$
 ![反向传播、梯度问题与训练技巧](/mlt/mlt-backprop.svg)
 
 $$
+\begin{gathered}
 \text{前向：逐层缓存} \; \text{z((l))} \; \text{、} \; \text{a((l))} \; \text{，最后计算损失} \; \text{L} \\
 \text{输出层误差：} \; \delta^{(L)}= \nabla_{a}L ⊙ \phi '(z^{(L)}) \\
 \text{逐层回传：} \; \delta^{(l)}=(W^{(l+1)})^{T} \delta^{(l+1)} ⊙ \phi '(z^{(l)}) \\
 \text{梯度：} \; \frac{\partial L}{\partial W^{(l)}}= \delta^{(l)}(a^{(l- 1)})^{T} \; \text{，} \; \frac{\partial L}{\partial b^{(l)}}= \delta^{(l)}
+\end{gathered}
 $$
 
 ```python
@@ -981,9 +1023,11 @@ $\eta= 0.001+ \frac{1}{2} \times 0.099 \times\left(1+\cos\left(\frac{\pi}{2}\rig
 三大思想：**局部感受野**（每个神经元只看一小块）、**权值共享**（同一卷积核滑过整图）、**层级特征 + 池化**（浅层边缘 → 深层语义）。
 
 $$
+\begin{gathered}
 \text{输出尺寸} \; H_{out}= ⌊\frac{H_{in}- K+ 2P}{S}⌋+ 1 \; \text{，} \; \text{W\_out} \; \text{同理} \\
 \text{输出通道数} \; \text{=} \; \text{卷积核个数；参数量} \; = K \times K \times C_{in} \times C_{out}+ C_{out} \\
 \text{池化层无可训练参数；} \; 1 \times 1 \; \text{卷积用于通道变换与降维}
+\end{gathered}
 $$
 
 ::: tip 工作例题 · LeNet 风格尺寸演算（课件 $\max pool 2 \times 2$）
@@ -1008,11 +1052,13 @@ $⌊\frac{32- 5}{1}⌋+1= 28$ → $28 \times 28 \times 6$，参数量 $5 \times 
 ![循环网络、注意力与 Transformer](/mlt/mlt-rnn-attention.svg)
 
 $$
+\begin{gathered}
 \text{RNN} \; \text{：} \; h_{t}= \phi(W_{xh} x_{t}+ W_{hh} h_{t-1}+ b) \; \text{，} \; y_{t}= W_{hy} h_{t} \; \text{（同一组} \; \text{W} \; \text{各时刻共享）} \\
 \text{训练用} \; \text{BPTT} \; \text{（沿时间反向传播）；长序列连乘导致梯度消失} \; \text{/} \; \text{爆炸} \\
 \text{LSTM} \; \text{：遗忘门} \; \text{f} \; \text{、输入门} \; \text{i} \; \text{、输出门} \; \text{o} \; \text{与细胞状态} \; c_{t} \; \text{形成「传送带」，} \\
 c_{t}= f⊙c_{t-1}+ i⊙g \; \text{，} \; h_{t}= o⊙\tanh(c_{t}) \; \text{，能记住长程依赖} \\
 \text{GRU} \; \text{：合并为更新门} \; \text{z} \; \text{与重置门} \; \text{r} \; \text{，参数更少、训练更快}
+\end{gathered}
 $$
 
 | 结构 | 能否并行 | 长程依赖 | 复杂度 |
@@ -1023,9 +1069,11 @@ $$
 ### 9.3 注意力与 Transformer
 
 $$
+\begin{gathered}
 Attention(Q,K,V)= softmax\left(\frac{QK^{T}}{\sqrt{d}_{k}}\right) \cdot V \\
 \text{多头：把} \; \text{Q/K/V} \; \text{投影到} \; \text{h} \; \text{个子空间并行计算，拼接后再线性变换} \\
 \text{Transformer} \; \text{块} \; \text{=} \; \text{多头自注意力} \; \text{+ FFN} \; \text{，各带残差连接与} \; \text{LayerNorm} \; \text{（} \; Repeat \times L \; \text{）}
+\end{gathered}
 $$
 
 除以 $\sqrt{d}_{k}$ 的原因：维度高时点积方差变大，softmax 会进入梯度极小的饱和区。
@@ -1056,6 +1104,7 @@ $$
 Transformer 使用 **LayerNorm**（多为 Pre-LN：`x + Sublayer(LN(x))`），因为序列长度可变、batch 内各样本有效 token 数不同，BN 无法定义稳定的跨样本统计量。
 
 $$
+\begin{gathered}
 \text{一个编码器块的完整维度流（} \; \text{n=} \; \text{序列长，} \; \text{d=d\_model} \; \text{，} \; \text{h=} \; \text{头数，} \; d_{k}=d_{v}=\frac{d}{h} \; \text{）：} \\
 X \in R^{n \times d} \\
 \to Q=XW_{Q} \in R^{n \times d}, K=XW_{K}, V=XW_{V} \; \text{（投影矩阵} \; d \times d \; \text{）} \\
@@ -1063,6 +1112,7 @@ X \in R^{n \times d} \\
 \to MultiHead= Concat(head_1, \cdots,head_{h}) W^O \in R^{n \times d} \\
 \to \; \text{残差} \; \text{+ LayerNorm → FFN: d → d\_ff(} \; \text{常取} \; \text{4d) → d} \; \text{，再残差} \; \text{+ LayerNorm} \\
 \text{参数量} \; \approx 4d^{2} \; \text{（} \; \text{QKV +} \; \text{输出投影）} \; + 2 \cdot d \cdot d_{ff} \; \text{（} \; \text{FFN} \; \text{）} \; \approx 12d^{2} \; \text{（} \; \text{d\_ff=4d} \; \text{时）}
+\end{gathered}
 $$
 
 ::: tip 工作例题 · 参数量估算
@@ -1078,8 +1128,10 @@ $$
 ### 9.6 注意力复杂度与一次手算
 
 $$
+\begin{gathered}
 \text{自注意力计算量} \; O(n^{2} \cdot d) \; \text{（} \; \text{n} \; \text{序列长度、} \; \text{d} \; \text{每头维度），显存} \; O(n^{2}) \\
 \text{多头：} \; \text{h} \; \text{个头各} \; d_{k}=\frac{d_{model}}{h} \; \text{维，总计算量与单头相当，但能捕捉不同子空间关系}
+\end{gathered}
 $$
 
 ::: tip 工作例题 · 3 个 token、d=2
@@ -1098,8 +1150,10 @@ $$
 卷积在前向可写成**稀疏矩阵乘法** $y= C \cdot x$（C 由卷积核构造的 Toeplitz 矩阵），因此反向传播只是转置：
 
 $$
+\begin{gathered}
 \frac{\partial L}{\partial x}= C^{T} \cdot \frac{\partial L}{\partial y} \; \text{（等价于「用翻转的核再做一次卷积」，即转置卷积）} \\
 \frac{\partial L}{\partial W}= \sum_{sliding windows}\left( \frac{\partial L}{\partial y}\right) \cdot x_{patch}
+\end{gathered}
 $$
 
 **转置卷积（反卷积）** 用于上采样（分割、生成器）：输出尺寸
@@ -1115,10 +1169,12 @@ $$H_{out}=(H_{in}- 1) \cdot S- 2P+ K+ output_{padding}$$
 ### 9.8 位置编码、掩码与自回归推理
 
 $$
+\begin{gathered}
 \text{正弦位置编码：} \; PE(pos,2i)=\sin\left(\frac{pos}{10000^{\frac{2i}{d_{model}}}}\right) \; \text{，} \; PE(pos,2i+1)=\cos\left(\frac{pos}{10000^{\frac{2i}{d_{model}}}}\right) \\
 \text{优点：任意相对位移可用线性变换表示、可外推到更长序列（无需学习）} \\
 \text{因果掩码：把} \; QK^{T} \; \text{的上三角置} \; - \infty \; \text{，} \; \text{softmax} \; \text{后权重为} \; \text{0} \; \text{，保证位置} \; \text{t} \; \text{只看到} \; \le t \\
 \text{自回归推理：缓存已计算的} \; \text{K} \; \text{、} \; \text{V} \; \text{（} \; \text{KV Cache} \; \text{），每步只算新} \; \text{token} \; \text{，复杂度从} \; O(n^{2}) \; \text{降到} \; \text{O(n)}
+\end{gathered}
 $$
 
 ::: tip 工作例题 · 位置编码的一个分量
@@ -1178,9 +1234,11 @@ $$
 目标是把 N 个 d 维样本分到 K 个簇，最小化类内平方和：
 
 $$
+\begin{gathered}
 J= \sum_{n} \sum_{k} r_{nk} \| x_{n}- \mu_{k} \|^{2} \\
 \text{E} \; \text{步（硬分配）：} \; r_{nk}= 1 \; \text{若} \; k= \operatorname*{argmin}_{j} \| x_{n}- \mu_{j} \|^{2} \; \text{，否则} \; \text{0} \\
 \text{M} \; \text{步（重算质心）：} \; \mu_{k}= \sum_{n}\frac{r_{nk} x_{n}}{\sum}_{n} r_{nk}
+\end{gathered}
 $$
 
 ```python
@@ -1209,9 +1267,11 @@ def kmeans(X, K, iters=20, seed=42):
 GMM 假设数据由 K 个高斯成分混合生成：$p(x)=\sum_{k} \pi_{k} N\left(x|\mu_{k},\sum_{k}\right)$，隐变量 $z_{k}$ 表示成分归属。直接最大化对数似然 $\sum \log p(x_{n})$ 因 log 内有求和而困难，EM 通过交替两步保证似然单调不降：
 
 $$
+\begin{gathered}
 \text{E} \; \text{步：} \; \gamma(z_{nk})= p(z_{k}=1|x_{n})= \pi_{k}\frac{N\left(x_{n}|\mu_{k},\sum_{k}\right)}{\sum}_{j} \pi_{j}N\left(x_{n}|\mu_{j},\sum_{j}\right) \; \text{（责任度，软分配）} \\
 \text{M} \; \text{步：} \; N_{k}= \sum_{n} \gamma(z_{nk}) \; \text{；} \; \pi_{k}= \frac{N_{k}}{N} \; \text{；} \\
 \mu_{k}= \sum_{n}\frac{\gamma(z_{nk})x_{n}}{N_{k}} \; \text{；} \; \sum_{k}= \sum_{n}\frac{\gamma(z_{nk})(x_{n}- \mu_{k})(x_{n}- \mu_{k})^{T}}{N_{k}}
+\end{gathered}
 $$
 
 ::: tip 补充 · K-means 是 GMM 的特例
@@ -1260,18 +1320,22 @@ PCA **无监督**（不用标签，最大化总方差），LDA **有监督**（�
 **推法 A · 最大化投影方差**（设数据已中心化，协方差 $S=\left(\frac{1}{N}\right)X^{T}X$）
 
 $$
+\begin{gathered}
 \max_{w} w^{T}Sw s.t. \| w \|=1 \\
 L= w^{T}Sw- \lambda(w^{T}w- 1) \; \text{；} \; \frac{\partial L}{\partial w}= 2Sw- 2\lambda w= 0 \Rightarrow Sw= \lambda w \\
 \Rightarrow w \; \text{是} \; \text{S} \; \text{的特征向量，且目标值} \; w^{T}Sw= \lambda \Rightarrow \; \text{取最大特征值对应的} \; \text{w} \\
 \text{后续主成分在与已选方向正交的约束下依次取次大特征值}
+\end{gathered}
 $$
 
 **推法 B · 最小化重构误差**（把 x 投影到 w 方向再还原）
 
 $$
+\begin{gathered}
 \min_{w} \| X-(Xw)w^{T} \|_{F}^{2} s.t. \| w \|=1 \\
 \text{展开} \; = tr(S)- w^{T}Sw \; \text{（常数} \; - \; \text{被最大化的项）} \\
 \Rightarrow \; \text{最小化重构误差} \; \Leftrightarrow \; \text{最大化} \; w^{T}Sw \Leftrightarrow \; \text{推法} \; \text{A}
+\end{gathered}
 $$
 
 **结论**：最优的 m 维子空间由 `S` 的前 m 个特征向量张成（$Eckart- Young$ 定理），最小重构误差为被丢弃特征值之和 $\sum_{j>m}\lambda_{j}$。这就把「方差最大」「重构误差最小」「协方差特征分解」三句话统一成一个结论。
@@ -1293,10 +1357,12 @@ $$
 用 Jensen 不等式对任意分布 `q(z)`：
 
 $$
+\begin{gathered}
 \log p(x|\theta)= \log \sum_{z} q(z) \cdot[\frac{p(x,z|\theta)}{q(z)}] \ge \sum_{z} q(z) \log[\frac{p(x,z|\theta)}{q(z)}] ≜ ELBO(q,\theta) \\
 \text{E} \; \text{步：固定} \; \theta^old \; \text{，取} \; q= p(z|x,\theta^old) \; \text{使不等式取等（下界紧贴当前似然）} \\
 \text{M} \; \text{步：固定} \; \text{q} \; \text{，最大化} \; \text{ELBO} \; \text{得} \; \theta^new \\
 \text{于是} \; \log p(x|\theta^new) \ge ELBO(q,\theta^new) \ge ELBO(q,\theta^old)= \log p(x|\theta^old) \to \; \text{似然单调不降}
+\end{gathered}
 $$
 
 ### 10.6 GMM 的 EM 更新式逐项推导
@@ -1304,9 +1370,11 @@ $$
 对完全数据 `(x, z)`（z 为 one-hot 成分指示），对数似然 $\sum_{n}\sum_{k} z_{nk}[\log \pi_{k}+ \log N\left(x_{n}|\mu_{k},\sum_{k}\right)]$。E 步用责任度 $\gamma_{nk}=E[z_{nk}]$ 替代 $z_{nk}$ 得 Q 函数；M 步分别对参数求极值：
 
 $$
+\begin{gathered}
 \frac{\partial Q}{\partial} \mu_{k}= \sum_{n} \gamma_{nk} \sum_{k}^{-1}(x_{n}- \mu_{k})= 0 \Rightarrow \mu_{k}= \sum_{n}\gamma_{nk}\frac{x_{n}}{N_{k}} \\
 \frac{\partial Q}{\partial} \sum_{k}^{-1}= 0 \Rightarrow \sum_{k}= \sum_{n}\gamma_{nk}\frac{(x_{n}- \mu_{k})(x_{n}- \mu_{k})^{T}}{N_{k}} \\
 \text{带约束} \; \sum \pi_{k}=1 \; \text{用拉格朗日乘子} \; \Rightarrow \pi_{k}= \frac{N_{k}}{N} \; \text{，其中} \; N_{k}= \sum_{n}\gamma_{nk}
+\end{gathered}
 $$
 
 ::: tip 工作例题 · 一次 E 步
@@ -1331,10 +1399,12 @@ $\gamma(z_{1}=1|x)=0.9820$、$\gamma(z_{2}=1|x)=0.0180$。
 强化学习研究智能体（agent）如何在环境（environment）中通过行动最大化**长期累计收益**。建模为马尔可夫决策过程五元组 $(S, A, P, R, \gamma)$，满足马尔可夫性：$P(S_{t+1}|S_{t}, A_{t})$ 与更早的历史无关。
 
 $$
+\begin{gathered}
 \text{折扣回报} \; G_{t}= R_{t+1}+ \gamma R_{t+2}+ \gamma^{2}R_{t+3}+ \cdots= \sum_{k} \gamma^{k} R_{t+k+1} \; \text{（} \; 0 \le \gamma< 1 \; \text{）} \\
 \text{状态值} \; V^\pi(s)= E_\pi[G_{t}| S_{t}= s] \\
 \text{动作值} \; q^\pi(s,a)= E_\pi[G_{t}| S_{t}= s, A_{t}= a] \\
 \text{关系} \; V^\pi(s)= \sum_{a} \pi(a|s) q^\pi(s,a)
+\end{gathered}
 $$
 
 ::: danger 易错 · 折扣与目标
@@ -1344,9 +1414,11 @@ $$
 ### 11.2 贝尔曼方程与求解路线
 
 $$
+\begin{gathered}
 \text{贝尔曼期望：} \; V^\pi(s)= E_\pi[R_{t+1}+ \gamma V^\pi(S_{t+1})| S_{t}=s] \\
 \text{贝尔曼最优：} \; V*(s)= \max_{a} E[R_{t+1}+ \gamma V*(S_{t+1})| S_{t}=s, A_{t}=a] \\
 q*(s,a)= E[R_{t+1}+ \gamma \max_{a}' q*(S_{t+1},a')| S_{t}=s, A_{t}=a]
+\end{gathered}
 $$
 
 | 路线 | 代表 | 是否需要环境模型 | 特点 |
@@ -1398,12 +1470,14 @@ $\nabla_\theta J(\theta)= E_\pi[ G_{t} \cdot \nabla_\theta \log \pi_\theta(A_{t}
 当环境模型 `P(s′|s,a)` 与 `R(s,a)` 已知时，可不用采样直接解 MDP。三类算法共享一个核心算子：
 
 $$
+\begin{gathered}
 \text{策略评估（反复迭代直到收敛）：} \\
 V_{k+1}(s)= \sum_{a} \pi(a|s) \sum_{s'} P(s'|s,a)[ R(s,a,s')+ \gamma V_{k}(s')] \\
 \text{策略改进：} \; \pi '(s)= \operatorname*{argmax}_{a} \sum_{s'} P(s'|s,a)[R+ \gamma V^\pi(s')] \\
 \text{策略迭代：评估（至收敛）} \; \to \; \text{改进} \; \to \; \text{重复，直到策略不再变化} \\
 \text{值迭代（把评估压缩为一步并直接取} \; \max \; \text{）：} \\
 V_{k+1}(s)= \max_{a} \sum_{s'} P(s'|s,a)[ R(s,a,s')+ \gamma V_{k}(s')]
+\end{gathered}
 $$
 
 值迭代的本质是**贝尔曼最优算子是不动点迭代**：算子是 γ-压缩映射，故从任意 $V_{0}$ 出发都收敛到唯一 `V*`，误差按 $\gamma^{k}$ 衰减。这正是「γ 越小收敛越快、但越短视」的数学根源。
@@ -1466,9 +1540,11 @@ $TD(\lambda)$ 用**资格迹**在 MC 与 TD(0) 之间插值：$\lambda=0$ 退化
 | 奖励裁剪 / Huber | 把奖励压到 `[-1,1]`、用 Huber 损失 | 稳定梯度尺度 |
 
 $$
+\begin{gathered}
 \text{DQN} \; \text{损失：} \; L(w)= E_{(s,a,r,s') \sim D}[( r+ \gamma \cdot \max_{a}' Q(s',a'; w^{-})- Q(s,a;w))^{2}] \\
 \text{改进：} \; \text{Double DQN} \; \text{（用在线网络选动作、目标网络估值，缓解过高估计）} \\
 \text{Dueling DQN} \; \text{（拆成} \; \text{V(s) + A(s,a)} \; \text{）、优先经验回放（按} \; |\delta| \; \text{采样）}
+\end{gathered}
 $$
 
 ::: danger 易错 · DQN
@@ -1482,10 +1558,12 @@ $$
 目标 $J(\theta)=V^{\pi_\theta}(s_{0})=E_{\pi_\theta}[\sum_{t} \gamma^{t} R_{t}]$。用**似然比技巧**（log-derivative trick $\nabla \pi= \pi \nabla \log \pi$）：
 
 $$
+\begin{gathered}
 \nabla_\theta J(\theta)= E_{\pi_\theta}[ \sum_{t} \nabla_\theta \log \pi_\theta(A_{t}|S_{t}) \cdot Q^{\pi_\theta}(S_{t},A_{t})] \\
 = E_{\pi_\theta}[ \sum_{t} \nabla_\theta \log \pi_\theta(A_{t}|S_{t}) \cdot A^{\pi}(S_{t},A_{t})] \\
 \text{其中} \; A(s,a)=Q(s,a)- V(s) \; \text{称优势函数；减去任意只依赖} \; \text{s} \; \text{的基线} \; \text{b(s)} \; \text{不改变期望、} \\
 \text{却能显著降低方差（因} \; E[ \nabla \log \pi \cdot b(s)]= b(s) \nabla \sum \pi= 0 \; \text{）}
+\end{gathered}
 $$
 
 ```python
@@ -1567,10 +1645,12 @@ min_G max_D V(D,G) = E_{x~p_data}[log D(x)] + E_{z~p_z}[log(1 − D(G(z)))]
 ### 12.3 扩散模型与归一化流
 
 $$
+\begin{gathered}
 \text{前向加噪（固定} \; \text{Markov} \; \text{链）：} \; x_{t}= \sqrt{\alpha}_{t} \cdot x_{t-1}+ \sqrt{1- \alpha_{t}} \cdot \epsilon \; \text{，} \; \epsilon \sim N(0,I) \\
 \text{一步到位：} \; q(x_{t}|x_{0})= N\left(\sqrt{\bar{\alpha}_{t}} x_{0},(1- \bar{\alpha}_{t})I\right) \; \text{，} \; \bar{\alpha}_{t}= \Pi_{s \le t} \alpha_{s} \\
 \text{反向去噪（需学习）：} \; p_\theta(x_{t-1}|x_{t})= N\left(\mu_\theta(x_{t},t), \sum_\theta\right) \; \text{，从纯噪声逐步还原样本} \\
 \text{训练目标：预测所加噪声} \; \epsilon \; \text{（简化后等价于变分下界的一项）}
+\end{gathered}
 $$
 
 | 模型 | 似然 | 采样 | 主要特点 |
@@ -1591,18 +1671,22 @@ $$
 直接从 $\log p_\theta(x)$ 出发，引入任意变分分布 $q_\phi(z|x)$：
 
 $$
+\begin{gathered}
 \log p_\theta(x)= \log \int p_\theta(x|z)p(z) dz \\
 = \log \int q(z|x) \cdot[\frac{p_\theta(x|z)p(z)}{q(z|x)}] dz \\
 = \log E_{q}[ \frac{p_\theta(x|z)p(z)}{q(z|x)}] \\
 \ge E_{q}[ \log \frac{p_\theta(x|z)p(z)}{q(z|x)}] \; \text{（} \; \text{Jensen} \; \text{，} \; \log \; \text{是凹函数）} \\
 = E_{q}[\log p_\theta(x|z)]- D_{KL}(q_\phi(z|x) \| p(z)) ≜ ELBO
+\end{gathered}
 $$
 
 另一种推法（更直观）：
 
 $$
+\begin{gathered}
 D_{KL}(q_\phi(z|x) \| p_\theta(z|x))= E_{q}[\log q- \log p_\theta(x|z)- \log p(z)]+ \log p_\theta(x) \\
 \text{整理得：} \; \log p_\theta(x)= ELBO+ D_{KL}(q \| p_\theta(z|x)) \ge ELBO
+\end{gathered}
 $$
 
 两式说明：**最大化 ELBO 等价于同时（a）提升重构似然、（b）让近似后验贴近真实后验**；当 $q_\phi=p_\theta(z|x)$ 时 KL 项为 0、界取等——这正是 EM 中 E 步取 $q=p(z|x,\theta^old)$ 的同一思想（第 10 章）。
@@ -1631,9 +1715,11 @@ $q \| p$（反向 KL，VAE 用）倾向「模式寻找」，会低估方差；$p
 固定生成器 G，对判别器 D 逐点求导（把 `V(D,G)` 写成积分）：
 
 $$
+\begin{gathered}
 V(D,G)= \int p_{data}(x) \log D(x) dx+ \int p_{g}(x) \log(1- D(x)) dx \\
 \text{对} \; \text{D(x)} \; \text{求导并令为} \; \text{0} \; \text{：} \; \frac{p_{data}}{D}- \frac{p_{g}}{1- D}= 0 \\
 \Rightarrow D*(x)= \frac{p_{data}(x)}{p_{data}(x)+ p_{g}(x)}
+\end{gathered}
 $$
 
 代回目标函数：
@@ -1655,17 +1741,21 @@ JS 散度非负、在两分布完全相同时取 0，故全局最优为 `p_g=p_d
 **前向（固定、无参数）**：$q(x_{t}|x_{t-1})=N\left(\sqrt{\alpha}_{t} \cdot x_{t-1},(1- \alpha_{t})I\right)$，即 $x_{t}=\sqrt{\alpha}_{t} x_{t-1}+\sqrt{1- \alpha_{t}}\epsilon$。反复代入并利用高斯可加性得**一步闭式**：
 
 $$
+\begin{gathered}
 \bar{\alpha}_{t}= \Pi_{s=1}^{t} \alpha_{s} \\
 q(x_{t}|x_{0})= N\left( \sqrt{\bar{\alpha}_{t}} \cdot x_{0},(1- \bar{\alpha}_{t})I\right) \\
 x_{t}= \sqrt{\bar{\alpha}_{t}} \cdot x_{0}+ \sqrt{1- \bar{\alpha}_{t}} \cdot \epsilon, \epsilon \sim N(0,I)
+\end{gathered}
 $$
 
 **反向（需学习）**：真实后验 $q(x_{t-1}|x_{t},x_{0})$ 也是高斯，其均值可解析写出；训练网络 $\epsilon_\theta$ 预测所加噪声后：
 
 $$
+\begin{gathered}
 \mu_\theta(x_{t},t)=\left(\frac{1}{\sqrt{\alpha}}_{t}\right) \cdot[ x_{t}- \frac{1- \alpha_{t}}{\sqrt{1- \bar{\alpha}_{t}}} \cdot \epsilon_\theta(x_{t},t)] \\
 p_\theta(x_{t-1}|x_{t})= N( \mu_\theta(x_{t},t), \sigma_{t}^{2} I) \\
 \text{简化训练目标：} \; L_{simple}= E_{t,x_{0},\epsilon} \| \epsilon- \epsilon_\theta\left(\sqrt{\bar{\alpha}_{t}}x_{0}+\sqrt{1- \bar{\alpha}_{t}}\epsilon, t\right) \|^{2}
+\end{gathered}
 $$
 
 课件中「扩散模型 = 隐变量与样本同维度的 Markov 链」即指 $x_{1}, \cdots,x_{T}$ 序列；它与 VAE 的瓶颈 z 不是一回事。
@@ -1688,18 +1778,22 @@ DDPM 需逐步去噪 T 次（常 1000 步）；**DDIM** 构造非马尔可夫但
 设 $z=f_\theta(x)$ 可逆且可微，由概率密度变量变换公式：
 
 $$
+\begin{gathered}
 p_{X}(x)= p_{Z}(f_\theta(x)) \cdot|\det \frac{\partial f_\theta}{\partial x}| \\
 \log p_{X}(x)= \log p_{Z}(z)+ \log|\det J_{f}|
+\end{gathered}
 $$
 
 因此训练目标就是**最大化 $\log p_{X}(x)$**（精确似然，不需下界）。难点在 Jacobian 行列式一般是 $O(d^{3})$，故设计**三角 Jacobian** 的耦合层（RealNVP）：
 
 $$
+\begin{gathered}
 \text{把} \; \text{x} \; \text{切成} \; (x_{1}, x_{2}) \; \text{：} \\
 y_{1}= x_{1} \; \text{（原样复制）} \\
 y_{2}= x_{2} ⊙ \exp(s(x_{1}))+ t(x_{1}) \; \text{（仿射变换，} \; \text{s/t} \; \text{为任意网络）} \\
 \text{Jacobian} \; \text{为下三角} \; \Rightarrow \det J= \exp\left( \sum_{i} s_{i}(x_{1})\right) \\
 \text{逆变换：} \; x_{2}=(y_{2}- t(y_{1})) ⊙ \exp(- s(y_{1})) \; \text{，无需反演网络}
+\end{gathered}
 $$
 
 ::: tip 工作例题 · 行列式计算
