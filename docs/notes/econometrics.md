@@ -269,7 +269,7 @@ $$
 
 $$
 \sum Y_{i}= n\hat{\beta}_{0}+ \hat{\beta}_{1}\sum X_{i} \\
-\sum X_{iY}_{i}= \hat{\beta}_{0}\sum X_{i}+ \hat{\beta}_{1}\sum X_{i}^{2}
+\sum X_{i}Y_{i}= \hat{\beta}_{0}\sum X_{i}+ \hat{\beta}_{1}\sum X_{i}^{2}
 $$
 解得（小写字母表示离差 $x_{i}= X_{i}- \bar{X}$）：
 
@@ -348,16 +348,16 @@ $$
 
 **无偏性推导**（一元、X 非随机、`E(u_i)=0`）：
 $$
-\hat{\beta}_{1}= \frac{\sum x_{iY}_{i}}{Sxx}= \frac{\sum x_{i}(\beta_{0}+\beta_{1}X_{i}+u_{i})}{Sxx} \\
-= \beta_{1}+ \frac{\sum x_{iu}_{i}}{Sxx} \; \text{（用} \; \sum x_{i}=0 \; \text{、} \; \sum x_{iX}_{i}=Sxx \; \text{）} \\
+\hat{\beta}_{1}= \frac{\sum x_{i}Y_{i}}{Sxx}= \frac{\sum x_{i}(\beta_{0}+\beta_{1}X_{i}+u_{i})}{Sxx} \\
+= \beta_{1}+ \frac{\sum x_{i}u_{i}}{Sxx} \; \text{（用} \; \sum x_{i}=0 \; \text{、} \; \sum x_{i}X_{i}=Sxx \; \text{）} \\
 E(\hat{\beta}_{1})= \beta_{1}+ \frac{\sum x_{i} E(u_{i})}{Sxx}= \beta_{1} \checkmark \\
-\operatorname{Var}(\hat{\beta}_{1})= \frac{\operatorname{Var}\left(\sum x_{iu}_{i}\right)}{Sxx^{2}}= \sigma^{2}\frac{Sxx}{Sxx^{2}}= \sigma^{2} Sxx \; \text{（用同方差} \; \text{+} \; \text{无自相关）}
+\operatorname{Var}(\hat{\beta}_{1})= \frac{\operatorname{Var}\left(\sum x_{i}u_{i}\right)}{Sxx^{2}}= \sigma^{2}\frac{Sxx}{Sxx^{2}}= \sigma^{2} Sxx \; \text{（用同方差} \; \text{+} \; \text{无自相关）}
 $$
 可见**无偏性只需 A2/A3**，而 $\operatorname{Var}(\hat{\beta}_{1})=\sigma^{2} Sxx$ 还须 A4/A5。
 
 **一致性**（X 随机但严格外生时）：
 $$
-plim \hat{\beta}_{1}= \beta_{1}+ \frac{plim[\left(\frac{1}{n}\right)\sum x_{iu}_{i}]}{plim[\left(\frac{1}{n}\right)\sum x_{i}^{2}]}= \beta_{1}+ \frac{\operatorname{Cov}(X,u)}{\operatorname{Var}(X)}
+plim \hat{\beta}_{1}= \beta_{1}+ \frac{plim[\left(\frac{1}{n}\right)\sum x_{i}u_{i}]}{plim[\left(\frac{1}{n}\right)\sum x_{i}^{2}]}= \beta_{1}+ \frac{\operatorname{Cov}(X,u)}{\operatorname{Var}(X)}
 $$
 因此只要 `Cov(X,u)=0` 就一致；这也直接给出**内生性偏误** $plim \hat{\beta}_{1}- \beta_{1}= \frac{\operatorname{Cov}(X,u)}{\operatorname{Var}(X)}$。
 

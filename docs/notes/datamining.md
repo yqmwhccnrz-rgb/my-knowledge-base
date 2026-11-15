@@ -532,7 +532,7 @@ $t= \frac{52- 50}{\frac{4}{\sqrt{16}}}$ **2.00**，df=15，临界值 t0.025(15)=
 模型 $y= \beta_{0}+ \beta_{1}x+ \epsilon$，最小二乘解：
 
 $$
-\hat{\beta}_{1}= \frac{\sum(x_{i}- \bar{x})(y_{i}- \bar{y})}{\sum}(x_{i}- \bar{x})^{2}= \frac{Sxy}{Sxx} \\
+\hat{\beta}_{1}= \frac{\sum(x_{i}-\bar{x})(y_{i}-\bar{y})}{\sum(x_{i}-\bar{x})^{2}}= \frac{Sxy}{Sxx} \\
 \hat{\beta}_{0}= \bar{y}- \hat{\beta}_{1} \cdot \bar{x} \\
 \hat{y}_{i}= \hat{\beta}_{0}+ \hat{\beta}_{1}x_{i}; e_{i}= y_{i}- \hat{y}_{i} \\
 R^{2}= 1- \frac{SSE}{SST}= \frac{SSR}{SST}
@@ -631,7 +631,7 @@ $Cohen's d= \frac{\bar{x}- \mu_{0}}{s}$ 衡量差异**大小**，不受 n 影响
 协方差 $\operatorname{Cov}(X,Y)=\frac{\sum(x_{i}- \bar{x})(y_{i}- \bar{y})}{n- 1}$ 带量纲、无法横向比较，故标准化为 **Pearson 相关系数**：
 
 $$
-r= \frac{\operatorname{Cov}(X,Y)}{s_{x} \cdot s_{gamma}}= \frac{\sum(x_{i}- \bar{x})(y_{i}- \bar{y})}{\sqrt{\sum(x_{i}- \bar{x})^{2} \cdot \sum(y_{i}- \bar{y})^{2}}} \\
+r= \frac{\operatorname{Cov}(X,Y)}{s_{x} \cdot s_{y}}= \frac{\sum(x_{i}- \bar{x})(y_{i}- \bar{y})}{\sqrt{\sum(x_{i}- \bar{x})^{2} \cdot \sum(y_{i}- \bar{y})^{2}}} \\
 \text{取值范围} \; [- 1, 1] \; \text{；} \; \text{|r|} \; \text{越大线性相关越强} \\
 \text{检验} \; H_{0}: \rho=0 \; \text{用} \; t= r \cdot \sqrt{\frac{n- 2}{1- r^{2}}} \; \text{，} \; df= n- 2
 $$
@@ -1771,7 +1771,7 @@ $$
 | 置信区间 | $\bar{x} ± \frac{t_{\frac{\alpha}{2}}(n- 1) \cdot s}{\sqrt{n}}$ |
 | 两类错误 | α（弃真）、β（取伪）、功效 = $1- \beta$ |
 | 效应量 | $Cohen's d= \frac{\bar{x}- \mu_{0}}{s}$ |
-| 相关系数 | $r= \frac{\operatorname{Cov}(X,Y)}{s_{x}s_{gamma}}$ |
+| 相关系数 | $r= \frac{\operatorname{Cov}(X,Y)}{s_{x}s_{y}}$ |
 | 相关检验 | $t= r\sqrt{\frac{n- 2}{1- r^{2}}}$，$df=n- 2$ |
 | 二项 | $E=np, \operatorname{Var}=np(1- p)$ |
 | 泊松 | $E=\operatorname{Var}=\lambda$ |

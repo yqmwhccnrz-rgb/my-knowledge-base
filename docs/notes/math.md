@@ -835,9 +835,9 @@ $\sum u_{n}$ 收敛 ⇔ 部分和序列 $S_{n}= \sum_{k=1}^{n} u_{k}$ 收敛。*
 
 | 类型 | 审敛法 | 判据 |
 | --- | --- | --- |
-| 正项 | 比较 / 极限比较 | 与 $\frac{\sum 1}{n^{p}}$（`p>1` 收敛）、几何级数 $\sum q^{n}$（`|q|<1` 收敛）比 |
+| 正项 | 比较 / 极限比较 | 与 $\sum\frac{1}{n^{p}}$（`p>1` 收敛）、几何级数 $\sum q^{n}$（`|q|<1` 收敛）比 |
 | 正项 | 比值（达朗贝尔） | $\rho=\lim \frac{u_{n+1}}{u_{n}}$：$\rho<1$ 收敛、$\rho>1$ 发散、`=1` 失效 |
-| 正项 | 根值（柯西） | $\rho=\lim^{n}\sqrt{u}_{n}$，同上 |
+| 正项 | 根值（柯西） | $\rho=\lim_{n\to\infty}\sqrt[n]{u_{n}}$，同上 |
 | 正项 | 积分判别 | $u_{n}=f(n)$，`f` 正递减 ⇒ $\sum u_{n}$ 与 $\int_{1}^\infty f(x)dx$ 同敛散 |
 | 交错 | 莱布尼茨 | $u_{n}$ 单调递减且趋于 0 ⇒ 收敛，余项 $|r_{n}| \le u_{n+1}$ |
 | 一般 | 绝对收敛 | $\sum|u_{n}|$ 收敛 ⇒ $\sum u_{n}$ 收敛；反之称条件收敛 |
@@ -847,10 +847,10 @@ $\sum u_{n}$ 收敛 ⇔ 部分和序列 $S_{n}= \sum_{k=1}^{n} u_{k}$ 收敛。*
 ::: tip 工作例题 · 五个经典级数
 $$
 \text{(1)} \; \text{几何级数} \; \sum_{n=0}^\infty q^{n}= \frac{1}{1- q} \; \text{（} \; \text{|q|<1} \; \text{）；} \; |q| \ge 1 \; \text{发散} \\
-\text{(2) p} \; \text{级数} \; \frac{\sum 1}{n^{p}} \; \text{：} \; \text{p>1} \; \text{收敛、} \; p \le 1 \; \text{发散；} \; \frac{\sum 1}{n} \; \text{发散（调和级数）} \\
+\text{(2) p} \; \text{级数} \; \sum\frac{1}{n^{p}} \; \text{：} \; \text{p>1} \; \text{收敛、} \; p \le 1 \; \text{发散；} \; \sum\frac{1}{n} \; \text{发散（调和级数）} \\
 \text{(3)} \; \text{裂项} \; \sum_{n=1}^\infty \frac{1}{n(n+1)}= \sum\left(\frac{1}{n}- \frac{1}{n+1}\right)= 1 \\
-\text{(4)} \; \text{交错调和} \; \frac{\sum(- 1)^{n+1}}{n}= \ln 2 \approx 0.693147 \; \text{（条件收敛）} \\
-(5) \frac{\sum(- 1)^{n+1}}{n^{2}}= \pi^{2} 12 \approx 0.822467 \; \text{（绝对收敛）}
+\text{(4)} \; \text{交错调和} \; \sum\frac{(-1)^{n+1}}{n}= \ln 2 \approx 0.693147 \; \text{（条件收敛）} \\
+(5) \sum\frac{(-1)^{n+1}}{n^{2}}= \frac{\pi^{2}}{12} \approx 0.822467 \; \text{（绝对收敛）}
 $$
 :::
 
@@ -910,9 +910,9 @@ $$
 
 ::: danger 易错 · 级数
 - $\lim u_{n}= 0$ 只是**必要**条件；调和级数是最经典反例。
-- 比值/根值法 $\rho=1$ 时**失效**，必须换比较、积分或拉比/高斯判别法（如 $\frac{\sum 1}{n}$、$\frac{\sum 1}{n^{2}}$ 都是 $\rho=1$ 但敛散不同）。
+- 比值/根值法 $\rho=1$ 时**失效**，必须换比较、积分或拉比/高斯判别法（如 $\sum\frac{1}{n}$、$\sum\frac{1}{n^{2}}$ 都是 $\rho=1$ 但敛散不同）。
 - 交错级数用莱布尼茨判收敛，但**绝对收敛性要另判** $\sum|u_{n}|$；「收敛」与「绝对收敛」不可混。
-- 逐项求导/积分后收敛半径不变，但**端点**可能从收敛变发散（如 $\frac{\sum x^{n}}{n}$ 与 $\sum x^{n-1}$），必须重新检验。
+- 逐项求导/积分后收敛半径不变，但**端点**可能从收敛变发散（如 $\sum\frac{x^{n}}{n}$ 与 $\sum x^{n-1}$），必须重新检验。
 - 傅里叶级数在间断点收敛到左右极限的平均值，**不是** `f(x)`；端点同理。
 :::
 
@@ -924,7 +924,7 @@ $$
 \to \; \text{积分判别、拉比判别、高斯判别（对} \; \rho=1 \; \text{的临界情形）} \\
 \text{交错：莱布尼茨（收敛）} \; \to \; \text{再看} \; \sum|u_{n}| \; \text{（绝对} \; \text{or} \; \text{条件）}
 $$
-**根值强于比值**：由 $\lim \frac{u_{n+1}}{u_{n}}= \rho \Rightarrow \lim^{n}\sqrt{u}_{n}= \rho$，反之不然；故含 `n` 次幂的项优先用根值。
+**根值强于比值**：由 $\lim \frac{u_{n+1}}{u_{n}}= \rho \Rightarrow \lim_{n\to\infty}\sqrt[n]{u_{n}}= \rho$，反之不然；故含 `n` 次幂的项优先用根值。
 **阿贝尔 / 狄利克雷判别法**：处理 $\sum a_{n}b_{n}$ 型，若 $\sum a_{n}$ 部分和有界且 $b_{n}$ 单调趋于 0 ⇒ 收敛（狄利克雷）；这解释了交错级数判别的一般原理。
 
 ::: tip 补充 · 积分判别的两个经典临界例
@@ -1115,13 +1115,13 @@ $$
 
 $$
 \text{(1)} \; \text{判敛} \; \sum \frac{n}{2^{n}} \; \text{：比值} \; \rho=\lim \frac{\frac{n+1}{2^{n+1}}}{\frac{n}{2^{n}}}= \frac{1}{2}< 1 \Rightarrow \; \text{收敛} \\
-\text{(2)} \; \text{判敛} \; \sum \frac{1}{n^{2}} \; \text{：} \; p=2>1 \Rightarrow \; \text{收敛；} \; \frac{\sum 1}{n} \; \text{：} \; p=1 \Rightarrow \; \text{发散} \\
+\text{(2)} \; \text{判敛} \; \sum \frac{1}{n^{2}} \; \text{：} \; p=2>1 \Rightarrow \; \text{收敛；} \; \sum\frac{1}{n} \; \text{：} \; p=1 \Rightarrow \; \text{发散} \\
 \text{(3)} \; \text{收敛半径} \; \sum \frac{x^{n}}{n} \; \text{：} \; R=\lim|\frac{a_{n}}{a_{n+1}}|= \lim \frac{n+1}{n}= 1 \\
-\text{端点} \; x=1 \Rightarrow \frac{\sum 1}{n} \; \text{发散；} \; x=- 1 \Rightarrow \frac{\sum(- 1)^{n}}{n} \; \text{收敛} \; \Rightarrow \; \text{收敛域} \; \text{[−1,1)} \\
+\text{端点} \; x=1 \Rightarrow \sum\frac{1}{n} \; \text{发散；} \; x=- 1 \Rightarrow \sum\frac{(-1)^{n}}{n} \; \text{收敛} \; \Rightarrow \; \text{收敛域} \; \text{[−1,1)} \\
 \text{(4)} \; \text{和函数} \; \sum_{n=1}^\infty n x^{n} \; \text{：由} \; \sum x^{n}=\frac{1}{1- x} \; \text{逐项求导乘} \; \text{x} \\
 \Rightarrow \frac{x}{(1- x)^{2}} \; \text{（} \; \text{|x|<1} \; \text{）；验算} \; x=\frac{1}{2} \Rightarrow 2 \\
-(5) \frac{\sum 1}{n(n+1)}= \sum\left(\frac{1}{n}- \frac{1}{n+1}\right)= 1- \lim \frac{1}{N+1}= 1 \\
-(6) \frac{\sum(- 1)^{n+1}}{n}= \ln 2 \; \text{（条件收敛）；} \; \frac{\sum(- 1)^{n+1}}{n^{2}}= \pi^{2} 12 \; \text{（绝对收敛）}
+(5) \sum\frac{1}{n(n+1)}= \sum\left(\frac{1}{n}- \frac{1}{n+1}\right)= 1- \lim \frac{1}{N+1}= 1 \\
+(6) \sum\frac{(-1)^{n+1}}{n}= \ln 2 \; \text{（条件收敛）；} \; \sum\frac{(-1)^{n+1}}{n^{2}}= \frac{\pi^{2}}{12} \; \text{（绝对收敛）}
 $$
 
 ---
@@ -1416,10 +1416,10 @@ $$
 \text{(1)} \; \text{傅里叶级数逐项积分（在收敛区间内合法）：} \\
 \int_{0}^{x} t dt= \frac{2\sum(- 1)^{n+1}}{n} \int_{0}^{x} \sin nt dt \\
 \frac{x^{2}}{2}= \frac{2\sum(- 1)^{n+1}(1- \cos nx)}{n^{2}} \\
-\text{(2)} \; \text{取} \; x=\pi \; \text{：} \; \pi^{2} 2= \frac{2\sum(- 1)^{n+1}(1-(- 1)^{n})}{n^{2}}= 4\sum_{k \ge 1}\frac{1}{(2k- 1)^{2}} \\
-\Rightarrow \sum_{k \ge 1}\frac{1}{(2k- 1)^{2}}= \pi^{2} 8 \checkmark \\
+\text{(2)} \; \text{取} \; x=\pi \; \text{：} \; \frac{\pi^{2}}{2}= 2\sum\frac{(-1)^{n+1}\left(1-(-1)^{n}\right)}{n^{2}}= 4\sum_{k \ge 1}\frac{1}{(2k- 1)^{2}} \\
+\Rightarrow \sum_{k \ge 1}\frac{1}{(2k- 1)^{2}}= \frac{\pi^{2}}{8} \checkmark \\
 \text{(3)} \; \text{原展开式取} \; x=\frac{\pi}{2} \; \text{：} \; \frac{\pi}{2}= 2\left(1- \frac{1}{3}+ \frac{1}{5}- \cdots\right) \Rightarrow \; \text{交错奇倒数和} \; = \frac{\pi}{4} \\
-\text{(4)} \; \text{帕塞瓦尔：由} \; \text{|x|} \; \text{的余弦级数也可得} \; \frac{\sum 1}{n^{2}}= \pi^{2} 6
+\text{(4)} \; \text{帕塞瓦尔：由} \; \text{|x|} \; \text{的余弦级数也可得} \; \sum\frac{1}{n^{2}}= \frac{\pi^{2}}{6}
 $$
 **方法要点**：傅里叶级数既能「求和函数」也能「求数项和」；逐项积分后收敛性变好（系数多除一个 n）。
 
@@ -1692,11 +1692,11 @@ $$
 | 项目 | 公式 |
 | --- | --- |
 | 必要条件 | $\sum u_{n}$ 收敛 ⇒ $\lim u_{n}=0$ |
-| 基准级数 | $\sum q^{n}$ 收敛 ⇔ `|q|<1`；$\frac{\sum 1}{n^{p}}$ 收敛 ⇔ `p>1`；$\frac{\sum 1}{n(n+1)}=1$ |
-| 比值 / 根值 | $\rho=\lim \frac{u_{n+1}}{u_{n}}$ 或 $\lim^{n}\sqrt{u}_{n}$；$\rho<1$ 收敛、`>1` 发散、`=1` 失效 |
+| 基准级数 | $\sum q^{n}$ 收敛 ⇔ `|q|<1`；$\sum\frac{1}{n^{p}}$ 收敛 ⇔ `p>1`；$\sum\frac{1}{n(n+1)}=1$ |
+| 比值 / 根值 | $\rho=\lim \frac{u_{n+1}}{u_{n}}$ 或 $\lim_{n\to\infty}\sqrt[n]{u_{n}}$；$\rho<1$ 收敛、`>1` 发散、`=1` 失效 |
 | 交错 | 莱布尼茨：$u_{n}↓0$ ⇒ 收敛，$|r_{n}| \le u_{n+1}$ |
 | 幂级数 | $R=\lim|\frac{a_{n}}{a_{n+1}}|$；逐项求导/积分 R 不变 |
-| 常用和函数 | $\sum x^{n}=\frac{1}{1- x}$；$\sum n x^{n}=\frac{x}{(1- x)^{2}}$；$\frac{\sum x^{n}}{n}=- \ln(1- x)$；$\frac{\sum(- 1)^{n+1}}{n}=\ln 2$ |
+| 常用和函数 | $\sum x^{n}=\frac{1}{1- x}$；$\sum n x^{n}=\frac{x}{(1- x)^{2}}$；$\sum\frac{x^{n}}{n}=- \ln(1- x)$；$\sum\frac{(-1)^{n+1}}{n}=\ln 2$ |
 | 傅里叶系数 | $a_{n}=\left(\frac{1}{\pi}\right) \int_{- \pi}^{\pi}f \cos nx dx$，$b_{n}=\left(\frac{1}{\pi}\right) \int_{- \pi}^{\pi}f \sin nx dx$ |
 | 狄利克雷 | 间断点收敛于 $\frac{f(x^{-})+f(x^{+})}{2}$ |
 | 帕塞瓦尔 | $\left(\frac{1}{\pi}\right) \int_{- \pi}^{\pi}f^{2}dx= \frac{a_{0}^{2}}{2}+\sum(a_{n}^{2}+b_{n}^{2})$ |
@@ -1818,7 +1818,7 @@ $$
 85. `div A=0` 称无源场、`rot A=0` 称无旋场；$\nabla \cdot( \nabla \times A)=0$、$\nabla \times( \nabla f)=0$。
 86. 级数收敛的必要条件是通项趋于 0；调和级数说明它不充分。
 87. `p` 级数 `p>1` 收敛、几何级数 `|q|<1` 收敛，是两个最常用比较基准。
-88. 比值/根值法 $\rho=1$ 时失效（$\frac{\sum 1}{n}$ 与 $\frac{\sum 1}{n^{2}}$ 都是 $\rho=1$）。
+88. 比值/根值法 $\rho=1$ 时失效（$\sum\frac{1}{n}$ 与 $\sum\frac{1}{n^{2}}$ 都是 $\rho=1$）。
 89. 根值判别强于比值判别；阶乘型用比值、`n` 次幂型用根值。
 90. 交错级数莱布尼茨判收敛，但**绝对收敛性要另判**。
 91. 绝对收敛可任意重排；条件收敛重排可改变和（黎曼定理）。
