@@ -372,7 +372,9 @@ $\int_{a}^{b} f(x)dx= \lim_{\lambda \to 0} \sum f(\xi_{i})\Delta x_{i}$（$\lamb
 
 ::: tip 补充 · 用定积分定义求 n 项和极限
 形如 $\lim_{n \to \infty}\frac{1}{n}\sum_{k=1}^{n} f\left(\frac{k}{n}\right)$ 的极限，正是取 $x_{k}=\frac{k}{n}$、$\Delta x=\frac{1}{n}$、$\xi_{i}=x_{i}$ 的黎曼和，故等于 $\int_{0}^{1} f(x)dx$。
-例：$\lim\left(\frac{1}{n}\right)\left(\sqrt{1+\frac{1}{n}}+\sqrt{1+\frac{2}{n}}+ \cdots+\sqrt{1+\frac{n}{n}}\right)= \int_{0}^{1}\sqrt{1+x}dx=[ \frac{2}{3}(1+x)^{\frac{3}{2}}]_{0}^{1}= \frac{2}{3}\left(2\sqrt{2}- 1\right) \approx 1.2189$。
+例：
+
+$$\lim\left(\frac{1}{n}\right)\left(\sqrt{1+\frac{1}{n}}+\sqrt{1+\frac{2}{n}}+ \cdots+\sqrt{1+\frac{n}{n}}\right)= \int_{0}^{1}\sqrt{1+x}dx=\left[ \frac{2}{3}(1+x)^{\frac{3}{2}}\right]_{0}^{1}= \frac{2}{3}\left(2\sqrt{2}- 1\right) \approx 1.2189$$
 若和式不是标准 $\left(\frac{1}{n}\right)\sum f\left(\frac{k}{n}\right)$ 形状，先提出 `1/n` 凑形；凑不出的用夹逼放缩。
 :::
 
@@ -668,7 +670,7 @@ $f=x^{2}y+\sin(xy)$ ⇒ $f_{x}=2xy+y \cos(xy)$，$f_{y}=x^{2}+x \cos(xy)$。
 | 判别 | 结论 |
 | --- | --- |
 | 无条件极值必要条件 | $f_{x}=f_{y}=0$（驻点）或偏导不存在点 |
-| 记 $A=f_{xx}, B=f_{xy}, C=f_{gammagamma}$，$\Delta=AC- B^{2}$ | $\Delta>0$ 且 `A<0` 极大；$\Delta>0$ 且 `A>0` 极小；$\Delta<0$ 鞍点；$\Delta=0$ 失效 |
+| 记 $A=f_{xx}, B=f_{xy}, C=f_{yy}$，$\Delta=AC- B^{2}$ | $\Delta>0$ 且 `A<0` 极大；$\Delta>0$ 且 `A>0` 极小；$\Delta<0$ 鞍点；$\Delta=0$ 失效 |
 | 海森矩阵 | 正定 ⇒ 极小、负定 ⇒ 极大、不定 ⇒ 鞍点 |
 | 条件极值 | $L=f+\lambda \phi$（多约束 $L=f+\sum \lambda_{i}\phi_{i}$），解 $\nabla L=0$；几何含义 $\nabla f ∥ \nabla \phi$ |
 
@@ -1745,7 +1747,7 @@ $$
 | 隐函数 | $z_{x}=- \frac{F_{x}}{F_{z}}$；方程组用雅可比 $J=0$ |
 | 方向导数 / 梯度 | $\frac{\partial f}{\partial l}= \nabla f \cdot e_{l}$（可微时）；$\nabla f=(f_{x},f_{y},f_{z})$；最大值 $\vert  \nabla f\vert $ |
 | 切平面 / 法线 | $F_{x}(x- x_{0})+F_{y}(y- y_{0})+F_{z}(z- z_{0})=0$；法线方向 $\nabla F$ |
-| 极值判别 | $A=f_{xx},B=f_{xy},C=f_{gammagamma},\Delta=AC- B^{2}$；$\Delta>0$ 且 `A<0` 极大、`A>0` 极小；$\Delta<0$ 鞍点 |
+| 极值判别 | $A=f_{xx},B=f_{xy},C=f_{yy},\Delta=AC- B^{2}$；$\Delta>0$ 且 `A<0` 极大、`A>0` 极小；$\Delta<0$ 鞍点 |
 | 条件极值 | $L=f+\sum \lambda_{i}\phi_{i}$，解 $\nabla L=0$ |
 
 ### A.8 重积分与线面积分（第 10–11 章）

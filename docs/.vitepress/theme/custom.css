@@ -1110,3 +1110,29 @@ select:focus-visible {
   white-space: nowrap;
   word-break: keep-all;
 }
+
+/* ==========================================================================
+   表格内公式防溢出：超宽时在本单元格内部横向滚动，
+   绝不越界压到相邻单元格的文字/公式上（此前 Δ=AC−B² 曾压住右列 ">0 且"）。
+   vertical-align:middle 规避 overflow 非 visible 时 inline-block 基线漂移。
+   ========================================================================== */
+.vp-doc :is(td, th) > .katex {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  vertical-align: middle;
+  scrollbar-width: thin;
+}
+
+/* ==========================================================================
+   表格内公式防溢出：超宽时在本单元格内部横向滚动，
+   绝不越界压到相邻单元格的文字/公式上（此前 Δ=AC−B² 曾压住右列 ">0 且"）。
+   vertical-align:middle 规避 overflow 非 visible 时 inline-block 基线漂移。
+   ========================================================================== */
+.vp-doc :is(td, th) > .katex {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  vertical-align: middle;
+  scrollbar-width: thin;
+}
