@@ -135,7 +135,7 @@ JVM 运行时数据区（方法区存类元数据、堆存对象、栈存栈帧�
 | `错误: 找不到或无法加载主类 X` | `-cp` 没包含 class 输出目录；写了全限定名却没对应目录；类名大小写不符 | 检查 `java -cp out com.example.Main` 的包路径与目录一致 |
 | `类 X 是公共的，应在名为 X.java 的文件中声明` | public 类名与文件名不一致 | 改文件名或改类名 |
 | `UnsupportedClassVersionError` | 用低版本 JVM 运行高版本 `javac` 编译的 class | 统一 JDK 版本，或用 `javac --release 11` 指定目标版本 |
-| `javac 不是内部或外部命令` | `PATH` 未包含 `$JAVA_HOME/bin` | 配置 `JAVA_HOME` 并把 `bin` 加入 `PATH` |
+| `javac 不是内部或外部命令` | `PATH` 未包含 `$JAVA_HOME/bin` | 配置 `JAVA_HOME` 并把 `bin` 加入 `PATH` | 
 | 中文输出乱码 | 源文件编码与编译时 `-encoding` 不一致，或终端编码不同 | 统一 UTF-8，编译加 `-encoding UTF-8` |
 
 ---
@@ -945,7 +945,7 @@ public static <T extends Comparable<? super T>> T max(List<? extends T> list) {
 
 ### 9.4 实用 API（★★）
 - `List.of(a,b,c)`、`Set.of(...)`、`Map.of(k,v,...)`（Java 9+，不可变）；可变用 `new ArrayList<>()`。
-- 集合 \leftrightarrow  数组：`list.toArray(new String[0])`、`Arrays.asList(arr)`（返回**固定大小**的 List，不能 add/remove）。
+- 集合 ↔  数组：`list.toArray(new String[0])`、`Arrays.asList(arr)`（返回**固定大小**的 List，不能 add/remove）。
 
 ![HashMap 底层结构与扩容树化](/java/java-hashmap.svg)
 

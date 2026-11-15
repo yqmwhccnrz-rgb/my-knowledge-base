@@ -1059,3 +1059,23 @@ select:focus-visible {
 .vp-doc table:has(.katex) th:first-child {
   white-space: nowrap;
 }
+
+/* ==========================================================================
+   全部等式/算式「单独显示」：凡含关系符（= ≈ ≤ ≥ →）或分式的行内公式，
+   一律提升为独占一行、居中、淡底圆角卡片，与 $$ 块级公式观感一致。
+   单个符号（$i$、$a(t)$ 等）不含 .mrel/.mfrac，仍保持行内。
+   用直接子元素 > 排除 .katex-display 内部（那已是块级，不要二次包裹）。
+   ========================================================================== */
+.vp-doc :is(p:not(.katex-block), li, strong, em) > .katex:has(.mrel),
+.vp-doc :is(p:not(.katex-block), li, strong, em) > .katex:has(.mfrac) {
+  display: block;
+  margin: 0.75em auto;
+  padding: 0.6em 0.9em;
+  text-align: center;
+  font-size: 1.16em;
+  white-space: nowrap;
+  background: var(--vp-c-bg-soft);
+  border-radius: 8px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}

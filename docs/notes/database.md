@@ -165,7 +165,7 @@ DBMS 的主要功能：① **数据定义**（DDL）；② **数据操纵**（DM
 | 并 | $R \cup S$ | 属于 R 或 S 的元组（去重） |
 | 差 | $R- S$ | 属于 R 但不属于 S 的元组 |
 | 交 | $R \cap S$ | 同时属于两者的元组，$R \cap S= R-(R- S)$ |
-| 笛卡尔积 | $R \times S$ | R 的每个元组与 S 的每个元组拼接；基数 $=|R| \times|S|$，度数 `= 属性数之和` |
+| 笛卡尔积 | $R \times S$ | R 的每个元组与 S 的每个元组拼接；基数 $=\vert R\vert  \times\vert S\vert $，度数 `= 属性数之和` |
 | **选择** | $\sigma_{F}(R)$ | 按条件 F **选行**（水平方向） |
 | **投影** | $\pi_{A}(R)$ | 选出指定属性**列**并**去重**（垂直方向） |
 | **连接** | $R ⋈_{A\theta B} S$ | `σ_条件(R × S)`；等值连接、自然连接（自动按同名属性等值并去掉重复列） |
@@ -798,7 +798,7 @@ COMMIT;              -- 或 ROLLBACK（全部回滚）
 ![事务状态、ACID 与实现机制](/db/db-transaction.svg)
 
 ::: tip ACID 缩写与实现机制的映射
-上表是考研与面试的标准答案：**A\leftrightarrow undo、D\leftrightarrow redo、I\leftrightarrow 锁/MVCC、C\leftrightarrow 最终结果**。另外 MySQL 默认 `autocommit=1`，单条 DML 自动成为一个事务；显式事务需 `START TRANSACTION` 或 `SET autocommit=0`。
+上表是考研与面试的标准答案：**A↔ undo、D↔ redo、I↔ 锁/MVCC、C↔ 最终结果**。另外 MySQL 默认 `autocommit=1`，单条 DML 自动成为一个事务；显式事务需 `START TRANSACTION` 或 `SET autocommit=0`。
 :::
 
 ### 9.2 四类并发异常与四种隔离级别（★★★）
@@ -1138,9 +1138,9 @@ $$
 
 | 联系 | 例子 | 转换方式 |
 | --- | --- | --- |
-| 1:1 | 班级 \leftrightarrow  班长 | 在任一方加入另一方主码 + 联系属性；或单独建关系（较少） |
-| **1:n** | 系 \leftrightarrow  学生 | 在 **n 端**关系中加入 1 端主码作外码 + 联系属性（不单独建表） |
-| **m:n** | 学生 \leftrightarrow  课程 | **必须新建**一个关系，主码为两端主码的组合，含联系自身的属性（如成绩） |
+| 1:1 | 班级 ↔  班长 | 在任一方加入另一方主码 + 联系属性；或单独建关系（较少） |
+| **1:n** | 系 ↔  学生 | 在 **n 端**关系中加入 1 端主码作外码 + 联系属性（不单独建表） |
+| **m:n** | 学生 ↔  课程 | **必须新建**一个关系，主码为两端主码的组合，含联系自身的属性（如成绩） |
 | 多元 / 自联系 | 供应商-项目-零件 / 员工-经理 | 新建关系；自联系用角色名区分两个外码 |
 
 ![E-R 图、联系类型与向关系模式转换](/db/db-er.svg)
@@ -1687,7 +1687,7 @@ finally:
 | 25 | 用户权限 | $CREATE USER 'u'@'h' IDENTIFIED BY ' \cdots ';$ / $GRANT privileges ON db.t TO \cdots;$ / `REVOKE` / `SHOW GRANTS` |
 | 26 | 角色 | $CREATE ROLE r; GRANT \cdots TO r; GRANT r TO 'u'@'h'; SET DEFAULT ROLE r TO 'u'@'h';$ |
 | 27 | 事务 | $START TRANSACTION; \cdots SAVEPOINT sp; \cdots \frac{COMMIT}{ROLLBACK}[TO sp];$ |
-| 28 | ACID | $A \leftrightarrow undo \log$；C\leftrightarrow 完整性约束 + A/I/D；I\leftrightarrow 锁 + MVCC；$D \leftrightarrow redo \log$ |
+| 28 | ACID | $A \leftrightarrow undo \log$；C↔ 完整性约束 + A/I/D；I↔ 锁 + MVCC；$D \leftrightarrow redo \log$ |
 | 29 | 隔离级别 | `READ UNCOMMITTED / READ COMMITTED / REPEATABLE READ(MySQL 默认) / SERIALIZABLE` |
 | 30 | 查看隔离级别 | `SELECT @@transaction_isolation;`（MySQL 8.0；旧版 `@@tx_isolation`） |
 | 31 | 显式加锁 | `SELECT … FOR UPDATE`（X）/ `LOCK IN SHARE MODE`（S，8.0 可用 `FOR SHARE`） |

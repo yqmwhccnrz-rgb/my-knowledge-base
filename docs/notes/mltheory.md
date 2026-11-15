@@ -169,10 +169,10 @@ $$
 | --- | --- | --- |
 | 和规则（边际） | $p(x)= \sum_{y} p(x,y)$ | 离散求和、连续积分 |
 | 积规则 | `p(x,y) = p(y|x)p(x)` | 链式法则的基础 |
-| 全概率 | $p(x)= \sum_{k} p(x|C_{k})p(C_{k})$ | 生成式分类的基础 |
+| 全概率 | $p(x)= \sum_{k} p(x\vert C_{k})p(C_{k})$ | 生成式分类的基础 |
 | 贝叶斯 | $p(\theta\mid D)=\dfrac{p(D\mid\theta)\,p(\theta)}{p(D)}$ | 先验 → 似然 → 后验 |
-| 最大似然 MLE | $\hat{\theta}= \operatorname*{argmax}_\theta \sum_{i} \log p(x_{i}|\theta)$ | 点估计，视 θ 为未知常数 |
-| 最大后验 MAP | $\hat{\theta}= \operatorname*{argmax}_\theta[\sum_{i} \log p(x_{i}|\theta)+ \log p(\theta)]$ | 加先验；等价于带正则的 MLE |
+| 最大似然 MLE | $\hat{\theta}= \operatorname*{argmax}_\theta \sum_{i} \log p(x_{i}\vert \theta)$ | 点估计，视 θ 为未知常数 |
+| 最大后验 MAP | $\hat{\theta}= \operatorname*{argmax}_\theta[\sum_{i} \log p(x_{i}\vert \theta)+ \log p(\theta)]$ | 加先验；等价于带正则的 MLE |
 
 ::: tip 工作例题 · MLE 与 MAP
 抛硬币 N 次出现 m 次正面，Bernoulli 的 MLE 为 $\hat{p}= \frac{m}{N}$（如 N=10、$m=7 \to 0.7$）。
@@ -1578,7 +1578,7 @@ $$
 | VAE | 下界 | 一次前向 | 训练稳、有编码器，样本偏模糊 |
 | GAN | 无显式似然 | 一次前向 | 样本清晰、训练不稳、易模式崩塌 |
 | 扩散 | 变分下界 | **多步迭代** | 质量高、训练稳，但采样慢 |
-| 归一化流 | **精确** $\log p(x)=\log p(z)+\sum \log|\det J|$ | 一次可逆变换 | 要求变换可逆、维度不变 |
+| 归一化流 | **精确** $\log p(x)=\log p(z)+\sum \log\vert \det J\vert $ | 一次可逆变换 | 要求变换可逆、维度不变 |
 
 ::: danger 易错 · 生成模型
 - 扩散的「前向加噪」是**固定**、无需学习的过程；只有「反向去噪网络」含参数。
@@ -2075,7 +2075,7 @@ $$x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 
 | 偏差方差 | $Err= Bias^{2}+ \operatorname{Var}+ \sigma^{2}$ |
 | 泛化界 | $R- \hat{R} \le \sqrt{\frac{\ln\lvert H\rvert+\ln\left(\frac{2}{\delta}\right)}{2N}}$（有限 H） |
 | 贝叶斯 | $p(\theta\mid D)=\dfrac{p(D\mid\theta)\,p(\theta)}{p(D)}$ |
-| MLE / MAP | $\operatorname*{argmax} \sum \log p(x_{i}|\theta)$ / 加 $\log p(\theta)$ |
+| MLE / MAP | $\operatorname*{argmax} \sum \log p(x_{i}\vert \theta)$ / 加 $\log p(\theta)$ |
 | 熵 / 交叉熵 / KL | $H=- \sum p \log p$；$H(p,q)=- \sum p \log q$；$D_{KL}=\sum p \log\left(\frac{p}{q}\right) \ge 0$ |
 | 梯度下降 | $w \leftarrow w- \eta \nabla_{w} L$；动量 $v \leftarrow \alpha v- \eta g$ |
 | Adam 参数 | $\eta=0.001, \beta_{1}=0.9, \beta_{2}=0.999, \epsilon=1e- 8$ |
@@ -2112,7 +2112,7 @@ $$x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 
 | RBF 核 | $\exp\left(- \| x- z \| \frac{^{2}}{2\sigma^{2}}\right)$ |
 | SVM 原/对偶 | $\min \frac{1}{2} \| w \|^{2}+C\sum \xi$；$\max \sum \alpha_{i}- \frac{1}{2} \sum \alpha_{i}\alpha_{j}y_{i}y_{j}k(x_{i},x_{j})$ |
 | 间隔 | $\gamma=\frac{2}{\|w\|}$ |
-| 熵 / 增益 | $H=- \sum p \log_{2}p$；$G=H(D)- H(D|A)$（取最大） |
+| 熵 / 增益 | $H=- \sum p \log_{2}p$；$G=H(D)- H(D\vert A)$（取最大） |
 | 增益率 / 基尼 | $GR=\frac{G}{SplitInfo}$；$Gini=1- \sum p^{2}$（取最小） |
 | AdaBoost | $\alpha_{t}= \frac{1}{2} \ln\left(\frac{1- \epsilon_{t}}{\epsilon}_{t}\right)$；$w_{i} \leftarrow w_{i}e^{- \alpha_{t}y_{i}h_{t}}$ |
 | XGBoost | $w*=- \frac{G}{H+\lambda}$；$Gain= \frac{1}{2}[\frac{G_{L}^{2}}{H_{L}+\lambda}+\frac{G_{R}^{2}}{H_{R}+\lambda}- \frac{G^{2}}{H+\lambda}]- \gamma$ |
@@ -2135,18 +2135,18 @@ $$x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 
 | 项目 | 公式 |
 | --- | --- |
 | K-means | $J=\sum_{n}\sum_{k}r_{nk} \| x_{n}- \mu_{k} \|^{2}$；交替 E/M 步 |
-| GMM / EM | $p(x)=\sum \pi_{k}N\left(x|\mu_{k},\sum_{k}\right)$；$\gamma(z_{nk})=p(z_{k}=1|x_{n})$ |
+| GMM / EM | $p(x)=\sum \pi_{k}N\left(x\vert \mu_{k},\sum_{k}\right)$；$\gamma(z_{nk})=p(z_{k}=1\vert x_{n})$ |
 | PCA / ICA | 协方差特征分解 / `x=As`，独立性 + 非高斯性 |
 | 回报 | $G_{t}=\sum_{k}\gamma^{k}R_{t+k+1}$ |
 | 贝尔曼 | $V^\pi(s)=E[R+\gamma V^\pi(s')]$；$V*(s)=\max_{a}E[R+\gamma V*(s')]$ |
 | Q-learning | $Q \leftarrow Q+\alpha[r+\gamma \max_{a}'Q(s',a')- Q]$ |
 | 值函数逼近 | `Δw=α(目标−预测)x(s)` |
-| 策略梯度 | $\nabla J=E[\sum \nabla \log \pi(a|s) \cdot G_{t}]$ |
-| ELBO | $\log p(x) \ge E_{q}[\log p(x|z)]- D_{KL}(q(z|x) \| p(z))$ |
+| 策略梯度 | $\nabla J=E[\sum \nabla \log \pi(a\vert s) \cdot G_{t}]$ |
+| ELBO | $\log p(x) \ge E_{q}[\log p(x\vert z)]- D_{KL}(q(z\vert x) \| p(z))$ |
 | 重参数 | $z=\mu+\sigma ⊙\epsilon, \epsilon \sim N(0,I)$ |
 | GAN | $\min_{G} \max_{D} E[\log D(x)]+E[\log(1- D(G(z)))]$ |
 | 扩散 | $x_{t}=\sqrt{\alpha}_{t}x_{t-1}+\sqrt{1- \alpha_{t}}\epsilon$；$\bar{\alpha}_{t}=\Pi \alpha_{s}$ |
-| 归一化流 | $\log p(x)=\log p(z)+\sum \log|\det \frac{\partial f}{\partial x}|$ |
+| 归一化流 | $\log p(x)=\log p(z)+\sum \log\vert \det \frac{\partial f}{\partial x}\vert $ |
 
 ### A.7 常用超参数与复杂度速查
 
@@ -2209,7 +2209,7 @@ sklearn 的 `C` 是**正则系数的倒数**（$C=\frac{1}{\lambda}$），C 越�
 | Adam 默认 | $\eta=0.001, \beta_{1}=0.9, \beta_{2}=0.999, \epsilon=1e- 8$ |
 | PSI 阈值 | `<0.1` 稳定、$0.1- 0.25$ 关注、`>0.25` 显著漂移 |
 | XGBoost 例题 | $Gain \approx 2.0667$、`w*_L=0.6667`、$w*_{R}=- 1.0$ |
-| 泛化界例题 | $|H|=1000,N=100,\delta=0.05$ → $\approx 0.2302$ |
+| 泛化界例题 | $\vert H\vert =1000,N=100,\delta=0.05$ → $\approx 0.2302$ |
 
 ### A.10 一页纸复习提纲（每章三条）
 
@@ -2245,7 +2245,7 @@ sklearn 的 `C` 是**正则系数的倒数**（$C=\frac{1}{\lambda}$），C 越�
 | 反向传播 | 链式法则 | $\delta^{(l)}=(W^{(l+1)})^{T}\delta^{(l+1)}⊙\phi '$ | $\frac{\partial L}{\partial W}=\delta(a)^{T}$ |
 | 卷积反向 | `y=Cx`（Toeplitz） | $\frac{\partial L}{\partial x}=\frac{C^{T} \partial L}{\partial y}$ | 转置卷积 / 尺寸 $(H- 1)S- 2P+K$ |
 | 注意力 | $\frac{QK^{T}}{\sqrt{d}_{k}}$ | 逐行 softmax | `A V`，$O(n^{2}d)$ |
-| PCA 等价性 | $\max w^{T}Sw$ \leftrightarrow  $\min \| X- Xww^{T} \|^{2}$ | 拉格朗日 $Sw=\lambda w$ | 前 m 个特征向量 |
+| PCA 等价性 | $\max w^{T}Sw$ ↔  $\min \| X- Xww^{T} \|^{2}$ | 拉格朗日 $Sw=\lambda w$ | 前 m 个特征向量 |
 | EM / ELBO | Jensen 不等式 | `q=p(z\|x)` 时界取等 | 似然单调不降 |
 | 值迭代 | 贝尔曼最优算子 | γ-压缩映射 | 唯一不动点 `V*` |
 | 策略梯度 | log-derivative trick | 减只依赖 s 的基线 | $\nabla J=E[ \nabla \log \pi \cdot A]$ |

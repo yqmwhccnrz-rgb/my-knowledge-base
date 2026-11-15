@@ -49,7 +49,7 @@ summary: "高等数学 全面详解笔记，将上下册内容按知识逻辑综
 | 概念 | 定义 / 判据 | 要点 |
 | --- | --- | --- |
 | 函数 | $y= f(x), x \in D$ | **两要素**：定义域 D 与对应规则 f；二者完全相同才是同一函数 |
-| 有界 | $\exists M> 0,|f(x)| \le M$ | 有界性依赖于所给区间（如 `1/x` 在 (0,1) 无界、在 [1,2] 有界） |
+| 有界 | $\exists M> 0,\vert f(x)\vert  \le M$ | 有界性依赖于所给区间（如 `1/x` 在 (0,1) 无界、在 [1,2] 有界） |
 | 单调 | $x_{1}< x_{2} \Rightarrow f(x_{1}) \le f(x_{2})$ | 严格单调是反函数存在的充分条件 |
 | 奇偶 | $f(- x)=- f(x)$ / $f(- x)= f(x)$ | 前提：定义域关于原点对称；奇函数若在 0 有定义则 `f(0)=0` |
 | 周期 | `f(x+T) = f(x)` | `sin x, cos x` 周期 $2\pi$；`tan x` 周期 $\pi$；常数函数无最小正周期 |
@@ -417,7 +417,7 @@ $$
 | 比较判别 | $0 \le f \le g$，$\int g$ 收敛 ⇒ $\int f$ 收敛；$\int f$ 发散 ⇒ $\int g$ 发散 |
 | 极限比较 | $\lim \frac{f}{g}= c \in(0, \infty)$ ⇒ 同敛散；`c=0` 且 $\int g$ 收敛 ⇒ $\int f$ 收敛；$c= \infty$ 且 $\int g$ 发散 ⇒ $\int f$ 发散 |
 | 柯西判别（p 判别） | $\int_{1}^\infty f(x)dx$：若 $\lim x^{p} f(x)= c$ 且 `p>1` ⇒ 收敛；$p \le 1$ 且 `c>0` ⇒ 发散。瑕积分换用 $\lim(x- a)^{p} f(x)$，`p<1` 收敛 |
-| 绝对/条件收敛 | $\int|f|$ 收敛 ⇒ $\int f$ 收敛；反之称条件收敛（如 $\int_{1}^\infty \sin \frac{x}{x dx}$） |
+| 绝对/条件收敛 | $\int\vert f\vert $ 收敛 ⇒ $\int f$ 收敛；反之称条件收敛（如 $\int_{1}^\infty \sin \frac{x}{x dx}$） |
 | Γ / B 函数 | $\Gamma(s)$、$B(p,q)=\frac{\Gamma(p)\Gamma(q)}{\Gamma}(p+q)$，把许多反常积分化为特殊函数值 |
 
 ---
@@ -433,7 +433,7 @@ $$
 
 | 几何量 | 直角坐标 | 极坐标 / 参数式 |
 | --- | --- | --- |
-| 平面面积 | $A= \int_{a}^{b}|f- g|dx$ | $A= \frac{1}{2} \int_{a}ᵝ r^{2}(\theta)d\theta$ |
+| 平面面积 | $A= \int_{a}^{b}\vert f- g\vert dx$ | $A= \frac{1}{2} \int_{a}ᵝ r^{2}(\theta)d\theta$ |
 | 旋转体体积（绕 x） | $V=\pi \int_{a}^{b} f^{2}(x)dx$ | 绕 y 轴柱壳 $V=2\pi \int_{a}^{b} x f(x)dx$ |
 | 已知截面 | $V= \int_{a}^{b} A(x)dx$ | — |
 | 弧长 | $s= \int_{a}^{b}\sqrt{1+y'^{2}}dx$ | $s= \int \sqrt{\dot{x}^{2}+\dot{y}^{2}}dt$；$s= \int \sqrt{r^{2}+r'^{2}}d\theta$ |
@@ -535,10 +535,10 @@ $L[y]=y^{(n)}+a_{1}(x)y^{(n-1)}+ \cdots+a_{n}(x)y$ 是**线性算子**，故：
 
 | 运算 | 定义 | 性质与用途 |
 | --- | --- | --- |
-| 数量积 | `a·b = |a||b|cosθ = axbx+aᵧbᵧ+a_zb_z` | 结果是**标量**；夹角 `cosθ=a·b/(|a||b|)`；投影 $Prj_{b} a= a \cdot b|b|$；垂直 ⇔ $a \cdot b=0$ |
-| 向量积 | $a\times b=(a_{y}b_{z}-a_{z}b_{y},\;a_{z}b_{x}-a_{x}b_{z},\;a_{x}b_{y}-a_{y}b_{x})$ | 结果是**向量**，$\bot a$ 且 $\bot b$（右手系）；$|a \times b|$ = 平行四边形面积；平行 ⇔ $a \times b=0$；**反交换** $a \times b=- b \times a$ |
+| 数量积 | `a·b = |a||b|cosθ = axbx+aᵧbᵧ+a_zb_z` | 结果是**标量**；夹角 `cosθ=a·b/(|a||b|)`；投影 $Prj_{b} a= a \cdot b\vert b\vert $；垂直 ⇔ $a \cdot b=0$ |
+| 向量积 | $a\times b=(a_{y}b_{z}-a_{z}b_{y},\;a_{z}b_{x}-a_{x}b_{z},\;a_{x}b_{y}-a_{y}b_{x})$ | 结果是**向量**，$\bot a$ 且 $\bot b$（右手系）；$\vert a \times b\vert $ = 平行四边形面积；平行 ⇔ $a \times b=0$；**反交换** $a \times b=- b \times a$ |
 | 混合积 | $[a b c]=(a \times b) \cdot c$（三阶行列式） | 绝对值 = 平行六面体体积；三向量共面 ⇔ 混合积 = 0；轮换不变、对换变号 |
-| 方向余弦 | $\cos \alpha=a_{x}|a|$ 等 | $\cos^{2}\alpha+\cos^{2}\beta+\cos^{2}\gamma=1$ |
+| 方向余弦 | $\cos \alpha=a_{x}\vert a\vert $ 等 | $\cos^{2}\alpha+\cos^{2}\beta+\cos^{2}\gamma=1$ |
 
 ::: tip 工作例题 · 三种积手算
 $a=(1,2,- 1)$，`b=(3,0,2)`：
@@ -610,7 +610,7 @@ $|a|= \sqrt{1+4+1}= \sqrt{6} \approx 2.449$；$\cos \theta= \frac{1}{\sqrt{6} \c
 
 | 概念 | 定义 / 判据 |
 | --- | --- |
-| 二重极限 | $\forall \epsilon>0 \exists \delta>0, 0<\sqrt{(x- x_{0})^{2}+(y- y_{0})^{2}}<\delta \Rightarrow|f- A|<\epsilon$；要求**沿任意路径**趋于同一值 |
+| 二重极限 | $\forall \epsilon>0 \exists \delta>0, 0<\sqrt{(x- x_{0})^{2}+(y- y_{0})^{2}}<\delta \Rightarrow\vert f- A\vert <\epsilon$；要求**沿任意路径**趋于同一值 |
 | 累次极限 | `lim_x lim_y f` 与 `lim_y lim_x f`；二者存在且不等 ⇒ 二重极限不存在（反之不成立） |
 | 偏导数 | $f_{x}(x_{0},y_{0})=\lim \frac{f(x_{0}+h,y_{0})- f(x_{0},y_{0})}{h}$（固定其余变量） |
 | 全微分 | $\Delta z= A\Delta x+B\Delta y+o(\rho)$，$\rho=\sqrt{\Delta x^{2}+\Delta y^{2}}$ ⇒ $dz=f_{x}dx+f_{y}dy$ |
@@ -626,7 +626,7 @@ $$
 
 ::: danger 易错 · 多元微分
 - 判定二重极限**不存在**：沿 `y=kx` 得依赖 `k` 的值，或沿 `y=x` 与 $y=x^{2}$ 得不同值，即可判否。但沿有限条路径都相同**不能**判存在。
-- 偏导数存在 \not\Rightarrow  连续、\not\Rightarrow  可微；可微才保证「沿任意方向的方向导数都存在且等于 $\nabla f \cdot e$」。
+- 偏导数存在 ⇏  连续、⇏  可微；可微才保证「沿任意方向的方向导数都存在且等于 $\nabla f \cdot e$」。
 - 二阶混合偏导 $f_{xy}= f_{gammax}$ 需要**连续**条件（克莱罗 / 施瓦茨定理），否则可能不等。
 :::
 
@@ -842,8 +842,8 @@ $\sum u_{n}$ 收敛 ⇔ 部分和序列 $S_{n}= \sum_{k=1}^{n} u_{k}$ 收敛。*
 | 正项 | 比值（达朗贝尔） | $\rho=\lim \frac{u_{n+1}}{u_{n}}$：$\rho<1$ 收敛、$\rho>1$ 发散、`=1` 失效 |
 | 正项 | 根值（柯西） | $\rho=\lim_{n\to\infty}\sqrt[n]{u_{n}}$，同上 |
 | 正项 | 积分判别 | $u_{n}=f(n)$，`f` 正递减 ⇒ $\sum u_{n}$ 与 $\int_{1}^\infty f(x)dx$ 同敛散 |
-| 交错 | 莱布尼茨 | $u_{n}$ 单调递减且趋于 0 ⇒ 收敛，余项 $|r_{n}| \le u_{n+1}$ |
-| 一般 | 绝对收敛 | $\sum|u_{n}|$ 收敛 ⇒ $\sum u_{n}$ 收敛；反之称条件收敛 |
+| 交错 | 莱布尼茨 | $u_{n}$ 单调递减且趋于 0 ⇒ 收敛，余项 $\vert r_{n}\vert  \le u_{n+1}$ |
+| 一般 | 绝对收敛 | $\sum\vert u_{n}\vert $ 收敛 ⇒ $\sum u_{n}$ 收敛；反之称条件收敛 |
 
 **收敛级数的性质**：可逐项加减、乘常数、任意加括号；**绝对收敛可任意重排且和不变**，条件收敛重排可改变和甚至发散（黎曼重排定理）。
 
@@ -899,7 +899,7 @@ $a_{n}=\left(\frac{1}{\pi}\right) \int_{- \pi}^{\pi} f(x)\cos nx dx$，$b_{n}=\l
 | 情形 | 展开形式 |
 | --- | --- |
 | `f` 奇（$- \pi,\pi$） | 正弦级数，只含 $b_{n}$（$f(x)=x \Rightarrow x= 2\sum(- 1)^{n+1} \sin \frac{nx}{n}$） |
-| `f` 偶（$- \pi,\pi$） | 余弦级数，只含 $a_{n}$（$f(x)=|x| \Rightarrow|x|= \frac{\pi}{2}-\left(\frac{4}{\pi}\right)\sum \frac{\cos(2k- 1)x}{(2k- 1)^{2}}$） |
+| `f` 偶（$- \pi,\pi$） | 余弦级数，只含 $a_{n}$（$f(x)=\vert x\vert  \Rightarrow\vert x\vert = \frac{\pi}{2}-\left(\frac{4}{\pi}\right)\sum \frac{\cos(2k- 1)x}{(2k- 1)^{2}}$） |
 | $[0,\pi]$ 上给定 | 作奇延拓得正弦级数、偶延拓得余弦级数 |
 | 周期 `2l` | 把 `nx` 换成 $\frac{n\pi x}{l}$，系数中 $\frac{1}{\pi}$ 换 `1/l` |
 
@@ -1148,7 +1148,7 @@ $$
 | `math-ode` | 分类决策树 | 先判阶数与线性，再判齐次/可分离；共振要乘 $x^{k}$ |
 | `math-vector` | 三种积、平面法向量、直线方向 | 直线一般式的方向是两法向量的叉积 |
 | `math-surface` | 二次曲面截痕 | 缺变量是柱面；负号个数决定单/双叶 |
-| `math-multivariable` | 关系链、梯度与等值线 | 偏导存在 \not\Rightarrow  连续、\not\Rightarrow  可微（与一元不同） |
+| `math-multivariable` | 关系链、梯度与等值线 | 偏导存在 ⇏  连续、⇏  可微（与一元不同） |
 | `math-extremum` | $\Delta=AC- B^{2}$ 判别、约束曲线 | 梯度与约束梯度平行即拉格朗日条件 |
 | `math-multiple-integral` | X/Y 型区域、极/球坐标 | 换序三步；球坐标 $dV=\rho^{2}\sin \phi d\rho d\phi d\theta$ |
 | `math-field` | 闭曲线/闭曲面与定向 | 三大公式 = 边界积分 = 内部导数积分；奇点必须挖洞 |
@@ -1186,7 +1186,7 @@ $$
 | 幂指函数 `u(x)^{v(x)}` | 取对数或化为 $e^{v \ln u}$ |
 | 高阶导数 / 求 $f^{(n)}(0)$ | 莱布尼茨公式、已知展开式系数、或递推 |
 | 导数几何应用 | 切线 $y- f(x_{0})=f'(x_{0})(x- x_{0})$，法线斜率 $- \frac{1}{f}'$；注意 `f′=0` 时法线竖直 |
-| 含绝对值的可导性 | $g(x)|x- a|$ 在 a 可导 ⇔ `g(a)=0` |
+| 含绝对值的可导性 | $g(x)\vert x- a\vert $ 在 a 可导 ⇔ `g(a)=0` |
 
 ### 第 3 章 · 中值定理与导数应用
 
@@ -1289,7 +1289,7 @@ $$
 | 题型 | 标准动作 |
 | --- | --- |
 | 判正项级数敛散 | 等价无穷小找主阶 → 与 $\frac{1}{n^{p}}$ 极限比较；阶乘/指数用比值；`n` 次幂用根值 |
-| 判交错 / 一般项 | 莱布尼茨判收敛；再判 $\sum|u_{n}|$ 得绝对或条件收敛 |
+| 判交错 / 一般项 | 莱布尼茨判收敛；再判 $\sum\vert u_{n}\vert $ 得绝对或条件收敛 |
 | 求收敛半径 / 域 | 比值或根值求 R，$x=x_{0}±R$ 两端点单独判 |
 | 求和函数 | 逐项求导/积分化为几何级数 → 求和 → 逆运算还原 → 定常数 → 讨论端点 |
 | 展开为幂级数 | 用五个基本展开 + 四则/复合/逐项积分；记住收敛域可能缩小 |
@@ -1433,7 +1433,7 @@ $$
 $$
 **方法要点**：傅里叶级数既能「求和函数」也能「求数项和」；逐项积分后收敛性变好（系数多除一个 n）。
 
-### 综 5 · 多元极值 \leftrightarrow  条件极值 \leftrightarrow  经济学（第 3、9 章）
+### 综 5 · 多元极值 ↔  条件极值 ↔  经济学（第 3、9 章）
 
 题：在 $x^{2}+y^{2}+z^{2}=1$ 下求 `f=xyz` 的最大值，并说明与微观经济学条件极值的关系。
 
@@ -1508,7 +1508,7 @@ $$
 | 17 | 分部积分 `u` 选取 | 换元顺序 | 「反对幂指三」取 u；换元看复合结构 |
 | 18 | 积分上限函数 | 变限积分 | 前者 $\int_{a}^{x}$，后者上下限都变；求导通式不同 |
 | 19 | 无穷区间反常积分 | 瑕积分 | $\int_{1}^\infty x^{- p}$ 收敛 p>1；$\int_{0}^{1} x^{- p}$ 收敛 p<1（方向相反） |
-| 20 | 绝对收敛（积分） | 条件收敛 | $\int|f|$ 收敛 ⇒ $\int f$ 收敛；反之不然 |
+| 20 | 绝对收敛（积分） | 条件收敛 | $\int\vert f\vert $ 收敛 ⇒ $\int f$ 收敛；反之不然 |
 | 21 | 微元 `dU` | 增量 $\Delta U$ | 要求 $\Delta U- dU=o(dx)$，即「以直代曲」的误差为高阶 |
 | 22 | 弧长公式 | 旋转曲面面积 | $\int \sqrt{1+y'^{2}}dx$ vs $2\pi \int y\sqrt{1+y'^{2}}dx$ |
 | 23 | 齐次方程（一阶） | 齐次线性方程 | $y'=\phi\left(\frac{y}{x}\right)$ vs `y′+P(x)y=0`；同名不同义 |
@@ -1520,7 +1520,7 @@ $$
 | 29 | 平面法向量 | 直线方向向量 | 直线一般式方向 = 两平面法向量叉积 |
 | 30 | 柱面 | 旋转曲面 | 方程缺一个变量 vs 由母线绕轴旋转生成 |
 | 31 | 二重极限 | 累次极限 | 二重极限沿任意路径；累次极限是先后两次一元极限 |
-| 32 | 偏导数存在 | 可微 | 多元中偏导存在 \not\Rightarrow  连续、\not\Rightarrow  可微；偏导连续 ⇒ 可微 |
+| 32 | 偏导数存在 | 可微 | 多元中偏导存在 ⇏  连续、⇏  可微；偏导连续 ⇒ 可微 |
 | 33 | 方向导数 | 梯度 | 方向导数是标量（沿某方向变化率）；梯度是向量（最大增长方向） |
 | 34 | 全微分形式不变性 | 链式法则 | 前者说 $dz=f_{u}du+f_{vdv}$ 形式不变，后者给出偏导的具体组合 |
 | 35 | 无条件极值 $\Delta=AC- B^{2}$ | 条件极值拉格朗日 | 前者判驻点性质，后者处理带约束；λ 不是所求 |
@@ -1558,7 +1558,7 @@ $$
 | $\nabla, \nabla \cdot, \nabla \times, \nabla^{2}$ | 梯度 / 散度 / 旋度 / 拉普拉斯算子 | Nabla 算子 |
 | $\partial, \frac{\partial(F,G)}{\partial}(u,v)$ | 偏导 / 雅可比行列式 | 隐函数方程组与重积分换元 |
 | $\rho, \phi, \theta, r$ | 球径 / 天顶角 / 方位角 / 极径 | 球坐标 $\phi$ 是与 z 轴夹角 |
-| $|a|, a \cdot b, a \times b,[a b c]$ | 模 / 数量积 / 向量积 / 混合积 | 三种积结果类型不同 |
+| $\vert a\vert , a \cdot b, a \times b,[a b c]$ | 模 / 数量积 / 向量积 / 混合积 | 三种积结果类型不同 |
 | $\Delta=AC- B^{2}$ | 判别式 | 二元极值判别；`H` 为海森矩阵 |
 | $\kappa, \rho=\frac{1}{\kappa}$ | 曲率 / 曲率半径 | 注意 ρ 与球坐标 ρ 同名不同义 |
 | `R` | 收敛半径 | 收敛域需另判端点 |
@@ -1633,7 +1633,7 @@ $$
 | 单调 / 凹凸 | `f′>0` 增；`f″>0` 凹（∪） |
 | 极值充分 | $f'(x_{0})=0, f''(x_{0})<0$ 极大、`>0` 极小 |
 | 渐近线 | 水平 `y=A`；铅直 $x=x_{0}$；斜 $a=\lim \frac{f}{x}, b=\lim(f- ax)$ |
-| 曲率 | $\kappa=|y''|(1+y'^{2})^{\frac{3}{2}}$，$\rho=\frac{1}{\kappa}$ |
+| 曲率 | $\kappa=\vert y''\vert (1+y'^{2})^{\frac{3}{2}}$，$\rho=\frac{1}{\kappa}$ |
 
 ### A.4 积分（第 4–6 章）
 
@@ -1646,7 +1646,7 @@ $$
 | 区间再现 | $\int_{a}^{b}f(x)dx= \int_{a}^{b}f(a+b- x)dx$；$\int_{0}^\pi x f(\sin x)dx=\left(\frac{\pi}{2}\right) \int_{0}^\pi f(\sin x)dx$ |
 | 华里士 | $I_{n}= \int_{0}^{\frac{\pi}{2}}\sin^{n}x dx$，$I_{n}=\frac{n- 1}{n \cdot I_{n-2}}$；偶 $(n- 1)!! n!! \frac{\cdot \pi}{2}$，奇 $(n- 1)!! n!!$ |
 | 反常积分 | $\int_{1}^\infty x^{- p}$ 收敛 ⇔ `p>1`；$\int_{0}^{1}x^{- p}$ 收敛 ⇔ `p<1`；$\int_{0}^\infty e^{- x^{2}}dx=\frac{\sqrt{\pi}}{2}$ |
-| 微元法应用 | 面积 $\int|f- g|dx$；极坐标 $\frac{1}{2} \int r^{2}d\theta$；体积 $\pi \int f^{2}dx$（绕 x）、$2\pi \int x f dx$（绕 y）；弧长 $\int \sqrt{1+y'^{2}}dx$；功 $\int F dx$ |
+| 微元法应用 | 面积 $\int\vert f- g\vert dx$；极坐标 $\frac{1}{2} \int r^{2}d\theta$；体积 $\pi \int f^{2}dx$（绕 x）、$2\pi \int x f dx$（绕 y）；弧长 $\int \sqrt{1+y'^{2}}dx$；功 $\int F dx$ |
 
 ### A.5 微分方程（第 7 章）
 
@@ -1664,10 +1664,10 @@ $$
 | 项目 | 公式 |
 | --- | --- |
 | 三种积 | $a\cdot b=a_{x}b_{x}+a_{y}b_{y}+a_{z}b_{z}$；$a \times b$ 为叉积分量；$[a b c]=(a \times b) \cdot c$ |
-| 平面 | `Ax+By+Cz+D=0`，`n=(A,B,C)`；点面距 $d=|Ax_{0}+By_{0}+Cz_{0}+D| \sqrt{A^{2}+B^{2}+C^{2}}$ |
+| 平面 | `Ax+By+Cz+D=0`，`n=(A,B,C)`；点面距 $d=\vert Ax_{0}+By_{0}+Cz_{0}+D\vert  \sqrt{A^{2}+B^{2}+C^{2}}$ |
 | 直线 | $\frac{x- x_{0}}{m}=\frac{y- y_{0}}{n}=\frac{z- z_{0}}{p}$，`s=(m,n,p)`；一般式 $s=n_{1} \times n_{2}$ |
 | 夹角 | 面面 `cosθ=|n1·n2|/(|n1||n2|)`；线面 `sinθ=|s·n|/(|s||n|)` |
-| 异面直线距离 | $d=|[s_{1} s_{2} P_{1}P_{2}]||s_{1} \times s_{2}|$ |
+| 异面直线距离 | $d=\vert [s_{1} s_{2} P_{1}P_{2}]\vert \vert s_{1} \times s_{2}\vert $ |
 | 旋转曲面 | 绕 z 轴：$f(y,z)=0 \Rightarrow f\left(\pm\sqrt{x^{2}+y^{2}}, z\right)=0$ |
 
 ### A.7 多元微分（第 9 章）
@@ -1677,7 +1677,7 @@ $$
 | 全微分 | $dz=f_{x}dx+f_{y}dy$；可微要求 $\Delta z- dz=o(\rho)$ |
 | 链式 | $z=f(u,v), u=u(x,y), v=v(x,y) \Rightarrow z_{x}=f_{u}u_{x}+f_{v}v_{x}$ |
 | 隐函数 | $z_{x}=- \frac{F_{x}}{F_{z}}$；方程组用雅可比 $J=0$ |
-| 方向导数 / 梯度 | $\frac{\partial f}{\partial l}= \nabla f \cdot e_{l}$（可微时）；$\nabla f=(f_{x},f_{y},f_{z})$；最大值 $| \nabla f|$ |
+| 方向导数 / 梯度 | $\frac{\partial f}{\partial l}= \nabla f \cdot e_{l}$（可微时）；$\nabla f=(f_{x},f_{y},f_{z})$；最大值 $\vert  \nabla f\vert $ |
 | 切平面 / 法线 | $F_{x}(x- x_{0})+F_{y}(y- y_{0})+F_{z}(z- z_{0})=0$；法线方向 $\nabla F$ |
 | 极值判别 | $A=f_{xx},B=f_{xy},C=f_{gammagamma},\Delta=AC- B^{2}$；$\Delta>0$ 且 `A<0` 极大、`A>0` 极小；$\Delta<0$ 鞍点 |
 | 条件极值 | $L=f+\sum \lambda_{i}\phi_{i}$，解 $\nabla L=0$ |
@@ -1704,8 +1704,8 @@ $$
 | 必要条件 | $\sum u_{n}$ 收敛 ⇒ $\lim u_{n}=0$ |
 | 基准级数 | $\sum q^{n}$ 收敛 ⇔ `|q|<1`；$\sum\frac{1}{n^{p}}$ 收敛 ⇔ `p>1`；$\sum\frac{1}{n(n+1)}=1$ |
 | 比值 / 根值 | $\rho=\lim \frac{u_{n+1}}{u_{n}}$ 或 $\lim_{n\to\infty}\sqrt[n]{u_{n}}$；$\rho<1$ 收敛、`>1` 发散、`=1` 失效 |
-| 交错 | 莱布尼茨：$u_{n}↓0$ ⇒ 收敛，$|r_{n}| \le u_{n+1}$ |
-| 幂级数 | $R=\lim|\frac{a_{n}}{a_{n+1}}|$；逐项求导/积分 R 不变 |
+| 交错 | 莱布尼茨：$u_{n}↓0$ ⇒ 收敛，$\vert r_{n}\vert  \le u_{n+1}$ |
+| 幂级数 | $R=\lim\vert \frac{a_{n}}{a_{n+1}}\vert $；逐项求导/积分 R 不变 |
 | 常用和函数 | $\sum x^{n}=\frac{1}{1- x}$；$\sum n x^{n}=\frac{x}{(1- x)^{2}}$；$\sum\frac{x^{n}}{n}=- \ln(1- x)$；$\sum\frac{(-1)^{n+1}}{n}=\ln 2$ |
 | 傅里叶系数 | $a_{n}=\left(\frac{1}{\pi}\right) \int_{- \pi}^{\pi}f \cos nx dx$，$b_{n}=\left(\frac{1}{\pi}\right) \int_{- \pi}^{\pi}f \sin nx dx$ |
 | 狄利克雷 | 间断点收敛于 $\frac{f(x^{-})+f(x^{+})}{2}$ |
@@ -1803,7 +1803,7 @@ $$
 60. 二次曲面单叶/双叶由负号个数与右端符号共同决定。
 61. 二重极限要求沿**任意路径**相同；有限条路径相同不能判存在。
 62. 累次极限存在且不等 ⇒ 二重极限不存在；逆命题不成立。
-63. 多元偏导数存在 \not\Rightarrow  连续、\not\Rightarrow  可微；**偏导连续 ⇒ 可微**才是充分条件。
+63. 多元偏导数存在 ⇏  连续、⇏  可微；**偏导连续 ⇒ 可微**才是充分条件。
 64. 方向导数定义式不要求可微；只有可微时才能用 $\nabla f \cdot e_{l}$。
 65. 梯度方向是增长最快方向，$- \nabla f$ 是下降最快方向。
 66. 二阶混合偏导相等需要**连续**条件（克莱罗定理），不保证时可能不等。

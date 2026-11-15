@@ -202,7 +202,7 @@ n 越大区间越窄（精度 $\propto \frac{1}{\sqrt{n}}$）：要把宽度减�
 | 第一类错误 | H0 为真却拒绝，概率 = **显著性水平 α**（常取 0.05 / 0.01 / 0.10） |
 | 第二类错误 | H0 为假却未拒绝，概率 = β；$1- \beta$ 称检验功效（power） |
 | **p 值** | H0 成立时，观测到「当前这么极端或更极端」结果的概率；$p< \alpha$ 则拒绝 |
-| 拒绝域 | 双侧 $|t|> t_{\frac{\alpha}{2}}$；单侧 $t> t_\alpha$ 或 $t<- t_\alpha$ |
+| 拒绝域 | 双侧 $\vert t\vert > t_{\frac{\alpha}{2}}$；单侧 $t> t_\alpha$ 或 $t<- t_\alpha$ |
 | 检验流程 | 设 $\frac{H_{0}}{H_{1}}$ 选统计量与其分布 → 定 α 与临界值 → 算统计量 → 比较或看 p 值 → 用**经济语言**下结论 |
 
 ::: tip p 值与置信区间的对偶
@@ -238,7 +238,7 @@ $$
 
 | 概念 | 表达式 | 说明 |
 | --- | --- | --- |
-| 总体回归函数 PRF | $Y_{i}= \beta_{0}+ \beta_{1}X_{i}+ u_{i}$ | $E(Y_{i}|X_{i})= \beta_{0}+\beta_{1}X_{i}$，β 是**未知常数**，u 是总体扰动 |
+| 总体回归函数 PRF | $Y_{i}= \beta_{0}+ \beta_{1}X_{i}+ u_{i}$ | $E(Y_{i}\vert X_{i})= \beta_{0}+\beta_{1}X_{i}$，β 是**未知常数**，u 是总体扰动 |
 | 样本回归函数 SRF | $\hat{Y}_{i}= \hat{\beta}_{0}+ \hat{\beta}_{1}X_{i}$ | β̂ 是**估计量/估计值**（随机变量） |
 | 残差 | $e_{i}= Y_{i}- \hat{Y}_{i}$ | e 是 u 的**估计**，二者不可混用：`u` 不可观测、`e` 可计算 |
 
@@ -253,7 +253,7 @@ $$
 | A1 | 参数线性 | $Y= \beta_{0}+ \beta_{1}X+ u$ | 需改用非线性最小二乘 / 变换 |
 | A2 | X 非随机（或与 u 不相关） | `Cov(X_i, u_i) = 0` | **内生性 → 有偏且不一致**（第 5 章） |
 | A3 | 扰动项零均值 | `E(u_i|X) = 0` | 截距有偏；常数项可吸收非零均值 |
-| A4 | **同方差** | $\operatorname{Var}(u_{i}|X)= \sigma^{2}$ | 系数仍无偏但**不再有效**，标准误错 |
+| A4 | **同方差** | $\operatorname{Var}(u_{i}\vert X)= \sigma^{2}$ | 系数仍无偏但**不再有效**，标准误错 |
 | A5 | **无自相关** | $\operatorname{Cov}(u_{i},u_{j})=0(i=j)$ | 标准误错、t/F 失效 |
 | A6 | 解释变量有变异、无完全共线 | `Var(X)>0`，n > 参数个数 | 无法识别 |
 | （可选 A7） | 正态性 $u \sim N(0,\sigma^{2})$ | — | 小样本精确 t/F 推断依赖它；大样本可用渐近正态替代 |
@@ -334,7 +334,7 @@ $$
 
 | 类型 | 对象 | 标准误 |
 | --- | --- | --- |
-| 均值预测 | $E(Y|X_{0})$ | $se_{mean}= \hat{\sigma}\sqrt{\frac{1}{n}+ \frac{(X_{0}- \bar{X})^{2}}{Sxx}}$ |
+| 均值预测 | $E(Y\vert X_{0})$ | $se_{mean}= \hat{\sigma}\sqrt{\frac{1}{n}+ \frac{(X_{0}- \bar{X})^{2}}{Sxx}}$ |
 | 个别值预测 | 单个 $Y_{0}$ | $se_{ind}= \hat{\sigma}\sqrt{1+ \frac{1}{n}+ \frac{(X_{0}- \bar{X})^{2}}{Sxx}}$ |
 
 个别值预测区间**更宽**（多了扰动项自身的不确定性 $\sigma^{2}$）。两者都在 $X_{0}= \bar{X}$ 处最窄，$X_{0}$ 离样本中心越远区间越宽；**样本外远推**风险很大（函数形式可能已变）。
@@ -804,7 +804,7 @@ SC 的惩罚项 `(k+1)ln n` 比 AIC 的 `2(k+1)` 随样本增长更快，因此�
 | **弱（协方差）平稳** | $E(Y_{t})=\mu$（常数）、$\operatorname{Var}(Y_{t})=\sigma^{2}$（常数）、$\operatorname{Cov}(Y_{t},Y_{t- k})=\gamma_{k}$ 只依赖间隔 k 而非 t |
 | 白噪声 | $E(\epsilon_{t})=0$、$\operatorname{Var}=\sigma^{2}$、$\operatorname{Cov}(\epsilon_{t},\epsilon_{s})=0(t=s)$ |
 | 随机游走 | $Y_{t}= Y_{t- 1}+ \epsilon_{t}$（无漂移）/ $Y_{t}= \mu+ Y_{t- 1}+ \epsilon_{t}$（带漂移）；**非平稳**、`Var` 随 t 线性增长 |
-| AR(1) | $Y_{t}= c+ \phi Y_{t- 1}+ \epsilon_{t}$；$|\phi|<1$ 平稳，$\phi=1$ 为单位根 |
+| AR(1) | $Y_{t}= c+ \phi Y_{t- 1}+ \epsilon_{t}$；$\vert \phi\vert <1$ 平稳，$\phi=1$ 为单位根 |
 | MA(q) / ARMA(p,q) | 用过去扰动 / 过去值与扰动的组合刻画序列相关 |
 | ARIMA(p,d,q) | 差分 d 次后为 ARMA；`d` 为单整阶数 |
 
@@ -1081,7 +1081,7 @@ $$
 | 问题 | 说明 |
 | --- | --- |
 | 预测值越界 | $X\beta$ 可能 <0 或 >1，「概率」无意义 |
-| 异方差 | $\operatorname{Var}(u|X)= p(1- p)$ 依赖 X ⇒ 标准误须用稳健标准误 |
+| 异方差 | $\operatorname{Var}(u\vert X)= p(1- p)$ 依赖 X ⇒ 标准误须用稳健标准误 |
 | 非正态误差 | u 只能取两个值；小样本 t/F 只是渐近有效 |
 | 边际效应恒定 | 隐含「X 对概率的影响处处相同」，通常不合经济直觉 |
 
@@ -1334,7 +1334,7 @@ $$
 
 | # | 主题 | 公式 / 结论 |
 | --- | --- | --- |
-| 1 | 总体 / 样本回归 | $Y=\beta_{0}+\beta_{1}X+u$；$\hat{Y}=\hat{\beta}_{0}+\hat{\beta}_{1}X$；$E(Y|X)=\beta_{0}+\beta_{1}X$ |
+| 1 | 总体 / 样本回归 | $Y=\beta_{0}+\beta_{1}X+u$；$\hat{Y}=\hat{\beta}_{0}+\hat{\beta}_{1}X$；$E(Y\vert X)=\beta_{0}+\beta_{1}X$ |
 | 2 | OLS 估计量 | $\hat{\beta}_{1}= \frac{Sxy}{Sxx}= \frac{\operatorname{Cov}(X,Y)}{\operatorname{Var}(X)}$；$\hat{\beta}_{0}= \bar{Y}- \hat{\beta}_{1}\bar{X}$ |
 | 3 | 矩阵形式 | $\hat{\beta}=(X'X)^{-1}X'y$；$\operatorname{Var}(\hat{\beta})=\sigma^{2}(X'X)^{-1}$ |
 | 4 | σ² 无偏估计 | $\hat{\sigma}^{2}= \frac{SSE}{n- k- 1}$（一元时 n−2） |
@@ -1364,7 +1364,7 @@ $$
 | 28 | Koyck / 部分调整 | $Y_{t}=\alpha(1- \lambda)+\beta_{0}X_{t}+\lambda Y_{t- 1}+v_{t}$；长期乘数 $\beta_{0}(1- \lambda)$ |
 | 29 | 平均滞后 | $\approx \frac{\lambda}{1- \lambda}$ |
 | 30 | Granger F | $F=\frac{\frac{SSE_{r}- SSE_{u}}{q}}{\frac{SSE_{u}}{n- k}}$ |
-| 31 | AR(1) 平稳 | $|\phi|<1$；$\phi=1$ 为单位根 |
+| 31 | AR(1) 平稳 | $\vert \phi\vert <1$；$\phi=1$ 为单位根 |
 | 32 | ADF | $\Delta Y_{t}=\alpha+\beta t+\gamma Y_{t- 1}+\sum \delta_{i}\Delta Y_{t- i}+\epsilon_{t}$；$H_{0}: \gamma=0$，用 MacKinnon 临界值 |
 | 33 | 单整 | $Y \sim I(d)$ 表示差分 d 次平稳 |
 | 34 | 协整 | $u_{t}=Y_{t}- \beta_{0}- \beta_{1}X_{t} \sim I(0)$；EG 两步 + AEG 检验 |

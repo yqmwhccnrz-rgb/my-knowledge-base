@@ -870,8 +870,8 @@ p=4 个变量，特征值 $\lambda=(2.4, 0.9, 0.5, 0.2)$，$\sum \lambda=4.0$：
 | 类别 | 度量 | 公式 / 说明 | 值域含义 |
 | --- | --- | --- | --- |
 | 距离（Q 型，样品间） | 欧氏 | $d= \sqrt{\sum}(x_{i}- y_{i})^{2}$ | 越小越相似 |
-| 距离 | 曼哈顿 | $d= \sum|x_{i}- y_{i}|$ | 对异常值较稳健 |
-| 距离 | 闵可夫斯基 | $d=\left(\sum|x_{i}- y_{i}|^p\right)^{\frac{1}{p}}$ | p=1 曼哈顿、p=2 欧氏 |
+| 距离 | 曼哈顿 | $d= \sum\vert x_{i}- y_{i}\vert $ | 对异常值较稳健 |
+| 距离 | 闵可夫斯基 | $d=\left(\sum\vert x_{i}- y_{i}\vert ^p\right)^{\frac{1}{p}}$ | p=1 曼哈顿、p=2 欧氏 |
 | 距离 | 马氏 | $d= \sqrt{(x- y)^{T} S^{-1}(x- y)}$ | 消除量纲与变量相关 |
 | 相似系数（R 型，变量间） | 夹角余弦 | $\cos\theta=\dfrac{X\cdot Y}{\lvert X\rvert\cdot\lvert Y\rvert}$ | 越大越相似 |
 | 相似系数 | Pearson r | 线性相关程度 | 越大越相似 |
@@ -1792,7 +1792,7 @@ $$
 | 约束 F | $F= \frac{\frac{R^{2}_{u}- R^{2}_{r}}{q}}{\frac{1- R^{2}_{u}}{n- k- 1}}$ |
 | 系数 t | $t= \frac{\hat{\beta}_{j}}{se(\hat{\beta}_{j})}$ |
 | VIF | $VIF_{j}= \frac{1}{1- R_{j}^{2}}$；&gt;10 严重共线 |
-| 岭 / Lasso | $\min \sum(y- X\beta)^{2}+ \lambda \sum \beta^{2}$ / $+ \lambda \sum|\beta|$ |
+| 岭 / Lasso | $\min \sum(y- X\beta)^{2}+ \lambda \sum \beta^{2}$ / $+ \lambda \sum\vert \beta\vert $ |
 | smf.ols | `smf.ols('y ~ x1 + x2', data=df).fit().summary()` |
 | 正向化 | $z=\frac{x- \min}{\max- \min}$；负向 $z=\frac{\max- x}{\max- \min}$ |
 | 变异系数权 | $w_{j}= \frac{CV_{j}}{\sum CV_{j}}$ |
@@ -1838,7 +1838,7 @@ $$
 | h 指数 | 有 h 篇每篇被引 ≥ h 次 |
 | 模块度 | $Q=\left(\frac{1}{2m}\right)\sum_{ij}[A_{ij}- \frac{k_{i}k_{j}}{2m}]\delta(c_{i},c_{j})$ |
 | PageRank | $PR(v)=\frac{1- d}{N}+ d \cdot \sum_{u \to v}\frac{PR(u)}{out(u)}$ |
-| 密度 | 无向图 $2|E|(|V|(|V|- 1))$ |
+| 密度 | 无向图 $2\vert E\vert (\vert V\vert (\vert V\vert - 1))$ |
 | 度中心度 | $\frac{deg(v)}{n- 1}$ |
 | networkx | `nx.Graph(); add_edges_from(); nx.degree_centrality(G)` |
 

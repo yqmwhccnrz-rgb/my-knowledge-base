@@ -29,7 +29,7 @@ summary: "西方经济学（微观部分）全面详解笔记，共 11 章：引
 | 补 2 | 图形读图专题 | 19 张图怎么画、怎么读 + 手绘 Checklist | ★★ |
 | 综 | 综合例题精讲 | 10 道跨章计算大题（弹性→税收→福利→政策全链条） | ★★★ |
 | 对 | 易混概念对照 | 48 组高频易混概念辨析 | ★★★ |
-| 接 | 课程衔接与术语 | 微观 \leftrightarrow  计量/宏观、因果识别、英文缩写速查 | ★★ |
+| 接 | 课程衔接与术语 | 微观 ↔  计量/宏观、因果识别、英文缩写速查 | ★★ |
 | 附 A / B | 速查 | 六组公式速查 + 一页纸解题索引、108 条易错点 | 复习用 |
 
 ---
@@ -1578,7 +1578,7 @@ $MSB= 100- 2Q$，`MPC = 2Q + 10`，`ME = 6`。
 | 项目 | 公式 / 结论 |
 | --- | --- |
 | 均衡 | `Qd(P*) = Qs(P*)` |
-| 机会成本 | 放弃的其他用途中的**最大**收益；`PPF` 斜率 = $MRT=|\frac{\Delta Y}{\Delta X}|$ |
+| 机会成本 | 放弃的其他用途中的**最大**收益；`PPF` 斜率 = $MRT=\vert \frac{\Delta Y}{\Delta X}\vert $ |
 | 需求点弹性 | $Ed=-\left(\frac{dQ}{dP}\right)\left(\frac{P}{Q}\right)$（常取绝对值） |
 | 需求弧弹性（中点） | $Ed=- \frac{\left(\frac{\Delta Q}{\Delta P}\right) \cdot[\frac{P_{1}+P_{2}}{2}]}{\frac{Q_{1}+Q_{2}}{2}}$ |
 | 收入 / 交叉 / 供给弹性 | $eI= \frac{\frac{\Delta Q}{Q}}{\frac{\Delta I}{I}}$；$eXY= \frac{\frac{\Delta Qx}{Qx}}{\frac{\Delta Py}{Py}}$；$eS= \frac{\frac{\Delta Q}{Q}}{\frac{\Delta P}{P}}$ |
@@ -1626,7 +1626,7 @@ $MSB= 100- 2Q$，`MPC = 2Q + 10`，`ME = 6`。
 | 线性需求 MR | $P= a- bQ \Rightarrow MR= a- 2bQ$ |
 | MR 与弹性 | $MR= P(1- \frac{1}{\lvert E_d\rvert})$ ⇒ 勒纳指数 $L= \frac{P- MC}{P}= \frac{1}{\lvert E_d\rvert}$ |
 | 加成法则 | $P=MC\cdot\dfrac{\lvert E_d\rvert}{\lvert E_d\rvert-1}$ |
-| 三级价格歧视 | $MR_{1}= MR_{2}= MC$ ⇔ $P_{1}(1- 1|E_{1}|)= P_{2}(1- 1|E_{2}|)= MC$ |
+| 三级价格歧视 | $MR_{1}= MR_{2}= MC$ ⇔ $P_{1}(1- 1\vert E_{1}\vert )= P_{2}(1- 1\vert E_{2}\vert )= MC$ |
 | 古诺 | $P= a- bQ, MC= c$：$Qi= \frac{a- c}{(n+1)b}$，$P= \frac{a+nc}{n+1}$ |
 | 垄断 DWL | $\frac{1}{2}(Pm- MC)(Qc- Qm)$（线性情形） |
 
@@ -1638,7 +1638,7 @@ $MSB= 100- 2Q$，`MPC = 2Q + 10`，`ME = 6`。
 | 时间配置 | $C= w(16- H)+ V$，切点 `MRS(闲暇,消费) = w` |
 | 基尼系数 | `G = A/(A+B) = (0.5 − 洛伦兹曲线下面积)/0.5` |
 | 帕累托三条件 | `MRS(A,XY)=MRS(B,XY)`；`MRTS(C,LK)=MRTS(D,LK)`；`MRS(XY)=MRT(XY)` |
-| 边际转换率 | $MRT(XY)=|\frac{dY}{dX}|= \frac{MCx}{MCy}= \frac{Px}{Py}$（完全竞争） |
+| 边际转换率 | $MRT(XY)=\vert \frac{dY}{dX}\vert = \frac{MCx}{MCy}= \frac{Px}{Py}$（完全竞争） |
 | 社会福利函数 | 加法 $\sum Ui$；乘法 $\Pi Ui$；罗尔斯 `min(Ui)` |
 | 混合策略均衡 | 使**对方**在纯策略间无差异求概率 |
 | 合谋可持续 | $\delta \ge \frac{\pi D- \pi C}{\pi D- \pi N}$ |
