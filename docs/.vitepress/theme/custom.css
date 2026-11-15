@@ -969,8 +969,14 @@ select:focus-visible {
    长公式独立成块居中；字号比正文略大但不夸张。
    ========================================================================== */
 .vp-doc .katex {
-  font-size: 1.12em;
+  font-size: 1.08em;
   line-height: 1.5;
+}
+/* 上下标、极限与求和的上下限整体等比缩小。
+   KaTeX 这些结构内部的字号、top、height 全部用 em 表达，
+   在 .msupsub 上缩放父字体，内容与定位会同步变小，不会错位。 */
+.vp-doc .katex .msupsub {
+  font-size: 0.88em;
 }
 /* 行内公式左右留一点空气，避免紧贴中文或标点 */
 .vp-doc p .katex,
@@ -1009,7 +1015,7 @@ select:focus-visible {
   scrollbar-width: thin;
 }
 .vp-doc .katex-display > .katex {
-  font-size: 1.16em;
+  font-size: 1.12em;
   white-space: normal;
 }
 /* 块级公式内部的 .katex 不继承上面的行内留白规则 */
