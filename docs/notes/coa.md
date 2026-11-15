@@ -1007,7 +1007,7 @@ $$
 \text{非流水时间} \; \text{T\_} \; \text{非} \; = n \cdot k \cdot t \\
 \text{流水时间} \; \text{T\_} \; \text{流} \; =(k+ n- 1) \cdot t \; \text{（首条填满流水线需} \; \text{k} \; \text{拍，之后每拍流出} \; \text{1} \; \text{条）} \\
 \text{加速比} \; \text{S = T\_} \; \text{非} \; \text{/ T\_} \; \text{流} \; = \frac{n \cdot k}{k+ n- 1} \to n \to_{\infty} \; \text{时} \; S \to k \\
-\text{吞吐率} \; TP= \frac{n}{(k+n- 1) \cdot t} \; \text{，最大} \; TP_\max= \frac{1}{t} \\
+\text{吞吐率} \; TP= \frac{n}{(k+n- 1) \cdot t} \; \text{，最大} \; TP_{\max}= \frac{1}{t} \\
 \text{效率} \; E= \frac{S}{k}= \frac{n}{k+n- 1} \; \text{（时空图中被占用的面积占比）}
 $$
 

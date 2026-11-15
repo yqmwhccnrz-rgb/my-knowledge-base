@@ -61,7 +61,7 @@ summary: "机器学习原理与方法 全面详解笔记，共 12 章：导论�
 ### 1.2 经验风险最小化与归纳偏好
 
 $$
-\text{期望风险} \; \text{R(f) = E\_\{(x,y)~P\} [L(f(x), y)]} \; \text{（不可直接计算，} \; \text{P} \; \text{未知）} \\
+\text{期望风险} \; \text{R(f) = E\_{(x,y)~P} [L(f(x), y)]} \; \text{（不可直接计算，} \; \text{P} \; \text{未知）} \\
 \text{经验风险} \; \hat{R}(f)=\left(\frac{1}{N}\right) \sum_{i} L(f(x_{i}), y_{i}) \; \text{（可计算，用训练集近似）} \\
 \text{结构风险} \; = \hat{R}(f)+ \lambda \cdot \Omega(f) \; \text{（加正则项控制复杂度）}
 $$
@@ -170,7 +170,7 @@ $$
 | 和规则（边际） | $p(x)= \sum_{y} p(x,y)$ | 离散求和、连续积分 |
 | 积规则 | `p(x,y) = p(y|x)p(x)` | 链式法则的基础 |
 | 全概率 | $p(x)= \sum_{k} p(x|C_{k})p(C_{k})$ | 生成式分类的基础 |
-| 贝叶斯 | $p(\theta|D)= \frac{p(D|\theta)p(\theta)}{p(D)}$ | 先验 → 似然 → 后验 |
+| 贝叶斯 | $p(\theta\mid D)=\dfrac{p(D\mid\theta)\,p(\theta)}{p(D)}$ | 先验 → 似然 → 后验 |
 | 最大似然 MLE | $\hat{\theta}= \operatorname*{argmax}_\theta \sum_{i} \log p(x_{i}|\theta)$ | 点估计，视 θ 为未知常数 |
 | 最大后验 MAP | $\hat{\theta}= \operatorname*{argmax}_\theta[\sum_{i} \log p(x_{i}|\theta)+ \log p(\theta)]$ | 加先验；等价于带正则的 MLE |
 
@@ -182,7 +182,7 @@ $$
 ::: danger 易错 · MLE
 - 高斯分布的 MLE 方差是 $\left(\frac{1}{N}\right)\sum(x_{i}- \hat{\mu})^{2}$，**除以 N 而非 N−1**，因此是有偏估计；无偏样本方差才除以 N−1。
 - MLE 给点估计，贝叶斯给整个后验分布；「贝叶斯方法 = MLE 加先验」只在 MAP 意义下近似成立，完全贝叶斯需对后验积分做预测。
-- 似然 $p(D|\theta)$ 是 θ 的函数，**不是** θ 的概率密度。
+- 似然 $p(D\mid\theta)$ 是 θ 的函数，**不是** θ 的概率密度。
 :::
 
 ### 2.2 信息论与决策论
@@ -398,7 +398,7 @@ $w^{T}x=0$ → $\sigma(0)=0.5$，正是决策边界；$w^{T}x=2$ → $\sigma(2)=
 | 算法 | 核心 | 关键参数 / 前提 | 主要局限 |
 | --- | --- | --- | --- |
 | KNN | 近邻多数投票 | K、距离度量、特征标准化 | 预测慢、高维失效、需存全量数据 |
-| 朴素贝叶斯 | $p(C|x) \propto p(C)\Pi_{j} p(x_{j}|C)$ | 条件独立假设、平滑系数 | 特征强相关时概率失真 |
+| 朴素贝叶斯 | $p(C\mid x)\propto p(C)\prod_{j}p(x_{j}\mid C)$ | 条件独立假设、平滑系数 | 特征强相关时概率失真 |
 | 感知机 | $y=sgn(w^{T}x)$，误分则 $w \leftarrow w+\eta y_{i}x_{i}$ | 仅**线性可分**才收敛 | 不输出概率、对重叠数据震荡 |
 | LDA | 类内同协方差的高斯假设，最大化类间/类内比 | 需估计协方差矩阵 | 假设较强，得到线性边界 |
 | Softmax 回归 | 多类逻辑回归 | 类别互斥 | 类别不互斥时应改多个二分类 |
@@ -408,7 +408,7 @@ $w^{T}x=0$ → $\sigma(0)=0.5$，正是决策边界；$w^{T}x=2$ → $\sigma(2)=
 :::
 
 ::: tip 补充 · 拉普拉斯平滑（加性平滑）
-朴素贝叶斯中若某特征取值在训练集某类下从未出现，$p(x_{j}|C)=0$ 会把整个后验乘成 0。加性平滑用 $\hat{p}(x_{j}|C)= \frac{N_{Cj}+ \alpha}{N_{C}+ \alpha \cdot K}$（`K` 为该特征可能取值数、$\alpha \ge 0$ 为平滑系数）：$\alpha=0$ 退化为 MLE、$\alpha=1$ 即拉普拉斯平滑。它等价于给类别比例加 Dirichlet 先验后的 MAP 估计（与 2.1 节 Beta 先验同源），代价是引入轻微偏差换取零概率不再出现。
+朴素贝叶斯中若某特征取值在训练集某类下从未出现，$p(x_{j}\mid C)=0$ 会把整个后验乘成 0。加性平滑用 $\hat{p}(x_{j}\mid C)=\dfrac{N_{Cj}+\alpha}{N_{C}+\alpha K}$（`K` 为该特征可能取值数、$\alpha \ge 0$ 为平滑系数）：$\alpha=0$ 退化为 MLE、$\alpha=1$ 即拉普拉斯平滑。它等价于给类别比例加 Dirichlet 先验后的 MAP 估计（与 2.1 节 Beta 先验同源），代价是引入轻微偏差换取零概率不再出现。
 :::
 
 ### 4.4 损失函数的统一视角
@@ -484,7 +484,7 @@ $w^{T}x=0$ → $\sigma(0)=0.5$，正是决策边界；$w^{T}x=2$ → $\sigma(2)=
 
 ::: tip 工作例题 · 手算全套指标
 `TP=80, FP=20, FN=10, TN=90`（N=200）：
-准确率 = 170/200 = **0.85**；精确率 = 80/100 = **0.80**；召回率 = 80/90 ≈ **0.8889**；
+准确率 $=\dfrac{170}{200}=$ **0.85**；精确率 $=\dfrac{80}{100}=$ **0.80**；召回率 $=\dfrac{80}{90}\approx$ **0.8889**；
 $F1= \frac{2 \times 80}{2 \times 80+20+10}= \frac{160}{190}$ **0.8421**；FPR = 20/110 ≈ **0.1818**。
 若改变决策阈值，P 与 R 沿相反方向变化，F1 折中；AUC 不受单一阈值影响。
 :::
@@ -629,7 +629,7 @@ $\phi(x)=\left(1, \sqrt{2x}_{1}, \sqrt{2x}_{2}, x_{1}^{2}, x_{2}^{2}, \sqrt{2x}_
 
 $$
 \text{原问题（硬间隔）：} \; \min_{w,b} \frac{1}{2} \| w \|^{2} s.t. y_{i}(w^{T}x_{i}+b) \ge 1 \\
-\text{几何间隔} \; \gamma= \frac{2}{\}| w \| \; \text{，最大化间隔} \; \Leftrightarrow \; \text{最小化} \; \| w \|^{2} \\
+\text{几何间隔} \; \gamma= \frac{2}{\|w\|} \; \text{，最大化间隔} \; \Leftrightarrow \; \text{最小化} \; \| w \|^{2} \\
 \text{拉格朗日：} \; L= \frac{1}{2} \| w \|^{2}- \sum \alpha_{i}[y_{i}(w^{T}x_{i}+b)- 1] \; \text{，} \; \alpha_{i} \ge 0 \\
 \text{对偶问题：} \; \max_\alpha \sum_{i}\alpha_{i}- \frac{1}{2} \sum_{ij} \alpha_{i}\alpha_{j}y_{i}y_{j} x_{i}^{T}x_{j} \\
 s.t. \sum_{i}\alpha_{i}y_{i}= 0, \alpha_{i} \ge 0 \\
@@ -708,7 +708,7 @@ L(w,b,\alpha)= \frac{1}{2} \| w \|^{2}- \sum_{i} \alpha_{i}[y_{i}(w^{T}x_{i}+b)-
 \text{b} \; \text{由任一支持向量满足} \; y_{j}\left(\sum_{i}\alpha_{i}y_{i}k(x_{i},x_{j})+b\right)=1 \; \text{解出}
 $$
 
-**KKT 互补松弛** $\alpha_{i}[y_{i}(w^{T}x_{i}+b)- 1]=0$ 给出三类点：$\alpha_{i}=0$（间隔外，不影响解）、$0 &lt; \alpha_{i} &lt; C$（恰在间隔边界，支持向量）、$\alpha_{i}=C$（间隔内或错分，软间隔情形）。
+**KKT 互补松弛** $\alpha_{i}[y_{i}(w^{T}x_{i}+b)- 1]=0$ 给出三类点：$\alpha_{i}=0$（间隔外，不影响解）、$0<\alpha_{i}<C$（恰在间隔边界，支持向量）、$\alpha_{i}=C$（间隔内或错分，软间隔情形）。
 
 ::: danger 易错
 「支持向量」在软间隔中**包括被错分的点**（$\alpha_{i}=C$），不只是恰好落在边界上的样本；硬间隔才只有边界点是支持向量。
@@ -859,7 +859,7 @@ $\gamma$ 是「分裂最小收益门槛」，起预剪枝作用。
 
 $$
 z^{(l)}= W^{(l)} a^{(l- 1)}+ b^{(l)} \\
-a^{(l)}= \phi(z^{(l)}) \; \text{（} \; \text{a^\{(0)\} = x} \; \text{）}
+a^{(l)}= \phi(z^{(l)}) \; \text{（} \; \text{a((0)) = x} \; \text{）}
 $$
 
 **万能逼近定理**：一个含足够多神经元的单隐层网络，用非多项式非线性激活，可任意精度逼近紧集上的连续函数。但「能表示」不代表「能学到」，深度网络用**多层非线性**以更少参数表示层次化特征。
@@ -889,7 +889,7 @@ $$
 ![反向传播、梯度问题与训练技巧](/mlt/mlt-backprop.svg)
 
 $$
-\text{前向：逐层缓存} \; \text{z^\{(l)\}} \; \text{、} \; \text{a^\{(l)\}} \; \text{，最后计算损失} \; \text{L} \\
+\text{前向：逐层缓存} \; \text{z((l))} \; \text{、} \; \text{a((l))} \; \text{，最后计算损失} \; \text{L} \\
 \text{输出层误差：} \; \delta^{(L)}= \nabla_{a}L ⊙ \phi '(z^{(L)}) \\
 \text{逐层回传：} \; \delta^{(l)}=(W^{(l+1)})^{T} \delta^{(l+1)} ⊙ \phi '(z^{(l)}) \\
 \text{梯度：} \; \frac{\partial L}{\partial W^{(l)}}= \delta^{(l)}(a^{(l- 1)})^{T} \; \text{，} \; \frac{\partial L}{\partial b^{(l)}}= \delta^{(l)}
@@ -945,13 +945,13 @@ $\delta^{(l)}=(W^{(l+1)})^{T}\delta^{(l+1)} ⊙ \phi '(z^{(l)})$ 中所有量都
 | 策略 | 公式 / 做法 | 适用 |
 | --- | --- | --- |
 | Step decay | 每 k 轮乘 γ（如 0.1） | 经典 CNN |
-| 余弦退火 | $\eta_{t}= \eta_\min+ \frac{1}{2}(\eta_{0}- \eta_\min)\left(1+\cos\left(\frac{\pi t}{T}\right)\right)$ | 预训练/微调常用 |
+| 余弦退火 | $\eta_{t}= \eta_{\min}+ \frac{1}{2}(\eta_{0}- \eta_{\min})\left(1+\cos\left(\frac{\pi t}{T}\right)\right)$ | 预训练/微调常用 |
 | Warmup | 前若干步线性从 0 升到 η0 | 大 batch、Transformer 必备（防初期梯度爆炸） |
 | ReduceLROnPlateau | 验证指标停滞则降 η | 小数据、需自适应 |
 | 周期性 / OneCycle | η 先升后降 | 快速收敛 + 正则效果 |
 
 ::: tip 工作例题 · 余弦退火
-$\eta_{0}=0.1$、$\eta_\min=0.001$、`T=100`，在 `t=50` 时
+$\eta_{0}=0.1$、$\eta_{\min}=0.001$、`T=100`，在 `t=50` 时
 $\eta= 0.001+ \frac{1}{2} \times 0.099 \times\left(1+\cos\left(\frac{\pi}{2}\right)\right)= 0.001+0.0495= 0.0505$，恰好约为初值的一半。
 :::
 
@@ -1051,7 +1051,7 @@ $$
 \text{一个编码器块的完整维度流（} \; \text{n=} \; \text{序列长，} \; \text{d=d\_model} \; \text{，} \; \text{h=} \; \text{头数，} \; d_{k}=d_{v}=\frac{d}{h} \; \text{）：} \\
 X \in R^{n \times d} \\
 \to Q=XW_{Q} \in R^{n \times d}, K=XW_{K}, V=XW_{V} \; \text{（投影矩阵} \; d \times d \; \text{）} \\
-\to \; \text{每个头：} \; A_{i}= softmax\left(\frac{Q_{iK}_{i}^{T}}{\sqrt{d}_{k}}\right) \in R^{n \times n} \; \text{；} \; head_{i}= A_{i} V_{i} \in R^{n \times d_{k}} \\
+\to \; \text{每个头：} \; A_{i}= softmax\left(\frac{Q_{i}K_{i}^{T}}{\sqrt{d}_{k}}\right) \in R^{n \times n} \; \text{；} \; head_{i}= A_{i} V_{i} \in R^{n \times d_{k}} \\
 \to MultiHead= Concat(head_1, \cdots,head_{h}) W^O \in R^{n \times d} \\
 \to \; \text{残差} \; \text{+ LayerNorm → FFN: d → d\_ff(} \; \text{常取} \; \text{4d) → d} \; \text{，再残差} \; \text{+ LayerNorm} \\
 \text{参数量} \; \approx 4d^{2} \; \text{（} \; \text{QKV +} \; \text{输出投影）} \; + 2 \cdot d \cdot d_{ff} \; \text{（} \; \text{FFN} \; \text{）} \; \approx 12d^{2} \; \text{（} \; \text{d\_ff=4d} \; \text{时）}
@@ -1556,7 +1556,7 @@ min_G max_D V(D,G) = E_{x~p_data}[log D(x)] + E_{z~p_z}[log(1 − D(G(z)))]
 
 $$
 \text{前向加噪（固定} \; \text{Markov} \; \text{链）：} \; x_{t}= \sqrt{\alpha}_{t} \cdot x_{t-1}+ \sqrt{1- \alpha_{t}} \cdot \epsilon \; \text{，} \; \epsilon \sim N(0,I) \\
-\text{一步到位：} \; q(x_{t}|x_{0})= N\left(\sqrt{\bar}{\alpha}_{t} x_{0},(1- \bar{\alpha}_{t})I\right) \; \text{，} \; \bar{\alpha}_{t}= \Pi_{s \le t} \alpha_{s} \\
+\text{一步到位：} \; q(x_{t}|x_{0})= N\left(\sqrt{\bar{\alpha}_{t}} x_{0},(1- \bar{\alpha}_{t})I\right) \; \text{，} \; \bar{\alpha}_{t}= \Pi_{s \le t} \alpha_{s} \\
 \text{反向去噪（需学习）：} \; p_\theta(x_{t-1}|x_{t})= N\left(\mu_\theta(x_{t},t), \sum_\theta\right) \; \text{，从纯噪声逐步还原样本} \\
 \text{训练目标：预测所加噪声} \; \epsilon \; \text{（简化后等价于变分下界的一项）}
 $$
@@ -1644,8 +1644,8 @@ JS 散度非负、在两分布完全相同时取 0，故全局最优为 `p_g=p_d
 
 $$
 \bar{\alpha}_{t}= \Pi_{s=1}^{t} \alpha_{s} \\
-q(x_{t}|x_{0})= N\left( \sqrt{\bar}{\alpha}_{t} \cdot x_{0},(1- \bar{\alpha}_{t})I\right) \\
-x_{t}= \sqrt{\bar}{\alpha}_{t} \cdot x_{0}+ \sqrt{1- \bar{\alpha}_{t}} \cdot \epsilon, \epsilon \sim N(0,I)
+q(x_{t}|x_{0})= N\left( \sqrt{\bar{\alpha}_{t}} \cdot x_{0},(1- \bar{\alpha}_{t})I\right) \\
+x_{t}= \sqrt{\bar{\alpha}_{t}} \cdot x_{0}+ \sqrt{1- \bar{\alpha}_{t}} \cdot \epsilon, \epsilon \sim N(0,I)
 $$
 
 **反向（需学习）**：真实后验 $q(x_{t-1}|x_{t},x_{0})$ 也是高斯，其均值可解析写出；训练网络 $\epsilon_\theta$ 预测所加噪声后：
@@ -1653,7 +1653,7 @@ $$
 $$
 \mu_\theta(x_{t},t)=\left(\frac{1}{\sqrt{\alpha}}_{t}\right) \cdot[ x_{t}- \frac{1- \alpha_{t}}{\sqrt{1- \bar{\alpha}_{t}}} \cdot \epsilon_\theta(x_{t},t)] \\
 p_\theta(x_{t-1}|x_{t})= N( \mu_\theta(x_{t},t), \sigma_{t}^{2} I) \\
-\text{简化训练目标：} \; L_{simple}= E_{t,x_{0},\epsilon} \| \epsilon- \epsilon_\theta\left(\sqrt{\bar}{\alpha}_{t}x_{0}+\sqrt{1- \bar{\alpha}_{t}}\epsilon, t\right) \|^{2}
+\text{简化训练目标：} \; L_{simple}= E_{t,x_{0},\epsilon} \| \epsilon- \epsilon_\theta\left(\sqrt{\bar{\alpha}_{t}}x_{0}+\sqrt{1- \bar{\alpha}_{t}}\epsilon, t\right) \|^{2}
 $$
 
 课件中「扩散模型 = 隐变量与样本同维度的 Markov 链」即指 $x_{1}, \cdots,x_{T}$ 序列；它与 VAE 的瓶颈 z 不是一回事。
@@ -1770,7 +1770,7 @@ $$
 
 **解**：
 ① 展开得 $\phi(x)=\left(1, \sqrt{2x}_{1}, \sqrt{2x}_{2}, x_{1}^{2}, x_{2}^{2}, \sqrt{2x}_{1}x_{2}\right)$，六维；核技巧让我们无需显式计算 φ。
-② $\gamma= \frac{2}{\}| w \|= \frac{2}{\sqrt{2}}= \sqrt{2} \approx 1.4142$；间隔边界 $w^{T}x+b=±1$ 即 $x_{1}+x_{2}=2$ 与 `=4`。
+② $\gamma= \frac{2}{\|w\|}= \frac{2}{\sqrt{2}}= \sqrt{2} \approx 1.4142$；间隔边界 $w^{T}x+b=\pm 1$ 即 $x_{1}+x_{2}=2$ 与 `=4`。
 ③ C 增大 → 更不容忍错分 → 间隔变窄、边界更复杂 → **更易过拟合**；C 减小则相反。
 
 ### 综 5 决策树准则与 AdaBoost 权重（第 7 章）
@@ -2057,8 +2057,8 @@ $x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 \
 | --- | --- |
 | 经验风险 | $\hat{R}(f)=\left(\frac{1}{N}\right)\sum L(f(x_{i}),y_{i})$；结构风险 $\hat{R}+\lambda \Omega(f)$ |
 | 偏差方差 | $Err= Bias^{2}+ \operatorname{Var}+ \sigma^{2}$ |
-| 泛化界 | $R- \hat{R} \le \sqrt{\frac{\ln|H|+\ln\left(\frac{2}{\delta}\right)}{2N}}$（有限 H） |
-| 贝叶斯 | $p(\theta|D)=\frac{p(D|\theta)p(\theta)}{p(D)}$ |
+| 泛化界 | $R- \hat{R} \le \sqrt{\frac{\ln\lvert H\rvert+\ln\left(\frac{2}{\delta}\right)}{2N}}$（有限 H） |
+| 贝叶斯 | $p(\theta\mid D)=\dfrac{p(D\mid\theta)\,p(\theta)}{p(D)}$ |
 | MLE / MAP | $\operatorname*{argmax} \sum \log p(x_{i}|\theta)$ / 加 $\log p(\theta)$ |
 | 熵 / 交叉熵 / KL | $H=- \sum p \log p$；$H(p,q)=- \sum p \log q$；$D_{KL}=\sum p \log\left(\frac{p}{q}\right) \ge 0$ |
 | 梯度下降 | $w \leftarrow w- \eta \nabla_{w} L$；动量 $v \leftarrow \alpha v- \eta g$ |
@@ -2074,7 +2074,7 @@ $x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 \
 | sigmoid | $\sigma(z)=\frac{1}{1+e^{-z}}$，$\sigma '=\sigma(1- \sigma)$，最大值 0.25 |
 | softmax | $p_{k}=\frac{\exp(a_{k})}{\sum}_{j}\exp(a_{j})$ |
 | 交叉熵 | $- \sum[y \log \hat{y}+(1- y)\log(1- \hat{y})]$；$\nabla L=X^{T}(\hat{y}- y)$ |
-| 朴素贝叶斯 | $p(C|x) \propto p(C)\Pi_{j} p(x_{j}|C)$ |
+| 朴素贝叶斯 | $p(C\mid x)\propto p(C)\prod_{j}p(x_{j}\mid C)$ |
 | LDA | 最大化类间散度/类内散度比 |
 
 ### A.3 评估
@@ -2095,7 +2095,7 @@ $x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 \
 | 多项式核 | $(1+x^{T}z)^{2} \to \phi(x)$ 六维展开；一般 $(\gamma x^{T}z+c)^d$ |
 | RBF 核 | $\exp\left(- \| x- z \| \frac{^{2}}{2\sigma^{2}}\right)$ |
 | SVM 原/对偶 | $\min \frac{1}{2} \| w \|^{2}+C\sum \xi$；$\max \sum \alpha_{i}- \frac{1}{2} \sum \alpha_{i}\alpha_{j}y_{i}y_{j}k(x_{i},x_{j})$ |
-| 间隔 | $\gamma=\frac{2}{\}| w \|$ |
+| 间隔 | $\gamma=\frac{2}{\|w\|}$ |
 | 熵 / 增益 | $H=- \sum p \log_{2}p$；$G=H(D)- H(D|A)$（取最大） |
 | 增益率 / 基尼 | $GR=\frac{G}{SplitInfo}$；$Gini=1- \sum p^{2}$（取最小） |
 | AdaBoost | $\alpha_{t}= \frac{1}{2} \ln\left(\frac{1- \epsilon_{t}}{\epsilon}_{t}\right)$；$w_{i} \leftarrow w_{i}e^{- \alpha_{t}y_{i}h_{t}}$ |
@@ -2109,7 +2109,7 @@ $x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 \
 | 反向 | $\delta^{(L)}= \nabla_{a} L⊙\phi '(z^{(L)})$；$\delta^{(l)}=(W^{(l+1)})^{T}\delta^{(l+1)}⊙\phi '(z^{(l)})$ |
 | 梯度 | $\frac{\partial L}{\partial W^{(l)}}=\delta^{(l)}(a^{(l- 1)})^{T}$ |
 | ReLU / softmax | `max(0,z)` / $\frac{\exp(a_{k})}{\sum \exp}(a_{j})$ |
-| CNN 尺寸 | $⌊\frac{H- K+2P}{S}⌋+1$；参数 $K^{2}C_{inC}_{out}+C_{out}$ |
+| CNN 尺寸 | $⌊\frac{H- K+2P}{S}⌋+1$；参数 $K^{2}C_{in}C_{out}+C_{out}$ |
 | RNN / LSTM | $h_{t}=\phi(W_{xh} x_{t}+W_{hh} h_{t-1}+b)$；$c_{t}=f⊙c_{t-1}+i⊙g$ |
 | 注意力 | $softmax\left(\frac{QK^{T}}{\sqrt{d}_{k}}\right)V$，复杂度 $O(n^{2}d)$ |
 | BN / Dropout | 标准化 + γ、β；训练按 p 置零、推理全开 |
@@ -2139,7 +2139,7 @@ $x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 \
 | 岭 / Lasso | $\lambda$ | 越大系数越小、偏差升方差降 | $O(Nd^{2})$ / `O(d)` |
 | 逻辑回归 | $C=\frac{1}{\lambda}$、类别权重 | C 越大越拟合训练数据 | $O(Nd \cdot iter)$ / `O(d)` |
 | KNN | `K`、距离度量 | K 小方差大、K 大偏差大 | 训练 `O(1)` / 预测 `O(Nd)` |
-| SVM-RBF | `C`、$\gamma$ | 两者越大边界越复杂 | $O(N^{2})- O(N^{3})$ / $O(#SV \cdot d)$ |
+| SVM-RBF | `C`、$\gamma$ | 两者越大边界越复杂 | $O(N^{2})- O(N^{3})$ / $O(\#SV\cdot d)$ |
 | 决策树 | `max_depth`、`min_samples_leaf`、剪枝 α | 深/叶少 → 易过拟合 | `O(Nd log N)` / `O(depth)` |
 | 随机森林 | 树数、`max_features` | 树多降方差（收益递减） | $O(T \cdot Nd \log N)$ / $O(T \cdot depth)$ |
 | GBDT/XGBoost | 树数、学习率、$\gamma$、$\lambda$、子采样 | 树多+大学习率易过拟合 | $O(T \cdot Nd \cdot bins)$ / $O(T \cdot depth)$ |
@@ -2204,7 +2204,7 @@ sklearn 的 `C` 是**正则系数的倒数**（$C=\frac{1}{\lambda}$），C 越�
 | 3 | 闭式解 $(X^{T}X)^{-1}X^{T}y$；L1 稀疏 L2 收缩；正则等价于加先验 |
 | 4 | 三种建模路线；sigmoid/softmax + 交叉熵；判别式不建 p(x|C) |
 | 5 | 三分数据集；P/R/F1 与 PR-AUC；预处理必须放进 Pipeline |
-| 6 | 最大间隔 $\frac{2}{\}| w \|$；对偶才能用核；Gram 半正定 + KKT 互补松弛 |
+| 6 | 最大间隔 $\frac{2}{\|w\|}$；对偶才能用核；Gram 半正定 + KKT 互补松弛 |
 | 7 | 熵→增益→增益率→基尼；预/后剪枝；Bagging 降方差、Boosting 降偏差 |
 | 8 | 非线性激活不可省；δ 递推是链式法则；ReLU/BN/残差/初始化治梯度问题 |
 | 9 | 卷积局部+共享；尺寸公式 $⌊\frac{H- K+2P}{S}⌋+1$；注意力 $softmax\left(\frac{QK^{T}}{\sqrt{d}}\right)V$ |
@@ -2217,7 +2217,7 @@ sklearn 的 `C` 是**正则系数的倒数**（$C=\frac{1}{\lambda}$），C 越�
 | 推导 | 起点 | 关键一步 | 结论 |
 | --- | --- | --- | --- |
 | 偏差-方差分解 | $E[(y- \hat{f})^{2}]$ | 插入 `±E f̂` 展开，交叉项为 0 | $Bias^{2}+\operatorname{Var}+\sigma^{2}$（仅平方损失） |
-| 泛化界 | Hoeffding + 有限 `\|H\|` | 一致收敛并集界 | $\sqrt{\frac{\ln \|H\|+\ln\left(\frac{2}{\delta}\right)}{2N}}$ |
+| 泛化界 | Hoeffding + 有限 `\|H\|` | 一致收敛并集界 | $\sqrt{\frac{\ln\lVert H\rVert+\ln\left(\frac{2}{\delta}\right)}{2N}}$ |
 | 交叉熵 | Bernoulli 似然 | 取负对数 | $-[y \log \hat{y}+(1- y)\log(1- \hat{y})]$ |
 | 牛顿/IRLS | $\nabla L=X^{T}(\hat{y}- y)$、$H=X^{T}RX$ | $w \leftarrow w- H^{-1} \nabla L$ | 加权最小二乘迭代 |
 | 正规方程 | $\nabla_{w} \frac{1}{2} \| Xw- y \|^{2}=0$ | $X^{T}(Xw- y)=0$ | $w*=(X^{T}X)^{-1}X^{T}y$ |
@@ -2235,7 +2235,7 @@ sklearn 的 `C` 是**正则系数的倒数**（$C=\frac{1}{\lambda}$），C 越�
 | 策略梯度 | log-derivative trick | 减只依赖 s 的基线 | $\nabla J=E[ \nabla \log \pi \cdot A]$ |
 | VAE ELBO | $\log E_{q}[\frac{p(x\|z)p(z)}{q}]$ | Jensen | 重构项 − KL |
 | GAN 最优 D | 对 `D(x)` 逐点求导 | $\frac{p_{data}}{D}=\frac{p_{g}}{1- D}$ | $D*=\frac{p_{data}}{p_{data}+p_{g}}$，$2JS- 2\log 2$ |
-| 扩散前向 | 高斯可加性 | $\bar{\alpha}_{t}=\Pi \alpha_{s}$ | $x_{t}=\sqrt{\bar}{\alpha}_{t}x_{0}+\sqrt{1- \bar{\alpha}_{t}}\epsilon$ |
+| 扩散前向 | 高斯可加性 | $\bar{\alpha}_{t}=\Pi \alpha_{s}$ | $x_{t}=\sqrt{\bar{\alpha}_{t}}x_{0}+\sqrt{1- \bar{\alpha}_{t}}\epsilon$ |
 | 归一化流 | 变量变换 | 三角 Jacobian | $\log p_{X}=\log p_{Z}+\sum s$ |
 
 ### A.12 常用符号与矩阵维度速查
@@ -2292,7 +2292,7 @@ sklearn 的 `C` 是**正则系数的倒数**（$C=\frac{1}{\lambda}$），C 越�
 10. $Err= Bias^{2}+ \operatorname{Var}+ \sigma^{2}$ 中的噪声项 $\sigma^{2}$ 无法通过任何模型消除。
 11. Bagging 主降方差、Boosting 主降偏差；深树配 Bagging、浅树配 Boosting。
 12. 高斯分布 MLE 的方差除以 N（有偏），无偏样本方差才除以 N−1。
-13. 似然 $p(D|\theta)$ 是 θ 的函数，不是 θ 的概率密度；MLE 给点估计、贝叶斯给分布。
+13. 似然 $p(D\mid\theta)$ 是 θ 的函数，不是 θ 的概率密度；MLE 给点估计、贝叶斯给分布。
 14. MAP 等价于「带先验的正则化 MLE」，但完全贝叶斯需对后验积分做预测。
 15. KL 散度非对称、不满足三角不等式，不是距离；方向交换会得到不同目标。
 16. 交叉熵是「用 q 编码 p 的代价」，不是熵本身；真实分布确定时最小化它等价于最小化 KL。
@@ -2318,7 +2318,7 @@ sklearn 的 `C` 是**正则系数的倒数**（$C=\frac{1}{\lambda}$），C 越�
 36. 时序数据必须按时间前向切分，随机 K 折会用未来信息预测过去。
 37. 归一化（改特征尺度）与正则化（目标函数加惩罚）是完全不同的两件事。
 38. 参数由训练得到（w、b），超参数由人设或交叉验证选（λ、K、η）。
-39. SVM 最大化间隔等价于最小化 $\frac{1}{2} \| w \|^{2}$，几何间隔 $\gamma=\frac{2}{\}| w \|$。
+39. SVM 最大化间隔等价于最小化 $\frac{1}{2} \| w \|^{2}$，几何间隔 $\gamma=\frac{2}{\|w\|}$。
 40. 只有 $\alpha_{i}>0$ 的支持向量决定解；软间隔中 $\alpha_{i}=C$ 的错分点也算支持向量。
 41. 对偶问题才能把 $x_{i}^{T}x_{j}$ 换成核函数；核必须使 Gram 矩阵半正定。
 42. Sigmoid 型核在部分参数下不满足 Mercer 条件，不是合法核。

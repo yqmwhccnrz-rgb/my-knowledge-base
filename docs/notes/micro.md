@@ -150,7 +150,7 @@ $50- 2P=- 10+ 3P \Rightarrow 5P= 60 \Rightarrow P*= 12$，`Q* = 26`。
 | 需求交叉弹性 | $eXY= \frac{\frac{\Delta Qx}{Qx}}{\frac{\Delta Py}{Py}}$ | `>0` 替代品；`<0` 互补品；$\approx 0$ 无关 |
 | 供给价格弹性 | $eS= \frac{\frac{\Delta Q}{Q}}{\frac{\Delta P}{P}}$ | 时间越长越大；土地等固定供给 `eS = 0` |
 
-**弹性与总收益 TR = P·Q**：$\frac{dTR}{dP}= Q(1-|Ed|)$。
+**弹性与总收益 TR = P·Q**：$\frac{dTR}{dP}= Q(1-\lvert E_d\rvert)$。
 
 | 弹性 | 涨价 | 降价 | 典型商品 |
 | --- | --- | --- | --- |
@@ -192,18 +192,18 @@ $50- 2Pd= 3Pd- 22 \Rightarrow Pd= 14.4$，`Ps = 10.4`，`Q = 21.2`。
 
 ### 2.5 弹性的高阶结论与税负归宿一般式
 
-1. **线性需求上的弹性分布**：$P= a- bQ$，$|Ed|=\left(\frac{1}{b}\right)\left(\frac{P}{Q}\right)= \frac{P}{a- P}$。纵截距 $|Ed| \to_{\infty}$、中点 $P= \frac{a}{2}$ 处 `|Ed| = 1`、横截距 `|Ed| = 0`。所以"需求曲线陡 = 缺乏弹性"只在**同一坐标系、同一价格处**成立，跨图比较必须看弹性而非斜率。
-2. **总收益与边际收益**：$MR= P(1- 1|Ed|)$ ⇒ `|Ed| > 1` 时 `MR > 0`（降价增收）、`|Ed| = 1` 时 `MR = 0`（TR 极大）、`|Ed| < 1` 时 `MR < 0`（降价减收）。这条式子把第 2 章与第 7 章接了起来。
-3. **税负归宿一般式**：单位税 `t` 下 $\frac{dPd}{dt}= \frac{eS}{eS+|Ed|}$、$\frac{dPs}{dt}=-|Ed|(eS+|Ed|)$（以弹性表示）。**弹性较小（更陡）的一方承担更多**；$eS \to_{\infty}$ 时全部转嫁给消费者，$|Ed| \to 0$ 时亦全部由消费者承担。
+1. **线性需求上的弹性分布**：$P= a- bQ$，$\lvert E_d\rvert=\left(\frac{1}{b}\right)\left(\frac{P}{Q}\right)= \frac{P}{a- P}$。纵截距 $\lvert E_d\rvert \to_{\infty}$、中点 $P= \frac{a}{2}$ 处 `|Ed| = 1`、横截距 `|Ed| = 0`。所以"需求曲线陡 = 缺乏弹性"只在**同一坐标系、同一价格处**成立，跨图比较必须看弹性而非斜率。
+2. **总收益与边际收益**：$MR= P(1- \frac{1}{\lvert E_d\rvert})$ ⇒ `|Ed| > 1` 时 `MR > 0`（降价增收）、`|Ed| = 1` 时 `MR = 0`（TR 极大）、`|Ed| < 1` 时 `MR < 0`（降价减收）。这条式子把第 2 章与第 7 章接了起来。
+3. **税负归宿一般式**：单位税 `t` 下 $\frac{dPd}{dt}= \frac{eS}{eS+\lvert E_d\rvert}$、$\frac{dPs}{dt}=-\lvert E_d\rvert(eS+\lvert E_d\rvert)$（以弹性表示）。**弹性较小（更陡）的一方承担更多**；$eS \to_{\infty}$ 时全部转嫁给消费者，$\lvert E_d\rvert \to 0$ 时亦全部由消费者承担。
 
 ::: tip 工作例题 · 弹性形式的归宿验算
-沿用 2.4 例题：均衡 `P*=12, Q*=26`，$|Ed|=\left(\frac{1}{2}\right) \cdot\left(\frac{12}{26}\right) \cdot 2= \frac{12}{13} \approx 0.923$（注意 $\frac{dQ}{dP}=- 2$），$eS= 3 \cdot\left(\frac{12}{26}\right)= \frac{18}{13} \approx 1.385$。
+沿用 2.4 例题：均衡 `P*=12, Q*=26`，$\lvert E_d\rvert=\left(\frac{1}{2}\right) \cdot\left(\frac{12}{26}\right) \cdot 2= \frac{12}{13} \approx 0.923$（注意 $\frac{dQ}{dP}=- 2$），$eS= 3 \cdot\left(\frac{12}{26}\right)= \frac{18}{13} \approx 1.385$。
 $\frac{dPd}{dt}= \frac{1.385}{1.385+0.923}= 0.6$ ⇒ $\Delta Pd= 4 \times 0.6= 2.4$ ✓ 与方程解一致。
 （用斜率比 `3 : 2` 更快，但弹性形式可推广到非线性曲线。）
 :::
 
 ::: tip 补充考点 · 税收无谓损失的弹性公式
-单位税 `t` 造成的无谓损失可用弹性近似表示：$DWL \approx \frac{1}{2} \cdot t^{2} \cdot(Q* P*) \cdot[|Ed| \frac{\cdot eS}{|Ed|+eS}]$。含义：**DWL 随税额的平方增长**（税率翻倍、损失翻两番），且供需双方弹性越大损失越大。沿用 2.4 例题验算：$\frac{1}{2} \times 16 \times\left(\frac{26}{12}\right) \times\left(\frac{0.923 \times 1.385}{2.308}\right) \approx 9.6$，与三角形法 $\frac{1}{2} \times 4 \times 4.8= 9.6$ 一致 ✓。
+单位税 `t` 造成的无谓损失可用弹性近似表示：$DWL \approx \frac{1}{2} \cdot t^{2} \cdot(Q* P*) \cdot[\lvert E_d\rvert \frac{\cdot eS}{\lvert E_d\rvert+eS}]$。含义：**DWL 随税额的平方增长**（税率翻倍、损失翻两番），且供需双方弹性越大损失越大。沿用 2.4 例题验算：$\frac{1}{2} \times 16 \times\left(\frac{26}{12}\right) \times\left(\frac{0.923 \times 1.385}{2.308}\right) \approx 9.6$，与三角形法 $\frac{1}{2} \times 4 \times 4.8= 9.6$ 一致 ✓。
 :::
 
 ---
@@ -463,7 +463,7 @@ $f(\lambda L, \lambda K)$ 与 $\lambda f(L,K)$ 比较（$\lambda> 1$）：
 ::: tip 工作例题 · 三种利润
 某人辞职创业：原年薪 12 万，自有店面若出租可得 6 万，投入自有资金 50 万（年利率 3% ⇒ 利息 1.5 万）；全年营业收入 60 万，显成本（原料、雇工）38 万。
 - 会计成本 = 38 万 ⇒ **会计利润 = 22 万**。
-- 隐成本 = 12 + 6 + 1.5 = 19.5 万 ⇒ 经济成本 = 57.5 万 ⇒ **经济利润 = 2.5 万**（仍值得继续经营）。
+- 隐成本 $=12+6+1.5=19.5$ 万 $\Rightarrow$ 经济成本 $=57.5$ 万 $\Rightarrow$ **经济利润 $=2.5$ 万**（仍值得继续经营）。
 - 若营业收入降到 55 万，经济利润 = $- 2.5$ 万，虽然账面仍赚 17 万，理性决策是回去上班。
 :::
 
@@ -671,10 +671,10 @@ $\frac{dW}{dQ}= P(Q)- MC(Q)= 0 \Rightarrow P= MC$ ⇒ 竞争均衡使 W 最大�
 MR 与需求曲线纵截距相同、斜率是 2 倍、横截距是一半。
 
 **MR、P 与弹性的关系**：
-$MR= P(1- 1|Ed|)$ ⇒ **勒纳指数** $L= \frac{P- MC}{P}= 1|Ed|$。
+$MR= P(1- \frac{1}{\lvert E_d\rvert})$ ⇒ **勒纳指数** $L= \frac{P- MC}{P}= \frac{1}{\lvert E_d\rvert}$。
 
 ::: danger 易错 · 勒纳指数
-- 由 $L= 1|Ed|$ 知垄断者**绝不会在 `|Ed| < 1` 处生产**：此时 `MR < 0` 而 $MC \ge 0$，减产提价可同时增收降本。
+- 由 $L= \frac{1}{\lvert E_d\rvert}$ 知垄断者**绝不会在 `|Ed| < 1` 处生产**：此时 `MR < 0` 而 $MC \ge 0$，减产提价可同时增收降本。
 - 勒纳指数衡量**市场势力**（0 到 1），不是垄断程度本身：完全竞争 `L = 0`；需求弹性越小，`L` 越大、加成越高。
 - `L` 大不代表利润大（还取决于平均成本与销量），也不必然代表社会福利损失更大（可能有规模经济）。
 :::
@@ -682,9 +682,9 @@ $MR= P(1- 1|Ed|)$ ⇒ **勒纳指数** $L= \frac{P- MC}{P}= 1|Ed|$。
 ::: tip 工作例题 · 垄断均衡与无谓损失完整计算
 $P= 100- 2Q$，`MC = 20`（常数，TFC = 0）：
 - $MR= 100- 4Q= 20 \Rightarrow Qm= 20$，`Pm = 60`，$\pi=(60- 20) \times 20= 800$。
-- $CS= \frac{1}{2} \times(100- 60) \times 20= 400$；$|Ed|=\left(\frac{1}{2}\right)\left(\frac{P}{Q}\right)=\left(\frac{1}{2}\right) \times 3= 1.5$，$L= \frac{40}{60}= \frac{2}{3}= \frac{1}{1.5}$ ✓。
+- $CS= \frac{1}{2} \times(100- 60) \times 20= 400$；$\lvert E_d\rvert=\left(\frac{1}{2}\right)\left(\frac{P}{Q}\right)=\left(\frac{1}{2}\right) \times 3= 1.5$，$L= \frac{40}{60}= \frac{2}{3}= \frac{1}{1.5}$ ✓。
 - 竞争结果：$P= MC= 20 \Rightarrow Qc= 40$；$DWL= \frac{1}{2} \times(60- 20) \times(40- 20)= 400$。
-- 一般式（线性需求 $P= a- bQ$、`MC = c`）：$Qm= \frac{a- c}{2b}$，$Pm= \frac{a+c}{2}$，$|Ed|= \frac{a+c}{a- c}$。
+- 一般式（线性需求 $P= a- bQ$、`MC = c`）：$Qm= \frac{a- c}{2b}$，$Pm= \frac{a+c}{2}$，$\lvert E_d\rvert= \frac{a+c}{a- c}$。
 :::
 
 **垄断的三个成因**：独家控制关键资源、政府管制/专利与特许、自然垄断（LAC 在相关产量范围内递减）。
@@ -758,7 +758,7 @@ $\pi_{1}=[18-(Q_{1}+Q_{2})]Q_{1}$，$\partial \pi_{1} \partial Q_{1}= 18- 2Q_{1}
 ### 7.5 多工厂垄断与加成定价
 
 - **多工厂垄断**：把总产量分配到各工厂使 `MC1(Q1) = MC2(Q2) = … = MR(Q总)`（不是各厂 MC 相等就完事，还要共同等于总 MR）。
-- **加成定价法则** $P= MC \cdot|Ed|(|Ed|- 1)$：由 $L= 1|Ed|$ 整理即得；$|Ed| \to_{\infty}$ 时 $P \to MC$（竞争），$|Ed| \to 1^{+}$ 时加成趋于无穷（受需求约束不可实现）。
+- **加成定价法则** $P=MC\cdot\dfrac{\lvert E_d\rvert}{\lvert E_d\rvert-1}$：由 $L= \frac{1}{\lvert E_d\rvert}$ 整理即得；$\lvert E_d\rvert \to_{\infty}$ 时 $P \to MC$（竞争），$\lvert E_d\rvert \to 1^{+}$ 时加成趋于无穷（受需求约束不可实现）。
 - **两部定价**：入场费 = 全部消费者剩余，使用费 = $MC \Rightarrow$ 可在无 DWL 的同时榨取全部剩余；是二级价格歧视的极限形式，常见于游乐园、软件订阅、水电基本费。
 
 ### 7.6 古诺 n 家推广与合谋维持条件
@@ -1353,7 +1353,7 @@ $$
 
 $Qd= 50- 2P$，$Qs=- 10+ 3P$。
 ① 求均衡：`P* = 12, Q* = 26`。
-② 在均衡点求点弹性：$|Ed|= 2 \times\left(\frac{12}{26}\right)= \frac{12}{13} \approx 0.923$，$eS= 3 \times\left(\frac{12}{26}\right)= \frac{18}{13} \approx 1.385$。
+② 在均衡点求点弹性：$\lvert E_d\rvert= 2 \times\left(\frac{12}{26}\right)= \frac{12}{13} \approx 0.923$，$eS= 3 \times\left(\frac{12}{26}\right)= \frac{18}{13} \approx 1.385$。
 ③ 征收单位税 `t = 4`：`Pd = 14.4, Ps = 10.4, Q = 21.2`；消费者负担 `2.4`、生产者负担 `1.6`。
 ④ 税收收入 $= 4 \times 21.2= 84.8$；$DWL= \frac{1}{2} \times t \times(26- 21.2)= \frac{1}{2} \times 4 \times 4.8= 9.6$；`CS + PS` 减少 `84.8 + 9.6 = 94.4`。
 ⑤ 若改为对买方征税，`Pd、Ps、Q` 不变（仅名义报价口径改变）⇒ 归宿无关性。
@@ -1474,7 +1474,7 @@ $MSB= 100- 2Q$，`MPC = 2Q + 10`，`ME = 6`。
 | 26 | 完全竞争厂商需求线 | 垄断厂商需求线 | 水平（`P = AR = MR`）vs 向右下（`MR < P`） |
 | 27 | AR = MR = P | MR = MC | 前者是完全竞争的市场结构结论；后者是一切厂商的均衡条件 |
 | 28 | 有供给曲线 | 无供给曲线 | 完全竞争有；不完全竞争无（P 与 Q 不一一对应） |
-| 29 | 勒纳指数 | 利润率 | 前者 $\frac{P- MC}{P}= 1|Ed|$ 衡量市场势力；后者还取决于成本与销量 |
+| 29 | 勒纳指数 | 利润率 | 前者 $\frac{P- MC}{P}= \frac{1}{\lvert E_d\rvert}$ 衡量市场势力；后者还取决于成本与销量 |
 | 30 | 一级价格歧视 | 三级价格歧视 | 按单位索取保留价（无 DWL）vs 按群体分割定价 |
 | 31 | 主观需求曲线 d | 客观需求曲线 D | 对手不跟随（平坦）vs 全体同时调整（陡） |
 | 32 | 古诺 | 伯特兰 | 产量竞争（结果介于垄断与竞争之间）vs 价格竞争（同质品 ⇒ `P = MC`） |
@@ -1573,9 +1573,9 @@ $MSB= 100- 2Q$，`MPC = 2Q + 10`，`ME = 6`。
 | 需求点弹性 | $Ed=-\left(\frac{dQ}{dP}\right)\left(\frac{P}{Q}\right)$（常取绝对值） |
 | 需求弧弹性（中点） | $Ed=- \frac{\left(\frac{\Delta Q}{\Delta P}\right) \cdot[\frac{P_{1}+P_{2}}{2}]}{\frac{Q_{1}+Q_{2}}{2}}$ |
 | 收入 / 交叉 / 供给弹性 | $eI= \frac{\frac{\Delta Q}{Q}}{\frac{\Delta I}{I}}$；$eXY= \frac{\frac{\Delta Qx}{Qx}}{\frac{\Delta Py}{Py}}$；$eS= \frac{\frac{\Delta Q}{Q}}{\frac{\Delta P}{P}}$ |
-| 弹性与总收益 | $\frac{dTR}{dP}= Q(1-|Ed|)$；`|Ed| > 1` 降价增收 |
-| 线性需求弹性 | $P= a- bQ \Rightarrow|Ed|=\left(\frac{1}{b}\right)\left(\frac{P}{Q}\right)= \frac{P}{a- P}$ |
-| 税负归宿 | $\frac{dPd}{dt}= \frac{eS}{eS+|Ed|}$；弹性小者承担多；与向谁征收无关 |
+| 弹性与总收益 | $\frac{dTR}{dP}= Q(1-\lvert E_d\rvert)$；`|Ed| > 1` 降价增收 |
+| 线性需求弹性 | $P= a- bQ \Rightarrow\lvert E_d\rvert=\left(\frac{1}{b}\right)\left(\frac{P}{Q}\right)= \frac{P}{a- P}$ |
+| 税负归宿 | $\frac{dPd}{dt}= \frac{eS}{eS+\lvert E_d\rvert}$；弹性小者承担多；与向谁征收无关 |
 | 税收 DWL | $\frac{1}{2} \cdot t \cdot \Delta Q$（线性近似） |
 
 ### A.2 消费者理论（第 3 章）
@@ -1615,8 +1615,8 @@ $MSB= 100- 2Q$，`MPC = 2Q + 10`，`ME = 6`。
 | 短期供给曲线 | `SMC` 在 `AVCmin` 以上的上升段 |
 | 生产者剩余 | $PS= TR- TVC= \pi+ TFC$ |
 | 线性需求 MR | $P= a- bQ \Rightarrow MR= a- 2bQ$ |
-| MR 与弹性 | $MR= P(1- 1|Ed|)$ ⇒ 勒纳指数 $L= \frac{P- MC}{P}= 1|Ed|$ |
-| 加成法则 | $P= MC \cdot|Ed|(|Ed|- 1)$ |
+| MR 与弹性 | $MR= P(1- \frac{1}{\lvert E_d\rvert})$ ⇒ 勒纳指数 $L= \frac{P- MC}{P}= \frac{1}{\lvert E_d\rvert}$ |
+| 加成法则 | $P=MC\cdot\dfrac{\lvert E_d\rvert}{\lvert E_d\rvert-1}$ |
 | 三级价格歧视 | $MR_{1}= MR_{2}= MC$ ⇔ $P_{1}(1- 1|E_{1}|)= P_{2}(1- 1|E_{2}|)= MC$ |
 | 古诺 | $P= a- bQ, MC= c$：$Qi= \frac{a- c}{(n+1)b}$，$P= \frac{a+nc}{n+1}$ |
 | 垄断 DWL | $\frac{1}{2}(Pm- MC)(Qc- Qm)$（线性情形） |
@@ -1643,13 +1643,13 @@ $MSB= 100- 2Q$，`MPC = 2Q + 10`，`ME = 6`。
 | 见到 | 立即想到 |
 | --- | --- |
 | "求均衡价格/数量" | `Qd = Qs` 解方程，再代回验算 |
-| "弹性" | 先判断是点还是弧；线性需求用 $|Ed|=\left(\frac{1}{b}\right)\left(\frac{P}{Q}\right)$ |
-| "总收益/薄利多销/谷贱伤农" | $\frac{dTR}{dP}= Q(1-|Ed|)$ |
+| "弹性" | 先判断是点还是弧；线性需求用 $\lvert E_d\rvert=\left(\frac{1}{b}\right)\left(\frac{P}{Q}\right)$ |
+| "总收益/薄利多销/谷贱伤农" | $\frac{dTR}{dP}= Q(1-\lvert E_d\rvert)$ |
 | "效用最大" | $MRS= \frac{Px}{Py}$ + 预算线；C-D 直接套份额公式 |
 | "价格下降的效应分解" | 先算总效应，再定补偿标准（希克斯/斯勒茨基） |
 | "利润最大" | `MR = MC`，检查 MC 上升段；长期再加 `P = LACmin` |
 | "是否继续生产" | 比 `P` 与 `AVCmin`，不是与 `ACmin` 比 |
-| "垄断加成" | $L= 1|Ed|$；`|Ed| < 1` 处不会生产 |
+| "垄断加成" | $L= \frac{1}{\lvert E_d\rvert}$；`|Ed| < 1` 处不会生产 |
 | "寡头均衡" | 先写反应函数（对对手变量求导），再联立 |
 | "要素需求" | $P \cdot MP= w$；可与 `MR = MC` 互相验算 |
 | "帕累托最优" | 三条件；竞争下 $\frac{Px}{Py}= MRS= MRT$ |
@@ -1713,7 +1713,7 @@ $MSB= 100- 2Q$，`MPC = 2Q + 10`，`ME = 6`。
 50. 成本不变行业的长期供给曲线水平，需求增加只改变厂商数量与总产量。
 51. 不完全竞争厂商**没有供给曲线**（价格与产量不再一一对应）。
 52. 线性需求下 MR 与 D 纵截距相同、横截距为其一半，斜率是 2 倍。
-53. 勒纳指数 $L= 1|Ed|$ 衡量市场势力，不等于利润率，也不等于 DWL 大小。
+53. 勒纳指数 $L= \frac{1}{\lvert E_d\rvert}$ 衡量市场势力，不等于利润率，也不等于 DWL 大小。
 54. 一级价格歧视**无 DWL** 但消费者剩余全被占有 ⇒ 有效率与分配公平是两回事。
 55. 三级价格歧视要求市场可分割、无套利、弹性不同；弹性小的市场价格更高。
 56. 若两个市场需求弹性相同，价格歧视不会带来额外利润。

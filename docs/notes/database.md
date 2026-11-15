@@ -880,7 +880,7 @@ T2: R(A)  W(A)  R(B)  W(B)
 $$
 \text{A} \; \text{上：} \; \text{R2(A)} \; \text{在} \; \text{W1(A)} \; \text{之前} \; \to T2 \to T1 \; \text{；} \; \text{W1(A)} \; \text{在} \; \text{W2(A)} \; \text{之前} \; \to T1 \to T2 \Rightarrow \; \text{出现环} \\
 \text{B} \; \text{上：} \; \text{W2(B)} \; \text{在} \; \text{R1(B)} \; \text{之前} \; \to T2 \to T1 \; \text{；} \; \text{R2(B)} \; \text{在} \; \text{W1(B)} \; \text{之前} \; \to T2 \to T1 \\
-\text{优先图：} \; \text{T1 \rightleftarrows  T2} \; \text{（有环）} \; \Rightarrow \; \text{该调度} \; \text{**} \; \text{不是冲突可串行化} \; \text{**} \; \text{的}
+\text{优先图：} \; \text{T1 ⇄  T2} \; \text{（有环）} \; \Rightarrow \; \text{该调度} \; \text{**} \; \text{不是冲突可串行化} \; \text{**} \; \text{的}
 $$
 若优先图无环，则拓扑序即等价的串行次序（如 $T1 \to T2$）。**2PL 保证可串行化但不保证无死锁**；时间戳排序、乐观并发控制（OCC/MVCC）是另外的实现路线。
 
@@ -1051,11 +1051,11 @@ $$
 \text{(1)} \; \text{分类：} \; \text{L} \; \text{类（只在左出现）} \; \text{B} \; \text{；} \; \text{R} \; \text{类（只在右）无；} \; \text{N} \; \text{类（都不出现）无；} \; \text{LR} \; \text{类} \; \text{A,C,D,E} \\
 \text{(2) B} \; \text{必属于候选码。求} \; B^{+}={B} \; \text{，无法再扩} \; \to \; \text{不是码} \\
 \text{(3)} \; \text{逐个把} \; \text{LR} \; \text{属性加入} \; \text{B} \; \text{再求闭包：} \\
-(AB)^{+}={A,B} \to AB \to C \; \text{加} \; C \to C \to D \; \text{加} \; D \to D \to E \; \text{加} \; \text{E = \{A,B,C,D,E\} }\checkmark \; \text{候选码} \\
+(AB)^{+}={A,B} \to AB \to C \; \text{加} \; C \to C \to D \; \text{加} \; D \to D \to E \; \text{加} \; \text{E = {A,B,C,D,E} }\checkmark \; \text{候选码} \\
 (BC)^{+}={B,C} \to C \to D \to D \to E \to E \to A={A,B,C,D,E} \checkmark \; \text{候选码} \\
-\text{(BD)+ = \{B,D\} → D→E → E→A → (AB} \; \text{已含} \; \text{? A} \; \text{、} \; \text{B} \; \text{、} \; \text{C?} \; \text{由} \; AB \to C \; \text{得} \; \text{C) =} \; \text{全部} \; \checkmark \; \text{候选码} \\
+\text{(BD)+ = {B,D} → D→E → E→A → (AB} \; \text{已含} \; \text{? A} \; \text{、} \; \text{B} \; \text{、} \; \text{C?} \; \text{由} \; AB \to C \; \text{得} \; \text{C) =} \; \text{全部} \; \checkmark \; \text{候选码} \\
 (BE)^{+}={B,E} \to E \to A \to AB \to C \to C \to D= \; \text{全部} \; \checkmark \; \text{候选码} \\
-\text{(4)} \; \text{故候选码为} \; \text{AB} \; \text{、} \; \text{BC} \; \text{、} \; \text{BD} \; \text{、} \; \text{BE} \; \text{（四个）；主属性} \; \text{= \{A,B,C,D,E\}} \; \text{全部，非主属性为空}
+\text{(4)} \; \text{故候选码为} \; \text{AB} \; \text{、} \; \text{BC} \; \text{、} \; \text{BD} \; \text{、} \; \text{BE} \; \text{（四个）；主属性} \; \text{= {A,B,C,D,E}} \; \text{全部，非主属性为空}
 $$
 **结论**：R 中所有属性都是主属性 → 至少属于 3NF；再检查决定因素是否都含码（如 $C \to D$ 中 C 不是码）→ **不属于 BCNF**。
 :::
@@ -1546,7 +1546,7 @@ $$
 $$
 \text{A} \; \text{：} \; \text{R2(A)} \; \text{先于} \; W1(A) \to T2 \to T1 \; \text{；} \; \text{W1(A)} \; \text{先于} \; W2(A) \to T1 \to T2 \\
 \text{B} \; \text{：} \; \text{R2(B)} \; \text{先于} \; W1(B) \to T2 \to T1 \; \text{；} \; \text{W2(B)} \; \text{先于} \; R1(B) \to T2 \to T1 \\
-\text{优先图含} \; \text{T1\rightleftarrows T2} \; \text{环} \; \Rightarrow \; \text{不是冲突可串行化调度}
+\text{优先图含} \; \text{T1⇄ T2} \; \text{环} \; \Rightarrow \; \text{不是冲突可串行化调度}
 $$
 若要修正，可让 T1 与 T2 遵守**两段锁协议**（各自一次性申请所需 X 锁，事务结束统一释放），所得调度必可串行化，但可能出现死锁需要检测与回滚。
 

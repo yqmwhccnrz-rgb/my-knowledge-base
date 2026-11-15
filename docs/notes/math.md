@@ -321,7 +321,7 @@ $\int f(x)dx= F(x)+ C \Leftrightarrow F'(x)=f(x)$。**连续函数必有原函�
 - **不要漏 `+C`**；分段积分时各段常数须由连续性统一（否则原函数不连续）。
 - 三角代换回代时用辅助直角三角形，别把 `t` 直接留在答案里。
 - $e^{- x^{2}}$、`sin x / x`、$\frac{1}{\ln} x$、$\sqrt{1+k^{2}\sin^{2}x}$ 等**原函数不是初等函数**（刘维尔定理），不要硬算；它们靠级数、变限积分或数值方法处理（见第 5、12 章）。
-- $\frac{\int 1}{x dx}= \ln|x|+ C$，绝对值不能省。
+- $\int\dfrac{dx}{x}=\ln\lvert x\rvert+C$，绝对值不能省。
 :::
 
 ::: tip 工作例题 · 三个分部积分
@@ -536,7 +536,7 @@ $L[y]=y^{(n)}+a_{1}(x)y^{(n-1)}+ \cdots+a_{n}(x)y$ 是**线性算子**，故：
 | 运算 | 定义 | 性质与用途 |
 | --- | --- | --- |
 | 数量积 | `a·b = |a||b|cosθ = axbx+aᵧbᵧ+a_zb_z` | 结果是**标量**；夹角 `cosθ=a·b/(|a||b|)`；投影 $Prj_{b} a= a \cdot b|b|$；垂直 ⇔ $a \cdot b=0$ |
-| 向量积 | $a \times b=(a_{gamma}b_{z}- a_{zb}_{gamma}, a_{zb}_{x}- a_{x}b_{z}, a_{x}b_{gamma}- a_{gamma}b_{x})$ | 结果是**向量**，$\bot a$ 且 $\bot b$（右手系）；$|a \times b|$ = 平行四边形面积；平行 ⇔ $a \times b=0$；**反交换** $a \times b=- b \times a$ |
+| 向量积 | $a\times b=(a_{y}b_{z}-a_{z}b_{y},\;a_{z}b_{x}-a_{x}b_{z},\;a_{x}b_{y}-a_{y}b_{x})$ | 结果是**向量**，$\bot a$ 且 $\bot b$（右手系）；$|a \times b|$ = 平行四边形面积；平行 ⇔ $a \times b=0$；**反交换** $a \times b=- b \times a$ |
 | 混合积 | $[a b c]=(a \times b) \cdot c$（三阶行列式） | 绝对值 = 平行六面体体积；三向量共面 ⇔ 混合积 = 0；轮换不变、对换变号 |
 | 方向余弦 | $\cos \alpha=a_{x}|a|$ 等 | $\cos^{2}\alpha+\cos^{2}\beta+\cos^{2}\gamma=1$ |
 
@@ -587,7 +587,7 @@ $|a|= \sqrt{1+4+1}= \sqrt{6} \approx 2.449$；$\cos \theta= \frac{1}{\sqrt{6} \c
 | 柱面 | 方程缺一个变量（如 $x^{2}+y^{2}=R^{2}$） | 母线平行缺失变量的轴 |
 | 球面 | $(x- x_{0})^{2}+(y- y_{0})^{2}+(z- z_{0})^{2}=R^{2}$ | — |
 
-**旋转曲面**：`yOz` 面上 `f(y,z)=0` 绕 `z` 轴旋转 ⇒ 把 `y` 换成 $±\sqrt{x^{2}+y^{2}}$；绕 `y` 轴则把 `z` 换成 $±\sqrt{x^{2}+z^{2}}$。
+**旋转曲面**：`yOz` 面上 `f(y,z)=0` 绕 `z` 轴旋转 ⇒ 把 `y` 换成 $\pm\sqrt{x^{2}+y^{2}}$；绕 `y` 轴则把 `z` 换成 $\pm\sqrt{x^{2}+z^{2}}$。
 **截痕法**：用 `z=k`、`x=k`、`y=k` 的平面去截，看截痕类型随 `k` 的变化，拼出整体形状。
 **空间曲线**：一般式 = 两曲面 `F=0, G=0` 交线；参数式 `x=x(t), y=y(t), z=z(t)`（如圆柱螺线 $x=a \cos t, y=a \sin t, z=bt$）；在 `xOy` 面的投影由「消去 z 得 `H(x,y)=0`，再与 `z=0` 联立」得到。
 
@@ -610,13 +610,13 @@ $|a|= \sqrt{1+4+1}= \sqrt{6} \approx 2.449$；$\cos \theta= \frac{1}{\sqrt{6} \c
 | 二重极限 | $\forall \epsilon>0 \exists \delta>0, 0<\sqrt{(x- x_{0})^{2}+(y- y_{0})^{2}}<\delta \Rightarrow|f- A|<\epsilon$；要求**沿任意路径**趋于同一值 |
 | 累次极限 | `lim_x lim_y f` 与 `lim_y lim_x f`；二者存在且不等 ⇒ 二重极限不存在（反之不成立） |
 | 偏导数 | $f_{x}(x_{0},y_{0})=\lim \frac{f(x_{0}+h,y_{0})- f(x_{0},y_{0})}{h}$（固定其余变量） |
-| 全微分 | $\Delta z= A\Delta x+B\Delta y+o(\rho)$，$\rho=\sqrt{\Delta x^{2}+\Delta y^{2}}$ ⇒ $dz=f_{x}dx+f_{gamma}dy$ |
+| 全微分 | $\Delta z= A\Delta x+B\Delta y+o(\rho)$，$\rho=\sqrt{\Delta x^{2}+\Delta y^{2}}$ ⇒ $dz=f_{x}dx+f_{y}dy$ |
 
 **关系图（二元，与一元差别很大）**：
 
 $$
 \text{偏导数连续} \; \Rightarrow \; \text{可微} \; \Rightarrow \; \text{连续} \; \Rightarrow \; \text{二重极限存在} \\
-\text{\Downarrow } \\
+\text{⇓ } \\
 \text{偏导数存在（且各方向导数存在）} \\
 \text{反例：偏导数存在但「不连续」「不可微」都成立} \; -- \; \text{与一元「可导} \; \Rightarrow \; \text{连续」截然不同}
 $$
@@ -630,7 +630,7 @@ $$
 ### 9.2 复合、隐函数与几何应用
 
 **链式法则**（先画变量关系图，"一分多合"）：
-`z=f(u,v)`, `u=u(x,y)`, `v=v(x,y)` ⇒ $\frac{\partial z}{\partial x}= f_{u}u_{x}+ f_{vv}_{x}$，$\frac{\partial z}{\partial y}$ 同理。
+`z=f(u,v)`, `u=u(x,y)`, `v=v(x,y)` ⇒ $\frac{\partial z}{\partial x}= f_{u}u_{x}+f_{v}v_{x}$，$\frac{\partial z}{\partial y}$ 同理。
 **一阶全微分形式不变性**：无论 `u,v` 是自变量还是中间变量，$dz= f_{u}du+f_{vdv}$ 形式不变（求全微分与验算都靠它）。
 
 **隐函数求导**：`F(x,y,z)=0` ⇒ $\frac{\partial z}{\partial x}=- \frac{F_{x}}{F_{z}}$、$\frac{\partial z}{\partial y}=- \frac{F_{y}}{F_{z}}$（$F_{z}=0$）；方程组 `F=G=0` 用雅可比行列式 $J= \frac{\partial(F,G)}{\partial}(u,v)= 0$，解线性方程组求各偏导。
@@ -641,11 +641,11 @@ $$
 
 ### 9.3 方向导数、梯度与极值
 
-**方向导数**（`f` 可微时）：$\frac{\partial f}{\partial l}= f_{x}\cos \alpha+f_{gamma}\cos \beta+f_{z} \cos \gamma= \nabla f \cdot e_{l}$。
-**梯度** $\nabla f=(f_{x},f_{gamma},f_{z})$：指向函数增长最快方向，$| \nabla f|$ 是最大方向导数；负梯度是下降最快方向（梯度下降算法的数学来源）；梯度与等值面正交。
+**方向导数**（`f` 可微时）：$\frac{\partial f}{\partial l}= f_{x}\cos \alpha+f_{y}\cos \beta+f_{z} \cos \gamma= \nabla f \cdot e_{l}$。
+**梯度** $\nabla f=(f_{x},f_{y},f_{z})$：指向函数增长最快方向，$| \nabla f|$ 是最大方向导数；负梯度是下降最快方向（梯度下降算法的数学来源）；梯度与等值面正交。
 
 ::: tip 工作例题 · 方向导数
-$f=x^{2}y+\sin(xy)$ ⇒ $f_{x}=2xy+y \cos(xy)$，$f_{gamma}=x^{2}+x \cos(xy)$。
+$f=x^{2}y+\sin(xy)$ ⇒ $f_{x}=2xy+y \cos(xy)$，$f_{y}=x^{2}+x \cos(xy)$。
 在 `(0,1)`：$\nabla f=(1, 0)$。沿 $e=\left(\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}\right)$ 的方向导数 $= 1 \cdot\left(\frac{1}{\sqrt{2}}\right)+0= \frac{1}{\sqrt{2}} \approx 0.7071$；
 最大方向导数 $=| \nabla f|=1$（沿 x 轴正向），最小 $=- 1$（沿 x 轴负向）。
 :::
@@ -654,7 +654,7 @@ $f=x^{2}y+\sin(xy)$ ⇒ $f_{x}=2xy+y \cos(xy)$，$f_{gamma}=x^{2}+x \cos(xy)$。
 
 | 判别 | 结论 |
 | --- | --- |
-| 无条件极值必要条件 | $f_{x}=f_{gamma}=0$（驻点）或偏导不存在点 |
+| 无条件极值必要条件 | $f_{x}=f_{y}=0$（驻点）或偏导不存在点 |
 | 记 $A=f_{xx}, B=f_{xy}, C=f_{gammagamma}$，$\Delta=AC- B^{2}$ | $\Delta>0$ 且 `A<0` 极大；$\Delta>0$ 且 `A>0` 极小；$\Delta<0$ 鞍点；$\Delta=0$ 失效 |
 | 海森矩阵 | 正定 ⇒ 极小、负定 ⇒ 极大、不定 ⇒ 鞍点 |
 | 条件极值 | $L=f+\lambda \phi$（多约束 $L=f+\sum \lambda_{i}\phi_{i}$），解 $\nabla L=0$；几何含义 $\nabla f ∥ \nabla \phi$ |
@@ -665,7 +665,7 @@ $$
 \text{f=xy} \; \text{在} \; \text{(0,0)} \; \text{：} \; A=C=0, B=1 \Rightarrow \Delta=- 1<0 \Rightarrow \; \text{鞍点（不是极值点）} \\
 \text{(2)} \; \text{条件极值：} \; \min x^{2}+y^{2} s.t. x+y=1 \\
 L=x^{2}+y^{2}- \lambda(x+y- 1) \; \text{，} \; \frac{\partial L}{\partial x}=2x- \lambda=0, \frac{\partial L}{\partial y}=2y- \lambda=0 \Rightarrow x=y \\
-\text{代入约束} \; \Rightarrow x=y=\frac{1}{2} \Rightarrow f_\min= \frac{1}{4}+\frac{1}{4}= \frac{1}{2} \\
+\text{代入约束} \; \Rightarrow x=y=\frac{1}{2} \Rightarrow f_{\min}= \frac{1}{4}+\frac{1}{4}= \frac{1}{2} \\
 (3) f=xy s.t. x^{2}+y^{2}=1 \Rightarrow \; \text{极大} \; \text{1/2} \; \text{（} \; x=y=±\frac{1}{\sqrt{2}} \; \text{）、极小} \; - \frac{1}{2}
 $$
 :::
@@ -739,7 +739,7 @@ $$
 ::: tip 工作例题 · 三重积分
 $$
 (1) \iiint _{x^{2}+y^{2}+z^{2} \le R^{2}} 1 dV= \frac{4\pi R^{3}}{3} \; \text{（} \; R=1 \Rightarrow \frac{4\pi}{3} \approx 4.18879 \; \text{）} \\
-\text{(2) ∭\_\{} \; \text{上半球} \; \text{x2+y2+z2≤1, z≥0\} z dV} \\
+\text{(2) 三重积分\_{} \; \text{上半球} \; \text{x2+y2+z2≤1, z≥0} z dV} \\
 = \int_{0}^{2\pi}d\theta \int_{0}^{\frac{\pi}{2}}\sin \phi \cos \phi d\phi \int_{0}^{1} \rho^{3} d\rho \\
 = 2\pi \cdot\left(\frac{1}{2}\right) \cdot\left(\frac{1}{4}\right)= \frac{\pi}{4} \approx 0.785398 \\
 (3) \iiint _\Omega(x^{2}+y^{2}) dV \; \text{（} \; \Omega \; \text{为圆柱} \; x^{2}+y^{2} \le 1, 0 \le z \le 1 \; \text{），柱坐标：} \\
@@ -772,8 +772,8 @@ $$
 | --- | --- | --- | --- |
 | 第一类（对弧长） | $\int_{L} f(x,y,z)ds$ | 无关 | 参数化后代 $ds=\sqrt{\dot{x}^{2}+\dot{y}^{2}+\dot{z}^{2}}dt$；下限须小于上限 |
 | 第二类（对坐标） | $\int_{L} Pdx+Qdy+Rdz$ | **有关**（反向变号） | 代入参数方程，起终点决定上下限（可上大下小） |
-| 第一类面积分 | $\iint _\sum f dS$ | 无关（无方向） | 投影 + $dS= \sqrt{1+z_{x}^{2}+z_{y}^{2}}dxdy$ |
-| 第二类面积分 | $\iint _\sum P dydz+Q dzdx+R dxdy$ | **与侧有关** | 投影到相应坐标面并按侧定正负；或合一投影法 |
+| 第一类面积分 | $\iint _{\Sigma} f dS$ | 无关（无方向） | 投影 + $dS= \sqrt{1+z_{x}^{2}+z_{y}^{2}}dxdy$ |
+| 第二类面积分 | $\iint _{\Sigma} P dydz+Q dzdx+R dxdy$ | **与侧有关** | 投影到相应坐标面并按侧定正负；或合一投影法 |
 
 **两类之间的联系**：$\int Pdx+Qdy= \int(P \cos \alpha+Q \cos \beta)ds$；$\iint P dydz+Q dzdx+R dxdy= \iint (P \cos \alpha+Q \cos \beta+R \cos \gamma)dS$，其中 $(\cos \alpha, \cos \beta, \cos \gamma)$ 是切向/法向的方向余弦。
 
@@ -782,8 +782,8 @@ $$
 | 公式 | 表达式 | 条件 |
 | --- | --- | --- |
 | **格林** | $\oint _{L} Pdx+Qdy= \iint _{D}\left( \frac{\partial Q}{\partial x}- \frac{\partial P}{\partial y}\right)dxdy$ | `L` 为正向（逆时针）分段光滑闭曲线，`P,Q` 在 `D` 上有一阶连续偏导 |
-| **高斯** | $\oiint _\sum P dydz+Q dzdx+R dxdy= \iiint _\Omega\left( \frac{\partial P}{\partial x}+ \frac{\partial Q}{\partial y}+ \frac{\partial R}{\partial z}\right)dV$ | $\sum$ 取**外侧**闭曲面 |
-| **斯托克斯** | $\oint _\Gamma Pdx+Qdy+Rdz= \iint _\sum(rot A) \cdot n dS$ | $\Gamma$ 与 $\sum$ 的侧符合右手规则 |
+| **高斯** | $\oiint _{\Sigma} P dydz+Q dzdx+R dxdy= \iiint _\Omega\left( \frac{\partial P}{\partial x}+ \frac{\partial Q}{\partial y}+ \frac{\partial R}{\partial z}\right)dV$ | $\sum$ 取**外侧**闭曲面 |
+| **斯托克斯** | $\oint _\Gamma Pdx+Qdy+Rdz= \iint _{\Sigma}(rot A) \cdot n dS$ | $\Gamma$ 与 $\sum$ 的侧符合右手规则 |
 
 **统一视角**：三者都是「**边界上的积分 = 内部某种导数的积分**」，即广义斯托克斯定理 $\int_{\partial M} \omega= \int_{M} d\omega$；牛顿–莱布尼茨是它在区间 `[a,b]` 上的 1 维特例。
 
@@ -796,7 +796,7 @@ $\frac{\partial P}{\partial y}= \frac{\partial Q}{\partial x}$ ⇔ $\oint _{L} P
 $$
 \text{(1)} \; \text{格林求面积：取} \; P=- \frac{y}{2}, Q=\frac{x}{2} \Rightarrow \oint \frac{_{L}(x dy- y dx)}{2}= Area(D) \\
 \Rightarrow \; \text{单位圆上} \; \oint  x dy- y dx= 2\pi \approx 6.28319 \\
-\text{(2)} \; \text{奇点陷阱：} \; \text{∮\_\{} \; \text{单位圆} \; \text{\} (x dy−y dx)/(x2+y2) = 2π} \\
+\text{(2)} \; \text{奇点陷阱：} \; \text{环积分\_{} \; \text{单位圆} \; \text{} (x dy−y dx)/(x2+y2) = 2π} \\
 \text{此处} \; \text{P,Q} \; \text{在原点无定义，不能直接套格林（会错得} \; \text{0} \; \text{）；} \\
 \text{须挖去以原点为心的小圆} \; \epsilon \; \text{，在环形域用格林（旋度为} \; \text{0} \; \text{）} \; \Rightarrow \; \text{等于小圆上的积分} \; 2\pi \\
 \text{(3)} \; \text{高斯：} \; \oiint _{S} x dydz+y dzdx+z dxdy= \iiint _\Omega 3 dV= 3V \\
@@ -812,7 +812,7 @@ $$
 - 第一类积分与方向无关且可用对称性；第二类积分与方向/侧有关，先定向再计算。
 :::
 
-**补充 · 场论术语**：通量 $\Phi=\iint _\sum A \cdot n dS$（高斯：通量 = 散度的体积分）；环流量 $\Gamma=\oint _\Gamma A \cdot dl$（斯托克斯：环流量 = 旋度通量）；$div A \equiv 0$ 称无源场（沿任意闭曲面的通量为零），$rot A \equiv 0$ 且在单连通域内称无旋场/保守场（存在势函数）。梯度场必无旋，无旋场在单连通域内必为梯度场。
+**补充 · 场论术语**：通量 $\Phi=\iint _{\Sigma} A \cdot n dS$（高斯：通量 = 散度的体积分）；环流量 $\Gamma=\oint _\Gamma A \cdot dl$（斯托克斯：环流量 = 旋度通量）；$div A \equiv 0$ 称无源场（沿任意闭曲面的通量为零），$rot A \equiv 0$ 且在单连通域内称无旋场/保守场（存在势函数）。梯度场必无旋，无旋场在单连通域内必为梯度场。
 
 ### 11.3 三大公式的统一形式与场论恒等式
 
@@ -1073,14 +1073,14 @@ $$
 ### 演 9 · 多元微分与极值 · 第 9 章
 
 $$
-(1) f=x^{2}y+\sin(xy) \; \text{：} \; f_{x}=2xy+y \cos(xy) \; \text{，} \; f_{gamma}=x^{2}+x \cos(xy) \\
+(1) f=x^{2}y+\sin(xy) \; \text{：} \; f_{x}=2xy+y \cos(xy) \; \text{，} \; f_{y}=x^{2}+x \cos(xy) \\
 \text{在} \; \text{(0,1)} \; \text{：} \; \nabla f=(1,0) \; \text{；沿} \; e=\left(\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}}\right) \; \text{的方向导数} \; = \frac{1}{\sqrt{2}} \approx 0.707107 \\
 \text{(2)} \; \text{曲面} \; z=x^{2}+y^{2} \; \text{在} \; \text{(1,1,2)} \; \text{：令} \; F=x^{2}+y^{2}- z \; \text{，} \; \nabla F=(2x,2y,- 1)=(2,2,- 1) \\
 \text{切平面} \; 2(x- 1)+2(y- 1)-(z- 2)=0 \Rightarrow 2x+2y- z- 2=0 \\
 \text{(3)} \; \text{无条件极值} \; f=x^{2}+y^{2} \; \text{：} \; A=C=2,B=0 \Rightarrow \Delta=4>0 \; \text{且} \; A>0 \Rightarrow(0,0) \; \text{极小} \; \text{0} \\
 \text{f=xy} \; \text{：} \; \Delta=- 1<0 \Rightarrow(0,0) \; \text{是鞍点} \\
 \text{(4)} \; \text{条件极值} \; \min x^{2}+y^{2} s.t. x+y=1 \; \text{：} \\
-L=x^{2}+y^{2}- \lambda(x+y- 1) \; \text{，} \; 2x=\lambda, 2y=\lambda \Rightarrow x=y=\frac{1}{2} \Rightarrow f_\min=\frac{1}{2}
+L=x^{2}+y^{2}- \lambda(x+y- 1) \; \text{，} \; 2x=\lambda, 2y=\lambda \Rightarrow x=y=\frac{1}{2} \Rightarrow f_{\min}=\frac{1}{2}
 $$
 
 ### 演 10 · 重积分 · 第 10 章
@@ -1091,9 +1091,9 @@ $$
 = \int_{0}^{1}dy \int_{0}^{y} e^{- y^{2}}dx= \int_{0}^{1} y e^{- y^{2}}dy= \frac{1}{2}(1- e^{-1}) \approx 0.31606 \\
 (3) \iint _{x^{2}+y^{2} \le a^{2}} e^{-(x^{2}+y^{2})}dxdy= 2\pi \int_{0}^{a} r e^{- r^{2}}dr= \pi(1- e^{- a^{2}}) \\
 a=1 \Rightarrow \approx 1.985865 \\
-\text{(4) ∭\_\{} \; \text{上半球} \; \text{\} z dV = ∫0^\{2π\}dθ∫0^\{π/2\}sinφ cosφ dφ∫01ρ3dρ} \\
+\text{(4) 三重积分\_{} \; \text{上半球} \; \text{} z dV = 积分0(2π)dθ积分0(π/2)sinφ cosφ dφ积分01ρ3dρ} \\
 = 2\pi \cdot\left(\frac{1}{2}\right) \cdot\left(\frac{1}{4}\right)= \frac{\pi}{4} \approx 0.785398 \\
-\text{(5) ∭\_\{} \; \text{单位球} \; \text{\} 1 dV = 4π/3 ≈ 4.188790}
+\text{(5) 三重积分\_{} \; \text{单位球} \; \text{} 1 dV = 4π/3 ≈ 4.188790}
 $$
 
 ### 演 11 · 曲线曲面积分与三大公式 · 第 11 章
@@ -1102,13 +1102,13 @@ $$
 \text{(1)} \; \text{单位圆} \; \text{L} \; \text{（逆时针）：} \; \oint _{L} x dy- y dx \\
 \text{参数} \; x=\cos t, y=\sin t \Rightarrow x dy- y dx= \cos^{2}t dt+ \sin^{2}t dt= dt \\
 \Rightarrow \; \text{积分} \; = \int_{0}^{2\pi}dt= 2\pi \; \text{（} \; = 2 \cdot Area \; \text{，格林公式验证：} \; \iint _{D} 2 dxdy= 2\pi \; \text{）} \\
-\text{(2)} \; \text{奇点陷阱：} \; \text{∮\_\{} \; \text{单位圆} \; \text{\}(x dy−y dx)/(x2+y2)} \\
+\text{(2)} \; \text{奇点陷阱：} \; \text{环积分\_{} \; \text{单位圆} \; \text{}(x dy−y dx)/(x2+y2)} \\
 \frac{\partial Q}{\partial x}- \frac{\partial P}{\partial y}= 0 \; \text{但原点为奇点} \; \Rightarrow \; \text{不能直接得} \; \text{0} \\
 \text{挖去半径} \; \epsilon \; \text{小圆后由格林} \; \Rightarrow \; \text{等于小圆积分} \; = 2\pi \\
 \text{(3)} \; \text{高斯：} \; \oiint _{S} x dydz+y dzdx+z dxdy= \iiint _\Omega 3 dV \; \text{，单位球} \; \Rightarrow 3 \cdot\left(\frac{4\pi}{3}\right)=4\pi \\
 \text{(4) div(x,y,z)=3} \; \text{；} \; rot(- y,x,0)=(0,0,2) \\
 \text{(5)} \; \text{判路径无关：} \; P=2xy, Q=x^{2} \Rightarrow \frac{\partial P}{\partial y}=2x= \frac{\partial Q}{\partial x} \Rightarrow \; \text{与路径无关} \\
-\text{原函数} \; u= \int Pdx= x^{2}y+\phi(y) \; \text{，由} \; u_{gamma}=x^{2}+\phi '=Q \Rightarrow \phi '=0 \Rightarrow u=x^{2}y+C
+\text{原函数} \; u= \int Pdx= x^{2}y+\phi(y) \; \text{，由} \; u_{y}=x^{2}+\phi '=Q \Rightarrow \phi '=0 \Rightarrow u=x^{2}y+C
 $$
 
 ### 演 12 · 级数 · 第 12 章
@@ -1243,7 +1243,7 @@ $$
 | 求直线方程 | 找一点 + 方向向量（叉积/平行/两点差）；一般式要化为对称式 |
 | 距离与夹角 | 直接用公式，注意线面夹角用 `sin` |
 | 投影 | 消去对应变量得投影柱面，再与坐标面方程联立 |
-| 旋转曲面 | 按绕哪个轴替换对应变量，注意 $±\sqrt$ 与定义域 |
+| 旋转曲面 | 按绕哪个轴替换对应变量，注意 $\pm\sqrt{\cdot}$ 与定义域 |
 
 ### 第 9 章 · 多元微分
 
@@ -1251,7 +1251,7 @@ $$
 | --- | --- |
 | 判二重极限不存在 | 沿 `y=kx`（得依赖 k 的值）或沿 `y=x` 与 $y=x^{2}$ 得不同值 |
 | 求偏导 / 全微分 | 固定其余变量；抽象复合函数先画变量图再写链式 |
-| 判可微性 | 偏导连续 ⇒ 可微（最常用）；否则回定义算 $\frac{\lim[\Delta z- f_{x}\Delta x- f_{gamma}\Delta y]}{\rho}$ |
+| 判可微性 | 偏导连续 ⇒ 可微（最常用）；否则回定义算 $\frac{\lim[\Delta z- f_{x}\Delta x- f_{y}\Delta y]}{\rho}$ |
 | 方向导数 / 梯度 | 可微时用 $\nabla f \cdot e_{l}$；单位化方向向量别忘 |
 | 切平面 / 法线 | $\nabla F$ 作法向量；参数曲线用 `r′(t)` |
 | 极值 / 最值 | 驻点 → $\Delta=AC- B^{2}$ 判别 → 闭区域再查边界；条件极值用拉格朗日 |
@@ -1274,7 +1274,7 @@ $$
 | --- | --- |
 | 第一类线积分 | 参数化 + `ds`；利用对称性；上下限小到大 |
 | 第二类线积分 | 参数化直接代入（最稳）或格林（闭曲线）/ 补线 / 判路径无关 |
-| 路径无关求积分 | 验证 $P_{gamma}=Q_{x}$ → 选折线路径求原函数 `u` → `u(终点)−u(起点)` |
+| 路径无关求积分 | 验证 $P_{y}=Q_{x}$ → 选折线路径求原函数 `u` → `u(终点)−u(起点)` |
 | 第二类面积分 | 合一投影法或逐面投影；先定侧 |
 | 高斯 / 斯托克斯 | 检查闭性与连续性；有奇点挖洞；非闭补面后减去 |
 | 散度 / 旋度 / 通量 | 直接按定义求偏导，注意 $\nabla \cdot( \nabla \times A)=0$ 可秒判 |
@@ -1315,12 +1315,12 @@ $=(n- 1) \int \sin^{n- 2}x(1- \sin^{2}x)dx=(n- 1)(I_{n-2}- I_{n})$
 
 $$
 \text{一维：} \; \int_{a}^{b} F'(x)dx= F(b)- F(a) \; \text{（区间内部导数的积分} \; \text{=} \; \text{边界上的值）} \\
-\text{二维：} \; \iint _{D}(Q_{x}- P_{gamma})dxdy= \oint _{\partial D} Pdx+Qdy \; \text{（内部旋度} \; \text{=} \; \text{边界环流）} \\
+\text{二维：} \; \iint _{D}(Q_{x}- P_{y})dxdy= \oint _{\partial D} Pdx+Qdy \; \text{（内部旋度} \; \text{=} \; \text{边界环流）} \\
 \text{三维：} \; \iiint _\Omega div A dV= \oiint _{\partial \Omega} A \cdot n dS \; \text{（内部散度} \; \text{=} \; \text{边界通量）} \\
 \text{三者都是「把内部相邻微元的贡献相互抵消，只剩边界」：} \\
 \text{分割区域后，相邻小区域的公共边界上方向相反、积分抵消。}
 $$
-**推论**：取 $P=- \frac{y}{2}, Q=\frac{x}{2}$ ⇒ $Q_{x}- P_{gamma}=1$ ⇒ $Area(D)= \frac{1}{2} \oint (x dy- y dx)$（格林求面积公式）。
+**推论**：取 $P=- \frac{y}{2}, Q=\frac{x}{2}$ ⇒ $Q_{x}- P_{y}=1$ ⇒ $Area(D)= \frac{1}{2} \oint (x dy- y dx)$（格林求面积公式）。
 
 ### 推 4 · 一阶线性方程的积分因子
 
@@ -1346,7 +1346,7 @@ $\int_{- \pi}^{\pi} \cos mx \cos nx dx= \pi \delta_{mn}$（$m,n \ge 1$），$\in
 
 ### 推 7 · 二元极值充分条件来自泰勒
 
-在驻点 $(x_{0},y_{0})$ 处 $f_{x}=f_{gamma}=0$，二阶泰勒：
+在驻点 $(x_{0},y_{0})$ 处 $f_{x}=f_{y}=0$，二阶泰勒：
 $\Delta f \approx \frac{1}{2}(A h^{2}+ 2B hk+ C k^{2})$，这是关于 `(h,k)` 的二次型。
 其正定 ⇔ `A>0` 且 $AC- B^{2}>0$ ⇒ $\Delta f>0$ 恒成立 ⇒ 极小；负定 ⇔ `A<0` 且 $\Delta>0$ ⇒ 极大；$\Delta<0$ 时二次型不定 ⇒ 沿不同方向符号相反 ⇒ 鞍点。$\Delta=0$ 时二次项不足以判定，需更高阶。
 
@@ -1401,7 +1401,7 @@ $$
 题：用二重积分计算泊松积分 $I= \int_{0}^\infty e^{- x^{2}}dx$。
 
 $$
-\text{(1) I2 = (∫0^∞ e^\{−x2\}dx)(∫0^∞ e^\{−y2\}dy) = ∬\_\{} \; \text{第一象限} \; \text{\} e^\{−(x2+y2)\}dxdy} \\
+\text{(1) I2 = (积分 0 到无穷 e(−x2)dx)(积分 0 到无穷 e(−y2)dy) = 二重积分\_{} \; \text{第一象限} \; \text{} e(−(x2+y2))dxdy} \\
 \text{(2)} \; \text{化极坐标：} \; x=r \cos \theta, y=r \sin \theta, dxdy= r dr d\theta \; \text{，} \; \theta \text{∈[0,}\pi \text{/2], r∈[0,∞)} \\
 (3) I^{2}= \int_{0}^{\frac{\pi}{2}}d\theta \int_{0}^\infty e^{- r^{2}} r dr=\left(\frac{\pi}{2}\right) \cdot[- \frac{1}{2} e^{- r^{2}}]_{0}^\infty=\left(\frac{\pi}{2}\right)\left(\frac{1}{2}\right)= \frac{\pi}{4} \\
 (4) I= \frac{\sqrt{\pi}}{2} \approx 0.886227 \; \text{（取正根）}
@@ -1431,7 +1431,7 @@ $$
 (1) L= xyz+ \lambda(x^{2}+y^{2}+z^{2}- 1) \\
 (2) \frac{\partial L}{\partial x}= yz+2\lambda x= 0 \; \text{；同理} \; xz+2\lambda y=0 \; \text{、} \; xy+2\lambda z=0 \\
 \text{(3)} \; \text{若} \; xyz=0 \; \text{，三式乘} \; \text{x,y,z} \; \text{后相等} \; \Rightarrow 2\lambda x^{2}=2\lambda y^{2}=2\lambda z^{2} \Rightarrow x^{2}=y^{2}=z^{2}=\frac{1}{3} \\
-(4) f_\max=\left(\frac{1}{\sqrt{3}}\right)^{3}= \frac{1}{3\sqrt{3}} \approx 0.19245 \; \text{（取全正或两负一正）} \\
+(4) f_{\max}=\left(\frac{1}{\sqrt{3}}\right)^{3}= \frac{1}{3\sqrt{3}} \approx 0.19245 \; \text{（取全正或两负一正）} \\
 \text{(5)} \; \text{若} \; \text{xyz=0} \; \text{则} \; \text{f=0} \; \text{，非最大} \\
 \text{(6)} \; \text{经济学对应：效用} \; \text{U(X,Y)} \; \text{在预算约束} \; \text{PxX+PyY=I} \; \text{下最大化，} \\
 \text{拉格朗日条件即} \; MRS= \frac{Px}{Py} \; \text{；} \; \lambda \; \text{的边际解释为「收入的边际效用」}
@@ -1440,7 +1440,7 @@ $$
 
 ### 综 6 · 三大公式的选择（第 10、11 章）
 
-题：计算 $\oiint _\sum x^{3} dydz+ y^{3} dzdx+ z^{3} dxdy$，$\sum$ 为球面 $x^{2}+y^{2}+z^{2}=R^{2}$ 外侧。
+题：计算 $\oiint _{\Sigma} x^{3} dydz+ y^{3} dzdx+ z^{3} dxdy$，$\sum$ 为球面 $x^{2}+y^{2}+z^{2}=R^{2}$ 外侧。
 
 $$
 \text{(1)} \; \text{高斯公式：} \; div A= 3x^{2}+3y^{2}+3z^{2}= 3r^{2} \\
@@ -1629,7 +1629,7 @@ $$
 
 | 项目 | 公式 |
 | --- | --- |
-| 基本 | $\int x^a dx=\frac{x^{a+1}}{a+1}+C(a=- 1)$；$\frac{\int dx}{x}=\ln|x|+C$；$\frac{\int dx}{a^{2}+x^{2}}=\left(\frac{1}{a}\right)\arctan\left(\frac{x}{a}\right)+C$ |
+| 基本 | $\int x^a dx=\frac{x^{a+1}}{a+1}+C(a=- 1)$；$\int\dfrac{dx}{x}=\ln\lvert x\rvert+C$；$\frac{\int dx}{a^{2}+x^{2}}=\left(\frac{1}{a}\right)\arctan\left(\frac{x}{a}\right)+C$ |
 | 三类方法 | 第一换元 $\int f(\phi)\phi 'dx= \int f(u)du$；第二换元 $x=\psi(t)$；分部 $\int u dv=uv- \int v du$ |
 | 微积分基本定理 | $\Phi(x)= \int_{a}^{x}f(t)dt \Rightarrow \Phi '=f$；$\int_{a}^{b}f dx=F(b)- F(a)$ |
 | 变限求导 | $\frac{d}{dx} \int_{\alpha(x)}^{\beta(x)}f= f(\beta)\beta '- f(\alpha)\alpha '$ |
@@ -1653,21 +1653,21 @@ $$
 
 | 项目 | 公式 |
 | --- | --- |
-| 三种积 | $a \cdot b=a_{x}b_{x}+a_{gamma}b_{gamma}+a_{zb}_{z}$；$a \times b$ 为叉积分量；$[a b c]=(a \times b) \cdot c$ |
+| 三种积 | $a\cdot b=a_{x}b_{x}+a_{y}b_{y}+a_{z}b_{z}$；$a \times b$ 为叉积分量；$[a b c]=(a \times b) \cdot c$ |
 | 平面 | `Ax+By+Cz+D=0`，`n=(A,B,C)`；点面距 $d=|Ax_{0}+By_{0}+Cz_{0}+D| \sqrt{A^{2}+B^{2}+C^{2}}$ |
 | 直线 | $\frac{x- x_{0}}{m}=\frac{y- y_{0}}{n}=\frac{z- z_{0}}{p}$，`s=(m,n,p)`；一般式 $s=n_{1} \times n_{2}$ |
 | 夹角 | 面面 `cosθ=|n1·n2|/(|n1||n2|)`；线面 `sinθ=|s·n|/(|s||n|)` |
 | 异面直线距离 | $d=|[s_{1} s_{2} P_{1}P_{2}]||s_{1} \times s_{2}|$ |
-| 旋转曲面 | 绕 z 轴：$f(y,z)=0 \Rightarrow f\left(±\sqrt{x^{2}+y^{2}}, z\right)=0$ |
+| 旋转曲面 | 绕 z 轴：$f(y,z)=0 \Rightarrow f\left(\pm\sqrt{x^{2}+y^{2}}, z\right)=0$ |
 
 ### A.7 多元微分（第 9 章）
 
 | 项目 | 公式 |
 | --- | --- |
-| 全微分 | $dz=f_{x}dx+f_{gamma}dy$；可微要求 $\Delta z- dz=o(\rho)$ |
-| 链式 | $z=f(u,v), u=u(x,y), v=v(x,y) \Rightarrow z_{x}=f_{u}u_{x}+f_{vv}_{x}$ |
+| 全微分 | $dz=f_{x}dx+f_{y}dy$；可微要求 $\Delta z- dz=o(\rho)$ |
+| 链式 | $z=f(u,v), u=u(x,y), v=v(x,y) \Rightarrow z_{x}=f_{u}u_{x}+f_{v}v_{x}$ |
 | 隐函数 | $z_{x}=- \frac{F_{x}}{F_{z}}$；方程组用雅可比 $J=0$ |
-| 方向导数 / 梯度 | $\frac{\partial f}{\partial l}= \nabla f \cdot e_{l}$（可微时）；$\nabla f=(f_{x},f_{gamma},f_{z})$；最大值 $| \nabla f|$ |
+| 方向导数 / 梯度 | $\frac{\partial f}{\partial l}= \nabla f \cdot e_{l}$（可微时）；$\nabla f=(f_{x},f_{y},f_{z})$；最大值 $| \nabla f|$ |
 | 切平面 / 法线 | $F_{x}(x- x_{0})+F_{y}(y- y_{0})+F_{z}(z- z_{0})=0$；法线方向 $\nabla F$ |
 | 极值判别 | $A=f_{xx},B=f_{xy},C=f_{gammagamma},\Delta=AC- B^{2}$；$\Delta>0$ 且 `A<0` 极大、`A>0` 极小；$\Delta<0$ 鞍点 |
 | 条件极值 | $L=f+\sum \lambda_{i}\phi_{i}$，解 $\nabla L=0$ |
@@ -1680,12 +1680,12 @@ $$
 | 三重积分 | 柱 $dV=r dr d\theta dz$；球 $dV=\rho^{2}\sin \phi d\rho d\phi d\theta$；一般 `dV=|J|du dv dw` |
 | 曲面面积 | $A=\iint \sqrt{1+z_{x}^{2}+z_{y}^{2}}dxdy$ |
 | 两类线积分 | $\int_{L} f ds$；$\int_{L} Pdx+Qdy= \int(P \cos \alpha+Q \cos \beta)ds$ |
-| 两类面积分 | $\iint _\sum f dS$；$\iint _\sum P dydz+Q dzdx+R dxdy=\iint (P \cos \alpha+Q \cos \beta+R \cos \gamma)dS$ |
-| 格林 | $\oint _{L} Pdx+Qdy=\iint _{D}(Q_{x}- P_{gamma})dxdy$ |
-| 高斯 | $\oiint _\sum P dydz+Q dzdx+R dxdy=\iiint _\Omega(P_{x}+Q_{gamma}+R_{z})dV$ |
-| 斯托克斯 | $\oint _\Gamma A \cdot dl=\iint _\sum(rot A) \cdot n dS$ |
-| 散度 / 旋度 | $div A=P_{x}+Q_{gamma}+R_{z}$；$rot A= \nabla \times A$；$\nabla \times( \nabla f)=0$、$\nabla \cdot( \nabla \times A)=0$ |
-| 路径无关 | 单连通域内 $P_{gamma}=Q_{x}$ ⇔ 闭路积分为 0 ⇔ 存在原函数 `u` |
+| 两类面积分 | $\iint _{\Sigma} f dS$；$\iint _{\Sigma} P dydz+Q dzdx+R dxdy=\iint (P \cos \alpha+Q \cos \beta+R \cos \gamma)dS$ |
+| 格林 | $\oint _{L} Pdx+Qdy=\iint _{D}(Q_{x}- P_{y})dxdy$ |
+| 高斯 | $\oiint _{\Sigma} P dydz+Q dzdx+R dxdy=\iiint _\Omega(P_{x}+Q_{y}+R_{z})dV$ |
+| 斯托克斯 | $\oint _\Gamma A \cdot dl=\iint _{\Sigma}(rot A) \cdot n dS$ |
+| 散度 / 旋度 | $div A=P_{x}+Q_{y}+R_{z}$；$rot A= \nabla \times A$；$\nabla \times( \nabla f)=0$、$\nabla \cdot( \nabla \times A)=0$ |
+| 路径无关 | 单连通域内 $P_{y}=Q_{x}$ ⇔ 闭路积分为 0 ⇔ 存在原函数 `u` |
 
 ### A.9 无穷级数（第 12 章）
 
@@ -1751,7 +1751,7 @@ $$
 18. 导函数可以不连续，但由达布定理导函数没有第一类间断点。
 19. 分段点求导必须用定义算左右导数，不能直接代两侧导函数。
 20. 参数方程二阶导数要「先对 t 求导再除以 ẋ」，不是 `ÿ/ẍ`。
-21. $\frac{\int 1}{x dx}= \ln|x|+C$，绝对值不可省；不定积分不要漏 `+C`。
+21. $\int\dfrac{dx}{x}=\ln\lvert x\rvert+C$，绝对值不可省；不定积分不要漏 `+C`。
 22. 罗尔定理三条件（闭连续、开可导、端点值相等）缺一不可（`|x|` 在 $[- 1,1]$）。
 23. 拉格朗日中值定理的 $\xi$ 属于**开区间** `(a,b)`。
 24. 柯西中值定理是洛必达的证明基础，不要把二者当成同一件事。
@@ -1789,7 +1789,7 @@ $$
 56. 线面夹角用 `sinθ=|s·n|/(|s||n|)`，面面夹角用 `cos`。
 57. 点到平面距离公式分母是法向量的模 $\sqrt{A^{2}+B^{2}+C^{2}}$，不要漏根号。
 58. 曲面方程缺一个变量才是柱面；含 $x^{2}+y^{2}$ 且含 $z^{2}$ 的一般不是柱面。
-59. 旋转曲面代换规则：绕 z 轴把 `y` 换成 $±\sqrt{x^{2}+y^{2}}$，别换错变量。
+59. 旋转曲面代换规则：绕 z 轴把 `y` 换成 $\pm\sqrt{x^{2}+y^{2}}$，别换错变量。
 60. 二次曲面单叶/双叶由负号个数与右端符号共同决定。
 61. 二重极限要求沿**任意路径**相同；有限条路径相同不能判存在。
 62. 累次极限存在且不等 ⇒ 二重极限不存在；逆命题不成立。
