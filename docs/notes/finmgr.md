@@ -172,26 +172,26 @@ summary: "CPA《财务成本管理》20 章精要笔记：第一章至第十一�
 
 ### 3.2 货币时间价值（★★★）
 
-| 项目 | 公式（利率 <img class="fml" src="/formulas/e42f92a6b2533a.png" alt="i" width="12" height="33">，期数 <img class="fml" src="/formulas/efeb369cccbd56.png" alt="n" width="17" height="33">） |
+| 项目 | 公式（利率 <img class="fml" src="/formulas/e42f92a6b2533a.png" alt="i" width="13" height="34">，期数 <img class="fml" src="/formulas/efeb369cccbd56.png" alt="n" width="18" height="34">） |
 | --- | --- |
-| 复利终值 | <img class="fml" src="/formulas/a9d79b40d4ac70.png" alt="F=P(1+i)^{n}" width="117" height="33"> |
-| 复利现值 | <img class="fml" src="/formulas/a39be31779f350.png" alt="P=\frac{F}{(1+i)^{n}}=F(1+i)^{-n}" width="191" height="35"> |
-| 普通年金终值 | <img class="fml" src="/formulas/75bc67716f38aa.png" alt="F=A\cdot\frac{(1+i)^{n}-1}{i}" width="127" height="33"> |
-| 普通年金现值 | <img class="fml" src="/formulas/4d0db49a9ff0ad.png" alt="P=A\cdot\frac{1-(1+i)^{-n}}{i}" width="133" height="34"> |
-| 预付年金 | 在普通年金基础上乘 <img class="fml" src="/formulas/eea2adc86741f3.png" alt="(1+i)" width="57" height="33"> |
+| 复利终值 | <img class="fml" src="/formulas/a9d79b40d4ac70.png" alt="F=P(1+i)^{n}" width="118" height="34"> |
+| 复利现值 | <img class="fml" src="/formulas/a39be31779f350.png" alt="P=\frac{F}{(1+i)^{n}}=F(1+i)^{-n}" width="192" height="36"> |
+| 普通年金终值 | <img class="fml" src="/formulas/75bc67716f38aa.png" alt="F=A\cdot\frac{(1+i)^{n}-1}{i}" width="127" height="34"> |
+| 普通年金现值 | <img class="fml" src="/formulas/4d0db49a9ff0ad.png" alt="P=A\cdot\frac{1-(1+i)^{-n}}{i}" width="135" height="35"> |
+| 预付年金 | 在普通年金基础上乘 <img class="fml" src="/formulas/eea2adc86741f3.png" alt="(1+i)" width="57" height="34"> |
 | 递延年金 | 先算 m 期后 n 期的现值，再折现 m 期 |
-| 永续年金现值 | <img class="fml" src="/formulas/d4292066f55c53.png" alt="P=\frac{A}{i}" width="57" height="33"> |
+| 永续年金现值 | <img class="fml" src="/formulas/d4292066f55c53.png" alt="P=\frac{A}{i}" width="59" height="34"> |
 
-**报价利率与有效年利率**：有效年利率 <img class="fml" src="/formulas/f78e9e71395cae.png" alt="EAR=\left(1+\frac{r}{m}\right)^{m}-1" width="176" height="33">（<img class="fml" src="/formulas/a114df82272b5d.png" alt="r" width="15" height="33"> 为报价利率，<img class="fml" src="/formulas/d0fa7c3b5984b6.png" alt="m" width="22" height="33"> 为每年计息次数）。
+**报价利率与有效年利率**：有效年利率 <img class="fml" src="/formulas/f78e9e71395cae.png" alt="EAR=\left(1+\frac{r}{m}\right)^{m}-1" width="177" height="34">（<img class="fml" src="/formulas/a114df82272b5d.png" alt="r" width="15" height="34"> 为报价利率，<img class="fml" src="/formulas/d0fa7c3b5984b6.png" alt="m" width="23" height="34"> 为每年计息次数）。
 
 ### 3.3 风险与报酬（★★★）
 
-- 预期值 <img class="fml" src="/formulas/40c5100e0f07f7.png" alt="E(R)=\sum p_{i}R_{i}" width="126" height="33">；方差 <img class="fml" src="/formulas/a08c3ae74b5db1.png" alt="\sigma^{2}=\sum p_{i}(R_{i}-E)^{2}" width="160" height="33">；标准差 <img class="fml" src="/formulas/fb68bf40397be5.png" alt="\sigma=\sqrt{\sigma^{2}}" width="73" height="33">；变异系数 <img class="fml" src="/formulas/b7f1dec54c03de.png" alt="CV=\frac{\sigma}{E}" width="72" height="33">。
-- 组合期望为各证券期望的加权和；组合方差含协方差项 <img class="fml" src="/formulas/49fe1562231e89.png" alt="\sigma_{P}^{2}=\sum_{i}\sum_{j} w_{i}w_{j}\operatorname{Cov}(R_{i},R_{j})" width="239" height="34">。
-- 相关系数 ρ 越低，分散化效果越好；<img class="fml" src="/formulas/0aab47c687feda.png" alt="\rho=-1" width="62" height="33"> 可完全消除风险，<img class="fml" src="/formulas/71f55b31ab0f91.png" alt="\rho=1" width="48" height="33"> 无效分散。
+- 预期值 <img class="fml" src="/formulas/40c5100e0f07f7.png" alt="E(R)=\sum p_{i}R_{i}" width="127" height="34">；方差 <img class="fml" src="/formulas/a08c3ae74b5db1.png" alt="\sigma^{2}=\sum p_{i}(R_{i}-E)^{2}" width="161" height="34">；标准差 <img class="fml" src="/formulas/fb68bf40397be5.png" alt="\sigma=\sqrt{\sigma^{2}}" width="74" height="34">；变异系数 <img class="fml" src="/formulas/b7f1dec54c03de.png" alt="CV=\frac{\sigma}{E}" width="73" height="34">。
+- 组合期望为各证券期望的加权和；组合方差含协方差项 <img class="fml" src="/formulas/49fe1562231e89.png" alt="\sigma_{P}^{2}=\sum_{i}\sum_{j} w_{i}w_{j}\operatorname{Cov}(R_{i},R_{j})" width="240" height="35">。
+- 相关系数 ρ 越低，分散化效果越好；<img class="fml" src="/formulas/0aab47c687feda.png" alt="\rho=-1" width="63" height="34"> 可完全消除风险，<img class="fml" src="/formulas/71f55b31ab0f91.png" alt="\rho=1" width="49" height="34"> 无效分散。
 - **资本市场线 CML**：总风险（标准差）与报酬的关系，切点组合为市场组合。
-- **β 系数**：系统风险度量，<img class="fml" src="/formulas/b3a15593035970.png" alt="\beta=\frac{\operatorname{Cov}(R_{i},R_{m})}{\sigma_{m}^{2}}" width="112" height="36">；组合 β 为个别 β 加权。
-- **证券市场线 SML / CAPM**：<img class="fml" src="/formulas/702b10203e0521.png" alt="R_{i}=R_{f}+\beta_{i}(R_{m}-R_{f})" width="191" height="33">。截距为无风险利率，斜率为市场风险溢价。
+- **β 系数**：系统风险度量，<img class="fml" src="/formulas/b3a15593035970.png" alt="\beta=\frac{\operatorname{Cov}(R_{i},R_{m})}{\sigma_{m}^{2}}" width="113" height="37">；组合 β 为个别 β 加权。
+- **证券市场线 SML / CAPM**：<img class="fml" src="/formulas/702b10203e0521.png" alt="R_{i}=R_{f}+\beta_{i}(R_{m}-R_{f})" width="192" height="34">。截距为无风险利率，斜率为市场风险溢价。
 
 ::: danger 易错 · 系统风险 vs 非系统风险
 非系统风险可通过组合分散，市场只对**系统风险（β）**给予补偿。CAPM 中个别资产或组合的"要求的必要报酬率"只与 β 有关，与总风险无关。
@@ -202,10 +202,10 @@ summary: "CPA《财务成本管理》20 章精要笔记：第一章至第十一�
 **债券价值** ＝ 各期利息现值 ＋ 本金现值（按必要报酬率折现）。债券价值与必要报酬率反向变动；溢价/折价/平价取决于票面利率与必要报酬率的关系。流通债券（非时点付息）需注意现金流与折现期匹配。
 
 **普通股价值**：
-- 固定增长模型：P0 ＝ <img class="fml" src="/formulas/399ad9635c03a6.png" alt="D_{1}" width="28" height="33">（<img class="fml" src="/formulas/c4de1f0d0d1983.png" alt="r_{s}- g" width="52" height="33">）＝ D0（1＋g）÷（<img class="fml" src="/formulas/c4de1f0d0d1983.png" alt="r_{s}- g" width="52" height="33">）
+- 固定增长模型：P0 ＝ <img class="fml" src="/formulas/399ad9635c03a6.png" alt="D_{1}" width="28" height="34">（<img class="fml" src="/formulas/c4de1f0d0d1983.png" alt="r_{s}- g" width="52" height="34">）＝ D0（1＋g）÷（<img class="fml" src="/formulas/c4de1f0d0d1983.png" alt="r_{s}- g" width="52" height="34">）
 - 零增长：P0 ＝ <img class="fml" src="/formulas/62eb5a51e536f7.png" alt="D \div  r_{s}" width="58" height="33">
 - 阶段性增长：分段折现
-- 期望报酬率 rs ＝ <img class="fml" src="/formulas/a1f3b74bf5f4ef.png" alt="\frac{D_{1}}{P_{0}}" width="26" height="34"> ＋ g
+- 期望报酬率 rs ＝ <img class="fml" src="/formulas/a1f3b74bf5f4ef.png" alt="\frac{D_{1}}{P_{0}}" width="27" height="35"> ＋ g
 
 **优先股**按固定股息用永续年金；**永续债**类似。
 
@@ -232,8 +232,8 @@ summary: "CPA《财务成本管理》20 章精要笔记：第一章至第十一�
 
 ### 4.3 普通股资本成本估计（★★★）
 
-- **资本资产定价模型**：rs ＝ R_f ＋ β×（<img class="fml" src="/formulas/51ebb9d1527570.png" alt="R_{m}- R_{f}" width="75" height="33">）
-- **股利增长模型**：rs ＝ <img class="fml" src="/formulas/a1f3b74bf5f4ef.png" alt="\frac{D_{1}}{P_{0}}" width="26" height="34"> ＋ g
+- **资本资产定价模型**：rs ＝ R_f ＋ β×（<img class="fml" src="/formulas/51ebb9d1527570.png" alt="R_{m}- R_{f}" width="76" height="33">）
+- **股利增长模型**：rs ＝ <img class="fml" src="/formulas/a1f3b74bf5f4ef.png" alt="\frac{D_{1}}{P_{0}}" width="27" height="35"> ＋ g
 - **债券收益率风险调整模型**：rs ＝ 债券税后成本 ＋ 风险溢价
 
 ### 4.4 加权平均资本成本（★★★）
@@ -301,9 +301,9 @@ WACC ＝ Σ（个别资本成本 × 权重）。
 - 看涨内在价值 ＝ max（股票市价 − 执行价，0）；看跌 ＝ max（执行价 − 股票市价，0）。
 - 影响期权价值的主要因素：股价、执行价、到期期限、波动率（最重要正向因素）、无风险利率、红利。
 
-**二叉树模型**：单期 u/d 上涨/下跌因子，风险中性概率 p ＝（1＋<img class="fml" src="/formulas/aa8b2201407267.png" alt="r- d" width="46" height="33">）/（<img class="fml" src="/formulas/cf21c3b3fd402a.png" alt="u- d" width="47" height="33">），期权价值 ＝ [p×上行价值 ＋（1−p）×下行价值] ÷（1＋r）。
+**二叉树模型**：单期 u/d 上涨/下跌因子，风险中性概率 p ＝（1＋<img class="fml" src="/formulas/aa8b2201407267.png" alt="r- d" width="47" height="33">）/（<img class="fml" src="/formulas/cf21c3b3fd402a.png" alt="u- d" width="48" height="33">），期权价值 ＝ [p×上行价值 ＋（1−p）×下行价值] ÷（1＋r）。
 
-**布莱克—斯科尔斯模型（BS）**：需输入 S0（股价）、X（执行价）、r_c（连续复利无风险利率）、t（到期时间）、σ（波动率），输出看涨期权价值 C0；看跌由平价关系 P0 ＝ C0 ＋ <img class="fml" src="/formulas/5a57ea5e8203c8.png" alt="X \cdot e^{-rt}- S_{0}" width="104" height="33">。
+**布莱克—斯科尔斯模型（BS）**：需输入 S0（股价）、X（执行价）、r_c（连续复利无风险利率）、t（到期时间）、σ（波动率），输出看涨期权价值 C0；看跌由平价关系 P0 ＝ C0 ＋ <img class="fml" src="/formulas/5a57ea5e8203c8.png" alt="X \cdot e^{-rt}- S_{0}" width="105" height="33">。
 
 ### 6.3 实物期权（★★）
 
@@ -323,9 +323,9 @@ WACC ＝ Σ（个别资本成本 × 权重）。
 
 | 模型 | 现金流 | 公式（永续增长） |
 | --- | --- | --- |
-| 股利现金流量模型 | 股利 | 股权价值 ＝ <img class="fml" src="/formulas/4ba6ecdb545b93.png" alt="\sum D_{t}" width="48" height="33">（1＋rs）ᵗ |
+| 股利现金流量模型 | 股利 | 股权价值 ＝ <img class="fml" src="/formulas/4ba6ecdb545b93.png" alt="\sum D_{t}" width="49" height="33">（1＋rs）ᵗ |
 | 股权自由现金流 FCFE | 股权自由现金流 | 同上，用 FCFE 替代 D |
-| 实体现金流 FCFF | 实体自由现金流 | 实体价值 ＝ <img class="fml" src="/formulas/a93d0361370ee0.png" alt="\sum FCFF_{t}" width="87" height="33">（1＋WACC）ᵗ；股权价值＝实体价值−净债务 |
+| 实体现金流 FCFF | 实体自由现金流 | 实体价值 ＝ <img class="fml" src="/formulas/a93d0361370ee0.png" alt="\sum FCFF_{t}" width="88" height="33">（1＋WACC）ᵗ；股权价值＝实体价值−净债务 |
 
 - 永续增长模型：价值 ＝ 下一期现金流 ÷（折现率 − 增长率 g），要求 g < 折现率。
 - 两阶段/三阶段：高速增长期逐期折现 ＋ 后续永续增长现值。
@@ -336,7 +336,7 @@ WACC ＝ Σ（个别资本成本 × 权重）。
 | 模型 | 驱动因素 | 修正思路 |
 | --- | --- | --- |
 | 市盈率 P/E | 增长潜力 | 修正市盈率＝目标 P/E ÷（预期增长率×100） |
-| 市净率 P/B | 净资产报酬、风险 | 修正市净率＝目标 P/B ÷（预期 <img class="fml" src="/formulas/4aac84bf939271.png" alt="ROE \times 100" width="97" height="33">） |
+| 市净率 P/B | 净资产报酬、风险 | 修正市净率＝目标 P/B ÷（预期 <img class="fml" src="/formulas/4aac84bf939271.png" alt="ROE \times 100" width="98" height="33">） |
 | 市销率 P/S | 销售净利率 | 修正市销率＝目标 P/S ÷（预期销售净利率×100） |
 
 目标企业价值 ＝ 可比企业平均乘数（或修正乘数）× 目标企业对应变量。
@@ -459,7 +459,7 @@ DOL 反映经营风险（固定成本越大越高）；DFL 反映财务风险（
 
 ### 11.2 现金管理（★★）
 
-- **存货模式**：最佳现金持有量 C\* ＝ <img class="fml" src="/formulas/c48992ea05b9c3.png" alt="\sqrt{\frac{2 \times T \times F}{K}}" width="73" height="41">，最小相关成本 TC＝<img class="fml" src="/formulas/d903a8de5701aa.png" alt="\sqrt{2 \times T \times F \times K}" width="138" height="33">（T 年需求、F 交易成本、K 机会成本率）。
+- **存货模式**：最佳现金持有量 C\* ＝ <img class="fml" src="/formulas/c48992ea05b9c3.png" alt="\sqrt{\frac{2 \times T \times F}{K}}" width="73" height="41">，最小相关成本 TC＝<img class="fml" src="/formulas/d903a8de5701aa.png" alt="\sqrt{2 \times T \times F \times K}" width="140" height="33">（T 年需求、F 交易成本、K 机会成本率）。
 - **随机模式**：设定 H（上限）与 L（下限 R 回归线），H ＝ 3R − 2L，R 取决于机会成本、转换成本与方差。
 
 ### 11.3 应收账款管理（★★）
@@ -469,8 +469,8 @@ DOL 反映经营风险（固定成本越大越高）；DFL 反映财务风险（
 ### 11.4 存货管理（★★★）
 
 **经济订货量基本模型**：
-- Q\* ＝ <img class="fml" src="/formulas/ec865bf85134f3.png" alt="\sqrt{\frac{2 \times K \times D}{K_{c}}}" width="76" height="41"> （D 年需要量，K 每次订货变动成本，K_c 单位储存变动成本）
-- 最小相关总成本 TC(Q\*) ＝ <img class="fml" src="/formulas/6be2195e9ae1fb.png" alt="\sqrt{2 \times K \times D \times K_{c}}" width="148" height="33">
+- Q\* ＝ <img class="fml" src="/formulas/ec865bf85134f3.png" alt="\sqrt{\frac{2 \times K \times D}{K_{c}}}" width="77" height="42"> （D 年需要量，K 每次订货变动成本，K_c 单位储存变动成本）
+- 最小相关总成本 TC(Q\*) ＝ <img class="fml" src="/formulas/6be2195e9ae1fb.png" alt="\sqrt{2 \times K \times D \times K_{c}}" width="149" height="33">
 - 最佳订货次数 ＝ D/Q\*；最佳周转天数 ＝ 365/次数
 
 **扩展**：陆续供应（供应期）、保险储备（缺货成本与储存成本权衡定再订货点）、数量折扣（比较总价）。
@@ -605,7 +605,7 @@ DOL 反映经营风险（固定成本越大越高）；DFL 反映财务风险（
 
 ### 16.3 保利分析（★★）
 
-目标利润销量 ＝（固定成本 ＋ 目标利润）÷ 单位边际贡献。考虑所得税时，目标利润用"税后利润÷<img class="fml" src="/formulas/b49720ef78a95a.png" alt="(1- T)" width="64" height="33">"换算为息税前口径。
+目标利润销量 ＝（固定成本 ＋ 目标利润）÷ 单位边际贡献。考虑所得税时，目标利润用"税后利润÷<img class="fml" src="/formulas/b49720ef78a95a.png" alt="(1- T)" width="65" height="33">"换算为息税前口径。
 
 ### 16.4 多品种与敏感分析（★★）
 
@@ -737,19 +737,19 @@ EVA 通过会计调整消除准则对决策信号的扭曲（如研发费用费�
 | 复利终/现值 | F＝P(1＋i)ⁿ；P＝F/(1＋i)ⁿ |
 | 年金现值 | P＝A×[1−(1＋i)-ⁿ]/i |
 | 有效年利率 | EAR＝(1＋报价/m)ᵐ−1 |
-| CAPM | Ri＝R_f＋<img class="fml" src="/formulas/0fb95eaae51eae.png" alt="\beta(R_{m}- R_{f})" width="100" height="33"> |
-| 债券/股票价值 | P0＝<img class="fml" src="/formulas/20be22d640aae2.png" alt="\frac{D_{1}}{r_{s}- g}" width="37" height="35">；永续债＝A/i |
+| CAPM | Ri＝R_f＋<img class="fml" src="/formulas/0fb95eaae51eae.png" alt="\beta(R_{m}- R_{f})" width="101" height="33"> |
+| 债券/股票价值 | P0＝<img class="fml" src="/formulas/20be22d640aae2.png" alt="\frac{D_{1}}{r_{s}- g}" width="38" height="35">；永续债＝A/i |
 | WACC | Σ(个别成本×权重) |
-| 经营现金流 | OCF＝(收入−付现)<img class="fml" src="/formulas/ea3483ee8532c1.png" alt="\times(1- T)" width="77" height="33">＋折旧×T |
+| 经营现金流 | OCF＝(收入−付现)<img class="fml" src="/formulas/ea3483ee8532c1.png" alt="\times(1- T)" width="78" height="33">＋折旧×T |
 | 等值年金 | EAA＝NPV/年金现值系数 |
 | 杜邦 | ROE＝营业净利率×总资产周转×权益乘数 |
 | 管理用 | ROE＝净经营资产净利率＋(净经营资产净利率−税后利息率)×净财务杠杆 |
 | 外部融资额 | (经营资产%−经营负债%)×Δ收入−净利润×(1−股利支付率) |
 | 可持续增长率 | g*＝留存率×期初权益净利率（等价变形） |
-| 杠杆 | DOL＝边际贡献/EBIT；DFL＝<img class="fml" src="/formulas/d60c5396e0823e.png" alt="\frac{EBIT}{EBIT- I}" width="62" height="33">；DTL＝<img class="fml" src="/formulas/20ae34aa1e2a76.png" alt="DOL \times DFL" width="111" height="33"> |
+| 杠杆 | DOL＝边际贡献/EBIT；DFL＝<img class="fml" src="/formulas/d60c5396e0823e.png" alt="\frac{EBIT}{EBIT- I}" width="63" height="34">；DTL＝<img class="fml" src="/formulas/20ae34aa1e2a76.png" alt="DOL \times DFL" width="112" height="33"> |
 | 每股收益无差别点 | 令两方案 EPS 相等求 EBIT |
-| 现金存货模式 | C*＝<img class="fml" src="/formulas/7c4491422ff82b.png" alt="\sqrt{\frac{2TF}{K}}" width="53" height="41">；TC＝<img class="fml" src="/formulas/7d1136cab330e5.png" alt="\sqrt{2TFK}" width="73" height="33"> |
-| 经济订货量 | Q*＝<img class="fml" src="/formulas/4220b2fe1e1fa4.png" alt="\sqrt{\frac{2KD}{K_{c}}}" width="57" height="41">；TC＝<img class="fml" src="/formulas/22e388b0145add.png" alt="\sqrt{2KDK_{c}}" width="83" height="33"> |
+| 现金存货模式 | C*＝<img class="fml" src="/formulas/7c4491422ff82b.png" alt="\sqrt{\frac{2TF}{K}}" width="54" height="41">；TC＝<img class="fml" src="/formulas/7d1136cab330e5.png" alt="\sqrt{2TFK}" width="74" height="33"> |
+| 经济订货量 | Q*＝<img class="fml" src="/formulas/4220b2fe1e1fa4.png" alt="\sqrt{\frac{2KD}{K_{c}}}" width="58" height="42">；TC＝<img class="fml" src="/formulas/22e388b0145add.png" alt="\sqrt{2KDK_{c}}" width="84" height="33"> |
 | 放弃现金折扣成本 | 折扣率/(1−折扣率)×360/(信用期−折扣期) |
 | 本量利 | 保本量＝F/单位边际贡献；利润＝销量×单位边际贡献−F |
 | EVA | NOPAT − 调整后资本×资本成本率 |
@@ -768,7 +768,7 @@ EVA 通过会计调整消除准则对决策信号的扭曲（如研发费用费�
 9. 债券价值与必要报酬率反向；流通债券折现期需与付息日对齐。
 10. 债务资本成本用"税后"；风险调整法＝政府债收益率＋信用补偿率。
 11. 普通股资本成本三种方法结果可能不同，依条件选用；WACC 推荐目标资本结构权重。
-12. NPV 与 IRR 在非常规现金流或互斥项目上可能冲突，互斥项目用 <img class="fml" src="/formulas/226aaaff641b7a.png" alt="\Delta NPV" width="65" height="33"> 或 EAA。
+12. NPV 与 IRR 在非常规现金流或互斥项目上可能冲突，互斥项目用 <img class="fml" src="/formulas/226aaaff641b7a.png" alt="\Delta NPV" width="66" height="33"> 或 EAA。
 13. OCF 三公式等价；折旧非现金流，但"折旧×T"是抵税额要计入。
 14. 固定资产更新比平均年成本 ACE，年限不同须共同年限/EAA。
 15. 期权价值＝内在价值＋时间溢价；波动率是最重要正向影响因素。
@@ -782,7 +782,7 @@ EVA 通过会计调整消除准则对决策信号的扭曲（如研发费用费�
 23. 可转债转股后债券消失，附认股权证债券行权后债券仍存续。
 24. 租赁决策比"租赁净现值"与"购买净现值"。
 25. 股票分割不改变权益总额，仅股数↑、面值↓；回购减少流通股、提升 EPS。
-26. 现金存货模式 C*＝<img class="fml" src="/formulas/7c4491422ff82b.png" alt="\sqrt{\frac{2TF}{K}}" width="53" height="41">；随机模式 H＝<img class="fml" src="/formulas/67719c4e0effc5.png" alt="3R- 2L" width="72" height="33">。
+26. 现金存货模式 C*＝<img class="fml" src="/formulas/7c4491422ff82b.png" alt="\sqrt{\frac{2TF}{K}}" width="54" height="41">；随机模式 H＝<img class="fml" src="/formulas/67719c4e0effc5.png" alt="3R- 2L" width="73" height="33">。
 27. 经济订货量扩展：陆续供应、保险储备、数量折扣要分别处理。
 28. 成本性态分解高低点法：b＝(高点−低点成本)/(高点−低点业务量)。
 29. 辅助生产分配交互分配法要考虑相互提供服务。

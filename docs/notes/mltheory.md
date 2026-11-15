@@ -36,13 +36,13 @@ summary: "机器学习原理与方法 全面详解笔记，共 12 章：导论�
 
 ### 1.1 什么是机器学习
 
-**机器学习**研究如何让计算机利用经验（数据）改善性能：给定任务 T、性能度量 P、经验 E，若程序在 T 上以 P 衡量的性能随 E 增加而提高，就称其在学习。形式化地，从假设空间 `H` 中选一个函数 <img class="fml" src="/formulas/cb2de264bcdc96.png" alt="f: X \to Y" width="90" height="33">，使在**未见数据**上的期望风险最小。
+**机器学习**研究如何让计算机利用经验（数据）改善性能：给定任务 T、性能度量 P、经验 E，若程序在 T 上以 P 衡量的性能随 E 增加而提高，就称其在学习。形式化地，从假设空间 `H` 中选一个函数 <img class="fml" src="/formulas/cb2de264bcdc96.png" alt="f: X \to Y" width="91" height="34">，使在**未见数据**上的期望风险最小。
 
 ![机器学习范式总览与全书知识地图](/mlt/mlt-overview.svg)
 
 | 范式 | 数据形式 | 目标 | 典型算法 |
 | --- | --- | --- | --- |
-| 监督学习 | 带标签 `(x, y)` | 学映射 <img class="fml" src="/formulas/311713ee5c0872.png" alt="f(x) \approx y" width="74" height="33"> | 回归、分类、SVM、决策树、神经网络 |
+| 监督学习 | 带标签 `(x, y)` | 学映射 <img class="fml" src="/formulas/311713ee5c0872.png" alt="f(x) \approx y" width="75" height="34"> | 回归、分类、SVM、决策树、神经网络 |
 | 无监督学习 | 只有 `x` | 发现隐藏结构 | K 均值、GMM、PCA/ICA、自编码器 |
 | 强化学习 | 状态/动作/奖励序列 | 最大化长期累计回报 | Q-learning、DQN、策略梯度 |
 | 半监督 / 自监督（补充） | 少量标签 + 大量无标签 / 自造监督信号 | 降低标注成本 | 伪标签、对比学习、掩码语言模型 |
@@ -66,14 +66,14 @@ summary: "机器学习原理与方法 全面详解笔记，共 12 章：导论�
 \text{期望风险} \; \text{R(f) = E\_{(x,y)~P} [L(f(x), y)]} \; \text{（不可直接计算，} \; \text{P} \; \text{未知）} \\
 \text{经验风险} \; \hat{R}(f)=\left(\frac{1}{N}\right) \sum_{i} L(f(x_{i}), y_{i}) \; \text{（可计算，用训练集近似）} \\
 \text{结构风险} \; = \hat{R}(f)+ \lambda \cdot \Omega(f) \; \text{（加正则项控制复杂度）}
-\end{gathered}" width="530" height="112"></p>
+\end{gathered}" width="531" height="113"></p>
 
 
 
-学习算法 = 「**假设空间 + 优化目标 + 求解算法 + 归纳偏好**」四要素。假设空间太小会欠拟合、太大易过拟合；正则项 <img class="fml" src="/formulas/69469b852d4191.png" alt="\Omega(f)" width="43" height="33">（如 <img class="fml" src="/formulas/0d84acee421de7.png" alt="\| w \|^{2}" width="44" height="33">）体现「偏好更简单的模型」这一归纳偏好。
+学习算法 = 「**假设空间 + 优化目标 + 求解算法 + 归纳偏好**」四要素。假设空间太小会欠拟合、太大易过拟合；正则项 <img class="fml" src="/formulas/69469b852d4191.png" alt="\Omega(f)" width="44" height="34">（如 <img class="fml" src="/formulas/0d84acee421de7.png" alt="\| w \|^{2}" width="45" height="34">）体现「偏好更简单的模型」这一归纳偏好。
 
 ::: tip 工作例题 · 为什么必须加正则
-用 9 次多项式拟合 10 个带噪声的点，训练误差可精确降到 0，但曲线剧烈震荡，在新点上误差极大——这正是「经验风险最小 ≠ 期望风险最小」的直观例证。加 <img class="fml" src="/formulas/53f2cec73512b5.png" alt="\lambda \| w \|^{2}" width="55" height="33"> 或降低多项式次数后，训练误差略升、泛化误差显著下降。
+用 9 次多项式拟合 10 个带噪声的点，训练误差可精确降到 0，但曲线剧烈震荡，在新点上误差极大——这正是「经验风险最小 ≠ 期望风险最小」的直观例证。加 <img class="fml" src="/formulas/53f2cec73512b5.png" alt="\lambda \| w \|^{2}" width="56" height="34"> 或降低多项式次数后，训练误差略升、泛化误差显著下降。
 :::
 
 ### 1.3 偏差-方差分解（★★★）
@@ -89,7 +89,7 @@ Err(x)= Bias^{2}(\hat{f})+ \operatorname{Var}(\hat{f})+ \sigma^{2} \\
 Bias= E_{D}[\hat{f}(x)]- f(x) \; \text{（平均预测与真值的偏离）} \\
 \operatorname{Var}= E_{D}[(\hat{f}(x)- E_{D}[\hat{f}(x)])^{2}] \; \text{（对训练集扰动的敏感度）} \\
 \sigma^{2}= \; \text{数据本身的不可约噪声}
-\end{gathered}" width="460" height="116"></p>
+\end{gathered}" width="461" height="118"></p>
 
 
 
@@ -105,13 +105,13 @@ Bias= E_{D}[\hat{f}(x)]- f(x) \; \text{（平均预测与真值的偏离）} \\
 
 ::: danger 易错 · 偏差方差
 - 「偏差大」不等于「模型有偏见」，它是统计学术语，指系统性偏离真值。
-- 噪声项 <img class="fml" src="/formulas/e58684f3085369.png" alt="\sigma^{2}" width="24" height="33"> 无法通过任何模型消除，构成泛化误差下界。
+- 噪声项 <img class="fml" src="/formulas/e58684f3085369.png" alt="\sigma^{2}" width="25" height="34"> 无法通过任何模型消除，构成泛化误差下界。
 - 偏差与方差通常此消彼长，调参的目标是找**总误差最小**的点，不是单独最小化某一项。
 :::
 
 ### 1.4 偏差-方差分解的严格证明
 
-设真实模型 <img class="fml" src="/formulas/070aa35923bfa9.png" alt="y=f(x)+\epsilon" width="103" height="33">，<img class="fml" src="/formulas/1bf14de409ac86.png" alt="E[\epsilon]=0" width="70" height="33">、<img class="fml" src="/formulas/236dfa0455dc6b.png" alt="\operatorname{Var}(\epsilon)=\sigma^{2}" width="98" height="33">，`f̂` 是随训练集 D 变化的估计。对固定 x，平方损失期望为：
+设真实模型 <img class="fml" src="/formulas/070aa35923bfa9.png" alt="y=f(x)+\epsilon" width="104" height="34">，<img class="fml" src="/formulas/1bf14de409ac86.png" alt="E[\epsilon]=0" width="71" height="34">、<img class="fml" src="/formulas/236dfa0455dc6b.png" alt="\operatorname{Var}(\epsilon)=\sigma^{2}" width="99" height="34">，`f̂` 是随训练集 D 变化的估计。对固定 x，平方损失期望为：
 
 
 
@@ -122,19 +122,19 @@ E_{D},\epsilon[(y- \hat{f})^{2}]= E[(f+\epsilon- \hat{f})^{2}] \\
 = E[((f- E \hat{f})+(E \hat{f}- \hat{f}))^{2}]+ \sigma^{2} \\
 =(f- E \hat{f})^{2}+ E[(\hat{f}- E \hat{f})^{2}]+ \sigma^{2} \\
 = Bias^{2}(\hat{f})+ \operatorname{Var}(\hat{f})+ \sigma^{2} \; \text{（交叉项} \; 2(f- E \hat{f}) \cdot E[E \hat{f}- \hat{f}]= 0 \; \text{）}
-\end{gathered}" width="522" height="176"></p>
+\end{gathered}" width="523" height="177"></p>
 
 
 
 ::: tip 工作例题 · 数值验证
-设 `f=2`、<img class="fml" src="/formulas/9a5a775eaac3fa.png" alt="\sigma^{2}=1" width="57" height="33">，两个训练集给出 `f̂=1.5` 与 `2.5`：
-`E f̂=2` → `Bias=0`、<img class="fml" src="/formulas/e9e274c3a5056b.png" alt="\operatorname{Var}=\frac{(- 0.5)^{2}+(0.5)^{2}}{2}=0.25" width="200" height="34">；
+设 `f=2`、<img class="fml" src="/formulas/9a5a775eaac3fa.png" alt="\sigma^{2}=1" width="58" height="34">，两个训练集给出 `f̂=1.5` 与 `2.5`：
+`E f̂=2` → `Bias=0`、<img class="fml" src="/formulas/e9e274c3a5056b.png" alt="\operatorname{Var}=\frac{(- 0.5)^{2}+(0.5)^{2}}{2}=0.25" width="201" height="36">；
 总误差 `= 0 + 0.25 + 1 = 1.25`。
-若改用恒预测 <img class="fml" src="/formulas/7ad943196831cd.png" alt="\hat{f} \equiv 1" width="49" height="33">：<img class="fml" src="/formulas/f5635b5a6d691c.png" alt="Bias^{2}=1" width="84" height="33">、Var=0 → 总误差 `2`，反而更差——说明**适当增加方差能换取偏差下降**。
+若改用恒预测 <img class="fml" src="/formulas/7ad943196831cd.png" alt="\hat{f} \equiv 1" width="51" height="34">：<img class="fml" src="/formulas/f5635b5a6d691c.png" alt="Bias^{2}=1" width="85" height="34">、Var=0 → 总误差 `2`，反而更差——说明**适当增加方差能换取偏差下降**。
 :::
 
 ::: danger 易错 · 分解前提
-该分解只在**平方损失**下严格成立；对 0-1 损失或交叉熵，偏差-方差不再可加分解（但仍有类似直观）。推导还要求噪声与 `f̂` 独立、且 <img class="fml" src="/formulas/1bf14de409ac86.png" alt="E[\epsilon]=0" width="70" height="33">。
+该分解只在**平方损失**下严格成立；对 0-1 损失或交叉熵，偏差-方差不再可加分解（但仍有类似直观）。推导还要求噪声与 `f̂` 独立、且 <img class="fml" src="/formulas/1bf14de409ac86.png" alt="E[\epsilon]=0" width="71" height="34">。
 :::
 
 ### 1.5 VC 维与模型容量
@@ -147,7 +147,7 @@ E_{D},\epsilon[(y- \hat{f})^{2}]= E[(f+\epsilon- \hat{f})^{2}] \\
 \text{无限} \; \text{|H|} \; \text{的泛化界（粗型）：} \\
 R(h)- \hat{R}(h) \lesssim O\left( \sqrt{\frac{d_{VC} \cdot \log\left(\frac{N}{d_{VC}}\right)+ \log\left(\frac{1}{\delta}\right)}{N}}\right) \\
 \text{经验法则：训练样本量宜} \; \ge 10 \times d_{VC} \; \text{，否则极易过拟合}
-\end{gathered}" width="449" height="138"></p>
+\end{gathered}" width="449" height="139"></p>
 
 
 
@@ -166,7 +166,7 @@ R(h)- \hat{R}(h) \lesssim O\left( \sqrt{\frac{d_{VC} \cdot \log\left(\frac{N}{d_
 | 横向联邦 | 各方样本不同、特征相同（如多家医院的同类病人） |
 | 纵向联邦 | 各方样本重叠、特征不同（如银行 + 电商的同一批用户） |
 | FedAvg | 各客户端本地训练 → 上传参数/梯度 → 服务器加权平均 → 下发，反复迭代 |
-| 差分隐私 | 加噪声使单条记录难以被反推，用 <img class="fml" src="/formulas/3eef189e28b9cb.png" alt="(\epsilon,\delta)" width="44" height="33"> 量化隐私预算 |
+| 差分隐私 | 加噪声使单条记录难以被反推，用 <img class="fml" src="/formulas/3eef189e28b9cb.png" alt="(\epsilon,\delta)" width="45" height="33"> 量化隐私预算 |
 | 主要风险 | 梯度反演/成员推断攻击、非独立同分布数据、通信开销与客户端掉队 |
 
 ::: danger 易错 · 隐私
@@ -185,18 +185,18 @@ R(h)- \hat{R}(h) \lesssim O\left( \sqrt{\frac{d_{VC} \cdot \log\left(\frac{N}{d_
 | --- | --- | --- |
 | 和规则（边际） | <img class="fml" src="/formulas/bef79f4aae12d7.png" alt="p(x)= \sum_{y} p(x,y)" width="143" height="34"> | 离散求和、连续积分 |
 | 积规则 | `p(x,y) = p(y|x)p(x)` | 链式法则的基础 |
-| 全概率 | <img class="fml" src="/formulas/e4318894865e3e.png" alt="p(x)= \sum_{k} p(x\vert C_{k})p(C_{k})" width="195" height="33"> | 生成式分类的基础 |
-| 贝叶斯 | <img class="fml" src="/formulas/107f715c88a415.png" alt="p(\theta\mid D)=\dfrac{p(D\mid\theta)\,p(\theta)}{p(D)}" width="193" height="50"> | 先验 → 似然 → 后验 |
-| 最大似然 MLE | <img class="fml" src="/formulas/6e2237bfa422ca.png" alt="\hat{\theta}= \operatorname*{argmax}_\theta \sum_{i} \log p(x_{i}\vert \theta)" width="212" height="33"> | 点估计，视 θ 为未知常数 |
+| 全概率 | <img class="fml" src="/formulas/e4318894865e3e.png" alt="p(x)= \sum_{k} p(x\vert C_{k})p(C_{k})" width="196" height="33"> | 生成式分类的基础 |
+| 贝叶斯 | <img class="fml" src="/formulas/107f715c88a415.png" alt="p(\theta\mid D)=\dfrac{p(D\mid\theta)\,p(\theta)}{p(D)}" width="194" height="51"> | 先验 → 似然 → 后验 |
+| 最大似然 MLE | <img class="fml" src="/formulas/6e2237bfa422ca.png" alt="\hat{\theta}= \operatorname*{argmax}_\theta \sum_{i} \log p(x_{i}\vert \theta)" width="213" height="33"> | 点估计，视 θ 为未知常数 |
 | 最大后验 MAP | <img class="fml" src="/formulas/b6aec7767cebef.png" alt="\hat{\theta}= \operatorname*{argmax}_\theta[\sum_{i} \log p(x_{i}\vert \theta)+ \log p(\theta)]" width="299" height="33"> | 加先验；等价于带正则的 MLE |
 
 ::: tip 工作例题 · MLE 与 MAP
-抛硬币 N 次出现 m 次正面，Bernoulli 的 MLE 为 <img class="fml" src="/formulas/60408d3e551d6e.png" alt="\hat{p}= \frac{m}{N}" width="54" height="33">（如 N=10、<img class="fml" src="/formulas/3c46d6807cd6b4.png" alt="m=7 \to 0.7" width="105" height="33">）。
+抛硬币 N 次出现 m 次正面，Bernoulli 的 MLE 为 <img class="fml" src="/formulas/60408d3e551d6e.png" alt="\hat{p}= \frac{m}{N}" width="56" height="33">（如 N=10、<img class="fml" src="/formulas/3c46d6807cd6b4.png" alt="m=7 \to 0.7" width="106" height="33">）。
 若加 Beta 先验，MAP 会给平滑估计 `(m+a)/(N+a+b)`，避免小样本下 `p̂=0` 或 `1` 的极端结论。这正是朴素贝叶斯需要**拉普拉斯平滑**的原因。
 :::
 
 ::: danger 易错 · MLE
-- 高斯分布的 MLE 方差是 <img class="fml" src="/formulas/8e3ef50139fdcf.png" alt="\left(\frac{1}{N}\right)\sum(x_{i}- \hat{\mu})^{2}" width="129" height="33">，**除以 N 而非 N−1**，因此是有偏估计；无偏样本方差才除以 N−1。
+- 高斯分布的 MLE 方差是 <img class="fml" src="/formulas/8e3ef50139fdcf.png" alt="\left(\frac{1}{N}\right)\sum(x_{i}- \hat{\mu})^{2}" width="130" height="33">，**除以 N 而非 N−1**，因此是有偏估计；无偏样本方差才除以 N−1。
 - MLE 给点估计，贝叶斯给整个后验分布；「贝叶斯方法 = MLE 加先验」只在 MAP 意义下近似成立，完全贝叶斯需对后验积分做预测。
 - 似然 <img class="fml" src="/formulas/1a4d32e3b994d7.png" alt="p(D\mid\theta)" width="68" height="33"> 是 θ 的函数，**不是** θ 的概率密度。
 :::
@@ -210,7 +210,7 @@ R(h)- \hat{R}(h) \lesssim O\left( \sqrt{\frac{d_{VC} \cdot \log\left(\frac{N}{d_
 \text{交叉熵} \; H(p,q)=- \sum p(x) \log q(x) \; \text{（用} \; \text{q} \; \text{编码} \; \text{p} \; \text{的平均代价）} \\
 \text{KL} \; \text{散度} \; D_{KL}(p \| q)= \sum p \log\left(\frac{p}{q}\right) \ge 0 \; \text{（非对称，} \; \text{p=q} \; \text{时为} \; \text{0} \; \text{；不是距离）} \\
 \text{互信息} \; I(X;Y)= H(X)- H(X|Y)= D_{KL}(p(x,y) \| p(x)p(y))
-\end{gathered}" width="615" height="145"></p>
+\end{gathered}" width="616" height="147"></p>
 
 
 
@@ -218,11 +218,11 @@ R(h)- \hat{R}(h) \lesssim O\left( \sqrt{\frac{d_{VC} \cdot \log\left(\frac{N}{d_
 
 ::: tip 工作例题 · 熵与交叉熵
 二分类均匀分布 `p=(0.5,0.5)` → `H=1 bit`；确定性分布 `p=(1,0)` → `H=0`。
-若真实 `p=(1,0)`、模型 `q=(0.9,0.1)`，交叉熵 = <img class="fml" src="/formulas/6e1769608bb73f.png" alt="- \log 0.9 \approx 0.1053" width="145" height="33">；q 越接近 p，交叉熵越接近熵 0——这就是分类用交叉熵作损失的根据。
+若真实 `p=(1,0)`、模型 `q=(0.9,0.1)`，交叉熵 = <img class="fml" src="/formulas/6e1769608bb73f.png" alt="- \log 0.9 \approx 0.1053" width="146" height="33">；q 越接近 p，交叉熵越接近熵 0——这就是分类用交叉熵作损失的根据。
 :::
 
 ::: danger 易错 · KL
-<img class="fml" src="/formulas/d8b1b27707910e.png" alt="D_{KL}(p \| q)= D_{KL}(q \| p)" width="182" height="33">（非对称），且不满足三角不等式，因此不是度量距离；VAE 的正则项方向固定为 <img class="fml" src="/formulas/63310babd3c09d.png" alt="D_{KL}(q_\phi(z|x) \| p(z))" width="151" height="33">，不能随意交换。
+<img class="fml" src="/formulas/d8b1b27707910e.png" alt="D_{KL}(p \| q)= D_{KL}(q \| p)" width="183" height="33">（非对称），且不满足三角不等式，因此不是度量距离；VAE 的正则项方向固定为 <img class="fml" src="/formulas/63310babd3c09d.png" alt="D_{KL}(q_\phi(z|x) \| p(z))" width="152" height="33">，不能随意交换。
 :::
 
 ### 2.3 优化：梯度下降与优化器
@@ -247,9 +247,9 @@ def sgd(X, y, lr=0.01, epochs=100, batch=32, seed=42):
 | --- | --- | --- |
 | 批量 GD | 全量梯度，稳定但慢 | 小数据、凸问题 |
 | SGD / 小批量 | 单样本/小批量估计梯度 | 大数据、深度学习主流 |
-| 动量 | <img class="fml" src="/formulas/943e41c0a237c5.png" alt="v \leftarrow \alpha v- \eta g; w \leftarrow w+ v" width="198" height="33"> | 抑制震荡、加速峡谷方向 |
+| 动量 | <img class="fml" src="/formulas/943e41c0a237c5.png" alt="v \leftarrow \alpha v- \eta g; w \leftarrow w+ v" width="199" height="33"> | 抑制震荡、加速峡谷方向 |
 | AdaGrad / RMSProp | 按历史梯度平方自适应缩放 η | 稀疏特征、非平稳目标 |
-| **Adam** | 一阶 + 二阶动量 + 偏差修正 | 默认首选；课件推荐 <img class="fml" src="/formulas/29f9b20cf621c6.png" alt="\eta=0.001" width="80" height="33">、<img class="fml" src="/formulas/f2c0a8fd7406b9.png" alt="\beta_{1}=0.9" width="70" height="33">、<img class="fml" src="/formulas/bd2870204b201b.png" alt="\beta_{2}=0.999" width="88" height="33">、<img class="fml" src="/formulas/42a4c7d9f88994.png" alt="\epsilon=1e- 8" width="85" height="33"> |
+| **Adam** | 一阶 + 二阶动量 + 偏差修正 | 默认首选；课件推荐 <img class="fml" src="/formulas/29f9b20cf621c6.png" alt="\eta=0.001" width="81" height="33">、<img class="fml" src="/formulas/f2c0a8fd7406b9.png" alt="\beta_{1}=0.9" width="71" height="33">、<img class="fml" src="/formulas/bd2870204b201b.png" alt="\beta_{2}=0.999" width="88" height="33">、<img class="fml" src="/formulas/42a4c7d9f88994.png" alt="\epsilon=1e- 8" width="86" height="33"> |
 
 ::: danger 易错 · 优化
 - 学习率过大发散、过小收敛慢；损失下降不代表泛化提升。
@@ -258,23 +258,23 @@ def sgd(X, y, lr=0.01, epochs=100, batch=32, seed=42):
 :::
 
 ::: tip 补充 · 约束优化与 KKT
-对带约束问题 <img class="fml" src="/formulas/65757a7bf2defb.png" alt="\min f(w) s.t. g_{i}(w) \le 0" width="175" height="33">，构造拉格朗日函数 <img class="fml" src="/formulas/4f72a72978798b.png" alt="L= f+ \sum \alpha_{i}g_{i}(\alpha_{i} \ge 0)" width="190" height="33">；KKT 条件（驻点、原始/对偶可行、互补松弛 <img class="fml" src="/formulas/f8698b78d06fa5.png" alt="\alpha_{i}g_{i}=0" width="69" height="33">）是 SVM 对偶推导与「只有支持向量 <img class="fml" src="/formulas/9869d15c39d1b3.png" alt="\alpha_{i}&gt;0" width="55" height="33">」的理论依据，见第 6 章。
+对带约束问题 <img class="fml" src="/formulas/65757a7bf2defb.png" alt="\min f(w) s.t. g_{i}(w) \le 0" width="176" height="33">，构造拉格朗日函数 <img class="fml" src="/formulas/4f72a72978798b.png" alt="L= f+ \sum \alpha_{i}g_{i}(\alpha_{i} \ge 0)" width="191" height="33">；KKT 条件（驻点、原始/对偶可行、互补松弛 <img class="fml" src="/formulas/f8698b78d06fa5.png" alt="\alpha_{i}g_{i}=0" width="70" height="33">）是 SVM 对偶推导与「只有支持向量 <img class="fml" src="/formulas/9869d15c39d1b3.png" alt="\alpha_{i}&gt;0" width="57" height="33">」的理论依据，见第 6 章。
 :::
 
 ### 2.4 从最大似然推出交叉熵、牛顿法与 IRLS
 
-**逻辑回归的交叉熵不是「拍脑袋选的」，而是 Bernoulli 的负对数似然。** 设 <img class="fml" src="/formulas/f69768d2c31bde.png" alt="p(y=1|x)=\sigma(w^{T}x)" width="168" height="33">、<img class="fml" src="/formulas/8dc47053ad0778.png" alt="p(y=0|x)=1- \sigma" width="152" height="33">，则单样本似然 <img class="fml" src="/formulas/de140c5d09fbd4.png" alt="p(y|x)=\hat{y}^y(1- \hat{y})^{1- y}" width="172" height="33">，取负对数：
+**逻辑回归的交叉熵不是「拍脑袋选的」，而是 Bernoulli 的负对数似然。** 设 <img class="fml" src="/formulas/f69768d2c31bde.png" alt="p(y=1|x)=\sigma(w^{T}x)" width="169" height="34">、<img class="fml" src="/formulas/8dc47053ad0778.png" alt="p(y=0|x)=1- \sigma" width="152" height="34">，则单样本似然 <img class="fml" src="/formulas/de140c5d09fbd4.png" alt="p(y|x)=\hat{y}^y(1- \hat{y})^{1- y}" width="173" height="34">，取负对数：
 
 
 
 <p class="fml-block"><img class="fml" src="/formulas/2e2ef729695a62.png" alt="\begin{gathered}
 - \log p(y|x)=-[ y \log \hat{y}+(1- y) \log(1- \hat{y})] \leftarrow \; \text{正是二元交叉熵} \\
 \nabla_{w} L=(\hat{y}- y)x \; \text{；} \; H= E[ \partial^{2}\frac{L}{\partial w^{2}}]= X^{T}RX \; \text{，} \; R= diag(\hat{y}_{i}(1- \hat{y}_{i}))
-\end{gathered}" width="542" height="71"></p>
+\end{gathered}" width="543" height="72"></p>
 
 
 
-同理，softmax + 多元交叉熵来自多类 Bernoulli（Categorical）的 MLE；线性回归的均方误差来自「<img class="fml" src="/formulas/33aa459350f592.png" alt="y=x^{T}w+\epsilon, \epsilon \sim N(0,\sigma^{2})" width="206" height="33">」的高斯似然。**损失函数由标签的噪声模型决定**，这是统一第 3、4 章的钥匙。
+同理，softmax + 多元交叉熵来自多类 Bernoulli（Categorical）的 MLE；线性回归的均方误差来自「<img class="fml" src="/formulas/33aa459350f592.png" alt="y=x^{T}w+\epsilon, \epsilon \sim N(0,\sigma^{2})" width="206" height="34">」的高斯似然。**损失函数由标签的噪声模型决定**，这是统一第 3、4 章的钥匙。
 
 **牛顿法 / IRLS**（用二阶信息，比一阶梯度下降迭代次数少但每步更贵）：
 
@@ -283,25 +283,25 @@ def sgd(X, y, lr=0.01, epochs=100, batch=32, seed=42):
 <p class="fml-block"><img class="fml" src="/formulas/d2d9b8a5baa927.png" alt="\begin{gathered}
 w \leftarrow w- H^{-1} \nabla L= w+(X^{T}RX)^{-1} X^{T}(y- \hat{y}) \\
 \text{等价视角：每步求解一个加权最小二乘问题（} \; \text{IRLS} \; \text{，迭代重加权最小二乘）}
-\end{gathered}" width="610" height="57"></p>
+\end{gathered}" width="611" height="58"></p>
 
 
 
 ::: tip 工作例题 · 一步牛顿更新
-单样本 `x=1, y=1`，<img class="fml" src="/formulas/d53429ae9b9256.png" alt="w_{0}=0" width="59" height="33">：<img class="fml" src="/formulas/eac4a0e5d9aa9b.png" alt="\hat{y}=\sigma(0)=0.5" width="119" height="33">；
-<img class="fml" src="/formulas/eab106fda4c250.png" alt="\nabla L=(0.5- 1) \times 1=- 0.5" width="216" height="33">；<img class="fml" src="/formulas/9d7ff61380decc.png" alt="H=\hat{y}(1- \hat{y})x^{2}= 0.25" width="182" height="33">；
+单样本 `x=1, y=1`，<img class="fml" src="/formulas/d53429ae9b9256.png" alt="w_{0}=0" width="60" height="34">：<img class="fml" src="/formulas/eac4a0e5d9aa9b.png" alt="\hat{y}=\sigma(0)=0.5" width="120" height="34">；
+<img class="fml" src="/formulas/eab106fda4c250.png" alt="\nabla L=(0.5- 1) \times 1=- 0.5" width="217" height="34">；<img class="fml" src="/formulas/9d7ff61380decc.png" alt="H=\hat{y}(1- \hat{y})x^{2}= 0.25" width="183" height="34">；
 
 
 
-<p class="fml-block"><img class="fml" src="/formulas/c46e57dcd7bcee.png" alt="w_{1}= 0- \frac{- 0.5}{0.25}= 2.0" width="157" height="33"></p>
+<p class="fml-block"><img class="fml" src="/formulas/c46e57dcd7bcee.png" alt="w_{1}= 0- \frac{- 0.5}{0.25}= 2.0" width="158" height="34"></p>
 
 
 
-对比梯度下降（<img class="fml" src="/formulas/200acc618fbb96.png" alt="\eta=0.1" width="62" height="33">）一步只走 `0.05`——牛顿法自动按曲率缩放步长，但每次要算 <img class="fml" src="/formulas/3dec89d7d46c8e.png" alt="O(d^{3})" width="50" height="33"> 的 Hessian 逆，高维下仍以一阶方法为主。
+对比梯度下降（<img class="fml" src="/formulas/200acc618fbb96.png" alt="\eta=0.1" width="63" height="34">）一步只走 `0.05`——牛顿法自动按曲率缩放步长，但每次要算 <img class="fml" src="/formulas/3dec89d7d46c8e.png" alt="O(d^{3})" width="51" height="34"> 的 Hessian 逆，高维下仍以一阶方法为主。
 :::
 
 ::: danger 易错 · 二阶方法
-<img class="fml" src="/formulas/69973248e7ebc3.png" alt="H=X^{T}RX" width="102" height="33"> 半正定；当特征完全共线或数据线性可分（<img class="fml" src="/formulas/c4d2bb52fbdd23.png" alt="\frac{\hat{y} \to 0}{1}" width="36" height="33"> 使 R→0）时 H 奇异，牛顿步会发散，须加阻尼/正则。逻辑回归**线性可分时 MLE 不存在有限解**（<img class="fml" src="/formulas/ca32815961b48a.png" alt="\| w \| \to_{\infty}" width="73" height="33">），必须加正则化。
+<img class="fml" src="/formulas/69973248e7ebc3.png" alt="H=X^{T}RX" width="103" height="34"> 半正定；当特征完全共线或数据线性可分（<img class="fml" src="/formulas/c4d2bb52fbdd23.png" alt="\frac{\hat{y} \to 0}{1}" width="37" height="34"> 使 R→0）时 H 奇异，牛顿步会发散，须加阻尼/正则。逻辑回归**线性可分时 MLE 不存在有限解**（<img class="fml" src="/formulas/ca32815961b48a.png" alt="\| w \| \to_{\infty}" width="74" height="34">），必须加正则化。
 :::
 
 ---
@@ -312,7 +312,7 @@ w \leftarrow w- H^{-1} \nabla L= w+(X^{T}RX)^{-1} X^{T}(y- \hat{y}) \\
 
 ### 3.1 线性模型与最小二乘
 
-设扩充特征向量 <img class="fml" src="/formulas/289fcd4d287e3f.png" alt="x=(x_{1}, \cdots,x_{d},1)^{T}" width="158" height="33">、权向量 `w`，模型 <img class="fml" src="/formulas/a9b2ecf71b7a5d.png" alt="y= w^{T}x" width="73" height="33">（截距并入 w）。给训练集 <img class="fml" src="/formulas/83593232a4141b.png" alt="{(x_{i},y_{i})}_{i=1}^{N}" width="78" height="33">，用平方损失：
+设扩充特征向量 <img class="fml" src="/formulas/289fcd4d287e3f.png" alt="x=(x_{1}, \cdots,x_{d},1)^{T}" width="159" height="34">、权向量 `w`，模型 <img class="fml" src="/formulas/a9b2ecf71b7a5d.png" alt="y= w^{T}x" width="74" height="34">（截距并入 w）。给训练集 <img class="fml" src="/formulas/83593232a4141b.png" alt="{(x_{i},y_{i})}_{i=1}^{N}" width="79" height="34">，用平方损失：
 
 
 
@@ -320,7 +320,7 @@ w \leftarrow w- H^{-1} \nabla L= w+(X^{T}RX)^{-1} X^{T}(y- \hat{y}) \\
 L(w)= \frac{1}{2} \sum_{i}(y_{i}- w^{T}x_{i})^{2}= \frac{1}{2} \| Xw- y \|^{2} \\
 \nabla_{w} L= X^{T}(Xw- y) \\
 \text{闭式解} \; w*=(X^{T}X)^{-1}X^{T}y \; \text{（正规方程，要求} \; X^{T}X \; \text{可逆）}
-\end{gathered}" width="473" height="110"></p>
+\end{gathered}" width="474" height="111"></p>
 
 
 
@@ -333,9 +333,9 @@ print(w, X @ w)                                # 闭式解 + 拟合值
 ```
 
 ::: danger 易错 · 闭式解
-- <img class="fml" src="/formulas/21c6ae4de571ce.png" alt="X^{T}X" width="48" height="33"> 在**特征共线**或 `d > N` 时奇异，须用 `np.linalg.lstsq`、伪逆或加 λI（岭回归）。
-- 复杂度 <img class="fml" src="/formulas/3dec89d7d46c8e.png" alt="O(d^{3})" width="50" height="33"> 且需存整个 X，高维/大样本时应改用梯度下降或迭代法。
-- 上式把偏置并入 w，若单独写 <img class="fml" src="/formulas/203988b2dd5895.png" alt="y=w^{T}x+b" width="102" height="33"> 则正规方程形式不同，答题时保持一致。
+- <img class="fml" src="/formulas/21c6ae4de571ce.png" alt="X^{T}X" width="49" height="34"> 在**特征共线**或 `d > N` 时奇异，须用 `np.linalg.lstsq`、伪逆或加 λI（岭回归）。
+- 复杂度 <img class="fml" src="/formulas/3dec89d7d46c8e.png" alt="O(d^{3})" width="51" height="34"> 且需存整个 X，高维/大样本时应改用梯度下降或迭代法。
+- 上式把偏置并入 w，若单独写 <img class="fml" src="/formulas/203988b2dd5895.png" alt="y=w^{T}x+b" width="103" height="34"> 则正规方程形式不同，答题时保持一致。
 :::
 
 ### 3.2 梯度下降求解（工作例题）
@@ -350,35 +350,35 @@ for step in range(6):
 ```
 
 ::: tip 工作例题 · 手算一步（无截距模型 ŷ=wx）
-样本 `(1,2)`、`(2,3)`，<img class="fml" src="/formulas/d53429ae9b9256.png" alt="w_{0}=0" width="59" height="33">、<img class="fml" src="/formulas/200acc618fbb96.png" alt="\eta=0.1" width="62" height="33">：
+样本 `(1,2)`、`(2,3)`，<img class="fml" src="/formulas/d53429ae9b9256.png" alt="w_{0}=0" width="60" height="34">、<img class="fml" src="/formulas/200acc618fbb96.png" alt="\eta=0.1" width="63" height="34">：
 
 
 
-<p class="fml-block"><img class="fml" src="/formulas/516a8f31b1a41a.png" alt="L= \frac{1}{2}[(0- 2)^{2}+(0- 3)^{2}]= 6.5" width="252" height="33"></p>
+<p class="fml-block"><img class="fml" src="/formulas/516a8f31b1a41a.png" alt="L= \frac{1}{2}[(0- 2)^{2}+(0- 3)^{2}]= 6.5" width="253" height="34"></p>
 
 
 
-<img class="fml" src="/formulas/cc8bd69c61bcf2.png" alt="\nabla L=(0- 2) \cdot 1+(0- 3) \cdot 2=- 8" width="276" height="33"> → <img class="fml" src="/formulas/48215c96aa850a.png" alt="w_{1}= 0- 0.1 \times(- 8)= 0.8" width="208" height="33">。
-闭式解 <img class="fml" src="/formulas/77b4f7158f7b83.png" alt="w*= \frac{1 \times 2+2 \times 3}{1^{2}+2^{2}}= \frac{8}{5}= 1.6" width="191" height="33">，迭代会逐步逼近 1.6。
-（若 <img class="fml" src="/formulas/2f74432f198fd3.png" alt="\eta" width="16" height="33"> 取 0.3，一步即 `w=2.4` 越过最优并开始震荡，说明学习率必须调。）
+<img class="fml" src="/formulas/cc8bd69c61bcf2.png" alt="\nabla L=(0- 2) \cdot 1+(0- 3) \cdot 2=- 8" width="277" height="34"> → <img class="fml" src="/formulas/48215c96aa850a.png" alt="w_{1}= 0- 0.1 \times(- 8)= 0.8" width="209" height="34">。
+闭式解 <img class="fml" src="/formulas/77b4f7158f7b83.png" alt="w*= \frac{1 \times 2+2 \times 3}{1^{2}+2^{2}}= \frac{8}{5}= 1.6" width="192" height="35">，迭代会逐步逼近 1.6。
+（若 <img class="fml" src="/formulas/2f74432f198fd3.png" alt="\eta" width="17" height="34"> 取 0.3，一步即 `w=2.4` 越过最优并开始震荡，说明学习率必须调。）
 :::
 
 ### 3.3 正则化：岭、Lasso 与贝叶斯解释
 
 | 方法 | 目标函数 | 解 / 效果 |
 | --- | --- | --- |
-| 岭回归 L2 | <img class="fml" src="/formulas/a60a590a14f89b.png" alt="\frac{1}{2} \sum e^{2}+\left(\frac{\lambda}{2}\right) \| w \|^{2}" width="148" height="33"> | <img class="fml" src="/formulas/b7162ae16310d4.png" alt="w*=(X^{T}X+\lambda I)^{-1}X^{T}y" width="202" height="33">；系数整体缩小、解稳定，**不为 0** |
-| Lasso L1 | <img class="fml" src="/formulas/b9b07cc55c5e2f.png" alt="\frac{1}{2} \sum e^{2}+ \lambda \| w \|_{1}" width="127" height="33"> | 产生**稀疏解**（部分系数恰为 0），可做特征选择 |
+| 岭回归 L2 | <img class="fml" src="/formulas/a60a590a14f89b.png" alt="\frac{1}{2} \sum e^{2}+\left(\frac{\lambda}{2}\right) \| w \|^{2}" width="149" height="34"> | <img class="fml" src="/formulas/b7162ae16310d4.png" alt="w*=(X^{T}X+\lambda I)^{-1}X^{T}y" width="203" height="34">；系数整体缩小、解稳定，**不为 0** |
+| Lasso L1 | <img class="fml" src="/formulas/b9b07cc55c5e2f.png" alt="\frac{1}{2} \sum e^{2}+ \lambda \| w \|_{1}" width="128" height="34"> | 产生**稀疏解**（部分系数恰为 0），可做特征选择 |
 | 弹性网 | `L1 + L2` 折中 | 兼具稀疏与稳定，适合高度相关特征组 |
-| 多项式回归 | 先升维 <img class="fml" src="/formulas/76b892ce81a4f2.png" alt="(x, x^{2}, \cdots)" width="87" height="33"> 再线性回归 | 提高表达能力，但更易过拟合，须配正则 |
+| 多项式回归 | 先升维 <img class="fml" src="/formulas/76b892ce81a4f2.png" alt="(x, x^{2}, \cdots)" width="88" height="34"> 再线性回归 | 提高表达能力，但更易过拟合，须配正则 |
 
 ::: tip 补充 · 正则化的贝叶斯解释
-L2 正则等价于给参数加**高斯先验** <img class="fml" src="/formulas/7367cc0dd7e2ab.png" alt="w \sim N(0, \sigma^{2}I)" width="117" height="33">，L1 等价于**拉普拉斯先验**；此时求解的是 MAP 估计，正则项就是负 log 先验。这一视角把「防过拟合」与「先验知识」统一起来。
+L2 正则等价于给参数加**高斯先验** <img class="fml" src="/formulas/7367cc0dd7e2ab.png" alt="w \sim N(0, \sigma^{2}I)" width="118" height="34">，L1 等价于**拉普拉斯先验**；此时求解的是 MAP 估计，正则项就是负 log 先验。这一视角把「防过拟合」与「先验知识」统一起来。
 :::
 
 ::: danger 易错 · 正则化
 - 正则项**不含偏置项** `b`；自变量须先标准化，否则惩罚对不同量纲不公平。
-- <img class="fml" src="/formulas/da7676c04d86b3.png" alt="\lambda" width="16" height="33"> 越大 → 系数越小 → 偏差上升、方差下降；<img class="fml" src="/formulas/d78d7213f4a43a.png" alt="\lambda=0" width="49" height="33"> 退化为 OLS。
+- <img class="fml" src="/formulas/da7676c04d86b3.png" alt="\lambda" width="18" height="34"> 越大 → 系数越小 → 偏差上升、方差下降；<img class="fml" src="/formulas/d78d7213f4a43a.png" alt="\lambda=0" width="51" height="34"> 退化为 OLS。
 - 岭回归系数是有偏的（以偏差换方差），不能再按普通 OLS 的标准误与 p 值解释。
 :::
 
@@ -387,7 +387,7 @@ L2 正则等价于给参数加**高斯先验** <img class="fml" src="/formulas/7
 :::
 
 ::: tip 补充 · 决定系数 R² 与多重共线性
-<img class="fml" src="/formulas/37c7c2b2090abd.png" alt="R^{2}= 1- \frac{SS_{res}}{SS_{tot}}" width="115" height="34">（残差平方和 / 总平方和）度量模型解释的方差比例；**增加特征 R² 只增不减**，比较不同复杂度模型应使用调整 R²：<img class="fml" src="/formulas/9f11c2aaa910dc.png" alt="R^{2}_{adj}= 1- \frac{(1- R^{2})(N- 1)}{N- d- 1}" width="176" height="35">。特征间高度相关（多重共线性）时 <img class="fml" src="/formulas/21c6ae4de571ce.png" alt="X^{T}X" width="48" height="33"> 接近奇异，系数估计方差急剧放大、符号可能反常，可用方差膨胀因子 <img class="fml" src="/formulas/7d519cb5ca9add.png" alt="VIF_{j}= \frac{1}{1- R^{2}_{j}}" width="107" height="38">（对第 j 列回归其余列）诊断，`VIF>10` 提示严重共线，对策是岭回归或删并特征。
+<img class="fml" src="/formulas/37c7c2b2090abd.png" alt="R^{2}= 1- \frac{SS_{res}}{SS_{tot}}" width="116" height="35">（残差平方和 / 总平方和）度量模型解释的方差比例；**增加特征 R² 只增不减**，比较不同复杂度模型应使用调整 R²：<img class="fml" src="/formulas/9f11c2aaa910dc.png" alt="R^{2}_{adj}= 1- \frac{(1- R^{2})(N- 1)}{N- d- 1}" width="177" height="36">。特征间高度相关（多重共线性）时 <img class="fml" src="/formulas/21c6ae4de571ce.png" alt="X^{T}X" width="49" height="34"> 接近奇异，系数估计方差急剧放大、符号可能反常，可用方差膨胀因子 <img class="fml" src="/formulas/7d519cb5ca9add.png" alt="VIF_{j}= \frac{1}{1- R^{2}_{j}}" width="108" height="40">（对第 j 列回归其余列）诊断，`VIF>10` 提示严重共线，对策是岭回归或删并特征。
 :::
 
 ---
@@ -431,7 +431,7 @@ print(np.round(e / e.sum(), 4))                 # [0.659  0.2424 0.0986]
 ```
 
 ::: tip 工作例题 · 决策边界与概率
-<img class="fml" src="/formulas/3570e26910193f.png" alt="w^{T}x=0" width="72" height="33"> → <img class="fml" src="/formulas/715933a84853b1.png" alt="\sigma(0)=0.5" width="86" height="33">，正是决策边界；<img class="fml" src="/formulas/c587da30c682d8.png" alt="w^{T}x=2" width="72" height="33"> → <img class="fml" src="/formulas/775a1f40b18e66.png" alt="\sigma(2)=0.8808" width="113" height="33"> 判为正类；<img class="fml" src="/formulas/5024d140ecb8fc.png" alt="w^{T}x=- 1.2" width="100" height="33"> → <img class="fml" src="/formulas/acf44c1e291519.png" alt="\sigma \approx 0.2315" width="90" height="33"> 判为负类。
+<img class="fml" src="/formulas/3570e26910193f.png" alt="w^{T}x=0" width="73" height="34"> → <img class="fml" src="/formulas/715933a84853b1.png" alt="\sigma(0)=0.5" width="88" height="34">，正是决策边界；<img class="fml" src="/formulas/c587da30c682d8.png" alt="w^{T}x=2" width="73" height="34"> → <img class="fml" src="/formulas/775a1f40b18e66.png" alt="\sigma(2)=0.8808" width="114" height="34"> 判为正类；<img class="fml" src="/formulas/5024d140ecb8fc.png" alt="w^{T}x=- 1.2" width="101" height="34"> → <img class="fml" src="/formulas/acf44c1e291519.png" alt="\sigma \approx 0.2315" width="91" height="34"> 判为负类。
 三分类 logits `(2, 1, 0.1)` 的 softmax 为 `(0.6590, 0.2424, 0.0986)`，和为 1，预测第 1 类。
 :::
 
@@ -446,8 +446,8 @@ print(np.round(e / e.sum(), 4))                 # [0.659  0.2424 0.0986]
 | 算法 | 核心 | 关键参数 / 前提 | 主要局限 |
 | --- | --- | --- | --- |
 | KNN | 近邻多数投票 | K、距离度量、特征标准化 | 预测慢、高维失效、需存全量数据 |
-| 朴素贝叶斯 | <img class="fml" src="/formulas/062c00b202ee48.png" alt="p(C\mid x)\propto p(C)\prod_{j}p(x_{j}\mid C)" width="227" height="34"> | 条件独立假设、平滑系数 | 特征强相关时概率失真 |
-| 感知机 | <img class="fml" src="/formulas/cd4e4305a8432d.png" alt="y=sgn(w^{T}x)" width="115" height="33">，误分则 <img class="fml" src="/formulas/f085b7233a1971.png" alt="w \leftarrow w+\eta y_{i}x_{i}" width="121" height="33"> | 仅**线性可分**才收敛 | 不输出概率、对重叠数据震荡 |
+| 朴素贝叶斯 | <img class="fml" src="/formulas/062c00b202ee48.png" alt="p(C\mid x)\propto p(C)\prod_{j}p(x_{j}\mid C)" width="228" height="35"> | 条件独立假设、平滑系数 | 特征强相关时概率失真 |
+| 感知机 | <img class="fml" src="/formulas/cd4e4305a8432d.png" alt="y=sgn(w^{T}x)" width="116" height="34">，误分则 <img class="fml" src="/formulas/f085b7233a1971.png" alt="w \leftarrow w+\eta y_{i}x_{i}" width="122" height="34"> | 仅**线性可分**才收敛 | 不输出概率、对重叠数据震荡 |
 | LDA | 类内同协方差的高斯假设，最大化类间/类内比 | 需估计协方差矩阵 | 假设较强，得到线性边界 |
 | Softmax 回归 | 多类逻辑回归 | 类别互斥 | 类别不互斥时应改多个二分类 |
 
@@ -456,23 +456,23 @@ print(np.round(e / e.sum(), 4))                 # [0.659  0.2424 0.0986]
 :::
 
 ::: tip 补充 · 拉普拉斯平滑（加性平滑）
-朴素贝叶斯中若某特征取值在训练集某类下从未出现，<img class="fml" src="/formulas/193bfc0074bc1d.png" alt="p(x_{j}\mid C)=0" width="108" height="33"> 会把整个后验乘成 0。加性平滑用 <img class="fml" src="/formulas/6be8d25a56a634.png" alt="\hat{p}(x_{j}\mid C)=\dfrac{N_{Cj}+\alpha}{N_{C}+\alpha K}" width="178" height="47">（`K` 为该特征可能取值数、<img class="fml" src="/formulas/9649ad5e7f3845.png" alt="\alpha \ge 0" width="50" height="33"> 为平滑系数）：<img class="fml" src="/formulas/c2ec792f4b7a47.png" alt="\alpha=0" width="50" height="33"> 退化为 MLE、<img class="fml" src="/formulas/ff4a595aa1816e.png" alt="\alpha=1" width="50" height="33"> 即拉普拉斯平滑。它等价于给类别比例加 Dirichlet 先验后的 MAP 估计（与 2.1 节 Beta 先验同源），代价是引入轻微偏差换取零概率不再出现。
+朴素贝叶斯中若某特征取值在训练集某类下从未出现，<img class="fml" src="/formulas/193bfc0074bc1d.png" alt="p(x_{j}\mid C)=0" width="108" height="34"> 会把整个后验乘成 0。加性平滑用 <img class="fml" src="/formulas/6be8d25a56a634.png" alt="\hat{p}(x_{j}\mid C)=\dfrac{N_{Cj}+\alpha}{N_{C}+\alpha K}" width="179" height="48">（`K` 为该特征可能取值数、<img class="fml" src="/formulas/9649ad5e7f3845.png" alt="\alpha \ge 0" width="51" height="34"> 为平滑系数）：<img class="fml" src="/formulas/c2ec792f4b7a47.png" alt="\alpha=0" width="51" height="34"> 退化为 MLE、<img class="fml" src="/formulas/ff4a595aa1816e.png" alt="\alpha=1" width="51" height="34"> 即拉普拉斯平滑。它等价于给类别比例加 Dirichlet 先验后的 MAP 估计（与 2.1 节 Beta 先验同源），代价是引入轻微偏差换取零概率不再出现。
 :::
 
 ### 4.4 损失函数的统一视角
 
-把各类监督学习写成 <img class="fml" src="/formulas/fd06c18c813dcc.png" alt="\min\left(\frac{1}{N}\right)\sum_{i} L(y_{i}, f(x_{i}))+ \lambda \Omega(w)" width="261" height="33">：
+把各类监督学习写成 <img class="fml" src="/formulas/fd06c18c813dcc.png" alt="\min\left(\frac{1}{N}\right)\sum_{i} L(y_{i}, f(x_{i}))+ \lambda \Omega(w)" width="262" height="34">：
 
 | 模型 | 损失 L | 特点 |
 | --- | --- | --- |
-| 线性回归 | <img class="fml" src="/formulas/94138b7efd06f2.png" alt="\frac{1}{2}(y- f)^{2}" width="79" height="33"> | 对异常值敏感（平方放大） |
-| 逻辑回归 | <img class="fml" src="/formulas/8a963b8047a23b.png" alt="-[y \log \sigma(f)+(1- y)\log(1- \sigma(f))]" width="286" height="33"> | 概率输出、凸、对误分类线性惩罚 |
-| SVM | <img class="fml" src="/formulas/1fc99d210a862c.png" alt="hinge: \max(0, 1- yf)" width="180" height="33"> | 间隔内点零梯度 → 稀疏解 |
-| AdaBoost | <img class="fml" src="/formulas/3f73a862c8a8bd.png" alt="\exp(- yf)" width="81" height="33"> | 对错分样本指数加权，故对噪声敏感 |
-| 平方损失分类 | <img class="fml" src="/formulas/94138b7efd06f2.png" alt="\frac{1}{2}(y- f)^{2}" width="79" height="33"> | 非凸/易饱和，逻辑回归不用它 |
+| 线性回归 | <img class="fml" src="/formulas/94138b7efd06f2.png" alt="\frac{1}{2}(y- f)^{2}" width="81" height="34"> | 对异常值敏感（平方放大） |
+| 逻辑回归 | <img class="fml" src="/formulas/8a963b8047a23b.png" alt="-[y \log \sigma(f)+(1- y)\log(1- \sigma(f))]" width="286" height="34"> | 概率输出、凸、对误分类线性惩罚 |
+| SVM | <img class="fml" src="/formulas/1fc99d210a862c.png" alt="hinge: \max(0, 1- yf)" width="182" height="34"> | 间隔内点零梯度 → 稀疏解 |
+| AdaBoost | <img class="fml" src="/formulas/3f73a862c8a8bd.png" alt="\exp(- yf)" width="82" height="34"> | 对错分样本指数加权，故对噪声敏感 |
+| 平方损失分类 | <img class="fml" src="/formulas/94138b7efd06f2.png" alt="\frac{1}{2}(y- f)^{2}" width="81" height="34"> | 非凸/易饱和，逻辑回归不用它 |
 
 ::: tip 工作例题 · 交叉熵数值
-真实类别为第 1 类，模型给该类的概率 `0.9` → 损失 <img class="fml" src="/formulas/5aa15a96024d03.png" alt="- \log 0.9 \approx 0.1054" width="145" height="33">；若只给 `0.8` → <img class="fml" src="/formulas/3ece16bd770900.png" alt="- \log 0.8 \approx 0.2231" width="145" height="33">（损失翻倍）。交叉熵对「 confident but wrong 」的样本惩罚极重，这解释了为什么它比均方误差更适合分类。
+真实类别为第 1 类，模型给该类的概率 `0.9` → 损失 <img class="fml" src="/formulas/5aa15a96024d03.png" alt="- \log 0.9 \approx 0.1054" width="146" height="34">；若只给 `0.8` → <img class="fml" src="/formulas/3ece16bd770900.png" alt="- \log 0.8 \approx 0.2231" width="146" height="34">（损失翻倍）。交叉熵对「 confident but wrong 」的样本惩罚极重，这解释了为什么它比均方误差更适合分类。
 :::
 
 ### 4.5 概率校准与预测不确定性
@@ -481,14 +481,14 @@ print(np.round(e / e.sum(), 4))                 # [0.659  0.2424 0.0986]
 
 | 方法 | 做法 | 特点 |
 | --- | --- | --- |
-| Platt Scaling | 用 sigmoid 拟合 <img class="fml" src="/formulas/eb02d8dec41ed8.png" alt="(a \cdot f+b)" width="82" height="33">，在验证集上训练 | 参数少、适合 SVM |
+| Platt Scaling | 用 sigmoid 拟合 <img class="fml" src="/formulas/eb02d8dec41ed8.png" alt="(a \cdot f+b)" width="83" height="34">，在验证集上训练 | 参数少、适合 SVM |
 | Isotonic Regression | 单调非参数映射 | 需较多数据、易过拟合 |
 | 温度缩放 | `softmax(logits/T)`，单参数 T | 深度网络最常用，不改变 argmax（因而不改变准确率） |
 
 ::: tip 工作例题 · 温度缩放
 二分类 logits `(2,1)`：`softmax = (0.7311, 0.2689)`；
 取 `T=2` 变成 `(1, 0.5)` → `softmax = (0.6225, 0.3775)`，预测类别不变但置信度显著下降。
-评估校准用 **Brier score** <img class="fml" src="/formulas/7ce741168f8155.png" alt="=(\hat{y}- y)^{2}" width="86" height="33"> 与 **ECE**（按置信度分箱后加权平均 |<img class="fml" src="/formulas/9bb55d0e640899.png" alt="acc- conf" width="90" height="33">|）。
+评估校准用 **Brier score** <img class="fml" src="/formulas/7ce741168f8155.png" alt="=(\hat{y}- y)^{2}" width="88" height="34"> 与 **ECE**（按置信度分箱后加权平均 |<img class="fml" src="/formulas/9bb55d0e640899.png" alt="acc- conf" width="91" height="34">|）。
 例：真实 y=1 时 `ŷ=0.8` → Brier `0.04`；`ŷ=0.3` → Brier `0.49`。
 :::
 
@@ -509,7 +509,7 @@ print(np.round(e / e.sum(), 4))                 # [0.659  0.2424 0.0986]
 | 步 | 内容 | 易错点 |
 | --- | --- | --- |
 | ① 数据清洗 | 缺失填补、异常值处理、去重 | 不可用**全体数据**的均值填补后再切分（泄露） |
-| ② 归一化 | 范围归一化 <img class="fml" src="/formulas/55b6cba9b3d348.png" alt="\frac{x- \min}{\max- \min}" width="69" height="33">；概率/分布归一化（标准化 <img class="fml" src="/formulas/30ccdd0bcf2cef.png" alt="z=\frac{x- \mu}{\sigma}" width="68" height="33">） | 缩放参数只能在训练集拟合 |
+| ② 归一化 | 范围归一化 <img class="fml" src="/formulas/55b6cba9b3d348.png" alt="\frac{x- \min}{\max- \min}" width="70" height="34">；概率/分布归一化（标准化 <img class="fml" src="/formulas/30ccdd0bcf2cef.png" alt="z=\frac{x- \mu}{\sigma}" width="69" height="34">） | 缩放参数只能在训练集拟合 |
 | ③ 特征工程 | 编码、选择、构造、降维 | 特征选择也须在训练折内做 |
 | ④ 划分数据集 | 训练 / 验证 / 测试三分 | 测试集只用于最终一次性评估 |
 | ⑤ 训练与调参 | 交叉验证选超参、早停 | 反复看测试集调参 = 泄露 |
@@ -526,14 +526,14 @@ print(np.round(e / e.sum(), 4))                 # [0.659  0.2424 0.0986]
 | 准确率 Accuracy | `(TP+TN)/N` | 类别平衡时有效 |
 | 精确率 Precision | `TP/(TP+FP)` | 「报出来的有多少是真的」 |
 | 召回率 Recall / TPR | `TP/(TP+FN)` | 「真的有多少被报出来」 |
-| F1 | <img class="fml" src="/formulas/20d834238f6c25.png" alt="\frac{2PR}{P+R}= \frac{2TP}{2TP+FP+FN}" width="153" height="33"> | P 与 R 的调和平均 |
+| F1 | <img class="fml" src="/formulas/20d834238f6c25.png" alt="\frac{2PR}{P+R}= \frac{2TP}{2TP+FP+FN}" width="153" height="34"> | P 与 R 的调和平均 |
 | FPR | `FP/(FP+TN)` | ROC 横轴 |
-| ROC / AUC | <img class="fml" src="/formulas/4981874f73cca7.png" alt="TPR- FPR" width="110" height="33"> 曲线下面积 | 与阈值无关；0.5 为随机 |
+| ROC / AUC | <img class="fml" src="/formulas/4981874f73cca7.png" alt="TPR- FPR" width="110" height="34"> 曲线下面积 | 与阈值无关；0.5 为随机 |
 
 ::: tip 工作例题 · 手算全套指标
 `TP=80, FP=20, FN=10, TN=90`（N=200）：
-准确率 <img class="fml" src="/formulas/7700545de3573b.png" alt="=\dfrac{170}{200}=0.85" width="111" height="44">；精确率 <img class="fml" src="/formulas/5f11822536f9f4.png" alt="=\dfrac{80}{100}=0.80" width="111" height="44">；召回率 <img class="fml" src="/formulas/c0d781271fdfb2.png" alt="=\dfrac{80}{90}\approx 0.8889" width="120" height="44">；
-<img class="fml" src="/formulas/21932508583301.png" alt="F1= \frac{2 \times 80}{2 \times 80+20+10}= \frac{160}{190}=0.8421" width="250" height="33">；FPR = 20/110 ≈ **0.1818**。
+准确率 <img class="fml" src="/formulas/7700545de3573b.png" alt="=\dfrac{170}{200}=0.85" width="113" height="44">；精确率 <img class="fml" src="/formulas/5f11822536f9f4.png" alt="=\dfrac{80}{100}=0.80" width="112" height="44">；召回率 <img class="fml" src="/formulas/c0d781271fdfb2.png" alt="=\dfrac{80}{90}\approx 0.8889" width="121" height="45">；
+<img class="fml" src="/formulas/21932508583301.png" alt="F1= \frac{2 \times 80}{2 \times 80+20+10}= \frac{160}{190}=0.8421" width="251" height="35">；FPR = 20/110 ≈ **0.1818**。
 若改变决策阈值，P 与 R 沿相反方向变化，F1 折中；AUC 不受单一阈值影响。
 :::
 
@@ -556,15 +556,15 @@ print(scores.mean().round(4), scores.std().round(4))
 ```
 
 ::: tip 补充 · 泛化上界（课件第 5 讲定理）
-在假设空间有限、样本独立同分布的条件下，以概率不小于 <img class="fml" src="/formulas/8c869a0d0496f5.png" alt="1- \delta" width="45" height="33"> 有
-<img class="fml" src="/formulas/08bd72452cb59a.png" alt="R(h)- \hat{R}(h) \le \sqrt{\frac{\log|H|+ \log\left(\frac{2}{\delta}\right)}{2N}}" width="235" height="41">（Hoeffding 型界）。
+在假设空间有限、样本独立同分布的条件下，以概率不小于 <img class="fml" src="/formulas/8c869a0d0496f5.png" alt="1- \delta" width="46" height="34"> 有
+<img class="fml" src="/formulas/08bd72452cb59a.png" alt="R(h)- \hat{R}(h) \le \sqrt{\frac{\log|H|+ \log\left(\frac{2}{\delta}\right)}{2N}}" width="236" height="42">（Hoeffding 型界）。
 结论：**假设空间越大、样本越少，经验风险与期望风险的差距上界越大**；这为「控制模型复杂度 / 正则化」提供了理论依据。对无限假设空间需用 VC 维或 Rademacher 复杂度替代 `log|H|`。
 :::
 
 | 验证方式 | 做法 | 适用 |
 | --- | --- | --- |
 | 留出法 | 一次性按比例切分 | 数据量大、快速 |
-| K 折交叉验证 | 轮流用 1 折验证、K−1 折训练，取平均 | 标准做法，<img class="fml" src="/formulas/f9511ca5c90619.png" alt="K=\frac{5}{10}" width="63" height="33"> |
+| K 折交叉验证 | 轮流用 1 折验证、K−1 折训练，取平均 | 标准做法，<img class="fml" src="/formulas/f9511ca5c90619.png" alt="K=\frac{5}{10}" width="64" height="34"> |
 | 分层 K 折 | 保持每折类别比例 | 分类且类别不平衡 |
 | 留一法 LOOCV | K=N | 小样本，计算代价高 |
 | 时间序列切分 | 按时间前向滚动 | 时序/金融数据（防泄露） |
@@ -577,21 +577,21 @@ print(scores.mean().round(4), scores.std().round(4))
 
 ### 5.4 泛化界与容量度量
 
-5.3 节给出了有限假设空间的 Hoeffding 型泛化界：对 `|H|` 有限、样本 i.i.d.，以概率不小于 <img class="fml" src="/formulas/8c869a0d0496f5.png" alt="1- \delta" width="45" height="33">：
+5.3 节给出了有限假设空间的 Hoeffding 型泛化界：对 `|H|` 有限、样本 i.i.d.，以概率不小于 <img class="fml" src="/formulas/8c869a0d0496f5.png" alt="1- \delta" width="46" height="34">：
 
 
 
-<p class="fml-block"><img class="fml" src="/formulas/912b25f241c98e.png" alt="R(h)- \hat{R}(h) \le \sqrt{\frac{\ln|H|+ \ln\left(\frac{2}{\delta}\right)}{2N}}" width="224" height="41"></p>
+<p class="fml-block"><img class="fml" src="/formulas/912b25f241c98e.png" alt="R(h)- \hat{R}(h) \le \sqrt{\frac{\ln|H|+ \ln\left(\frac{2}{\delta}\right)}{2N}}" width="225" height="42"></p>
 
 
 
 ::: tip 工作例题
-`|H|=1000`、`N=100`、<img class="fml" src="/formulas/78f3256adaac8c.png" alt="\delta=0.05" width="70" height="33"> → 上界 <img class="fml" src="/formulas/5293bc59104e05.png" alt="= \sqrt{\frac{6.9078+3.6889}{200}} \approx 0.2302" width="199" height="41">。
+`|H|=1000`、`N=100`、<img class="fml" src="/formulas/78f3256adaac8c.png" alt="\delta=0.05" width="71" height="34"> → 上界 <img class="fml" src="/formulas/5293bc59104e05.png" alt="= \sqrt{\frac{6.9078+3.6889}{200}} \approx 0.2302" width="201" height="42">。
 即训练误差 0.05 的模型，真实误差可能高达约 0.28。把假设空间扩大 10 倍（ln|H| 增大）或样本减半，上界都会变大——这正是「**模型越复杂、数据越少，越要正则化/早停**」的定量依据。
 :::
 
 ::: tip 补充 · 无限假设空间
-`|H|` 无限时上式失效，需用 **VC 维** `d_VC`（能否打散的最大点数）或 Rademacher 复杂度，上界变为 <img class="fml" src="/formulas/afa83f9de4326e.png" alt="O\left(\sqrt{\frac{d_{VC} \log\left(\frac{N}{d_{VC}}\right)+\log\left(\frac{1}{\delta}\right)}{N}}\right)" width="203" height="64">。深度网络参数量远大于 VC 上界却仍泛化良好，说明传统容量度量不足，需要「隐式正则化」（SGD 偏好平坦极小、架构先验）来解释——这是当代研究课题。
+`|H|` 无限时上式失效，需用 **VC 维** `d_VC`（能否打散的最大点数）或 Rademacher 复杂度，上界变为 <img class="fml" src="/formulas/afa83f9de4326e.png" alt="O\left(\sqrt{\frac{d_{VC} \log\left(\frac{N}{d_{VC}}\right)+\log\left(\frac{1}{\delta}\right)}{N}}\right)" width="203" height="65">。深度网络参数量远大于 VC 上界却仍泛化良好，说明传统容量度量不足，需要「隐式正则化」（SGD 偏好平坦极小、架构先验）来解释——这是当代研究课题。
 :::
 
 ### 5.5 分布漂移、公平性与上线监控
@@ -607,7 +607,7 @@ print(scores.mean().round(4), scores.std().round(4))
 <p class="fml-block"><img class="fml" src="/formulas/5f89021427ea66.png" alt="\begin{gathered}
 \text{PSI = }\sum \text{\_bins (} \; \text{实际占比} \; - \; \text{期望占比} \; ) \cdot \ln( \; \text{实际占比} \; \text{/} \; \text{期望占比} \; \text{)} \\
 \text{经验阈值：} \; \text{PSI &lt; 0.1} \; \text{稳定；} \; 0.1- 0.25 \; \text{需关注；} \; \text{&gt; 0.25} \; \text{显著漂移}
-\end{gathered}" width="546" height="63"></p>
+\end{gathered}" width="547" height="65"></p>
 
 
 
@@ -652,7 +652,7 @@ print(scores.mean().round(4), scores.std().round(4))
 :::
 
 ::: tip 补充 · 置换重要性的一步
-在验证集上依次随机打乱第 j 列，记录性能下降量 <img class="fml" src="/formulas/23db79315a41f6.png" alt="\Delta_{j}" width="28" height="33">；<img class="fml" src="/formulas/23db79315a41f6.png" alt="\Delta_{j}" width="28" height="33"> 越大说明模型越依赖该特征。它不依赖模型内部结构、可直接比较不同模型，但计算量与特征数成正比。
+在验证集上依次随机打乱第 j 列，记录性能下降量 <img class="fml" src="/formulas/23db79315a41f6.png" alt="\Delta_{j}" width="29" height="34">；<img class="fml" src="/formulas/23db79315a41f6.png" alt="\Delta_{j}" width="29" height="34"> 越大说明模型越依赖该特征。它不依赖模型内部结构、可直接比较不同模型，但计算量与特征数成正比。
 :::
 
 ---
@@ -663,16 +663,16 @@ print(scores.mean().round(4), scores.std().round(4))
 
 ### 6.1 核函数与 Mercer 条件
 
-由特征向量构造映射 <img class="fml" src="/formulas/60ca0c51f5384b.png" alt="\phi : x \to \phi(x)" width="104" height="33">，定义核函数 <img class="fml" src="/formulas/dc11050c9e9f2f.png" alt="k(x,z)= \phi(x)^{T}\phi(z)" width="159" height="33">。核函数满足**对称性** `k(x,z)=k(z,x)`，且对任意样本集构成的 Gram 矩阵 <img class="fml" src="/formulas/1836f4122cab8a.png" alt="K_{ij}=k(x_{i},x_{j})" width="120" height="33"> 必须是**对称半正定**矩阵（Mercer 条件）——这是判断一个函数能否作核的充要条件。
+由特征向量构造映射 <img class="fml" src="/formulas/60ca0c51f5384b.png" alt="\phi : x \to \phi(x)" width="105" height="34">，定义核函数 <img class="fml" src="/formulas/dc11050c9e9f2f.png" alt="k(x,z)= \phi(x)^{T}\phi(z)" width="160" height="34">。核函数满足**对称性** `k(x,z)=k(z,x)`，且对任意样本集构成的 Gram 矩阵 <img class="fml" src="/formulas/1836f4122cab8a.png" alt="K_{ij}=k(x_{i},x_{j})" width="121" height="34"> 必须是**对称半正定**矩阵（Mercer 条件）——这是判断一个函数能否作核的充要条件。
 
 ::: tip 工作例题 · 多项式核的显式特征映射（课件原例）
-二维情形取 <img class="fml" src="/formulas/11f832779e483d.png" alt="k(x,z)=(1+x^{T}z)^{2}" width="162" height="33">：
-展开 <img class="fml" src="/formulas/a6f7462e7e9d95.png" alt="(1+x_{1}z_{1}+x_{2}z_{2})^{2}= 1+ 2x_{1}z_{1}+ 2x_{2}z_{2}+ x_{1}^{2}z_{1}^{2}+ x_{2}^{2}z_{2}^{2}+ 2x_{1}x_{2}z_{1}z_{2}" width="512" height="33">
-恰好等于 <img class="fml" src="/formulas/ec94f488e765c9.png" alt="\phi(x)^{T}\phi(z)" width="84" height="33">，其中
+二维情形取 <img class="fml" src="/formulas/11f832779e483d.png" alt="k(x,z)=(1+x^{T}z)^{2}" width="163" height="34">：
+展开 <img class="fml" src="/formulas/a6f7462e7e9d95.png" alt="(1+x_{1}z_{1}+x_{2}z_{2})^{2}= 1+ 2x_{1}z_{1}+ 2x_{2}z_{2}+ x_{1}^{2}z_{1}^{2}+ x_{2}^{2}z_{2}^{2}+ 2x_{1}x_{2}z_{1}z_{2}" width="513" height="34">
+恰好等于 <img class="fml" src="/formulas/ec94f488e765c9.png" alt="\phi(x)^{T}\phi(z)" width="85" height="34">，其中
 
 
 
-<p class="fml-block"><img class="fml" src="/formulas/c0b713e5fdb8b7.png" alt="\phi(x)=\left(1, \sqrt{2x}_{1}, \sqrt{2x}_{2}, x_{1}^{2}, x_{2}^{2}, \sqrt{2x}_{1}x_{2}\right)" width="305" height="33"></p>
+<p class="fml-block"><img class="fml" src="/formulas/c0b713e5fdb8b7.png" alt="\phi(x)=\left(1, \sqrt{2x}_{1}, \sqrt{2x}_{2}, x_{1}^{2}, x_{2}^{2}, \sqrt{2x}_{1}x_{2}\right)" width="307" height="34"></p>
 
 
 
@@ -680,9 +680,9 @@ print(scores.mean().round(4), scores.std().round(4))
 :::
 
 ::: danger 易错 · 核函数
-- 核函数必须半正定；`sigmoid` 型核 <img class="fml" src="/formulas/f74332b6613739.png" alt="\tanh(\gamma x^{T}z+c)" width="125" height="33"> 在部分参数下**不满足** Mercer 条件，不是合法核。
-- 高斯 RBF 对应**无穷维**特征空间，不可能显式写出 <img class="fml" src="/formulas/a579944994d0d7.png" alt="\phi(x)" width="41" height="33">。
-- 核方法计算/存储开销随样本数平方增长（Gram 矩阵 <img class="fml" src="/formulas/33fdf620bb3797.png" alt="O(N^{2})" width="57" height="33">），超大样本需近似（随机特征、Nyström）。
+- 核函数必须半正定；`sigmoid` 型核 <img class="fml" src="/formulas/f74332b6613739.png" alt="\tanh(\gamma x^{T}z+c)" width="125" height="34"> 在部分参数下**不满足** Mercer 条件，不是合法核。
+- 高斯 RBF 对应**无穷维**特征空间，不可能显式写出 <img class="fml" src="/formulas/a579944994d0d7.png" alt="\phi(x)" width="42" height="34">。
+- 核方法计算/存储开销随样本数平方增长（Gram 矩阵 <img class="fml" src="/formulas/33fdf620bb3797.png" alt="O(N^{2})" width="58" height="34">），超大样本需近似（随机特征、Nyström）。
 :::
 
 ### 6.2 最大间隔分类器与对偶
@@ -696,40 +696,40 @@ print(scores.mean().round(4), scores.std().round(4))
 \text{对偶问题：} \; \max_\alpha \sum_{i}\alpha_{i}- \frac{1}{2} \sum_{ij} \alpha_{i}\alpha_{j}y_{i}y_{j} x_{i}^{T}x_{j} \\
 s.t. \sum_{i}\alpha_{i}y_{i}= 0, \alpha_{i} \ge 0 \\
 \text{决策函数：} \; f(x)= sgn\left(\sum_{i} \alpha_{i}y_{i} k(x_{i},x)+ b\right)
-\end{gathered}" width="469" height="295"></p>
+\end{gathered}" width="469" height="296"></p>
 
 
 
-**KKT 互补松弛** <img class="fml" src="/formulas/e4de3f3698b1fb.png" alt="\alpha_{i}[y_{i}(w^{T}x_{i}+b)- 1]=0" width="192" height="33"> 说明：只有落在间隔边界上的样本（**支持向量**）才可能有 <img class="fml" src="/formulas/9869d15c39d1b3.png" alt="\alpha_{i}&gt;0" width="55" height="33">，其余样本对解无影响——这是 SVM 稀疏性与抗噪性的来源。
+**KKT 互补松弛** <img class="fml" src="/formulas/e4de3f3698b1fb.png" alt="\alpha_{i}[y_{i}(w^{T}x_{i}+b)- 1]=0" width="193" height="34"> 说明：只有落在间隔边界上的样本（**支持向量**）才可能有 <img class="fml" src="/formulas/9869d15c39d1b3.png" alt="\alpha_{i}&gt;0" width="57" height="33">，其余样本对解无影响——这是 SVM 稀疏性与抗噪性的来源。
 
 ::: tip 工作例题 · 间隔计算
-`w=(1,1)`、<img class="fml" src="/formulas/d07ce91c8ab89f.png" alt="b=- 3" width="60" height="33"> 给出决策面 <img class="fml" src="/formulas/27dd7d4282eab3.png" alt="x_{1}+x_{2}=3" width="95" height="33">，两条间隔边界为 <img class="fml" src="/formulas/d0c22848a2a193.png" alt="x_{1}+x_{2}=2" width="95" height="33"> 与 `=4`。
-<img class="fml" src="/formulas/ce30528ec469cc.png" alt="\| w \|=\sqrt{2}" width="85" height="33"> → 几何间隔 <img class="fml" src="/formulas/a36c556704e53c.png" alt="\gamma= \frac{2}{\sqrt{2}}= \sqrt{2} \approx 1.4142" width="182" height="36">；<img class="fml" src="/formulas/aba616ca6a58a6.png" alt="\| w \|" width="37" height="33"> 越小间隔越宽、泛化通常越好。
+`w=(1,1)`、<img class="fml" src="/formulas/d07ce91c8ab89f.png" alt="b=- 3" width="61" height="34"> 给出决策面 <img class="fml" src="/formulas/27dd7d4282eab3.png" alt="x_{1}+x_{2}=3" width="97" height="34">，两条间隔边界为 <img class="fml" src="/formulas/d0c22848a2a193.png" alt="x_{1}+x_{2}=2" width="96" height="34"> 与 `=4`。
+<img class="fml" src="/formulas/ce30528ec469cc.png" alt="\| w \|=\sqrt{2}" width="86" height="34"> → 几何间隔 <img class="fml" src="/formulas/a36c556704e53c.png" alt="\gamma= \frac{2}{\sqrt{2}}= \sqrt{2} \approx 1.4142" width="182" height="37">；<img class="fml" src="/formulas/aba616ca6a58a6.png" alt="\| w \|" width="38" height="34"> 越小间隔越宽、泛化通常越好。
 :::
 
 ### 6.3 软间隔与常用核
 
-数据线性不可分或含噪声时引入松弛变量 <img class="fml" src="/formulas/f8af5f1a8b5a39.png" alt="\xi_{i} \ge 0" width="52" height="33"> 与惩罚参数 `C`：
+数据线性不可分或含噪声时引入松弛变量 <img class="fml" src="/formulas/f8af5f1a8b5a39.png" alt="\xi_{i} \ge 0" width="52" height="34"> 与惩罚参数 `C`：
 
 
 
 <p class="fml-block"><img class="fml" src="/formulas/320c7b3879377a.png" alt="\begin{gathered}
 \min \frac{1}{2} \| w \|^{2}+ C \sum_{i} \xi_{i} s.t. y_{i}(w^{T}x_{i}+b) \ge 1- \xi_{i}, \xi_{i} \ge 0 \\
 \text{对偶中约束变为} \; 0 \le \alpha_{i} \le C \; \text{（} \; \text{C} \; \text{为} \; \alpha \; \text{的上界）}
-\end{gathered}" width="413" height="81"></p>
+\end{gathered}" width="414" height="82"></p>
 
 
 
 | 核 | 形式 | 特点 |
 | --- | --- | --- |
-| 线性 | <img class="fml" src="/formulas/3c1885daf4f8b3.png" alt="k=x^{T}z" width="69" height="33"> | 特征多/样本大，不易过拟合、可解释 |
-| 多项式 | <img class="fml" src="/formulas/b27a38beed3ecb.png" alt="k=(\gamma x^{T}z+c)^d" width="130" height="33"> | 显式控制交互阶数，d 大易过拟合 |
-| 高斯 RBF | <img class="fml" src="/formulas/c3714680aa9e31.png" alt="\exp\left(- \| x- z \| \frac{^{2}}{2\sigma^{2}}\right)" width="154" height="40"> | 无穷维、默认首选；<img class="fml" src="/formulas/9d6e7d04a215f4.png" alt="\gamma=\frac{1}{2\sigma^{2}}" width="64" height="33"> 越大边界越曲折 |
-| Sigmoid | <img class="fml" src="/formulas/f74332b6613739.png" alt="\tanh(\gamma x^{T}z+c)" width="125" height="33"> | 部分参数下非半正定，慎用 |
+| 线性 | <img class="fml" src="/formulas/3c1885daf4f8b3.png" alt="k=x^{T}z" width="70" height="34"> | 特征多/样本大，不易过拟合、可解释 |
+| 多项式 | <img class="fml" src="/formulas/b27a38beed3ecb.png" alt="k=(\gamma x^{T}z+c)^d" width="131" height="34"> | 显式控制交互阶数，d 大易过拟合 |
+| 高斯 RBF | <img class="fml" src="/formulas/c3714680aa9e31.png" alt="\exp\left(- \| x- z \| \frac{^{2}}{2\sigma^{2}}\right)" width="155" height="42"> | 无穷维、默认首选；<img class="fml" src="/formulas/9d6e7d04a215f4.png" alt="\gamma=\frac{1}{2\sigma^{2}}" width="64" height="34"> 越大边界越曲折 |
+| Sigmoid | <img class="fml" src="/formulas/f74332b6613739.png" alt="\tanh(\gamma x^{T}z+c)" width="125" height="34"> | 部分参数下非半正定，慎用 |
 
 ::: danger 易错 · 超参数与输出
 - `C` 越大越不容忍误分类 → 间隔变窄、易过拟合；`C` 越小间隔越宽、允许更多错分。
-- <img class="fml" src="/formulas/68923f20821012.png" alt="\gamma" width="16" height="33">（RBF）越大，单个样本影响范围越小，决策边界越复杂，易过拟合。
+- <img class="fml" src="/formulas/68923f20821012.png" alt="\gamma" width="17" height="34">（RBF）越大，单个样本影响范围越小，决策边界越复杂，易过拟合。
 - SVM 输出是**距离符号**不是概率；要概率须 Platt 校准（或改用逻辑回归）。
 - SVM 对特征缩放敏感，训练前必须标准化；对缺失值也敏感。
 :::
@@ -747,11 +747,11 @@ SVM 本质是二分类器，多分类常用 **one-vs-rest / one-vs-one** 组合�
 <p class="fml-block"><img class="fml" src="/formulas/c0f8e8c4db2aec.png" alt="\begin{gathered}
 \min_{w} \frac{1}{2} \| w \|^{2}+ C \sum_{i} \max(0, 1- y_{i}(w^{T}x_{i}+b))= \frac{1}{2} \| w \|^{2}+ C \sum_{i} L_{hinge}(y_{i}f_{i}) \\
 C \to_{\infty} \; \text{时逼近硬间隔；} \; \text{L2-SVM} \; \text{用} \; \max(0,1- yf)^{2} \; \text{得处处可导的目标}
-\end{gathered}" width="577" height="82"></p>
+\end{gathered}" width="579" height="82"></p>
 
 
 
-**hinge 的关键性质**：当 <img class="fml" src="/formulas/200f922ce9e98b.png" alt="y_{i}f_{i} \ge 1" width="67" height="33">（样本被正确分类且在间隔外）时损失与梯度**恒为 0**，因此只有支持向量参与优化——这从损失角度解释了 SVM 的稀疏性；对比之下交叉熵对所有样本都有梯度，逻辑回归的解不稀疏。
+**hinge 的关键性质**：当 <img class="fml" src="/formulas/200f922ce9e98b.png" alt="y_{i}f_{i} \ge 1" width="67" height="34">（样本被正确分类且在间隔外）时损失与梯度**恒为 0**，因此只有支持向量参与优化——这从损失角度解释了 SVM 的稀疏性；对比之下交叉熵对所有样本都有梯度，逻辑回归的解不稀疏。
 
 **SMO（序列最小优化）** 是求解 SVM 对偶的经典算法：
 
@@ -762,13 +762,13 @@ C \to_{\infty} \; \text{时逼近硬间隔；} \; \text{L2-SVM} \; \text{用} \;
 \Rightarrow \; \text{每次选两个变量} \; \alpha_{i} \; \text{、} \; \alpha_{j} \; \text{，固定其余，用等式约束把} \; \alpha_{j} \; \text{表成} \; \alpha_{i} \; \text{的线性函数} \\
 \Rightarrow \; \text{对偶目标化为单变量二次函数，解析求无约束极值} \; \to \; \text{裁剪到} \; \text{[0, C]} \; \text{可行域} \\
 \Rightarrow \; \text{更新} \; \text{b} \; \text{与误差缓存，按} \; \text{KKT} \; \text{违反程度选下一对，循环至收敛}
-\end{gathered}" width="632" height="117"></p>
+\end{gathered}" width="634" height="118"></p>
 
 
 
 ::: danger 易错 · SVM 求解
 - SMO 的「两个变量」是**约束导致的必然**，不是随意加速技巧；违反 KKT 的样本优先被选。
-- 核 SVM 的训练复杂度约 <img class="fml" src="/formulas/cb79962317dfce.png" alt="O(N^{2})- O(N^{3})" width="131" height="33">，且需缓存 <img class="fml" src="/formulas/795868e02fc4c8.png" alt="N \times N" width="60" height="33"> 核矩阵；`N` 极大时应改用线性 SVM（如 `LinearSVC` / SGD  hinge）或随机特征近似。
+- 核 SVM 的训练复杂度约 <img class="fml" src="/formulas/cb79962317dfce.png" alt="O(N^{2})- O(N^{3})" width="131" height="34">，且需缓存 <img class="fml" src="/formulas/795868e02fc4c8.png" alt="N \times N" width="62" height="34"> 核矩阵；`N` 极大时应改用线性 SVM（如 `LinearSVC` / SGD  hinge）或随机特征近似。
 - `SVC` 默认 `kernel='rbf'`；若数据已高维稀疏（如文本），线性核往往更快且效果不差。
 :::
 
@@ -784,14 +784,14 @@ L(w,b,\alpha)= \frac{1}{2} \| w \|^{2}- \sum_{i} \alpha_{i}[y_{i}(w^{T}x_{i}+b)-
 \max_\alpha \sum_{i}\alpha_{i}- \frac{1}{2} \sum_{ij} \alpha_{i}\alpha_{j}y_{i}y_{j} x_{i}^{T}x_{j}, s.t. \alpha_{i} \ge 0, \sum_{i}\alpha_{i}y_{i}= 0 \\
 \text{把} \; x_{i}^{T}x_{j} \; \text{换成} \; k(x_{i},x_{j}) \; \text{即得核} \; \text{SVM} \; \text{（核技巧）} \\
 \text{b} \; \text{由任一支持向量满足} \; y_{j}\left(\sum_{i}\alpha_{i}y_{i}k(x_{i},x_{j})+b\right)=1 \; \text{解出}
-\end{gathered}" width="484" height="328"></p>
+\end{gathered}" width="485" height="328"></p>
 
 
 
-**KKT 互补松弛** <img class="fml" src="/formulas/e4de3f3698b1fb.png" alt="\alpha_{i}[y_{i}(w^{T}x_{i}+b)- 1]=0" width="192" height="33"> 给出三类点：<img class="fml" src="/formulas/94039008c6a57d.png" alt="\alpha_{i}=0" width="55" height="33">（间隔外，不影响解）、<img class="fml" src="/formulas/1e5e8dfd972b7e.png" alt="0&lt;\alpha_{i}&lt;C" width="93" height="33">（恰在间隔边界，支持向量）、<img class="fml" src="/formulas/c1fd244ae11ff0.png" alt="\alpha_{i}=C" width="60" height="33">（间隔内或错分，软间隔情形）。
+**KKT 互补松弛** <img class="fml" src="/formulas/e4de3f3698b1fb.png" alt="\alpha_{i}[y_{i}(w^{T}x_{i}+b)- 1]=0" width="193" height="34"> 给出三类点：<img class="fml" src="/formulas/94039008c6a57d.png" alt="\alpha_{i}=0" width="56" height="34">（间隔外，不影响解）、<img class="fml" src="/formulas/1e5e8dfd972b7e.png" alt="0&lt;\alpha_{i}&lt;C" width="94" height="33">（恰在间隔边界，支持向量）、<img class="fml" src="/formulas/c1fd244ae11ff0.png" alt="\alpha_{i}=C" width="61" height="33">（间隔内或错分，软间隔情形）。
 
 ::: danger 易错
-「支持向量」在软间隔中**包括被错分的点**（<img class="fml" src="/formulas/c1fd244ae11ff0.png" alt="\alpha_{i}=C" width="60" height="33">），不只是恰好落在边界上的样本；硬间隔才只有边界点是支持向量。
+「支持向量」在软间隔中**包括被错分的点**（<img class="fml" src="/formulas/c1fd244ae11ff0.png" alt="\alpha_{i}=C" width="61" height="33">），不只是恰好落在边界上的样本；硬间隔才只有边界点是支持向量。
 :::
 
 ---
@@ -806,9 +806,9 @@ L(w,b,\alpha)= \frac{1}{2} \| w \|^{2}- \sum_{i} \alpha_{i}[y_{i}(w^{T}x_{i}+b)-
 
 | 算法 | 准则 | 树结构 | 特点 |
 | --- | --- | --- | --- |
-| ID3 | 信息增益 <img class="fml" src="/formulas/79399a24506f17.png" alt="G(D,A)=H(D)- \sum_{v}(\|D_{v}\| \|D\|)H(D_{v})" width="327" height="33"> | 多叉 | 偏袒取值多的特征（如「编号」） |
-| C4.5 | 增益率 <img class="fml" src="/formulas/aa4ad86cebb8ca.png" alt="GR= \frac{G(D,A)}{SplitInfo_{A}}" width="124" height="35"> | 多叉 | 惩罚多值特征；支持连续值与缺失 |
-| CART | 基尼指数 <img class="fml" src="/formulas/44338a4a209401.png" alt="Gini(D)=1- \sum p_{k}^{2}" width="165" height="33"> | **二叉** | 分类用基尼、回归用平方误差 |
+| ID3 | 信息增益 <img class="fml" src="/formulas/79399a24506f17.png" alt="G(D,A)=H(D)- \sum_{v}(\|D_{v}\| \|D\|)H(D_{v})" width="328" height="33"> | 多叉 | 偏袒取值多的特征（如「编号」） |
+| C4.5 | 增益率 <img class="fml" src="/formulas/aa4ad86cebb8ca.png" alt="GR= \frac{G(D,A)}{SplitInfo_{A}}" width="126" height="35"> | 多叉 | 惩罚多值特征；支持连续值与缺失 |
+| CART | 基尼指数 <img class="fml" src="/formulas/44338a4a209401.png" alt="Gini(D)=1- \sum p_{k}^{2}" width="166" height="33"> | **二叉** | 分类用基尼、回归用平方误差 |
 
 
 
@@ -818,23 +818,23 @@ L(w,b,\alpha)= \frac{1}{2} \| w \|^{2}- \sum_{i} \alpha_{i}[y_{i}(w^{T}x_{i}+b)-
 \text{信息增益} \; G(D,A)= H(D)- H(D|A) \leftarrow \; \text{取最大} \\
 \text{分裂信息} \; SplitInfo_{A}=- \sum_{v}(|D_{v}||D|) \log_{2}(|D_{v}||D|) \\
 \text{基尼指数} \; Gini_{index}(D,A)= \sum_{v}(|D_{v}||D|) Gini(D_{v}) \leftarrow \; \text{取最小}
-\end{gathered}" width="482" height="216"></p>
+\end{gathered}" width="484" height="217"></p>
 
 
 
 ::: tip 工作例题 · 三种准则完整手算
-14 个样本（9 正 / 5 负），按属性 A 分为 <img class="fml" src="/formulas/399ad9635c03a6.png" alt="D_{1}" width="28" height="33">（8 个：7 正 1 负）与 <img class="fml" src="/formulas/69c836f986b0f4.png" alt="D_{2}" width="28" height="33">（6 个：2 正 4 负）：
+14 个样本（9 正 / 5 负），按属性 A 分为 <img class="fml" src="/formulas/399ad9635c03a6.png" alt="D_{1}" width="28" height="34">（8 个：7 正 1 负）与 <img class="fml" src="/formulas/69c836f986b0f4.png" alt="D_{2}" width="28" height="33">（6 个：2 正 4 负）：
 
 
 
-<p class="fml-block"><img class="fml" src="/formulas/95c4c4f57b2ff2.png" alt="H(D)=-\left(\frac{9}{14}\right)\log_{2}\left(\frac{9}{14}\right)-\left(\frac{5}{14}\right)\log_{2}\left(\frac{5}{14}\right)= 0.9403" width="392" height="33"></p>
+<p class="fml-block"><img class="fml" src="/formulas/95c4c4f57b2ff2.png" alt="H(D)=-\left(\frac{9}{14}\right)\log_{2}\left(\frac{9}{14}\right)-\left(\frac{5}{14}\right)\log_{2}\left(\frac{5}{14}\right)= 0.9403" width="394" height="33"></p>
 
 
 
-- <img class="fml" src="/formulas/195a7a8171238e.png" alt="H(D_{1})=0.5436" width="132" height="33">、<img class="fml" src="/formulas/c17262fb87d52b.png" alt="H(D_{2})=0.9183" width="132" height="33"> → 条件熵 <img class="fml" src="/formulas/37b62eea410463.png" alt="= \frac{8}{14 \times 0.5436}+ \frac{6}{14 \times 0.9183}= 0.7042" width="242" height="33">；
-- **信息增益 <img class="fml" src="/formulas/2d54e6f1f5ee0a.png" alt="G= 0.9403- 0.7042= 0.2361" width="238" height="33">**；
-- `Gini(D)=0.4592`、<img class="fml" src="/formulas/54730e40d52b48.png" alt="Gini(D_{1})=0.2188" width="152" height="33">、<img class="fml" src="/formulas/03b54f34ab8c40.png" alt="Gini(D_{2})=0.4444" width="152" height="33"> → **基尼指数 `= 0.3155`**；
-- `SplitInfo = 0.9852` → **增益率 <img class="fml" src="/formulas/c4697d17299a8e.png" alt="GR= \frac{0.2361}{0.9852} \approx 0.2397" width="170" height="33">**。
+- <img class="fml" src="/formulas/195a7a8171238e.png" alt="H(D_{1})=0.5436" width="132" height="33">、<img class="fml" src="/formulas/c17262fb87d52b.png" alt="H(D_{2})=0.9183" width="133" height="33"> → 条件熵 <img class="fml" src="/formulas/37b62eea410463.png" alt="= \frac{8}{14 \times 0.5436}+ \frac{6}{14 \times 0.9183}= 0.7042" width="243" height="34">；
+- **信息增益 <img class="fml" src="/formulas/2d54e6f1f5ee0a.png" alt="G= 0.9403- 0.7042= 0.2361" width="239" height="33">**；
+- `Gini(D)=0.4592`、<img class="fml" src="/formulas/54730e40d52b48.png" alt="Gini(D_{1})=0.2188" width="154" height="33">、<img class="fml" src="/formulas/03b54f34ab8c40.png" alt="Gini(D_{2})=0.4444" width="153" height="33"> → **基尼指数 `= 0.3155`**；
+- `SplitInfo = 0.9852` → **增益率 <img class="fml" src="/formulas/c4697d17299a8e.png" alt="GR= \frac{0.2361}{0.9852} \approx 0.2397" width="171" height="33">**。
 :::
 
 ::: danger 易错 · 划分准则方向
@@ -862,7 +862,7 @@ L(w,b,\alpha)= \frac{1}{2} \| w \|^{2}- \sum_{i} \alpha_{i}[y_{i}(w^{T}x_{i}+b)-
 | --- | --- | --- |
 | 训练方式 | 并行、各基学习器独立 | 串行、后者依赖前者 |
 | 样本权重 | Bootstrap 有放回抽样 | 每轮提高错分样本权重 / 拟合残差 |
-| 组合方式 | 投票 / 平均（等权） | 加权组合 <img class="fml" src="/formulas/1afa8d1eacef81.png" alt="F(x)=\sum \alpha_{t}h_{t}(x)" width="146" height="33"> |
+| 组合方式 | 投票 / 平均（等权） | 加权组合 <img class="fml" src="/formulas/1afa8d1eacef81.png" alt="F(x)=\sum \alpha_{t}h_{t}(x)" width="147" height="33"> |
 | 基学习器 | 强且不稳定（深树） | 弱但优于随机（浅树 / 树桩） |
 | 主要作用 | **降方差** | **降偏差** |
 | 并行性 | 可并行 | 不可并行（XGBoost 在特征层面并行） |
@@ -874,14 +874,14 @@ L(w,b,\alpha)= \frac{1}{2} \| w \|^{2}- \sum_{i} \alpha_{i}[y_{i}(w^{T}x_{i}+b)-
 \epsilon_{t}= \; \text{加权错误率；} \; \alpha_{t}= \frac{1}{2} \ln\left(\frac{1- \epsilon_{t}}{\epsilon}_{t}\right) \\
 w_{i} \leftarrow w_{i} \cdot \exp(- \alpha_{t} y_{i} h_{t}(x_{i})) \; \text{，再归一化} \\
 \text{GBDT} \; \text{：每一轮拟合当前损失函数的负梯度（伪残差），逐步加法建模}
-\end{gathered}" width="555" height="131"></p>
+\end{gathered}" width="556" height="132"></p>
 
 
 
 ::: tip 工作例题 · AdaBoost 权重更新
-<img class="fml" src="/formulas/7fa925f2b083d8.png" alt="\epsilon_{t}=0.3" width="65" height="33"> → <img class="fml" src="/formulas/19285fd7d2ad09.png" alt="\alpha_{t}= \frac{1}{2} \ln\left(\frac{0.7}{0.3}\right)= \frac{1}{2} \ln(2.3333) \approx 0.4236" width="304" height="33">；
-错分样本权重乘 <img class="fml" src="/formulas/d3ac1f372deec3.png" alt="e^{0.4236} \approx 1.5275" width="123" height="33">，正确样本乘 <img class="fml" src="/formulas/92200c119a816c.png" alt="e^{- 0.4236} \approx 0.6547" width="133" height="33">（错分样本被放大约 2.3 倍相对权重）。
-若 <img class="fml" src="/formulas/080b5256157cfa.png" alt="\epsilon_{t}=0.5" width="65" height="33">（等同随机猜测）→ <img class="fml" src="/formulas/3acd2966a871c3.png" alt="\alpha_{t}=0" width="56" height="33">，该分类器对最终模型无贡献；若 <img class="fml" src="/formulas/f6a2c546d2be14.png" alt="\epsilon_{t}&gt;0.5" width="65" height="33"> 应停止或取反。
+<img class="fml" src="/formulas/7fa925f2b083d8.png" alt="\epsilon_{t}=0.3" width="66" height="33"> → <img class="fml" src="/formulas/19285fd7d2ad09.png" alt="\alpha_{t}= \frac{1}{2} \ln\left(\frac{0.7}{0.3}\right)= \frac{1}{2} \ln(2.3333) \approx 0.4236" width="305" height="33">；
+错分样本权重乘 <img class="fml" src="/formulas/d3ac1f372deec3.png" alt="e^{0.4236} \approx 1.5275" width="124" height="33">，正确样本乘 <img class="fml" src="/formulas/92200c119a816c.png" alt="e^{- 0.4236} \approx 0.6547" width="134" height="33">（错分样本被放大约 2.3 倍相对权重）。
+若 <img class="fml" src="/formulas/080b5256157cfa.png" alt="\epsilon_{t}=0.5" width="66" height="33">（等同随机猜测）→ <img class="fml" src="/formulas/3acd2966a871c3.png" alt="\alpha_{t}=0" width="56" height="33">，该分类器对最终模型无贡献；若 <img class="fml" src="/formulas/f6a2c546d2be14.png" alt="\epsilon_{t}&gt;0.5" width="67" height="33"> 应停止或取反。
 :::
 
 ::: danger 易错 · 集成
@@ -891,12 +891,12 @@ w_{i} \leftarrow w_{i} \cdot \exp(- \alpha_{t} y_{i} h_{t}(x_{i})) \; \text{，�
 :::
 
 ::: tip 补充 · 算法谱系（课件只点到 XGBoost）
-`Bagging → 随机森林 → ExtraTrees`；<img class="fml" src="/formulas/1214dd6761185b.png" alt="AdaBoost \to GBDT \to \frac{\frac{XGBoost}{LightGBM}}{CatBoost}" width="255" height="37">（二阶泰勒展开 + 正则项 + 列采样 + 直方图加速）；`Stacking` 用元学习器组合异构基模型。工程上表格数据首选梯度提升树，图像/文本首选深度网络。
+`Bagging → 随机森林 → ExtraTrees`；<img class="fml" src="/formulas/1214dd6761185b.png" alt="AdaBoost \to GBDT \to \frac{\frac{XGBoost}{LightGBM}}{CatBoost}" width="255" height="38">（二阶泰勒展开 + 正则项 + 列采样 + 直方图加速）；`Stacking` 用元学习器组合异构基模型。工程上表格数据首选梯度提升树，图像/文本首选深度网络。
 :::
 
 ### 7.4 AdaBoost 的推导：前向分步加法模型 + 指数损失
 
-AdaBoost 那些「看起来像启发式」的权重公式其实可以严格推导出来。设加法模型 <img class="fml" src="/formulas/b9e8a7af04aad9.png" alt="f(x)=\sum_{t} \alpha_{t}h_{t}(x)" width="148" height="33">，取**指数损失** <img class="fml" src="/formulas/f562c68a63b303.png" alt="L(y,f)=\exp(- yf)" width="159" height="33">，用**前向分步**（每轮只加一个基学习器，固定已有部分）：
+AdaBoost 那些「看起来像启发式」的权重公式其实可以严格推导出来。设加法模型 <img class="fml" src="/formulas/b9e8a7af04aad9.png" alt="f(x)=\sum_{t} \alpha_{t}h_{t}(x)" width="150" height="33">，取**指数损失** <img class="fml" src="/formulas/f562c68a63b303.png" alt="L(y,f)=\exp(- yf)" width="160" height="33">，用**前向分步**（每轮只加一个基学习器，固定已有部分）：
 
 
 
@@ -909,16 +909,16 @@ AdaBoost 那些「看起来像启发式」的权重公式其实可以严格推�
 -(1- \epsilon_{t})e^{- \alpha}+ \epsilon_{t} e^{\alpha}= 0 \Rightarrow \alpha_{t}= \frac{1}{2} \ln\left(\frac{1- \epsilon_{t}}{\epsilon}_{t}\right) \leftarrow \; \text{课件公式的来源} \\
 \text{(3)} \; \text{代入} \; f_{t}= f_{t- 1}+ \alpha_{t}h_{t} \; \text{得权重更新} \\
 w_{i} \leftarrow w_{i} \exp(- \alpha_{t} y_{i} h_{t}(x_{i})) \; \text{，再归一化} \; \leftarrow \; \text{错分样本权重升高}
-\end{gathered}" width="605" height="286"></p>
+\end{gathered}" width="605" height="287"></p>
 
 
 
 **结论**：AdaBoost 等价于在指数损失上做**梯度下降式的前向分步优化**；GBDT 则把指数损失换成任意可微损失并拟合其**负梯度**（伪残差），二者是同一框架的不同损失选择。
 
 ::: tip 工作例题 · 权重公式自检
-<img class="fml" src="/formulas/7fa925f2b083d8.png" alt="\epsilon_{t}=0.3" width="65" height="33"> → <img class="fml" src="/formulas/8000f6c807c080.png" alt="\alpha_{t}= \frac{1}{2} \ln\left(\frac{0.7}{0.3}\right) \approx 0.4236" width="188" height="33">；
-错分样本 <img class="fml" src="/formulas/73073503e96d7e.png" alt="y_{i}h_{t}=- 1" width="82" height="33"> → 乘 <img class="fml" src="/formulas/eeafc8be131821.png" alt="e^{+0.4236} \approx 1.5275" width="133" height="33">；正确样本乘 <img class="fml" src="/formulas/92200c119a816c.png" alt="e^{- 0.4236} \approx 0.6547" width="133" height="33">。
-当 <img class="fml" src="/formulas/6477abe0ce1f81.png" alt="\epsilon_{t} \to 0" width="55" height="33"> 时 <img class="fml" src="/formulas/c9b57b8969d2b3.png" alt="\alpha_{t} \to_{\infty}" width="59" height="33">（完美分类器权重极大）；<img class="fml" src="/formulas/080b5256157cfa.png" alt="\epsilon_{t}=0.5" width="65" height="33"> 时 <img class="fml" src="/formulas/3acd2966a871c3.png" alt="\alpha_{t}=0" width="56" height="33">（等同随机）；<img class="fml" src="/formulas/f6a2c546d2be14.png" alt="\epsilon_{t}&gt;0.5" width="65" height="33"> 时 <img class="fml" src="/formulas/2cdf84ec494047.png" alt="\alpha_{t}&lt;0" width="56" height="33"> 应停止训练或取反。
+<img class="fml" src="/formulas/7fa925f2b083d8.png" alt="\epsilon_{t}=0.3" width="66" height="33"> → <img class="fml" src="/formulas/8000f6c807c080.png" alt="\alpha_{t}= \frac{1}{2} \ln\left(\frac{0.7}{0.3}\right) \approx 0.4236" width="189" height="33">；
+错分样本 <img class="fml" src="/formulas/73073503e96d7e.png" alt="y_{i}h_{t}=- 1" width="84" height="33"> → 乘 <img class="fml" src="/formulas/eeafc8be131821.png" alt="e^{+0.4236} \approx 1.5275" width="134" height="33">；正确样本乘 <img class="fml" src="/formulas/92200c119a816c.png" alt="e^{- 0.4236} \approx 0.6547" width="134" height="33">。
+当 <img class="fml" src="/formulas/6477abe0ce1f81.png" alt="\epsilon_{t} \to 0" width="56" height="33"> 时 <img class="fml" src="/formulas/c9b57b8969d2b3.png" alt="\alpha_{t} \to_{\infty}" width="60" height="33">（完美分类器权重极大）；<img class="fml" src="/formulas/080b5256157cfa.png" alt="\epsilon_{t}=0.5" width="66" height="33"> 时 <img class="fml" src="/formulas/3acd2966a871c3.png" alt="\alpha_{t}=0" width="56" height="33">（等同随机）；<img class="fml" src="/formulas/f6a2c546d2be14.png" alt="\epsilon_{t}&gt;0.5" width="67" height="33"> 时 <img class="fml" src="/formulas/2cdf84ec494047.png" alt="\alpha_{t}&lt;0" width="57" height="33"> 应停止训练或取反。
 :::
 
 ::: danger 易错 · Boosting 推导
@@ -938,15 +938,15 @@ Obj \approx \sum_{i}[g_{i} f_{t}(x_{i})+ \frac{1}{2} h_{i} f_{t}^{2}(x_{i})]+ \O
 \Omega(f)= \gamma \cdot T+ \frac{1}{2} \lambda \| w \|^{2} \; \text{（} \; \text{T} \; \text{叶数、} \; \text{w} \; \text{叶权重）} \\
 \text{最优叶权重} \; w*_{j}=- \frac{G_{j}}{H_{j}+\lambda} \\
 \text{分裂增益} \; Gain= \frac{1}{2}[ \frac{G_{L}^{2}}{H_{L}+\lambda}+ \frac{G_{R}^{2}}{H_{R}+\lambda}- \frac{(G_{L}+G_{R})^{2}}{H_{L}+H_{R}+\lambda}]- \gamma
-\end{gathered}" width="519" height="190"></p>
+\end{gathered}" width="519" height="191"></p>
 
 
 
 ::: tip 工作例题 · 一次分裂增益
-<img class="fml" src="/formulas/8781b051aecc3a.png" alt="G_{L}=- 2,H_{L}=2" width="141" height="33">、`G_R=3,H_R=2`、<img class="fml" src="/formulas/339a6289e4373a.png" alt="\lambda=1" width="49" height="33">、<img class="fml" src="/formulas/cc6807bf2a326f.png" alt="\gamma=0" width="49" height="33"> → `G=1,H=4`：
-<img class="fml" src="/formulas/7cbe600f91d016.png" alt="Gain= \frac{1}{2}[\frac{4}{3}+ \frac{9}{3}- \frac{1}{5}]= \frac{1}{2}[1.3333+3- 0.2] \approx 2.0667&gt; 0" width="441" height="33"> → 值得分裂；
-最优叶权重 <img class="fml" src="/formulas/c4d3177c16a68f.png" alt="w*_{L}=- \frac{- 2}{3}= 0.6667" width="169" height="33">、<img class="fml" src="/formulas/e52b9a88ed412b.png" alt="w*_{R}=- \frac{3}{3}=- 1.0" width="147" height="33">。
-<img class="fml" src="/formulas/68923f20821012.png" alt="\gamma" width="16" height="33"> 是「分裂最小收益门槛」，起预剪枝作用。
+<img class="fml" src="/formulas/8781b051aecc3a.png" alt="G_{L}=- 2,H_{L}=2" width="142" height="33">、`G_R=3,H_R=2`、<img class="fml" src="/formulas/339a6289e4373a.png" alt="\lambda=1" width="50" height="33">、<img class="fml" src="/formulas/cc6807bf2a326f.png" alt="\gamma=0" width="49" height="33"> → `G=1,H=4`：
+<img class="fml" src="/formulas/7cbe600f91d016.png" alt="Gain= \frac{1}{2}[\frac{4}{3}+ \frac{9}{3}- \frac{1}{5}]= \frac{1}{2}[1.3333+3- 0.2] \approx 2.0667&gt; 0" width="443" height="33"> → 值得分裂；
+最优叶权重 <img class="fml" src="/formulas/c4d3177c16a68f.png" alt="w*_{L}=- \frac{- 2}{3}= 0.6667" width="170" height="33">、<img class="fml" src="/formulas/e52b9a88ed412b.png" alt="w*_{R}=- \frac{3}{3}=- 1.0" width="148" height="33">。
+<img class="fml" src="/formulas/68923f20821012.png" alt="\gamma" width="17" height="34"> 是「分裂最小收益门槛」，起预剪枝作用。
 :::
 
 ---
@@ -957,14 +957,14 @@ Obj \approx \sum_{i}[g_{i} f_{t}(x_{i})+ \frac{1}{2} h_{i} f_{t}^{2}(x_{i})]+ \O
 
 ### 8.1 从神经元到多层感知机
 
-单个神经元：<img class="fml" src="/formulas/f01aaddc895aec.png" alt="z= \sum_{j} w_{j}x_{j}+ b= w^{T}x+ b" width="220" height="34">，<img class="fml" src="/formulas/044cfda3802708.png" alt="a= \phi(z)" width="73" height="33">。多层感知机（MLP / 前馈网络）逐层计算：
+单个神经元：<img class="fml" src="/formulas/f01aaddc895aec.png" alt="z= \sum_{j} w_{j}x_{j}+ b= w^{T}x+ b" width="221" height="34">，<img class="fml" src="/formulas/044cfda3802708.png" alt="a= \phi(z)" width="74" height="33">。多层感知机（MLP / 前馈网络）逐层计算：
 
 
 
 <p class="fml-block"><img class="fml" src="/formulas/be7770fd168440.png" alt="\begin{gathered}
 z^{(l)}= W^{(l)} a^{(l- 1)}+ b^{(l)} \\
 a^{(l)}= \phi(z^{(l)}) \; \text{（} \; \text{a((0)) = x} \; \text{）}
-\end{gathered}" width="231" height="60"></p>
+\end{gathered}" width="231" height="61"></p>
 
 
 
@@ -978,15 +978,15 @@ a^{(l)}= \phi(z^{(l)}) \; \text{（} \; \text{a((0)) = x} \; \text{）}
 
 | 函数 | 表达式 | 值域 | 优点 | 缺点 |
 | --- | --- | --- | --- | --- |
-| Sigmoid | <img class="fml" src="/formulas/40c06addae2448.png" alt="\frac{1}{1+e^{-z}}" width="44" height="33"> | (0,1) | 概率解释、门控 | 饱和区梯度趋 0、非零均值、指数运算 |
-| Tanh | <img class="fml" src="/formulas/af5523a5fa9ca7.png" alt="\frac{e^{z}- e^{-z}}{e^{z}+e^{-z}}" width="49" height="33"> | <img class="fml" src="/formulas/144fa95193174c.png" alt="(- 1,1)" width="60" height="33"> | 零均值 | 仍有梯度消失 |
+| Sigmoid | <img class="fml" src="/formulas/40c06addae2448.png" alt="\frac{1}{1+e^{-z}}" width="46" height="34"> | (0,1) | 概率解释、门控 | 饱和区梯度趋 0、非零均值、指数运算 |
+| Tanh | <img class="fml" src="/formulas/af5523a5fa9ca7.png" alt="\frac{e^{z}- e^{-z}}{e^{z}+e^{-z}}" width="50" height="34"> | <img class="fml" src="/formulas/144fa95193174c.png" alt="(- 1,1)" width="61" height="34"> | 零均值 | 仍有梯度消失 |
 | **ReLU** | `max(0,z)` | [0,∞) | 计算极简、正半轴梯度恒 1 | z&lt;0 神经元「死亡」 |
 | LeakyReLU / ELU / GELU | ReLU 变体 | — | 缓解死亡、更平滑 | 需额外超参/计算 |
-| Softmax | <img class="fml" src="/formulas/422f0a2d559844.png" alt="\frac{\exp(a_{k})}{\sum}_{j}\exp(a_{j})" width="119" height="39"> | (0,1) 和为 1 | 多分类输出 | 须减 max 防溢出 |
+| Softmax | <img class="fml" src="/formulas/422f0a2d559844.png" alt="\frac{\exp(a_{k})}{\sum}_{j}\exp(a_{j})" width="120" height="39"> | (0,1) 和为 1 | 多分类输出 | 须减 max 防溢出 |
 
 ::: tip 工作例题 · 一层前向计算
-`x=(1,2)`、<img class="fml" src="/formulas/037ad0078330e5.png" alt="w=(0.5,- 1)" width="111" height="33">、`b=0.3` → <img class="fml" src="/formulas/725c731c106a41.png" alt="z= 0.5 \times 1- 1 \times 2+ 0.3=- 1.2" width="259" height="33">；
-`ReLU(z) = 0`，<img class="fml" src="/formulas/7b64bbf5a3cb61.png" alt="sigmoid(- 1.2) \approx 0.2315" width="194" height="33">。
+`x=(1,2)`、<img class="fml" src="/formulas/037ad0078330e5.png" alt="w=(0.5,- 1)" width="111" height="33">、`b=0.3` → <img class="fml" src="/formulas/725c731c106a41.png" alt="z= 0.5 \times 1- 1 \times 2+ 0.3=- 1.2" width="260" height="33">；
+`ReLU(z) = 0`，<img class="fml" src="/formulas/7b64bbf5a3cb61.png" alt="sigmoid(- 1.2) \approx 0.2315" width="195" height="33">。
 三分类 logits `(2,1,0.1)` → softmax `(0.6590, 0.2424, 0.0986)`，和为 1，预测第 1 类。
 :::
 
@@ -1001,7 +1001,7 @@ a^{(l)}= \phi(z^{(l)}) \; \text{（} \; \text{a((0)) = x} \; \text{）}
 \text{输出层误差：} \; \delta^{(L)}= \nabla_{a}L ⊙ \phi &#x27;(z^{(L)}) \\
 \text{逐层回传：} \; \delta^{(l)}=(W^{(l+1)})^{T} \delta^{(l+1)} ⊙ \phi &#x27;(z^{(l)}) \\
 \text{梯度：} \; \frac{\partial L}{\partial W^{(l)}}= \delta^{(l)}(a^{(l- 1)})^{T} \; \text{，} \; \frac{\partial L}{\partial b^{(l)}}= \delta^{(l)}
-\end{gathered}" width="392" height="129"></p>
+\end{gathered}" width="393" height="130"></p>
 
 
 
@@ -1021,7 +1021,7 @@ print('a2 =', a2.round(4), ' |δ1| =', np.abs(delta1).round(4))
 ```
 
 ::: danger 易错 · 梯度消失与爆炸
-深层 δ 含多个 <img class="fml" src="/formulas/60ede4023ddf09.png" alt="W^{T}\phi &#x27;" width="50" height="33"> 连乘：若每层因子约 0.5，5 层后首层梯度约 <img class="fml" src="/formulas/66fd9b66318d01.png" alt="0.5^{5}= 0.03125" width="118" height="33">（几乎消失）；若约 2，则 <img class="fml" src="/formulas/ccdb0f25e96f79.png" alt="2^{5}= 32" width="64" height="33">（爆炸）。
+深层 δ 含多个 <img class="fml" src="/formulas/60ede4023ddf09.png" alt="W^{T}\phi &#x27;" width="51" height="33"> 连乘：若每层因子约 0.5，5 层后首层梯度约 <img class="fml" src="/formulas/66fd9b66318d01.png" alt="0.5^{5}= 0.03125" width="119" height="33">（几乎消失）；若约 2，则 <img class="fml" src="/formulas/ccdb0f25e96f79.png" alt="2^{5}= 32" width="65" height="33">（爆炸）。
 Sigmoid 导数最大仅 0.25，是深网络梯度消失的历史主因。对策：**ReLU、残差连接、批归一化、恰当初始化（Xavier/He）、LSTM 门控、梯度裁剪**。
 :::
 
@@ -1031,10 +1031,10 @@ Sigmoid 导数最大仅 0.25，是深网络梯度消失的历史主因。对策�
 | --- | --- | --- |
 | 批归一化 BN | 每层输入标准化 + 可学习 γ、β | 训练用批次统计量，推理用滑动平均，二者不同 |
 | Dropout | 训练时按概率 p 随机置零，测试全开并缩放 | 只在训练启用；等价于隐式集成 |
-| 权重衰减 | L2 惩罚等价于参数乘 <img class="fml" src="/formulas/b159d9821e8443.png" alt="(1- \eta \lambda)" width="71" height="33"> | AdamW 把权重衰减与梯度解耦，效果更好 |
+| 权重衰减 | L2 惩罚等价于参数乘 <img class="fml" src="/formulas/b159d9821e8443.png" alt="(1- \eta \lambda)" width="72" height="33"> | AdamW 把权重衰减与梯度解耦，效果更好 |
 | 早停 | 验证误差回升即停 | 验证集不能与测试集混用 |
 | 残差连接 | `y = F(x) + x` 提供梯度高速路 | 使上百层网络可训练 |
-| 初始化 | Xavier <img class="fml" src="/formulas/9291bdaa691a81.png" alt="\frac{\operatorname{Var} \approx 1}{d_{in}}" width="47" height="34">、He <img class="fml" src="/formulas/331ce6901ff76c.png" alt="\frac{\operatorname{Var} \approx 2}{d_{in}}" width="47" height="34">（配 ReLU） | 全零初始化会导致对称性问题 |
+| 初始化 | Xavier <img class="fml" src="/formulas/9291bdaa691a81.png" alt="\frac{\operatorname{Var} \approx 1}{d_{in}}" width="47" height="35">、He <img class="fml" src="/formulas/331ce6901ff76c.png" alt="\frac{\operatorname{Var} \approx 2}{d_{in}}" width="47" height="35">（配 ReLU） | 全零初始化会导致对称性问题 |
 
 ::: tip 补充 · 损失函数与输出层配对
 回归 → 线性输出 + MSE；二分类 → sigmoid + 二元交叉熵；多分类 → softmax + 多元交叉熵。配对错误会导致梯度形式复杂或数值不稳（如 softmax 与 MSE 组合在饱和时梯度极小）。
@@ -1042,7 +1042,7 @@ Sigmoid 导数最大仅 0.25，是深网络梯度消失的历史主因。对策�
 
 ### 8.5 反向传播的矩阵形式与梯度检验
 
-<img class="fml" src="/formulas/04e8a3b0db0193.png" alt="\delta^{(l)}=(W^{(l+1)})^{T}\delta^{(l+1)} ⊙ \phi &#x27;(z^{(l)})" width="240" height="33"> 中所有量都是矩阵/向量，`⊙` 为逐元素乘。工程上必须做**梯度检验**：用数值梯度 <img class="fml" src="/formulas/b2258eca1bfc5b.png" alt="\frac{J(\theta+\epsilon)- J(\theta- \epsilon)}{2\epsilon}" width="98" height="33">（<img class="fml" src="/formulas/75d8eb2a764716.png" alt="\epsilon \approx 1e- 5" width="85" height="33">）与解析梯度比对，相对误差应小于 <img class="fml" src="/formulas/da1c82c3e0866c.png" alt="1e- 7" width="54" height="33">。这是排查反向传播实现 bug 的标准手段。
+<img class="fml" src="/formulas/04e8a3b0db0193.png" alt="\delta^{(l)}=(W^{(l+1)})^{T}\delta^{(l+1)} ⊙ \phi &#x27;(z^{(l)})" width="241" height="33"> 中所有量都是矩阵/向量，`⊙` 为逐元素乘。工程上必须做**梯度检验**：用数值梯度 <img class="fml" src="/formulas/b2258eca1bfc5b.png" alt="\frac{J(\theta+\epsilon)- J(\theta- \epsilon)}{2\epsilon}" width="99" height="33">（<img class="fml" src="/formulas/75d8eb2a764716.png" alt="\epsilon \approx 1e- 5" width="86" height="33">）与解析梯度比对，相对误差应小于 <img class="fml" src="/formulas/da1c82c3e0866c.png" alt="1e- 7" width="55" height="33">。这是排查反向传播实现 bug 的标准手段。
 
 ::: danger 易错 · 实现层面
 数值梯度只能用于**调试**（计算量 O(参数数)），不能用于训练；检测时须关闭 Dropout 与 BN 的随机性，否则两次前向不一致。
@@ -1055,14 +1055,14 @@ Sigmoid 导数最大仅 0.25，是深网络梯度消失的历史主因。对策�
 | 策略 | 公式 / 做法 | 适用 |
 | --- | --- | --- |
 | Step decay | 每 k 轮乘 γ（如 0.1） | 经典 CNN |
-| 余弦退火 | <img class="fml" src="/formulas/ee8eac4dcd3070.png" alt="\eta_{t}= \eta_{\min}+ \frac{1}{2}(\eta_{0}- \eta_{\min})\left(1+\cos\left(\frac{\pi t}{T}\right)\right)" width="299" height="33"> | 预训练/微调常用 |
+| 余弦退火 | <img class="fml" src="/formulas/ee8eac4dcd3070.png" alt="\eta_{t}= \eta_{\min}+ \frac{1}{2}(\eta_{0}- \eta_{\min})\left(1+\cos\left(\frac{\pi t}{T}\right)\right)" width="300" height="33"> | 预训练/微调常用 |
 | Warmup | 前若干步线性从 0 升到 η0 | 大 batch、Transformer 必备（防初期梯度爆炸） |
 | ReduceLROnPlateau | 验证指标停滞则降 η | 小数据、需自适应 |
 | 周期性 / OneCycle | η 先升后降 | 快速收敛 + 正则效果 |
 
 ::: tip 工作例题 · 余弦退火
-<img class="fml" src="/formulas/2bfba46aec076c.png" alt="\eta_{0}=0.1" width="69" height="33">、<img class="fml" src="/formulas/9ef7c457ec29e2.png" alt="\eta_{\min}=0.001" width="101" height="33">、`T=100`，在 `t=50` 时
-<img class="fml" src="/formulas/104104536af5b4.png" alt="\eta= 0.001+ \frac{1}{2} \times 0.099 \times\left(1+\cos\left(\frac{\pi}{2}\right)\right)= 0.001+0.0495= 0.0505" width="508" height="33">，恰好约为初值的一半。
+<img class="fml" src="/formulas/2bfba46aec076c.png" alt="\eta_{0}=0.1" width="70" height="33">、<img class="fml" src="/formulas/9ef7c457ec29e2.png" alt="\eta_{\min}=0.001" width="102" height="33">、`T=100`，在 `t=50` 时
+<img class="fml" src="/formulas/104104536af5b4.png" alt="\eta= 0.001+ \frac{1}{2} \times 0.099 \times\left(1+\cos\left(\frac{\pi}{2}\right)\right)= 0.001+0.0495= 0.0505" width="509" height="33">，恰好约为初值的一半。
 :::
 
 ::: danger 易错 · 训练稳定性
@@ -1088,15 +1088,15 @@ Sigmoid 导数最大仅 0.25，是深网络梯度消失的历史主因。对策�
 \text{输出尺寸} \; H_{out}= ⌊\frac{H_{in}- K+ 2P}{S}⌋+ 1 \; \text{，} \; \text{W\_out} \; \text{同理} \\
 \text{输出通道数} \; \text{=} \; \text{卷积核个数；参数量} \; = K \times K \times C_{in} \times C_{out}+ C_{out} \\
 \text{池化层无可训练参数；} \; 1 \times 1 \; \text{卷积用于通道变换与降维}
-\end{gathered}" width="517" height="98"></p>
+\end{gathered}" width="518" height="99"></p>
 
 
 
-::: tip 工作例题 · LeNet 风格尺寸演算（课件 <img class="fml" src="/formulas/d945004bf4e67b.png" alt="\max pool 2 \times 2" width="114" height="33">）
-输入 <img class="fml" src="/formulas/aeb9e75c2e5af4.png" alt="32 \times 32 \times 1" width="94" height="33">，6 个 <img class="fml" src="/formulas/2a174a991f5014.png" alt="5 \times 5" width="46" height="33"> 卷积核、`S=1`、`P=0`：
-<img class="fml" src="/formulas/69bb32f07e200a.png" alt="⌊\frac{32- 5}{1}⌋+1= 28" width="127" height="33"> → <img class="fml" src="/formulas/10655c73f8fe88.png" alt="28 \times 28 \times 6" width="94" height="33">，参数量 <img class="fml" src="/formulas/299e2fa065ba5c.png" alt="5 \times 5 \times 1 \times 6+6= 156" width="188" height="33">；
-接 <img class="fml" src="/formulas/e17fc71e34f68d.png" alt="2 \times 2" width="46" height="33"> max pooling、`S=2`：<img class="fml" src="/formulas/f72b29754d700c.png" alt="⌊\frac{28- 2}{2}⌋+1= 14" width="127" height="33"> → <img class="fml" src="/formulas/498c51497c5d3b.png" alt="14 \times 14 \times 6" width="94" height="33">；
-后续再卷积+池化得 <img class="fml" src="/formulas/b94d1640501bf2.png" alt="5 \times 5 \times 16" width="85" height="33">，展平 400 维接全连接，最后 softmax 输出 10 类。
+::: tip 工作例题 · LeNet 风格尺寸演算（课件 <img class="fml" src="/formulas/d945004bf4e67b.png" alt="\max pool 2 \times 2" width="115" height="33">）
+输入 <img class="fml" src="/formulas/aeb9e75c2e5af4.png" alt="32 \times 32 \times 1" width="95" height="33">，6 个 <img class="fml" src="/formulas/2a174a991f5014.png" alt="5 \times 5" width="46" height="33"> 卷积核、`S=1`、`P=0`：
+<img class="fml" src="/formulas/69bb32f07e200a.png" alt="⌊\frac{32- 5}{1}⌋+1= 28" width="128" height="33"> → <img class="fml" src="/formulas/10655c73f8fe88.png" alt="28 \times 28 \times 6" width="95" height="34">，参数量 <img class="fml" src="/formulas/299e2fa065ba5c.png" alt="5 \times 5 \times 1 \times 6+6= 156" width="189" height="34">；
+接 <img class="fml" src="/formulas/e17fc71e34f68d.png" alt="2 \times 2" width="46" height="34"> max pooling、`S=2`：<img class="fml" src="/formulas/f72b29754d700c.png" alt="⌊\frac{28- 2}{2}⌋+1= 14" width="128" height="34"> → <img class="fml" src="/formulas/498c51497c5d3b.png" alt="14 \times 14 \times 6" width="95" height="34">；
+后续再卷积+池化得 <img class="fml" src="/formulas/b94d1640501bf2.png" alt="5 \times 5 \times 16" width="87" height="34">，展平 400 维接全连接，最后 softmax 输出 10 类。
 :::
 
 ::: danger 易错 · CNN
@@ -1121,7 +1121,7 @@ Sigmoid 导数最大仅 0.25，是深网络梯度消失的历史主因。对策�
 \text{LSTM} \; \text{：遗忘门} \; \text{f} \; \text{、输入门} \; \text{i} \; \text{、输出门} \; \text{o} \; \text{与细胞状态} \; c_{t} \; \text{形成「传送带」，} \\
 c_{t}= f⊙c_{t-1}+ i⊙g \; \text{，} \; h_{t}= o⊙\tanh(c_{t}) \; \text{，能记住长程依赖} \\
 \text{GRU} \; \text{：合并为更新门} \; \text{z} \; \text{与重置门} \; \text{r} \; \text{，参数更少、训练更快}
-\end{gathered}" width="625" height="137"></p>
+\end{gathered}" width="626" height="137"></p>
 
 
 
@@ -1138,11 +1138,11 @@ c_{t}= f⊙c_{t-1}+ i⊙g \; \text{，} \; h_{t}= o⊙\tanh(c_{t}) \; \text{，�
 Attention(Q,K,V)= softmax\left(\frac{QK^{T}}{\sqrt{d}_{k}}\right) \cdot V \\
 \text{多头：把} \; \text{Q/K/V} \; \text{投影到} \; \text{h} \; \text{个子空间并行计算，拼接后再线性变换} \\
 \text{Transformer} \; \text{块} \; \text{=} \; \text{多头自注意力} \; \text{+ FFN} \; \text{，各带残差连接与} \; \text{LayerNorm} \; \text{（} \; Repeat \times L \; \text{）}
-\end{gathered}" width="698" height="106"></p>
+\end{gathered}" width="699" height="107"></p>
 
 
 
-除以 <img class="fml" src="/formulas/aabf7bf67df75e.png" alt="\sqrt{d}_{k}" width="38" height="33"> 的原因：维度高时点积方差变大，softmax 会进入梯度极小的饱和区。
+除以 <img class="fml" src="/formulas/aabf7bf67df75e.png" alt="\sqrt{d}_{k}" width="39" height="34"> 的原因：维度高时点积方差变大，softmax 会进入梯度极小的饱和区。
 
 ::: danger 易错 · 注意力
 - 编码器用**双向**自注意力；解码器必须加**因果掩码**防止「看到未来词」，否则训练时泄露答案。
@@ -1152,7 +1152,7 @@ Attention(Q,K,V)= softmax\left(\frac{QK^{T}}{\sqrt{d}_{k}}\right) \cdot V \\
 
 ### 9.4 自编码器与表征学习
 
-自编码器 `编码器 z=f(x) → 解码器 x̂=g(z)`，以重构损失 <img class="fml" src="/formulas/a92c0a40b27c34.png" alt="\| x- \hat{x} \|^{2}" width="73" height="33"> 作自监督信号，把「无监督」转化为一种监督学习。变体：降噪 AE、稀疏 AE、变分 AE（第 12 章）。当瓶颈维小于输入维时，等价于一种非线性 PCA。
+自编码器 `编码器 z=f(x) → 解码器 x̂=g(z)`，以重构损失 <img class="fml" src="/formulas/a92c0a40b27c34.png" alt="\| x- \hat{x} \|^{2}" width="74" height="34"> 作自监督信号，把「无监督」转化为一种监督学习。变体：降噪 AE、稀疏 AE、变分 AE（第 12 章）。当瓶颈维小于输入维时，等价于一种非线性 PCA。
 
 ::: tip 补充 · 现代训练范式
 预训练（大规模自监督）→ 微调（下游任务）已成为主流；对比学习（SimCLR/MoCo）、掩码建模（BERT/MAE）、提示学习与参数高效微调（LoRA）都是课件未覆盖但工程必备的方向。
@@ -1179,16 +1179,16 @@ X \in R^{n \times d} \\
 \to MultiHead= Concat(head_1, \cdots,head_{h}) W^O \in R^{n \times d} \\
 \to \; \text{残差} \; \text{+ LayerNorm → FFN: d → d\_ff(} \; \text{常取} \; \text{4d) → d} \; \text{，再残差} \; \text{+ LayerNorm} \\
 \text{参数量} \; \approx 4d^{2} \; \text{（} \; \text{QKV +} \; \text{输出投影）} \; + 2 \cdot d \cdot d_{ff} \; \text{（} \; \text{FFN} \; \text{）} \; \approx 12d^{2} \; \text{（} \; \text{d\_ff=4d} \; \text{时）}
-\end{gathered}" width="680" height="232"></p>
+\end{gathered}" width="681" height="233"></p>
 
 
 
 ::: tip 工作例题 · 参数量估算
-`d_model=512`、`d_ff=2048`、12 层：每层注意力 <img class="fml" src="/formulas/aeb15f2935afd6.png" alt="4 \times 512^{2}=1,048,576" width="173" height="33">，FFN <img class="fml" src="/formulas/68d42696563af0.png" alt="2 \times 512 \times 2048=2,097,152" width="223" height="33">，合计约 `3.15M`/层，12 层约 **37.7M** 参数（不含嵌入与输出头）。这解释了为何大模型参数量主要由 <img class="fml" src="/formulas/32c9c0ea2c1744.png" alt="d_{model}^{2}" width="50" height="33"> 与层数决定。
+`d_model=512`、`d_ff=2048`、12 层：每层注意力 <img class="fml" src="/formulas/aeb15f2935afd6.png" alt="4 \times 512^{2}=1,048,576" width="174" height="34">，FFN <img class="fml" src="/formulas/68d42696563af0.png" alt="2 \times 512 \times 2048=2,097,152" width="224" height="34">，合计约 `3.15M`/层，12 层约 **37.7M** 参数（不含嵌入与输出头）。这解释了为何大模型参数量主要由 <img class="fml" src="/formulas/32c9c0ea2c1744.png" alt="d_{model}^{2}" width="51" height="34"> 与层数决定。
 :::
 
 ::: danger 易错 · 维度与掩码
-- <img class="fml" src="/formulas/8229d064c46ab6.png" alt="QK^{T}" width="46" height="33"> 是 <img class="fml" src="/formulas/02d200553610ec.png" alt="n \times n" width="49" height="33">，因此掩码是**方阵**（因果掩码为上三角 −∞）；不是 <img class="fml" src="/formulas/52916180ec6280.png" alt="d \times d" width="46" height="33">。
+- <img class="fml" src="/formulas/8229d064c46ab6.png" alt="QK^{T}" width="47" height="34"> 是 <img class="fml" src="/formulas/02d200553610ec.png" alt="n \times n" width="50" height="34">，因此掩码是**方阵**（因果掩码为上三角 −∞）；不是 <img class="fml" src="/formulas/52916180ec6280.png" alt="d \times d" width="48" height="34">。
 - 多头拆分后每头维度 `d/h`，拼接后仍是 `d`，`W^O` 负责混合各头信息；不能把多头理解成把 `d` 变大。
 - Pre-LN 与 Post-LN 的梯度行为不同：Pre-LN 更稳定、通常不需要很长 warmup，这也是现代 LLM 普遍采用它的原因。
 :::
@@ -1200,31 +1200,31 @@ X \in R^{n \times d} \\
 <p class="fml-block"><img class="fml" src="/formulas/b318754b24644a.png" alt="\begin{gathered}
 \text{自注意力计算量} \; O(n^{2} \cdot d) \; \text{（} \; \text{n} \; \text{序列长度、} \; \text{d} \; \text{每头维度），显存} \; O(n^{2}) \\
 \text{多头：} \; \text{h} \; \text{个头各} \; d_{k}=\frac{d_{model}}{h} \; \text{维，总计算量与单头相当，但能捕捉不同子空间关系}
-\end{gathered}" width="642" height="72"></p>
+\end{gathered}" width="643" height="73"></p>
 
 
 
 ::: tip 工作例题 · 3 个 token、d=2
 `Q=K=[[1,0],[0,1],[1,1]]`，`V=[[1,2],[3,4],[5,6]]`：
-分数 <img class="fml" src="/formulas/318485ef0f433a.png" alt="\frac{QK^{T}}{\sqrt{2}}" width="39" height="37"> = `[[0.707,0,0.707],[0,0.707,0.707],[0.707,0.707,1.414]]`；
+分数 <img class="fml" src="/formulas/318485ef0f433a.png" alt="\frac{QK^{T}}{\sqrt{2}}" width="40" height="38"> = `[[0.707,0,0.707],[0,0.707,0.707],[0.707,0.707,1.414]]`；
 逐行 softmax 得权重 `[[0.4011,0.1978,0.4011],[0.1978,0.4011,0.4011],[0.2483,0.2483,0.5035]]`（每行和为 1）；
 输出 `A@V` = `[[3.0,4.0],[3.4067,4.4067],[3.5105,4.5105]]`——每个位置都是 V 各行的加权平均。
 :::
 
 ::: tip 补充 · 长序列优化
-稀疏注意力（Longformer/BigBird）、线性注意力（核化或 Performer）、FlashAttention（IO 感知的精确注意力）、KV Cache（自回归推理加速）都是为缓解 <img class="fml" src="/formulas/10999089d04da9.png" alt="O(n^{2})" width="52" height="33"> 而生；课件 Part-3 只给到标准 Transformer 块 <img class="fml" src="/formulas/4919be2c8f0c92.png" alt="Repeat \times L" width="95" height="33">。
+稀疏注意力（Longformer/BigBird）、线性注意力（核化或 Performer）、FlashAttention（IO 感知的精确注意力）、KV Cache（自回归推理加速）都是为缓解 <img class="fml" src="/formulas/10999089d04da9.png" alt="O(n^{2})" width="52" height="33"> 而生；课件 Part-3 只给到标准 Transformer 块 <img class="fml" src="/formulas/4919be2c8f0c92.png" alt="Repeat \times L" width="96" height="34">。
 :::
 
 ### 9.7 卷积层与转置卷积的反向传播
 
-卷积在前向可写成**稀疏矩阵乘法** <img class="fml" src="/formulas/34d93e5e1d73e6.png" alt="y= C \cdot x" width="76" height="33">（C 由卷积核构造的 Toeplitz 矩阵），因此反向传播只是转置：
+卷积在前向可写成**稀疏矩阵乘法** <img class="fml" src="/formulas/34d93e5e1d73e6.png" alt="y= C \cdot x" width="77" height="34">（C 由卷积核构造的 Toeplitz 矩阵），因此反向传播只是转置：
 
 
 
 <p class="fml-block"><img class="fml" src="/formulas/cd3aab22bd4558.png" alt="\begin{gathered}
 \frac{\partial L}{\partial x}= C^{T} \cdot \frac{\partial L}{\partial y} \; \text{（等价于「用翻转的核再做一次卷积」，即转置卷积）} \\
 \frac{\partial L}{\partial W}= \sum_{sliding windows}\left( \frac{\partial L}{\partial y}\right) \cdot x_{patch}
-\end{gathered}" width="545" height="105"></p>
+\end{gathered}" width="546" height="106"></p>
 
 
 
@@ -1232,14 +1232,14 @@ X \in R^{n \times d} \\
 
 
 
-<p class="fml-block"><img class="fml" src="/formulas/84acc28b38ebfa.png" alt="H_{out}=(H_{in}- 1) \cdot S- 2P+ K+ output_{padding}" width="361" height="33"></p>
+<p class="fml-block"><img class="fml" src="/formulas/84acc28b38ebfa.png" alt="H_{out}=(H_{in}- 1) \cdot S- 2P+ K+ output_{padding}" width="362" height="34"></p>
 
 
 
-例：`H_in=2, K=3, S=2, P=0` → <img class="fml" src="/formulas/4b4e735a602460.png" alt="(2- 1) \times 2+3= 5" width="154" height="33">。
+例：`H_in=2, K=3, S=2, P=0` → <img class="fml" src="/formulas/4b4e735a602460.png" alt="(2- 1) \times 2+3= 5" width="154" height="34">。
 
 ::: danger 易错 · 转置卷积
-「转置卷积」不是卷积的数学逆（不满足 <img class="fml" src="/formulas/6d7b9b914d48be.png" alt="f^{-1} \circ f=id" width="100" height="33">），只是梯度的反向传播形式 / 可学习的上采样；步长大于 1 时会产生**棋盘格伪影**，工程上常用「双线性上采样 + 普通卷积」替代。
+「转置卷积」不是卷积的数学逆（不满足 <img class="fml" src="/formulas/6d7b9b914d48be.png" alt="f^{-1} \circ f=id" width="102" height="34">），只是梯度的反向传播形式 / 可学习的上采样；步长大于 1 时会产生**棋盘格伪影**，工程上常用「双线性上采样 + 普通卷积」替代。
 :::
 
 ### 9.8 位置编码、掩码与自回归推理
@@ -1256,21 +1256,21 @@ X \in R^{n \times d} \\
 
 
 ::: tip 工作例题 · 位置编码的一个分量
-`pos=5`、`i=0`、`d_model=512` → <img class="fml" src="/formulas/1f16794b5f9572.png" alt="PE(5,0)=\sin\left(\frac{5}{10000^{0}}\right)=\sin(5) \approx- 0.9589" width="336" height="33">，<img class="fml" src="/formulas/86bba2d96ddfe0.png" alt="PE(5,1)=\cos(5) \approx 0.2837" width="218" height="33">。
+`pos=5`、`i=0`、`d_model=512` → <img class="fml" src="/formulas/1f16794b5f9572.png" alt="PE(5,0)=\sin\left(\frac{5}{10000^{0}}\right)=\sin(5) \approx- 0.9589" width="337" height="34">，<img class="fml" src="/formulas/86bba2d96ddfe0.png" alt="PE(5,1)=\cos(5) \approx 0.2837" width="219" height="34">。
 不同 i 对应不同频率（低 i 高频、高 i 低频），从而给模型提供多尺度的位置信息。
 :::
 
 ::: danger 易错 · 位置与推理
 - 绝对位置编码在超过训练长度时外推能力有限；RoPE（旋转位置编码）把位置信息注入 Q/K 的旋转中，相对位置性质更好，是现代 LLM 主流。
 - KV Cache 只加速**推理**，训练时仍并行计算整段；缓存随序列长度线性增长，是长上下文显存瓶颈。
-- 因果掩码作用于 <img class="fml" src="/formulas/02d200553610ec.png" alt="n \times n" width="49" height="33"> 分数矩阵，不是 <img class="fml" src="/formulas/52916180ec6280.png" alt="d \times d" width="46" height="33">；漏加掩码会让解码器在训练时「抄答案」。
+- 因果掩码作用于 <img class="fml" src="/formulas/02d200553610ec.png" alt="n \times n" width="50" height="34"> 分数矩阵，不是 <img class="fml" src="/formulas/52916180ec6280.png" alt="d \times d" width="48" height="34">；漏加掩码会让解码器在训练时「抄答案」。
 :::
 
 ### 9.9 模型压缩与推理加速
 
 | 技术 | 做法 | 代价 |
 | --- | --- | --- |
-| 量化 | <img class="fml" src="/formulas/b484f3a1e73d5d.png" alt="FP32 \to \frac{INT8}{FP16}" width="117" height="33">（体积与带宽降为 1/4 / 1/2） | 需校准，可能有精度损失 |
+| 量化 | <img class="fml" src="/formulas/b484f3a1e73d5d.png" alt="FP32 \to \frac{INT8}{FP16}" width="118" height="34">（体积与带宽降为 1/4 / 1/2） | 需校准，可能有精度损失 |
 | 剪枝 | 移除小权重/通道（结构化剪枝才真正加速） | 非结构化剪枝需稀疏计算库 |
 | 知识蒸馏 | 用大模型（教师）的软标签训练小模型（学生） | 需额外训练成本 |
 | 低秩分解 / LoRA | 用低秩矩阵近似大权重增量 | 只微调少量参数 |
@@ -1317,7 +1317,7 @@ X \in R^{n \times d} \\
 J= \sum_{n} \sum_{k} r_{nk} \| x_{n}- \mu_{k} \|^{2} \\
 \text{E} \; \text{步（硬分配）：} \; r_{nk}= 1 \; \text{若} \; k= \operatorname*{argmin}_{j} \| x_{n}- \mu_{j} \|^{2} \; \text{，否则} \; \text{0} \\
 \text{M} \; \text{步（重算质心）：} \; \mu_{k}= \sum_{n}\frac{r_{nk} x_{n}}{\sum}_{n} r_{nk}
-\end{gathered}" width="475" height="137"></p>
+\end{gathered}" width="475" height="138"></p>
 
 
 
@@ -1344,7 +1344,7 @@ def kmeans(X, K, iters=20, seed=42):
 
 ### 10.2 EM 算法与高斯混合模型 GMM
 
-GMM 假设数据由 K 个高斯成分混合生成：<img class="fml" src="/formulas/f4581137882114.png" alt="p(x)=\sum_{k} \pi_{k} N\left(x|\mu_{k},\sum_{k}\right)" width="212" height="33">，隐变量 <img class="fml" src="/formulas/962784a12dcbb4.png" alt="z_{k}" width="22" height="33"> 表示成分归属。直接最大化对数似然 <img class="fml" src="/formulas/265d967869a60b.png" alt="\sum \log p(x_{n})" width="95" height="33"> 因 log 内有求和而困难，EM 通过交替两步保证似然单调不降：
+GMM 假设数据由 K 个高斯成分混合生成：<img class="fml" src="/formulas/f4581137882114.png" alt="p(x)=\sum_{k} \pi_{k} N\left(x|\mu_{k},\sum_{k}\right)" width="213" height="34">，隐变量 <img class="fml" src="/formulas/962784a12dcbb4.png" alt="z_{k}" width="23" height="34"> 表示成分归属。直接最大化对数似然 <img class="fml" src="/formulas/265d967869a60b.png" alt="\sum \log p(x_{n})" width="96" height="34"> 因 log 内有求和而困难，EM 通过交替两步保证似然单调不降：
 
 
 
@@ -1352,12 +1352,12 @@ GMM 假设数据由 K 个高斯成分混合生成：<img class="fml" src="/formu
 \text{E} \; \text{步：} \; \gamma(z_{nk})= p(z_{k}=1|x_{n})= \pi_{k}\frac{N\left(x_{n}|\mu_{k},\sum_{k}\right)}{\sum}_{j} \pi_{j}N\left(x_{n}|\mu_{j},\sum_{j}\right) \; \text{（责任度，软分配）} \\
 \text{M} \; \text{步：} \; N_{k}= \sum_{n} \gamma(z_{nk}) \; \text{；} \; \pi_{k}= \frac{N_{k}}{N} \; \text{；} \\
 \mu_{k}= \sum_{n}\frac{\gamma(z_{nk})x_{n}}{N_{k}} \; \text{；} \; \sum_{k}= \sum_{n}\frac{\gamma(z_{nk})(x_{n}- \mu_{k})(x_{n}- \mu_{k})^{T}}{N_{k}}
-\end{gathered}" width="701" height="172"></p>
+\end{gathered}" width="702" height="173"></p>
 
 
 
 ::: tip 补充 · K-means 是 GMM 的特例
-当各成分协方差取 <img class="fml" src="/formulas/9af1978855abee.png" alt="\sigma^{2}I" width="33" height="33"> 且令 <img class="fml" src="/formulas/0e7ac2306d2731.png" alt="\sigma^{2} \to 0" width="61" height="33"> 时，GMM 的软责任度退化为 0/1 硬分配，EM 的 M 步退化为重算质心——**K-means 是 GMM 的硬分配极限**。理解这一点就打通了第 10 章两个算法的联系。
+当各成分协方差取 <img class="fml" src="/formulas/9af1978855abee.png" alt="\sigma^{2}I" width="34" height="33"> 且令 <img class="fml" src="/formulas/0e7ac2306d2731.png" alt="\sigma^{2} \to 0" width="62" height="33"> 时，GMM 的软责任度退化为 0/1 硬分配，EM 的 M 步退化为重算质心——**K-means 是 GMM 的硬分配极限**。理解这一点就打通了第 10 章两个算法的联系。
 :::
 
 ::: danger 易错 · EM
@@ -1399,7 +1399,7 @@ PCA **无监督**（不用标签，最大化总方差），LDA **有监督**（�
 
 课件 Part-2 从「用低维向量逼近样本」出发讲 PCA，另一常见讲法是「找方差最大的投影方向」。二者数学上完全等价：
 
-**推法 A · 最大化投影方差**（设数据已中心化，协方差 <img class="fml" src="/formulas/bc792fbe8a576f.png" alt="S=\left(\frac{1}{N}\right)X^{T}X" width="119" height="33">）
+**推法 A · 最大化投影方差**（设数据已中心化，协方差 <img class="fml" src="/formulas/bc792fbe8a576f.png" alt="S=\left(\frac{1}{N}\right)X^{T}X" width="120" height="33">）
 
 
 
@@ -1408,7 +1408,7 @@ PCA **无监督**（不用标签，最大化总方差），LDA **有监督**（�
 L= w^{T}Sw- \lambda(w^{T}w- 1) \; \text{；} \; \frac{\partial L}{\partial w}= 2Sw- 2\lambda w= 0 \Rightarrow Sw= \lambda w \\
 \Rightarrow w \; \text{是} \; \text{S} \; \text{的特征向量，且目标值} \; w^{T}Sw= \lambda \Rightarrow \; \text{取最大特征值对应的} \; \text{w} \\
 \text{后续主成分在与已选方向正交的约束下依次取次大特征值}
-\end{gathered}" width="562" height="133"></p>
+\end{gathered}" width="562" height="134"></p>
 
 
 
@@ -1424,15 +1424,15 @@ L= w^{T}Sw- \lambda(w^{T}w- 1) \; \text{；} \; \frac{\partial L}{\partial w}= 2
 
 
 
-**结论**：最优的 m 维子空间由 `S` 的前 m 个特征向量张成（<img class="fml" src="/formulas/c88becf72610d7.png" alt="Eckart- Young" width="137" height="33"> 定理），最小重构误差为被丢弃特征值之和 <img class="fml" src="/formulas/a77c57dba7eb73.png" alt="\sum_{j&gt;m}\lambda_{j}" width="72" height="34">。这就把「方差最大」「重构误差最小」「协方差特征分解」三句话统一成一个结论。
+**结论**：最优的 m 维子空间由 `S` 的前 m 个特征向量张成（<img class="fml" src="/formulas/c88becf72610d7.png" alt="Eckart- Young" width="138" height="34"> 定理），最小重构误差为被丢弃特征值之和 <img class="fml" src="/formulas/a77c57dba7eb73.png" alt="\sum_{j&gt;m}\lambda_{j}" width="74" height="35">。这就把「方差最大」「重构误差最小」「协方差特征分解」三句话统一成一个结论。
 
 ::: tip 工作例题 · 贡献率与重构误差
-协方差特征值 <img class="fml" src="/formulas/197b93a816f7a8.png" alt="\lambda=(2.4, 0.9, 0.5, 0.2)" width="169" height="33">、<img class="fml" src="/formulas/61912624963719.png" alt="\sum \lambda=4" width="71" height="33">：
-前 2 个累计贡献率 <img class="fml" src="/formulas/1fb1250c9c6a74.png" alt="= \frac{3.3}{4}= 82.5\%" width="116" height="33">；丢弃部分 `= 0.5+0.2 = 0.7`，占总量 `17.5%`，正是保留 2 个主成分的最小重构误差。
+协方差特征值 <img class="fml" src="/formulas/197b93a816f7a8.png" alt="\lambda=(2.4, 0.9, 0.5, 0.2)" width="170" height="34">、<img class="fml" src="/formulas/61912624963719.png" alt="\sum \lambda=4" width="72" height="34">：
+前 2 个累计贡献率 <img class="fml" src="/formulas/1fb1250c9c6a74.png" alt="= \frac{3.3}{4}= 82.5\%" width="116" height="34">；丢弃部分 `= 0.5+0.2 = 0.7`，占总量 `17.5%`，正是保留 2 个主成分的最小重构误差。
 :::
 
 ::: danger 易错 · PCA 推导
-- 数据必须**中心化**（减均值）后协方差矩阵才等于 <img class="fml" src="/formulas/bc792fbe8a576f.png" alt="S=\left(\frac{1}{N}\right)X^{T}X" width="119" height="33">；若还要消除量纲影响，需先标准化（此时 `S` 实为相关矩阵）。
+- 数据必须**中心化**（减均值）后协方差矩阵才等于 <img class="fml" src="/formulas/bc792fbe8a576f.png" alt="S=\left(\frac{1}{N}\right)X^{T}X" width="120" height="33">；若还要消除量纲影响，需先标准化（此时 `S` 实为相关矩阵）。
 - `S` 半正定保证特征值非负；特征向量符号可整体翻转，不影响子空间与重构结果。
 - 核 PCA 用 Gram 矩阵的特征分解替代 `S`，对应高维特征空间中的 PCA；与第 6 章核技巧同源。
 - PCA 是**线性**降维；流形结构需 ISOMAP/LLE/t-SNE/UMAP（补充，课件未涉及）。
@@ -1449,13 +1449,13 @@ L= w^{T}Sw- \lambda(w^{T}w- 1) \; \text{；} \; \frac{\partial L}{\partial w}= 2
 \text{E} \; \text{步：固定} \; \theta^old \; \text{，取} \; q= p(z|x,\theta^old) \; \text{使不等式取等（下界紧贴当前似然）} \\
 \text{M} \; \text{步：固定} \; \text{q} \; \text{，最大化} \; \text{ELBO} \; \text{得} \; \theta^new \\
 \text{于是} \; \log p(x|\theta^new) \ge ELBO(q,\theta^new) \ge ELBO(q,\theta^old)= \log p(x|\theta^old) \to \; \text{似然单调不降}
-\end{gathered}" width="699" height="136"></p>
+\end{gathered}" width="700" height="138"></p>
 
 
 
 ### 10.6 GMM 的 EM 更新式逐项推导
 
-对完全数据 `(x, z)`（z 为 one-hot 成分指示），对数似然 <img class="fml" src="/formulas/e4a2fad6fd68f2.png" alt="\sum_{n}\sum_{k} z_{nk}[\log \pi_{k}+ \log N\left(x_{n}|\mu_{k},\sum_{k}\right)]" width="301" height="33">。E 步用责任度 <img class="fml" src="/formulas/6b4a5b31d51167.png" alt="\gamma_{nk}=E[z_{nk}]" width="102" height="33"> 替代 <img class="fml" src="/formulas/6d1720e74cedd4.png" alt="z_{nk}" width="30" height="33"> 得 Q 函数；M 步分别对参数求极值：
+对完全数据 `(x, z)`（z 为 one-hot 成分指示），对数似然 <img class="fml" src="/formulas/e4a2fad6fd68f2.png" alt="\sum_{n}\sum_{k} z_{nk}[\log \pi_{k}+ \log N\left(x_{n}|\mu_{k},\sum_{k}\right)]" width="302" height="34">。E 步用责任度 <img class="fml" src="/formulas/6b4a5b31d51167.png" alt="\gamma_{nk}=E[z_{nk}]" width="104" height="34"> 替代 <img class="fml" src="/formulas/6d1720e74cedd4.png" alt="z_{nk}" width="30" height="34"> 得 Q 函数；M 步分别对参数求极值：
 
 
 
@@ -1463,19 +1463,19 @@ L= w^{T}Sw- \lambda(w^{T}w- 1) \; \text{；} \; \frac{\partial L}{\partial w}= 2
 \frac{\partial Q}{\partial} \mu_{k}= \sum_{n} \gamma_{nk} \sum_{k}^{-1}(x_{n}- \mu_{k})= 0 \Rightarrow \mu_{k}= \sum_{n}\gamma_{nk}\frac{x_{n}}{N_{k}} \\
 \frac{\partial Q}{\partial} \sum_{k}^{-1}= 0 \Rightarrow \sum_{k}= \sum_{n}\gamma_{nk}\frac{(x_{n}- \mu_{k})(x_{n}- \mu_{k})^{T}}{N_{k}} \\
 \text{带约束} \; \sum \pi_{k}=1 \; \text{用拉格朗日乘子} \; \Rightarrow \pi_{k}= \frac{N_{k}}{N} \; \text{，其中} \; N_{k}= \sum_{n}\gamma_{nk}
-\end{gathered}" width="540" height="176"></p>
+\end{gathered}" width="542" height="177"></p>
 
 
 
 ::: tip 工作例题 · 一次 E 步
-一维两成分 <img class="fml" src="/formulas/464dbc20ee8c21.png" alt="\pi=(0.5,0.5)" width="108" height="33">、<img class="fml" src="/formulas/e1cc53d91393dc.png" alt="\mu=(0,4)" width="80" height="33">、<img class="fml" src="/formulas/00fe76430fb570.png" alt="\sigma=1" width="50" height="33">，观测 `x=1`：
-<img class="fml" src="/formulas/342beb14a252a6.png" alt="\pi_{1}N(1|0,1)=0.12099" width="176" height="33">、<img class="fml" src="/formulas/a1ec2e1c7dea92.png" alt="\pi_{2}N(1|4,1)=0.00222" width="176" height="33"> →
-<img class="fml" src="/formulas/3e10b4363f1343.png" alt="\gamma(z_{1}=1|x)=0.9820" width="167" height="33">、<img class="fml" src="/formulas/ecbb5eb892f1d7.png" alt="\gamma(z_{2}=1|x)=0.0180" width="167" height="33">。
-这是**软分配**；K-means 会直接把 x 硬分给成分 1（<img class="fml" src="/formulas/000f81c0ebc58b.png" alt="\gamma \to(1,0)" width="84" height="33">）。
+一维两成分 <img class="fml" src="/formulas/464dbc20ee8c21.png" alt="\pi=(0.5,0.5)" width="109" height="34">、<img class="fml" src="/formulas/e1cc53d91393dc.png" alt="\mu=(0,4)" width="81" height="34">、<img class="fml" src="/formulas/00fe76430fb570.png" alt="\sigma=1" width="51" height="34">，观测 `x=1`：
+<img class="fml" src="/formulas/342beb14a252a6.png" alt="\pi_{1}N(1|0,1)=0.12099" width="176" height="34">、<img class="fml" src="/formulas/a1ec2e1c7dea92.png" alt="\pi_{2}N(1|4,1)=0.00222" width="177" height="34"> →
+<img class="fml" src="/formulas/3e10b4363f1343.png" alt="\gamma(z_{1}=1|x)=0.9820" width="167" height="34">、<img class="fml" src="/formulas/ecbb5eb892f1d7.png" alt="\gamma(z_{2}=1|x)=0.0180" width="168" height="34">。
+这是**软分配**；K-means 会直接把 x 硬分给成分 1（<img class="fml" src="/formulas/000f81c0ebc58b.png" alt="\gamma \to(1,0)" width="85" height="34">）。
 :::
 
 ::: danger 易错 · GMM 实现
-分母须包含 <img class="fml" src="/formulas/e5d3bd790b4d66.png" alt="2\pi" width="26" height="33"> 归一化常数（比较同一 x 下各成分时可约掉，但写代码求概率时不能漏）；协方差接近奇异时加 <img class="fml" src="/formulas/9af1978855abee.png" alt="\sigma^{2}I" width="33" height="33"> 正则；EM 需多次随机重启避免局部极大。
+分母须包含 <img class="fml" src="/formulas/e5d3bd790b4d66.png" alt="2\pi" width="27" height="33"> 归一化常数（比较同一 x 下各成分时可约掉，但写代码求概率时不能漏）；协方差接近奇异时加 <img class="fml" src="/formulas/9af1978855abee.png" alt="\sigma^{2}I" width="34" height="33"> 正则；EM 需多次随机重启避免局部极大。
 :::
 
 ---
@@ -1486,7 +1486,7 @@ L= w^{T}Sw- \lambda(w^{T}w- 1) \; \text{；} \; \frac{\partial L}{\partial w}= 2
 
 ### 11.1 MDP 与回报
 
-强化学习研究智能体（agent）如何在环境（environment）中通过行动最大化**长期累计收益**。建模为马尔可夫决策过程五元组 <img class="fml" src="/formulas/6dfee639b22412.png" alt="(S, A, P, R, \gamma)" width="115" height="33">，满足马尔可夫性：<img class="fml" src="/formulas/ba55004fb0bf67.png" alt="P(S_{t+1}|S_{t}, A_{t})" width="114" height="33"> 与更早的历史无关。
+强化学习研究智能体（agent）如何在环境（environment）中通过行动最大化**长期累计收益**。建模为马尔可夫决策过程五元组 <img class="fml" src="/formulas/6dfee639b22412.png" alt="(S, A, P, R, \gamma)" width="116" height="34">，满足马尔可夫性：<img class="fml" src="/formulas/ba55004fb0bf67.png" alt="P(S_{t+1}|S_{t}, A_{t})" width="115" height="34"> 与更早的历史无关。
 
 
 
@@ -1495,12 +1495,12 @@ L= w^{T}Sw- \lambda(w^{T}w- 1) \; \text{；} \; \frac{\partial L}{\partial w}= 2
 \text{状态值} \; V^\pi(s)= E_\pi[G_{t}| S_{t}= s] \\
 \text{动作值} \; q^\pi(s,a)= E_\pi[G_{t}| S_{t}= s, A_{t}= a] \\
 \text{关系} \; V^\pi(s)= \sum_{a} \pi(a|s) q^\pi(s,a)
-\end{gathered}" width="593" height="150"></p>
+\end{gathered}" width="593" height="151"></p>
 
 
 
 ::: danger 易错 · 折扣与目标
-强化的目标是**累计回报**而非单步奖励：<img class="fml" src="/formulas/68923f20821012.png" alt="\gamma" width="16" height="33"> 小则短视、大则远视。若任务有明确终止时刻可用 <img class="fml" src="/formulas/da082773d58374.png" alt="\gamma=1" width="49" height="33">；持续性任务必须 <img class="fml" src="/formulas/26c2b78ac885c6.png" alt="\gamma&lt;1" width="49" height="33"> 保证回报有界。「即时奖励最高的动作」往往不是最优动作。
+强化的目标是**累计回报**而非单步奖励：<img class="fml" src="/formulas/68923f20821012.png" alt="\gamma" width="17" height="34"> 小则短视、大则远视。若任务有明确终止时刻可用 <img class="fml" src="/formulas/da082773d58374.png" alt="\gamma=1" width="50" height="34">；持续性任务必须 <img class="fml" src="/formulas/26c2b78ac885c6.png" alt="\gamma&lt;1" width="50" height="34"> 保证回报有界。「即时奖励最高的动作」往往不是最优动作。
 :::
 
 ### 11.2 贝尔曼方程与求解路线
@@ -1511,7 +1511,7 @@ L= w^{T}Sw- \lambda(w^{T}w- 1) \; \text{；} \; \frac{\partial L}{\partial w}= 2
 \text{贝尔曼期望：} \; V^\pi(s)= E_\pi[R_{t+1}+ \gamma V^\pi(S_{t+1})| S_{t}=s] \\
 \text{贝尔曼最优：} \; V*(s)= \max_{a} E[R_{t+1}+ \gamma V*(S_{t+1})| S_{t}=s, A_{t}=a] \\
 q*(s,a)= E[R_{t+1}+ \gamma \max_{a}&#x27; q*(S_{t+1},a&#x27;)| S_{t}=s, A_{t}=a]
-\end{gathered}" width="514" height="100"></p>
+\end{gathered}" width="515" height="101"></p>
 
 
 
@@ -1520,7 +1520,7 @@ q*(s,a)= E[R_{t+1}+ \gamma \max_{a}&#x27; q*(S_{t+1},a&#x27;)| S_{t}=s, A_{t}=a]
 | 动态规划 | 策略/值迭代 | **需要** P、R | 表格型、精确但受限于状态规模 |
 | 蒙特卡罗 | MC 控制 | 不需要 | 需完整回合、无偏但方差大 |
 | 时序差分 | SARSA（on-policy）、**Q-learning**（off-policy） | 不需要 | 单步自举、可在线 |
-| 函数逼近 | DQN、<img class="fml" src="/formulas/acca4641ed1fbb.png" alt="\hat{V}(s,w)=x(s)^{T}w" width="143" height="33"> | 不需要 | 处理大规模/连续状态 |
+| 函数逼近 | DQN、<img class="fml" src="/formulas/acca4641ed1fbb.png" alt="\hat{V}(s,w)=x(s)^{T}w" width="144" height="34"> | 不需要 | 处理大规模/连续状态 |
 | 策略优化 | REINFORCE、Actor-Critic、DDPG/PPO | 不需要 | 直接优化策略、支持连续动作 |
 
 ```text
@@ -1530,12 +1530,12 @@ Q(s,a) \leftarrow Q(s,a)+ \alpha[ r+ \gamma \cdot \max_{a}′ Q(s′,a′)- Q(s,
 ```
 
 ::: tip 工作例题 · 一次 Q-learning 更新
-`Q(s,a)=0.5`、`r=1`、<img class="fml" src="/formulas/eb52b0e4a582c8.png" alt="\gamma=0.9" width="63" height="33">、<img class="fml" src="/formulas/64247451c62fb7.png" alt="\max_{a}&#x27;Q(s&#x27;, \cdot)=0.8" width="150" height="33">、<img class="fml" src="/formulas/5919baca071dbf.png" alt="\alpha=0.1" width="64" height="33">：
-TD 目标 <img class="fml" src="/formulas/d7d8be5e8cd77d.png" alt="= 1+ 0.9 \times 0.8= 1.72" width="179" height="33">；<img class="fml" src="/formulas/c03d29429ce067.png" alt="\delta= 1.72- 0.5= 1.22" width="170" height="33">；
+`Q(s,a)=0.5`、`r=1`、<img class="fml" src="/formulas/eb52b0e4a582c8.png" alt="\gamma=0.9" width="64" height="34">、<img class="fml" src="/formulas/64247451c62fb7.png" alt="\max_{a}&#x27;Q(s&#x27;, \cdot)=0.8" width="151" height="34">、<img class="fml" src="/formulas/5919baca071dbf.png" alt="\alpha=0.1" width="65" height="34">：
+TD 目标 <img class="fml" src="/formulas/d7d8be5e8cd77d.png" alt="= 1+ 0.9 \times 0.8= 1.72" width="180" height="34">；<img class="fml" src="/formulas/c03d29429ce067.png" alt="\delta= 1.72- 0.5= 1.22" width="171" height="34">；
 
 
 
-<p class="fml-block"><img class="fml" src="/formulas/34cdfa10284d9b.png" alt="Q \leftarrow 0.5+ 0.1 \times 1.22= 0.622" width="233" height="33"></p>
+<p class="fml-block"><img class="fml" src="/formulas/34cdfa10284d9b.png" alt="Q \leftarrow 0.5+ 0.1 \times 1.22= 0.622" width="234" height="34"></p>
 
 
 
@@ -1547,20 +1547,20 @@ Q-learning 用下一状态**最大** Q 作目标，故是 off-policy（可按任
 :::
 
 ::: tip 补充 · SARSA 更新式与期望 SARSA
-SARSA 的更新为 <img class="fml" src="/formulas/e76331940cc748.png" alt="Q(s,a) \leftarrow Q(s,a)+ \alpha[ r+ \gamma Q(s&#x27;,a&#x27;)- Q(s,a)]" width="363" height="33">，其中 `a′` 是**实际按当前策略选出的动作**（如 ε-贪心）；Q-learning 则把它换成 <img class="fml" src="/formulas/fd09b17d728789.png" alt="\max_{a}&#x27;Q(s&#x27;,a&#x27;)" width="112" height="33">，即按「贪心改进后的策略」自举，因此即使行为策略带探索也能学到最优策略。期望 SARSA 折中两者：目标取 <img class="fml" src="/formulas/59af3d854b61a0.png" alt="\sum_{a} \pi(a|s&#x27;)Q(s&#x27;,a)" width="145" height="33">，方差更低但每步需遍历动作。
+SARSA 的更新为 <img class="fml" src="/formulas/e76331940cc748.png" alt="Q(s,a) \leftarrow Q(s,a)+ \alpha[ r+ \gamma Q(s&#x27;,a&#x27;)- Q(s,a)]" width="365" height="34">，其中 `a′` 是**实际按当前策略选出的动作**（如 ε-贪心）；Q-learning 则把它换成 <img class="fml" src="/formulas/fd09b17d728789.png" alt="\max_{a}&#x27;Q(s&#x27;,a&#x27;)" width="113" height="34">，即按「贪心改进后的策略」自举，因此即使行为策略带探索也能学到最优策略。期望 SARSA 折中两者：目标取 <img class="fml" src="/formulas/59af3d854b61a0.png" alt="\sum_{a} \pi(a|s&#x27;)Q(s&#x27;,a)" width="146" height="34">，方差更低但每步需遍历动作。
 :::
 
 ### 11.3 大规模强化学习
 
 | 问题 | 方法 |
 | --- | --- |
-| 状态空间巨大 | 值函数逼近 <img class="fml" src="/formulas/acca4641ed1fbb.png" alt="\hat{V}(s,w)=x(s)^{T}w" width="143" height="33"> 或用神经网络（DQN） |
+| 状态空间巨大 | 值函数逼近 <img class="fml" src="/formulas/acca4641ed1fbb.png" alt="\hat{V}(s,w)=x(s)^{T}w" width="144" height="34"> 或用神经网络（DQN） |
 | 训练不稳定 | 经验回放（打破样本相关）、目标网络（固定 TD 目标） |
 | 连续动作 | 策略梯度 / Actor-Critic / 确定性策略梯度 DDPG |
 | 探索-利用 | ε-贪心、UCB、Boltzmann 探索、熵正则 |
 
 ::: tip 补充 · 策略梯度定理
-<img class="fml" src="/formulas/264fd2ce6aa4be.png" alt="\nabla_\theta J(\theta)= E_\pi[ G_{t} \cdot \nabla_\theta \log \pi_\theta(A_{t}|S_{t})]" width="272" height="33">（REINFORCE）：用回报加权「对数策略梯度」，高回报动作被强化。Actor-Critic 用 Critic 估计的值函数替代 <img class="fml" src="/formulas/f25ddcc3931a95.png" alt="G_{t}" width="25" height="33"> 以降低方差；PPO 通过裁剪重要性采样比限制策略更新幅度，是课件未覆盖的现代主流算法。
+<img class="fml" src="/formulas/264fd2ce6aa4be.png" alt="\nabla_\theta J(\theta)= E_\pi[ G_{t} \cdot \nabla_\theta \log \pi_\theta(A_{t}|S_{t})]" width="273" height="34">（REINFORCE）：用回报加权「对数策略梯度」，高回报动作被强化。Actor-Critic 用 Critic 估计的值函数替代 <img class="fml" src="/formulas/f25ddcc3931a95.png" alt="G_{t}" width="27" height="34"> 以降低方差；PPO 通过裁剪重要性采样比限制策略更新幅度，是课件未覆盖的现代主流算法。
 :::
 
 ### 11.4 动态规划：策略评估、策略迭代与值迭代
@@ -1580,14 +1580,14 @@ V_{k+1}(s)= \max_{a} \sum_{s&#x27;} P(s&#x27;|s,a)[ R(s,a,s&#x27;)+ \gamma V_{k}
 
 
 
-值迭代的本质是**贝尔曼最优算子是不动点迭代**：算子是 γ-压缩映射，故从任意 <img class="fml" src="/formulas/b06ef2b1298914.png" alt="V_{0}" width="24" height="33"> 出发都收敛到唯一 `V*`，误差按 <img class="fml" src="/formulas/f96ba41c29f187.png" alt="\gamma^{k}" width="24" height="33"> 衰减。这正是「γ 越小收敛越快、但越短视」的数学根源。
+值迭代的本质是**贝尔曼最优算子是不动点迭代**：算子是 γ-压缩映射，故从任意 <img class="fml" src="/formulas/b06ef2b1298914.png" alt="V_{0}" width="25" height="34"> 出发都收敛到唯一 `V*`，误差按 <img class="fml" src="/formulas/f96ba41c29f187.png" alt="\gamma^{k}" width="25" height="34"> 衰减。这正是「γ 越小收敛越快、但越短视」的数学根源。
 
-::: tip 工作例题 · 两状态 MDP 的值迭代（<img class="fml" src="/formulas/eb52b0e4a582c8.png" alt="\gamma=0.9" width="63" height="33">）
-设 <img class="fml" src="/formulas/848711dbf84284.png" alt="s_{1}" width="22" height="33"> 执行动作得 `r=1` 并转移到 <img class="fml" src="/formulas/883749656ecf1a.png" alt="s_{2}" width="22" height="33">；<img class="fml" src="/formulas/883749656ecf1a.png" alt="s_{2}" width="22" height="33"> 执行动作得 `r=0`，以 0.5 概率回到 <img class="fml" src="/formulas/848711dbf84284.png" alt="s_{1}" width="22" height="33">、0.5 概率终止。
-递推式为 <img class="fml" src="/formulas/3b6b151125ab16.png" alt="V(s_{1})=1+0.9V(s_{2})" width="171" height="33">、<img class="fml" src="/formulas/04645ec285d100.png" alt="V(s_{2})=0.9 \times 0.5 \times V(s_{1})=0.45V(s_{1})" width="306" height="33">。
-从 <img class="fml" src="/formulas/782f1c40c4f96e.png" alt="V_{0}=(0,0)" width="87" height="33"> 迭代：
+::: tip 工作例题 · 两状态 MDP 的值迭代（<img class="fml" src="/formulas/eb52b0e4a582c8.png" alt="\gamma=0.9" width="64" height="34">）
+设 <img class="fml" src="/formulas/848711dbf84284.png" alt="s_{1}" width="23" height="34"> 执行动作得 `r=1` 并转移到 <img class="fml" src="/formulas/883749656ecf1a.png" alt="s_{2}" width="22" height="34">；<img class="fml" src="/formulas/883749656ecf1a.png" alt="s_{2}" width="22" height="34"> 执行动作得 `r=0`，以 0.5 概率回到 <img class="fml" src="/formulas/848711dbf84284.png" alt="s_{1}" width="23" height="34">、0.5 概率终止。
+递推式为 <img class="fml" src="/formulas/3b6b151125ab16.png" alt="V(s_{1})=1+0.9V(s_{2})" width="172" height="34">、<img class="fml" src="/formulas/04645ec285d100.png" alt="V(s_{2})=0.9 \times 0.5 \times V(s_{1})=0.45V(s_{1})" width="306" height="33">。
+从 <img class="fml" src="/formulas/782f1c40c4f96e.png" alt="V_{0}=(0,0)" width="89" height="33"> 迭代：
 `k=1: (1.00000, 0)` → `k=2: (1.00000, 0.45000)` → `k=3: (1.40500, 0.45000)` → `k=4: (1.40500, 0.63225)` → `k=5: (1.56902, 0.63225)` → `k=6: (1.56902, 0.70606)` …
-解析解：把 <img class="fml" src="/formulas/493402c26ad0af.png" alt="V(s_{2})=0.45V(s_{1})" width="149" height="33"> 代入第一式 → <img class="fml" src="/formulas/b353a72f1edbf6.png" alt="V(s_{1})=\frac{1}{1- 0.9 \times 0.45}=\frac{1}{0.595 \approx 1.6807}" width="243" height="33">，<img class="fml" src="/formulas/948858c32a0289.png" alt="V(s_{2}) \approx 0.7563" width="123" height="33">，与迭代极限一致。
+解析解：把 <img class="fml" src="/formulas/493402c26ad0af.png" alt="V(s_{2})=0.45V(s_{1})" width="150" height="33"> 代入第一式 → <img class="fml" src="/formulas/b353a72f1edbf6.png" alt="V(s_{1})=\frac{1}{1- 0.9 \times 0.45}=\frac{1}{0.595 \approx 1.6807}" width="243" height="34">，<img class="fml" src="/formulas/948858c32a0289.png" alt="V(s_{2}) \approx 0.7563" width="125" height="33">，与迭代极限一致。
 :::
 
 ```python
@@ -1614,19 +1614,19 @@ print(k, round(V['s1'], 4), round(V['s2'], 4))   # ≈ 1.6807  0.7563
 | 维度 | 蒙特卡罗 MC | 时序差分 TD(0) |
 | --- | --- | --- |
 | 更新时机 | 回合结束（需完整轨迹） | 每步在线 |
-| 目标 | 实际回报 <img class="fml" src="/formulas/f25ddcc3931a95.png" alt="G_{t}" width="25" height="33"> | <img class="fml" src="/formulas/e775ebacbaf455.png" alt="R_{t+1}+\gamma \hat{V}(S_{t+1})" width="134" height="33">（自举） |
+| 目标 | 实际回报 <img class="fml" src="/formulas/f25ddcc3931a95.png" alt="G_{t}" width="27" height="34"> | <img class="fml" src="/formulas/e775ebacbaf455.png" alt="R_{t+1}+\gamma \hat{V}(S_{t+1})" width="134" height="33">（自举） |
 | 偏差 / 方差 | 无偏、方差大 | 有偏（自举）、方差小 |
 | 适用 | 有终止的回合任务 | 持续性任务也可 |
 
-<img class="fml" src="/formulas/18d08df9baf3eb.png" alt="TD(\lambda)" width="59" height="33"> 用**资格迹**在 MC 与 TD(0) 之间插值：<img class="fml" src="/formulas/d78d7213f4a43a.png" alt="\lambda=0" width="49" height="33"> 退化为单步 TD、<img class="fml" src="/formulas/339a6289e4373a.png" alt="\lambda=1" width="49" height="33"> 近似 MC；实践中 <img class="fml" src="/formulas/6a0db6ab19e46f.png" alt="\lambda \in[0.8,0.95]" width="111" height="33"> 常取得更低误差。
+<img class="fml" src="/formulas/18d08df9baf3eb.png" alt="TD(\lambda)" width="60" height="33"> 用**资格迹**在 MC 与 TD(0) 之间插值：<img class="fml" src="/formulas/d78d7213f4a43a.png" alt="\lambda=0" width="51" height="34"> 退化为单步 TD、<img class="fml" src="/formulas/339a6289e4373a.png" alt="\lambda=1" width="50" height="33"> 近似 MC；实践中 <img class="fml" src="/formulas/6a0db6ab19e46f.png" alt="\lambda \in[0.8,0.95]" width="111" height="33"> 常取得更低误差。
 
 ::: tip 工作例题 · 一次 TD 与 MC 的差别
-轨迹 `s0 --(r=0)--> s1 --(r=1)--> 终止`，<img class="fml" src="/formulas/eb52b0e4a582c8.png" alt="\gamma=0.9" width="63" height="33">，初始 <img class="fml" src="/formulas/5fe37e9a0d72af.png" alt="V(s_{0})=V(s_{1})=0.5" width="164" height="33">，终止状态值恒为 0。
-- **在 s1 处**：TD 目标 <img class="fml" src="/formulas/012b42138815c6.png" alt="= 1+ 0.9 \times 0= 1" width="142" height="33">，故 <img class="fml" src="/formulas/d759a8d0697a79.png" alt="\delta= 1- 0.5= 0.5" width="139" height="33">（一步即可修正）；
-- **在 s0 处**：TD 目标 <img class="fml" src="/formulas/e6752be2c7927a.png" alt="= 0+ 0.9 \times V(s_{1})= 0+ 0.9 \times 0.5= 0.45" width="321" height="33">，用的是**对 s1 的估计**（自举）；
-- **MC** 必须等回合结束，用实际回报 <img class="fml" src="/formulas/cfdc790e18fabc.png" alt="G(s_{0})= 0+ 0.9 \times 1= 0.9" width="204" height="33"> 作目标。
+轨迹 `s0 --(r=0)--> s1 --(r=1)--> 终止`，<img class="fml" src="/formulas/eb52b0e4a582c8.png" alt="\gamma=0.9" width="64" height="34">，初始 <img class="fml" src="/formulas/5fe37e9a0d72af.png" alt="V(s_{0})=V(s_{1})=0.5" width="165" height="33">，终止状态值恒为 0。
+- **在 s1 处**：TD 目标 <img class="fml" src="/formulas/012b42138815c6.png" alt="= 1+ 0.9 \times 0= 1" width="143" height="33">，故 <img class="fml" src="/formulas/d759a8d0697a79.png" alt="\delta= 1- 0.5= 0.5" width="140" height="33">（一步即可修正）；
+- **在 s0 处**：TD 目标 <img class="fml" src="/formulas/e6752be2c7927a.png" alt="= 0+ 0.9 \times V(s_{1})= 0+ 0.9 \times 0.5= 0.45" width="322" height="33">，用的是**对 s1 的估计**（自举）；
+- **MC** 必须等回合结束，用实际回报 <img class="fml" src="/formulas/cfdc790e18fabc.png" alt="G(s_{0})= 0+ 0.9 \times 1= 0.9" width="205" height="33"> 作目标。
 
-可见 TD 只需一步就能更新、方差更小，但目标里含尚未学准的 <img class="fml" src="/formulas/1cb1b2ef2f919d.png" alt="V(s_{1})" width="50" height="33">，故有偏；MC 无偏却要等完整轨迹、方差更大。
+可见 TD 只需一步就能更新、方差更小，但目标里含尚未学准的 <img class="fml" src="/formulas/1cb1b2ef2f919d.png" alt="V(s_{1})" width="51" height="33">，故有偏；MC 无偏却要等完整轨迹、方差更大。
 :::
 
 ### 11.6 DQN 的三大稳定化机制与改进
@@ -1636,7 +1636,7 @@ print(k, round(V['s1'], 4), round(V['s2'], 4))   # ≈ 1.6807  0.7563
 | 机制 | 做法 | 解决 |
 | --- | --- | --- |
 | 经验回放 | 把 `(s,a,r,s′)` 存入缓冲区，随机小批量采样 | 打破样本相关性、提高数据复用 |
-| 目标网络 | 单独冻结一份 <img class="fml" src="/formulas/23f92f51fffd56.png" alt="w^{-}" width="30" height="33">，每 C 步同步一次 | 固定 TD 目标，避免「移动靶」 |
+| 目标网络 | 单独冻结一份 <img class="fml" src="/formulas/23f92f51fffd56.png" alt="w^{-}" width="31" height="33">，每 C 步同步一次 | 固定 TD 目标，避免「移动靶」 |
 | 奖励裁剪 / Huber | 把奖励压到 `[-1,1]`、用 Huber 损失 | 稳定梯度尺度 |
 
 
@@ -1645,19 +1645,19 @@ print(k, round(V['s1'], 4), round(V['s2'], 4))   # ≈ 1.6807  0.7563
 \text{DQN} \; \text{损失：} \; L(w)= E_{(s,a,r,s&#x27;) \sim D}[( r+ \gamma \cdot \max_{a}&#x27; Q(s&#x27;,a&#x27;; w^{-})- Q(s,a;w))^{2}] \\
 \text{改进：} \; \text{Double DQN} \; \text{（用在线网络选动作、目标网络估值，缓解过高估计）} \\
 \text{Dueling DQN} \; \text{（拆成} \; \text{V(s) + A(s,a)} \; \text{）、优先经验回放（按} \; |\delta| \; \text{采样）}
-\end{gathered}" width="599" height="94"></p>
+\end{gathered}" width="600" height="95"></p>
 
 
 
 ::: danger 易错 · DQN
-- 目标网络参数 <img class="fml" src="/formulas/23f92f51fffd56.png" alt="w^{-}" width="30" height="33"> **不参与梯度回传**，只周期性复制；把它当可训练参数会使目标随梯度漂移。
+- 目标网络参数 <img class="fml" src="/formulas/23f92f51fffd56.png" alt="w^{-}" width="31" height="33"> **不参与梯度回传**，只周期性复制；把它当可训练参数会使目标随梯度漂移。
 - Double DQN 解决的是 `max` 带来的**系统性高估**，不是梯度消失。
 - 经验回放是 off-policy 才成立；on-policy 的策略梯度不能用旧策略数据回放。
 :::
 
 ### 11.7 策略梯度定理推导与 Actor-Critic
 
-目标 <img class="fml" src="/formulas/4dc49a53fc8676.png" alt="J(\theta)=V^{\pi_\theta}(s_{0})=E_{\pi_\theta}[\sum_{t} \gamma^{t} R_{t}]" width="243" height="33">。用**似然比技巧**（log-derivative trick <img class="fml" src="/formulas/42399555815dd7.png" alt="\nabla \pi= \pi \nabla \log \pi" width="121" height="33">）：
+目标 <img class="fml" src="/formulas/4dc49a53fc8676.png" alt="J(\theta)=V^{\pi_\theta}(s_{0})=E_{\pi_\theta}[\sum_{t} \gamma^{t} R_{t}]" width="244" height="33">。用**似然比技巧**（log-derivative trick <img class="fml" src="/formulas/42399555815dd7.png" alt="\nabla \pi= \pi \nabla \log \pi" width="122" height="33">）：
 
 
 
@@ -1666,7 +1666,7 @@ print(k, round(V['s1'], 4), round(V['s2'], 4))   # ≈ 1.6807  0.7563
 = E_{\pi_\theta}[ \sum_{t} \nabla_\theta \log \pi_\theta(A_{t}|S_{t}) \cdot A^{\pi}(S_{t},A_{t})] \\
 \text{其中} \; A(s,a)=Q(s,a)- V(s) \; \text{称优势函数；减去任意只依赖} \; \text{s} \; \text{的基线} \; \text{b(s)} \; \text{不改变期望、} \\
 \text{却能显著降低方差（因} \; E[ \nabla \log \pi \cdot b(s)]= b(s) \nabla \sum \pi= 0 \; \text{）}
-\end{gathered}" width="691" height="156"></p>
+\end{gathered}" width="692" height="157"></p>
 
 
 
@@ -1683,10 +1683,10 @@ print('更新量 ∝', G * dlog)         # 0.8，正回报强化该动作
 
 | 算法族 | 核心 | 动作空间 |
 | --- | --- | --- |
-| REINFORCE | 用完整 <img class="fml" src="/formulas/f25ddcc3931a95.png" alt="G_{t}" width="25" height="33"> 加权 log 梯度 | 离散/连续，方差大 |
+| REINFORCE | 用完整 <img class="fml" src="/formulas/f25ddcc3931a95.png" alt="G_{t}" width="27" height="34"> 加权 log 梯度 | 离散/连续，方差大 |
 | Actor-Critic (A2C/A3C) | Critic 估 `V` 给优势，Actor 更新策略 | 离散/连续 |
 | TRPO | 用 KL 约束限制策略更新（信赖域） | 连续 |
-| **PPO** | 裁剪重要性比 <img class="fml" src="/formulas/916bb17f260242.png" alt="clip(r_{t},1- \epsilon,1+\epsilon)" width="154" height="33">，易实现 | 通用，现代主流 |
+| **PPO** | 裁剪重要性比 <img class="fml" src="/formulas/916bb17f260242.png" alt="clip(r_{t},1- \epsilon,1+\epsilon)" width="155" height="33">，易实现 | 通用，现代主流 |
 | DDPG / TD3 / SAC | 确定性策略或最大熵框架 | **连续动作** |
 
 ::: danger 易错 · 策略梯度
@@ -1706,7 +1706,7 @@ print('更新量 ∝', G * dlog)         # 0.8，正回报强化该动作
 | 自举与偏差 | TD 用估计更新估计，带来偏差但降方差；与 MC 构成偏差-方差权衡 |
 
 ::: tip 自测
-① 写出贝尔曼最优方程并说明与期望方程的差别；② 手算一次 Q-learning 更新（<img class="fml" src="/formulas/dd5997f18872ed.png" alt="Q=0.5 \to 0.622" width="135" height="33">）；③ 说明 DQN 三机制各自解决什么；④ 为什么策略梯度要减基线？
+① 写出贝尔曼最优方程并说明与期望方程的差别；② 手算一次 Q-learning 更新（<img class="fml" src="/formulas/dd5997f18872ed.png" alt="Q=0.5 \to 0.622" width="136" height="34">）；③ 说明 DQN 三机制各自解决什么；④ 为什么策略梯度要减基线？
 :::
 
 ---
@@ -1719,18 +1719,18 @@ print('更新量 ∝', G * dlog)         # 0.8，正回报强化该动作
 
 ### 12.1 VAE 与变分下界
 
-概率编码器 <img class="fml" src="/formulas/e2703e22f2b239.png" alt="q_\phi(z|x)" width="61" height="33"> + 解码器 <img class="fml" src="/formulas/61aa28361dbfdc.png" alt="p_\theta(x|z)" width="60" height="33">，隐变量 `z` 与样本同维或更低维。因 <img class="fml" src="/formulas/a59230b6149652.png" alt="\log p_\theta(x)=\log \int p_\theta(x|z)p(z)dz" width="242" height="33"> 不可解析，改最大化 **ELBO（证据下界）**：
+概率编码器 <img class="fml" src="/formulas/e2703e22f2b239.png" alt="q_\phi(z|x)" width="61" height="34"> + 解码器 <img class="fml" src="/formulas/61aa28361dbfdc.png" alt="p_\theta(x|z)" width="61" height="34">，隐变量 `z` 与样本同维或更低维。因 <img class="fml" src="/formulas/a59230b6149652.png" alt="\log p_\theta(x)=\log \int p_\theta(x|z)p(z)dz" width="243" height="34"> 不可解析，改最大化 **ELBO（证据下界）**：
 
 ```text
 \log p_\theta(x) \ge E_{q_\phi(z|x)}[\log p_\theta(x|z)]- D_{KL}(q_\phi(z|x) \| p(z))
 └──── 重构项（越准越好） ────┘ └─ 正则项（后验贴近先验） ─┘
 ```
 
-**重参数技巧**：<img class="fml" src="/formulas/84d35b54468304.png" alt="z= \mu_\phi(x)+ \sigma_\phi(x)⊙\epsilon" width="176" height="33">，<img class="fml" src="/formulas/91ef570dc898c7.png" alt="\epsilon \sim N(0,I)" width="93" height="33">，把随机性转移到无参数噪声，使梯度可经 μ、σ 回传（课件示例取 `M=100, L=1` 蒙特卡罗估计）。
+**重参数技巧**：<img class="fml" src="/formulas/84d35b54468304.png" alt="z= \mu_\phi(x)+ \sigma_\phi(x)⊙\epsilon" width="177" height="34">，<img class="fml" src="/formulas/91ef570dc898c7.png" alt="\epsilon \sim N(0,I)" width="94" height="34">，把随机性转移到无参数噪声，使梯度可经 μ、σ 回传（课件示例取 `M=100, L=1` 蒙特卡罗估计）。
 
 ::: danger 易错 · VAE
-- 优化的是**似然下界**而非精确似然；`D_KL` 方向固定为 <img class="fml" src="/formulas/47c5209ff696d6.png" alt="q \| p" width="33" height="33">，交换会得到不同目标。
-- KL 项过大时会出现「后验坍缩」（解码器忽略 z）；<img class="fml" src="/formulas/501dd4b81c291b.png" alt="\beta-VAE" width="81" height="33"> 用系数权衡重构与解耦。
+- 优化的是**似然下界**而非精确似然；`D_KL` 方向固定为 <img class="fml" src="/formulas/47c5209ff696d6.png" alt="q \| p" width="34" height="34">，交换会得到不同目标。
+- KL 项过大时会出现「后验坍缩」（解码器忽略 z）；<img class="fml" src="/formulas/501dd4b81c291b.png" alt="\beta-VAE" width="81" height="34"> 用系数权衡重构与解耦。
 - VAE 生成样本常偏模糊（高斯假设 + 逐像素似然），GAN/扩散通常更清晰。
 :::
 
@@ -1755,7 +1755,7 @@ min_G max_D V(D,G) = E_{x~p_data}[log D(x)] + E_{z~p_z}[log(1 − D(G(z)))]
 \text{一步到位：} \; q(x_{t}|x_{0})= N\left(\sqrt{\bar{\alpha}_{t}} x_{0},(1- \bar{\alpha}_{t})I\right) \; \text{，} \; \bar{\alpha}_{t}= \Pi_{s \le t} \alpha_{s} \\
 \text{反向去噪（需学习）：} \; p_\theta(x_{t-1}|x_{t})= N\left(\mu_\theta(x_{t},t), \sum_\theta\right) \; \text{，从纯噪声逐步还原样本} \\
 \text{训练目标：预测所加噪声} \; \epsilon \; \text{（简化后等价于变分下界的一项）}
-\end{gathered}" width="634" height="144"></p>
+\end{gathered}" width="635" height="144"></p>
 
 
 
@@ -1764,7 +1764,7 @@ min_G max_D V(D,G) = E_{x~p_data}[log D(x)] + E_{z~p_z}[log(1 − D(G(z)))]
 | VAE | 下界 | 一次前向 | 训练稳、有编码器，样本偏模糊 |
 | GAN | 无显式似然 | 一次前向 | 样本清晰、训练不稳、易模式崩塌 |
 | 扩散 | 变分下界 | **多步迭代** | 质量高、训练稳，但采样慢 |
-| 归一化流 | **精确** <img class="fml" src="/formulas/a6a95bd0bcab91.png" alt="\log p(x)=\log p(z)+\sum \log\vert \det J\vert" width="269" height="33"> | 一次可逆变换 | 要求变换可逆、维度不变 |
+| 归一化流 | **精确** <img class="fml" src="/formulas/a6a95bd0bcab91.png" alt="\log p(x)=\log p(z)+\sum \log\vert \det J\vert" width="270" height="34"> | 一次可逆变换 | 要求变换可逆、维度不变 |
 
 ::: danger 易错 · 生成模型
 - 扩散的「前向加噪」是**固定**、无需学习的过程；只有「反向去噪网络」含参数。
@@ -1774,7 +1774,7 @@ min_G max_D V(D,G) = E_{x~p_data}[log D(x)] + E_{z~p_z}[log(1 − D(G(z)))]
 
 ### 12.4 VAE 的 ELBO 完整推导
 
-直接从 <img class="fml" src="/formulas/72f56517d2752b.png" alt="\log p_\theta(x)" width="72" height="33"> 出发，引入任意变分分布 <img class="fml" src="/formulas/e2703e22f2b239.png" alt="q_\phi(z|x)" width="61" height="33">：
+直接从 <img class="fml" src="/formulas/72f56517d2752b.png" alt="\log p_\theta(x)" width="73" height="34"> 出发，引入任意变分分布 <img class="fml" src="/formulas/e2703e22f2b239.png" alt="q_\phi(z|x)" width="61" height="34">：
 
 
 
@@ -1784,7 +1784,7 @@ min_G max_D V(D,G) = E_{x~p_data}[log D(x)] + E_{z~p_z}[log(1 − D(G(z)))]
 = \log E_{q}[ \frac{p_\theta(x|z)p(z)}{q(z|x)}] \\
 \ge E_{q}[ \log \frac{p_\theta(x|z)p(z)}{q(z|x)}] \; \text{（} \; \text{Jensen} \; \text{，} \; \log \; \text{是凹函数）} \\
 = E_{q}[\log p_\theta(x|z)]- D_{KL}(q_\phi(z|x) \| p(z)) ≜ ELBO
-\end{gathered}" width="402" height="218"></p>
+\end{gathered}" width="403" height="220"></p>
 
 
 
@@ -1795,31 +1795,31 @@ min_G max_D V(D,G) = E_{x~p_data}[log D(x)] + E_{z~p_z}[log(1 − D(G(z)))]
 <p class="fml-block"><img class="fml" src="/formulas/0026574b8a3581.png" alt="\begin{gathered}
 D_{KL}(q_\phi(z|x) \| p_\theta(z|x))= E_{q}[\log q- \log p_\theta(x|z)- \log p(z)]+ \log p_\theta(x) \\
 \text{整理得：} \; \log p_\theta(x)= ELBO+ D_{KL}(q \| p_\theta(z|x)) \ge ELBO
-\end{gathered}" width="532" height="56"></p>
+\end{gathered}" width="533" height="58"></p>
 
 
 
-两式说明：**最大化 ELBO 等价于同时（a）提升重构似然、（b）让近似后验贴近真实后验**；当 <img class="fml" src="/formulas/fdb6c6cc8b381a.png" alt="q_\phi=p_\theta(z|x)" width="100" height="33"> 时 KL 项为 0、界取等——这正是 EM 中 E 步取 <img class="fml" src="/formulas/fa032d6f38e945.png" alt="q=p(z|x,\theta^old)" width="124" height="33"> 的同一思想（第 10 章）。
+两式说明：**最大化 ELBO 等价于同时（a）提升重构似然、（b）让近似后验贴近真实后验**；当 <img class="fml" src="/formulas/fdb6c6cc8b381a.png" alt="q_\phi=p_\theta(z|x)" width="101" height="34"> 时 KL 项为 0、界取等——这正是 EM 中 E 步取 <img class="fml" src="/formulas/fa032d6f38e945.png" alt="q=p(z|x,\theta^old)" width="126" height="34"> 的同一思想（第 10 章）。
 
-**重参数技巧**：直接对 <img class="fml" src="/formulas/a42af96a729533.png" alt="z \sim q_\phi" width="55" height="33"> 采样无法把梯度传给 φ，改写 <img class="fml" src="/formulas/84d35b54468304.png" alt="z= \mu_\phi(x)+ \sigma_\phi(x)⊙\epsilon" width="176" height="33">、<img class="fml" src="/formulas/91ef570dc898c7.png" alt="\epsilon \sim N(0,I)" width="93" height="33">，则
+**重参数技巧**：直接对 <img class="fml" src="/formulas/a42af96a729533.png" alt="z \sim q_\phi" width="56" height="34"> 采样无法把梯度传给 φ，改写 <img class="fml" src="/formulas/84d35b54468304.png" alt="z= \mu_\phi(x)+ \sigma_\phi(x)⊙\epsilon" width="177" height="34">、<img class="fml" src="/formulas/91ef570dc898c7.png" alt="\epsilon \sim N(0,I)" width="94" height="34">，则
 
 
 
-<p class="fml-block"><img class="fml" src="/formulas/1c257aa798af44.png" alt="\nabla_\phi E_{q}[\log p_\theta(x|z)]= E_\epsilon[ \nabla_\phi \log p_\theta(x| \mu_\phi+ \sigma_\phi ⊙\epsilon)]" width="378" height="33"></p>
+<p class="fml-block"><img class="fml" src="/formulas/1c257aa798af44.png" alt="\nabla_\phi E_{q}[\log p_\theta(x|z)]= E_\epsilon[ \nabla_\phi \log p_\theta(x| \mu_\phi+ \sigma_\phi ⊙\epsilon)]" width="379" height="34"></p>
 
 
 
 课件示例 `M=100, L=1` 即每批次 100 个样本、每样本 1 次蒙特卡罗采样估计该期望。
 
 ::: tip 工作例题 · KL 项的方向
-取 `q=(0.5,0.5)`、`p=(0.9,0.1)`：<img class="fml" src="/formulas/de48ebb3419319.png" alt="D_{KL}(q \| p)=\sum q \log\left(\frac{q}{p}\right)=0.5108" width="271" height="40">；
-反向 <img class="fml" src="/formulas/20b51b4bacc0e6.png" alt="D_{KL}(p \| q)=0.3681" width="156" height="33">。二者不相等，说明 ELBO 中 KL 的**方向不可随意交换**：
-<img class="fml" src="/formulas/47c5209ff696d6.png" alt="q \| p" width="33" height="33">（反向 KL，VAE 用）倾向「模式寻找」，会低估方差；<img class="fml" src="/formulas/69d5d60063d311.png" alt="p \| q" width="33" height="33">（前向 KL）倾向「质量覆盖」。这解释了 VAE 生成偏模糊的统计根源之一。
+取 `q=(0.5,0.5)`、`p=(0.9,0.1)`：<img class="fml" src="/formulas/de48ebb3419319.png" alt="D_{KL}(q \| p)=\sum q \log\left(\frac{q}{p}\right)=0.5108" width="272" height="42">；
+反向 <img class="fml" src="/formulas/20b51b4bacc0e6.png" alt="D_{KL}(p \| q)=0.3681" width="156" height="34">。二者不相等，说明 ELBO 中 KL 的**方向不可随意交换**：
+<img class="fml" src="/formulas/47c5209ff696d6.png" alt="q \| p" width="34" height="34">（反向 KL，VAE 用）倾向「模式寻找」，会低估方差；<img class="fml" src="/formulas/69d5d60063d311.png" alt="p \| q" width="34" height="34">（前向 KL）倾向「质量覆盖」。这解释了 VAE 生成偏模糊的统计根源之一。
 :::
 
-::: tip 补充 · 后验坍缩与 <img class="fml" src="/formulas/501dd4b81c291b.png" alt="\beta-VAE" width="81" height="33">
-若解码器过强，最优解会让 <img class="fml" src="/formulas/3e3ecb615a68fb.png" alt="q_\phi(z|x)=p(z)" width="116" height="33">（KL=0）而完全忽略隐变量，称**后验坍缩**。
-对策：KL 退火（训练初期把 KL 权重从 0 渐升）、<img class="fml" src="/formulas/501dd4b81c291b.png" alt="\beta-VAE" width="81" height="33"> 用 `重构项 − β·KL`（β>1 强化解耦、β<1 提升重构）、free-bits（给每维 KL 设下限）。
+::: tip 补充 · 后验坍缩与 <img class="fml" src="/formulas/501dd4b81c291b.png" alt="\beta-VAE" width="81" height="34">
+若解码器过强，最优解会让 <img class="fml" src="/formulas/3e3ecb615a68fb.png" alt="q_\phi(z|x)=p(z)" width="117" height="34">（KL=0）而完全忽略隐变量，称**后验坍缩**。
+对策：KL 退火（训练初期把 KL 权重从 0 渐升）、<img class="fml" src="/formulas/501dd4b81c291b.png" alt="\beta-VAE" width="81" height="34"> 用 `重构项 − β·KL`（β>1 强化解耦、β<1 提升重构）、free-bits（给每维 KL 设下限）。
 :::
 
 ### 12.5 GAN：最优判别器与 JS 散度
@@ -1840,11 +1840,11 @@ V(D,G)= \int p_{data}(x) \log D(x) dx+ \int p_{g}(x) \log(1- D(x)) dx \\
 
 
 
-<p class="fml-block"><img class="fml" src="/formulas/4dc6c79ec8bc12.png" alt="V(D*,G)= 2 \cdot JS(p_{data} \| p_{g})- 2\log 2" width="292" height="33"></p>
+<p class="fml-block"><img class="fml" src="/formulas/4dc6c79ec8bc12.png" alt="V(D*,G)= 2 \cdot JS(p_{data} \| p_{g})- 2\log 2" width="293" height="34"></p>
 
 
 
-JS 散度非负、在两分布完全相同时取 0，故全局最优为 `p_g=p_data`，此时 `D*=0.5`、目标值 <img class="fml" src="/formulas/47e5657fc582a6.png" alt="=- 2\log 2 \approx- 1.3863" width="173" height="33">。
+JS 散度非负、在两分布完全相同时取 0，故全局最优为 `p_g=p_data`，此时 `D*=0.5`、目标值 <img class="fml" src="/formulas/47e5657fc582a6.png" alt="=- 2\log 2 \approx- 1.3863" width="174" height="34">。
 
 ::: danger 易错 · GAN 失败模式
 - 当 `p_data` 与 `p_g` **支撑集不重叠**（常见于高维图像）时 JS 恒为 `log2`，梯度为 0 → 生成器收不到有效信号，即「梯度消失」。WGAN 改用 Wasserstein 距离（要求判别器 1-Lipschitz，用梯度惩罚或权重裁剪）提供处处非零的梯度。
@@ -1854,7 +1854,7 @@ JS 散度非负、在两分布完全相同时取 0，故全局最优为 `p_g=p_d
 
 ### 12.6 扩散模型的完整推导
 
-**前向（固定、无参数）**：<img class="fml" src="/formulas/6c88baaab70148.png" alt="q(x_{t}|x_{t-1})=N\left(\sqrt{\alpha}_{t} \cdot x_{t-1},(1- \alpha_{t})I\right)" width="293" height="33">，即 <img class="fml" src="/formulas/f1d9075b72e5af.png" alt="x_{t}=\sqrt{\alpha}_{t} x_{t-1}+\sqrt{1- \alpha_{t}}\epsilon" width="200" height="33">。反复代入并利用高斯可加性得**一步闭式**：
+**前向（固定、无参数）**：<img class="fml" src="/formulas/6c88baaab70148.png" alt="q(x_{t}|x_{t-1})=N\left(\sqrt{\alpha}_{t} \cdot x_{t-1},(1- \alpha_{t})I\right)" width="293" height="34">，即 <img class="fml" src="/formulas/f1d9075b72e5af.png" alt="x_{t}=\sqrt{\alpha}_{t} x_{t-1}+\sqrt{1- \alpha_{t}}\epsilon" width="202" height="34">。反复代入并利用高斯可加性得**一步闭式**：
 
 
 
@@ -1862,11 +1862,11 @@ JS 散度非负、在两分布完全相同时取 0，故全局最优为 `p_g=p_d
 \bar{\alpha}_{t}= \Pi_{s=1}^{t} \alpha_{s} \\
 q(x_{t}|x_{0})= N\left( \sqrt{\bar{\alpha}_{t}} \cdot x_{0},(1- \bar{\alpha}_{t})I\right) \\
 x_{t}= \sqrt{\bar{\alpha}_{t}} \cdot x_{0}+ \sqrt{1- \bar{\alpha}_{t}} \cdot \epsilon, \epsilon \sim N(0,I)
-\end{gathered}" width="307" height="84"></p>
+\end{gathered}" width="308" height="85"></p>
 
 
 
-**反向（需学习）**：真实后验 <img class="fml" src="/formulas/7da3724ec9c77d.png" alt="q(x_{t-1}|x_{t},x_{0})" width="106" height="33"> 也是高斯，其均值可解析写出；训练网络 <img class="fml" src="/formulas/080ee99b179f62.png" alt="\epsilon_\theta" width="20" height="33"> 预测所加噪声后：
+**反向（需学习）**：真实后验 <img class="fml" src="/formulas/7da3724ec9c77d.png" alt="q(x_{t-1}|x_{t},x_{0})" width="107" height="34"> 也是高斯，其均值可解析写出；训练网络 <img class="fml" src="/formulas/080ee99b179f62.png" alt="\epsilon_\theta" width="21" height="34"> 预测所加噪声后：
 
 
 
@@ -1874,19 +1874,19 @@ x_{t}= \sqrt{\bar{\alpha}_{t}} \cdot x_{0}+ \sqrt{1- \bar{\alpha}_{t}} \cdot \ep
 \mu_\theta(x_{t},t)=\left(\frac{1}{\sqrt{\alpha}}_{t}\right) \cdot[ x_{t}- \frac{1- \alpha_{t}}{\sqrt{1- \bar{\alpha}_{t}}} \cdot \epsilon_\theta(x_{t},t)] \\
 p_\theta(x_{t-1}|x_{t})= N( \mu_\theta(x_{t},t), \sigma_{t}^{2} I) \\
 \text{简化训练目标：} \; L_{simple}= E_{t,x_{0},\epsilon} \| \epsilon- \epsilon_\theta\left(\sqrt{\bar{\alpha}_{t}}x_{0}+\sqrt{1- \bar{\alpha}_{t}}\epsilon, t\right) \|^{2}
-\end{gathered}" width="499" height="106"></p>
+\end{gathered}" width="500" height="107"></p>
 
 
 
-课件中「扩散模型 = 隐变量与样本同维度的 Markov 链」即指 <img class="fml" src="/formulas/026a0cea3555aa.png" alt="x_{1}, \cdots,x_{T}" width="86" height="33"> 序列；它与 VAE 的瓶颈 z 不是一回事。
+课件中「扩散模型 = 隐变量与样本同维度的 Markov 链」即指 <img class="fml" src="/formulas/026a0cea3555aa.png" alt="x_{1}, \cdots,x_{T}" width="87" height="34"> 序列；它与 VAE 的瓶颈 z 不是一回事。
 
 ::: tip 工作例题 · 前向加噪的数值演算
-取 <img class="fml" src="/formulas/b00d745292247c.png" alt="\alpha_{t} \equiv 0.9" width="69" height="33"> → <img class="fml" src="/formulas/76b948d8d48768.png" alt="\bar{\alpha}_{1}=0.9, \bar{\alpha}_{2}=0.81, \bar{\alpha}_{3}=0.729, \bar{\alpha}_{4}=0.6561, \bar{\alpha}_{5}=0.5905" width="444" height="33">。
-设 <img class="fml" src="/formulas/0a058709cf536a.png" alt="x_{0}=2" width="56" height="33">、<img class="fml" src="/formulas/ed55837f793910.png" alt="\epsilon=0.5" width="60" height="33">、`t=3`：
+取 <img class="fml" src="/formulas/b00d745292247c.png" alt="\alpha_{t} \equiv 0.9" width="70" height="34"> → <img class="fml" src="/formulas/76b948d8d48768.png" alt="\bar{\alpha}_{1}=0.9, \bar{\alpha}_{2}=0.81, \bar{\alpha}_{3}=0.729, \bar{\alpha}_{4}=0.6561, \bar{\alpha}_{5}=0.5905" width="446" height="34">。
+设 <img class="fml" src="/formulas/0a058709cf536a.png" alt="x_{0}=2" width="57" height="34">、<img class="fml" src="/formulas/ed55837f793910.png" alt="\epsilon=0.5" width="60" height="34">、`t=3`：
 
 
 
-<p class="fml-block"><img class="fml" src="/formulas/8e854c7e129520.png" alt="x_{3}= \sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+ 0.2603 \approx 1.9679" width="504" height="33"></p>
+<p class="fml-block"><img class="fml" src="/formulas/8e854c7e129520.png" alt="x_{3}= \sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+ 0.2603 \approx 1.9679" width="506" height="34"></p>
 
 
 
@@ -1899,18 +1899,18 @@ DDPM 需逐步去噪 T 次（常 1000 步）；**DDIM** 构造非马尔可夫但
 
 ### 12.7 归一化流：变量变换与耦合层
 
-设 <img class="fml" src="/formulas/952a09902a4d31.png" alt="z=f_\theta(x)" width="79" height="33"> 可逆且可微，由概率密度变量变换公式：
+设 <img class="fml" src="/formulas/952a09902a4d31.png" alt="z=f_\theta(x)" width="80" height="34"> 可逆且可微，由概率密度变量变换公式：
 
 
 
 <p class="fml-block"><img class="fml" src="/formulas/8a400d2610ef34.png" alt="\begin{gathered}
 p_{X}(x)= p_{Z}(f_\theta(x)) \cdot|\det \frac{\partial f_\theta}{\partial x}| \\
 \log p_{X}(x)= \log p_{Z}(z)+ \log|\det J_{f}|
-\end{gathered}" width="276" height="71"></p>
+\end{gathered}" width="277" height="73"></p>
 
 
 
-因此训练目标就是**最大化 <img class="fml" src="/formulas/b6a9e54e18909a.png" alt="\log p_{X}(x)" width="77" height="33">**（精确似然，不需下界）。难点在 Jacobian 行列式一般是 <img class="fml" src="/formulas/3dec89d7d46c8e.png" alt="O(d^{3})" width="50" height="33">，故设计**三角 Jacobian** 的耦合层（RealNVP）：
+因此训练目标就是**最大化 <img class="fml" src="/formulas/b6a9e54e18909a.png" alt="\log p_{X}(x)" width="78" height="34">**（精确似然，不需下界）。难点在 Jacobian 行列式一般是 <img class="fml" src="/formulas/3dec89d7d46c8e.png" alt="O(d^{3})" width="51" height="34">，故设计**三角 Jacobian** 的耦合层（RealNVP）：
 
 
 
@@ -1920,18 +1920,18 @@ y_{1}= x_{1} \; \text{（原样复制）} \\
 y_{2}= x_{2} ⊙ \exp(s(x_{1}))+ t(x_{1}) \; \text{（仿射变换，} \; \text{s/t} \; \text{为任意网络）} \\
 \text{Jacobian} \; \text{为下三角} \; \Rightarrow \det J= \exp\left( \sum_{i} s_{i}(x_{1})\right) \\
 \text{逆变换：} \; x_{2}=(y_{2}- t(y_{1})) ⊙ \exp(- s(y_{1})) \; \text{，无需反演网络}
-\end{gathered}" width="477" height="169"></p>
+\end{gathered}" width="478" height="170"></p>
 
 
 
 ::: tip 工作例题 · 行列式计算
-若某耦合层输出 <img class="fml" src="/formulas/ad65e19d0aeef5.png" alt="s=(0.2,- 0.3, 0.5)" width="150" height="33">，则 <img class="fml" src="/formulas/9b3677e82fb161.png" alt="\log|\det J|= \sum s= 0.4" width="185" height="33">、<img class="fml" src="/formulas/89951295cefd4d.png" alt="|\det J| \approx 1.4918" width="132" height="33">。
+若某耦合层输出 <img class="fml" src="/formulas/ad65e19d0aeef5.png" alt="s=(0.2,- 0.3, 0.5)" width="151" height="34">，则 <img class="fml" src="/formulas/9b3677e82fb161.png" alt="\log|\det J|= \sum s= 0.4" width="186" height="34">、<img class="fml" src="/formulas/89951295cefd4d.png" alt="|\det J| \approx 1.4918" width="133" height="34">。
 堆叠多层并交替通道掩码，即可构造表达力强且可逆的流（Glow 再加 1×1 可逆卷积）。
 :::
 
 ::: danger 易错 · 归一化流
 - 变换必须**双射**，故隐变量 z 与 x **维度相同**，不能像 VAE 那样随意降维（这是它与其它生成模型的根本约束）。
-- <img class="fml" src="/formulas/612b528af6f532.png" alt="\log p_{Z}" width="51" height="33"> 常取标准正态；若 <img class="fml" src="/formulas/e5ce946e5636bf.png" alt="s(x_{1})" width="46" height="33"> 数值过大，`exp(s)` 会溢出，实践中要对 s 做 tanh 或裁剪。
+- <img class="fml" src="/formulas/612b528af6f532.png" alt="\log p_{Z}" width="52" height="34"> 常取标准正态；若 <img class="fml" src="/formulas/e5ce946e5636bf.png" alt="s(x_{1})" width="47" height="34"> 数值过大，`exp(s)` 会溢出，实践中要对 s 做 tanh 或裁剪。
 - 「精确似然」不等于「生成质量更好」：似然高的模型可能把容量花在难察觉的背景像素上。
 :::
 
@@ -1948,7 +1948,7 @@ y_{2}= x_{2} ⊙ \exp(s(x_{1}))+ t(x_{1}) \; \text{（仿射变换，} \; \text{
 | 模型 | 优化目标 | 似然 | 采样 | 主要失败模式 |
 | --- | --- | --- | --- | --- |
 | VAE | ELBO（重构 − KL） | 下界 | 1 次 | 后验坍缩、样本模糊 |
-| GAN | `min_G max_D V` <img class="fml" src="/formulas/1a8fbadd6f9761.png" alt="\leftrightarrow \frac{JS}{Wasserstein}" width="105" height="33"> | 无 | 1 次 | 模式崩塌、训练不稳 |
+| GAN | `min_G max_D V` <img class="fml" src="/formulas/1a8fbadd6f9761.png" alt="\leftrightarrow \frac{JS}{Wasserstein}" width="105" height="34"> | 无 | 1 次 | 模式崩塌、训练不稳 |
 | 扩散 | 噪声预测 / 变分下界 | 下界 | 多步 | 采样慢 |
 | 归一化流 | 精确 `log p` | **精确** | 1 次 | 可逆约束限制表达力 |
 :::
@@ -1972,55 +1972,55 @@ y_{2}= x_{2} ⊙ \exp(s(x_{1}))+ t(x_{1}) \; \text{（仿射变换，} \; \text{
 
 ### 综 1 线性回归：闭式解与梯度下降（第 2–3 章）
 
-**题**：样本 `(1,2)`、`(2,3)`，无截距模型 `ŷ=wx`，<img class="fml" src="/formulas/d53429ae9b9256.png" alt="w_{0}=0" width="59" height="33">、<img class="fml" src="/formulas/200acc618fbb96.png" alt="\eta=0.1" width="62" height="33">。求①初始损失与梯度；②一步更新后的 w；③闭式解；④若改加 L2 正则 <img class="fml" src="/formulas/3ffda746d69511.png" alt="\lambda=2" width="49" height="33">，闭式解变为多少？
+**题**：样本 `(1,2)`、`(2,3)`，无截距模型 `ŷ=wx`，<img class="fml" src="/formulas/d53429ae9b9256.png" alt="w_{0}=0" width="60" height="34">、<img class="fml" src="/formulas/200acc618fbb96.png" alt="\eta=0.1" width="63" height="34">。求①初始损失与梯度；②一步更新后的 w；③闭式解；④若改加 L2 正则 <img class="fml" src="/formulas/3ffda746d69511.png" alt="\lambda=2" width="50" height="34">，闭式解变为多少？
 
 **解**：
-① <img class="fml" src="/formulas/7049e602ce88bf.png" alt="L= \frac{1}{2}[(0- 2)^{2}+(0- 3)^{2}]=6.5" width="252" height="33">；<img class="fml" src="/formulas/54ed544dd555a8.png" alt="\nabla L=\sum(wx_{i}- y_{i})x_{i}=- 2- 6=- 8" width="293" height="33">；
-② <img class="fml" src="/formulas/48215c96aa850a.png" alt="w_{1}= 0- 0.1 \times(- 8)= 0.8" width="208" height="33">；
-③ <img class="fml" src="/formulas/023d704c6d24c2.png" alt="w*= \frac{\sum x_{i}y_{i}}{\sum x_{i}^{2}}= \frac{2+6}{1+4}= \frac{8}{5}= 1.6" width="224" height="37">；
-④ 岭回归 <img class="fml" src="/formulas/c8d2285e0dd365.png" alt="w*= \frac{\sum x_{i}y_{i}}{\sum x_{i}^{2}+\lambda}= \frac{8}{5+2} \approx 1.1429&lt; 1.6" width="272" height="37">，系数被缩小，正是 L2 的作用。
+① <img class="fml" src="/formulas/7049e602ce88bf.png" alt="L= \frac{1}{2}[(0- 2)^{2}+(0- 3)^{2}]=6.5" width="254" height="34">；<img class="fml" src="/formulas/54ed544dd555a8.png" alt="\nabla L=\sum(wx_{i}- y_{i})x_{i}=- 2- 6=- 8" width="294" height="34">；
+② <img class="fml" src="/formulas/48215c96aa850a.png" alt="w_{1}= 0- 0.1 \times(- 8)= 0.8" width="209" height="34">；
+③ <img class="fml" src="/formulas/023d704c6d24c2.png" alt="w*= \frac{\sum x_{i}y_{i}}{\sum x_{i}^{2}}= \frac{2+6}{1+4}= \frac{8}{5}= 1.6" width="225" height="38">；
+④ 岭回归 <img class="fml" src="/formulas/c8d2285e0dd365.png" alt="w*= \frac{\sum x_{i}y_{i}}{\sum x_{i}^{2}+\lambda}= \frac{8}{5+2} \approx 1.1429&lt; 1.6" width="273" height="38">，系数被缩小，正是 L2 的作用。
 
 ::: tip 解题要点
-正则化后分母多了 <img class="fml" src="/formulas/da7676c04d86b3.png" alt="\lambda" width="16" height="33">；<img class="fml" src="/formulas/da7676c04d86b3.png" alt="\lambda" width="16" height="33"> 越大越向 0 收缩，偏差上升、方差下降。
+正则化后分母多了 <img class="fml" src="/formulas/da7676c04d86b3.png" alt="\lambda" width="18" height="34">；<img class="fml" src="/formulas/da7676c04d86b3.png" alt="\lambda" width="18" height="34"> 越大越向 0 收缩，偏差上升、方差下降。
 :::
 
 ### 综 2 逻辑回归、softmax 与交叉熵（第 2、4 章）
 
-**题**：①<img class="fml" src="/formulas/c587da30c682d8.png" alt="w^{T}x=2" width="72" height="33"> 时二分类正类概率？②三分类 logits `(2,1,0.1)` 的 softmax？③真实为第 1 类、模型给 `0.9` 与 `0.8` 时的交叉熵？
+**题**：①<img class="fml" src="/formulas/c587da30c682d8.png" alt="w^{T}x=2" width="73" height="34"> 时二分类正类概率？②三分类 logits `(2,1,0.1)` 的 softmax？③真实为第 1 类、模型给 `0.9` 与 `0.8` 时的交叉熵？
 
 **解**：
-① <img class="fml" src="/formulas/c6295ffe44e814.png" alt="\sigma(2)=\frac{1}{(1+e^{-2}) \approx 0.8808}" width="156" height="35"> → 判正类；<img class="fml" src="/formulas/3570e26910193f.png" alt="w^{T}x=0" width="72" height="33"> 时恰为 0.5（决策边界）。
+① <img class="fml" src="/formulas/c6295ffe44e814.png" alt="\sigma(2)=\frac{1}{(1+e^{-2}) \approx 0.8808}" width="157" height="37"> → 判正类；<img class="fml" src="/formulas/3570e26910193f.png" alt="w^{T}x=0" width="73" height="34"> 时恰为 0.5（决策边界）。
 ② `softmax = (0.6590, 0.2424, 0.0986)`，和为 1，预测第 1 类。
-③ <img class="fml" src="/formulas/5aa15a96024d03.png" alt="- \log 0.9 \approx 0.1054" width="145" height="33">、<img class="fml" src="/formulas/3ece16bd770900.png" alt="- \log 0.8 \approx 0.2231" width="145" height="33">：概率降低 0.1，损失约翻倍，体现交叉熵对置信度的强惩罚。
+③ <img class="fml" src="/formulas/5aa15a96024d03.png" alt="- \log 0.9 \approx 0.1054" width="146" height="34">、<img class="fml" src="/formulas/3ece16bd770900.png" alt="- \log 0.8 \approx 0.2231" width="146" height="34">：概率降低 0.1，损失约翻倍，体现交叉熵对置信度的强惩罚。
 
 ### 综 3 评估指标与阈值（第 5 章）
 
 **题**：`TP=80, FP=20, FN=10, TN=90`，求 Acc / P / R / F1 / FPR，并说明「提高召回率」通常如何操作及其代价。
 
-**解**：<img class="fml" src="/formulas/6e3c609db3b6be.png" alt="Acc=\frac{170}{200}=0.85" width="137" height="33">；<img class="fml" src="/formulas/860dff1134c2ba.png" alt="P=\frac{80}{100}=0.80" width="122" height="33">；<img class="fml" src="/formulas/561756039c64b8.png" alt="R=\frac{80}{90 \approx 0.8889}" width="105" height="33">；<img class="fml" src="/formulas/4c187c68f87a64.png" alt="F1=\frac{2 \times 80}{160+20+10}=\frac{160}{190 \approx 0.8421}" width="211" height="33">；<img class="fml" src="/formulas/71e1bed06eb52a.png" alt="FPR=\frac{20}{110 \approx 0.1818}" width="139" height="33">。
+**解**：<img class="fml" src="/formulas/6e3c609db3b6be.png" alt="Acc=\frac{170}{200}=0.85" width="138" height="34">；<img class="fml" src="/formulas/860dff1134c2ba.png" alt="P=\frac{80}{100}=0.80" width="124" height="34">；<img class="fml" src="/formulas/561756039c64b8.png" alt="R=\frac{80}{90 \approx 0.8889}" width="105" height="34">；<img class="fml" src="/formulas/4c187c68f87a64.png" alt="F1=\frac{2 \times 80}{160+20+10}=\frac{160}{190 \approx 0.8421}" width="213" height="35">；<img class="fml" src="/formulas/71e1bed06eb52a.png" alt="FPR=\frac{20}{110 \approx 0.1818}" width="140" height="34">。
 降低分类阈值会把更多样本判为正 → TP、FP 同增 → **R 升、P 降**；F1 折中，AUC 不随单一阈值改变。类别不平衡时应看 PR-AUC 而非 accuracy。
 
 ### 综 4 核映射与 SVM 间隔（第 6 章）
 
-**题**：①写出 <img class="fml" src="/formulas/11f832779e483d.png" alt="k(x,z)=(1+x^{T}z)^{2}" width="162" height="33"> 在二维下的显式特征映射；②<img class="fml" src="/formulas/558059059ad114.png" alt="w=(1,1), b=- 3" width="145" height="33"> 的最大间隔是多少？③C 增大对间隔与过拟合有何影响？
+**题**：①写出 <img class="fml" src="/formulas/11f832779e483d.png" alt="k(x,z)=(1+x^{T}z)^{2}" width="163" height="34"> 在二维下的显式特征映射；②<img class="fml" src="/formulas/558059059ad114.png" alt="w=(1,1), b=- 3" width="146" height="34"> 的最大间隔是多少？③C 增大对间隔与过拟合有何影响？
 
 **解**：
-① 展开得 <img class="fml" src="/formulas/da90cd3180acf9.png" alt="\phi(x)=\left(1, \sqrt{2x}_{1}, \sqrt{2x}_{2}, x_{1}^{2}, x_{2}^{2}, \sqrt{2x}_{1}x_{2}\right)" width="305" height="33">，六维；核技巧让我们无需显式计算 φ。
-② <img class="fml" src="/formulas/faaa41b42acdf0.png" alt="\gamma= \frac{2}{\|w\|}= \frac{2}{\sqrt{2}}= \sqrt{2} \approx 1.4142" width="232" height="36">；间隔边界 <img class="fml" src="/formulas/2cf47e131ea998.png" alt="w^{T}x+b=\pm 1" width="115" height="33"> 即 <img class="fml" src="/formulas/d0c22848a2a193.png" alt="x_{1}+x_{2}=2" width="95" height="33"> 与 `=4`。
+① 展开得 <img class="fml" src="/formulas/da90cd3180acf9.png" alt="\phi(x)=\left(1, \sqrt{2x}_{1}, \sqrt{2x}_{2}, x_{1}^{2}, x_{2}^{2}, \sqrt{2x}_{1}x_{2}\right)" width="306" height="34">，六维；核技巧让我们无需显式计算 φ。
+② <img class="fml" src="/formulas/faaa41b42acdf0.png" alt="\gamma= \frac{2}{\|w\|}= \frac{2}{\sqrt{2}}= \sqrt{2} \approx 1.4142" width="233" height="37">；间隔边界 <img class="fml" src="/formulas/2cf47e131ea998.png" alt="w^{T}x+b=\pm 1" width="116" height="34"> 即 <img class="fml" src="/formulas/d0c22848a2a193.png" alt="x_{1}+x_{2}=2" width="96" height="34"> 与 `=4`。
 ③ C 增大 → 更不容忍错分 → 间隔变窄、边界更复杂 → **更易过拟合**；C 减小则相反。
 
 ### 综 5 决策树准则与 AdaBoost 权重（第 7 章）
 
-**题**：14 个样本（9 正 5 负），按 A 分为 <img class="fml" src="/formulas/399ad9635c03a6.png" alt="D_{1}" width="28" height="33">(7正1负)、<img class="fml" src="/formulas/69c836f986b0f4.png" alt="D_{2}" width="28" height="33">(2正4负)。①求信息增益、基尼指数、增益率；②若 AdaBoost 某轮 <img class="fml" src="/formulas/3d17a3f81d217b.png" alt="\epsilon=0.3" width="60" height="33">，求 α 与样本权重乘数。
+**题**：14 个样本（9 正 5 负），按 A 分为 <img class="fml" src="/formulas/399ad9635c03a6.png" alt="D_{1}" width="28" height="34">(7正1负)、<img class="fml" src="/formulas/69c836f986b0f4.png" alt="D_{2}" width="28" height="33">(2正4负)。①求信息增益、基尼指数、增益率；②若 AdaBoost 某轮 <img class="fml" src="/formulas/3d17a3f81d217b.png" alt="\epsilon=0.3" width="61" height="34">，求 α 与样本权重乘数。
 
 **解**：
-① `H(D)=0.9403`；<img class="fml" src="/formulas/195a7a8171238e.png" alt="H(D_{1})=0.5436" width="132" height="33">、<img class="fml" src="/formulas/c17262fb87d52b.png" alt="H(D_{2})=0.9183" width="132" height="33"> → 条件熵 `0.7042` → **Gain=0.2361**；
-<img class="fml" src="/formulas/54730e40d52b48.png" alt="Gini(D_{1})=0.2188" width="152" height="33">、<img class="fml" src="/formulas/03b54f34ab8c40.png" alt="Gini(D_{2})=0.4444" width="152" height="33"> → **Gini_index=0.3155**；
-`SplitInfo=0.9852` → <img class="fml" src="/formulas/55d60d8acedec3.png" alt="GR \approx 0.2397" width="107" height="33">。
-② <img class="fml" src="/formulas/24160414cf0331.png" alt="\alpha= \frac{1}{2} \ln\left(\frac{0.7}{0.3}\right) \approx 0.4236" width="183" height="33">；错分样本权重乘 <img class="fml" src="/formulas/3238b2c0e684e8.png" alt="e^\alpha \approx 1.5275" width="97" height="33">、正确样本乘 <img class="fml" src="/formulas/85d66ba3bd7fc2.png" alt="e^{- \alpha} \approx 0.6547" width="106" height="33">。
+① `H(D)=0.9403`；<img class="fml" src="/formulas/195a7a8171238e.png" alt="H(D_{1})=0.5436" width="132" height="33">、<img class="fml" src="/formulas/c17262fb87d52b.png" alt="H(D_{2})=0.9183" width="133" height="33"> → 条件熵 `0.7042` → **Gain=0.2361**；
+<img class="fml" src="/formulas/54730e40d52b48.png" alt="Gini(D_{1})=0.2188" width="154" height="33">、<img class="fml" src="/formulas/03b54f34ab8c40.png" alt="Gini(D_{2})=0.4444" width="153" height="33"> → **Gini_index=0.3155**；
+`SplitInfo=0.9852` → <img class="fml" src="/formulas/55d60d8acedec3.png" alt="GR \approx 0.2397" width="108" height="34">。
+② <img class="fml" src="/formulas/24160414cf0331.png" alt="\alpha= \frac{1}{2} \ln\left(\frac{0.7}{0.3}\right) \approx 0.4236" width="183" height="33">；错分样本权重乘 <img class="fml" src="/formulas/3238b2c0e684e8.png" alt="e^\alpha \approx 1.5275" width="98" height="33">、正确样本乘 <img class="fml" src="/formulas/85d66ba3bd7fc2.png" alt="e^{- \alpha} \approx 0.6547" width="107" height="33">。
 
 ::: danger 答题要点
-信息增益/增益率取**最大**、基尼指数取**最小**；AdaBoost 的 <img class="fml" src="/formulas/8d934f9d369698.png" alt="\epsilon" width="13" height="33"> 必须 `<0.5`，否则 α≤0 该轮无意义。
+信息增益/增益率取**最大**、基尼指数取**最小**；AdaBoost 的 <img class="fml" src="/formulas/8d934f9d369698.png" alt="\epsilon" width="14" height="33"> 必须 `<0.5`，否则 α≤0 该轮无意义。
 :::
 
 ### 综 6 前向/反向传播与梯度消失（第 8 章）
@@ -2028,24 +2028,24 @@ y_{2}= x_{2} ⊙ \exp(s(x_{1}))+ t(x_{1}) \; \text{（仿射变换，} \; \text{
 **题**：①`x=(1,2)`、<img class="fml" src="/formulas/037ad0078330e5.png" alt="w=(0.5,- 1)" width="111" height="33">、`b=0.3`，分别求 ReLU 与 sigmoid 输出；②5 层网络每层反传因子 0.5，首层梯度约为多少？列出三条对策。
 
 **解**：
-① <img class="fml" src="/formulas/9da25a6dd4b3ed.png" alt="z=0.5- 2+0.3=- 1.2" width="198" height="33"> → `ReLU=0`、<img class="fml" src="/formulas/22eaca73bbc3ad.png" alt="sigmoid \approx 0.2315" width="143" height="33">；
-② <img class="fml" src="/formulas/d865e7bca7d5c9.png" alt="0.5^{5}=0.03125" width="118" height="33">，几乎消失（若为 2 则 <img class="fml" src="/formulas/5551bdaccbadad.png" alt="2^{5}=32" width="64" height="33"> 爆炸）。
+① <img class="fml" src="/formulas/9da25a6dd4b3ed.png" alt="z=0.5- 2+0.3=- 1.2" width="199" height="33"> → `ReLU=0`、<img class="fml" src="/formulas/22eaca73bbc3ad.png" alt="sigmoid \approx 0.2315" width="144" height="33">；
+② <img class="fml" src="/formulas/d865e7bca7d5c9.png" alt="0.5^{5}=0.03125" width="119" height="33">，几乎消失（若为 2 则 <img class="fml" src="/formulas/5551bdaccbadad.png" alt="2^{5}=32" width="65" height="33"> 爆炸）。
 对策：ReLU 系激活、残差连接、批归一化、He/Xavier 初始化、梯度裁剪（针对爆炸）、LSTM 门控（序列）。
 
 ### 综 7 CNN 尺寸与注意力计算（第 9 章）
 
-**题**：①输入 <img class="fml" src="/formulas/aeb9e75c2e5af4.png" alt="32 \times 32 \times 1" width="94" height="33">，6 个 <img class="fml" src="/formulas/2a174a991f5014.png" alt="5 \times 5" width="46" height="33"> 卷积核 `S=1,P=0` 后的尺寸与参数量？再接 <img class="fml" src="/formulas/ce14d69f085d5b.png" alt="\frac{2 \times 2}{S}=2" width="65" height="33"> 池化？②3 个 token、`d=2` 的自注意力权重为何每行和为 1？
+**题**：①输入 <img class="fml" src="/formulas/aeb9e75c2e5af4.png" alt="32 \times 32 \times 1" width="95" height="33">，6 个 <img class="fml" src="/formulas/2a174a991f5014.png" alt="5 \times 5" width="46" height="33"> 卷积核 `S=1,P=0` 后的尺寸与参数量？再接 <img class="fml" src="/formulas/ce14d69f085d5b.png" alt="\frac{2 \times 2}{S}=2" width="66" height="33"> 池化？②3 个 token、`d=2` 的自注意力权重为何每行和为 1？
 
 **解**：
-① 卷积 <img class="fml" src="/formulas/f09bd68d44af40.png" alt="⌊\frac{32- 5}{1}⌋+1=28" width="127" height="33"> → <img class="fml" src="/formulas/10655c73f8fe88.png" alt="28 \times 28 \times 6" width="94" height="33">，参数 <img class="fml" src="/formulas/706596676fd7e5.png" alt="5 \times 5 \times 1 \times 6+6=156" width="188" height="33">；池化 <img class="fml" src="/formulas/f9c58496b6eb83.png" alt="⌊\frac{28- 2}{2}⌋+1=14" width="127" height="33"> → <img class="fml" src="/formulas/498c51497c5d3b.png" alt="14 \times 14 \times 6" width="94" height="33">（无可训练参数）。
-② 因对分数矩阵逐行做 softmax，权重非负且归一；输出是 V 各行的加权平均（例题结果 `[[3.0,4.0],[3.4067,4.4067],[3.5105,4.5105]]`）。除以 <img class="fml" src="/formulas/aabf7bf67df75e.png" alt="\sqrt{d}_{k}" width="38" height="33"> 是为防止高维点积把 softmax 推入饱和区。
+① 卷积 <img class="fml" src="/formulas/f09bd68d44af40.png" alt="⌊\frac{32- 5}{1}⌋+1=28" width="128" height="33"> → <img class="fml" src="/formulas/10655c73f8fe88.png" alt="28 \times 28 \times 6" width="95" height="34">，参数 <img class="fml" src="/formulas/706596676fd7e5.png" alt="5 \times 5 \times 1 \times 6+6=156" width="190" height="33">；池化 <img class="fml" src="/formulas/f9c58496b6eb83.png" alt="⌊\frac{28- 2}{2}⌋+1=14" width="128" height="33"> → <img class="fml" src="/formulas/498c51497c5d3b.png" alt="14 \times 14 \times 6" width="95" height="34">（无可训练参数）。
+② 因对分数矩阵逐行做 softmax，权重非负且归一；输出是 V 各行的加权平均（例题结果 `[[3.0,4.0],[3.4067,4.4067],[3.5105,4.5105]]`）。除以 <img class="fml" src="/formulas/aabf7bf67df75e.png" alt="\sqrt{d}_{k}" width="39" height="34"> 是为防止高维点积把 softmax 推入饱和区。
 
 ### 综 8 强化学习与生成模型辨析（第 11–12 章）
 
-**题**：①<img class="fml" src="/formulas/d8cf7693ec175c.png" alt="Q=0.5,r=1,\gamma=0.9,\max Q(s&#x27;, \cdot)=0.8,\alpha=0.1" width="391" height="33"> 求更新后的 Q；②比较 VAE、GAN、扩散三类生成模型在「似然、采样、稳定性」上的差别。
+**题**：①<img class="fml" src="/formulas/d8cf7693ec175c.png" alt="Q=0.5,r=1,\gamma=0.9,\max Q(s&#x27;, \cdot)=0.8,\alpha=0.1" width="392" height="33"> 求更新后的 Q；②比较 VAE、GAN、扩散三类生成模型在「似然、采样、稳定性」上的差别。
 
 **解**：
-① TD 目标 <img class="fml" src="/formulas/1ed478bc7aa503.png" alt="=1+0.9 \times 0.8=1.72" width="179" height="33">；<img class="fml" src="/formulas/79cd1153dea36a.png" alt="\delta=1.72- 0.5=1.22" width="170" height="33">；<img class="fml" src="/formulas/c8ab67f39a7900.png" alt="Q \leftarrow 0.5+0.1 \times 1.22=0.622" width="233" height="33">。
+① TD 目标 <img class="fml" src="/formulas/1ed478bc7aa503.png" alt="=1+0.9 \times 0.8=1.72" width="179" height="33">；<img class="fml" src="/formulas/79cd1153dea36a.png" alt="\delta=1.72- 0.5=1.22" width="172" height="33">；<img class="fml" src="/formulas/c8ab67f39a7900.png" alt="Q \leftarrow 0.5+0.1 \times 1.22=0.622" width="234" height="33">。
 ② **VAE**：优化似然下界 ELBO，一次前向采样，训练稳但样本偏模糊；
 **GAN**：无显式似然，一次前向采样、样本清晰，但训练不稳、模式崩塌；
 **扩散**：变分下界/去噪目标，需多步迭代采样（慢），质量高且训练稳；
@@ -2066,12 +2066,12 @@ y_{2}= x_{2} ⊙ \exp(s(x_{1}))+ t(x_{1}) \; \text{（仿射变换，} \; \text{
 
 ### 综 10 正则化与偏差方差（第 1、3 章）
 
-**题**：沿用综 1 的样本 `(1,2)`、`(2,3)`，模型 `ŷ=wx`。①无正则闭式解？②加 L2 <img class="fml" src="/formulas/3ffda746d69511.png" alt="\lambda=2" width="49" height="33"> 后的解？③解释「λ 增大时偏差/方差如何变化」；④说明何种迹象表明应该增大还是减小 λ。
+**题**：沿用综 1 的样本 `(1,2)`、`(2,3)`，模型 `ŷ=wx`。①无正则闭式解？②加 L2 <img class="fml" src="/formulas/3ffda746d69511.png" alt="\lambda=2" width="50" height="34"> 后的解？③解释「λ 增大时偏差/方差如何变化」；④说明何种迹象表明应该增大还是减小 λ。
 
 **解**：
-① <img class="fml" src="/formulas/1e3e82205e2f8f.png" alt="w*=\frac{8}{5}=1.6" width="109" height="33">；
-② 岭回归 <img class="fml" src="/formulas/f043d5364c406f.png" alt="w^{*}=\frac{\sum xy}{\sum x^{2}+\lambda}=\frac{8}{5+2}\approx 1.1429" width="223" height="35">；
-③ <img class="fml" src="/formulas/d941222f5da1cd.png" alt="\lambda ↑" width="30" height="33"> → 系数向 0 收缩 → 模型变简单 → **偏差上升、方差下降**；<img class="fml" src="/formulas/4ad1f4f37457e5.png" alt="\lambda ↓" width="30" height="33"> 反之。总误差是 U 形，最优 λ 由验证集/交叉验证选取。
+① <img class="fml" src="/formulas/1e3e82205e2f8f.png" alt="w*=\frac{8}{5}=1.6" width="110" height="33">；
+② 岭回归 <img class="fml" src="/formulas/f043d5364c406f.png" alt="w^{*}=\frac{\sum xy}{\sum x^{2}+\lambda}=\frac{8}{5+2}\approx 1.1429" width="224" height="36">；
+③ <img class="fml" src="/formulas/d941222f5da1cd.png" alt="\lambda ↑" width="32" height="33"> → 系数向 0 收缩 → 模型变简单 → **偏差上升、方差下降**；<img class="fml" src="/formulas/4ad1f4f37457e5.png" alt="\lambda ↓" width="31" height="33"> 反之。总误差是 U 形，最优 λ 由验证集/交叉验证选取。
 ④ 若训练误差与验证误差**都高**（欠拟合）→ 应减小 λ / 加特征；若训练误差很低但验证误差高（过拟合）→ 应增大 λ / 增数据 / 早停。
 
 ::: tip 解题要点
@@ -2094,13 +2094,13 @@ y_{2}= x_{2} ⊙ \exp(s(x_{1}))+ t(x_{1}) \; \text{（仿射变换，} \; \text{
 
 ### 综 12 核方法与维度（第 6 章）
 
-**题**：①核验 `K=[[1,0.5],[0.5,1]]` 是否可作合法核矩阵；②二维输入下 <img class="fml" src="/formulas/11f832779e483d.png" alt="k(x,z)=(1+x^{T}z)^{2}" width="162" height="33"> 映射到几维？③若把次数升到 3，特征维度是多少？④说明为什么大样本下核方法慢。
+**题**：①核验 `K=[[1,0.5],[0.5,1]]` 是否可作合法核矩阵；②二维输入下 <img class="fml" src="/formulas/11f832779e483d.png" alt="k(x,z)=(1+x^{T}z)^{2}" width="163" height="34"> 映射到几维？③若把次数升到 3，特征维度是多少？④说明为什么大样本下核方法慢。
 
 **解**：
 ① 对称且特征值 `1±0.5` 即 `1.5` 与 `0.5`，均 ≥ 0 → **半正定，合法**；
-② 展开为 6 个单项式 → **6 维**（<img class="fml" src="/formulas/b9621bda357bcb.png" alt="1, x_{1}, x_{2}, x_{1}^{2}, x_{2}^{2}, x_{1}x_{2}" width="159" height="33"> 的带系数形式）；
+② 展开为 6 个单项式 → **6 维**（<img class="fml" src="/formulas/b9621bda357bcb.png" alt="1, x_{1}, x_{2}, x_{1}^{2}, x_{2}^{2}, x_{1}x_{2}" width="160" height="33"> 的带系数形式）；
 ③ d 次多项式核在 2 维输入下的特征维度为组合数 `C(2+d, d)`，d=3 → `C(5,3)=10` 维（d=2 → `C(4,2)=6`，与②一致）；
-④ 需存储并计算 <img class="fml" src="/formulas/795868e02fc4c8.png" alt="N \times N" width="60" height="33"> 的 Gram 矩阵，训练复杂度约 <img class="fml" src="/formulas/cb79962317dfce.png" alt="O(N^{2})- O(N^{3})" width="131" height="33">；N 很大时须用随机特征、Nyström 近似，或直接改用线性模型/神经网络。
+④ 需存储并计算 <img class="fml" src="/formulas/795868e02fc4c8.png" alt="N \times N" width="62" height="34"> 的 Gram 矩阵，训练复杂度约 <img class="fml" src="/formulas/cb79962317dfce.png" alt="O(N^{2})- O(N^{3})" width="131" height="34">；N 很大时须用随机特征、Nyström 近似，或直接改用线性模型/神经网络。
 
 ::: tip 解题要点
 「合法核」看 Gram 矩阵半正定，不是看函数是否简单；核技巧的价值在于**用 O(d) 的核计算替代 O(高维) 的显式映射**。
@@ -2177,54 +2177,54 @@ print(classification_report(y_te, best.predict(X_te)))
 
 ### 综 15 值迭代手算（第 11 章推导题）
 
-**题**：两状态 MDP，<img class="fml" src="/formulas/848711dbf84284.png" alt="s_{1}" width="22" height="33"> 动作得 `r=1` 转移到 <img class="fml" src="/formulas/883749656ecf1a.png" alt="s_{2}" width="22" height="33">；<img class="fml" src="/formulas/883749656ecf1a.png" alt="s_{2}" width="22" height="33"> 动作得 `r=0`，0.5 回 <img class="fml" src="/formulas/848711dbf84284.png" alt="s_{1}" width="22" height="33">、0.5 终止；<img class="fml" src="/formulas/eb52b0e4a582c8.png" alt="\gamma=0.9" width="63" height="33">。①写出贝尔曼最优方程组；②从 <img class="fml" src="/formulas/782f1c40c4f96e.png" alt="V_{0}=(0,0)" width="87" height="33"> 迭代 3 轮；③求解析解并说明收敛依据。
+**题**：两状态 MDP，<img class="fml" src="/formulas/848711dbf84284.png" alt="s_{1}" width="23" height="34"> 动作得 `r=1` 转移到 <img class="fml" src="/formulas/883749656ecf1a.png" alt="s_{2}" width="22" height="34">；<img class="fml" src="/formulas/883749656ecf1a.png" alt="s_{2}" width="22" height="34"> 动作得 `r=0`，0.5 回 <img class="fml" src="/formulas/848711dbf84284.png" alt="s_{1}" width="23" height="34">、0.5 终止；<img class="fml" src="/formulas/eb52b0e4a582c8.png" alt="\gamma=0.9" width="64" height="34">。①写出贝尔曼最优方程组；②从 <img class="fml" src="/formulas/782f1c40c4f96e.png" alt="V_{0}=(0,0)" width="89" height="33"> 迭代 3 轮；③求解析解并说明收敛依据。
 
 **解**：
-① <img class="fml" src="/formulas/3b6b151125ab16.png" alt="V(s_{1})=1+0.9V(s_{2})" width="171" height="33">，<img class="fml" src="/formulas/04645ec285d100.png" alt="V(s_{2})=0.9 \times 0.5 \times V(s_{1})=0.45V(s_{1})" width="306" height="33">；
+① <img class="fml" src="/formulas/3b6b151125ab16.png" alt="V(s_{1})=1+0.9V(s_{2})" width="172" height="34">，<img class="fml" src="/formulas/04645ec285d100.png" alt="V(s_{2})=0.9 \times 0.5 \times V(s_{1})=0.45V(s_{1})" width="306" height="33">；
 ② `k=1: (1.00000, 0)` → `k=2: (1.00000, 0.45000)` → `k=3: (1.40500, 0.45000)`（依次代入前一轮 V）；继续 `k=4: (1.40500, 0.63225)`、`k=5: (1.56902, 0.63225)`；
-③ 代入消元：<img class="fml" src="/formulas/53bd97aa3fce3c.png" alt="V(s_{1})=1+0.9 \times 0.45V(s_{1})" width="224" height="33"> → <img class="fml" src="/formulas/a9409fed396a83.png" alt="V(s_{1})=\frac{1}{0.595 \approx 1.6807}" width="151" height="33">，<img class="fml" src="/formulas/948858c32a0289.png" alt="V(s_{2}) \approx 0.7563" width="123" height="33">。
-收敛依据：γ<1 使贝尔曼最优算子为压缩映射，误差按 <img class="fml" src="/formulas/f96ba41c29f187.png" alt="\gamma^{k}" width="24" height="33"> 衰减，且不动点唯一。
+③ 代入消元：<img class="fml" src="/formulas/53bd97aa3fce3c.png" alt="V(s_{1})=1+0.9 \times 0.45V(s_{1})" width="225" height="33"> → <img class="fml" src="/formulas/a9409fed396a83.png" alt="V(s_{1})=\frac{1}{0.595 \approx 1.6807}" width="152" height="33">，<img class="fml" src="/formulas/948858c32a0289.png" alt="V(s_{2}) \approx 0.7563" width="125" height="33">。
+收敛依据：γ<1 使贝尔曼最优算子为压缩映射，误差按 <img class="fml" src="/formulas/f96ba41c29f187.png" alt="\gamma^{k}" width="25" height="34"> 衰减，且不动点唯一。
 
 ### 综 16 VAE 与 GAN 的两个经典推导（第 12 章证明题）
 
-**题**：①从 <img class="fml" src="/formulas/72f56517d2752b.png" alt="\log p_\theta(x)" width="72" height="33"> 出发用 Jensen 不等式推导 ELBO，并说明何时取等；②固定 G 求 GAN 的最优判别器 `D*`，代入后说明目标等价于什么散度、最小值是多少。
+**题**：①从 <img class="fml" src="/formulas/72f56517d2752b.png" alt="\log p_\theta(x)" width="73" height="34"> 出发用 Jensen 不等式推导 ELBO，并说明何时取等；②固定 G 求 GAN 的最优判别器 `D*`，代入后说明目标等价于什么散度、最小值是多少。
 
 **解**：
-① <img class="fml" src="/formulas/6dcbd6ed254c3f.png" alt="\log p(x)=\log E_{q}[\frac{p(x|z)p(z)}{q(z)}] \ge E_{q}[\log p(x|z)]- D_{KL}(q(z|x) \| p(z))= ELBO" width="570" height="35">。
-等价形式 <img class="fml" src="/formulas/4c70451f17781e.png" alt="\log p(x)=ELBO+ D_{KL}(q \| p(z|x))" width="280" height="33">，故当 <img class="fml" src="/formulas/79c7e1b53cf42d.png" alt="q(z|x)=p_\theta(z|x)" width="131" height="33">（真实后验）时 KL=0、界取等。
-② <img class="fml" src="/formulas/461f4d6bcc7350.png" alt="V(D,G)= \int p_{data} \log D+ \int p_{g} \log(1- D)" width="327" height="33">，对 `D` 逐点求导令零：
-<img class="fml" src="/formulas/0838ff96cfc564.png" alt="\frac{p_{data}}{D}- \frac{p_{g}}{1- D}=0" width="120" height="33"> → <img class="fml" src="/formulas/02d1ad92bf344d.png" alt="D*(x)=\frac{p_{data}}{p_{data}+p_{g}}" width="136" height="36">。
-代回得 <img class="fml" src="/formulas/0c3e7ce38b7679.png" alt="V(D*,G)=2 \cdot JS(p_{data} \| p_{g})- 2\log 2" width="292" height="33">，故最优时 `p_g=p_data`、`D*=0.5`、目标值 <img class="fml" src="/formulas/c2cd7fbfea6f7f.png" alt="- 2\log 2 \approx- 1.3863" width="154" height="33">。
+① <img class="fml" src="/formulas/6dcbd6ed254c3f.png" alt="\log p(x)=\log E_{q}[\frac{p(x|z)p(z)}{q(z)}] \ge E_{q}[\log p(x|z)]- D_{KL}(q(z|x) \| p(z))= ELBO" width="571" height="36">。
+等价形式 <img class="fml" src="/formulas/4c70451f17781e.png" alt="\log p(x)=ELBO+ D_{KL}(q \| p(z|x))" width="280" height="33">，故当 <img class="fml" src="/formulas/79c7e1b53cf42d.png" alt="q(z|x)=p_\theta(z|x)" width="132" height="33">（真实后验）时 KL=0、界取等。
+② <img class="fml" src="/formulas/461f4d6bcc7350.png" alt="V(D,G)= \int p_{data} \log D+ \int p_{g} \log(1- D)" width="329" height="33">，对 `D` 逐点求导令零：
+<img class="fml" src="/formulas/0838ff96cfc564.png" alt="\frac{p_{data}}{D}- \frac{p_{g}}{1- D}=0" width="121" height="34"> → <img class="fml" src="/formulas/02d1ad92bf344d.png" alt="D*(x)=\frac{p_{data}}{p_{data}+p_{g}}" width="137" height="36">。
+代回得 <img class="fml" src="/formulas/0c3e7ce38b7679.png" alt="V(D*,G)=2 \cdot JS(p_{data} \| p_{g})- 2\log 2" width="293" height="33">，故最优时 `p_g=p_data`、`D*=0.5`、目标值 <img class="fml" src="/formulas/c2cd7fbfea6f7f.png" alt="- 2\log 2 \approx- 1.3863" width="155" height="33">。
 若两分布支撑集不重叠，JS 恒为 `log2`、梯度为零 → 需 WGAN 等提供有效梯度。
 
 ### 综 17 扩散前向闭式与归一化流行列式（第 12 章计算题）
 
-**题**：①设 <img class="fml" src="/formulas/b00d745292247c.png" alt="\alpha_{t} \equiv 0.9" width="69" height="33">，求 <img class="fml" src="/formulas/7d1de2a5c2c92f.png" alt="\bar{\alpha}_{1} \cdots \bar{\alpha}_{5}" width="70" height="33">；取 <img class="fml" src="/formulas/cf762019701129.png" alt="x_{0}=2, \epsilon=0.5, t=3" width="165" height="33"> 求 <img class="fml" src="/formulas/82e2028e67dadd.png" alt="x_{3}" width="23" height="33">。②某归一化流耦合层输出 <img class="fml" src="/formulas/42a351a8471b5b.png" alt="s=(0.2,- 0.3,0.5)" width="150" height="33">，求 `log|det J|` 与 `|det J|`，并说明为何耦合层高效。
+**题**：①设 <img class="fml" src="/formulas/b00d745292247c.png" alt="\alpha_{t} \equiv 0.9" width="70" height="34">，求 <img class="fml" src="/formulas/7d1de2a5c2c92f.png" alt="\bar{\alpha}_{1} \cdots \bar{\alpha}_{5}" width="71" height="33">；取 <img class="fml" src="/formulas/cf762019701129.png" alt="x_{0}=2, \epsilon=0.5, t=3" width="166" height="33"> 求 <img class="fml" src="/formulas/82e2028e67dadd.png" alt="x_{3}" width="24" height="33">。②某归一化流耦合层输出 <img class="fml" src="/formulas/42a351a8471b5b.png" alt="s=(0.2,- 0.3,0.5)" width="152" height="33">，求 `log|det J|` 与 `|det J|`，并说明为何耦合层高效。
 
 **解**：
-① <img class="fml" src="/formulas/3863ac86f6acc3.png" alt="\bar{\alpha}_{t}=\Pi \alpha_{s}" width="78" height="33"> → `(0.9, 0.81, 0.729, 0.6561, 0.5905)`；
+① <img class="fml" src="/formulas/3863ac86f6acc3.png" alt="\bar{\alpha}_{t}=\Pi \alpha_{s}" width="79" height="33"> → `(0.9, 0.81, 0.729, 0.6561, 0.5905)`；
 
 
 
-<p class="fml-block"><img class="fml" src="/formulas/95e363b246b306.png" alt="x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 \approx 1.9679" width="504" height="33"></p>
+<p class="fml-block"><img class="fml" src="/formulas/95e363b246b306.png" alt="x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 \approx 1.9679" width="505" height="33"></p>
 
 
 
-ᾱt 递减说明信号逐渐被噪声淹没，<img class="fml" src="/formulas/09be86e544820a.png" alt="t \to_{\infty}" width="49" height="33"> 时分布趋于 `N(0,I)`。
-② <img class="fml" src="/formulas/b33d1ef3b2ccb1.png" alt="\log|\det J|=\sum s=0.4" width="185" height="33">，<img class="fml" src="/formulas/195c4dce3ce66d.png" alt="|\det J|=e^{0.4} \approx 1.4918" width="181" height="33">。
-因 Jacobian 是三角阵，行列式等于对角元素之积，**无需 O(d³) 的一般行列式计算**；逆变换也是解析的（<img class="fml" src="/formulas/9b62c0f0c9a78b.png" alt="x_{2}=(y_{2}- t(y_{1}))⊙\exp(- s(y_{1}))" width="250" height="33">），故采样与密度估计都高效。
+ᾱt 递减说明信号逐渐被噪声淹没，<img class="fml" src="/formulas/09be86e544820a.png" alt="t \to_{\infty}" width="50" height="33"> 时分布趋于 `N(0,I)`。
+② <img class="fml" src="/formulas/b33d1ef3b2ccb1.png" alt="\log|\det J|=\sum s=0.4" width="186" height="33">，<img class="fml" src="/formulas/195c4dce3ce66d.png" alt="|\det J|=e^{0.4} \approx 1.4918" width="181" height="33">。
+因 Jacobian 是三角阵，行列式等于对角元素之积，**无需 O(d³) 的一般行列式计算**；逆变换也是解析的（<img class="fml" src="/formulas/9b62c0f0c9a78b.png" alt="x_{2}=(y_{2}- t(y_{1}))⊙\exp(- s(y_{1}))" width="251" height="33">），故采样与密度估计都高效。
 
 ### 综 18 三条推导链的综合辨析（第 2、7、10 章）
 
 **题**：分别写出下列三条结论的推导要点：
 ① 逻辑回归的交叉熵来自哪里？牛顿法一步如何算？
-② AdaBoost 的 <img class="fml" src="/formulas/ea2675a426c0d8.png" alt="\alpha_{t}= \frac{1}{2} \ln\left(\frac{1- \epsilon_{t}}{\epsilon}_{t}\right)" width="129" height="33"> 从何而来？
+② AdaBoost 的 <img class="fml" src="/formulas/ea2675a426c0d8.png" alt="\alpha_{t}= \frac{1}{2} \ln\left(\frac{1- \epsilon_{t}}{\epsilon}_{t}\right)" width="131" height="34"> 从何而来？
 ③ 为什么说「PCA 最大化投影方差」与「PCA 最小化重构误差」是同一问题？
 
 **解**：
-① 交叉熵是 Bernoulli 似然的负对数：<img class="fml" src="/formulas/da045143d4b830.png" alt="- \log[\hat{y}^y(1- \hat{y})^{1- y}]" width="150" height="33">。<img class="fml" src="/formulas/1433cee3387854.png" alt="\nabla L=X^{T}(\hat{y}- y)" width="137" height="33">、<img class="fml" src="/formulas/69973248e7ebc3.png" alt="H=X^{T}RX" width="102" height="33">（<img class="fml" src="/formulas/8d2bf582538443.png" alt="R=diag(\hat{y}(1- \hat{y}))" width="155" height="33">），牛顿步 <img class="fml" src="/formulas/480802d15e94d2.png" alt="w \leftarrow w- H^{-1} \nabla L" width="142" height="33">。单样本 <img class="fml" src="/formulas/444f647a4e02b7.png" alt="x=1,y=1,w_{0}=0" width="160" height="33">：`ŷ=0.5`、<img class="fml" src="/formulas/fe2c769a8f9df7.png" alt="\nabla L=- 0.5" width="94" height="33">、`H=0.25` → <img class="fml" src="/formulas/73415f7864f8de.png" alt="w_{1}=2.0" width="73" height="33">。
-② AdaBoost 是**指数损失 <img class="fml" src="/formulas/3f73a862c8a8bd.png" alt="\exp(- yf)" width="81" height="33"> 上的前向分步加法模型**：固定 <img class="fml" src="/formulas/90547a2c17f2fe.png" alt="f_{t- 1}" width="36" height="33"> 后，样本权重 <img class="fml" src="/formulas/42ea6e2ec618a7.png" alt="w_{i}=\exp(- y_{i}f_{t- 1})" width="147" height="33">；先解出使加权误差最小的 <img class="fml" src="/formulas/b8572d19579bef.png" alt="h_{t}" width="22" height="33">，再对 <img class="fml" src="/formulas/6d3fab0dfb5711.png" alt="\alpha" width="18" height="33"> 求导令零得 <img class="fml" src="/formulas/f54566070eb113.png" alt="-(1- \epsilon)e^{- \alpha}+\epsilon e^{\alpha}=0" width="178" height="33"> → <img class="fml" src="/formulas/ea2675a426c0d8.png" alt="\alpha_{t}= \frac{1}{2} \ln\left(\frac{1- \epsilon_{t}}{\epsilon}_{t}\right)" width="129" height="33">。指数损失对错分样本惩罚随 `e^{|f|}` 增长，故 AdaBoost 对噪声敏感。
-③ 最大化 <img class="fml" src="/formulas/691e7fe18ccd89.png" alt="w^{T}Sw" width="54" height="33">（<img class="fml" src="/formulas/2ebbda603bbc93.png" alt="\| w \|=1" width="70" height="33">）由拉格朗日条件得 <img class="fml" src="/formulas/7c8cf2a2a5ae71.png" alt="Sw=\lambda w" width="79" height="33">，取最大特征值；最小化 <img class="fml" src="/formulas/02f8ea2de920c5.png" alt="\| X- Xww^{T} \|^{2}_{F}= tr(S)- w^{T}Sw" width="260" height="33"> 也是最大化 <img class="fml" src="/formulas/691e7fe18ccd89.png" alt="w^{T}Sw" width="54" height="33">。二者都归结为协方差矩阵的前 m 个特征向量，最小重构误差为 <img class="fml" src="/formulas/a77c57dba7eb73.png" alt="\sum_{j&gt;m}\lambda_{j}" width="72" height="34">。
+① 交叉熵是 Bernoulli 似然的负对数：<img class="fml" src="/formulas/da045143d4b830.png" alt="- \log[\hat{y}^y(1- \hat{y})^{1- y}]" width="151" height="33">。<img class="fml" src="/formulas/1433cee3387854.png" alt="\nabla L=X^{T}(\hat{y}- y)" width="138" height="33">、<img class="fml" src="/formulas/69973248e7ebc3.png" alt="H=X^{T}RX" width="103" height="34">（<img class="fml" src="/formulas/8d2bf582538443.png" alt="R=diag(\hat{y}(1- \hat{y}))" width="156" height="33">），牛顿步 <img class="fml" src="/formulas/480802d15e94d2.png" alt="w \leftarrow w- H^{-1} \nabla L" width="143" height="33">。单样本 <img class="fml" src="/formulas/444f647a4e02b7.png" alt="x=1,y=1,w_{0}=0" width="161" height="33">：`ŷ=0.5`、<img class="fml" src="/formulas/fe2c769a8f9df7.png" alt="\nabla L=- 0.5" width="94" height="33">、`H=0.25` → <img class="fml" src="/formulas/73415f7864f8de.png" alt="w_{1}=2.0" width="73" height="34">。
+② AdaBoost 是**指数损失 <img class="fml" src="/formulas/3f73a862c8a8bd.png" alt="\exp(- yf)" width="82" height="34"> 上的前向分步加法模型**：固定 <img class="fml" src="/formulas/90547a2c17f2fe.png" alt="f_{t- 1}" width="37" height="34"> 后，样本权重 <img class="fml" src="/formulas/42ea6e2ec618a7.png" alt="w_{i}=\exp(- y_{i}f_{t- 1})" width="148" height="34">；先解出使加权误差最小的 <img class="fml" src="/formulas/b8572d19579bef.png" alt="h_{t}" width="23" height="34">，再对 <img class="fml" src="/formulas/6d3fab0dfb5711.png" alt="\alpha" width="19" height="34"> 求导令零得 <img class="fml" src="/formulas/f54566070eb113.png" alt="-(1- \epsilon)e^{- \alpha}+\epsilon e^{\alpha}=0" width="179" height="34"> → <img class="fml" src="/formulas/ea2675a426c0d8.png" alt="\alpha_{t}= \frac{1}{2} \ln\left(\frac{1- \epsilon_{t}}{\epsilon}_{t}\right)" width="131" height="34">。指数损失对错分样本惩罚随 `e^{|f|}` 增长，故 AdaBoost 对噪声敏感。
+③ 最大化 <img class="fml" src="/formulas/691e7fe18ccd89.png" alt="w^{T}Sw" width="55" height="34">（<img class="fml" src="/formulas/2ebbda603bbc93.png" alt="\| w \|=1" width="71" height="34">）由拉格朗日条件得 <img class="fml" src="/formulas/7c8cf2a2a5ae71.png" alt="Sw=\lambda w" width="79" height="33">，取最大特征值；最小化 <img class="fml" src="/formulas/02f8ea2de920c5.png" alt="\| X- Xww^{T} \|^{2}_{F}= tr(S)- w^{T}Sw" width="261" height="33"> 也是最大化 <img class="fml" src="/formulas/691e7fe18ccd89.png" alt="w^{T}Sw" width="55" height="34">。二者都归结为协方差矩阵的前 m 个特征向量，最小重构误差为 <img class="fml" src="/formulas/a77c57dba7eb73.png" alt="\sum_{j&gt;m}\lambda_{j}" width="74" height="35">。
 
 ::: tip 答题要点
 这三条链的共同结构是「**先写出目标函数，再对参数求导/求极值**」——凡是课件只给结论的公式，几乎都能这样自己推出来。
@@ -2244,12 +2244,12 @@ print(classification_report(y_te, best.predict(X_te)))
 | 6 | 欠拟合 | 过拟合 | 训练/验证都差 vs 训练好验证差（差距大） |
 | 7 | L1 正则 | L2 正则 | 稀疏解（可做特征选择） vs 系数均匀缩小 |
 | 8 | MLE | MAP | 点估计 vs 加先验（等价带正则的 MLE） |
-| 9 | 似然 p(D|θ) | 后验 p(θ|D) | θ 的函数（不是密度） <img class="fml" src="/formulas/8c41eb2a085378.png" alt="vs \theta" width="33" height="33"> 的概率分布 |
+| 9 | 似然 p(D|θ) | 后验 p(θ|D) | θ 的函数（不是密度） <img class="fml" src="/formulas/8c41eb2a085378.png" alt="vs \theta" width="34" height="33"> 的概率分布 |
 | 10 | 熵 | 交叉熵 | 自身不确定性 vs 用 q 编码 p 的代价 |
 | 11 | KL 散度 | 距离度量 | 非对称、不满足三角不等式 vs 真正度量 |
 | 12 | 批量 GD | 小批量 SGD | 全量梯度稳但慢 vs 噪声大但高效、主流 |
 | 13 | 凸优化 | 非凸优化 | 局部最优即全局 vs 只能到局部极小/鞍点 |
-| 14 | 闭式解 | 梯度下降 | 一步 <img class="fml" src="/formulas/4c862f2c5e8e91.png" alt="O(d^{3}) vs" width="68" height="33"> 迭代、可大规模/在线 |
+| 14 | 闭式解 | 梯度下降 | 一步 <img class="fml" src="/formulas/4c862f2c5e8e91.png" alt="O(d^{3}) vs" width="69" height="33"> 迭代、可大规模/在线 |
 | 15 | 线性回归 | 逻辑回归 | 连续输出+MSE vs 分类+sigmoid/交叉熵 |
 | 16 | sigmoid | softmax | 二分类独立概率 vs 多分类互斥（和为 1） |
 | 17 | 判别式模型 | 生成式模型 | 直接建 p(C|x)/判界 vs 先建 p(x|C) 再反推 |
@@ -2257,13 +2257,13 @@ print(classification_report(y_te, best.predict(X_te)))
 | 19 | F1 | 准确率 | P/R 调和平均 vs 整体正确率（不平衡会失真） |
 | 20 | ROC-AUC | PR-AUC | 阈值无关、负样本多时乐观 vs 不平衡时更敏感 |
 | 21 | 验证集 | 测试集 | 调超参/早停 vs 最终一次性评估 |
-| 22 | K 折交叉验证 | 留一法 | <img class="fml" src="/formulas/260e48c9e4e8d4.png" alt="K=\frac{5}{10 vs K}=N" width="127" height="33">（小样本、代价高） |
+| 22 | K 折交叉验证 | 留一法 | <img class="fml" src="/formulas/260e48c9e4e8d4.png" alt="K=\frac{5}{10 vs K}=N" width="128" height="33">（小样本、代价高） |
 | 23 | 分层 K 折 | 时序切分 | 保持类别比例 vs 按时间前向（防泄露） |
 | 24 | 归一化 min-max | 标准化 z-score | 压到 [0,1] vs 0 均值 1 方差（受异常值影响不同） |
 | 25 | 硬间隔 SVM | 软间隔 SVM | 要求完全可分 vs 引入 ξ 与 C 容许错分 |
 | 26 | 原问题 | 对偶问题 | min ½‖w‖² vs max Σα−½Σααyy k；对偶才能用核 |
 | 27 | 支持向量 | 全部训练样本 | 只有 α>0 的点决定解（稀疏性） |
-| 28 | 核函数 | 特征映射 | 只算 k(x,z) vs 显式构造高维 <img class="fml" src="/formulas/a579944994d0d7.png" alt="\phi(x)" width="41" height="33"> |
+| 28 | 核函数 | 特征映射 | 只算 k(x,z) vs 显式构造高维 <img class="fml" src="/formulas/a579944994d0d7.png" alt="\phi(x)" width="42" height="34"> |
 | 29 | 信息增益 | 增益率 | 偏袒多值特征 vs 除以 SplitInfo 作惩罚 |
 | 30 | 信息增益 | 基尼指数 | 取最大 vs 取最小（方向相反） |
 | 31 | 预剪枝 | 后剪枝 | 分裂前停（快、易欠拟合） vs 长全树再回剪 |
@@ -2297,26 +2297,26 @@ print(classification_report(y_te, best.predict(X_te)))
 
 | 项目 | 公式 |
 | --- | --- |
-| 经验风险 | <img class="fml" src="/formulas/23486c41f820dd.png" alt="\hat{R}(f)=\left(\frac{1}{N}\right)\sum L(f(x_{i}),y_{i})" width="213" height="33">；结构风险 <img class="fml" src="/formulas/86999a2f5011a1.png" alt="\hat{R}+\lambda \Omega(f)" width="89" height="33"> |
-| 偏差方差 | <img class="fml" src="/formulas/4e4f6088aef602.png" alt="Err= Bias^{2}+ \operatorname{Var}+ \sigma^{2}" width="193" height="33"> |
-| 泛化界 | <img class="fml" src="/formulas/2907d44b82c4fc.png" alt="R- \hat{R} \le \sqrt{\frac{\ln\lvert H\rvert+\ln\left(\frac{2}{\delta}\right)}{2N}}" width="173" height="41">（有限 H） |
-| 贝叶斯 | <img class="fml" src="/formulas/107f715c88a415.png" alt="p(\theta\mid D)=\dfrac{p(D\mid\theta)\,p(\theta)}{p(D)}" width="193" height="50"> |
-| MLE / MAP | <img class="fml" src="/formulas/fc355b1d269c53.png" alt="\operatorname*{argmax} \sum \log p(x_{i}\vert \theta)" width="167" height="33"> / 加 <img class="fml" src="/formulas/1a34874668decf.png" alt="\log p(\theta)" width="64" height="33"> |
-| 熵 / 交叉熵 / KL | <img class="fml" src="/formulas/ea929f25d19ed1.png" alt="H=- \sum p \log p" width="132" height="33">；<img class="fml" src="/formulas/d20e4ce0b2e301.png" alt="H(p,q)=- \sum p \log q" width="171" height="33">；<img class="fml" src="/formulas/303111b270c5cc.png" alt="D_{KL}=\sum p \log\left(\frac{p}{q}\right) \ge 0" width="190" height="40"> |
-| 梯度下降 | <img class="fml" src="/formulas/91fc612a94ff77.png" alt="w \leftarrow w- \eta \nabla_{w} L" width="129" height="33">；动量 <img class="fml" src="/formulas/449d8d477ca9ee.png" alt="v \leftarrow \alpha v- \eta g" width="104" height="33"> |
-| Adam 参数 | <img class="fml" src="/formulas/8f0383489b3e54.png" alt="\eta=0.001, \beta_{1}=0.9, \beta_{2}=0.999, \epsilon=1e- 8" width="328" height="33"> |
+| 经验风险 | <img class="fml" src="/formulas/23486c41f820dd.png" alt="\hat{R}(f)=\left(\frac{1}{N}\right)\sum L(f(x_{i}),y_{i})" width="214" height="33">；结构风险 <img class="fml" src="/formulas/86999a2f5011a1.png" alt="\hat{R}+\lambda \Omega(f)" width="90" height="33"> |
+| 偏差方差 | <img class="fml" src="/formulas/4e4f6088aef602.png" alt="Err= Bias^{2}+ \operatorname{Var}+ \sigma^{2}" width="194" height="33"> |
+| 泛化界 | <img class="fml" src="/formulas/2907d44b82c4fc.png" alt="R- \hat{R} \le \sqrt{\frac{\ln\lvert H\rvert+\ln\left(\frac{2}{\delta}\right)}{2N}}" width="174" height="41">（有限 H） |
+| 贝叶斯 | <img class="fml" src="/formulas/107f715c88a415.png" alt="p(\theta\mid D)=\dfrac{p(D\mid\theta)\,p(\theta)}{p(D)}" width="194" height="51"> |
+| MLE / MAP | <img class="fml" src="/formulas/fc355b1d269c53.png" alt="\operatorname*{argmax} \sum \log p(x_{i}\vert \theta)" width="168" height="33"> / 加 <img class="fml" src="/formulas/1a34874668decf.png" alt="\log p(\theta)" width="65" height="33"> |
+| 熵 / 交叉熵 / KL | <img class="fml" src="/formulas/ea929f25d19ed1.png" alt="H=- \sum p \log p" width="132" height="33">；<img class="fml" src="/formulas/d20e4ce0b2e301.png" alt="H(p,q)=- \sum p \log q" width="172" height="33">；<img class="fml" src="/formulas/303111b270c5cc.png" alt="D_{KL}=\sum p \log\left(\frac{p}{q}\right) \ge 0" width="191" height="41"> |
+| 梯度下降 | <img class="fml" src="/formulas/91fc612a94ff77.png" alt="w \leftarrow w- \eta \nabla_{w} L" width="130" height="33">；动量 <img class="fml" src="/formulas/449d8d477ca9ee.png" alt="v \leftarrow \alpha v- \eta g" width="105" height="33"> |
+| Adam 参数 | <img class="fml" src="/formulas/8f0383489b3e54.png" alt="\eta=0.001, \beta_{1}=0.9, \beta_{2}=0.999, \epsilon=1e- 8" width="330" height="33"> |
 
 ### A.2 回归与分类
 
 | 项目 | 公式 |
 | --- | --- |
-| 线性回归 | <img class="fml" src="/formulas/203988b2dd5895.png" alt="y=w^{T}x+b" width="102" height="33">；<img class="fml" src="/formulas/6e48e547c6e18d.png" alt="L= \frac{1}{2} \| Xw- y \|^{2}" width="138" height="33"> |
-| 闭式解 | <img class="fml" src="/formulas/15beaf3bb5784e.png" alt="w*=(X^{T}X)^{-1}X^{T}y" width="161" height="33">；岭 <img class="fml" src="/formulas/e65674512b6aa3.png" alt="+\lambda I" width="40" height="33"> |
-| 正则 | L2 <img class="fml" src="/formulas/e7eaf92782622a.png" alt="+\left(\frac{\lambda}{2}\right) \| w \|^{2}" width="92" height="33">；L1 <img class="fml" src="/formulas/a3f8be04441eec.png" alt="+\lambda \| w \|_{1}" width="69" height="33"> |
-| sigmoid | <img class="fml" src="/formulas/97b0bf298b4d5f.png" alt="\sigma(z)=\frac{1}{1+e^{-z}}" width="102" height="33">，<img class="fml" src="/formulas/601a4c80dace70.png" alt="\sigma &#x27;=\sigma(1- \sigma)" width="111" height="33">，最大值 0.25 |
-| softmax | <img class="fml" src="/formulas/71c43dbb5da475.png" alt="p_{k}=\frac{\exp(a_{k})}{\sum}_{j}\exp(a_{j})" width="159" height="39"> |
-| 交叉熵 | <img class="fml" src="/formulas/fa6ba9e313284a.png" alt="- \sum[y \log \hat{y}+(1- y)\log(1- \hat{y})]" width="255" height="33">；<img class="fml" src="/formulas/1433cee3387854.png" alt="\nabla L=X^{T}(\hat{y}- y)" width="137" height="33"> |
-| 朴素贝叶斯 | <img class="fml" src="/formulas/062c00b202ee48.png" alt="p(C\mid x)\propto p(C)\prod_{j}p(x_{j}\mid C)" width="227" height="34"> |
+| 线性回归 | <img class="fml" src="/formulas/203988b2dd5895.png" alt="y=w^{T}x+b" width="103" height="34">；<img class="fml" src="/formulas/6e48e547c6e18d.png" alt="L= \frac{1}{2} \| Xw- y \|^{2}" width="139" height="33"> |
+| 闭式解 | <img class="fml" src="/formulas/15beaf3bb5784e.png" alt="w*=(X^{T}X)^{-1}X^{T}y" width="161" height="33">；岭 <img class="fml" src="/formulas/e65674512b6aa3.png" alt="+\lambda I" width="41" height="33"> |
+| 正则 | L2 <img class="fml" src="/formulas/e7eaf92782622a.png" alt="+\left(\frac{\lambda}{2}\right) \| w \|^{2}" width="93" height="33">；L1 <img class="fml" src="/formulas/a3f8be04441eec.png" alt="+\lambda \| w \|_{1}" width="69" height="33"> |
+| sigmoid | <img class="fml" src="/formulas/97b0bf298b4d5f.png" alt="\sigma(z)=\frac{1}{1+e^{-z}}" width="104" height="34">，<img class="fml" src="/formulas/601a4c80dace70.png" alt="\sigma &#x27;=\sigma(1- \sigma)" width="112" height="33">，最大值 0.25 |
+| softmax | <img class="fml" src="/formulas/71c43dbb5da475.png" alt="p_{k}=\frac{\exp(a_{k})}{\sum}_{j}\exp(a_{j})" width="160" height="39"> |
+| 交叉熵 | <img class="fml" src="/formulas/fa6ba9e313284a.png" alt="- \sum[y \log \hat{y}+(1- y)\log(1- \hat{y})]" width="256" height="33">；<img class="fml" src="/formulas/1433cee3387854.png" alt="\nabla L=X^{T}(\hat{y}- y)" width="138" height="33"> |
+| 朴素贝叶斯 | <img class="fml" src="/formulas/062c00b202ee48.png" alt="p(C\mid x)\propto p(C)\prod_{j}p(x_{j}\mid C)" width="228" height="35"> |
 | LDA | 最大化类间散度/类内散度比 |
 
 ### A.3 评估
@@ -2324,71 +2324,71 @@ print(classification_report(y_te, best.predict(X_te)))
 | 项目 | 公式 |
 | --- | --- |
 | Acc / P / R | `(TP+TN)/N`；`TP/(TP+FP)`；`TP/(TP+FN)` |
-| F1 | <img class="fml" src="/formulas/b370f40b6adfd2.png" alt="\frac{2PR}{P+R}=\frac{2TP}{2TP+FP+FN}" width="153" height="33"> |
+| F1 | <img class="fml" src="/formulas/b370f40b6adfd2.png" alt="\frac{2PR}{P+R}=\frac{2TP}{2TP+FP+FN}" width="154" height="34"> |
 | FPR / TPR | `FP/(FP+TN)`；`TP/(TP+FN)` |
 | K 折 CV | 轮流 1 折验证、K−1 折训练取平均 |
-| 归一化 | min-max <img class="fml" src="/formulas/55b6cba9b3d348.png" alt="\frac{x- \min}{\max- \min}" width="69" height="33">；z-score <img class="fml" src="/formulas/dd8409dc8ff6fe.png" alt="\frac{x- \mu}{\sigma}" width="35" height="33"> |
+| 归一化 | min-max <img class="fml" src="/formulas/55b6cba9b3d348.png" alt="\frac{x- \min}{\max- \min}" width="70" height="34">；z-score <img class="fml" src="/formulas/dd8409dc8ff6fe.png" alt="\frac{x- \mu}{\sigma}" width="36" height="33"> |
 
 ### A.4 核、树与集成
 
 | 项目 | 公式 |
 | --- | --- |
 | 核条件 | Gram 矩阵对称半正定（Mercer） |
-| 多项式核 | <img class="fml" src="/formulas/ab7a74c47bab87.png" alt="(1+x^{T}z)^{2} \to \phi(x)" width="150" height="33"> 六维展开；一般 <img class="fml" src="/formulas/b0135723a43e89.png" alt="(\gamma x^{T}z+c)^d" width="96" height="33"> |
-| RBF 核 | <img class="fml" src="/formulas/c3714680aa9e31.png" alt="\exp\left(- \| x- z \| \frac{^{2}}{2\sigma^{2}}\right)" width="154" height="40"> |
-| SVM 原/对偶 | <img class="fml" src="/formulas/193cbd23e7b00f.png" alt="\min \frac{1}{2} \| w \|^{2}+C\sum \xi" width="157" height="33">；<img class="fml" src="/formulas/9c99c3ceb9a9f3.png" alt="\max \sum \alpha_{i}- \frac{1}{2} \sum \alpha_{i}\alpha_{j}y_{i}y_{j}k(x_{i},x_{j})" width="266" height="33"> |
-| 间隔 | <img class="fml" src="/formulas/fd005ab41bcecc.png" alt="\gamma=\frac{2}{\|w\|}" width="66" height="35"> |
-| 熵 / 增益 | <img class="fml" src="/formulas/4bf8036744e47e.png" alt="H=- \sum p \log_{2}p" width="139" height="33">；<img class="fml" src="/formulas/0a0e184dbd9767.png" alt="G=H(D)- H(D\vert A)" width="175" height="33">（取最大） |
-| 增益率 / 基尼 | <img class="fml" src="/formulas/7193caa42bf66b.png" alt="GR=\frac{G}{SplitInfo}" width="117" height="35">；<img class="fml" src="/formulas/e0e6cad119e5de.png" alt="Gini=1- \sum p^{2}" width="136" height="33">（取最小） |
-| AdaBoost | <img class="fml" src="/formulas/ea2675a426c0d8.png" alt="\alpha_{t}= \frac{1}{2} \ln\left(\frac{1- \epsilon_{t}}{\epsilon}_{t}\right)" width="129" height="33">；<img class="fml" src="/formulas/bd8a2b5b9585b9.png" alt="w_{i} \leftarrow w_{i}e^{- \alpha_{t}y_{i}h_{t}}" width="122" height="33"> |
-| XGBoost | <img class="fml" src="/formulas/97da580b152ad2.png" alt="w*=- \frac{G}{H+\lambda}" width="99" height="33">；<img class="fml" src="/formulas/ff13fd8338b612.png" alt="Gain= \frac{1}{2}[\frac{G_{L}^{2}}{H_{L}+\lambda}+\frac{G_{R}^{2}}{H_{R}+\lambda}- \frac{G^{2}}{H+\lambda}]- \gamma" width="277" height="36"> |
+| 多项式核 | <img class="fml" src="/formulas/ab7a74c47bab87.png" alt="(1+x^{T}z)^{2} \to \phi(x)" width="150" height="33"> 六维展开；一般 <img class="fml" src="/formulas/b0135723a43e89.png" alt="(\gamma x^{T}z+c)^d" width="97" height="33"> |
+| RBF 核 | <img class="fml" src="/formulas/c3714680aa9e31.png" alt="\exp\left(- \| x- z \| \frac{^{2}}{2\sigma^{2}}\right)" width="155" height="42"> |
+| SVM 原/对偶 | <img class="fml" src="/formulas/193cbd23e7b00f.png" alt="\min \frac{1}{2} \| w \|^{2}+C\sum \xi" width="158" height="33">；<img class="fml" src="/formulas/9c99c3ceb9a9f3.png" alt="\max \sum \alpha_{i}- \frac{1}{2} \sum \alpha_{i}\alpha_{j}y_{i}y_{j}k(x_{i},x_{j})" width="267" height="33"> |
+| 间隔 | <img class="fml" src="/formulas/fd005ab41bcecc.png" alt="\gamma=\frac{2}{\|w\|}" width="67" height="36"> |
+| 熵 / 增益 | <img class="fml" src="/formulas/4bf8036744e47e.png" alt="H=- \sum p \log_{2}p" width="140" height="33">；<img class="fml" src="/formulas/0a0e184dbd9767.png" alt="G=H(D)- H(D\vert A)" width="176" height="33">（取最大） |
+| 增益率 / 基尼 | <img class="fml" src="/formulas/7193caa42bf66b.png" alt="GR=\frac{G}{SplitInfo}" width="117" height="35">；<img class="fml" src="/formulas/e0e6cad119e5de.png" alt="Gini=1- \sum p^{2}" width="137" height="33">（取最小） |
+| AdaBoost | <img class="fml" src="/formulas/ea2675a426c0d8.png" alt="\alpha_{t}= \frac{1}{2} \ln\left(\frac{1- \epsilon_{t}}{\epsilon}_{t}\right)" width="131" height="34">；<img class="fml" src="/formulas/bd8a2b5b9585b9.png" alt="w_{i} \leftarrow w_{i}e^{- \alpha_{t}y_{i}h_{t}}" width="123" height="33"> |
+| XGBoost | <img class="fml" src="/formulas/97da580b152ad2.png" alt="w*=- \frac{G}{H+\lambda}" width="100" height="34">；<img class="fml" src="/formulas/ff13fd8338b612.png" alt="Gain= \frac{1}{2}[\frac{G_{L}^{2}}{H_{L}+\lambda}+\frac{G_{R}^{2}}{H_{R}+\lambda}- \frac{G^{2}}{H+\lambda}]- \gamma" width="278" height="37"> |
 
 ### A.5 神经网络与深度学习
 
 | 项目 | 公式 |
 | --- | --- |
-| 前向 | <img class="fml" src="/formulas/58773f0c43a9d1.png" alt="z^{(l)}=W^{(l)}a^{(l- 1)}+b^{(l)}" width="171" height="33">，<img class="fml" src="/formulas/0547005358cce2.png" alt="a^{(l)}=\phi(z^{(l)})" width="102" height="33"> |
-| 反向 | <img class="fml" src="/formulas/688d5b818d003a.png" alt="\delta^{(L)}= \nabla_{a} L⊙\phi &#x27;(z^{(L)})" width="171" height="33">；<img class="fml" src="/formulas/7accff5ca67c3c.png" alt="\delta^{(l)}=(W^{(l+1)})^{T}\delta^{(l+1)}⊙\phi &#x27;(z^{(l)})" width="240" height="33"> |
-| 梯度 | <img class="fml" src="/formulas/39bba43db46adc.png" alt="\frac{\partial L}{\partial W^{(l)}}=\delta^{(l)}(a^{(l- 1)})^{T}" width="153" height="33"> |
-| ReLU / softmax | `max(0,z)` / <img class="fml" src="/formulas/b739e846c1886d.png" alt="\frac{\exp(a_{k})}{\sum \exp}(a_{j})" width="82" height="35"> |
-| CNN 尺寸 | <img class="fml" src="/formulas/e469c86be45cc3.png" alt="⌊\frac{H- K+2P}{S}⌋+1" width="115" height="33">；参数 <img class="fml" src="/formulas/abe89e9f2874e5.png" alt="K^{2}C_{in}C_{out}+C_{out}" width="140" height="33"> |
-| RNN / LSTM | <img class="fml" src="/formulas/62612143d32e72.png" alt="h_{t}=\phi(W_{xh} x_{t}+W_{hh} h_{t-1}+b)" width="233" height="33">；<img class="fml" src="/formulas/f77f89f67e61eb.png" alt="c_{t}=f⊙c_{t-1}+i⊙g" width="163" height="33"> |
-| 注意力 | <img class="fml" src="/formulas/3e891fbff595b9.png" alt="softmax\left(\frac{QK^{T}}{\sqrt{d}_{k}}\right)V" width="150" height="40">，复杂度 <img class="fml" src="/formulas/ef83f619c2c3a4.png" alt="O(n^{2}d)" width="61" height="33"> |
+| 前向 | <img class="fml" src="/formulas/58773f0c43a9d1.png" alt="z^{(l)}=W^{(l)}a^{(l- 1)}+b^{(l)}" width="172" height="33">，<img class="fml" src="/formulas/0547005358cce2.png" alt="a^{(l)}=\phi(z^{(l)})" width="103" height="33"> |
+| 反向 | <img class="fml" src="/formulas/688d5b818d003a.png" alt="\delta^{(L)}= \nabla_{a} L⊙\phi &#x27;(z^{(L)})" width="172" height="33">；<img class="fml" src="/formulas/7accff5ca67c3c.png" alt="\delta^{(l)}=(W^{(l+1)})^{T}\delta^{(l+1)}⊙\phi &#x27;(z^{(l)})" width="241" height="33"> |
+| 梯度 | <img class="fml" src="/formulas/39bba43db46adc.png" alt="\frac{\partial L}{\partial W^{(l)}}=\delta^{(l)}(a^{(l- 1)})^{T}" width="154" height="34"> |
+| ReLU / softmax | `max(0,z)` / <img class="fml" src="/formulas/b739e846c1886d.png" alt="\frac{\exp(a_{k})}{\sum \exp}(a_{j})" width="83" height="36"> |
+| CNN 尺寸 | <img class="fml" src="/formulas/e469c86be45cc3.png" alt="⌊\frac{H- K+2P}{S}⌋+1" width="116" height="33">；参数 <img class="fml" src="/formulas/abe89e9f2874e5.png" alt="K^{2}C_{in}C_{out}+C_{out}" width="141" height="33"> |
+| RNN / LSTM | <img class="fml" src="/formulas/62612143d32e72.png" alt="h_{t}=\phi(W_{xh} x_{t}+W_{hh} h_{t-1}+b)" width="233" height="33">；<img class="fml" src="/formulas/f77f89f67e61eb.png" alt="c_{t}=f⊙c_{t-1}+i⊙g" width="165" height="33"> |
+| 注意力 | <img class="fml" src="/formulas/3e891fbff595b9.png" alt="softmax\left(\frac{QK^{T}}{\sqrt{d}_{k}}\right)V" width="151" height="41">，复杂度 <img class="fml" src="/formulas/ef83f619c2c3a4.png" alt="O(n^{2}d)" width="62" height="33"> |
 | BN / Dropout | 标准化 + γ、β；训练按 p 置零、推理全开 |
 
 ### A.6 无监督、强化与生成
 
 | 项目 | 公式 |
 | --- | --- |
-| K-means | <img class="fml" src="/formulas/052230ab3acbc7.png" alt="J=\sum_{n}\sum_{k}r_{nk} \| x_{n}- \mu_{k} \|^{2}" width="209" height="33">；交替 E/M 步 |
-| GMM / EM | <img class="fml" src="/formulas/20b6a246a23bf4.png" alt="p(x)=\sum \pi_{k}N\left(x\vert \mu_{k},\sum_{k}\right)" width="204" height="33">；<img class="fml" src="/formulas/ecf6fe0b562175.png" alt="\gamma(z_{nk})=p(z_{k}=1\vert x_{n})" width="173" height="33"> |
+| K-means | <img class="fml" src="/formulas/052230ab3acbc7.png" alt="J=\sum_{n}\sum_{k}r_{nk} \| x_{n}- \mu_{k} \|^{2}" width="210" height="33">；交替 E/M 步 |
+| GMM / EM | <img class="fml" src="/formulas/20b6a246a23bf4.png" alt="p(x)=\sum \pi_{k}N\left(x\vert \mu_{k},\sum_{k}\right)" width="205" height="33">；<img class="fml" src="/formulas/ecf6fe0b562175.png" alt="\gamma(z_{nk})=p(z_{k}=1\vert x_{n})" width="174" height="33"> |
 | PCA / ICA | 协方差特征分解 / `x=As`，独立性 + 非高斯性 |
-| 回报 | <img class="fml" src="/formulas/56ef09f2f6aef2.png" alt="G_{t}=\sum_{k}\gamma^{k}R_{t+k+1}" width="148" height="33"> |
-| 贝尔曼 | <img class="fml" src="/formulas/a291fb7b1706a5.png" alt="V^\pi(s)=E[R+\gamma V^\pi(s&#x27;)]" width="194" height="33">；<img class="fml" src="/formulas/ece6e6cf45efc4.png" alt="V*(s)=\max_{a}E[R+\gamma V*(s&#x27;)]" width="255" height="33"> |
-| Q-learning | <img class="fml" src="/formulas/fff0cc4cb7c23b.png" alt="Q \leftarrow Q+\alpha[r+\gamma \max_{a}&#x27;Q(s&#x27;,a&#x27;)- Q]" width="291" height="33"> |
+| 回报 | <img class="fml" src="/formulas/56ef09f2f6aef2.png" alt="G_{t}=\sum_{k}\gamma^{k}R_{t+k+1}" width="149" height="33"> |
+| 贝尔曼 | <img class="fml" src="/formulas/a291fb7b1706a5.png" alt="V^\pi(s)=E[R+\gamma V^\pi(s&#x27;)]" width="195" height="33">；<img class="fml" src="/formulas/ece6e6cf45efc4.png" alt="V*(s)=\max_{a}E[R+\gamma V*(s&#x27;)]" width="256" height="33"> |
+| Q-learning | <img class="fml" src="/formulas/fff0cc4cb7c23b.png" alt="Q \leftarrow Q+\alpha[r+\gamma \max_{a}&#x27;Q(s&#x27;,a&#x27;)- Q]" width="292" height="33"> |
 | 值函数逼近 | `Δw=α(目标−预测)x(s)` |
-| 策略梯度 | <img class="fml" src="/formulas/53435132baec96.png" alt="\nabla J=E[\sum \nabla \log \pi(a\vert s) \cdot G_{t}]" width="226" height="33"> |
-| ELBO | <img class="fml" src="/formulas/908e728fe9805d.png" alt="\log p(x) \ge E_{q}[\log p(x\vert z)]- D_{KL}(q(z\vert x) \| p(z))" width="351" height="33"> |
-| 重参数 | <img class="fml" src="/formulas/f81b996b058979.png" alt="z=\mu+\sigma ⊙\epsilon, \epsilon \sim N(0,I)" width="207" height="33"> |
+| 策略梯度 | <img class="fml" src="/formulas/53435132baec96.png" alt="\nabla J=E[\sum \nabla \log \pi(a\vert s) \cdot G_{t}]" width="227" height="33"> |
+| ELBO | <img class="fml" src="/formulas/908e728fe9805d.png" alt="\log p(x) \ge E_{q}[\log p(x\vert z)]- D_{KL}(q(z\vert x) \| p(z))" width="352" height="33"> |
+| 重参数 | <img class="fml" src="/formulas/f81b996b058979.png" alt="z=\mu+\sigma ⊙\epsilon, \epsilon \sim N(0,I)" width="208" height="33"> |
 | GAN | <img class="fml" src="/formulas/f908acd606eec7.png" alt="\min_{G} \max_{D} E[\log D(x)]+E[\log(1- D(G(z)))]" width="367" height="33"> |
-| 扩散 | <img class="fml" src="/formulas/9cf03d2e0f1a3c.png" alt="x_{t}=\sqrt{\alpha}_{t}x_{t-1}+\sqrt{1- \alpha_{t}}\epsilon" width="200" height="33">；<img class="fml" src="/formulas/3863ac86f6acc3.png" alt="\bar{\alpha}_{t}=\Pi \alpha_{s}" width="78" height="33"> |
-| 归一化流 | <img class="fml" src="/formulas/68209beeda3205.png" alt="\log p(x)=\log p(z)+\sum \log\vert \det \frac{\partial f}{\partial x}\vert" width="276" height="33"> |
+| 扩散 | <img class="fml" src="/formulas/9cf03d2e0f1a3c.png" alt="x_{t}=\sqrt{\alpha}_{t}x_{t-1}+\sqrt{1- \alpha_{t}}\epsilon" width="201" height="33">；<img class="fml" src="/formulas/3863ac86f6acc3.png" alt="\bar{\alpha}_{t}=\Pi \alpha_{s}" width="79" height="33"> |
+| 归一化流 | <img class="fml" src="/formulas/68209beeda3205.png" alt="\log p(x)=\log p(z)+\sum \log\vert \det \frac{\partial f}{\partial x}\vert" width="278" height="33"> |
 
 ### A.7 常用超参数与复杂度速查
 
 | 模型 | 关键超参数 | 作用方向 | 训练/预测复杂度 |
 | --- | --- | --- | --- |
-| 岭 / Lasso | <img class="fml" src="/formulas/da7676c04d86b3.png" alt="\lambda" width="16" height="33"> | 越大系数越小、偏差升方差降 | <img class="fml" src="/formulas/22a2b4083fd184.png" alt="O(Nd^{2})" width="67" height="33"> / `O(d)` |
-| 逻辑回归 | <img class="fml" src="/formulas/133be3a79354fd.png" alt="C=\frac{1}{\lambda}" width="55" height="33">、类别权重 | C 越大越拟合训练数据 | <img class="fml" src="/formulas/6b3229288b2062.png" alt="O(Nd \cdot iter)" width="102" height="33"> / `O(d)` |
+| 岭 / Lasso | <img class="fml" src="/formulas/da7676c04d86b3.png" alt="\lambda" width="18" height="34"> | 越大系数越小、偏差升方差降 | <img class="fml" src="/formulas/22a2b4083fd184.png" alt="O(Nd^{2})" width="68" height="33"> / `O(d)` |
+| 逻辑回归 | <img class="fml" src="/formulas/133be3a79354fd.png" alt="C=\frac{1}{\lambda}" width="56" height="33">、类别权重 | C 越大越拟合训练数据 | <img class="fml" src="/formulas/6b3229288b2062.png" alt="O(Nd \cdot iter)" width="103" height="33"> / `O(d)` |
 | KNN | `K`、距离度量 | K 小方差大、K 大偏差大 | 训练 `O(1)` / 预测 `O(Nd)` |
-| SVM-RBF | `C`、<img class="fml" src="/formulas/68923f20821012.png" alt="\gamma" width="16" height="33"> | 两者越大边界越复杂 | <img class="fml" src="/formulas/cb79962317dfce.png" alt="O(N^{2})- O(N^{3})" width="131" height="33"> / <img class="fml" src="/formulas/7c5940c00fdb31.png" alt="O(\#SV\cdot d)" width="97" height="33"> |
+| SVM-RBF | `C`、<img class="fml" src="/formulas/68923f20821012.png" alt="\gamma" width="17" height="34"> | 两者越大边界越复杂 | <img class="fml" src="/formulas/cb79962317dfce.png" alt="O(N^{2})- O(N^{3})" width="131" height="34"> / <img class="fml" src="/formulas/7c5940c00fdb31.png" alt="O(\#SV\cdot d)" width="98" height="33"> |
 | 决策树 | `max_depth`、`min_samples_leaf`、剪枝 α | 深/叶少 → 易过拟合 | `O(Nd log N)` / `O(depth)` |
-| 随机森林 | 树数、`max_features` | 树多降方差（收益递减） | <img class="fml" src="/formulas/12ed2deb06baf6.png" alt="O(T \cdot Nd \log N)" width="131" height="33"> / <img class="fml" src="/formulas/ad3241843e903c.png" alt="O(T \cdot depth)" width="103" height="33"> |
-| GBDT/XGBoost | 树数、学习率、<img class="fml" src="/formulas/68923f20821012.png" alt="\gamma" width="16" height="33">、<img class="fml" src="/formulas/da7676c04d86b3.png" alt="\lambda" width="16" height="33">、子采样 | 树多+大学习率易过拟合 | <img class="fml" src="/formulas/7b666fbe478710.png" alt="O(T \cdot Nd \cdot bins)" width="131" height="33"> / <img class="fml" src="/formulas/ad3241843e903c.png" alt="O(T \cdot depth)" width="103" height="33"> |
+| 随机森林 | 树数、`max_features` | 树多降方差（收益递减） | <img class="fml" src="/formulas/12ed2deb06baf6.png" alt="O(T \cdot Nd \log N)" width="132" height="33"> / <img class="fml" src="/formulas/ad3241843e903c.png" alt="O(T \cdot depth)" width="104" height="33"> |
+| GBDT/XGBoost | 树数、学习率、<img class="fml" src="/formulas/68923f20821012.png" alt="\gamma" width="17" height="34">、<img class="fml" src="/formulas/da7676c04d86b3.png" alt="\lambda" width="18" height="34">、子采样 | 树多+大学习率易过拟合 | <img class="fml" src="/formulas/7b666fbe478710.png" alt="O(T \cdot Nd \cdot bins)" width="132" height="33"> / <img class="fml" src="/formulas/ad3241843e903c.png" alt="O(T \cdot depth)" width="104" height="33"> |
 | MLP / CNN | 层数/宽度、η、batch、Dropout p | 容量大/η 大 → 不稳或过拟合 | 前向 `O(参数×样本)` / 同阶 |
-| 自注意力 | `n`、`d_model`、头数 h | n 平方增长主导 | <img class="fml" src="/formulas/ef83f619c2c3a4.png" alt="O(n^{2}d)" width="61" height="33"> / <img class="fml" src="/formulas/ef83f619c2c3a4.png" alt="O(n^{2}d)" width="61" height="33"> |
-| K-means | `K`、初始化次数 | K 大 → J 必不增 | <img class="fml" src="/formulas/1dea3e6d2a18ab.png" alt="O(NKd \cdot iter)" width="118" height="33"> / `O(Kd)` |
-| Q-learning | <img class="fml" src="/formulas/6d3fab0dfb5711.png" alt="\alpha" width="18" height="33">、<img class="fml" src="/formulas/68923f20821012.png" alt="\gamma" width="16" height="33">、<img class="fml" src="/formulas/8d934f9d369698.png" alt="\epsilon" width="13" height="33"> | γ 大远视、ε 大探索 | 表格 `O(|S||A|)` |
+| 自注意力 | `n`、`d_model`、头数 h | n 平方增长主导 | <img class="fml" src="/formulas/ef83f619c2c3a4.png" alt="O(n^{2}d)" width="62" height="33"> / <img class="fml" src="/formulas/ef83f619c2c3a4.png" alt="O(n^{2}d)" width="62" height="33"> |
+| K-means | `K`、初始化次数 | K 大 → J 必不增 | <img class="fml" src="/formulas/1dea3e6d2a18ab.png" alt="O(NKd \cdot iter)" width="120" height="33"> / `O(Kd)` |
+| Q-learning | <img class="fml" src="/formulas/6d3fab0dfb5711.png" alt="\alpha" width="19" height="34">、<img class="fml" src="/formulas/68923f20821012.png" alt="\gamma" width="17" height="34">、<img class="fml" src="/formulas/8d934f9d369698.png" alt="\epsilon" width="14" height="33"> | γ 大远视、ε 大探索 | 表格 `O(|S||A|)` |
 
 ::: tip 补充 · 超参数搜索
 网格搜索（全面但指数增长）→ 随机搜索（高维更高效，因多数超参数不敏感）→ 贝叶斯优化 / Hyperband（用已有试验指导下一次）。所有搜索都只在**训练/验证折**上进行。
@@ -2403,7 +2403,7 @@ print(classification_report(y_te, best.predict(X_te)))
 | 交叉验证 | `cross_val_score(pipe, X, y, cv=StratifiedKFold(5), scoring='f1')` |
 | 网格调参 | `GridSearchCV(pipe, param_grid, cv=5)` → `best_params_` |
 | 评估 | `classification_report`, `confusion_matrix`, `roc_auc_score`, `average_precision_score` |
-| 线性模型 | <img class="fml" src="/formulas/6129aedaff8f07.png" alt="\frac{\frac{\frac{LinearRegression}{Ridge(alpha=)}}{Lasso(alpha=)}}{LogisticRegression(C=)}" width="148" height="52"> |
+| 线性模型 | <img class="fml" src="/formulas/6129aedaff8f07.png" alt="\frac{\frac{\frac{LinearRegression}{Ridge(alpha=)}}{Lasso(alpha=)}}{LogisticRegression(C=)}" width="149" height="53"> |
 | SVM | `SVC(C=, gamma=, kernel='rbf')`, `SVR` |
 | 树与集成 | `DecisionTreeClassifier(max_depth=)`, `RandomForestClassifier(n_estimators=)`, `GradientBoostingClassifier` |
 | 降维聚类 | `PCA(n_components=0.95)`, `KMeans(n_clusters=, n_init=10)`, `GaussianMixture` |
@@ -2411,74 +2411,74 @@ print(classification_report(y_te, best.predict(X_te)))
 | 神经网络 | `torch.nn` / `tensorflow.keras`（课件以公式为主，未涉及框架） |
 
 ::: danger 易错 · API 语义
-sklearn 的 `C` 是**正则系数的倒数**（<img class="fml" src="/formulas/133be3a79354fd.png" alt="C=\frac{1}{\lambda}" width="55" height="33">），C 越大正则越弱——与 SVM 原问题里「C 为惩罚系数」的表述看起来方向相反，实为同一件事的不同写法；<img class="fml" src="/formulas/03648f6bd9daf0.png" alt="Ridge(alpha=\lambda)" width="145" height="33"> 则是 α 越大正则越强。
+sklearn 的 `C` 是**正则系数的倒数**（<img class="fml" src="/formulas/133be3a79354fd.png" alt="C=\frac{1}{\lambda}" width="56" height="33">），C 越大正则越弱——与 SVM 原问题里「C 为惩罚系数」的表述看起来方向相反，实为同一件事的不同写法；<img class="fml" src="/formulas/03648f6bd9daf0.png" alt="Ridge(alpha=\lambda)" width="145" height="33"> 则是 α 越大正则越强。
 :::
 
 ### A.9 典型数值与结论速查
 
 | 常数 / 结论 | 数值 |
 | --- | --- |
-| <img class="fml" src="/formulas/2fb4d9296947e9.png" alt="\sigma(0)" width="40" height="33"> / <img class="fml" src="/formulas/ef00416d52f01b.png" alt="\sigma(2)" width="40" height="33"> / <img class="fml" src="/formulas/31ea22e817497c.png" alt="\sigma(- 1.2)" width="67" height="33"> | `0.5` / `0.8808` / `0.2315` |
+| <img class="fml" src="/formulas/2fb4d9296947e9.png" alt="\sigma(0)" width="41" height="33"> / <img class="fml" src="/formulas/ef00416d52f01b.png" alt="\sigma(2)" width="41" height="33"> / <img class="fml" src="/formulas/31ea22e817497c.png" alt="\sigma(- 1.2)" width="68" height="33"> | `0.5` / `0.8808` / `0.2315` |
 | sigmoid 导数上限 | `0.25` |
 | softmax`(2,1,0.1)` | `(0.6590, 0.2424, 0.0986)` |
-| 交叉熵 <img class="fml" src="/formulas/b151894a9ad23c.png" alt="- \log 0.9" width="72" height="33"> / <img class="fml" src="/formulas/51ef5189775c32.png" alt="- \log 0.8" width="72" height="33"> | `0.1054` / `0.2231` |
+| 交叉熵 <img class="fml" src="/formulas/b151894a9ad23c.png" alt="- \log 0.9" width="73" height="33"> / <img class="fml" src="/formulas/51ef5189775c32.png" alt="- \log 0.8" width="73" height="33"> | `0.1054` / `0.2231` |
 | `H(0.5,0.5)` | `1 bit` |
-| <img class="fml" src="/formulas/a49d7c239052be.png" alt="KL((0.5,0.5) \|(0.9,0.1))" width="192" height="33"> | `0.5108`（反向 `0.3681`，不对称） |
+| <img class="fml" src="/formulas/a49d7c239052be.png" alt="KL((0.5,0.5) \|(0.9,0.1))" width="193" height="33"> | `0.5108`（反向 `0.3681`，不对称） |
 | 混淆矩阵 `TP80/FP20/FN10/TN90` | Acc `0.85`、P `0.80`、R `0.8889`、F1 `0.8421` |
 | 决策树 14 样本例题 | Gain `0.2361`、Gini_index `0.3155`、GR `0.2397` |
-| AdaBoost <img class="fml" src="/formulas/3d17a3f81d217b.png" alt="\epsilon=0.3" width="60" height="33"> | <img class="fml" src="/formulas/c40292f7707c52.png" alt="\alpha \approx 0.4236" width="91" height="33">；错分权重 ×`1.5275`、正确 ×`0.6547` |
-| SVM `w=(1,1)` 间隔 | <img class="fml" src="/formulas/53427e96c82bb1.png" alt="\sqrt{2} \approx 1.4142" width="103" height="33"> |
-| CNN <img class="fml" src="/formulas/826e75c897ce0b.png" alt="32 \times 32" width="64" height="33">, `K=5,S=1,P=0` | 输出 <img class="fml" src="/formulas/e92031dd86d6e7.png" alt="28 \times 28" width="64" height="33">，参数 `156`；池化后 <img class="fml" src="/formulas/fe8bb28adbee3a.png" alt="14 \times 14" width="64" height="33"> |
+| AdaBoost <img class="fml" src="/formulas/3d17a3f81d217b.png" alt="\epsilon=0.3" width="61" height="34"> | <img class="fml" src="/formulas/c40292f7707c52.png" alt="\alpha \approx 0.4236" width="91" height="34">；错分权重 ×`1.5275`、正确 ×`0.6547` |
+| SVM `w=(1,1)` 间隔 | <img class="fml" src="/formulas/53427e96c82bb1.png" alt="\sqrt{2} \approx 1.4142" width="105" height="34"> |
+| CNN <img class="fml" src="/formulas/826e75c897ce0b.png" alt="32 \times 32" width="64" height="34">, `K=5,S=1,P=0` | 输出 <img class="fml" src="/formulas/e92031dd86d6e7.png" alt="28 \times 28" width="65" height="34">，参数 `156`；池化后 <img class="fml" src="/formulas/fe8bb28adbee3a.png" alt="14 \times 14" width="64" height="34"> |
 | 5 层连乘 `0.5` / `2` | `0.03125` / `32` |
-| Q-learning 例题 | 目标 `1.72`、δ `1.22`、<img class="fml" src="/formulas/90e04166aee62b.png" alt="Q \leftarrow 0.622" width="89" height="33"> |
-| 温度缩放 `T=2` | <img class="fml" src="/formulas/40bb38344dda1d.png" alt="(0.7311,0.2689) \to(0.6225,0.3775)" width="276" height="33"> |
-| Adam 默认 | <img class="fml" src="/formulas/8f0383489b3e54.png" alt="\eta=0.001, \beta_{1}=0.9, \beta_{2}=0.999, \epsilon=1e- 8" width="328" height="33"> |
-| PSI 阈值 | `<0.1` 稳定、<img class="fml" src="/formulas/906af34b4b840b.png" alt="0.1- 0.25" width="82" height="33"> 关注、`>0.25` 显著漂移 |
-| XGBoost 例题 | <img class="fml" src="/formulas/6218c93c00e286.png" alt="Gain \approx 2.0667" width="120" height="33">、`w*_L=0.6667`、<img class="fml" src="/formulas/11ab224f673fbe.png" alt="w*_{R}=- 1.0" width="99" height="33"> |
-| 泛化界例题 | <img class="fml" src="/formulas/a419baa5d2553d.png" alt="\vert H\vert =1000,N=100,\delta=0.05" width="239" height="33"> → <img class="fml" src="/formulas/7d4ade14123ca4.png" alt="\approx 0.2302" width="74" height="33"> |
+| Q-learning 例题 | 目标 `1.72`、δ `1.22`、<img class="fml" src="/formulas/90e04166aee62b.png" alt="Q \leftarrow 0.622" width="90" height="34"> |
+| 温度缩放 `T=2` | <img class="fml" src="/formulas/40bb38344dda1d.png" alt="(0.7311,0.2689) \to(0.6225,0.3775)" width="277" height="34"> |
+| Adam 默认 | <img class="fml" src="/formulas/8f0383489b3e54.png" alt="\eta=0.001, \beta_{1}=0.9, \beta_{2}=0.999, \epsilon=1e- 8" width="330" height="33"> |
+| PSI 阈值 | `<0.1` 稳定、<img class="fml" src="/formulas/906af34b4b840b.png" alt="0.1- 0.25" width="83" height="34"> 关注、`>0.25` 显著漂移 |
+| XGBoost 例题 | <img class="fml" src="/formulas/6218c93c00e286.png" alt="Gain \approx 2.0667" width="121" height="34">、`w*_L=0.6667`、<img class="fml" src="/formulas/11ab224f673fbe.png" alt="w*_{R}=- 1.0" width="100" height="34"> |
+| 泛化界例题 | <img class="fml" src="/formulas/a419baa5d2553d.png" alt="\vert H\vert =1000,N=100,\delta=0.05" width="239" height="34"> → <img class="fml" src="/formulas/7d4ade14123ca4.png" alt="\approx 0.2302" width="76" height="34"> |
 
 ### A.10 一页纸复习提纲（每章三条）
 
 | 章 | 三条核心结论 |
 | --- | --- |
-| 1 | 泛化是目标；<img class="fml" src="/formulas/850a135a32fb2a.png" alt="Err=Bias^{2}+\operatorname{Var}+\sigma^{2}" width="193" height="33">；NFL 说明必须按分布选模型 |
-| 2 | 贝叶斯/MLE/MAP 一家亲；交叉熵与 KL 同源；<img class="fml" src="/formulas/a1f28b2252c66a.png" alt="w \leftarrow w- \eta \nabla L" width="119" height="33"> 是所有深度训练的骨架 |
-| 3 | 闭式解 <img class="fml" src="/formulas/97fdb64f781317.png" alt="(X^{T}X)^{-1}X^{T}y" width="115" height="33">；L1 稀疏 L2 收缩；正则等价于加先验 |
+| 1 | 泛化是目标；<img class="fml" src="/formulas/850a135a32fb2a.png" alt="Err=Bias^{2}+\operatorname{Var}+\sigma^{2}" width="193" height="34">；NFL 说明必须按分布选模型 |
+| 2 | 贝叶斯/MLE/MAP 一家亲；交叉熵与 KL 同源；<img class="fml" src="/formulas/a1f28b2252c66a.png" alt="w \leftarrow w- \eta \nabla L" width="120" height="34"> 是所有深度训练的骨架 |
+| 3 | 闭式解 <img class="fml" src="/formulas/97fdb64f781317.png" alt="(X^{T}X)^{-1}X^{T}y" width="116" height="34">；L1 稀疏 L2 收缩；正则等价于加先验 |
 | 4 | 三种建模路线；sigmoid/softmax + 交叉熵；判别式不建 p(x|C) |
 | 5 | 三分数据集；P/R/F1 与 PR-AUC；预处理必须放进 Pipeline |
-| 6 | 最大间隔 <img class="fml" src="/formulas/77bb7ab929183d.png" alt="\frac{2}{\|w\|}" width="32" height="35">；对偶才能用核；Gram 半正定 + KKT 互补松弛 |
+| 6 | 最大间隔 <img class="fml" src="/formulas/77bb7ab929183d.png" alt="\frac{2}{\|w\|}" width="33" height="37">；对偶才能用核；Gram 半正定 + KKT 互补松弛 |
 | 7 | 熵→增益→增益率→基尼；预/后剪枝；Bagging 降方差、Boosting 降偏差 |
 | 8 | 非线性激活不可省；δ 递推是链式法则；ReLU/BN/残差/初始化治梯度问题 |
-| 9 | 卷积局部+共享；尺寸公式 <img class="fml" src="/formulas/e469c86be45cc3.png" alt="⌊\frac{H- K+2P}{S}⌋+1" width="115" height="33">；注意力 <img class="fml" src="/formulas/07f9cebab85a51.png" alt="softmax\left(\frac{QK^{T}}{\sqrt{d}}\right)V" width="150" height="40"> |
+| 9 | 卷积局部+共享；尺寸公式 <img class="fml" src="/formulas/e469c86be45cc3.png" alt="⌊\frac{H- K+2P}{S}⌋+1" width="116" height="33">；注意力 <img class="fml" src="/formulas/07f9cebab85a51.png" alt="softmax\left(\frac{QK^{T}}{\sqrt{d}}\right)V" width="151" height="41"> |
 | 10 | K-means 交替 E/M 且局部最优；EM 似然单调不降；PCA 二阶、ICA 高阶 |
-| 11 | <img class="fml" src="/formulas/32ee9ac8c6ce90.png" alt="G_{t}=\sum \gamma^{k}R" width="103" height="33">；贝尔曼期望/最优；Q-learning off-policy、策略梯度 on-policy |
+| 11 | <img class="fml" src="/formulas/32ee9ac8c6ce90.png" alt="G_{t}=\sum \gamma^{k}R" width="104" height="34">；贝尔曼期望/最优；Q-learning off-policy、策略梯度 on-policy |
 | 12 | ELBO = 重构 − KL；GAN 极小极大；扩散前向固定、反向学习 |
 
 ### A.11 推导索引
 
 | 推导 | 起点 | 关键一步 | 结论 |
 | --- | --- | --- | --- |
-| 偏差-方差分解 | <img class="fml" src="/formulas/385a5e2062053e.png" alt="E[(y- \hat{f})^{2}]" width="93" height="33"> | 插入 `±E f̂` 展开，交叉项为 0 | <img class="fml" src="/formulas/4bd91c3c94f61e.png" alt="Bias^{2}+\operatorname{Var}+\sigma^{2}" width="138" height="33">（仅平方损失） |
-| 泛化界 | Hoeffding + 有限 `\|H\|` | 一致收敛并集界 | <img class="fml" src="/formulas/5ccbe516e71bff.png" alt="\sqrt{\frac{\ln\lVert H\rVert+\ln\left(\frac{2}{\delta}\right)}{2N}}" width="105" height="41"> |
-| 交叉熵 | Bernoulli 似然 | 取负对数 | <img class="fml" src="/formulas/2281ea77ce98ed.png" alt="-[y \log \hat{y}+(1- y)\log(1- \hat{y})]" width="233" height="33"> |
-| 牛顿/IRLS | <img class="fml" src="/formulas/1433cee3387854.png" alt="\nabla L=X^{T}(\hat{y}- y)" width="137" height="33">、<img class="fml" src="/formulas/69973248e7ebc3.png" alt="H=X^{T}RX" width="102" height="33"> | <img class="fml" src="/formulas/480802d15e94d2.png" alt="w \leftarrow w- H^{-1} \nabla L" width="142" height="33"> | 加权最小二乘迭代 |
-| 正规方程 | <img class="fml" src="/formulas/277ad63e72751c.png" alt="\nabla_{w} \frac{1}{2} \| Xw- y \|^{2}=0" width="160" height="33"> | <img class="fml" src="/formulas/584f5cb7ba9e3f.png" alt="X^{T}(Xw- y)=0" width="139" height="33"> | <img class="fml" src="/formulas/15beaf3bb5784e.png" alt="w*=(X^{T}X)^{-1}X^{T}y" width="161" height="33"> |
-| SVM 对偶 | 拉格朗日 <img class="fml" src="/formulas/05499b421ccc63.png" alt="L= \frac{1}{2} \| w \|^{2}- \sum \alpha[yf- 1]" width="207" height="33"> | <img class="fml" src="/formulas/bbdb0f7ee8f1e2.png" alt="\frac{\partial L}{\partial w}=0 \Rightarrow w=\sum \alpha yx" width="177" height="33"> | <img class="fml" src="/formulas/99749a2f4d0071.png" alt="\max \sum \alpha- \frac{1}{2} \sum \alpha \alpha yy k" width="184" height="33"> |
-| KKT 互补 | <img class="fml" src="/formulas/26e55aac0c505c.png" alt="\alpha_{i}(y_{i}f_{i}- 1)=0" width="128" height="33"> | 约束取等才 <img class="fml" src="/formulas/51e56c37d67074.png" alt="\alpha&gt;0" width="50" height="33"> | 支持向量稀疏性 |
-| hinge <img class="fml" src="/formulas/4401ce3296861e.png" alt="\leftrightarrow" width="24" height="33"> 软间隔 | <img class="fml" src="/formulas/9d6f4a468e343a.png" alt="\frac{1}{2} \| w \|^{2}+C\sum \max(0,1- yf)" width="230" height="33"> | 间隔外梯度恒 0 | 稀疏解的来源 |
-| AdaBoost | 指数损失 + 前向分步 | 对 α 求导 <img class="fml" src="/formulas/f54566070eb113.png" alt="-(1- \epsilon)e^{- \alpha}+\epsilon e^{\alpha}=0" width="178" height="33"> | <img class="fml" src="/formulas/e066900b8dc836.png" alt="\alpha= \frac{1}{2} \ln\left(\frac{1- \epsilon}{\epsilon}\right)" width="114" height="33"> |
-| XGBoost | 二阶泰勒 + <img class="fml" src="/formulas/468f5776102453.png" alt="\Omega=\gamma T+ \frac{1}{2} \lambda \| w \|^{2}" width="147" height="33"> | 对叶权重求极值 | <img class="fml" src="/formulas/97da580b152ad2.png" alt="w*=- \frac{G}{H+\lambda}" width="99" height="33"> |
-| 反向传播 | 链式法则 | <img class="fml" src="/formulas/741192d42a091b.png" alt="\delta^{(l)}=(W^{(l+1)})^{T}\delta^{(l+1)}⊙\phi &#x27;" width="203" height="33"> | <img class="fml" src="/formulas/bb1c667eef71ef.png" alt="\frac{\partial L}{\partial W}=\delta(a)^{T}" width="97" height="33"> |
-| 卷积反向 | `y=Cx`（Toeplitz） | <img class="fml" src="/formulas/206fba78b33dc9.png" alt="\frac{\partial L}{\partial x}=\frac{C^{T} \partial L}{\partial y}" width="87" height="35"> | 转置卷积 / 尺寸 <img class="fml" src="/formulas/d711ea983e34e7.png" alt="(H- 1)S- 2P+K" width="162" height="33"> |
-| 注意力 | <img class="fml" src="/formulas/18f23cb83189fa.png" alt="\frac{QK^{T}}{\sqrt{d}_{k}}" width="39" height="38"> | 逐行 softmax | `A V`，<img class="fml" src="/formulas/ef83f619c2c3a4.png" alt="O(n^{2}d)" width="61" height="33"> |
-| PCA 等价性 | <img class="fml" src="/formulas/b1e7524e75d2d4.png" alt="\max w^{T}Sw" width="91" height="33"> ↔  <img class="fml" src="/formulas/510e4c9ae2de61.png" alt="\min \| X- Xww^{T} \|^{2}" width="154" height="33"> | 拉格朗日 <img class="fml" src="/formulas/7c8cf2a2a5ae71.png" alt="Sw=\lambda w" width="79" height="33"> | 前 m 个特征向量 |
+| 偏差-方差分解 | <img class="fml" src="/formulas/385a5e2062053e.png" alt="E[(y- \hat{f})^{2}]" width="94" height="34"> | 插入 `±E f̂` 展开，交叉项为 0 | <img class="fml" src="/formulas/4bd91c3c94f61e.png" alt="Bias^{2}+\operatorname{Var}+\sigma^{2}" width="138" height="34">（仅平方损失） |
+| 泛化界 | Hoeffding + 有限 `\|H\|` | 一致收敛并集界 | <img class="fml" src="/formulas/5ccbe516e71bff.png" alt="\sqrt{\frac{\ln\lVert H\rVert+\ln\left(\frac{2}{\delta}\right)}{2N}}" width="106" height="42"> |
+| 交叉熵 | Bernoulli 似然 | 取负对数 | <img class="fml" src="/formulas/2281ea77ce98ed.png" alt="-[y \log \hat{y}+(1- y)\log(1- \hat{y})]" width="235" height="34"> |
+| 牛顿/IRLS | <img class="fml" src="/formulas/1433cee3387854.png" alt="\nabla L=X^{T}(\hat{y}- y)" width="138" height="33">、<img class="fml" src="/formulas/69973248e7ebc3.png" alt="H=X^{T}RX" width="103" height="34"> | <img class="fml" src="/formulas/480802d15e94d2.png" alt="w \leftarrow w- H^{-1} \nabla L" width="143" height="33"> | 加权最小二乘迭代 |
+| 正规方程 | <img class="fml" src="/formulas/277ad63e72751c.png" alt="\nabla_{w} \frac{1}{2} \| Xw- y \|^{2}=0" width="161" height="34"> | <img class="fml" src="/formulas/584f5cb7ba9e3f.png" alt="X^{T}(Xw- y)=0" width="140" height="34"> | <img class="fml" src="/formulas/15beaf3bb5784e.png" alt="w*=(X^{T}X)^{-1}X^{T}y" width="161" height="33"> |
+| SVM 对偶 | 拉格朗日 <img class="fml" src="/formulas/05499b421ccc63.png" alt="L= \frac{1}{2} \| w \|^{2}- \sum \alpha[yf- 1]" width="208" height="34"> | <img class="fml" src="/formulas/bbdb0f7ee8f1e2.png" alt="\frac{\partial L}{\partial w}=0 \Rightarrow w=\sum \alpha yx" width="178" height="34"> | <img class="fml" src="/formulas/99749a2f4d0071.png" alt="\max \sum \alpha- \frac{1}{2} \sum \alpha \alpha yy k" width="185" height="34"> |
+| KKT 互补 | <img class="fml" src="/formulas/26e55aac0c505c.png" alt="\alpha_{i}(y_{i}f_{i}- 1)=0" width="129" height="34"> | 约束取等才 <img class="fml" src="/formulas/51e56c37d67074.png" alt="\alpha&gt;0" width="52" height="34"> | 支持向量稀疏性 |
+| hinge <img class="fml" src="/formulas/4401ce3296861e.png" alt="\leftrightarrow" width="24" height="34"> 软间隔 | <img class="fml" src="/formulas/9d6f4a468e343a.png" alt="\frac{1}{2} \| w \|^{2}+C\sum \max(0,1- yf)" width="231" height="34"> | 间隔外梯度恒 0 | 稀疏解的来源 |
+| AdaBoost | 指数损失 + 前向分步 | 对 α 求导 <img class="fml" src="/formulas/f54566070eb113.png" alt="-(1- \epsilon)e^{- \alpha}+\epsilon e^{\alpha}=0" width="179" height="34"> | <img class="fml" src="/formulas/e066900b8dc836.png" alt="\alpha= \frac{1}{2} \ln\left(\frac{1- \epsilon}{\epsilon}\right)" width="115" height="34"> |
+| XGBoost | 二阶泰勒 + <img class="fml" src="/formulas/468f5776102453.png" alt="\Omega=\gamma T+ \frac{1}{2} \lambda \| w \|^{2}" width="147" height="34"> | 对叶权重求极值 | <img class="fml" src="/formulas/97da580b152ad2.png" alt="w*=- \frac{G}{H+\lambda}" width="100" height="34"> |
+| 反向传播 | 链式法则 | <img class="fml" src="/formulas/741192d42a091b.png" alt="\delta^{(l)}=(W^{(l+1)})^{T}\delta^{(l+1)}⊙\phi &#x27;" width="204" height="34"> | <img class="fml" src="/formulas/bb1c667eef71ef.png" alt="\frac{\partial L}{\partial W}=\delta(a)^{T}" width="98" height="34"> |
+| 卷积反向 | `y=Cx`（Toeplitz） | <img class="fml" src="/formulas/206fba78b33dc9.png" alt="\frac{\partial L}{\partial x}=\frac{C^{T} \partial L}{\partial y}" width="88" height="36"> | 转置卷积 / 尺寸 <img class="fml" src="/formulas/d711ea983e34e7.png" alt="(H- 1)S- 2P+K" width="163" height="34"> |
+| 注意力 | <img class="fml" src="/formulas/18f23cb83189fa.png" alt="\frac{QK^{T}}{\sqrt{d}_{k}}" width="40" height="39"> | 逐行 softmax | `A V`，<img class="fml" src="/formulas/ef83f619c2c3a4.png" alt="O(n^{2}d)" width="62" height="33"> |
+| PCA 等价性 | <img class="fml" src="/formulas/b1e7524e75d2d4.png" alt="\max w^{T}Sw" width="91" height="34"> ↔  <img class="fml" src="/formulas/510e4c9ae2de61.png" alt="\min \| X- Xww^{T} \|^{2}" width="156" height="34"> | 拉格朗日 <img class="fml" src="/formulas/7c8cf2a2a5ae71.png" alt="Sw=\lambda w" width="79" height="33"> | 前 m 个特征向量 |
 | EM / ELBO | Jensen 不等式 | `q=p(z\|x)` 时界取等 | 似然单调不降 |
 | 值迭代 | 贝尔曼最优算子 | γ-压缩映射 | 唯一不动点 `V*` |
-| 策略梯度 | log-derivative trick | 减只依赖 s 的基线 | <img class="fml" src="/formulas/863005fa0fded8.png" alt="\nabla J=E[ \nabla \log \pi \cdot A]" width="161" height="33"> |
-| VAE ELBO | <img class="fml" src="/formulas/eee048dc4b7061.png" alt="\log E_{q}[\frac{p(x\|z)p(z)}{q}]" width="125" height="35"> | Jensen | 重构项 − KL |
-| GAN 最优 D | 对 `D(x)` 逐点求导 | <img class="fml" src="/formulas/45f019cd22b508.png" alt="\frac{p_{data}}{D}=\frac{p_{g}}{1- D}" width="90" height="33"> | <img class="fml" src="/formulas/fca176beec9f49.png" alt="D*=\frac{p_{data}}{p_{data}+p_{g}}" width="104" height="36">，<img class="fml" src="/formulas/40533f10686c6e.png" alt="2JS- 2\log 2" width="107" height="33"> |
-| 扩散前向 | 高斯可加性 | <img class="fml" src="/formulas/3863ac86f6acc3.png" alt="\bar{\alpha}_{t}=\Pi \alpha_{s}" width="78" height="33"> | <img class="fml" src="/formulas/094d70caab09cc.png" alt="x_{t}=\sqrt{\bar{\alpha}_{t}}x_{0}+\sqrt{1- \bar{\alpha}_{t}}\epsilon" width="186" height="33"> |
-| 归一化流 | 变量变换 | 三角 Jacobian | <img class="fml" src="/formulas/6060f863b97964.png" alt="\log p_{X}=\log p_{Z}+\sum s" width="174" height="33"> |
+| 策略梯度 | log-derivative trick | 减只依赖 s 的基线 | <img class="fml" src="/formulas/863005fa0fded8.png" alt="\nabla J=E[ \nabla \log \pi \cdot A]" width="162" height="34"> |
+| VAE ELBO | <img class="fml" src="/formulas/eee048dc4b7061.png" alt="\log E_{q}[\frac{p(x\|z)p(z)}{q}]" width="126" height="36"> | Jensen | 重构项 − KL |
+| GAN 最优 D | 对 `D(x)` 逐点求导 | <img class="fml" src="/formulas/45f019cd22b508.png" alt="\frac{p_{data}}{D}=\frac{p_{g}}{1- D}" width="90" height="34"> | <img class="fml" src="/formulas/fca176beec9f49.png" alt="D*=\frac{p_{data}}{p_{data}+p_{g}}" width="105" height="37">，<img class="fml" src="/formulas/40533f10686c6e.png" alt="2JS- 2\log 2" width="109" height="34"> |
+| 扩散前向 | 高斯可加性 | <img class="fml" src="/formulas/3863ac86f6acc3.png" alt="\bar{\alpha}_{t}=\Pi \alpha_{s}" width="79" height="33"> | <img class="fml" src="/formulas/094d70caab09cc.png" alt="x_{t}=\sqrt{\bar{\alpha}_{t}}x_{0}+\sqrt{1- \bar{\alpha}_{t}}\epsilon" width="187" height="34"> |
+| 归一化流 | 变量变换 | 三角 Jacobian | <img class="fml" src="/formulas/6060f863b97964.png" alt="\log p_{X}=\log p_{Z}+\sum s" width="175" height="34"> |
 
 ### A.12 常用符号与矩阵维度速查
 
@@ -2487,18 +2487,18 @@ sklearn 的 `C` 是**正则系数的倒数**（<img class="fml" src="/formulas/1
 | `N` | 样本数 | 标量 |
 | `d` | 特征维度 | 标量 |
 | `K` | 类别数 / 簇数 | 标量 |
-| `X` | 设计矩阵（含常数列） | <img class="fml" src="/formulas/5bffe4fbfc5fe2.png" alt="N \times(d+1)" width="98" height="33"> |
-| `y` | 标签向量 | `N` 或 <img class="fml" src="/formulas/185232547ba7c1.png" alt="N \times K" width="61" height="33">（one-hot） |
-| `W^{(l)}` | 第 l 层权重 | <img class="fml" src="/formulas/3ce0bc19ee726e.png" alt="d_{l} \times d_{l- 1}" width="72" height="33"> |
-| <img class="fml" src="/formulas/8eb15a4119f749.png" alt="\delta^{(l)}" width="29" height="33"> | 第 l 层误差 | <img class="fml" src="/formulas/8c123ed2da2fce.png" alt="d_{l} \times batch" width="84" height="33"> |
-| `K` / Gram | 核矩阵 | <img class="fml" src="/formulas/795868e02fc4c8.png" alt="N \times N" width="60" height="33"> |
-| `Q, K, V` | 注意力查询/键/值 | <img class="fml" src="/formulas/06b80142d4a2e1.png" alt="n \times d_{k}" width="56" height="33"> / <img class="fml" src="/formulas/06b80142d4a2e1.png" alt="n \times d_{k}" width="56" height="33"> / <img class="fml" src="/formulas/b20b605cee4bad.png" alt="n \times d_{v}" width="55" height="33"> |
-| `A` | 注意力权重 | <img class="fml" src="/formulas/02d200553610ec.png" alt="n \times n" width="49" height="33">（每行和为 1） |
-| <img class="fml" src="/formulas/68923f20821012.png" alt="\gamma" width="16" height="33"> | 折扣因子 / BN 缩放 | 标量 / `d_l` |
-| <img class="fml" src="/formulas/6d3fab0dfb5711.png" alt="\alpha" width="18" height="33"> | 学习率 / 对偶变量 / AdaBoost 权重 | 视上下文区分 |
+| `X` | 设计矩阵（含常数列） | <img class="fml" src="/formulas/5bffe4fbfc5fe2.png" alt="N \times(d+1)" width="99" height="34"> |
+| `y` | 标签向量 | `N` 或 <img class="fml" src="/formulas/185232547ba7c1.png" alt="N \times K" width="61" height="34">（one-hot） |
+| `W^{(l)}` | 第 l 层权重 | <img class="fml" src="/formulas/3ce0bc19ee726e.png" alt="d_{l} \times d_{l- 1}" width="73" height="34"> |
+| <img class="fml" src="/formulas/8eb15a4119f749.png" alt="\delta^{(l)}" width="30" height="34"> | 第 l 层误差 | <img class="fml" src="/formulas/8c123ed2da2fce.png" alt="d_{l} \times batch" width="84" height="34"> |
+| `K` / Gram | 核矩阵 | <img class="fml" src="/formulas/795868e02fc4c8.png" alt="N \times N" width="62" height="34"> |
+| `Q, K, V` | 注意力查询/键/值 | <img class="fml" src="/formulas/06b80142d4a2e1.png" alt="n \times d_{k}" width="57" height="34"> / <img class="fml" src="/formulas/06b80142d4a2e1.png" alt="n \times d_{k}" width="57" height="34"> / <img class="fml" src="/formulas/b20b605cee4bad.png" alt="n \times d_{v}" width="56" height="34"> |
+| `A` | 注意力权重 | <img class="fml" src="/formulas/02d200553610ec.png" alt="n \times n" width="50" height="34">（每行和为 1） |
+| <img class="fml" src="/formulas/68923f20821012.png" alt="\gamma" width="17" height="34"> | 折扣因子 / BN 缩放 | 标量 / `d_l` |
+| <img class="fml" src="/formulas/6d3fab0dfb5711.png" alt="\alpha" width="19" height="34"> | 学习率 / 对偶变量 / AdaBoost 权重 | 视上下文区分 |
 
 ::: danger 易错 · 记号歧义
-同一个希腊字母在不同章含义完全不同：<img class="fml" src="/formulas/6d3fab0dfb5711.png" alt="\alpha" width="18" height="33"> 在学习率是步长、在 SVM 对偶是拉格朗日乘子、在 AdaBoost 是分类器权重、在扩散是噪声调度系数；`K` 既是类别数/簇数也是核矩阵；<img class="fml" src="/formulas/68923f20821012.png" alt="\gamma" width="16" height="33"> 既是折扣因子、RBF 参数，也是 BN 缩放与 XGBoost 分裂门槛。**答题前先确认所在章节的记号定义。**
+同一个希腊字母在不同章含义完全不同：<img class="fml" src="/formulas/6d3fab0dfb5711.png" alt="\alpha" width="19" height="34"> 在学习率是步长、在 SVM 对偶是拉格朗日乘子、在 AdaBoost 是分类器权重、在扩散是噪声调度系数；`K` 既是类别数/簇数也是核矩阵；<img class="fml" src="/formulas/68923f20821012.png" alt="\gamma" width="17" height="34"> 既是折扣因子、RBF 参数，也是 BN 缩放与 XGBoost 分裂门槛。**答题前先确认所在章节的记号定义。**
 :::
 
 ### A.13 十二章自测清单
@@ -2506,7 +2506,7 @@ sklearn 的 `C` 是**正则系数的倒数**（<img class="fml" src="/formulas/1
 | 章 | 合上笔记应能回答 |
 | --- | --- |
 | 1 | 偏差-方差三项是什么？Bagging/Boosting 各降什么？NFL 说明什么？ |
-| 2 | 写出贝叶斯公式与 <img class="fml" src="/formulas/a1f28b2252c66a.png" alt="w \leftarrow w- \eta \nabla L" width="119" height="33">；MLE 方差为何有偏？KL 为何非对称？ |
+| 2 | 写出贝叶斯公式与 <img class="fml" src="/formulas/a1f28b2252c66a.png" alt="w \leftarrow w- \eta \nabla L" width="120" height="34">；MLE 方差为何有偏？KL 为何非对称？ |
 | 3 | 推导 <img class="fml" src="/formulas/15beaf3bb5784e.png" alt="w*=(X^{T}X)^{-1}X^{T}y" width="161" height="33">；L1 与 L2 的解有何不同？ |
 | 4 | 逻辑回归的损失函数与梯度？判别式与生成式差别？ |
 | 5 | 由混淆矩阵算出 P/R/F1/AUC；说出三种数据泄露情形 |
@@ -2528,10 +2528,10 @@ sklearn 的 `C` 是**正则系数的倒数**（<img class="fml" src="/formulas/1
 4. 监督/无监督的区分在**是否有标签**，半监督、自监督、迁移学习不属于这三类中的任何一类。
 5. 强化学习的反馈是延迟奖励，不是逐样本标签；目标是累计回报而非单步奖励。
 6. 数据中发现的规律不等于因果规律，也不等于可迁移到分布变化后的场景。
-7. 假设空间太小欠拟合、太大易过拟合；正则项 <img class="fml" src="/formulas/69469b852d4191.png" alt="\Omega(f)" width="43" height="33"> 体现偏好简单模型的归纳偏好。
+7. 假设空间太小欠拟合、太大易过拟合；正则项 <img class="fml" src="/formulas/69469b852d4191.png" alt="\Omega(f)" width="44" height="34"> 体现偏好简单模型的归纳偏好。
 8. 经验风险可算、期望风险不可算；二者差距随假设空间增大、样本减少而变大。
 9. 偏差是系统性偏离真值，不是「模型有偏见」；方差是对训练集扰动的敏感度。
-10. <img class="fml" src="/formulas/4e4f6088aef602.png" alt="Err= Bias^{2}+ \operatorname{Var}+ \sigma^{2}" width="193" height="33"> 中的噪声项 <img class="fml" src="/formulas/e58684f3085369.png" alt="\sigma^{2}" width="24" height="33"> 无法通过任何模型消除。
+10. <img class="fml" src="/formulas/4e4f6088aef602.png" alt="Err= Bias^{2}+ \operatorname{Var}+ \sigma^{2}" width="194" height="33"> 中的噪声项 <img class="fml" src="/formulas/e58684f3085369.png" alt="\sigma^{2}" width="25" height="34"> 无法通过任何模型消除。
 11. Bagging 主降方差、Boosting 主降偏差；深树配 Bagging、浅树配 Boosting。
 12. 高斯分布 MLE 的方差除以 N（有偏），无偏样本方差才除以 N−1。
 13. 似然 <img class="fml" src="/formulas/1a4d32e3b994d7.png" alt="p(D\mid\theta)" width="68" height="33"> 是 θ 的函数，不是 θ 的概率密度；MLE 给点估计、贝叶斯给分布。
@@ -2560,9 +2560,9 @@ sklearn 的 `C` 是**正则系数的倒数**（<img class="fml" src="/formulas/1
 36. 时序数据必须按时间前向切分，随机 K 折会用未来信息预测过去。
 37. 归一化（改特征尺度）与正则化（目标函数加惩罚）是完全不同的两件事。
 38. 参数由训练得到（w、b），超参数由人设或交叉验证选（λ、K、η）。
-39. SVM 最大化间隔等价于最小化 <img class="fml" src="/formulas/8027d61e62922f.png" alt="\frac{1}{2} \| w \|^{2}" width="55" height="33">，几何间隔 <img class="fml" src="/formulas/fd005ab41bcecc.png" alt="\gamma=\frac{2}{\|w\|}" width="66" height="35">。
-40. 只有 <img class="fml" src="/formulas/9869d15c39d1b3.png" alt="\alpha_{i}&gt;0" width="55" height="33"> 的支持向量决定解；软间隔中 <img class="fml" src="/formulas/c1fd244ae11ff0.png" alt="\alpha_{i}=C" width="60" height="33"> 的错分点也算支持向量。
-41. 对偶问题才能把 <img class="fml" src="/formulas/2fb52f5170ce5c.png" alt="x_{i}^{T}x_{j}" width="43" height="33"> 换成核函数；核必须使 Gram 矩阵半正定。
+39. SVM 最大化间隔等价于最小化 <img class="fml" src="/formulas/8027d61e62922f.png" alt="\frac{1}{2} \| w \|^{2}" width="56" height="34">，几何间隔 <img class="fml" src="/formulas/fd005ab41bcecc.png" alt="\gamma=\frac{2}{\|w\|}" width="67" height="36">。
+40. 只有 <img class="fml" src="/formulas/9869d15c39d1b3.png" alt="\alpha_{i}&gt;0" width="57" height="33"> 的支持向量决定解；软间隔中 <img class="fml" src="/formulas/c1fd244ae11ff0.png" alt="\alpha_{i}=C" width="61" height="33"> 的错分点也算支持向量。
+41. 对偶问题才能把 <img class="fml" src="/formulas/2fb52f5170ce5c.png" alt="x_{i}^{T}x_{j}" width="44" height="34"> 换成核函数；核必须使 Gram 矩阵半正定。
 42. Sigmoid 型核在部分参数下不满足 Mercer 条件，不是合法核。
 43. `C` 越大越不容忍误分类、间隔越窄、越易过拟合；RBF 的 γ 越大边界越曲折。
 44. SVM 输出不是概率（需 Platt 校准），对特征缩放与缺失值都敏感。
@@ -2572,7 +2572,7 @@ sklearn 的 `C` 是**正则系数的倒数**（<img class="fml" src="/formulas/1
 48. 预剪枝快但易欠拟合；后剪枝更可靠但计算开销大。
 49. 决策树不稳定（数据微扰结构大变）、决策边界轴平行，这是集成学习要解决的。
 50. 随机森林比 Bagging 多一层「随机选特征」去相关；可用 OOB 估计泛化误差。
-51. AdaBoost 的 <img class="fml" src="/formulas/bcc15622dc22e5.png" alt="\epsilon_{t}" width="19" height="33"> 必须 `<0.5`；<img class="fml" src="/formulas/080b5256157cfa.png" alt="\epsilon_{t}=0.5" width="65" height="33"> 时 <img class="fml" src="/formulas/3acd2966a871c3.png" alt="\alpha_{t}=0" width="56" height="33">，该轮无贡献。
+51. AdaBoost 的 <img class="fml" src="/formulas/bcc15622dc22e5.png" alt="\epsilon_{t}" width="19" height="34"> 必须 `<0.5`；<img class="fml" src="/formulas/080b5256157cfa.png" alt="\epsilon_{t}=0.5" width="66" height="33"> 时 <img class="fml" src="/formulas/3acd2966a871c3.png" alt="\alpha_{t}=0" width="56" height="33">，该轮无贡献。
 52. Boosting 对噪声/异常值敏感（错分样本被不断放大），且不能并行训练。
 53. 若所有层都用线性激活，多层网络等价于单层线性回归。
 54. Sigmoid 导数最大仅 0.25，是深层梯度消失的历史主因。
@@ -2590,22 +2590,22 @@ sklearn 的 `C` 是**正则系数的倒数**（<img class="fml" src="/formulas/1
 66. RNN 不能并行（依赖上一步隐状态），Transformer 可并行但复杂度 <img class="fml" src="/formulas/10999089d04da9.png" alt="O(n^{2})" width="52" height="33">。
 67. 自注意力不含顺序信息，必须补位置编码；解码器须加因果掩码防看到未来词。
 68. 多头注意力不是模型集成，而是让不同子空间关注不同关系。
-69. 注意力除以 <img class="fml" src="/formulas/aabf7bf67df75e.png" alt="\sqrt{d}_{k}" width="38" height="33"> 是为防止高维点积把 softmax 推入饱和区。
+69. 注意力除以 <img class="fml" src="/formulas/aabf7bf67df75e.png" alt="\sqrt{d}_{k}" width="39" height="34"> 是为防止高维点积把 softmax 推入饱和区。
 70. 自编码器把无监督重构转化为一种监督学习；瓶颈维小于输入维时近似非线性 PCA。
 71. K-means 须预设 K、对初值与异常值敏感，且只收敛到局部极小。
 72. K-means 假设球形且大小相近的簇；非凸形状应用 DBSCAN / 谱聚类。
 73. 聚类无标签，不能用准确率评价；用轮廓系数或业务可解释性。
-74. K-means 是 GMM 在协方差 <img class="fml" src="/formulas/335d74befef6ec.png" alt="\sigma^{2}I \to 0" width="70" height="33"> 时的硬分配极限，EM 是软分配。
+74. K-means 是 GMM 在协方差 <img class="fml" src="/formulas/335d74befef6ec.png" alt="\sigma^{2}I \to 0" width="71" height="34"> 时的硬分配极限，EM 是软分配。
 75. EM 只保证似然单调不降并收敛到局部极大，初值敏感、协方差需正则。
 76. PCA 无监督最大化方差，LDA 有监督最大化类间/类内比，二者目标完全不同。
 77. PCA 需标准化、成分互不相关但不保证独立；ICA 利用高阶统计量求独立分量。
-78. 折扣因子 γ 小则短视、大则远视；持续性任务必须 <img class="fml" src="/formulas/26c2b78ac885c6.png" alt="\gamma&lt;1" width="49" height="33"> 保证回报有界。
+78. 折扣因子 γ 小则短视、大则远视；持续性任务必须 <img class="fml" src="/formulas/26c2b78ac885c6.png" alt="\gamma&lt;1" width="50" height="34"> 保证回报有界。
 79. 值函数 V 度量状态好坏，动作值 Q 度量「状态下某动作」好坏，二者由策略联系。
-80. Q-learning 是 off-policy（用 <img class="fml" src="/formulas/da4f4e7edc93b4.png" alt="\max_{a}&#x27;Q" width="64" height="33">），SARSA 是 on-policy（用实际下个动作）。
+80. Q-learning 是 off-policy（用 <img class="fml" src="/formulas/da4f4e7edc93b4.png" alt="\max_{a}&#x27;Q" width="65" height="34">），SARSA 是 on-policy（用实际下个动作）。
 81. Q-learning 的 TD 目标含「当前估计」故称自举；MC 需完整回合、方差大但无偏。
 82. 值函数逼近的更新是「步长 × 预测误差 × 特征向量」，不是直接拟合回报。
 83. 策略梯度是 on-policy；REINFORCE 方差大，Actor-Critic / PPO 用于降方差与稳更新。
-84. VAE 优化的是**似然下界 ELBO**，不是精确似然；KL 项方向固定为 <img class="fml" src="/formulas/47c5209ff696d6.png" alt="q \| p" width="33" height="33">。
+84. VAE 优化的是**似然下界 ELBO**，不是精确似然；KL 项方向固定为 <img class="fml" src="/formulas/47c5209ff696d6.png" alt="q \| p" width="34" height="34">。
 85. 重参数技巧把随机性移到无参数噪声，是 VAE 可反向传播的关键。
 86. GAN 无显式似然、训练易模式崩塌；WGAN 用 Wasserstein 距离改善梯度。
 87. 扩散的「前向加噪」固定且无参数，只有「反向去噪网络」需要学习。
@@ -2616,20 +2616,20 @@ sklearn 的 `C` 是**正则系数的倒数**（<img class="fml" src="/formulas/1
 92. 任何「模型提升」都要在独立测试集上验证，并报告指标方差与置信区间。
 93. 偏差-方差可加分解只在**平方损失**下严格成立，对 0-1 损失或交叉熵不成立。
 94. 值迭代每轮只做一步贝尔曼最优更新；策略迭代的「评估」必须跑到收敛，二者不可混写。
-95. <img class="fml" src="/formulas/26c2b78ac885c6.png" alt="\gamma&lt;1" width="49" height="33"> 使贝尔曼最优算子成为压缩映射，值迭代从任意初值收敛到唯一 V*；γ 越小收敛越快但越短视。
+95. <img class="fml" src="/formulas/26c2b78ac885c6.png" alt="\gamma&lt;1" width="50" height="34"> 使贝尔曼最优算子成为压缩映射，值迭代从任意初值收敛到唯一 V*；γ 越小收敛越快但越短视。
 96. TD 目标含对下一状态的**估计**（自举）故有偏、方差小；MC 用实际回报故无偏、方差大。
-97. DQN 的目标网络 <img class="fml" src="/formulas/23f92f51fffd56.png" alt="w^{-}" width="30" height="33"> 不参与梯度回传，只周期性复制；把它当可训练参数会让 TD 目标漂移。
+97. DQN 的目标网络 <img class="fml" src="/formulas/23f92f51fffd56.png" alt="w^{-}" width="31" height="33"> 不参与梯度回传，只周期性复制；把它当可训练参数会让 TD 目标漂移。
 98. Double DQN 解决的是 `max` 带来的系统性**过高估计**，不是梯度消失。
 99. 策略梯度的基线只能依赖状态 s；若依赖动作会引入偏差并改变期望。
 100. PPO 裁剪的是新旧策略**概率比**，不是梯度范数；同批数据可多轮小批量更新。
 101. DQN 无法直接处理连续动作（无法对连续 a 取 max），这正是 DDPG/TD3/SAC 存在的原因。
-102. VAE 的 ELBO 中 KL 方向固定为 <img class="fml" src="/formulas/2543e40938a0ff.png" alt="q_\phi(z|x) \| p(z)" width="101" height="33">；交换成 <img class="fml" src="/formulas/69d5d60063d311.png" alt="p \| q" width="33" height="33"> 会变成另一类目标（前向 KL 偏质量覆盖）。
-103. 后验坍缩时 <img class="fml" src="/formulas/3e3ecb615a68fb.png" alt="q_\phi(z|x)=p(z)" width="116" height="33">（KL=0），解码器完全忽略隐变量；可用 KL 退火、<img class="fml" src="/formulas/501dd4b81c291b.png" alt="\beta-VAE" width="81" height="33">、free-bits 缓解。
-104. GAN 的最优判别器为 <img class="fml" src="/formulas/fca176beec9f49.png" alt="D*=\frac{p_{data}}{p_{data}+p_{g}}" width="104" height="36">，代回目标得 <img class="fml" src="/formulas/40533f10686c6e.png" alt="2JS- 2\log 2" width="107" height="33">，最优值约 <img class="fml" src="/formulas/6f6b58e2ea973f.png" alt="- 1.3863" width="69" height="33">。
+102. VAE 的 ELBO 中 KL 方向固定为 <img class="fml" src="/formulas/2543e40938a0ff.png" alt="q_\phi(z|x) \| p(z)" width="102" height="34">；交换成 <img class="fml" src="/formulas/69d5d60063d311.png" alt="p \| q" width="34" height="34"> 会变成另一类目标（前向 KL 偏质量覆盖）。
+103. 后验坍缩时 <img class="fml" src="/formulas/3e3ecb615a68fb.png" alt="q_\phi(z|x)=p(z)" width="117" height="34">（KL=0），解码器完全忽略隐变量；可用 KL 退火、<img class="fml" src="/formulas/501dd4b81c291b.png" alt="\beta-VAE" width="81" height="34">、free-bits 缓解。
+104. GAN 的最优判别器为 <img class="fml" src="/formulas/fca176beec9f49.png" alt="D*=\frac{p_{data}}{p_{data}+p_{g}}" width="105" height="37">，代回目标得 <img class="fml" src="/formulas/40533f10686c6e.png" alt="2JS- 2\log 2" width="109" height="34">，最优值约 <img class="fml" src="/formulas/6f6b58e2ea973f.png" alt="- 1.3863" width="71" height="34">。
 105. 当两分布支撑集不重叠时 JS 恒为 log2、生成器梯度消失；WGAN 用 Wasserstein 距离提供平滑梯度。
 106. 扩散的前向加噪固定无参数、反向去噪才需学习；DDPM 采样需多步迭代，DDIM 可跳步加速。
 107. 归一化流要求变换双射，故隐变量 z 与 x **维度相同**，不能像 VAE 那样任意降维。
-108. 耦合层因 Jacobian 三角，<img class="fml" src="/formulas/14c7d260784c15.png" alt="\log|\det J|=\sum s" width="138" height="33">，无需计算一般行列式；逆变换也是解析的。
+108. 耦合层因 Jacobian 三角，<img class="fml" src="/formulas/14c7d260784c15.png" alt="\log|\det J|=\sum s" width="139" height="34">，无需计算一般行列式；逆变换也是解析的。
 109. 转置卷积不是卷积的数学逆，只是梯度回传形式 / 可学习上采样；步长大于 1 易出现棋盘格伪影。
 110. 归一化流虽能算精确似然，但似然高不等于生成质量更好；FID 比较必须在相同样本量与特征提取器协议下进行。
 

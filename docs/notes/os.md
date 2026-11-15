@@ -67,7 +67,7 @@ summary: "计算机操作系统 精要笔记，共 12 章：操作系统引论�
 :::
 
 ::: tip 工作示例 · 多道程序如何提升利用率
-单道：作业先算 <img class="fml" src="/formulas/99d8ad667a1382.png" alt="50\,\mathrm{ms}" width="49" height="33"> 再 I/O <img class="fml" src="/formulas/99d8ad667a1382.png" alt="50\,\mathrm{ms}" width="49" height="33">，周期 <img class="fml" src="/formulas/0e38673ea9944c.png" alt="=100\,\mathrm{ms}" width="77" height="33">，CPU 利用率 <img class="fml" src="/formulas/bf4a18264af68d.png" alt="50\%" width="39" height="33">。
+单道：作业先算 <img class="fml" src="/formulas/99d8ad667a1382.png" alt="50\,\mathrm{ms}" width="50" height="34"> 再 I/O <img class="fml" src="/formulas/99d8ad667a1382.png" alt="50\,\mathrm{ms}" width="50" height="34">，周期 <img class="fml" src="/formulas/0e38673ea9944c.png" alt="=100\,\mathrm{ms}" width="77" height="34">，CPU 利用率 <img class="fml" src="/formulas/bf4a18264af68d.png" alt="50\%" width="40" height="34">。
 两道并发（A 计算时 B 可 I/O，I/O 与 CPU 由通道/控制器并行）：理想情况下 CPU 几乎不空转，利用率接近 100%，吞吐从 10 作业/秒提升到约 20 作业/秒。这正是引入多道程序设计的根本动因；但每个作业的**周转时间**会变长（要排队、要被切换）。
 :::
 
@@ -156,7 +156,7 @@ summary: "计算机操作系统 精要笔记，共 12 章：操作系统引论�
 
 ### 2.1 前趋图与程序执行（★★）
 
-前趋图（DAG）中 <img class="fml" src="/formulas/857ed6e66a4501.png" alt="Pi \to Pj" width="76" height="33"> 表示 Pj 只能在 Pi 完成后开始；无前趋的结点称初始结点，无后继的称终止结点，结点可带权（程序段执行时间）。
+前趋图（DAG）中 <img class="fml" src="/formulas/857ed6e66a4501.png" alt="Pi \to Pj" width="77" height="34"> 表示 Pj 只能在 Pi 完成后开始；无前趋的结点称初始结点，无后继的称终止结点，结点可带权（程序段执行时间）。
 
 | | 顺序执行 | 并发执行 |
 | --- | --- | --- |
@@ -166,7 +166,7 @@ summary: "计算机操作系统 精要笔记，共 12 章：操作系统引论�
 ::: tip 工作示例 · 不可再现性
 两个并发进程共享变量 `n`（初值 5）：`P1: n++`，`P2: printf(n); n=0;`。若 P1 先执行完则输出 5；若 P2 先执行 `printf` 再被抢占、P1 加 1，随后 P2 执行 `n=0`，最终 n=0 而输出 5；若 P2 完整执行再 P1 执行，输出 5 且 n=1。**同样的输入得到不同结果**即为失去可再现性，必须引入进程同步（第 4 章）。
 :::
-「前趋图」常与「Bernstein 条件」一起考：两程序段可并发的条件是 <img class="fml" src="/formulas/d5d72e55d03453.png" alt="R(P1) \cap W(P2) \cup R(P2) \cap W(P1) \cup W(P1) \cap W(P2)= ∅" width="463" height="33">（读集与写集互不相交）。
+「前趋图」常与「Bernstein 条件」一起考：两程序段可并发的条件是 <img class="fml" src="/formulas/d5d72e55d03453.png" alt="R(P1) \cap W(P2) \cup R(P2) \cap W(P1) \cup W(P1) \cap W(P2)= ∅" width="464" height="34">（读集与写集互不相交）。
 
 ### 2.2 进程定义、特征与 PCB（★★★）
 
@@ -314,7 +314,7 @@ int main(void) {
 
 ::: danger 易错 · 周转时间与带权周转
 - 周转时间**含**运行时间、就绪等待、阻塞等待（若题目给的是纯 CPU 作业则只含运行 + 就绪等待）；**等待时间不含运行时间**。
-- <img class="fml" src="/formulas/1f4debc37ff332.png" alt="W= \frac{T}{Ts}" width="68" height="33"> 恒 <img class="fml" src="/formulas/e0b29b7732eef1.png" alt="\ge 1" width="34" height="33">，最小 1 表示"一来就一直跑到完"。SJF 可使平均 `T`、平均 `W` 最小，但长作业会饥饿。
+- <img class="fml" src="/formulas/1f4debc37ff332.png" alt="W= \frac{T}{Ts}" width="70" height="34"> 恒 <img class="fml" src="/formulas/e0b29b7732eef1.png" alt="\ge 1" width="34" height="34">，最小 1 表示"一来就一直跑到完"。SJF 可使平均 `T`、平均 `W` 最小，但长作业会饥饿。
 - 「响应比」`R = (等待时间 + 服务时间)/服务时间 = 1 + 等待/服务`，与带权周转形式相似但用途不同：**响应比用于调度决策（选谁上 CPU），带权周转用于事后评价**。
 :::
 
@@ -351,7 +351,7 @@ int main(void) {
 | E | 8 | 2 | 20 | 12 | **6.00** |
 | **平均** | | | | **8.60** | **2.56** |
 
-**② SJF（非抢占）**：`t=0` 只有 <img class="fml" src="/formulas/ce40e123e88080.png" alt="A \to A(0-3)" width="114" height="33">；`t=3` 只有 <img class="fml" src="/formulas/b75eb508a2484b.png" alt="B \to B(3-9)" width="116" height="33">；`t=9` 时 C/D/E 均已到达，按服务时间选 <img class="fml" src="/formulas/ae81ae08cca31f.png" alt="E(2) \to E(9-11)" width="148" height="33">，再 C(11-15)，再 D(15-20)。
+**② SJF（非抢占）**：`t=0` 只有 <img class="fml" src="/formulas/ce40e123e88080.png" alt="A \to A(0-3)" width="116" height="34">；`t=3` 只有 <img class="fml" src="/formulas/b75eb508a2484b.png" alt="B \to B(3-9)" width="117" height="34">；`t=9` 时 C/D/E 均已到达，按服务时间选 <img class="fml" src="/formulas/ae81ae08cca31f.png" alt="E(2) \to E(9-11)" width="148" height="34">，再 C(11-15)，再 D(15-20)。
 
 | 进程 | 完成 | 周转 T | 带权 W |
 | --- | --- | --- | --- |
@@ -363,9 +363,9 @@ int main(void) {
 | **平均** | | **7.60** | **1.84** |
 
 **③ HRRN**：`t=9` 时算响应比 `R=1+等待/服务`：
-<img class="fml" src="/formulas/951fa80701199f.png" alt="R_{C}= \frac{5+4}{4}= 2.25" width="136" height="33">，<img class="fml" src="/formulas/d10910739003c6.png" alt="R_{D}= \frac{3+5}{5}= 1.60" width="137" height="33">，<img class="fml" src="/formulas/ec9559a9a5de86.png" alt="R_{E}= \frac{1+2}{2}= 1.50" width="136" height="33"> → **选 C**（9-13）。
-`t=13`：<img class="fml" src="/formulas/5064e563dda28b.png" alt="R_{D}= \frac{7+5}{5}= 2.40" width="137" height="33">，<img class="fml" src="/formulas/57783dc7de0a05.png" alt="R_{E}= \frac{5+2}{2}= 3.50" width="136" height="33"> → **选 E**（13-15）→ D（15-20）。
-平均周转 <img class="fml" src="/formulas/c3458af68a90eb.png" alt="= \frac{3+ 7+ 9+ 7+ 14}{5}= 8.00" width="161" height="33">，平均带权 `2.14`。
+<img class="fml" src="/formulas/951fa80701199f.png" alt="R_{C}= \frac{5+4}{4}= 2.25" width="137" height="34">，<img class="fml" src="/formulas/d10910739003c6.png" alt="R_{D}= \frac{3+5}{5}= 1.60" width="138" height="34">，<img class="fml" src="/formulas/ec9559a9a5de86.png" alt="R_{E}= \frac{1+2}{2}= 1.50" width="137" height="34"> → **选 C**（9-13）。
+`t=13`：<img class="fml" src="/formulas/5064e563dda28b.png" alt="R_{D}= \frac{7+5}{5}= 2.40" width="138" height="34">，<img class="fml" src="/formulas/57783dc7de0a05.png" alt="R_{E}= \frac{5+2}{2}= 3.50" width="137" height="34"> → **选 E**（13-15）→ D（15-20）。
+平均周转 <img class="fml" src="/formulas/c3458af68a90eb.png" alt="= \frac{3+ 7+ 9+ 7+ 14}{5}= 8.00" width="162" height="34">，平均带权 `2.14`。
 
 **④ RR**：另取 `P1(0,4) P2(1,3) P3(2,2)`，时间片 `q=2`（新到达者先入队，用完时间片者再排到队尾）：
 
@@ -377,7 +377,7 @@ int main(void) {
 \text{周转} \; \text{: P1=8  P2=8  P3=4} \; \text{平均} \; \text{6.67} \; \text{平均带权} \; \frac{2+2.67+2}{3}= 2.22 \\
 q=1: P1 P2 P1 P3 P2 P1 P3 P2 P1 \to \; \text{完成} \; \text{P3=7 P2=8 P1=9} \; \text{，平均周转} \; \text{7.00} \\
 q=4: P1[0-4] P2[4-7] P3[7-9] \to \; \text{完成} \; \text{P1=4 P2=7 P3=9} \; \text{，平均周转} \; \text{5.67} \; \text{（已退化为} \; \text{FCFS} \; \text{）}
-\end{gathered}" width="793" height="151"></p>
+\end{gathered}" width="794" height="152"></p>
 
 
 
@@ -393,7 +393,7 @@ q=4: P1[0-4] P2[4-7] P3[7-9] \to \; \text{完成} \; \text{P1=4 P2=7 P3=9} \; \t
 \text{t=6  D} \; \text{到达} \; \text{(5)} \; \text{，} \; \text{C} \; \text{剩} \; \text{2} \; \text{最短} \; \to C \; \text{继续} \\
 \text{t=8  E} \; \text{到达} \; \text{(2) &lt; C? C} \; \text{已完成于} \; \text{t=8} \; \text{；比较} \; \text{E(2)} \; \text{、} \; \text{B(5)} \; \text{、} \; D(5) \to E \; \text{运行} \\
 \text{t=10 E} \; \text{完成；} \; \text{B(5)=D(5)} \; \text{平局，先到者优先} \; \to B(10-15) \to D(15-20)
-\end{gathered}" width="604" height="190"></p>
+\end{gathered}" width="604" height="191"></p>
 
 
 | 进程 | 完成 | 周转 T | 带权 W |
@@ -410,7 +410,7 @@ q=4: P1[0-4] P2[4-7] P3[7-9] \to \; \text{完成} \; \text{P1=4 P2=7 P3=9} \; \t
 
 ::: danger 易错 · RR 时间片与"上下文切换开销"
 - 若一次切换耗时 `s`，时间片 `q`，则切换开销占比约 `s/(q+s)`；`q` 太小会"把 CPU 全花在切换上"，还造成 TLB/缓存失效。
-- **q 增大不保证平均周转单调下降**：本例 <img class="fml" src="/formulas/43c2ddae8f00df.png" alt="q=1 \to 7.00" width="107" height="33">，<img class="fml" src="/formulas/b1ca41878f5485.png" alt="q=2 \to 6.67" width="107" height="33">，<img class="fml" src="/formulas/dd2b7ec7df0b04.png" alt="q=4 \to 5.67" width="107" height="33"> 恰好递减，但换成别的进程集可能非单调，考试须按甘特图实算，不能凭直觉。
+- **q 增大不保证平均周转单调下降**：本例 <img class="fml" src="/formulas/43c2ddae8f00df.png" alt="q=1 \to 7.00" width="108" height="34">，<img class="fml" src="/formulas/b1ca41878f5485.png" alt="q=2 \to 6.67" width="108" height="34">，<img class="fml" src="/formulas/dd2b7ec7df0b04.png" alt="q=4 \to 5.67" width="108" height="34"> 恰好递减，但换成别的进程集可能非单调，考试须按甘特图实算，不能凭直觉。
 - 抢占式 SJF（SRTF）与新进程到达时要**重新比较剩余服务时间**，不是比较总服务时间。
 :::
 
@@ -426,7 +426,7 @@ q=4: P1[0-4] P2[4-7] P3[7-9] \to \; \text{完成} \; \text{P1=4 P2=7 P3=9} \; \t
 | 实时调度条件 | 就绪时间、开始/完成截止时间、处理时间、资源需求、优先级；系统须**可调度**且支持抢占 |
 | EDF（最早截止时间优先） | 动态优先级，截止越早越优先；**单处理器上是最优的动态调度算法** |
 | LLF（最低松弛度优先） | 松弛度 `= 必须完成时间 − 尚需运行时间 − 当前时刻`，越小越紧急 |
-| RMS（速率单调） | 静态优先级，周期越短优先级越高；可调度充分条件 <img class="fml" src="/formulas/359b80de08b214.png" alt="U \le n\left(2^{\frac{1}{n}}- 1\right)" width="129" height="40">，n→∞ 时上界 <img class="fml" src="/formulas/32df6ccbf7604f.png" alt="\ln 2 \approx 0.693" width="97" height="33"> |
+| RMS（速率单调） | 静态优先级，周期越短优先级越高；可调度充分条件 <img class="fml" src="/formulas/359b80de08b214.png" alt="U \le n\left(2^{\frac{1}{n}}- 1\right)" width="130" height="41">，n→∞ 时上界 <img class="fml" src="/formulas/32df6ccbf7604f.png" alt="\ln 2 \approx 0.693" width="98" height="34"> |
 | 优先级倒置 | 高优先级进程被低优先级进程持有的资源阻塞，中间优先级进程又抢占，导致高优先级被**无限延迟** |
 
 ::: tip 补充 · 优先级倒置的现代解法与 Linux 调度演进
@@ -487,8 +487,8 @@ void signal(semaphore *S) {         /* V */
 ```
 
 ::: danger 易错 · 信号量的核心陷阱
-- **整型信号量**「只要 <img class="fml" src="/formulas/ec2f3a4c8e2fcf.png" alt="S \le 0" width="51" height="33"> 就不断测试」会**忙等**，违反让权等待；记录型才引入阻塞队列。
-- `S.value < 0` 时 `|S.value|` **等于阻塞在该信号量上的进程数**；`V` 后 <img class="fml" src="/formulas/946ebdbff0e678.png" alt="S.value \le 0" width="99" height="33"> 才需唤醒。
+- **整型信号量**「只要 <img class="fml" src="/formulas/ec2f3a4c8e2fcf.png" alt="S \le 0" width="52" height="34"> 就不断测试」会**忙等**，违反让权等待；记录型才引入阻塞队列。
+- `S.value < 0` 时 `|S.value|` **等于阻塞在该信号量上的进程数**；`V` 后 <img class="fml" src="/formulas/946ebdbff0e678.png" alt="S.value \le 0" width="100" height="34"> 才需唤醒。
 - **P/V 必须成对且顺序严格**：互斥 P 放在同步 P 之后（否则可能死锁）；对同一信号量的 P、V 不能遗漏。
 - `V` 操作**不会被阻塞**（可以唤醒别人，自己永远能继续）；`P` 才可能阻塞。
 - 多个进程对多个临界资源「各 P 一个」若顺序不同会死锁 → 用 **AND 型信号量**（一次原子地申请全部）或按统一编号顺序申请。
@@ -601,9 +601,9 @@ void philosopher(int i) {
 | P3 | (2,1,1) | (2,2,2) | (0,1,1) |
 | P4 | (0,0,2) | (4,3,3) | (4,3,1) |
 
-已分配合计 `(7,2,5)` → <img class="fml" src="/formulas/3615b0af05e313.png" alt="Available=(10,5,7)-(7,2,5)=(3,3,2)" width="329" height="33">。
+已分配合计 `(7,2,5)` → <img class="fml" src="/formulas/3615b0af05e313.png" alt="Available=(10,5,7)-(7,2,5)=(3,3,2)" width="330" height="34">。
 
-**安全性检查**（`Work = Available`，反复找 <img class="fml" src="/formulas/ba8bba21f38aac.png" alt="Need_{i} \le Work" width="124" height="33"> 的进程，令其"假想完成"并归还其 **Allocation**）：
+**安全性检查**（`Work = Available`，反复找 <img class="fml" src="/formulas/ba8bba21f38aac.png" alt="Need_{i} \le Work" width="124" height="34"> 的进程，令其"假想完成"并归还其 **Allocation**）：
 
 | 步 | Work（开始时） | 选中 | 判据 | Work（归还后）= Work + Allocation |
 | --- | --- | --- | --- | --- |
@@ -616,7 +616,7 @@ void philosopher(int i) {
 所有进程均能完成 → **存在安全序列 ⟨P1, P3, P0, P2, P4⟩，T0 状态安全**（安全序列**不唯一**）。
 
 **处理请求 `Request1 = (1,0,2)`**：
-① <img class="fml" src="/formulas/62dd7d9b7c0f8e.png" alt="Request1 \le Need1(1,2,2)" width="210" height="33"> ✓；② <img class="fml" src="/formulas/0b2376fbea9517.png" alt="Request1 \le Available(3,3,2)" width="234" height="33"> ✓；
+① <img class="fml" src="/formulas/62dd7d9b7c0f8e.png" alt="Request1 \le Need1(1,2,2)" width="212" height="34"> ✓；② <img class="fml" src="/formulas/0b2376fbea9517.png" alt="Request1 \le Available(3,3,2)" width="235" height="34"> ✓；
 ③ 试探分配：`Available = (2,3,0)`、`Allocation1 = (3,0,2)`、`Need1 = (0,2,0)`；
 ④ 安全性检查得安全序列 ⟨P1, P3, P0, P2, P4⟩ → **可以立即分配**。
 
@@ -627,7 +627,7 @@ void philosopher(int i) {
 | P1 | (3,2) | (4,2) | 初始安全序列 ⟨P1, P2⟩ |
 | P2 | (3,1) | (4,3) | |
 
-若 P2 请求 `(2,1)`：满足 <img class="fml" src="/formulas/5b34de7e68ad89.png" alt="Request \le Need" width="136" height="33"> 与 <img class="fml" src="/formulas/bd58f0c575cfa0.png" alt="\le Available" width="100" height="33">，试探后 `Available = (2,1)`、`Allocation2 = (5,2)`、`Need2 = (2,2)`。此时 `Work = (2,1)`：P1 的 Need `(4,2)` 不满足（A 不足），P2 的 Need `(2,2)` 也不满足（B 不足）→ **无任何进程可完成，状态不安全，必须拒绝该请求**（令 P2 等待）。
+若 P2 请求 `(2,1)`：满足 <img class="fml" src="/formulas/5b34de7e68ad89.png" alt="Request \le Need" width="137" height="34"> 与 <img class="fml" src="/formulas/bd58f0c575cfa0.png" alt="\le Available" width="101" height="34">，试探后 `Available = (2,1)`、`Allocation2 = (5,2)`、`Need2 = (2,2)`。此时 `Work = (2,1)`：P1 的 Need `(4,2)` 不满足（A 不足），P2 的 Need `(2,2)` 也不满足（B 不足）→ **无任何进程可完成，状态不安全，必须拒绝该请求**（令 P2 等待）。
 
 ![资源分配图与银行家算法](/os/os-deadlock.svg)
 
@@ -710,12 +710,12 @@ void philosopher(int i) {
 | --- | --- |
 | 页大小 | 必须是 2 的幂（便于硬件拆分地址）；太小 → 页表过长、换入换出频繁；太大 → 页内碎片增大。常见 4 KB |
 | 页表项 PTE | 物理块号 + 有效位/读写位/访问位/修改位/缓存控制等 |
-| 地址结构 | `逻辑地址 = 页号 p | 页内偏移 d`；<img class="fml" src="/formulas/d346f89bf1158f.png" alt="p= \frac{A}{L}" width="52" height="33">，`d = A mod L`（L 为页大小） |
+| 地址结构 | `逻辑地址 = 页号 p | 页内偏移 d`；<img class="fml" src="/formulas/d346f89bf1158f.png" alt="p= \frac{A}{L}" width="53" height="34">，`d = A mod L`（L 为页大小） |
 | 地址变换 | `物理地址 = 页表[p] 的块号 × L + d`（页内偏移**不变**） |
 | 碎片 | 只有**最后一页可能有页内碎片**（平均 L/2），**无外部碎片** |
 
 ::: tip 工作示例 · 分页地址变换手算
-设页大小 `L = 1 KB = 1024 B`，页表：<img class="fml" src="/formulas/69ac7de3d1b9d7.png" alt="0 \to 2, 1 \to 3, 2 \to 8" width="159" height="33">，求逻辑地址 `A = 2500` 的物理地址。
+设页大小 `L = 1 KB = 1024 B`，页表：<img class="fml" src="/formulas/69ac7de3d1b9d7.png" alt="0 \to 2, 1 \to 3, 2 \to 8" width="160" height="34">，求逻辑地址 `A = 2500` 的物理地址。
 
 
 
@@ -724,22 +724,22 @@ p= \frac{2500}{1024}= 2 \; \text{（整除）} \\
 \text{d = 2500 mod 1024 = 452} \\
 \text{查页表：第} \; \text{2} \; \text{页} \; \to \; \text{第} \; \text{8} \; \text{块} \\
 \text{物理地址} \; = 8 \times 1024+ 452= 8192+ 452= 8644
-\end{gathered}" width="389" height="124"></p>
+\end{gathered}" width="389" height="125"></p>
 
 
 **二进制快算法**（页大小 2^10，故低 10 位就是页内地址）：
-<img class="fml" src="/formulas/84449d55951771.png" alt="2500= 10 0111000100_{2}" width="180" height="33"> → 高 2 位 <img class="fml" src="/formulas/fedccdc36c80f2.png" alt="10_{2}= 2" width="64" height="33"> 为页号，低 10 位 <img class="fml" src="/formulas/4f3c86cefe8f97.png" alt="0111000100_{2}= 452" width="153" height="33"> 为偏移；块号 <img class="fml" src="/formulas/dbc3f9a6ba2761.png" alt="8= 1000_{2}" width="82" height="33">，拼接得 <img class="fml" src="/formulas/6d61170bf71817.png" alt="1000 0111000100_{2}= 8644" width="198" height="33">。**只要把页号替换成块号，低位原样保留**——这是分页与分段最大的区别（分段要「段基址 + 段内偏移」做加法）。
+<img class="fml" src="/formulas/84449d55951771.png" alt="2500= 10 0111000100_{2}" width="181" height="34"> → 高 2 位 <img class="fml" src="/formulas/fedccdc36c80f2.png" alt="10_{2}= 2" width="65" height="34"> 为页号，低 10 位 <img class="fml" src="/formulas/4f3c86cefe8f97.png" alt="0111000100_{2}= 452" width="154" height="34"> 为偏移；块号 <img class="fml" src="/formulas/dbc3f9a6ba2761.png" alt="8= 1000_{2}" width="82" height="34">，拼接得 <img class="fml" src="/formulas/6d61170bf71817.png" alt="1000 0111000100_{2}= 8644" width="199" height="34">。**只要把页号替换成块号，低位原样保留**——这是分页与分段最大的区别（分段要「段基址 + 段内偏移」做加法）。
 :::
 
 ::: tip 工作示例 · 页表容量与多级页表
 32 位逻辑地址、页大小 4 KB（`2^12`）、页表项 4 B：
 - 页内偏移占 12 位 → 页号占 20 位 → 共 `2^20 = 1 048 576` 个页表项
-- 单级页表大小 <img class="fml" src="/formulas/2e23a40e8df35b.png" alt="= 2^20 \times 4 B= 4 MB" width="162" height="33">，且**每个进程**都要一份、还要求连续内存
-- 两级页表：页号拆为 `10 + 10`，外层页表 <img class="fml" src="/formulas/99fceeb6cb9d1c.png" alt="2^10 \times 4 B= 4 KB" width="140" height="33">；只有被用到的二级页表才创建 → 典型只需 `4 KB + 少数 × 4 KB`，但**每次访存多一次**（3 次访存）
+- 单级页表大小 <img class="fml" src="/formulas/2e23a40e8df35b.png" alt="= 2^20 \times 4 B= 4 MB" width="162" height="34">，且**每个进程**都要一份、还要求连续内存
+- 两级页表：页号拆为 `10 + 10`，外层页表 <img class="fml" src="/formulas/99fceeb6cb9d1c.png" alt="2^10 \times 4 B= 4 KB" width="141" height="34">；只有被用到的二级页表才创建 → 典型只需 `4 KB + 少数 × 4 KB`，但**每次访存多一次**（3 次访存）
 - 64 位系统（x86-64 实际用 48 位虚拟地址、4 级页表 `9+9+9+9+12`）级数更多，故必须靠 **TLB + 大页（2 MB / 1 GB）** 压低开销
 :::
 
-**快表 TLB 与有效访问时间 EAT**（设查 TLB `t = 20 ns`，一次访存 `ma = 100 ns`，命中率 <img class="fml" src="/formulas/15fb041f7bf934.png" alt="\lambda= 90\%" width="73" height="33">）：
+**快表 TLB 与有效访问时间 EAT**（设查 TLB `t = 20 ns`，一次访存 `ma = 100 ns`，命中率 <img class="fml" src="/formulas/15fb041f7bf934.png" alt="\lambda= 90\%" width="74" height="34">）：
 
 
 
@@ -748,10 +748,10 @@ p= \frac{2500}{1024}= 2 \; \text{（整除）} \\
 \text{未命中} \; \text{: t + ma(} \; \text{查页表} \; \text{) + ma(} \; \text{取数据} \; \text{) = 20 + 200 = 220 ns} \\
 EAT= 0.9 \times 120+ 0.1 \times 220= 108+ 22= 130 ns \\
 \text{对照} \; \text{:} \; \text{无} \; \text{TLB} \; \text{的分页} \; \text{= 2ma = 200 ns} \; \text{；两级页表无} \; \text{TLB = 3ma = 300 ns}
-\end{gathered}" width="592" height="110"></p>
+\end{gathered}" width="593" height="111"></p>
 
 
-若 <img class="fml" src="/formulas/c7201343fcaeb6.png" alt="\lambda= 98\%" width="73" height="33">，<img class="fml" src="/formulas/16e5bae0cb9716.png" alt="EAT= 0.98 \times 120+ 0.02 \times 220= 122 ns" width="322" height="33">——**命中率几个百分点就决定性能**，这是 TLB 与 ASID（地址空间标识，切换进程时避免整体刷新 TLB）如此重要的原因。
+若 <img class="fml" src="/formulas/c7201343fcaeb6.png" alt="\lambda= 98\%" width="74" height="34">，<img class="fml" src="/formulas/16e5bae0cb9716.png" alt="EAT= 0.98 \times 120+ 0.02 \times 220= 122 ns" width="324" height="34">——**命中率几个百分点就决定性能**，这是 TLB 与 ASID（地址空间标识，切换进程时避免整体刷新 TLB）如此重要的原因。
 
 ::: tip 页面共享与保护（高频考点）
 - **可共享页面必须是纯代码（可重入代码）**：多个进程的页表项指向**同一物理块**，且各进程对共享页的**逻辑页号必须相同**（否则一方置换/重定位会破坏另一方的映射）。典型例子：多进程共享同一个编辑器/库代码段。
@@ -836,7 +836,7 @@ EAT= 0.9 \times 120+ 0.1 \times 220= 108+ 22= 130 ns \\
 | LRU | 淘汰**最近最久未使用**的页 | 是（需寄存器/栈硬件支持，开销大） | 性能接近 OPT；无 Belady 异常（属栈式算法） |
 | LFU | 淘汰**访问次数最少**的页 | 是 | 无法反映"近期"热度，早期常访问的页不易淘汰 |
 | Clock（NRU / 二次机会） | 用访问位 A 组成循环队列扫描，A=1 清 0 给一次机会，A=0 换出 | 是 | LRU 的低成本近似，工业界常用 |
-| **改进型 Clock** | 同时考虑 (A, D) 四类 | 是 | 优先换出 (0,0) 且**无需写回**，顺序 <img class="fml" src="/formulas/ebda166c538872.png" alt="(0,0) \to(0,1) \to(1,0) \to(1,1)" width="248" height="33"> |
+| **改进型 Clock** | 同时考虑 (A, D) 四类 | 是 | 优先换出 (0,0) 且**无需写回**，顺序 <img class="fml" src="/formulas/ebda166c538872.png" alt="(0,0) \to(0,1) \to(1,0) \to(1,1)" width="249" height="34"> |
 | 页面缓冲算法 PBA | 换出页暂放空闲/修改链表，不立即写盘 | 是 | 减少磁盘 I/O，可快速"回收"误淘汰页 |
 
 ::: tip 工作示例 · 三种算法的完整手算（经典页面走向）
@@ -874,7 +874,7 @@ EAT= 0.9 \times 120+ 0.1 \times 220= 108+ 22= 130 ns \\
 原因：FIFO 只按"进入先后"淘汰，不遵守**栈式性质**（"在 n 个块中驻留的页集合必须是 n+1 个块中驻留集合的子集"）。LRU、OPT 都是栈式算法，故**不可能出现 Belady 异常**；Clock 是近似算法，一般不出现。这一反直觉结论是高频考点，复习时务必掌握。
 :::
 
-**缺页率与有效访问时间 EAT**（设 `ma = 100 ns`，缺页处理含磁盘 I/O 约 <img class="fml" src="/formulas/1ae986b97467e2.png" alt="10 ms= 10^{7} ns" width="116" height="33">）：
+**缺页率与有效访问时间 EAT**（设 `ma = 100 ns`，缺页处理含磁盘 I/O 约 <img class="fml" src="/formulas/1ae986b97467e2.png" alt="10 ms= 10^{7} ns" width="117" height="34">）：
 
 
 
@@ -883,7 +883,7 @@ EAT=(1- p) \times ma+ p \times \; \text{缺页处理时间} \\
 p= 0 \to 100 ns \\
 p= 0.001 \to 0.999 \times 100+ 0.001 \times 10^{7} \approx 10 100 ns \; \text{（约} \; \text{100} \; \text{倍）} \\
 p= 0.01 \to 0.99 \times 100+ 0.01 \times 10^{7} \approx 100 099 ns \; \text{（约} \; \text{1000} \; \text{倍）}
-\end{gathered}" width="506" height="111"></p>
+\end{gathered}" width="507" height="111"></p>
 
 
 结论：**缺页率哪怕只有 1%，性能也会塌方式下降**——所以虚存可行的前提是程序具有良好的局部性。
@@ -896,7 +896,7 @@ p= 0.01 \to 0.99 \times 100+ 0.01 \times 10^{7} \approx 100 099 ns \; \text{（�
 | --- | --- |
 | **抖动（thrashing）** | 同时运行的进程太多、每个分到的物理块数小于工作集，导致刚换出的页马上又要换入，CPU 利用率骤降、磁盘忙得不可开交 |
 | 根本原因 | 多道程序度过高 + 全局置换 + 局部性差 |
-| **工作集 W(t, Δ)** | 进程在最近 <img class="fml" src="/formulas/7e0b8fb22a788b.png" alt="\Delta" width="21" height="33"> 个时间单位（工作集窗口）内访问过的页集合；`|W|` 为工作集大小 |
+| **工作集 W(t, Δ)** | 进程在最近 <img class="fml" src="/formulas/7e0b8fb22a788b.png" alt="\Delta" width="22" height="34"> 个时间单位（工作集窗口）内访问过的页集合；`|W|` 为工作集大小 |
 | 预防 | 采用局部置换、给每进程分配不小于工作集的块数、利用**缺页率反馈**调节多道程序度（缺页率过高就挂起若干进程）、预调页 + 负载控制 |
 | **内存映射文件 mmap** | 把文件直接映射到进程虚拟地址空间，用**缺页异常按需读入文件页**，免去 `read` 的显式拷贝；`MAP_SHARED` 的修改由内核延迟写回（**不保证即时落盘**，须 `msync`/`fsync`） |
 
@@ -910,7 +910,7 @@ p= 0.01 \to 0.99 \times 100+ 0.01 \times 10^{7} \approx 100 099 ns \; \text{（�
 
 ::: danger 易错 · 请求分页高频错
 - 缺页中断是**异常**，处理完要**重新执行**当前指令，不是执行下一条。
-- 修改位 D=0 的牺牲页**无需写回**（直接覆盖），D=1 才需一次磁盘写；改进型 Clock 优先选 <img class="fml" src="/formulas/b13cd39c4d6228.png" alt="(A=0,\,D=0)" width="125" height="33"> 正是为省这次 I/O。
+- 修改位 D=0 的牺牲页**无需写回**（直接覆盖），D=1 才需一次磁盘写；改进型 Clock 优先选 <img class="fml" src="/formulas/b13cd39c4d6228.png" alt="(A=0,\,D=0)" width="126" height="34"> 正是为省这次 I/O。
 - 缺页率随物理块增加**并非严格单调下降**（FIFO 有 Belady 异常）；但 LRU/OPT 单调不增。
 - 「预调页」用于进程首次装入（依据局部性一次调入一批），「请求调页」是运行期按需调入；预测不准的预调页反而浪费 I/O。
 :::
@@ -952,10 +952,10 @@ p= 0.01 \to 0.99 \times 100+ 0.01 \times 10^{7} \approx 100 099 ns \; \text{（�
 DMA 控制器寄存器：`MAR`（内存地址）、`DC`（传送计数）、`CR`（命令/方向）、`DR`（数据缓冲）。流程：CPU 写 MAR/DC/CR 启动 → DMA 控制器逐字搬运（**周期窃取**总线周期）→ DC 减到 0 → 发中断通知 CPU。
 
 ::: tip 工作示例 · 中断方式 vs DMA 的 CPU 开销
-设备需传输 1000 B；每次中断处理（保存现场、分派、恢复）耗时 <img class="fml" src="/formulas/f62d90855c178e.png" alt="100 \mu s" width="52" height="33">。
+设备需传输 1000 B；每次中断处理（保存现场、分派、恢复）耗时 <img class="fml" src="/formulas/f62d90855c178e.png" alt="100 \mu s" width="53" height="34">。
 
-- **中断驱动**：每字节中断一次 → <img class="fml" src="/formulas/091eb576870827.png" alt="1000 \times 100 \mu s= 100 000 \mu s= 100 ms" width="281" height="33"> 全耗在 CPU 上。
-- **DMA**：CPU 初始化 <img class="fml" src="/formulas/f62d90855c178e.png" alt="100 \mu s" width="52" height="33"> 整块传完一次中断 <img class="fml" src="/formulas/f62d90855c178e.png" alt="100 \mu s" width="52" height="33"> 合计 <img class="fml" src="/formulas/4d7dd323dbd16d.png" alt="200 \mu s" width="52" height="33">，其余时间 CPU 可运行其它进程。
+- **中断驱动**：每字节中断一次 → <img class="fml" src="/formulas/091eb576870827.png" alt="1000 \times 100 \mu s= 100 000 \mu s= 100 ms" width="281" height="34"> 全耗在 CPU 上。
+- **DMA**：CPU 初始化 <img class="fml" src="/formulas/f62d90855c178e.png" alt="100 \mu s" width="53" height="34"> 整块传完一次中断 <img class="fml" src="/formulas/f62d90855c178e.png" alt="100 \mu s" width="53" height="34"> 合计 <img class="fml" src="/formulas/4d7dd323dbd16d.png" alt="200 \mu s" width="53" height="34">，其余时间 CPU 可运行其它进程。
 
 相差 500 倍——这就是"高速块设备必须用 DMA"的定量理由。对 1 Gb/s 以上网卡，连每包一次中断都太多，还需 **NAPI/中断合并（interrupt coalescing）** 或轮询。
 :::
@@ -991,7 +991,7 @@ Linux 把中断处理分为**上半部（top half，硬中断，关中断、极�
 | 双缓冲 | `max(C + M, T)`（设备与 CPU 可**并行**） |
 | 环形缓冲区 / 缓冲池 | 多缓冲组成循环队列，用 `Getbuf/Putbuf` 与 `EM/IN/OUT` 队列管理，削峰填谷 |
 
-代入 <img class="fml" src="/formulas/51cfd0d33728c8.png" alt="T= 100 \mu s, M= 50 \mu s, C= 50 \mu s" width="259" height="33">：单缓冲 `= max(50,100)+50 = 150 μs/块`；双缓冲 `= max(100,100) = 100 μs/块` → **提速 1.5 倍**。
+代入 <img class="fml" src="/formulas/51cfd0d33728c8.png" alt="T= 100 \mu s, M= 50 \mu s, C= 50 \mu s" width="260" height="34">：单缓冲 `= max(50,100)+50 = 150 μs/块`；双缓冲 `= max(100,100) = 100 μs/块` → **提速 1.5 倍**。
 
 ::: danger 易错 · 缓冲 vs 缓存
 - **缓冲区（buffer）**主要解决「生产/消费速度不匹配」与「粒度不匹配」，数据一般**只经过一次**；**缓存（cache）**解决「慢设备重复访问」，靠局部性保留副本可反复命中。
@@ -1008,13 +1008,13 @@ Linux 把中断处理分为**上半部（top half，硬中断，关中断、极�
 <p class="fml-block"><img class="fml" src="/formulas/c1c700835341d7.png" alt="\begin{gathered}
 \text{Ta = Ts(} \; \text{寻道} \; )+ T\tau( \; \text{平均旋转延迟} \; \text{) + Tt(} \; \text{传输} \; \text{) +} \; \text{控制器} \; \text{/} \; \text{排队开销} \\
 \text{T}\tau \text{ = 1/(2 ×} \; \text{转速} \; \text{)         Tt =} \; \text{传输字节数} \; \text{/} \; \text{传输速率}
-\end{gathered}" width="575" height="56"></p>
+\end{gathered}" width="576" height="57"></p>
 
 
 
 ::: tip 工作示例 · 单次磁盘访问时间
-7200 rpm 磁盘：<img class="fml" src="/formulas/6b82666f433f0c.png" alt="T\tau= \frac{\frac{60 s}{7200}}{2} \approx 4.17 ms" width="159" height="35">；平均寻道 `Ts = 8 ms`；传输速率 200 MB/s，读 4 KB 需 <img class="fml" src="/formulas/19535cec3223ed.png" alt="\frac{\frac{4 KB}{200 MB}}{s} \approx 0.02 ms" width="124" height="35">。
-<img class="fml" src="/formulas/3657f7fd22b8af.png" alt="Ta \approx 8+ 4.17+ 0.02= 12.19 ms" width="257" height="33">，其中**机械定位占 99.8%**。这解释了三点：① 顺序 I/O 远快于随机 I/O；② 预读与合并请求价值巨大；③ SSD 无机械定位后随机读性能提升 2~3 个数量级。
+7200 rpm 磁盘：<img class="fml" src="/formulas/6b82666f433f0c.png" alt="T\tau= \frac{\frac{60 s}{7200}}{2} \approx 4.17 ms" width="160" height="36">；平均寻道 `Ts = 8 ms`；传输速率 200 MB/s，读 4 KB 需 <img class="fml" src="/formulas/19535cec3223ed.png" alt="\frac{\frac{4 KB}{200 MB}}{s} \approx 0.02 ms" width="125" height="36">。
+<img class="fml" src="/formulas/3657f7fd22b8af.png" alt="Ta \approx 8+ 4.17+ 0.02= 12.19 ms" width="258" height="33">，其中**机械定位占 99.8%**。这解释了三点：① 顺序 I/O 远快于随机 I/O；② 预读与合并请求价值巨大；③ SSD 无机械定位后随机读性能提升 2~3 个数量级。
 :::
 
 | 调度算法 | 规则 | 优点 | 缺点 |
@@ -1031,14 +1031,14 @@ Linux 把中断处理分为**上半部（top half，硬中断，关中断、极�
 
 | 算法 | 服务序列 | 总移动磁道数 | 平均寻道 |
 | --- | --- | --- | --- |
-| **FCFS** | <img class="fml" src="/formulas/7a25f8118e0e6d.png" alt="100 \to 55 \to 58 \to 39 \to 18 \to 90 \to 160 \to 150 \to 38 \to 184" width="470" height="33"> | **498** | 55.33 |
-| **SSTF** | <img class="fml" src="/formulas/b540995f18b3a9.png" alt="100 \to 90 \to 58 \to 55 \to 39 \to 38 \to 18 \to 150 \to 160 \to 184" width="470" height="33"> | **248** | 27.56 |
-| **SCAN**（到 199 后折返） | <img class="fml" src="/formulas/19e4d68c821870.png" alt="100 \to 150 \to 160 \to 184 \to 199 \to 90 \to 58 \to 55 \to 39 \to 38 \to 18" width="525" height="33"> | **280** | 31.11 |
-| **C-SCAN**（到 199 后回 0，回程不计） | <img class="fml" src="/formulas/be550dddeb5de9.png" alt="100 \to 150 \to 160 \to 184 \to 199 \to(0) \to 18 \to 38 \to 39 \to 55 \to 58 \to 90" width="575" height="33"> | **189** | 21.00 |
+| **FCFS** | <img class="fml" src="/formulas/7a25f8118e0e6d.png" alt="100 \to 55 \to 58 \to 39 \to 18 \to 90 \to 160 \to 150 \to 38 \to 184" width="471" height="33"> | **498** | 55.33 |
+| **SSTF** | <img class="fml" src="/formulas/b540995f18b3a9.png" alt="100 \to 90 \to 58 \to 55 \to 39 \to 38 \to 18 \to 150 \to 160 \to 184" width="471" height="33"> | **248** | 27.56 |
+| **SCAN**（到 199 后折返） | <img class="fml" src="/formulas/19e4d68c821870.png" alt="100 \to 150 \to 160 \to 184 \to 199 \to 90 \to 58 \to 55 \to 39 \to 38 \to 18" width="526" height="33"> | **280** | 31.11 |
+| **C-SCAN**（到 199 后回 0，回程不计） | <img class="fml" src="/formulas/be550dddeb5de9.png" alt="100 \to 150 \to 160 \to 184 \to 199 \to(0) \to 18 \to 38 \to 39 \to 55 \to 58 \to 90" width="576" height="33"> | **189** | 21.00 |
 
 FCFS 逐段：`45+3+19+21+72+70+10+112+146 = 498`。
 SSTF 逐段：`10+32+3+16+1+20+132+10+24 = 248`（在 18 处跳到最近的 150）。
-**注意**：SCAN/CSCAN 的"到端点"是否计入总距离，各教材约定不同；若题目要求 LOOK（只到最远请求 184），则 SCAN 变为 <img class="fml" src="/formulas/57a0735b8770e7.png" alt="100 \to 150 \to 160 \to 184 \to 90 \to 58 \to 55 \to 39 \to 38 \to 18" width="470" height="33">，总 `50+10+24+94+32+3+16+1+20 = 250`。答题时**先写清假设**再算。
+**注意**：SCAN/CSCAN 的"到端点"是否计入总距离，各教材约定不同；若题目要求 LOOK（只到最远请求 184），则 SCAN 变为 <img class="fml" src="/formulas/57a0735b8770e7.png" alt="100 \to 150 \to 160 \to 184 \to 90 \to 58 \to 55 \to 39 \to 38 \to 18" width="471" height="33">，总 `50+10+24+94+32+3+16+1+20 = 250`。答题时**先写清假设**再算。
 :::
 
 ![磁盘结构与调度算法](/os/os-disk.svg)
@@ -1060,14 +1060,14 @@ SSTF 逐段：`10+32+3+16+1+20+132+10+24 = 248`（在 18 处跳到最近的 150�
 
 | 逻辑结构 | 特点 | 访问方式 |
 | --- | --- | --- |
-| 顺序文件（连续/串/顺序结构） | 记录按序排列；定长记录可**随机访问**（第 i 条地址 = 首址 + <img class="fml" src="/formulas/012df732fda986.png" alt="i \times L" width="46" height="33">） | 顺序/随机 |
+| 顺序文件（连续/串/顺序结构） | 记录按序排列；定长记录可**随机访问**（第 i 条地址 = 首址 + <img class="fml" src="/formulas/012df732fda986.png" alt="i \times L" width="47" height="33">） | 顺序/随机 |
 | 索引文件 | 为变长记录建索引表（记录号 → 指针） | 随机，速度快但多占索引空间 |
 | 索引顺序文件 | 先分组、组间索引、组内顺序 | 折中：先查索引定位组，再顺序查（两级） |
 | 直接文件 / 哈希文件 | 键值经哈希函数直接得盘块地址 | 随机最快，需处理冲突、不适合范围查询 |
 
 ::: tip 工作示例 · 定长记录寻址
 某顺序文件有定长记录 `L = 128 B`，记录在盘块 `1 KB` 内不跨块存放，首记录在 100 号盘块：
-每块可放 <img class="fml" src="/formulas/2db1910a788296.png" alt="\frac{1024}{128}= 8" width="68" height="33"> 条记录；第 35 条记录（从 1 起）所在盘块 <img class="fml" src="/formulas/e7b719d84dc0fb.png" alt="= 100+ \frac{35- 1}{8}= 100+ 4= 104" width="238" height="33">，块内序号 <img class="fml" src="/formulas/2bc6b46f60cc85.png" alt="=(35- 1) mod 8= 2" width="163" height="33">（第 3 条）。若允许记录跨块，则要用「字节偏移 = <img class="fml" src="/formulas/93636902e73a4a.png" alt="(35- 1) \times 128= 4352 B" width="191" height="33">」，第 <img class="fml" src="/formulas/98bc9967ab83cc.png" alt="\frac{4352}{1024}= 4" width="68" height="33"> 块（余 256 B）——**「可否跨块」会改变寻址公式**，读题务必看清。
+每块可放 <img class="fml" src="/formulas/2db1910a788296.png" alt="\frac{1024}{128}= 8" width="69" height="33"> 条记录；第 35 条记录（从 1 起）所在盘块 <img class="fml" src="/formulas/e7b719d84dc0fb.png" alt="= 100+ \frac{35- 1}{8}= 100+ 4= 104" width="239" height="33">，块内序号 <img class="fml" src="/formulas/2bc6b46f60cc85.png" alt="=(35- 1) mod 8= 2" width="164" height="33">（第 3 条）。若允许记录跨块，则要用「字节偏移 = <img class="fml" src="/formulas/93636902e73a4a.png" alt="(35- 1) \times 128= 4352 B" width="192" height="33">」，第 <img class="fml" src="/formulas/98bc9967ab83cc.png" alt="\frac{4352}{1024}= 4" width="69" height="33"> 块（余 256 B）——**「可否跨块」会改变寻址公式**，读题务必看清。
 :::
 
 ### 8.2 文件目录、FCB 与 inode（★★★）
@@ -1087,8 +1087,8 @@ SSTF 逐段：`10+32+3+16+1+20+132+10+24 = 248`（在 18 处跳到最近的 150�
 
 | 方案 | 目录项大小 | 每块可放 | 目录占块数 | 顺序查找平均读盘块 |
 | --- | --- | --- | --- | --- |
-| 完整 FCB 放目录 | 64 B | <img class="fml" src="/formulas/605784070ea42d.png" alt="\frac{1024}{64}= 16" width="77" height="33"> 项 | 8 块 | <img class="fml" src="/formulas/9fe07783bb708e.png" alt="\frac{8+1}{2}= 4.5" width="79" height="33"> 块 |
-| 分离 inode（文件名 16 B + inode 号 2 B） | 18 B | <img class="fml" src="/formulas/2e8dbb11d2a78b.png" alt="\frac{1024}{18}= 56" width="77" height="33"> 项 | 3 块 | <img class="fml" src="/formulas/83b76edc9e3df2.png" alt="\frac{3+1}{2}= 2" width="65" height="33"> 块（约 1.5~2） |
+| 完整 FCB 放目录 | 64 B | <img class="fml" src="/formulas/605784070ea42d.png" alt="\frac{1024}{64}= 16" width="78" height="33"> 项 | 8 块 | <img class="fml" src="/formulas/9fe07783bb708e.png" alt="\frac{8+1}{2}= 4.5" width="80" height="33"> 块 |
+| 分离 inode（文件名 16 B + inode 号 2 B） | 18 B | <img class="fml" src="/formulas/2e8dbb11d2a78b.png" alt="\frac{1024}{18}= 56" width="78" height="33"> 项 | 3 块 | <img class="fml" src="/formulas/83b76edc9e3df2.png" alt="\frac{3+1}{2}= 2" width="66" height="33"> 块（约 1.5~2） |
 
 减少的是**查目录时的磁盘 I/O 次数**；定位到 inode 后仍需一次读 inode 才能拿到盘块地址。这也解释了为什么「按名查找」在有目录缓存（dentry cache）后几乎不再读盘。
 :::
@@ -1133,7 +1133,7 @@ SSTF 逐段：`10+32+3+16+1+20+132+10+24 = 248`（在 18 处跳到最近的 150�
 **混合索引（UNIX inode 式）**：直接地址 10 项 + 一级间接 + 二级间接 + 三级间接，兼顾小文件（直接命中、零额外 I/O）与大文件。
 
 ::: tip 工作示例 · 索引分配最大文件长度
-盘块 `1 KB`，盘块号占 `4 B` → 一个索引块可存 <img class="fml" src="/formulas/154dc750021fa7.png" alt="\frac{1024}{4}= 256" width="86" height="33"> 个盘块号。
+盘块 `1 KB`，盘块号占 `4 B` → 一个索引块可存 <img class="fml" src="/formulas/154dc750021fa7.png" alt="\frac{1024}{4}= 256" width="87" height="33"> 个盘块号。
 
 
 
@@ -1143,7 +1143,7 @@ SSTF 逐段：`10+32+3+16+1+20+132+10+24 = 248`（在 18 处跳到最近的 150�
 \text{二级间接} \; : 256^{2} \times 1 KB= 65 536 KB= 64 MB \\
 \text{三级间接} \; : 256^{3} \times 1 KB= 16 777 216 KB= 16 GB \\
 \text{混合索引总计} \; :(10+ 256+ 65 536+ 16 777 216) \times 1 KB \approx 16 GB
-\end{gathered}" width="505" height="137"></p>
+\end{gathered}" width="505" height="139"></p>
 
 
 同理：访问「二级间接中的某块」需 `1(读二级索引) + 1(读一级索引) + 1(读数据) = 3` 次磁盘 I/O；直接地址只需 1 次。**小文件走直接地址**正是性能关键。注意文件最大长度还受**盘块号位数**限制（如 32 位块号 × 1 KB = 4 TB 上限）。
@@ -1156,7 +1156,7 @@ SSTF 逐段：`10+32+3+16+1+20+132+10+24 = 248`（在 18 处跳到最近的 150�
 <p class="fml-block"><img class="fml" src="/formulas/c6b232573e20fd.png" alt="\begin{gathered}
 \text{盘块总数} \; = \frac{1 GB}{4 KB}= 2^18= 262 144 \\
 \text{FAT} \; \text{表大小} \; = 2^18 \times 4 B= 1 MB
-\end{gathered}" width="276" height="72"></p>
+\end{gathered}" width="278" height="73"></p>
 
 
 FAT **每个盘块对应一个表项**（记录该块所在链的下一块号，末块为结束标志）。FAT 常驻内存时，查链不需读盘，但**文件数据块仍是隐式链接的物理离散块**，随机访问要沿链逐块推算；若 FAT 不驻内存，则每查一次链就多一次读盘。这与索引分配的「一次读索引块即得全部块号」形成对比，是三种组织方式取舍的关键。
@@ -1180,10 +1180,10 @@ FAT **每个盘块对应一个表项**（记录该块所在链的下一块号，
 <p class="fml-block"><img class="fml" src="/formulas/1354116a2da43d.png" alt="\begin{gathered}
 \text{盘块号} \; b= n \times i+ j \; \text{反算} \; \text{i = b / n (} \; \text{整除} \; \text{),  j = b mod n} \\
 \text{例：} \; b= 1025 \to i= 64, j= 1 \; \text{；} \; b= 3000 \to i= 187, j= 8
-\end{gathered}" width="467" height="56"></p>
+\end{gathered}" width="468" height="57"></p>
 
 
-若题目约定**从 1 起编号**（字号、位号、盘块号均从 1 开始），公式改为 <img class="fml" src="/formulas/a900006464236c.png" alt="b= n(i- 1)+ j" width="129" height="33">，反算 <img class="fml" src="/formulas/511b2edfa5e6a9.png" alt="i= \frac{b- 1}{n}+ 1" width="92" height="33">、<img class="fml" src="/formulas/3b5f17e2166ceb.png" alt="j=(b- 1) mod n+ 1" width="166" height="33">。**答题前先确认编号约定**，这是最常见的计算失分点。
+若题目约定**从 1 起编号**（字号、位号、盘块号均从 1 开始），公式改为 <img class="fml" src="/formulas/a900006464236c.png" alt="b= n(i- 1)+ j" width="130" height="33">，反算 <img class="fml" src="/formulas/511b2edfa5e6a9.png" alt="i= \frac{b- 1}{n}+ 1" width="93" height="33">、<img class="fml" src="/formulas/3b5f17e2166ceb.png" alt="j=(b- 1) mod n+ 1" width="167" height="33">。**答题前先确认编号约定**，这是最常见的计算失分点。
 :::
 
 ![外存组织、位示图与 RAID](/os/os-storage.svg)
@@ -1204,7 +1204,7 @@ FAT **每个盘块对应一个表项**（记录该块所在链的下一块号，
 | RAID 1 | 镜像 | 2 | 50% | 1（每对镜像最多 1） |
 | RAID 2 / 3 / 4 | 海明校验 / 位级奇偶 / 块级专用校验盘 | 3 | <img class="fml" src="/formulas/68fc8666e34ba3.png" alt="\frac{N- 1}{N}" width="38" height="33"> | 1（RAID2 可纠错） |
 | **RAID 5** | 块级条带 + **校验分布式**轮流存放 | 3 | <img class="fml" src="/formulas/68fc8666e34ba3.png" alt="\frac{N- 1}{N}" width="38" height="33"> | 1 |
-| **RAID 6** | 双份校验（P+Q） | 4 | <img class="fml" src="/formulas/dc36dd3c24a939.png" alt="\frac{N- 2}{N}" width="38" height="33"> | 2 |
+| **RAID 6** | 双份校验（P+Q） | 4 | <img class="fml" src="/formulas/dc36dd3c24a939.png" alt="\frac{N- 2}{N}" width="39" height="33"> | 2 |
 | **RAID 10** | 先镜像再条带 | 4 | 50% | 每对 1 |
 
 例：8 块 1 TB 盘 → RAID 0 = 8 TB；RAID 5 = **7 TB**；RAID 6 = 6 TB；RAID 10 = **4 TB**。RAID **不能替代备份**（误删、勒索、控制器故障仍会丢数据）。
@@ -1270,7 +1270,7 @@ SMP 中每个核有私有 Cache，同一内存块可能有多份副本，必须�
 | 专用处理机分配 | 并行作业运行期独占一组 CPU，减少切换，但利用率低 |
 | 死锁分类 | 资源死锁 / 通信死锁（互相等待消息）；分布式死锁检测用等待图或超时 |
 
-**Amdahl 定律**（衡量并行加速上限）：<img class="fml" src="/formulas/12befc30c35d69.png" alt="S= \frac{1}{(1- f)+ \frac{f}{N}}" width="101" height="39">，其中 `f` 为可并行部分比例、`N` 为处理器数。即使 <img class="fml" src="/formulas/c77e7a879d1612.png" alt="N \to_{\infty}" width="58" height="33">，<img class="fml" src="/formulas/526d1f7fa444c2.png" alt="S \le \frac{1}{1- f}" width="69" height="35">：若串行部分占 10%，最大加速比仅 10 倍。
+**Amdahl 定律**（衡量并行加速上限）：<img class="fml" src="/formulas/12befc30c35d69.png" alt="S= \frac{1}{(1- f)+ \frac{f}{N}}" width="102" height="39">，其中 `f` 为可并行部分比例、`N` 为处理器数。即使 <img class="fml" src="/formulas/c77e7a879d1612.png" alt="N \to_{\infty}" width="60" height="33">，<img class="fml" src="/formulas/526d1f7fa444c2.png" alt="S \le \frac{1}{1- f}" width="70" height="35">：若串行部分占 10%，最大加速比仅 10 倍。
 
 ![多处理机结构与同步机制](/os/os-multicore.svg)
 
@@ -1290,7 +1290,7 @@ SMP 中每个核有私有 Cache，同一内存块可能有多份副本，必须�
 | 虚拟化维度 | 经典做法 | 现代硬件辅助 |
 | --- | --- | --- |
 | CPU | 全虚拟化（二进制翻译处理不可陷入的敏感指令）／半虚拟化（客户机主动 `hypercall`） | **Intel VT-x / AMD-V**：引入根/非根模式与 VMCS，敏感指令自动陷入；VM-entry/exit |
-| 内存 | **影子页表**（VMM 维护 <img class="fml" src="/formulas/fda2af17258937.png" alt="GVA \to HPA" width="119" height="33"> 映射，每次客户机改页表都要陷出，开销大） | **EPT / NPT（二级地址翻译）**：硬件自动完成 <img class="fml" src="/formulas/dcb914537e5f02.png" alt="GVA \to GPA \to HPA" width="188" height="33"> 两级转换；配合大页降低 TLB 开销 |
+| 内存 | **影子页表**（VMM 维护 <img class="fml" src="/formulas/fda2af17258937.png" alt="GVA \to HPA" width="120" height="33"> 映射，每次客户机改页表都要陷出，开销大） | **EPT / NPT（二级地址翻译）**：硬件自动完成 <img class="fml" src="/formulas/dcb914537e5f02.png" alt="GVA \to GPA \to HPA" width="190" height="33"> 两级转换；配合大页降低 TLB 开销 |
 | I/O | 全模拟（QEMU 设备模型，每次 I/O 多次陷入）／半虚拟 **virtio**（前后端共享环形队列） | **SR-IOV / 设备直通 / IOMMU**：把物理设备虚拟成多个 VF 直接分配给客户机，接近原生性能 |
 | 多核虚拟化 | vCPU 调度、超分（overcommit）、CPU 亲和与 NUMA 绑定 | 中断投递优化、posted interrupt |
 
@@ -1416,7 +1416,7 @@ void output(void) {
 **题**：系统有 2 类资源 `R1(2 个实例)`、`R2(1 个实例)`，进程 P1、P2。当前：R1 的两个实例分别被 P1、P2 各占 1 个；R2 被 P2 占有；P1 正请求 R2，P2 正请求 R1。判断是否死锁。
 
 **解**：画资源分配图——
-<img class="fml" src="/formulas/5485adf874d834.png" alt="R1 \to P1" width="79" height="33">、<img class="fml" src="/formulas/bdaf82a47ba83f.png" alt="R1 \to P2" width="79" height="33">（分配边），<img class="fml" src="/formulas/0c00d08e538656.png" alt="P1 \to R2" width="79" height="33">、<img class="fml" src="/formulas/d34a7a5d385009.png" alt="P2 \to R1" width="79" height="33">（请求边），<img class="fml" src="/formulas/daf2b1e67c8103.png" alt="R2 \to P2" width="79" height="33">（分配边）。
+<img class="fml" src="/formulas/5485adf874d834.png" alt="R1 \to P1" width="80" height="33">、<img class="fml" src="/formulas/bdaf82a47ba83f.png" alt="R1 \to P2" width="80" height="33">（分配边），<img class="fml" src="/formulas/0c00d08e538656.png" alt="P1 \to R2" width="80" height="33">、<img class="fml" src="/formulas/d34a7a5d385009.png" alt="P2 \to R1" width="81" height="33">（请求边），<img class="fml" src="/formulas/daf2b1e67c8103.png" alt="R2 \to P2" width="80" height="33">（分配边）。
 化简：P1 的请求 `R2` 无法满足（唯一实例被 P2 占有）；P2 的请求 `R1` 也无法满足（两个实例都已分配）→ **没有任何进程能获得全部资源并"孤立"出来，图不可完全化简 → 已死锁**，涉及 P1、P2 与 R1、R2。
 解除：剥夺 P2 的 R2 给 P1（P1 完成后释放 R1 与 R2），或终止 P2 并回滚。
 
@@ -1439,7 +1439,7 @@ void output(void) {
 (3) EAT= 0.95 \times(10+80)+ 0.05 \times(10+80+80)= 85.5+ 8.5= 94 ns \\
 \text{(4)} \; \text{两级页表无快表} \; \text{= 3} \; \text{次访存} \; = 3 \times 80= 240 ns \\
 (5) 0x00001234 \to \; \text{低} \; \text{12} \; \text{位} \; \text{0x234} \; \text{为偏移，高} \; \text{20} \; \text{位} \; \text{0x1} \; \text{为页号（即第} \; \text{1} \; \text{页，偏移} \; \text{564 B} \; \text{）}
-\end{gathered}" width="712" height="137"></p>
+\end{gathered}" width="713" height="139"></p>
 
 
 **权衡结论**：多级页表把「连续 4 MB」降为「4 KB 外层 + 若干 4 KB 二级」，代价是每次访存多 1 次；**只有配合高命中率 TLB 才划算**（94 ns vs 240 ns）。
@@ -1472,7 +1472,7 @@ void output(void) {
 \text{Belady} \; \text{异常：} \; \text{FIFO 3} \; \text{块} \; \text{9} \; \text{次} \; \to 4 \; \text{块反而} \; \text{10} \; \text{次} \; \checkmark \; \text{出现；} \; LRU 10 \to 8 \checkmark \; \text{正常} \\
 \text{4} \; \text{块} \; \text{LRU} \; \text{缺页率} \; p= \frac{8}{12} \approx 0.667 \\
 EAT=(1- p) \times 100 ns+ p \times 8 \times 10^6 ns \approx 5.33 \times 10^6 ns \approx 5.33 ms
-\end{gathered}" width="619" height="98"></p>
+\end{gathered}" width="620" height="99"></p>
 
 
 **结论**：缺页率高达 66.7% 时系统实际已接近**抖动**状态，EAT 比无缺页慢约 5 万倍——此时增加物理块数（或降低多道程序度）比换置换算法更有效。
@@ -1486,9 +1486,9 @@ EAT=(1- p) \times 100 ns+ p \times 8 \times 10^6 ns \approx 5.33 \times 10^6 ns 
 | 算法 | 服务序列 | 总移动 | 平均寻道 |
 | --- | --- | --- | --- |
 | FCFS | <img class="fml" src="/formulas/8efc3cb7651f95.png" alt="143 \to 86 \to 147 \to 91 \to 177 \to 94 \to 150 \to 102 \to 175 \to 130" width="497" height="33"> | 565 | 62.78 |
-| SSTF | <img class="fml" src="/formulas/1ae07c9b368b72.png" alt="143 \to 147 \to 150 \to 130 \to 102 \to 94 \to 91 \to 86 \to 175 \to 177" width="497" height="33"> | **162** | 18.00 |
-| SCAN | <img class="fml" src="/formulas/c5b583d7bd61db.png" alt="143 \to 147 \to 150 \to 175 \to 177 \to 199 \to 130 \to 102 \to 94 \to 91 \to 86" width="551" height="33"> | 169 | 18.78 |
-| C-SCAN | <img class="fml" src="/formulas/1ca87b09bae149.png" alt="143 \to 147 \to 150 \to 175 \to 177 \to 199 \to(0) \to 86 \to 91 \to 94 \to 102 \to 130" width="602" height="33"> | 186 | 20.67 |
+| SSTF | <img class="fml" src="/formulas/1ae07c9b368b72.png" alt="143 \to 147 \to 150 \to 130 \to 102 \to 94 \to 91 \to 86 \to 175 \to 177" width="498" height="33"> | **162** | 18.00 |
+| SCAN | <img class="fml" src="/formulas/c5b583d7bd61db.png" alt="143 \to 147 \to 150 \to 175 \to 177 \to 199 \to 130 \to 102 \to 94 \to 91 \to 86" width="553" height="33"> | 169 | 18.78 |
+| C-SCAN | <img class="fml" src="/formulas/1ca87b09bae149.png" alt="143 \to 147 \to 150 \to 175 \to 177 \to 199 \to(0) \to 86 \to 91 \to 94 \to 102 \to 130" width="603" height="33"> | 186 | 20.67 |
 
 
 
@@ -1496,7 +1496,7 @@ EAT=(1- p) \times 100 ns+ p \times 8 \times 10^6 ns \approx 5.33 \times 10^6 ns 
 \text{平均旋转延迟} \; = \frac{\frac{60}{10000}}{2}= 3 ms \\
 \text{传输时间} \; = \frac{\frac{8 KB}{100 MB}}{s} \approx 0.08 ms \\
 \text{单次访问} \; \text{≈ 5 (} \; \text{寻道} \; \text{) + 3 (} \; \text{旋转} \; \text{) + 0.08 (} \; \text{传输} \; \text{) ≈ 8.08 ms}
-\end{gathered}" width="469" height="122"></p>
+\end{gathered}" width="470" height="123"></p>
 
 
 **易错**：SSTF 虽总距离最小，但可能在中部磁道"粘着"造成远端饥饿；SCAN/C-SCAN 牺牲总距离换**等待时间上界**。SSD 上无寻道/旋转，本题的调度收益几乎消失。
@@ -1515,7 +1515,7 @@ EAT=(1- p) \times 100 ns+ p \times 8 \times 10^6 ns \approx 5.33 \times 10^6 ns 
 \text{(4)} \; \text{盘块数} \; = \frac{512 GB}{4 KB}= 2^27= 134 217 728 \\
 \text{位示图} \; \text{= } 2^{27} \; \text{位} \; \text{= 16 MB} \; \text{，占} \; \frac{16 MB}{4 KB}= 4096 \; \text{个盘块} \\
 \text{(5)} \; \text{每块可放} \; \frac{4096}{32}= 128 \; \text{个目录项} \; \to 4096 \; \text{项需} \; \text{32} \; \text{块} \; \to \; \text{顺序查找平均} \; \frac{32+1}{2}= 16.5 \; \text{块}
-\end{gathered}" width="713" height="223"></p>
+\end{gathered}" width="713" height="224"></p>
 
 
 **结论**：`inode 分离 + dentry 缓存 + 目录索引（如 ext4 的 htree / XFS 的 B+ 树）` 正是为了压低 ⑤ 的读盘次数；三级间接让大文件可达 TB 级，但代价是 4 次 I/O，所以现代文件系统用 **extent（连续区段）** 记录大文件以减少间接层数。
@@ -1532,7 +1532,7 @@ Amdahl: S(N)= \frac{1}{(1- f)+ \frac{f}{N}}= \frac{1}{0.2+ \frac{0.8}{8}}= \frac
 N \to_{\infty} : S \le \frac{1}{1- f}= \frac{1}{0.2}= 5 \; \text{（串行部分} \; \text{20\%} \; \text{决定天花板）} \\
 \text{含} \; \text{10\%} \; \text{并行开销：并行段时间变为} \; \left(\frac{0.8}{8}\right) \times 1.1= 0.11 \\
 S= \frac{1}{0.2+ 0.11} \approx 3.23
-\end{gathered}" width="477" height="188"></p>
+\end{gathered}" width="479" height="189"></p>
 
 
 **结论**：加核收益**迅速递减**，且伪共享、锁竞争、NUMA 远端访存都会把 `f/N` 项抬高；工程上要先**减少串行段与共享写**，再考虑加核（Gustafson 定律则从"固定时间、放大问题规模"角度看扩展性）。
@@ -1588,45 +1588,45 @@ S= \frac{1}{0.2+ 0.11} \approx 3.23
 | 1 | CPU 利用率 | 忙时间 / 总时间；多道程序度越高越好，但过高触发抖动 |
 | 2 | 周转时间 | `T = 完成时刻 − 到达时刻` |
 | 3 | 带权周转 | `W = T / 服务时间 Ts ≥ 1`，平均 `W` 越小越好 |
-| 4 | 等待时间 | <img class="fml" src="/formulas/f175a2fd348f5c.png" alt="T- Ts" width="62" height="33">（不含运行时间）；响应时间＝首次请求到首次响应 |
+| 4 | 等待时间 | <img class="fml" src="/formulas/f175a2fd348f5c.png" alt="T- Ts" width="63" height="33">（不含运行时间）；响应时间＝首次请求到首次响应 |
 | 5 | 响应比 | `R = (等待 + 服务) / 服务 = 1 + 等待/服务` |
 | 6 | SJF 最优性 | 非抢占 SJF 使**平均周转与平均带权周转最小**（可证明） |
 | 7 | 切换开销占比 | `s/(q+s)`（s＝一次上下文切换耗时，q＝时间片） |
-| 8 | RMS 可调度上界 | <img class="fml" src="/formulas/359b80de08b214.png" alt="U \le n\left(2^{\frac{1}{n}}- 1\right)" width="129" height="40">，<img class="fml" src="/formulas/f9f5d28d2b11fe.png" alt="n \to_{\infty}" width="53" height="33"> 时 <img class="fml" src="/formulas/d604d9947e0f18.png" alt="\to \ln 2 \approx 0.693" width="120" height="33"> |
+| 8 | RMS 可调度上界 | <img class="fml" src="/formulas/359b80de08b214.png" alt="U \le n\left(2^{\frac{1}{n}}- 1\right)" width="130" height="41">，<img class="fml" src="/formulas/f9f5d28d2b11fe.png" alt="n \to_{\infty}" width="53" height="34"> 时 <img class="fml" src="/formulas/d604d9947e0f18.png" alt="\to \ln 2 \approx 0.693" width="121" height="33"> |
 | 9 | 松弛度 | `LLF = 必须完成时刻 − 尚需运行时间 − 当前时刻` |
-| 10 | Amdahl 定律 | <img class="fml" src="/formulas/12befc30c35d69.png" alt="S= \frac{1}{(1- f)+ \frac{f}{N}}" width="101" height="39">，上限 <img class="fml" src="/formulas/18fc1f049c7ed2.png" alt="\frac{1}{1- f}" width="34" height="35"> |
+| 10 | Amdahl 定律 | <img class="fml" src="/formulas/12befc30c35d69.png" alt="S= \frac{1}{(1- f)+ \frac{f}{N}}" width="102" height="39">，上限 <img class="fml" src="/formulas/18fc1f049c7ed2.png" alt="\frac{1}{1- f}" width="35" height="35"> |
 | 11 | 信号量值 | `S>0`：可用资源数；`S<0`：\|S\| 为阻塞进程数；`V` 后 <img class="fml" src="/formulas/a64c6fcc24ecfa.png" alt="\le 0" width="34" height="33"> 才唤醒 |
-| 12 | 银行家判据 | <img class="fml" src="/formulas/b32cabbf66c260.png" alt="Need= Max- Allocation" width="215" height="33">；<img class="fml" src="/formulas/ba8bba21f38aac.png" alt="Need_{i} \le Work" width="124" height="33"> 才可假想完成并归还 `Allocation_i` |
+| 12 | 银行家判据 | <img class="fml" src="/formulas/b32cabbf66c260.png" alt="Need= Max- Allocation" width="216" height="34">；<img class="fml" src="/formulas/ba8bba21f38aac.png" alt="Need_{i} \le Work" width="124" height="34"> 才可假想完成并归还 `Allocation_i` |
 | 13 | 死锁必要条件 | 互斥、请求和保持、不可剥夺、环路等待（全部满足才可能死锁） |
-| 14 | 地址拆分 | 页大小 `L = 2^k` 时 <img class="fml" src="/formulas/d346f89bf1158f.png" alt="p= \frac{A}{L}" width="52" height="33">（高若干位）、`d = A mod L`（低 k 位） |
+| 14 | 地址拆分 | 页大小 `L = 2^k` 时 <img class="fml" src="/formulas/d346f89bf1158f.png" alt="p= \frac{A}{L}" width="53" height="34">（高若干位）、`d = A mod L`（低 k 位） |
 | 15 | 分页物理地址 | `PA = 块号 × L + d`；分段 `PA = 段基址 + 段内偏移`（须校验 `偏移 < 段长`） |
 | 16 | 页表项数 | `2^(逻辑地址位数 − log2 L)`；页表大小 = 项数 × 每项字节数 |
-| 17 | 单级页表例 | 32 位 / 4 KB / PTE 4 B → <img class="fml" src="/formulas/d14c3f8ee46392.png" alt="2^20 \times 4 B= 4 MB" width="143" height="33">（每进程） |
-| 18 | TLB 有效访问时间 | <img class="fml" src="/formulas/b2fc9af14ee7bd.png" alt="EAT= \lambda(t+ ma)+(1- \lambda)(t+ 2ma)" width="301" height="33">；无快表 `= 2ma`；两级页表 `= 3ma`；段页式 `= 3ma` |
-| 19 | 例题数值 | <img class="fml" src="/formulas/0a01366eaab275.png" alt="t=20 ns, ma=100 ns, \lambda=0.9 \to EAT= 130 ns" width="379" height="33"> |
+| 17 | 单级页表例 | 32 位 / 4 KB / PTE 4 B → <img class="fml" src="/formulas/d14c3f8ee46392.png" alt="2^20 \times 4 B= 4 MB" width="143" height="34">（每进程） |
+| 18 | TLB 有效访问时间 | <img class="fml" src="/formulas/b2fc9af14ee7bd.png" alt="EAT= \lambda(t+ ma)+(1- \lambda)(t+ 2ma)" width="302" height="34">；无快表 `= 2ma`；两级页表 `= 3ma`；段页式 `= 3ma` |
+| 19 | 例题数值 | <img class="fml" src="/formulas/0a01366eaab275.png" alt="t=20 ns, ma=100 ns, \lambda=0.9 \to EAT= 130 ns" width="379" height="34"> |
 | 20 | 虚存最大容量 | `min(2^(地址位数), 内存 + 外存可用空间)` |
 | 21 | 虚存三特征 | 多次性、对换性、虚拟性 |
 | 22 | 缺页率 | `p = 缺页次数 / 总访问次数`；`缺页率 = 1 − 命中率` |
 | 23 | 请求分页 EAT | `EAT = (1−p)·ma + p·缺页处理时间`（p=1% 时约放大 1000 倍） |
 | 24 | 置换算法性能 | OPT 最优（理论下界）< LRU ≈ Clock < FIFO；OPT/LRU 无 Belady 异常 |
 | 25 | Belady 异常 | FIFO 在 `1 2 3 4 1 2 5 1 2 3 4 5` 上：3 块 9 次、4 块 10 次 |
-| 26 | 改进型 Clock | 淘汰优先级 <img class="fml" src="/formulas/f9c4a03dca6b83.png" alt="(A,D)=(0,0) \to(0,1) \to(1,0) \to(1,1)" width="322" height="33">，优先免写回 |
-| 27 | 工作集 | <img class="fml" src="/formulas/eb8b87bc8b26a0.png" alt="W(t, \Delta)" width="69" height="33"> = 最近 Δ 时间窗口内访问过的页集合；分配块数应 ≥ \|W\| |
+| 26 | 改进型 Clock | 淘汰优先级 <img class="fml" src="/formulas/f9c4a03dca6b83.png" alt="(A,D)=(0,0) \to(0,1) \to(1,0) \to(1,1)" width="324" height="34">，优先免写回 |
+| 27 | 工作集 | <img class="fml" src="/formulas/eb8b87bc8b26a0.png" alt="W(t, \Delta)" width="69" height="34"> = 最近 Δ 时间窗口内访问过的页集合；分配块数应 ≥ \|W\| |
 | 28 | 单/双缓冲 | 单缓冲 `max(C,T)+M`；双缓冲 `max(C+M, T)` |
 | 29 | 磁盘访问时间 | `Ta = Ts + 1/(2×转速) + 字节数/传输速率 + 控制器开销` |
-| 30 | 磁盘例题 | 7200 rpm → <img class="fml" src="/formulas/8f34d64b01b9c0.png" alt="T\tau \approx 4.17 ms" width="108" height="33">；4 KB / 200 MB/s → <img class="fml" src="/formulas/263f65f67ed2c2.png" alt="Tt \approx 0.02 ms" width="105" height="33"> |
+| 30 | 磁盘例题 | 7200 rpm → <img class="fml" src="/formulas/8f34d64b01b9c0.png" alt="T\tau \approx 4.17 ms" width="110" height="34">；4 KB / 200 MB/s → <img class="fml" src="/formulas/263f65f67ed2c2.png" alt="Tt \approx 0.02 ms" width="106" height="34"> |
 | 31 | 平均寻道长度 | `总移动磁道数 / 请求数`；SCAN/CSCAN 须先声明是否计入到端点与回程 |
 | 32 | 磁盘调度例题 | 100 起步、9 请求：FCFS 498 / SSTF 248 / SCAN 280 / C-SCAN 189 |
 | 33 | 索引分配块号容量 | `k = 盘块大小 / 盘块号字节数`（1 KB / 4 B → 256） |
-| 34 | 混合索引最大文件 | `(直接数 + k + k² + k³) × L`；例 10 直接 → <img class="fml" src="/formulas/ab4ce55004fbd2.png" alt="\approx 16 GB" width="71" height="33">（k=256, L=1 KB） |
+| 34 | 混合索引最大文件 | `(直接数 + k + k² + k³) × L`；例 10 直接 → <img class="fml" src="/formulas/ab4ce55004fbd2.png" alt="\approx 16 GB" width="72" height="34">（k=256, L=1 KB） |
 | 35 | 位示图大小 | `盘块总数 / 8` 字节；1 GB / 1 KB 块 → 128 KB |
-| 36 | 位示图换算 | 从 0 起：<img class="fml" src="/formulas/bda0256a21c9d1.png" alt="b= n \cdot i+ j" width="97" height="33">；从 1 起：<img class="fml" src="/formulas/a900006464236c.png" alt="b= n(i- 1)+ j" width="129" height="33"> |
-| 37 | RAID 容量 | RAID0 = 100%；<img class="fml" src="/formulas/e45bb716f7f4db.png" alt="\frac{RAID1}{10}= 50" width="94" height="33">%；RAID5 = <img class="fml" src="/formulas/68fc8666e34ba3.png" alt="\frac{N- 1}{N}" width="38" height="33">；RAID6 = <img class="fml" src="/formulas/dc36dd3c24a939.png" alt="\frac{N- 2}{N}" width="38" height="33"> |
+| 36 | 位示图换算 | 从 0 起：<img class="fml" src="/formulas/bda0256a21c9d1.png" alt="b= n \cdot i+ j" width="98" height="34">；从 1 起：<img class="fml" src="/formulas/a900006464236c.png" alt="b= n(i- 1)+ j" width="130" height="33"> |
+| 37 | RAID 容量 | RAID0 = 100%；<img class="fml" src="/formulas/e45bb716f7f4db.png" alt="\frac{RAID1}{10}= 50" width="96" height="34">%；RAID5 = <img class="fml" src="/formulas/68fc8666e34ba3.png" alt="\frac{N- 1}{N}" width="38" height="33">；RAID6 = <img class="fml" src="/formulas/dc36dd3c24a939.png" alt="\frac{N- 2}{N}" width="39" height="33"> |
 | 38 | 事务 ACID | 原子性、一致性、隔离性、持久性；检查点缩短恢复重放范围 |
 | 39 | IPC 开销 | 共享内存（映射后无内核中转拷贝）> 管道/消息队列 > 套接字 |
 | 40 | 死锁处理代价 | 预防（最保守）→ 避免（需预知）→ 检测+解除（事后） |
 | 41 | 加速与并行 | 多核加速受串行比例与缓存一致性/伪共享制约，非随核数线性增长 |
-| 42 | 虚拟化 | EPT/NPT 做 <img class="fml" src="/formulas/dcb914537e5f02.png" alt="GVA \to GPA \to HPA" width="188" height="33"> 两级硬件翻译；容器＝namespace 隔离 + cgroup 限额 |
+| 42 | 虚拟化 | EPT/NPT 做 <img class="fml" src="/formulas/dcb914537e5f02.png" alt="GVA \to GPA \to HPA" width="190" height="33"> 两级硬件翻译；容器＝namespace 隔离 + cgroup 限额 |
 
 ::: tip 记忆口诀
 **调度**：「先来短作高响应，轮转反馈实时忙」；**同步**：「先同步后互斥，P 减 V 加，V 不阻塞」；**死锁**：「互请不环，破一即可」；**存储**：「分页一维段二维，快表命中省一次」；**置换**：「OPT 看未来、LRU 看过去、FIFO 看资历、Clock 看访问位」；**磁盘**：「先寻道、再旋转、后传输」。
@@ -1653,7 +1653,7 @@ S= \frac{1}{0.2+ 0.11} \approx 3.23
 16. ULT 一个线程阻塞→**整个进程阻塞**，且无法多核并行；KLT 切换需陷入内核。
 17. 共享内存「最快」指映射建立后免内核中转拷贝，**不自带同步**。
 
-18. 周转时间含运行 + 等待；等待时间**不含运行**；<img class="fml" src="/formulas/c34224427a319b.png" alt="W= \frac{T}{Ts} \ge 1" width="101" height="33">。
+18. 周转时间含运行 + 等待；等待时间**不含运行**；<img class="fml" src="/formulas/c34224427a319b.png" alt="W= \frac{T}{Ts} \ge 1" width="102" height="34">。
 19. 响应比用于**调度决策**，带权周转用于**事后评价**，二者别混。
 20. SJF 平均周转最优，但需预知服务时间且长作业饥饿；SRTF 按**剩余**时间抢占。
 21. RR 时间片过大退化为 FCFS，过小则切换开销占比 `s/(q+s)` 过高。
@@ -1725,7 +1725,7 @@ S= \frac{1}{0.2+ 0.11} \approx 3.23
 81. RAID 0 无容错；RAID 5 校验**分布**在各盘；RAID 不能替代备份。
 82. 事务持久性靠稳定存储 + 日志；检查点缩短恢复重放范围。
 83. SSD 写前擦除导致写放大；TRIM 通知无效块以减轻 GC。
-84. RAID5 利用率 <img class="fml" src="/formulas/68fc8666e34ba3.png" alt="\frac{N- 1}{N}" width="38" height="33">、RAID6 <img class="fml" src="/formulas/dc36dd3c24a939.png" alt="\frac{N- 2}{N}" width="38" height="33">、RAID10 50%。
+84. RAID5 利用率 <img class="fml" src="/formulas/68fc8666e34ba3.png" alt="\frac{N- 1}{N}" width="38" height="33">、RAID6 <img class="fml" src="/formulas/dc36dd3c24a939.png" alt="\frac{N- 2}{N}" width="39" height="33">、RAID10 50%。
 
 85. UMA 各核访存时间相同；NUMA 访问远端内存更慢，须做亲和绑定。
 86. 自旋锁只适合持锁时间**短于两次上下文切换**且多核的场景；单 CPU 自旋无意义。

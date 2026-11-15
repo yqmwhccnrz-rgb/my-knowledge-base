@@ -96,13 +96,13 @@ summary: "计算机网络 精要笔记，共 9 章：概述、物理层、数据
 
 | 指标 | 定义 | 单位 / 要点 |
 | --- | --- | --- |
-| **速率（数据率）** | 单位时间传送的比特数 | bit/s；<img class="fml" src="/formulas/baad2a556aec22.png" alt="\frac{1 kbit}{s}=10^{3}" width="86" height="33">，<img class="fml" src="/formulas/c9474b11316b14.png" alt="\frac{1 Mbit}{s}=10^{6}" width="93" height="33">，<img class="fml" src="/formulas/ceba33182c1f3e.png" alt="\frac{1 Gbit}{s}=10^{9}" width="89" height="33">（**十进制**，与存储容量 <img class="fml" src="/formulas/24c37ec74e51f0.png" alt="K=2^{10}B" width="83" height="33"> 不同） |
+| **速率（数据率）** | 单位时间传送的比特数 | bit/s；<img class="fml" src="/formulas/baad2a556aec22.png" alt="\frac{1 kbit}{s}=10^{3}" width="87" height="34">，<img class="fml" src="/formulas/c9474b11316b14.png" alt="\frac{1 Mbit}{s}=10^{6}" width="94" height="34">，<img class="fml" src="/formulas/ceba33182c1f3e.png" alt="\frac{1 Gbit}{s}=10^{9}" width="91" height="34">（**十进制**，与存储容量 <img class="fml" src="/formulas/24c37ec74e51f0.png" alt="K=2^{10}B" width="84" height="34"> 不同） |
 | **带宽** | ① 频域：信号频带宽度（Hz）；② 时域：链路最高数据率（bit/s） | 网络语境下两者成正比，常混用 |
 | **吞吐量** | 单位时间通过某网络的**实际**数据量 | 受瓶颈链路与负载限制，≤ 额定速率 |
 | **时延** | 数据从一端到另一端所需时间 | 见下 |
 | **时延带宽积** | `传播时延 × 带宽` | 又称「以比特为单位的链路长度」，表示链路上可容纳的比特数 |
 | **往返时间 RTT** | 发送方发出到收到对方确认的时间 | 含**对方处理与排队时延**；有效数据率 ≈ 数据长度 / (发送时延 + RTT) |
-| **利用率 U** | 信道被占用的时间比例 | <img class="fml" src="/formulas/e4dcf9a22e29c4.png" alt="D= \frac{D_{0}}{1- U}" width="75" height="33">，U→1 时时延急剧增大 |
+| **利用率 U** | 信道被占用的时间比例 | <img class="fml" src="/formulas/e4dcf9a22e29c4.png" alt="D= \frac{D_{0}}{1- U}" width="76" height="34">，U→1 时时延急剧增大 |
 
 #### 1.6.2 四种时延与计算
 
@@ -112,28 +112,28 @@ summary: "计算机网络 精要笔记，共 9 章：概述、物理层、数据
 \text{总时延} \; \text{=} \; \text{发送时延} \; \text{+} \; \text{传播时延} \; \text{+} \; \text{处理时延} \; \text{+} \; \text{排队时延} \\
 \text{发送时延} \; \text{=} \; \text{数据长度} \; \text{(bit) /} \; \text{发送速率} \; \left(\frac{bit}{s}\right) \leftarrow \; \text{与「数据长度、速率」有关} \\
 \text{传播时延} \; \text{=} \; \text{信道长度} \; \text{(m) /} \; \text{电磁波传播速率} \; \left(\frac{m}{s}\right) \leftarrow \; \text{与「距离、介质」有关，与速率无关}
-\end{gathered}" width="717" height="116"></p>
+\end{gathered}" width="718" height="117"></p>
 
 
 
 ![四种时延与时延带宽积](/net/net-delay.svg)
 
 ::: tip 工作示例 · 时延计算
-用 `1 Gbit/s` 链路发送 `1000 MB`（按 <img class="fml" src="/formulas/fd47206163b7e4.png" alt="1 MB= 2^{20} B" width="109" height="33">）的数据，链路长 1000 km，传播速率 <img class="fml" src="/formulas/e5658e61569fcc.png" alt="\frac{2 \times 10^{8} m}{s}" width="55" height="33">（忽略处理/排队）：
-- 数据长度 = <img class="fml" src="/formulas/0fbb3b4d491331.png" alt="1000 \times 2^{20} \times 8= 8.388608 \times 10^{9} bit" width="275" height="33">
-- 发送时延 = <img class="fml" src="/formulas/924e8f3420c752.png" alt="\frac{8.388608 \times 10^{9}}{10^{9}} \approx 8.39 s" width="149" height="33">
-- 传播时延 = <img class="fml" src="/formulas/e9991cf2906f16.png" alt="\frac{10^{6} m}{\frac{2 \times 10^{8} m}{s}}= 0.005 s= 5 ms" width="178" height="40">
-- **总时延 <img class="fml" src="/formulas/430266ebb4f6b0.png" alt="\approx 8.394\,\mathrm{s}" width="76" height="33">**，发送时延占绝对主导（大文件 + 高速链路）。
+用 `1 Gbit/s` 链路发送 `1000 MB`（按 <img class="fml" src="/formulas/fd47206163b7e4.png" alt="1 MB= 2^{20} B" width="110" height="34">）的数据，链路长 1000 km，传播速率 <img class="fml" src="/formulas/e5658e61569fcc.png" alt="\frac{2 \times 10^{8} m}{s}" width="56" height="34">（忽略处理/排队）：
+- 数据长度 = <img class="fml" src="/formulas/0fbb3b4d491331.png" alt="1000 \times 2^{20} \times 8= 8.388608 \times 10^{9} bit" width="276" height="34">
+- 发送时延 = <img class="fml" src="/formulas/924e8f3420c752.png" alt="\frac{8.388608 \times 10^{9}}{10^{9}} \approx 8.39 s" width="150" height="34">
+- 传播时延 = <img class="fml" src="/formulas/e9991cf2906f16.png" alt="\frac{10^{6} m}{\frac{2 \times 10^{8} m}{s}}= 0.005 s= 5 ms" width="179" height="41">
+- **总时延 <img class="fml" src="/formulas/430266ebb4f6b0.png" alt="\approx 8.394\,\mathrm{s}" width="76" height="34">**，发送时延占绝对主导（大文件 + 高速链路）。
 
-反过来，若只发 1 字节、距离 1000 km：发送时延 <img class="fml" src="/formulas/6dabf42b9e1adf.png" alt="\frac{8}{10^{9}} \approx 8 ns" width="80" height="33">，传播时延仍是 5 ms —— **传播时延主导**（短报文 + 长距离）。这正是「增大发送速率只能减少发送时延，不能减少传播时延」的含义。
+反过来，若只发 1 字节、距离 1000 km：发送时延 <img class="fml" src="/formulas/6dabf42b9e1adf.png" alt="\frac{8}{10^{9}} \approx 8 ns" width="81" height="34">，传播时延仍是 5 ms —— **传播时延主导**（短报文 + 长距离）。这正是「增大发送速率只能减少发送时延，不能减少传播时延」的含义。
 :::
 
 ::: tip 工作示例 · 时延带宽积与利用率
-链路带宽 `1 Mbit/s`，传播时延 `20 ms`：时延带宽积 = <img class="fml" src="/formulas/365878352e8002.png" alt="10^{6} \times 0.02= 20000 bit= 2500 B" width="247" height="33">，即链路上同时可「在途」约 2500 字节。若空闲时延 <img class="fml" src="/formulas/3ae7a84c043c22.png" alt="D_{0}= 10 ms" width="94" height="33">，信道利用率 `U = 0.9` 时 <img class="fml" src="/formulas/aac2cf27e54086.png" alt="D= \frac{10}{1- 0.9}= 100 ms" width="156" height="33"> —— **利用率越高，排队时延增长越剧烈**，所以骨干网通常控制在 50% 以下。
+链路带宽 `1 Mbit/s`，传播时延 `20 ms`：时延带宽积 = <img class="fml" src="/formulas/365878352e8002.png" alt="10^{6} \times 0.02= 20000 bit= 2500 B" width="248" height="34">，即链路上同时可「在途」约 2500 字节。若空闲时延 <img class="fml" src="/formulas/3ae7a84c043c22.png" alt="D_{0}= 10 ms" width="95" height="34">，信道利用率 `U = 0.9` 时 <img class="fml" src="/formulas/aac2cf27e54086.png" alt="D= \frac{10}{1- 0.9}= 100 ms" width="157" height="34"> —— **利用率越高，排队时延增长越剧烈**，所以骨干网通常控制在 50% 以下。
 :::
 
 ::: danger 易错 · 性能指标
-- 速率单位按 **10 的幂**（<img class="fml" src="/formulas/c500dda905c832.png" alt="k=10^{3}" width="65" height="33">、<img class="fml" src="/formulas/76c1418d7270e3.png" alt="M=10^{6}" width="74" height="33">、<img class="fml" src="/formulas/4fa63837e7e071.png" alt="G=10^{9}" width="69" height="33">），而存储容量按 **2 的幂**；`1 KB = 1024 B` 但 <img class="fml" src="/formulas/603b6e893fc4b3.png" alt="\frac{1 kbit}{s}= \frac{1000 bit}{s}" width="105" height="33">。
+- 速率单位按 **10 的幂**（<img class="fml" src="/formulas/c500dda905c832.png" alt="k=10^{3}" width="65" height="34">、<img class="fml" src="/formulas/76c1418d7270e3.png" alt="M=10^{6}" width="75" height="34">、<img class="fml" src="/formulas/4fa63837e7e071.png" alt="G=10^{9}" width="70" height="34">），而存储容量按 **2 的幂**；`1 KB = 1024 B` 但 <img class="fml" src="/formulas/603b6e893fc4b3.png" alt="\frac{1 kbit}{s}= \frac{1000 bit}{s}" width="106" height="34">。
 - 「带宽越大时延越小」只在一定条件下成立：带宽大只减少**发送时延**；传播时延由距离与介质决定；拥塞时排队时延反而上升。
 - `RTT` 不等于两倍的传播时延，还包含接收端处理、排队与发送确认的时间。
 :::
@@ -198,15 +198,15 @@ summary: "计算机网络 精要笔记，共 9 章：概述、物理层、数据
 
 #### 1.8.3 工作示例 · 为什么分组交换能更快
 
-设报文数据 `1000 bit`，分为 **2 个分组**，每分组加 `100 bit` 首部 = `600 bit`；链路速率 `1 Mbit/s`，路径有 **3 段链路**（<img class="fml" src="/formulas/2ec5f81004ec94.png" alt="A \to B \to C \to D" width="146" height="33">），忽略传播/处理/排队时延。
+设报文数据 `1000 bit`，分为 **2 个分组**，每分组加 `100 bit` 首部 = `600 bit`；链路速率 `1 Mbit/s`，路径有 **3 段链路**（<img class="fml" src="/formulas/2ec5f81004ec94.png" alt="A \to B \to C \to D" width="147" height="34">），忽略传播/处理/排队时延。
 
 | 方式 | 计算 | 端到端时间 |
 | --- | --- | --- |
 | 电路交换 | 先建立连接 `t_s`，再连续传 1000 bit | `t_s + 1 ms`（连接建立通常远大于此） |
-| 报文交换 | 每段都要收完整报文（1100 bit）再转发：<img class="fml" src="/formulas/85e553564850ac.png" alt="3 \times 1.1 ms" width="84" height="33"> | **3.3 ms** |
-| 分组交换 | 流水线：总时间 = `(段数 + 分组数 − 1) × 每分组发送时延` = <img class="fml" src="/formulas/90c61ff67dd72f.png" alt="(3+2- 1) \times 0.6 ms" width="159" height="33"> | **2.4 ms** |
+| 报文交换 | 每段都要收完整报文（1100 bit）再转发：<img class="fml" src="/formulas/85e553564850ac.png" alt="3 \times 1.1 ms" width="85" height="34"> | **3.3 ms** |
+| 分组交换 | 流水线：总时间 = `(段数 + 分组数 − 1) × 每分组发送时延` = <img class="fml" src="/formulas/90c61ff67dd72f.png" alt="(3+2- 1) \times 0.6 ms" width="160" height="34"> | **2.4 ms** |
 
-分组 1 在第 2 段发送的同时，分组 2 已经在第 1 段发送 —— **不同链路段被并行占用**，这是分组交换时延优势的来源。代价是多了 <img class="fml" src="/formulas/163fd37c6e01ab.png" alt="2 \times 100= 200 bit" width="134" height="33"> 首部开销，且每个分组要在路由器排队。
+分组 1 在第 2 段发送的同时，分组 2 已经在第 1 段发送 —— **不同链路段被并行占用**，这是分组交换时延优势的来源。代价是多了 <img class="fml" src="/formulas/163fd37c6e01ab.png" alt="2 \times 100= 200 bit" width="135" height="34"> 首部开销，且每个分组要在路由器排队。
 
 #### 1.8.4 网络的非性能特征
 
@@ -267,19 +267,19 @@ summary: "计算机网络 精要笔记，共 9 章：概述、物理层、数据
 
 | 定理 | 前提 | 结论 | 含义 |
 | --- | --- | --- | --- |
-| **奈氏准则** | 理想低通信道、**无噪声**，带宽 W(Hz) | 最高码元速率 **`2W` Baud**；若码元有 V 种状态，最高数据率 <img class="fml" src="/formulas/ead4e28b3f7a6d.png" alt="2W \cdot \log_{2}V" width="95" height="33"> bit/s | 提高 V 可提高速率，但 V 过大抗噪差 |
-| **香农公式** | 带宽 W(Hz)、**有高斯白噪声**、信噪比 S/N | <img class="fml" src="/formulas/ae8962d46a3969.png" alt="C= W \cdot \log_{2}\left(1+ \frac{S}{N}\right)" width="172" height="33"> bit/s | 只要信息速率 < C，就存在编码可实现无差错传输 |
+| **奈氏准则** | 理想低通信道、**无噪声**，带宽 W(Hz) | 最高码元速率 **`2W` Baud**；若码元有 V 种状态，最高数据率 <img class="fml" src="/formulas/ead4e28b3f7a6d.png" alt="2W \cdot \log_{2}V" width="96" height="34"> bit/s | 提高 V 可提高速率，但 V 过大抗噪差 |
+| **香农公式** | 带宽 W(Hz)、**有高斯白噪声**、信噪比 S/N | <img class="fml" src="/formulas/ae8962d46a3969.png" alt="C= W \cdot \log_{2}\left(1+ \frac{S}{N}\right)" width="173" height="34"> bit/s | 只要信息速率 < C，就存在编码可实现无差错传输 |
 
-- **信噪比换算**：<img class="fml" src="/formulas/ba9d836b54a2da.png" alt="dB= 10 \cdot \log_{10}\left(\frac{S}{N}\right)" width="156" height="33">，故 <img class="fml" src="/formulas/4d837f44526dab.png" alt="\frac{S}{N}= 10^{\frac{dB}{10}}" width="80" height="33">。例如 <img class="fml" src="/formulas/63ce771c5b5017.png" alt="30 dB \to \frac{S}{N}= 1000" width="151" height="33">。
+- **信噪比换算**：<img class="fml" src="/formulas/ba9d836b54a2da.png" alt="dB= 10 \cdot \log_{10}\left(\frac{S}{N}\right)" width="157" height="34">，故 <img class="fml" src="/formulas/4d837f44526dab.png" alt="\frac{S}{N}= 10^{\frac{dB}{10}}" width="81" height="34">。例如 <img class="fml" src="/formulas/63ce771c5b5017.png" alt="30 dB \to \frac{S}{N}= 1000" width="151" height="34">。
 
 ::: tip 工作示例 · 香农公式
-信道带宽 `W = 3.1 kHz`，信噪比 `30 dB` → <img class="fml" src="/formulas/0fbe2dadb47f15.png" alt="\frac{S}{N}= 1000" width="81" height="33">，<img class="fml" src="/formulas/f582054f7ccbbd.png" alt="C= 3100 \times \log_{2}(1001) \approx 3100 \times 9.967 \approx \frac{30.9 kbit}{s}" width="375" height="33">。若用 `V = 8` 种状态的码元，奈氏上限 <img class="fml" src="/formulas/c0dbed5e7581df.png" alt="2W \cdot \log_{2}8= 6200 \times 3= \frac{18.6 kbit}{s}" width="251" height="33">，**低于香农上限**，则实际信息速率不可能超过约 18.6 kbit/s——**两个上限取较小者**，且香农给的是理论极限，工程上还要打折。
+信道带宽 `W = 3.1 kHz`，信噪比 `30 dB` → <img class="fml" src="/formulas/0fbe2dadb47f15.png" alt="\frac{S}{N}= 1000" width="83" height="34">，<img class="fml" src="/formulas/f582054f7ccbbd.png" alt="C= 3100 \times \log_{2}(1001) \approx 3100 \times 9.967 \approx \frac{30.9 kbit}{s}" width="375" height="34">。若用 `V = 8` 种状态的码元，奈氏上限 <img class="fml" src="/formulas/c0dbed5e7581df.png" alt="2W \cdot \log_{2}8= 6200 \times 3= \frac{18.6 kbit}{s}" width="251" height="33">，**低于香农上限**，则实际信息速率不可能超过约 18.6 kbit/s——**两个上限取较小者**，且香农给的是理论极限，工程上还要打折。
 :::
 
 ::: danger 易错 · 两个极限
 - 奈氏限制的是**码元速率**（2W Baud），香农限制的是**信息速率**（bit/s）；单位不同、前提不同，不能互相替代。
 - 「只要提高发送功率，速率就能无限提高」错误：信噪比增大虽提高 C，但受香农对数增长限制，且实际编码与硬件有限。
-- 香农公式中 `S/N` 是**线性比值**不是 dB，必须换算；<img class="fml" src="/formulas/601e958bad059d.png" alt="\log_{2}\left(1+\frac{S}{N}\right)" width="102" height="33"> 当 S/N 很大时约等于 <img class="fml" src="/formulas/990eaf71e2f0a9.png" alt="\log_{2}\left(\frac{S}{N}\right)" width="71" height="33">。
+- 香农公式中 `S/N` 是**线性比值**不是 dB，必须换算；<img class="fml" src="/formulas/601e958bad059d.png" alt="\log_{2}\left(1+\frac{S}{N}\right)" width="103" height="33"> 当 S/N 很大时约等于 <img class="fml" src="/formulas/990eaf71e2f0a9.png" alt="\log_{2}\left(\frac{S}{N}\right)" width="73" height="33">。
 :::
 
 ### 2.3 物理层下面的传输媒体（★★）
@@ -307,14 +307,14 @@ summary: "计算机网络 精要笔记，共 9 章：概述、物理层、数据
 
 ::: tip 工作示例 · CDMA 码片正交
 给站 A 分配码片 <img class="fml" src="/formulas/6019eaa052322b.png" alt="S=(- 1- 1- 1+1+1- 1+1+1)" width="294" height="33">，站 B 分配 `T`。各站发送 `+1` 时送自身码片，发送 `0` 时送其反码，接收方用同一码片做**规格化内积**：
-- 与自身内积 = `1`，与自身反码内积 = <img class="fml" src="/formulas/9b57cdc57dbb1e.png" alt="- 1" width="29" height="33">，与其他站码片内积 = **`0`**（相互正交）。
+- 与自身内积 = `1`，与自身反码内积 = <img class="fml" src="/formulas/9b57cdc57dbb1e.png" alt="- 1" width="30" height="33">，与其他站码片内积 = **`0`**（相互正交）。
 - 因此接收端用 S 内积混合信号即可只还原 A 的数据，其他站贡献为 0。
 :::
 
 ### 2.5 数字传输系统（★★）
 
-- **PCM（脉冲编码调制）**：采样（≥ 2×最高频率，奈奎斯特采样定理）→ 量化 → 编码；一路话音 <img class="fml" src="/formulas/c54a0b6693b879.png" alt="8 kHz \times 8" width="81" height="33"> **64 kbit/s**。
-- 早期数字复用体系：<img class="fml" src="/formulas/02c0639464883a.png" alt="T1= \frac{1.544 Mbit}{s}" width="112" height="33">（24 路）、<img class="fml" src="/formulas/f8d1487e78ae50.png" alt="E1= \frac{2.048 Mbit}{s}" width="113" height="33">（30/32 路，我国/欧洲）；光传输速率表还包括 SONET/SDH：<img class="fml" src="/formulas/18dec54abe4743.png" alt="STS-\frac{1}{OC}-1= \frac{51.84 Mbit}{s}" width="204" height="33">，<img class="fml" src="/formulas/5c006ebea85186.png" alt="STM-1= \frac{155.52 Mbit}{s}" width="171" height="33">，逐级 ×4 到 <img class="fml" src="/formulas/de5d4a260524e8.png" alt="STM-16= \frac{2488.32 Mbit}{s}" width="187" height="33">、<img class="fml" src="/formulas/95f9569608589b.png" alt="STM-64= \frac{9953.28 Mbit}{s}" width="187" height="33">。
+- **PCM（脉冲编码调制）**：采样（≥ 2×最高频率，奈奎斯特采样定理）→ 量化 → 编码；一路话音 <img class="fml" src="/formulas/c54a0b6693b879.png" alt="8 kHz \times 8" width="82" height="33"> **64 kbit/s**。
+- 早期数字复用体系：<img class="fml" src="/formulas/02c0639464883a.png" alt="T1= \frac{1.544 Mbit}{s}" width="113" height="33">（24 路）、<img class="fml" src="/formulas/f8d1487e78ae50.png" alt="E1= \frac{2.048 Mbit}{s}" width="114" height="33">（30/32 路，我国/欧洲）；光传输速率表还包括 SONET/SDH：<img class="fml" src="/formulas/18dec54abe4743.png" alt="STS-\frac{1}{OC}-1= \frac{51.84 Mbit}{s}" width="204" height="33">，<img class="fml" src="/formulas/5c006ebea85186.png" alt="STM-1= \frac{155.52 Mbit}{s}" width="172" height="33">，逐级 ×4 到 <img class="fml" src="/formulas/de5d4a260524e8.png" alt="STM-16= \frac{2488.32 Mbit}{s}" width="188" height="33">、<img class="fml" src="/formulas/95f9569608589b.png" alt="STM-64= \frac{9953.28 Mbit}{s}" width="187" height="33">。
 - **SDH/SONET** 是同步光纤传输体系，有统一帧结构、强大网管与自愈环；现代骨干更多用 **OTN + 以太网/WDM** 组合。
 
 ### 2.6 宽带接入技术（★★）
@@ -335,13 +335,13 @@ summary: "计算机网络 精要笔记，共 9 章：概述、物理层、数据
 
 
 
-<p class="fml-block"><img class="fml" src="/formulas/bbfaa948b324a8.png" alt="\text{源点} \; \text{(} \; \text{信源} \; \text{) →} \; \text{发送器} \; \text{(} \; \text{编码} \; \text{/} \; \text{调制} \; \text{) →} \; \text{传输系统} \; \text{(} \; \text{信道} \; \text{+} \; \text{噪声} \; \text{) →} \; \text{接收器} \; \text{(} \; \text{解调} \; \text{/} \; \text{译码} \; \text{) →} \; \text{终点} \; \text{(} \; \text{信宿} \; \text{)}" width="856" height="33"></p>
+<p class="fml-block"><img class="fml" src="/formulas/bbfaa948b324a8.png" alt="\text{源点} \; \text{(} \; \text{信源} \; \text{) →} \; \text{发送器} \; \text{(} \; \text{编码} \; \text{/} \; \text{调制} \; \text{) →} \; \text{传输系统} \; \text{(} \; \text{信道} \; \text{+} \; \text{噪声} \; \text{) →} \; \text{接收器} \; \text{(} \; \text{解调} \; \text{/} \; \text{译码} \; \text{) →} \; \text{终点} \; \text{(} \; \text{信宿} \; \text{)}" width="857" height="33"></p>
 
 
 
 - **模拟信号**取值连续，**数字信号**取值离散；**基带信号**含低频甚至直流分量，直接在低通信道传输会失真，故需**编码**（仍是数字信号）或**调制**到高频带通信道。
 - **信道的三个方面**：单工/半双工/全双工；专用/共享；数字/模拟。**噪声**分热噪声（随机、不可消除）与冲击噪声（突发、是差错主因）。
-- **采样定理**：无失真恢复模拟信号要求采样频率 <img class="fml" src="/formulas/4bbc0c8446cde3.png" alt="f_{s} \ge 2 \cdot f_{\max}" width="100" height="33">。电话话音限带 3.4 kHz，取 8 kHz 采样，每样本 8 bit → **64 kbit/s**（PCM 一路话音的由来）。
+- **采样定理**：无失真恢复模拟信号要求采样频率 <img class="fml" src="/formulas/4bbc0c8446cde3.png" alt="f_{s} \ge 2 \cdot f_{\max}" width="101" height="33">。电话话音限带 3.4 kHz，取 8 kHz 采样，每样本 8 bit → **64 kbit/s**（PCM 一路话音的由来）。
 
 #### 2.7.2 常用基带编码方式
 
@@ -354,7 +354,7 @@ summary: "计算机网络 精要笔记，共 9 章：概述、物理层、数据
 | AMI / 双相码 | 1 交替正负电平、0 为零电平 | 无直流，但长串 0 仍失步 |
 | 4B/5B、8B/10B | 把 4/8 位数据映射为 5/10 位码字 | 用冗余保证足够跳变与直流平衡；FDDI、千兆以太网、PCIe 使用 |
 
-> **波特率（Baud，码元/秒）≠ 比特率（bit/s）**：若一个码元有 V 种离散状态，则 `数据率 = 波特率 × log2V`。例如 16-QAM（V=16）在 2400 Baud 下可传 <img class="fml" src="/formulas/5635bc2d7fb0eb.png" alt="2400 \times 4= \frac{9600 bit}{s}" width="140" height="33">。
+> **波特率（Baud，码元/秒）≠ 比特率（bit/s）**：若一个码元有 V 种离散状态，则 `数据率 = 波特率 × log2V`。例如 16-QAM（V=16）在 2400 Baud 下可传 <img class="fml" src="/formulas/5635bc2d7fb0eb.png" alt="2400 \times 4= \frac{9600 bit}{s}" width="141" height="33">。
 
 #### 2.7.3 带通调制与 QAM
 
@@ -369,8 +369,8 @@ summary: "计算机网络 精要笔记，共 9 章：概述、物理层、数据
 
 #### 2.7.4 工作示例 · 两个上限怎么一起用
 
-信道 `W = 3.1 kHz`、信噪比 `30 dB`（<img class="fml" src="/formulas/0fbe2dadb47f15.png" alt="\frac{S}{N}= 1000" width="81" height="33">）：
-- 香农极限 <img class="fml" src="/formulas/24e28b2a3bd9f2.png" alt="C= 3100 \times \log_{2}(1001) \approx \frac{30.9 kbit}{s}" width="253" height="33">；
+信道 `W = 3.1 kHz`、信噪比 `30 dB`（<img class="fml" src="/formulas/0fbe2dadb47f15.png" alt="\frac{S}{N}= 1000" width="83" height="34">）：
+- 香农极限 <img class="fml" src="/formulas/24e28b2a3bd9f2.png" alt="C= 3100 \times \log_{2}(1001) \approx \frac{30.9 kbit}{s}" width="254" height="33">；
 - 若码元状态数 `V = 8`，奈氏上限 <img class="fml" src="/formulas/c0dbed5e7581df.png" alt="2W \cdot \log_{2}8= 6200 \times 3= \frac{18.6 kbit}{s}" width="251" height="33">；
 - 若 `V = 16`，奈氏上限 <img class="fml" src="/formulas/b57c5dbc21e468.png" alt="6200 \times 4= \frac{24.8 kbit}{s}" width="144" height="33">，更接近香农极限，但星座点更密、抗噪能力下降，实际误码率升高。
 
@@ -381,9 +381,9 @@ summary: "计算机网络 精要笔记，共 9 章：概述、物理层、数据
 | 媒体 | 关键参数 | 适用 |
 | --- | --- | --- |
 | 双绞线 Cat5e / Cat6 / Cat6a | 100 MHz / 250 MHz / 500 MHz；1 / 10 Gbit/s；单段 **100 m** | 局域网水平布线；UTP 无屏蔽、STP 屏蔽抗干扰更强 |
-| 同轴电缆 | <img class="fml" src="/formulas/eb6ee5430cf758.png" alt="50 \Omega" width="37" height="33">（基带）/ <img class="fml" src="/formulas/5f5379d53f3a6a.png" alt="75 \Omega" width="37" height="33">（宽带） | 早期总线以太网、有线电视 HFC，已退出 LAN |
-| 多模光纤 | 850 / 1310 nm，LED 或 VCSEL，芯径 <img class="fml" src="/formulas/2330d264ddca2d.png" alt="\frac{50}{62.5 \mu m}" width="51" height="35"> | 数百米，数据中心内部 |
-| 单模光纤 | 1310 / **1550 nm**（损耗最低约 0.2 dB/km），激光器，芯径约 <img class="fml" src="/formulas/9bd872e7db1413.png" alt="9 \mu m" width="41" height="33"> | 数十至上百公里，骨干与长途；配合 WDM 单纤 Tbit/s |
+| 同轴电缆 | <img class="fml" src="/formulas/eb6ee5430cf758.png" alt="50 \Omega" width="38" height="33">（基带）/ <img class="fml" src="/formulas/5f5379d53f3a6a.png" alt="75 \Omega" width="38" height="33">（宽带） | 早期总线以太网、有线电视 HFC，已退出 LAN |
+| 多模光纤 | 850 / 1310 nm，LED 或 VCSEL，芯径 <img class="fml" src="/formulas/2330d264ddca2d.png" alt="\frac{50}{62.5 \mu m}" width="52" height="35"> | 数百米，数据中心内部 |
+| 单模光纤 | 1310 / **1550 nm**（损耗最低约 0.2 dB/km），激光器，芯径约 <img class="fml" src="/formulas/9bd872e7db1413.png" alt="9 \mu m" width="42" height="33"> | 数十至上百公里，骨干与长途；配合 WDM 单纤 Tbit/s |
 | 地面微波 | 2~40 GHz，**视距传播**，需中继塔（约 50 km） | 山区/海岛回传、专网 |
 | 同步卫星 | 约 36000 km 高空，**单程传播时延约 250~270 ms** | 广播、偏远覆盖；不适合实时交互 |
 | 低轨卫星星座 | 数百 km，单程时延可低至 20~40 ms | 新兴全球宽带接入 |
@@ -393,15 +393,15 @@ summary: "计算机网络 精要笔记，共 9 章：概述、物理层、数据
 
 
 
-<p class="fml-block"><img class="fml" src="/formulas/d1b76de456a2cf.png" alt="\text{模拟话音} \; \to \; \text{低通滤波} \; ( \le 3.4 kHz) \to \; \text{采样} \; (8 kHz) \to \; \text{量化} \; \text{(A} \; \text{律} \; \mu \; \text{律} \; \text{压扩} \; \text{) →} \; \text{编码} \; (8 bit)= \frac{64 kbit}{s}" width="794" height="33"></p>
+<p class="fml-block"><img class="fml" src="/formulas/d1b76de456a2cf.png" alt="\text{模拟话音} \; \to \; \text{低通滤波} \; ( \le 3.4 kHz) \to \; \text{采样} \; (8 kHz) \to \; \text{量化} \; \text{(A} \; \text{律} \; \mu \; \text{律} \; \text{压扩} \; \text{) →} \; \text{编码} \; (8 bit)= \frac{64 kbit}{s}" width="795" height="33"></p>
 
 
 
 | 体系 | 基群 | 高次群（逐级 4 倍） |
 | --- | --- | --- |
-| T 体系（北美/日本） | <img class="fml" src="/formulas/02c0639464883a.png" alt="T1= \frac{1.544 Mbit}{s}" width="112" height="33">（24 路 × 64 kbit/s + 帧同步位） | T2 6.312、T3 44.736 Mbit/s |
-| E 体系（中国/欧洲） | <img class="fml" src="/formulas/f8d1487e78ae50.png" alt="E1= \frac{2.048 Mbit}{s}" width="113" height="33">（30 路话音 + 2 路信令/同步） | <img class="fml" src="/formulas/1a8e94b69be0be.png" alt="E2 8.448 \to E3 34.368 \to \frac{E4 139.264 Mbit}{s}" width="287" height="33"> |
-| SONET / SDH | OC-1 = 51.84 Mbit/s；<img class="fml" src="/formulas/5c006ebea85186.png" alt="STM-1= \frac{155.52 Mbit}{s}" width="171" height="33"> | STM-4 622.08 → STM-16 **2488.32** → STM-64 **9953.28** → STM-256 39813.12 Mbit/s |
+| T 体系（北美/日本） | <img class="fml" src="/formulas/02c0639464883a.png" alt="T1= \frac{1.544 Mbit}{s}" width="113" height="33">（24 路 × 64 kbit/s + 帧同步位） | T2 6.312、T3 44.736 Mbit/s |
+| E 体系（中国/欧洲） | <img class="fml" src="/formulas/f8d1487e78ae50.png" alt="E1= \frac{2.048 Mbit}{s}" width="114" height="33">（30 路话音 + 2 路信令/同步） | <img class="fml" src="/formulas/1a8e94b69be0be.png" alt="E2 8.448 \to E3 34.368 \to \frac{E4 139.264 Mbit}{s}" width="288" height="33"> |
+| SONET / SDH | OC-1 = 51.84 Mbit/s；<img class="fml" src="/formulas/5c006ebea85186.png" alt="STM-1= \frac{155.52 Mbit}{s}" width="172" height="33"> | STM-4 622.08 → STM-16 **2488.32** → STM-64 **9953.28** → STM-256 39813.12 Mbit/s |
 
 - PDH 逐级复接需"码速调整"、难以从高速流中直接分出低速支路；**SDH/SONET** 用统一同步帧结构、丰富的开销字节，可**一次分插低速信号（ADM）**、有强大网管与自愈环保护。
 - 现代骨干在 SDH/WDM 之上直接承载以太网/OTN/IP，SDH 更多是历史与存量概念。
@@ -418,7 +418,7 @@ summary: "计算机网络 精要笔记，共 9 章：概述、物理层、数据
 | OFDM / OFDMA | 正交子载波（+按用户分配） | 需精确频率同步与循环前缀 | 峰均比高、对相位噪声敏感 |
 
 ::: danger 易错 · 物理层计算
-- <img class="fml" src="/formulas/ba9d836b54a2da.png" alt="dB= 10 \cdot \log_{10}\left(\frac{S}{N}\right)" width="156" height="33"> 用于功率比；若是电压/幅度比则用 <img class="fml" src="/formulas/eea8728207bb81.png" alt="20 \cdot \log_{10}" width="73" height="33">。代入香农公式前**必须把 dB 还原成线性比值**。
+- <img class="fml" src="/formulas/ba9d836b54a2da.png" alt="dB= 10 \cdot \log_{10}\left(\frac{S}{N}\right)" width="157" height="34"> 用于功率比；若是电压/幅度比则用 <img class="fml" src="/formulas/eea8728207bb81.png" alt="20 \cdot \log_{10}" width="75" height="33">。代入香农公式前**必须把 dB 还原成线性比值**。
 - 奈氏 `2W` 的单位是 **Baud（码元/秒）**，不是 bit/s；只有乘上 <img class="fml" src="/formulas/3d1b29e3981078.png" alt="\log_{2}V" width="54" height="33"> 才是数据率。
 - 光纤的"单模/多模"说的是**传输模式数量**，不是一根纤芯 vs 多根；单模芯径更细、需激光器、适合长距。
 - 卫星链路**传播时延大**而非发送时延大；增大发送速率对此毫无帮助。
@@ -458,7 +458,7 @@ summary: "计算机网络 精要笔记，共 9 章：概述、物理层、数据
 - **PPP** 是用户计算机与 ISP 之间点对点链路最常用的数据链路层协议（早期拨号、PPPoE 宽带接入）；**只支持全双工点对点链路**，不提供可靠传输（不纠错、不编号、不 flow control）。
 - **三个组成部分**：① 将 IP 数据报封装到串行链路的方法；② **LCP（链路控制协议）** 建立/配置/测试链路；③ **NCP（网络控制协议）** 为不同网络层协议配置参数。
 - **帧格式**：`F(0x7E) | A(0xFF) | C(0x03) | 协议 | 信息(≤1500 B) | FCS | F(0x7E)`；协议字段 `0x0021`=IP 数据报、`0xC021`=LCP、`0x8021`=NCP。
-- **透明传输**：异步用**字符填充**（<img class="fml" src="/formulas/089d753eb7a639.png" alt="0x7E \to 0x7D" width="119" height="33">，<img class="fml" src="/formulas/9fef80b63e9409.png" alt="0x7D \to 0x7D" width="120" height="33">）；同步用**零比特填充**（5 连 1 插 0）。
+- **透明传输**：异步用**字符填充**（<img class="fml" src="/formulas/089d753eb7a639.png" alt="0x7E \to 0x7D" width="121" height="33">，<img class="fml" src="/formulas/9fef80b63e9409.png" alt="0x7D \to 0x7D" width="121" height="33">）；同步用**零比特填充**（5 连 1 插 0）。
 - **工作状态**：链路静止 → 建立（LCP 协商）→ 鉴别（PAP/CHAP）→ 网络层（NCP 配置）→ 打开 → 终止 → 静止。
 
 ### 3.3 使用广播信道的数据链路层（★★★）
@@ -473,10 +473,10 @@ summary: "计算机网络 精要笔记，共 9 章：概述、物理层、数据
 
 以太网早期共享总线使用 **CSMA/CD（载波监听多点接入/碰撞检测）**：**先听后发、边发边听、冲突停发、随机重发**。
 
-- **争用期 / 碰撞窗口** = 端到端往返时延 <img class="fml" src="/formulas/45951e9d9e297b.png" alt="2\tau" width="25" height="33">；以太网规定为 **512 比特时间**（10 Mbit/s 时 = <img class="fml" src="/formulas/30cfdb308bb3a6.png" alt="51.2 \mu s" width="57" height="33">），因此**最短帧长 = 64 字节**（含 14 B 首部 + 46 B 数据最小值 + 4 B FCS）；短帧必须填充到 64 B。
-- **二进制指数退避**：从 <img class="fml" src="/formulas/d5004d65798286.png" alt="{0, 1, \cdots, 2^k- 1}" width="122" height="33"> 随机取 r，重发推迟 <img class="fml" src="/formulas/84bc048f0be33f.png" alt="r \times 512 bit time" width="120" height="33">，`k = min(重传次数, 10)`；**重传 16 次仍失败则丢弃**并报告上层。
+- **争用期 / 碰撞窗口** = 端到端往返时延 <img class="fml" src="/formulas/45951e9d9e297b.png" alt="2\tau" width="26" height="33">；以太网规定为 **512 比特时间**（10 Mbit/s 时 = <img class="fml" src="/formulas/30cfdb308bb3a6.png" alt="51.2 \mu s" width="58" height="33">），因此**最短帧长 = 64 字节**（含 14 B 首部 + 46 B 数据最小值 + 4 B FCS）；短帧必须填充到 64 B。
+- **二进制指数退避**：从 <img class="fml" src="/formulas/d5004d65798286.png" alt="{0, 1, \cdots, 2^k- 1}" width="123" height="33"> 随机取 r，重发推迟 <img class="fml" src="/formulas/84bc048f0be33f.png" alt="r \times 512 bit time" width="121" height="34">，`k = min(重传次数, 10)`；**重传 16 次仍失败则丢弃**并报告上层。
 - **强化碰撞**：检测到碰撞后发送 32/48 bit 人为干扰信号（jamming），让所有站点都知道发生了碰撞。
-- **信道利用率**：<img class="fml" src="/formulas/e976a8008891e3.png" alt="S_{\max} \approx \frac{T_{0}}{T_{0}+ \tau}" width="98" height="34">，其中 <img class="fml" src="/formulas/2f79c3efc6abe8.png" alt="T_{0}" width="24" height="33"> 为帧发送时延；定义参数 <img class="fml" src="/formulas/6126ea6e64ff90.png" alt="a= \frac{\tau}{T_{0}}" width="56" height="34">，则 <img class="fml" src="/formulas/86c29005d5c359.png" alt="S_{\max} \approx \frac{1}{1+ a}" width="92" height="33"> —— **帧越短、距离越长、速率越高，利用率越低**。
+- **信道利用率**：<img class="fml" src="/formulas/e976a8008891e3.png" alt="S_{\max} \approx \frac{T_{0}}{T_{0}+ \tau}" width="99" height="35">，其中 <img class="fml" src="/formulas/2f79c3efc6abe8.png" alt="T_{0}" width="25" height="34"> 为帧发送时延；定义参数 <img class="fml" src="/formulas/6126ea6e64ff90.png" alt="a= \frac{\tau}{T_{0}}" width="57" height="35">，则 <img class="fml" src="/formulas/86c29005d5c359.png" alt="S_{\max} \approx \frac{1}{1+ a}" width="92" height="35"> —— **帧越短、距离越长、速率越高，利用率越低**。
 
 ::: danger 注意 · CSMA/CD 只适用于共享半双工以太网
 CSMA/CD 是**共享式（同轴/集线器）以太网**的介质接入机制。现代交换式以太网采用**交换机 + 全双工点到点链路**，每个端口是一个独立冲突域，**不存在碰撞，也就不再运行 CSMA/CD**（IEEE 802.3 中相关功能已停用）。它仍是考试重点（争用期、最短帧长、退避算法必须会算），但要清楚它**只适用于半双工共享介质**；今天的"以太网"指的是帧格式 + MAC 寻址 + 交换转发。
@@ -492,7 +492,7 @@ CSMA/CD 是**共享式（同轴/集线器）以太网**的介质接入机制。�
 | 双工 | 只能半双工 | 支持全双工、速率自适应 |
 | 现状 | 已淘汰 | 主流；早期网桥是它的前身 |
 
-**交换机自学习**：收到帧时把「源 MAC <img class="fml" src="/formulas/4401ce3296861e.png" alt="\leftrightarrow" width="24" height="33"> 入端口」写入交换表；查表命中目的 MAC 则定向转发到对应端口，未命中则**向除入端口外的所有端口泛洪**；表项有**有效时间**（老化）。为避免冗余链路造成**广播风暴/帧无限循环**，使用 **STP 生成树协议** 阻塞部分端口。
+**交换机自学习**：收到帧时把「源 MAC <img class="fml" src="/formulas/4401ce3296861e.png" alt="\leftrightarrow" width="24" height="34"> 入端口」写入交换表；查表命中目的 MAC 则定向转发到对应端口，未命中则**向除入端口外的所有端口泛洪**；表项有**有效时间**（老化）。为避免冗余链路造成**广播风暴/帧无限循环**，使用 **STP 生成树协议** 阻塞部分端口。
 
 #### 3.3.4 以太网的 MAC 层与帧格式
 
@@ -540,20 +540,20 @@ CSMA/CD 是**共享式（同轴/集线器）以太网**的介质接入机制。�
 #### 3.6.2 差错控制：码距、CRC 与检错能力
 
 - **海明距离**：两个等长合法码字之间对应位不同的位数；一个编码集的**最小码距 d_min** 决定能力：
-  - 检测 `e` 位错，需 <img class="fml" src="/formulas/c31f3009614fa9.png" alt="d_{\min} \ge e+ 1" width="100" height="33">；
-  - 纠正 `t` 位错，需 <img class="fml" src="/formulas/8d89e69cd3648d.png" alt="d_{\min} \ge 2t+ 1" width="107" height="33">。
-- **CRC 用多项式表示**：生成多项式 <img class="fml" src="/formulas/4b8fadd7c6d288.png" alt="G(x)= x^{4}+ x+ 1" width="148" height="33"> 对应除数 `10011`（系数 1,0,0,1,1），阶数 `r=4` 即冗余码位数；`G(x)` 的最高次与常数项必须为 1。常见标准：**CRC-8**、**CRC-16-CCITT**、**CRC-32**（以太网 FCS）。
-- **模 2 运算**：加法/减法都是异或，不进位不借位；发送 <img class="fml" src="/formulas/def09afaa6c929.png" alt="M \cdot 2^r+ R" width="89" height="33">，接收端用同一 `G(x)` 除，余数为 0 判无错。
-- **漏检条件**：错误图样 `E(x)` 恰好能被 `G(x)` 整除时检不出来（概率约 <img class="fml" src="/formulas/bb57179844e5a0.png" alt="2^{- r}" width="32" height="33">，r 越大越可靠）。
+  - 检测 `e` 位错，需 <img class="fml" src="/formulas/c31f3009614fa9.png" alt="d_{\min} \ge e+ 1" width="101" height="34">；
+  - 纠正 `t` 位错，需 <img class="fml" src="/formulas/8d89e69cd3648d.png" alt="d_{\min} \ge 2t+ 1" width="108" height="34">。
+- **CRC 用多项式表示**：生成多项式 <img class="fml" src="/formulas/4b8fadd7c6d288.png" alt="G(x)= x^{4}+ x+ 1" width="149" height="34"> 对应除数 `10011`（系数 1,0,0,1,1），阶数 `r=4` 即冗余码位数；`G(x)` 的最高次与常数项必须为 1。常见标准：**CRC-8**、**CRC-16-CCITT**、**CRC-32**（以太网 FCS）。
+- **模 2 运算**：加法/减法都是异或，不进位不借位；发送 <img class="fml" src="/formulas/def09afaa6c929.png" alt="M \cdot 2^r+ R" width="91" height="34">，接收端用同一 `G(x)` 除，余数为 0 判无错。
+- **漏检条件**：错误图样 `E(x)` 恰好能被 `G(x)` 整除时检不出来（概率约 <img class="fml" src="/formulas/bb57179844e5a0.png" alt="2^{- r}" width="32" height="34">，r 越大越可靠）。
 - 其他检错法：**奇偶校验**（只能检奇数个错）、**二维奇偶校验**（可定位单个错）、**因特网检验和**（反码求和，IP/TCP/UDP 首部用，检错能力弱于 CRC）。
 - **纠错码**（海明码、RS 码、LDPC/Turbo/Polar）代价是更多冗余，多用于无线、存储与深空通信；数据链路层通常只检错 + 丢弃（必要时由上层重传）。
 
 ::: tip 工作示例 · 海明码校验位数
-数据位 `n = 4`，校验位 `k` 需满足 <img class="fml" src="/formulas/8dadaefd774403.png" alt="2^k \ge n+ k+ 1" width="120" height="33">：`k=3` 时 <img class="fml" src="/formulas/2e6a391fccae71.png" alt="8 \ge 8" width="48" height="33"> ✓，故需 **3 位校验位**，码字总长 7（即 (7,4) 海明码）。校验位放在 `2⁰、2¹、2²` 位（第 1、2、4 位），每位校验位负责校验其位号二进制含对应 1 的那些位；接收端把三组校验结果按位拼成**指征子 S**，<img class="fml" src="/formulas/015ff4fd52ee85.png" alt="S= 0" width="51" height="33"> 时其值即出错位号（可纠 1 位错，符合 <img class="fml" src="/formulas/f52627444a8d51.png" alt="d_{\min} \ge 2t+1= 3" width="140" height="33">）。常见结论：<img class="fml" src="/formulas/3bbec712da2e76.png" alt="n=8 \to k=4" width="120" height="33">（(12,8)）、<img class="fml" src="/formulas/acce208c066d98.png" alt="n=16 \to k=5" width="129" height="33">、<img class="fml" src="/formulas/9dc4a5ccc51ce4.png" alt="n=64 \to k=7" width="129" height="33">。
+数据位 `n = 4`，校验位 `k` 需满足 <img class="fml" src="/formulas/8dadaefd774403.png" alt="2^k \ge n+ k+ 1" width="121" height="34">：`k=3` 时 <img class="fml" src="/formulas/2e6a391fccae71.png" alt="8 \ge 8" width="49" height="34"> ✓，故需 **3 位校验位**，码字总长 7（即 (7,4) 海明码）。校验位放在 `2⁰、2¹、2²` 位（第 1、2、4 位），每位校验位负责校验其位号二进制含对应 1 的那些位；接收端把三组校验结果按位拼成**指征子 S**，<img class="fml" src="/formulas/015ff4fd52ee85.png" alt="S= 0" width="51" height="34"> 时其值即出错位号（可纠 1 位错，符合 <img class="fml" src="/formulas/f52627444a8d51.png" alt="d_{\min} \ge 2t+1= 3" width="141" height="34">）。常见结论：<img class="fml" src="/formulas/3bbec712da2e76.png" alt="n=8 \to k=4" width="121" height="34">（(12,8)）、<img class="fml" src="/formulas/acce208c066d98.png" alt="n=16 \to k=5" width="130" height="34">、<img class="fml" src="/formulas/9dc4a5ccc51ce4.png" alt="n=64 \to k=7" width="129" height="34">。
 :::
 
 ::: tip 工作示例 · CRC 多项式与检错能力
-<img class="fml" src="/formulas/d23a36ea625b88.png" alt="G(x)=x^{4}+x+1 \to 10011" width="220" height="33">，r=4，故发送帧比原数据多 4 位。若信道产生 5 位突发错，理论上 CRC-4 无法保证全部检出（**一般可检出 ≤ r 位的突发错**）；以太网改用 **CRC-32**，把漏检概率降到约 <img class="fml" src="/formulas/276167899b13ca.png" alt="2^{-32}" width="38" height="33">，这也是 FCS 固定 4 字节的原因。
+<img class="fml" src="/formulas/d23a36ea625b88.png" alt="G(x)=x^{4}+x+1 \to 10011" width="222" height="34">，r=4，故发送帧比原数据多 4 位。若信道产生 5 位突发错，理论上 CRC-4 无法保证全部检出（**一般可检出 ≤ r 位的突发错**）；以太网改用 **CRC-32**，把漏检概率降到约 <img class="fml" src="/formulas/276167899b13ca.png" alt="2^{-32}" width="39" height="34">，这也是 FCS 固定 4 字节的原因。
 :::
 
 #### 3.6.3 PPP 帧字段、LCP/NCP 与 PPPoE
@@ -570,7 +570,7 @@ CSMA/CD 是**共享式（同轴/集线器）以太网**的介质接入机制。�
 - **LCP** 协商 MRU、认证协议、链路质量；**NCP/IPCP** 为 PPP 链路上的主机动态分配 IP 等网络层参数。
 - **状态机**：链路静止 →（物理层连接建立）→ **LCP 配置协商** →（可选）**鉴别 PAP/CHAP** → **NCP 配置** → 链路打开（可传数据）→ **LCP 终止** → 静止。
 - **PAP** 明文两次握手传口令；**CHAP** 用挑战-响应 + MD5/SHA 散列，**不传口令本身**、可周期性重认证，更安全。
-- **PPPoE**：在以太网上承载 PPP 以复用其认证/计费能力，分**发现阶段**（PADI → <img class="fml" src="/formulas/74312cd90b89d2.png" alt="PADO \to PADR" width="147" height="33">，得到 Session ID）与**会话阶段**（PPP 帧封装在以太网帧内），是宽带拨号接入的常见形态。
+- **PPPoE**：在以太网上承载 PPP 以复用其认证/计费能力，分**发现阶段**（PADI → <img class="fml" src="/formulas/74312cd90b89d2.png" alt="PADO \to PADR" width="148" height="34">，得到 Session ID）与**会话阶段**（PPP 帧封装在以太网帧内），是宽带拨号接入的常见形态。
 
 #### 3.6.4 工作示例 · CSMA/CD 的争用期、最短帧与信道利用率
 
@@ -585,11 +585,11 @@ CSMA/CD 是**共享式（同轴/集线器）以太网**的介质接入机制。�
 \text{参数} \; a= \frac{\tau}{T0}= \frac{25.6}{51.2}= 0.5 \\
 \text{最大信道利用率} \; Smax= \frac{T0}{T0+\tau}= \frac{1}{1+a} \approx 0.67 \\
 \text{若改为} \; \text{1518 B} \; \text{长帧：} \; T0 \approx 1214.4 \mu s \; \text{，} \; a \approx 0.021 \; \text{，} \; Smax \approx 0.98
-\end{gathered}" width="614" height="244"></p>
+\end{gathered}" width="614" height="245"></p>
 
 
 
-**结论**：帧越短、距离越长、速率越高（`T0` 变小而 <img class="fml" src="/formulas/bd985796924087.png" alt="\tau" width="16" height="33"> 不变），`a` 越大、利用率越低。这正是快速以太网必须**缩短网络直径**、吉比特以太网半双工要用「载波延伸 / 帧突发」，而 10GE 干脆**彻底放弃半双工与 CSMA/CD** 的根本原因。
+**结论**：帧越短、距离越长、速率越高（`T0` 变小而 <img class="fml" src="/formulas/bd985796924087.png" alt="\tau" width="17" height="34"> 不变），`a` 越大、利用率越低。这正是快速以太网必须**缩短网络直径**、吉比特以太网半双工要用「载波延伸 / 帧突发」，而 10GE 干脆**彻底放弃半双工与 CSMA/CD** 的根本原因。
 
 
 
@@ -598,7 +598,7 @@ CSMA/CD 是**共享式（同轴/集线器）以太网**的介质接入机制。�
 \text{退避时间} \; = r \times 512 bit time \\
 \text{第} \; \text{3} \; \text{次重传：} \; \text{k=3} \; \text{，} \; r \in{0..7} \; \text{，} \; \text{@10 Mbit/s} \; \text{时最长} \; 7 \times 51.2 \mu s= 358.4 \mu s \\
 \text{重传满} \; \text{16} \; \text{次仍失败} \; \to \; \text{丢弃该帧并向上层报错}
-\end{gathered}" width="599" height="111"></p>
+\end{gathered}" width="600" height="111"></p>
 
 
 
@@ -674,9 +674,9 @@ TCI = PCP(3 bit 优先级) + DEI(1 bit) + VID(12 bit，最多 4094 个可用 VLA
 
 | 类 | 前缀 | 首字节范围 | 网络号长度 | 最大主机数 |
 | --- | --- | --- | --- | --- |
-| A | `0` | 1 ~ 126 | 8 bit | <img class="fml" src="/formulas/77f6fe6a45bb19.png" alt="2^{24}- 2 \approx 1677" width="119" height="33"> 万 |
-| B | `10` | 128 ~ 191 | 16 bit | <img class="fml" src="/formulas/9b2c7c049384f7.png" alt="2^{16}- 2= 65534" width="127" height="33"> |
-| C | `110` | 192 ~ 223 | 24 bit | <img class="fml" src="/formulas/100cfe1b9261b1.png" alt="2^{8}- 2= 254" width="103" height="33"> |
+| A | `0` | 1 ~ 126 | 8 bit | <img class="fml" src="/formulas/77f6fe6a45bb19.png" alt="2^{24}- 2 \approx 1677" width="120" height="34"> 万 |
+| B | `10` | 128 ~ 191 | 16 bit | <img class="fml" src="/formulas/9b2c7c049384f7.png" alt="2^{16}- 2= 65534" width="128" height="34"> |
+| C | `110` | 192 ~ 223 | 24 bit | <img class="fml" src="/formulas/100cfe1b9261b1.png" alt="2^{8}- 2= 254" width="105" height="34"> |
 | D | `1110` | 224 ~ 239 | 多播地址 | — |
 | E | `1111` | 240 ~ 255 | 保留实验 | — |
 
@@ -695,21 +695,21 @@ TCI = PCP(3 bit 优先级) + DEI(1 bit) + VID(12 bit，最多 4094 个可用 VLA
 给定 `128.14.35.7/20`：
 1. `/20` → 掩码 `255.255.240.0`（前 20 位全 1）。
 2. 第 3 字节 `35 = 0010 0011`，掩码第 3 字节 `240 = 1111 0000`，按位与得 `0010 0000 = 32`。
-3. 网络地址 = **`128.14.32.0/20`**；地址范围 `128.14.32.0 ~ 128.14.47.255`（`47 = 32+15`），可用主机地址 `128.14.32.1 ~ 128.14.47.254`，共 <img class="fml" src="/formulas/adb8d8052d1bf2.png" alt="2^{12}- 2= 4094" width="119" height="33"> 个。
+3. 网络地址 = **`128.14.32.0/20`**；地址范围 `128.14.32.0 ~ 128.14.47.255`（`47 = 32+15`），可用主机地址 `128.14.32.1 ~ 128.14.47.254`，共 <img class="fml" src="/formulas/adb8d8052d1bf2.png" alt="2^{12}- 2= 4094" width="119" height="34"> 个。
 4. 广播地址 `128.14.47.255`。
 
-**划分子网**：把 `/20` 再借 2 位 → 得到 4 个 `/22` 子网，每个 <img class="fml" src="/formulas/faca63effdfb16.png" alt="2^{10}- 2= 1022" width="119" height="33"> 个可用地址。**聚合**：`128.14.32.0/24` 与 `128.14.33.0/24` 可聚合成 `128.14.32.0/23`（取共同前缀）。
+**划分子网**：把 `/20` 再借 2 位 → 得到 4 个 `/22` 子网，每个 <img class="fml" src="/formulas/faca63effdfb16.png" alt="2^{10}- 2= 1022" width="120" height="34"> 个可用地址。**聚合**：`128.14.32.0/24` 与 `128.14.33.0/24` 可聚合成 `128.14.32.0/23`（取共同前缀）。
 :::
 
 ::: tip 工作示例 · 按需求反推子网划分（高频题型）
 把 `192.168.10.0/24` 划分给 4 个部门（需主机数分别为 100、50、20、10）：
 1. 按**最大需求**优先分配、从大到小排列（变长子网掩码 VLSM）；
-2. 100 台 → 需 <img class="fml" src="/formulas/3856b2e636ce1f.png" alt="2^h- 2 \ge 100 \to h= 7" width="175" height="33"> → `/25`，得 `192.168.10.0/25`（可用 .1~.126）；
+2. 100 台 → 需 <img class="fml" src="/formulas/3856b2e636ce1f.png" alt="2^h- 2 \ge 100 \to h= 7" width="176" height="34"> → `/25`，得 `192.168.10.0/25`（可用 .1~.126）；
 3. 50 台 → `h = 6` → `/26`，得 `192.168.10.128/26`（.129~.190）；
 4. 20 台 → `h = 5` → `/27`，得 `192.168.10.192/27`（.193~.222）；
 5. 10 台 → `h = 4` → `/28`，得 `192.168.10.224/28`（.225~.238），仍余 `.240/28` 可扩展。
 
-要点：主机位 `h` 满足 `2^h − 2 ≥ 需求数`（减去全 0 网络地址与全 1 广播地址）；若问"能划几个等长子网"，借 `n` 位得 `2^n` 个子网、每子网 <img class="fml" src="/formulas/f2362636607750.png" alt="2^{8- n}- 2" width="70" height="33"> 台主机（等长划分）。
+要点：主机位 `h` 满足 `2^h − 2 ≥ 需求数`（减去全 0 网络地址与全 1 广播地址）；若问"能划几个等长子网"，借 `n` 位得 `2^n` 个子网、每子网 <img class="fml" src="/formulas/f2362636607750.png" alt="2^{8- n}- 2" width="71" height="34"> 台主机（等长划分）。
 :::
 
 ::: danger 注意 · 分类地址已废弃
@@ -719,7 +719,7 @@ A/B/C 分类只是便于理解的历史模型，自 **1993 年 CIDR（RFC 1518/1
 #### 4.2.3 ARP、IP 数据报与 ICMP
 
 - **ARP（地址解析协议）**：在**同一局域网内**由 IP 地址找 MAC 地址。主机广播 `ARP 请求`（"谁的 IP 是 X，请告诉我 MAC"），目标单播 `ARP 回答`；双方把映射写入 **ARP 高速缓存**（有生存时间）。**跨网络通信时，主机把数据帧发给默认网关的 MAC**，由路由器逐跳转发，ARP 解析的是下一跳而非最终目的主机。
-  - 相关：**RARP**（<img class="fml" src="/formulas/f85362f84ee5d1.png" alt="MAC \to IP" width="104" height="33">，已被 DHCP 取代）、**免费 ARP**（检测地址冲突 / 更新邻居缓存）、**ARP 欺骗**（把攻击者 MAC 冒充网关，是局域网常见攻击，可用静态绑定、DHCP Snooping + DAI 防护）。
+  - 相关：**RARP**（<img class="fml" src="/formulas/f85362f84ee5d1.png" alt="MAC \to IP" width="104" height="34">，已被 DHCP 取代）、**免费 ARP**（检测地址冲突 / 更新邻居缓存）、**ARP 欺骗**（把攻击者 MAC 冒充网关，是局域网常见攻击，可用静态绑定、DHCP Snooping + DAI 防护）。
 - **IP 数据报首部**（固定 20 B + 可选字段，最大 60 B）：
 
 | 字段 | 长度 | 作用 |
@@ -828,7 +828,7 @@ ARP 报文封装在以太网帧中（类型 `0x0806`），字段含：硬件类�
 | 发送方与接收方在**同一网络** | 目的主机的 MAC | 目的主机 MAC |
 | 跨网络（经多个路由器） | **下一跳路由器**的 MAC | 下一跳 MAC；IP 首部目的地址始终是最终目的主机 |
 
-- **ARP 高速缓存**：主机与路由器都保存 <img class="fml" src="/formulas/d2ac021aaad8e9.png" alt="IP \to MAC" width="104" height="33"> 映射并设生存时间，避免每次都广播；`arp -a` 可查看。
+- **ARP 高速缓存**：主机与路由器都保存 <img class="fml" src="/formulas/d2ac021aaad8e9.png" alt="IP \to MAC" width="105" height="34"> 映射并设生存时间，避免每次都广播；`arp -a` 可查看。
 - **免费 ARP（gratuitous ARP）**：主机用自己的 IP 发请求，用于**检测地址冲突**以及通告 MAC 变化（如网卡切换、虚拟机迁移后刷新邻居缓存）。
 - **代理 ARP**：路由器代答位于另一网段的主机，使其误以为对端就在本网段（早期无默认网关时使用）。
 - **ARP 欺骗**：攻击者伪造回答把网关 IP 映射到自己 MAC，从而中间人窃听；防御用静态绑定、**DHCP Snooping + 动态 ARP 检测（DAI）**、交换机端口安全。
@@ -855,7 +855,7 @@ ARP 报文封装在以太网帧中（类型 `0x0806`），字段含：硬件类�
 - **片偏移单位是 8 字节**，所以除最后一片外每片数据长度必须为 8 的倍数。
 - 三片的**标识字段相同**，都复制原首部（协议、源/目的 IP 不变，TTL 与检验和重算）。
 - **重组只在目的主机**进行（中途路由器不重组）；任一片丢失则整个数据报超时丢弃，并可能发 ICMP 超时报文。
-- 若 `DF=1` 且超过 MTU，路由器丢弃并发 **ICMP「需要分片但 DF 置位」**，这正是**路径 MTU 发现（PMTUD）**的工作原理；TCP 据此把 MSS 调整为 <img class="fml" src="/formulas/51ffdbf5589d38.png" alt="PMTU- 40" width="106" height="33">。
+- 若 `DF=1` 且超过 MTU，路由器丢弃并发 **ICMP「需要分片但 DF 置位」**，这正是**路径 MTU 发现（PMTUD）**的工作原理；TCP 据此把 MSS 调整为 <img class="fml" src="/formulas/51ffdbf5589d38.png" alt="PMTU- 40" width="107" height="34">。
 :::
 
 #### 4.7.4 ICMP 报文类型速查
@@ -866,8 +866,8 @@ ARP 报文封装在以太网帧中（类型 `0x0806`），字段含：硬件类�
 | | 超时 | type=11，TTL 减到 0（**traceroute** 靠它逐跳发现路由器） |
 | | 参数问题 | type=12，首部字段有误 |
 | | 改变路由（重定向） | type=5，告诉主机有更好的下一跳 |
-| 询问 | 回送请求 / 回答 | <img class="fml" src="/formulas/264fd122eb5949.png" alt="type=\frac{8}{0}" width="73" height="33">（**ping** 测连通性与 RTT） |
-| | 时间戳请求 / 回答 | <img class="fml" src="/formulas/54c95e3ec763c4.png" alt="type=\frac{13}{14}" width="80" height="33">，时钟同步（少用） |
+| 询问 | 回送请求 / 回答 | <img class="fml" src="/formulas/264fd122eb5949.png" alt="type=\frac{8}{0}" width="75" height="34">（**ping** 测连通性与 RTT） |
+| | 时间戳请求 / 回答 | <img class="fml" src="/formulas/54c95e3ec763c4.png" alt="type=\frac{13}{14}" width="81" height="34">，时钟同步（少用） |
 
 > **不发送 ICMP 差错的情况**：对 ICMP 差错报文本身、对非第一个分片、对多播/广播地址、对特殊地址（如 127.0.0.0、0.0.0.0）。这是为了防止差错报文引发"差错风暴"。
 
@@ -881,7 +881,7 @@ ARP 报文封装在以太网帧中（类型 `0x0806`），字段含：硬件类�
 | `128.14.32.0/24` | R2 |
 | `0.0.0.0/0` | R3（默认路由） |
 
-目的 `128.14.32.77` 同时匹配三条（/20、/24、/0），按**最长前缀匹配**选 <img class="fml" src="/formulas/947c9c816cedb5.png" alt="24 \to R2" width="74" height="33">；目的 `128.14.40.5` 只匹配 /20 与 /0，选 `R1`；目的 `8.8.8.8` 只匹配默认路由 `R3`。路由器常用 **Trie / 二叉前缀树** 或 TCAM 硬件加速查找。
+目的 `128.14.32.77` 同时匹配三条（/20、/24、/0），按**最长前缀匹配**选 <img class="fml" src="/formulas/947c9c816cedb5.png" alt="24 \to R2" width="75" height="34">；目的 `128.14.40.5` 只匹配 /20 与 /0，选 `R1`；目的 `8.8.8.8` 只匹配默认路由 `R3`。路由器常用 **Trie / 二叉前缀树** 或 TCAM 硬件加速查找。
 
 **路由聚合（超网）**：`128.14.32.0/24` 与 `128.14.33.0/24` 取共同前缀得 `128.14.32.0/23`；聚合把多条表项压成一条，是 CIDR 抑制骨干路由表膨胀的关键。
 
@@ -895,7 +895,7 @@ ARP 报文封装在以太网帧中（类型 `0x0806`），字段含：硬件类�
 | **路径向量** | BGP | 通告完整 AS 路径 + 本地策略 | 策略复杂、收敛可能较慢，但可防 AS 级环路 |
 
 ::: tip 工作示例 · 距离向量的无穷计数
-<img class="fml" src="/formulas/66f9924097d1a0.png" alt="A- B- C" width="91" height="33"> 串联，A 到某网络 N 原经 B（距离 2）。N 断开后，B 收到 C 的旧通告「经 B 到 N 距离 2」，误以为可经 C 到达，更新为 3；C 又据 B 更新为 4……距离逐轮加 1，直到达到 RIP 的 **16（不可达）** 才收敛。缓解手段：**水平分割**（不向学到该路由的邻居回告）、**毒性逆转**（回告距离 16）、**抑制计时器**、**触发更新**。这也是 RIP 把最大跳数限制为 15 的原因。
+<img class="fml" src="/formulas/66f9924097d1a0.png" alt="A- B- C" width="92" height="34"> 串联，A 到某网络 N 原经 B（距离 2）。N 断开后，B 收到 C 的旧通告「经 B 到 N 距离 2」，误以为可经 C 到达，更新为 3；C 又据 B 更新为 4……距离逐轮加 1，直到达到 RIP 的 **16（不可达）** 才收敛。缓解手段：**水平分割**（不向学到该路由的邻居回告）、**毒性逆转**（回告距离 16）、**抑制计时器**、**触发更新**。这也是 RIP 把最大跳数限制为 15 的原因。
 :::
 
 #### 4.7.7 RIP / OSPF / BGP 机制细节
@@ -922,7 +922,7 @@ ARP 报文封装在以太网帧中（类型 `0x0806`），字段含：硬件类�
 #### 4.7.9 多播、NAT、MPLS 与 SDN 补充
 
 - **IP 多播**：D 类地址 `224.0.0.0/4`；**IGMP** 让主机向本地多播路由器声明加入/退出某组（组成员管理），**多播路由协议**（PIM-DM/SM、DVMRP）构造**多播转发树**；以太网多播 MAC 由 IP 多播地址低 23 位映射（`01-00-5E-xx-xx-xx`），存在 32:1 的地址重叠。
-- **NAPT 转换表**示意：<img class="fml" src="/formulas/8a94be01ac7987.png" alt="192.168.1.10:5000 \leftrightarrow 203.0.113.5:62001" width="325" height="33">；返回分组按目的端口反查内网地址。私网主机**不能被外部主动访问**，故 P2P、IPsec、SIP 等需 **NAT 穿透**（STUN 探测映射、TURN 中继、ICE 综合打洞、UPnP/NAT-PMP）。
+- **NAPT 转换表**示意：<img class="fml" src="/formulas/8a94be01ac7987.png" alt="192.168.1.10:5000 \leftrightarrow 203.0.113.5:62001" width="327" height="34">；返回分组按目的端口反查内网地址。私网主机**不能被外部主动访问**，故 P2P、IPsec、SIP 等需 **NAT 穿透**（STUN 探测映射、TURN 中继、ICE 综合打洞、UPnP/NAT-PMP）。
 - **MPLS**：在二层与三层间插入**标签**（20 bit 标签 + 3 bit QoS + 1 bit 栈底 + 8 bit TTL）；入口 **LER** 按 FEC（转发等价类）打标签，中间 **LSR** 只做标签交换（比最长前缀匹配快），出口弹出标签；支持流量工程、MPLS VPN 与快速重路由。
 - **SDN**：控制平面集中到**控制器**，通过**南向接口 OpenFlow** 下发**流表**（匹配字段 + 动作 + 计数器），交换机只按流表转发；**北向接口**供应用编程。优点是可编程、全局视角、快速创新；缺点是控制器可能成为瓶颈/单点，需集群化。
 
@@ -976,7 +976,7 @@ ARP 报文封装在以太网帧中（类型 `0x0806`），字段含：硬件类�
 
 
 
-<p class="fml-block"><img class="fml" src="/formulas/2219e53372bea3.png" alt="\text{信道利用率} \; U= \frac{T_{D}}{T_{D}+ RTT+ T_{A}}" width="220" height="34"></p>
+<p class="fml-block"><img class="fml" src="/formulas/2219e53372bea3.png" alt="\text{信道利用率} \; U= \frac{T_{D}}{T_{D}+ RTT+ T_{A}}" width="221" height="35"></p>
 
 
 `T_D` 为分组发送时延，`T_A` 为确认分组发送时延。当 RTT 远大于 T_D 时，U 极低 —— 这是引入**流水线/连续 ARQ** 的原因。
@@ -989,7 +989,7 @@ ARP 报文封装在以太网帧中（类型 `0x0806`），字段含：硬件类�
 
 ::: tip 工作示例 · 发送窗口与序号
 发送窗口 `W_T = 5`，序号用 3 bit（0~7）。发送方连续发 `0,1,2,3,4`；若只收到对 `2` 的累计确认，窗口前移 3 格，可继续发 `5,6,7`。若 `1` 丢失而 `2,3,4` 到达，接收方只能确认 `0`，Go-back-N 下发送方需重传 `1,2,3,4`。
-**注意**：选择重传时窗口大小 <img class="fml" src="/formulas/0e8292098d2716.png" alt="W_{T} \le 2^{n- 1}" width="90" height="33">（n 为序号位数），否则新旧序号重叠会无法分辨；Go-back-N 要求 <img class="fml" src="/formulas/23b339fbb0908c.png" alt="W_{T} \le 2^n- 1" width="105" height="33">。
+**注意**：选择重传时窗口大小 <img class="fml" src="/formulas/0e8292098d2716.png" alt="W_{T} \le 2^{n- 1}" width="91" height="34">（n 为序号位数），否则新旧序号重叠会无法分辨；Go-back-N 要求 <img class="fml" src="/formulas/23b339fbb0908c.png" alt="W_{T} \le 2^n- 1" width="105" height="34">。
 :::
 
 ### 5.5 TCP 报文段的首部格式（★★★）
@@ -1008,13 +1008,13 @@ TCP 首部**固定 20 字节**，最长 60 字节（含选项）：
 | 紧急指针 | 16 bit | URG=1 时有效 |
 | 选项 | 可变 | **MSS**、窗口扩大因子、时间戳、SACK 允许、填充 |
 
-- **MSS（最大报文段长度）**：TCP 数据字段最大长度（不含首部），默认常取 **536 B**（对应 IPv4 576 B 最小 MTU），以太网环境协商为 **1460 B**（<img class="fml" src="/formulas/27ef517ae36fda.png" alt="1500- 20 IP- 20" width="144" height="33">）。
+- **MSS（最大报文段长度）**：TCP 数据字段最大长度（不含首部），默认常取 **536 B**（对应 IPv4 576 B 最小 MTU），以太网环境协商为 **1460 B**（<img class="fml" src="/formulas/27ef517ae36fda.png" alt="1500- 20 IP- 20" width="146" height="34">）。
 - 常见选项：**窗口扩大**（突破 65535 B 窗口）、**时间戳**（精确测 RTT、防序号回绕 PAWS）、**SACK**（报告已收到的非连续字节块，只重传真正丢失的部分）。
 
 ### 5.6 TCP 可靠传输的实现（★★★）
 
 - **以字节为单位的滑动窗口**：发送窗口由 `min(rwnd, cwnd)` 决定；已发送未确认的数据必须保留在发送缓存中以便重传；接收方按序上交，非按序数据可暂存（配合 SACK）。
-- **超时重传时间 RTO**：基于 **RTT 的加权平均** `RTT_S = (1−α)·RTT_S + α·RTT样本`，<img class="fml" src="/formulas/0bdf8a8904a218.png" alt="RTO= RTT_{S}+ 4 \cdot RTT_{D}" width="209" height="33">（偏差）；**Karn 算法**：发生重传时**不采用**该次往返样本（无法区分确认对应原始还是重传报文段），并让 RTO 适度退避（加倍）。
+- **超时重传时间 RTO**：基于 **RTT 的加权平均** `RTT_S = (1−α)·RTT_S + α·RTT样本`，<img class="fml" src="/formulas/0bdf8a8904a218.png" alt="RTO= RTT_{S}+ 4 \cdot RTT_{D}" width="210" height="34">（偏差）；**Karn 算法**：发生重传时**不采用**该次往返样本（无法区分确认对应原始还是重传报文段），并让 RTO 适度退避（加倍）。
 - **确认与重传**：累计确认 + 超时重传；**快重传**要求接收方**每收到一个失序报文段就立即发重复 ACK**，发送方一连收到 **3 个重复 ACK** 就立即重传未收到的报文段，不必等超时。
 
 ### 5.7 TCP 的流量控制（★★★）
@@ -1040,30 +1040,30 @@ TCP 首部**固定 20 字节**，最长 60 字节（含选项）：
 
 | 算法 | 触发 | 行为 |
 | --- | --- | --- |
-| **慢开始** | `cwnd < ssthresh` | 每收到一个 ACK，`cwnd += 1 MSS` → 每个 RTT **加倍**（<img class="fml" src="/formulas/1d98ba5eed50e5.png" alt="1 \to 2 \to 4 \to 8 \cdots" width="149" height="33">），指数增长但起点很低 |
-| **拥塞避免** | <img class="fml" src="/formulas/2cbc4fe58beec3.png" alt="cwnd \ge ssthresh" width="140" height="33"> | 每个 RTT `cwnd += 1 MSS`，**加法增大**（线性） |
+| **慢开始** | `cwnd < ssthresh` | 每收到一个 ACK，`cwnd += 1 MSS` → 每个 RTT **加倍**（<img class="fml" src="/formulas/1d98ba5eed50e5.png" alt="1 \to 2 \to 4 \to 8 \cdots" width="150" height="34">），指数增长但起点很低 |
+| **拥塞避免** | <img class="fml" src="/formulas/2cbc4fe58beec3.png" alt="cwnd \ge ssthresh" width="140" height="34"> | 每个 RTT `cwnd += 1 MSS`，**加法增大**（线性） |
 | **快重传** | 收到 **3 个重复 ACK** | 立即重传丢失报文段，不等超时 |
-| **快恢复** | 配合快重传 | <img class="fml" src="/formulas/067f144b939df2.png" alt="ssthresh= \frac{cwnd}{2}" width="132" height="33">，`cwnd` 设为 `ssthresh`（不同实现为 `ssthresh+3 MSS`），**跳过慢开始**直接拥塞避免 |
+| **快恢复** | 配合快重传 | <img class="fml" src="/formulas/067f144b939df2.png" alt="ssthresh= \frac{cwnd}{2}" width="133" height="34">，`cwnd` 设为 `ssthresh`（不同实现为 `ssthresh+3 MSS`），**跳过慢开始**直接拥塞避免 |
 
-- 一旦判定**超时**（严重拥塞）：<img class="fml" src="/formulas/067f144b939df2.png" alt="ssthresh= \frac{cwnd}{2}" width="132" height="33">，`cwnd = 1 MSS`，重新慢开始。
+- 一旦判定**超时**（严重拥塞）：<img class="fml" src="/formulas/067f144b939df2.png" alt="ssthresh= \frac{cwnd}{2}" width="133" height="34">，`cwnd = 1 MSS`，重新慢开始。
 - 整体思路即 **AIMD（加法增大、乘法减小）**：探测可用带宽时温和增长，检测到拥塞时迅速减半；多条 TCP 流最终趋于公平共享。
 
 ::: tip 工作示例 · cwnd 演算
 设 `ssthresh = 8 MSS`，初始 `cwnd = 1`：
-<img class="fml" src="/formulas/7dae3d2f5ceba9.png" alt="1 \to 2 \to 4 \to 8" width="125" height="33">（慢开始，指数）→ 进入拥塞避免 <img class="fml" src="/formulas/09d872deba2aa6.png" alt="9 \to 10 \to 11 \to 12" width="152" height="33">（每 RTT +1）。
-若 `cwnd = 12` 时发生**超时**：`ssthresh = 6`，`cwnd = 1`，重新 <img class="fml" src="/formulas/0fa4d516cd484f.png" alt="1 \to 2 \to 4 \to 6 \to 7 \cdots" width="186" height="33">。
-若 `cwnd = 12` 时只收到 **3 个重复 ACK**（快重传/快恢复）：`ssthresh = 6`，<img class="fml" src="/formulas/7d1db8d810a770.png" alt="cwnd \approx 6" width="80" height="33">（或 6+3），直接继续拥塞避免 <img class="fml" src="/formulas/9d8268f0356d4b.png" alt="7 \to 8 \cdots" width="76" height="33"> —— **不回到 1**，这正是快恢复的价值。
+<img class="fml" src="/formulas/7dae3d2f5ceba9.png" alt="1 \to 2 \to 4 \to 8" width="126" height="34">（慢开始，指数）→ 进入拥塞避免 <img class="fml" src="/formulas/09d872deba2aa6.png" alt="9 \to 10 \to 11 \to 12" width="153" height="34">（每 RTT +1）。
+若 `cwnd = 12` 时发生**超时**：`ssthresh = 6`，`cwnd = 1`，重新 <img class="fml" src="/formulas/0fa4d516cd484f.png" alt="1 \to 2 \to 4 \to 6 \to 7 \cdots" width="187" height="34">。
+若 `cwnd = 12` 时只收到 **3 个重复 ACK**（快重传/快恢复）：`ssthresh = 6`，<img class="fml" src="/formulas/7d1db8d810a770.png" alt="cwnd \approx 6" width="80" height="34">（或 6+3），直接继续拥塞避免 <img class="fml" src="/formulas/9d8268f0356d4b.png" alt="7 \to 8 \cdots" width="77" height="34"> —— **不回到 1**，这正是快恢复的价值。
 :::
 
 ::: tip 工作示例 · TCP 吞吐量估算（高频题型）
-拥塞控制稳态下，发送窗口 <img class="fml" src="/formulas/1b620272a8ad30.png" alt="W= \min(rwnd, cwnd)" width="184" height="33">，吞吐量上界：
+拥塞控制稳态下，发送窗口 <img class="fml" src="/formulas/1b620272a8ad30.png" alt="W= \min(rwnd, cwnd)" width="185" height="34">，吞吐量上界：
 
 
-<p class="fml-block"><img class="fml" src="/formulas/d86aa74fa9b1d2.png" alt="\text{吞吐量} \; \approx W \times \frac{MSS}{RTT}" width="164" height="33"></p>
+<p class="fml-block"><img class="fml" src="/formulas/d86aa74fa9b1d2.png" alt="\text{吞吐量} \; \approx W \times \frac{MSS}{RTT}" width="165" height="34"></p>
 
 
 例：`RTT = 100 ms`、`rwnd = 64 KB`（无窗口扩大）、`MSS = 1460 B`：
-- 上界 = <img class="fml" src="/formulas/a317c2fa1f1ddd.png" alt="\frac{65535 B}{0.1 s} \approx \frac{5.24 Mbit}{s}" width="130" height="33"> —— 即使链路有 100 Mbit/s，**16 bit 窗口字段也成了瓶颈**（这就是长肥管道问题，必须用窗口扩大选项）；
+- 上界 = <img class="fml" src="/formulas/a317c2fa1f1ddd.png" alt="\frac{65535 B}{0.1 s} \approx \frac{5.24 Mbit}{s}" width="130" height="34"> —— 即使链路有 100 Mbit/s，**16 bit 窗口字段也成了瓶颈**（这就是长肥管道问题，必须用窗口扩大选项）；
 - 若 `cwnd` 在 `[ssthresh, cwnd_max]` 间锯齿变化（AIMD），平均吞吐可用 **Mathis 公式**估算：`吞吐 ≈ (MSS/RTT) × C/√p`（p 为丢包率），说明丢包率升高时吞吐按平方根下降。
 :::
 
@@ -1112,8 +1112,8 @@ A 等待 2MSL 后 CLOSED
 | 协议 | 发送窗口 | 确认方式 | 重传范围 | 接收缓存 |
 | --- | --- | --- | --- | --- |
 | 停止等待 ARQ | 1 | 逐分组 ACK | 超时重传该分组 | 不需要 |
-| **回退 N 帧（GBN）** | <img class="fml" src="/formulas/23b339fbb0908c.png" alt="W_{T} \le 2^n- 1" width="105" height="33"> | **累计确认** | 丢帧后重传其后**所有**已发帧 | 只需按序接收 1 个 |
-| **选择重传（SR）** | <img class="fml" src="/formulas/0e8292098d2716.png" alt="W_{T} \le 2^{n- 1}" width="90" height="33"> | 逐帧确认 | **只重传丢失帧** | 需要缓存失序帧并排序上交 |
+| **回退 N 帧（GBN）** | <img class="fml" src="/formulas/23b339fbb0908c.png" alt="W_{T} \le 2^n- 1" width="105" height="34"> | **累计确认** | 丢帧后重传其后**所有**已发帧 | 只需按序接收 1 个 |
+| **选择重传（SR）** | <img class="fml" src="/formulas/0e8292098d2716.png" alt="W_{T} \le 2^{n- 1}" width="91" height="34"> | 逐帧确认 | **只重传丢失帧** | 需要缓存失序帧并排序上交 |
 
 三者的共同基础：**序号 + 确认 + 超时重传 + 缓存已发送副本**。
 
@@ -1125,7 +1125,7 @@ A 等待 2MSL 后 CLOSED
 \text{停止等待：} \; U= \frac{T_{D}}{T_{D}+ RTT}= \frac{1}{21} \approx 4.8\% \\
 \text{连续} \; \text{ARQ} \; \text{，发送窗口} \; \text{W} \; \text{：} \; U= \min\left(1, \frac{W \cdot T_{D}}{T_{D}+ RTT}\right)= \min\left(1, \frac{W}{21}\right) \\
 W= 5 \to U \approx 23.8\% W= 21 \to U= 100\% \; \text{（窗口刚好填满管道）}
-\end{gathered}" width="557" height="122"></p>
+\end{gathered}" width="558" height="123"></p>
 
 
 这就是**发送窗口必须足够大**才能填满「长肥管道」的原因；现代 TCP 用**窗口扩大选项**把 16 bit 窗口字段扩展到最大约 1 GB，以支持高带宽时延积链路。
@@ -1142,12 +1142,12 @@ RTT_{S}=(1- \alpha) \cdot RTT_{S}+ \alpha \cdot RTT_{\text{样本}} \; \alpha= \
 RTT_{D}=(1- \beta) \cdot RTT_{D}+ \beta \cdot\lvert RTT_{S}-RTT_{\text{样本}}\rvert \; \beta= \frac{1}{4} \\
 RTO= RTT_{S}+ 4 \cdot RTT_{D} \\
 \text{首次：} \; \text{RTT\_S =} \; \text{样本值，} \; \text{RTT\_D =} \; \text{样本值的一半}
-\end{gathered}" width="435" height="139"></p>
+\end{gathered}" width="436" height="139"></p>
 
 
 
 ::: tip 工作示例 · RTO 手算
-第一个样本 `RTT = 30 ms` → `RTT_S = 30`、`RTT_D = 15`、<img class="fml" src="/formulas/9e211e3cd75315.png" alt="RTO= 30+ 4 \times 15= 90 ms" width="224" height="33">。
+第一个样本 `RTT = 30 ms` → `RTT_S = 30`、`RTT_D = 15`、<img class="fml" src="/formulas/9e211e3cd75315.png" alt="RTO= 30+ 4 \times 15= 90 ms" width="225" height="34">。
 第二个样本 `RTT = 40 ms`：
 
 
@@ -1155,7 +1155,7 @@ RTO= RTT_{S}+ 4 \cdot RTT_{D} \\
 RTT_{S}= 0.875 \times 30+ 0.125 \times 40= 31.25 ms \\
 RTT_{D}= 0.75 \times 15+ 0.25 \times|31.25- 40|= 11.25+ 2.1875 \approx 13.44 ms \\
 RTO= 31.25+ 4 \times 13.44 \approx 85 ms
-\end{gathered}" width="540" height="83"></p>
+\end{gathered}" width="541" height="84"></p>
 
 
 **Karn 算法**：报文段一旦重传，就**不采用**该次的 RTT 样本（无法判断确认对应原始还是重传报文段），并把 `RTO` 适度**加倍退避**；直到收到一个未经重传的报文段的确认，才恢复正常估计。
@@ -1179,7 +1179,7 @@ RTO= 31.25+ 4 \times 13.44 \approx 85 ms
 | 窗口扩大（kind=3） | 建连时协商移位因子 `s`，实际窗口 = 首部窗口字段 × `2^s`（最大约 1 GB） |
 | 时间戳（kind=8） | 精确测 RTT、配合 PAWS 防止高带宽下序号回绕 |
 | SACK 允许（kind=4）/ SACK（kind=5） | 允许并报告**已收到的非连续字节块边界**，只重传真正丢失的段 |
-| NOP / EOL（<img class="fml" src="/formulas/8c2d8156f87832.png" alt="kind=\frac{1}{0}" width="76" height="33">） | 填充对齐到 4 字节边界 |
+| NOP / EOL（<img class="fml" src="/formulas/8c2d8156f87832.png" alt="kind=\frac{1}{0}" width="77" height="34">） | 填充对齐到 4 字节边界 |
 
 #### 5.10.4 流量控制工作示例与零窗口
 
@@ -1191,7 +1191,7 @@ RTO= 31.25+ 4 \times 13.44 \approx 85 ms
 \text{若应用一直不读，} \; \text{rwnd} \; \text{逐步降到} \; 0 \to \; \text{发送方停止发送，并启动「持续计时器」} \\
 \text{持续计时器到期发} \; \text{1 B} \; \text{零窗口探测；接收方缓存腾空后回一个「窗口更新」} \\
 \text{（若窗口更新丢失，双方靠探测避免永久死锁）}
-\end{gathered}" width="638" height="110"></p>
+\end{gathered}" width="639" height="111"></p>
 
 
 - **糊涂窗口综合症**的两种成因与对策：接收方每次只通告几个字节 → 等缓存达到一半或 MSS 再通告；发送方每次只发几个字节 → **Nagle 算法**（未被确认的小数据先攒着），实时交互可用 `TCP_NODELAY` 关闭。
@@ -1201,8 +1201,8 @@ RTO= 31.25+ 4 \times 13.44 \approx 85 ms
 
 | 版本 | 3 个重复 ACK 的处理 | 超时处理 |
 | --- | --- | --- |
-| **Tahoe** | 与超时相同：<img class="fml" src="/formulas/067f144b939df2.png" alt="ssthresh= \frac{cwnd}{2}" width="132" height="33">、`cwnd = 1`，重新慢开始 | 同左 |
-| **Reno**（经典） | <img class="fml" src="/formulas/067f144b939df2.png" alt="ssthresh= \frac{cwnd}{2}" width="132" height="33">；`cwnd = ssthresh + 3 MSS`（3 个重复 ACK 说明有 3 个段已离开网络），每多一个重复 ACK `cwnd += 1 MSS`；收到**新数据的 ACK** 后 `cwnd = ssthresh`，进入拥塞避免 | <img class="fml" src="/formulas/067f144b939df2.png" alt="ssthresh= \frac{cwnd}{2}" width="132" height="33">、`cwnd = 1` |
+| **Tahoe** | 与超时相同：<img class="fml" src="/formulas/067f144b939df2.png" alt="ssthresh= \frac{cwnd}{2}" width="133" height="34">、`cwnd = 1`，重新慢开始 | 同左 |
+| **Reno**（经典） | <img class="fml" src="/formulas/067f144b939df2.png" alt="ssthresh= \frac{cwnd}{2}" width="133" height="34">；`cwnd = ssthresh + 3 MSS`（3 个重复 ACK 说明有 3 个段已离开网络），每多一个重复 ACK `cwnd += 1 MSS`；收到**新数据的 ACK** 后 `cwnd = ssthresh`，进入拥塞避免 | <img class="fml" src="/formulas/067f144b939df2.png" alt="ssthresh= \frac{cwnd}{2}" width="133" height="34">、`cwnd = 1` |
 | NewReno / SACK | 一个窗口内丢多包时也能逐步恢复，避免多次退避 | 同左 |
 
 ```text
@@ -1213,8 +1213,8 @@ AIMD：拥塞避免阶段每 RTT +1 MSS（加法增大 AI），
 
 ::: tip 工作示例 · 快恢复 vs 超时
 `cwnd = 12 MSS`、`ssthresh = 8 MSS`：
-- **超时**：`ssthresh = 6`，`cwnd = 1` → <img class="fml" src="/formulas/0fa4d516cd484f.png" alt="1 \to 2 \to 4 \to 6 \to 7 \cdots" width="186" height="33">（吞吐瞬时跌到 1/12）。
-- **3 个重复 ACK**：`ssthresh = 6`，<img class="fml" src="/formulas/7d1db8d810a770.png" alt="cwnd \approx 6" width="80" height="33">（Reno 常为 `6+3=9`）→ 直接拥塞避免，跳过慢开始。
+- **超时**：`ssthresh = 6`，`cwnd = 1` → <img class="fml" src="/formulas/0fa4d516cd484f.png" alt="1 \to 2 \to 4 \to 6 \to 7 \cdots" width="187" height="34">（吞吐瞬时跌到 1/12）。
+- **3 个重复 ACK**：`ssthresh = 6`，<img class="fml" src="/formulas/7d1db8d810a770.png" alt="cwnd \approx 6" width="80" height="34">（Reno 常为 `6+3=9`）→ 直接拥塞避免，跳过慢开始。
 可见「丢包 ≠ 严重拥塞」，快重传/快恢复就是在**个别报文丢失但网络仍能送达 ACK** 时避免不必要的大幅降速。
 :::
 
@@ -1240,7 +1240,7 @@ AIMD：拥塞避免阶段每 RTT +1 MSS（加法增大 AI），
 
 
 
-<p class="fml-block"><img class="fml" src="/formulas/40c3f0dda9da93.png" alt="\text{源} \; \text{IP} \; \text{地址} \; \text{32 bit |} \; \text{目的} \; \text{IP} \; \text{地址} \; \text{32 bit |} \; \text{全} \; \text{0 8 bit |} \; \text{协议} \; \text{8 bit} \; \text{（} \; TCP=\frac{6}{UDP}=17 \; \text{）} \; \text{| TCP/UDP} \; \text{长度} \; \text{16 bit}" width="858" height="33"></p>
+<p class="fml-block"><img class="fml" src="/formulas/40c3f0dda9da93.png" alt="\text{源} \; \text{IP} \; \text{地址} \; \text{32 bit |} \; \text{目的} \; \text{IP} \; \text{地址} \; \text{32 bit |} \; \text{全} \; \text{0 8 bit |} \; \text{协议} \; \text{8 bit} \; \text{（} \; TCP=\frac{6}{UDP}=17 \; \text{）} \; \text{| TCP/UDP} \; \text{长度} \; \text{16 bit}" width="860" height="34"></p>
 
 
 
@@ -1249,9 +1249,9 @@ AIMD：拥塞避免阶段每 RTT +1 MSS（加法增大 AI），
 ::: danger 易错 · 运输层计算
 - 序号单位是**字节**，不是报文段；`ack = N` 表示 **N−1 及之前**全部收到。
 - `SYN`/`FIN` 各消耗 1 个序号，但不携带数据的纯 `ACK` 不消耗；三次握手第三次 ACK 的 `seq = x+1` 就是这个原因。
-- <img class="fml" src="/formulas/fd787d43280bfa.png" alt="U= \frac{T_{D}}{T_{D}+RTT+T_{A}}" width="126" height="34"> 是**停止等待**的利用率；引入窗口后分子变为 <img class="fml" src="/formulas/e5718ef4c8679c.png" alt="W \cdot T_{D}" width="60" height="33"> 且上限为 1。
+- <img class="fml" src="/formulas/fd787d43280bfa.png" alt="U= \frac{T_{D}}{T_{D}+RTT+T_{A}}" width="127" height="35"> 是**停止等待**的利用率；引入窗口后分子变为 <img class="fml" src="/formulas/e5718ef4c8679c.png" alt="W \cdot T_{D}" width="61" height="34"> 且上限为 1。
 - `rwnd` 小可能是接收方应用没读数据，**不代表网络拥塞**；`cwnd` 减小也不代表接收方慢。
-- TIME-WAIT 在**主动关闭方**，2MSL 不是"固定 4 分钟"，而是 <img class="fml" src="/formulas/9dd41dbecd6700.png" alt="2 \times MSL" width="80" height="33">（MSL 为最大报文段生存时间，实现常取 30 s/1 min/2 min）。
+- TIME-WAIT 在**主动关闭方**，2MSL 不是"固定 4 分钟"，而是 <img class="fml" src="/formulas/9dd41dbecd6700.png" alt="2 \times MSL" width="81" height="34">（MSL 为最大报文段生存时间，实现常取 30 s/1 min/2 min）。
 :::
 
 ---
@@ -1261,7 +1261,7 @@ AIMD：拥塞避免阶段每 RTT +1 MSS（加法增大 AI），
 ### 6.1 域名系统 DNS（★★★）
 
 - **作用**：把便于人记忆的**域名**解析为 IP 地址（也可反查、邮件交换、别名）；采用**层次树状命名 + 分布式联机数据库**，运行于 **UDP 53**（区域传送 / 大响应走 TCP 53）。
-- **域名结构**：`… .三级域名.二级域名.顶级域名`，从右向左层级升高；顶级域分**国家顶级域 ccTLD**（cn、us）、**通用顶级域 gTLD**（com、org、net、<img class="fml" src="/formulas/23a4908aa05458.png" alt="edu \cdots" width="58" height="33">）、**基础结构域**（arpa）。**域名不区分大小写**，各级域名由上层授权管理。
+- **域名结构**：`… .三级域名.二级域名.顶级域名`，从右向左层级升高；顶级域分**国家顶级域 ccTLD**（cn、us）、**通用顶级域 gTLD**（com、org、net、<img class="fml" src="/formulas/23a4908aa05458.png" alt="edu \cdots" width="59" height="34">）、**基础结构域**（arpa）。**域名不区分大小写**，各级域名由上层授权管理。
 - **四类域名服务器**：
 
 | 类型 | 职责 |
@@ -1274,7 +1274,7 @@ AIMD：拥塞避免阶段每 RTT +1 MSS（加法增大 AI），
 ![DNS 解析流程与应用层端口速查](/net/net-dns.svg)
 
 - **查询方式**：主机→本地域名服务器通常是**递归查询**（"你替我查到底"）；本地服务器→根/TLD/权限服务器通常是**迭代查询**（"我不知道，你去问它"）。**高速缓存** + TTL 极大减轻根服务器压力，也是 DNS 能扩展的关键。
-- **资源记录 RR**：`A`（域名→IPv4）、`AAAA`（<img class="fml" src="/formulas/8368d710fcfc1f.png" alt="\to IPv6" width="70" height="33">）、`CNAME`（别名）、`MX`（邮件交换）、`NS`（域名服务器）、`PTR`（反向解析）、`SOA`（起始授权）、`TXT`（SPF/验证）。
+- **资源记录 RR**：`A`（域名→IPv4）、`AAAA`（<img class="fml" src="/formulas/8368d710fcfc1f.png" alt="\to IPv6" width="71" height="34">）、`CNAME`（别名）、`MX`（邮件交换）、`NS`（域名服务器）、`PTR`（反向解析）、`SOA`（起始授权）、`TXT`（SPF/验证）。
 
 ::: tip DNS 安全与新形态
 传统 DNS **明文且不认证**，易被劫持/污染：`DNSSEC` 用数字签名保证应答真实性（不加密内容）；`DoT(853)` 与 `DoH(443)` 把查询放进 TLS/HTTPS，兼顾隐私；`DNS over QUIC` 进一步降低时延。另需注意 DNS 负载均衡/CDN 调度常返回**不同 IP**，所以"域名与 IP 一一对应"是错的。
@@ -1347,7 +1347,7 @@ TELNET（TCP 23）明文传送、用 NVT 屏蔽终端差异，已因安全原因
 
 ### 6.8 应用进程跨越网络的通信 与 P2P（★★）
 
-- **C/S 模型**：服务器常在线、固定地址、被动等待；客户主动请求；可伸缩性靠服务器集群。系统调用顺序（服务器）：<img class="fml" src="/formulas/dac55a98b747e0.png" alt="socket \to bind \to listen \to accept \to \frac{recv}{send} \to close" width="391" height="33">；客户端：<img class="fml" src="/formulas/857a9297f1d7c4.png" alt="socket \to connect \to \frac{send}{recv} \to close" width="268" height="33">。
+- **C/S 模型**：服务器常在线、固定地址、被动等待；客户主动请求；可伸缩性靠服务器集群。系统调用顺序（服务器）：<img class="fml" src="/formulas/dac55a98b747e0.png" alt="socket \to bind \to listen \to accept \to \frac{recv}{send} \to close" width="392" height="34">；客户端：<img class="fml" src="/formulas/857a9297f1d7c4.png" alt="socket \to connect \to \frac{send}{recv} \to close" width="268" height="33">。
 - **P2P**：每个结点既是客户又是服务器，**自扩展性**（参与者越多资源越多）。
   - 拓扑演进：集中式目录（Napster，单点故障）→ 全分布洪泛（Gnutella，开销大）→ **DHT 分布式散列表**（Chord/Kademlia，把「资源键 → 结点」映射分布式存储，查询 O(log N)）→ 混合（BitTorrent 用 tracker/DHT 找结点，用「最稀有优先 + 一报还一报」做块交换）。
 
@@ -1431,7 +1431,7 @@ TELNET（TCP 23）明文传送、用 NVT 屏蔽终端差异，已因安全原因
 \text{HTTP/1.1} \; \text{持久连接（顺序请求）} \; \text{：} \; \text{1(DNS) + 1(TCP) + 4(} \; \text{对象} \; \text{) = 6 RTT} \\
 \text{HTTP/1.1} \; \text{流水线（} \; \text{4} \; \text{个请求连发）} \; \text{：} \; 1+ 1+ 2 \approx 4 RTT \\
 \text{HTTP/2} \; \text{多路复用} \; \text{/ HTTP/3(QUIC)} \; \text{：} \; \text{TLS1.3} \; \text{或} \; \text{QUIC} \; \text{可把握手合并到} \; \text{0/1 RTT}
-\end{gathered}" width="663" height="110"></p>
+\end{gathered}" width="665" height="111"></p>
 
 
 注意 **HTTP/1.1 流水线仍有队头阻塞**（前一个响应慢会堵住后面的），HTTP/2 的二进制分帧多路复用才真正解决 HTTP 层队头阻塞，HTTP/3 用 QUIC 进一步解决 TCP 层队头阻塞。
@@ -1453,7 +1453,7 @@ TELNET（TCP 23）明文传送、用 NVT 屏蔽终端差异，已因安全原因
 收件人 UA <--POP3/IMAP-- 接收方邮件服务器（按收件人域名查 MX 记录定位）
 ```
 
-**MIME 常用首部**：`MIME-Version: 1.0`、<img class="fml" src="/formulas/23528b6c7f3a87.png" alt="Content-Type: \frac{multipart}{mixed}; boundary=..." width="327" height="33">（多部分附件）、`Content-Transfer-Encoding: base64 | quoted-printable`、`Content-Disposition: attachment; filename=...`、`Content-ID`。Base64 把 3 字节编成 4 个可打印字符（体积增约 1/3）。安全扩展 **SPF / DKIM / DMARC** 借助 DNS TXT 记录与签名验证发件域，防伪造与钓鱼。
+**MIME 常用首部**：`MIME-Version: 1.0`、<img class="fml" src="/formulas/23528b6c7f3a87.png" alt="Content-Type: \frac{multipart}{mixed}; boundary=..." width="328" height="33">（多部分附件）、`Content-Transfer-Encoding: base64 | quoted-printable`、`Content-Disposition: attachment; filename=...`、`Content-ID`。Base64 把 3 字节编成 4 个可打印字符（体积增约 1/3）。安全扩展 **SPF / DKIM / DMARC** 借助 DNS TXT 记录与签名验证发件域，防伪造与钓鱼。
 
 #### 6.10.5 DHCP 报文与租约状态机
 
@@ -1488,7 +1488,7 @@ DHCP 报文固定含：`op`（1=请求/2=回答）、`htype/hlen`（硬件类型
 \text{TCP} \; \text{客户端：} \; socket() \to connect(serverIP:port) \; \text{【触发三次握手】} \; \to \frac{send()}{recv()} \to close() \\
 \text{UDP} \; \text{服务器：} \; socket() \to bind() \to recvfrom() \; \text{【拿到对端地址】} \; \to sendto() \\
 \text{UDP} \; \text{客户端：} \; socket() \to sendto() \to recvfrom() \to close() \; \text{（无需} \; \text{connect/listen} \; \text{）}
-\end{gathered}" width="729" height="178"></p>
+\end{gathered}" width="729" height="179"></p>
 
 
 
@@ -1538,7 +1538,7 @@ DHCP 报文固定含：`op`（1=请求/2=回答）、`htype/hlen`（硬件类型
 | 依据 | 替换与置换、混淆与扩散 | **单向陷门函数**（大数分解 / 离散对数 / 椭圆曲线） |
 | 速度 | **快**，适合大量数据 | **慢**（比对称慢 2~3 个数量级），适合少量数据 |
 | 主要用途 | 数据加密 | **密钥交换、数字签名、身份认证** |
-| 关键难题 | **密钥分发**（n 个用户两两通信需 <img class="fml" src="/formulas/72b30e6dd60891.png" alt="\frac{n(n- 1)}{2}" width="51" height="33"> 个密钥） | 公钥**真实性**（需 CA 证书绑定身份） |
+| 关键难题 | **密钥分发**（n 个用户两两通信需 <img class="fml" src="/formulas/72b30e6dd60891.png" alt="\frac{n(n- 1)}{2}" width="52" height="33"> 个密钥） | 公钥**真实性**（需 CA 证书绑定身份） |
 
 ::: tip 混合密码系统（真实系统的做法）
 现实协议从不单独用公钥加密大文件：先用 **公钥体制/DH 协商出会话密钥**（认证 + 密钥交换），再用**对称加密（AES-GCM / ChaCha20-Poly1305）**加密数据，最后用 **MAC/HMAC 或 AEAD 的认证标签**保证完整性。TLS 1.3、IPsec、SSH、WireGuard 都遵循这一模式。
@@ -1548,7 +1548,7 @@ DHCP 报文固定含：`op`（1=请求/2=回答）、`htype/hlen`（硬件类型
 
 - **数字签名**：发送方用**自己的私钥**对报文（或其哈希）签名，接收方用**发送方公钥**验证。必须满足三点：① **报文鉴别**（确认是谁签的）；② **报文完整性**（内容未被改）；③ **不可否认**（发送方无法抵赖）。
   - 注意：**签名不提供保密性**；要保密需再用接收方公钥或会话密钥加密。通常先对**哈希值**签名而非整个报文（效率）。
-- **报文鉴别码 MAC**：收发双方共享密钥，用 <img class="fml" src="/formulas/452e8aac4e3b7f.png" alt="MAC= H(K \| M)" width="151" height="33">（如 HMAC）附在报文后；能防篡改但不提供不可否认（双方都能生成）。
+- **报文鉴别码 MAC**：收发双方共享密钥，用 <img class="fml" src="/formulas/452e8aac4e3b7f.png" alt="MAC= H(K \| M)" width="152" height="33">（如 HMAC）附在报文后；能防篡改但不提供不可否认（双方都能生成）。
 - **实体鉴别**：证实通信对方**此刻**确实是所声称的实体；简单口令会被重放，需用**挑战-响应**（不重数 nonce、时间戳、一次性口令）防**重放攻击**。
 - **哈希函数**：`MD5`、`SHA-1` 已被证实存在碰撞（**不安全**）；应使用 `SHA-256 / SHA-3`、国密 `SM3`。哈希需满足单向性、抗碰撞。
 
@@ -1627,24 +1627,24 @@ DHCP 报文固定含：`op`（1=请求/2=回答）、`htype/hlen`（硬件类型
 
 #### 7.8.2 公钥密码：RSA 数值小例子与 DH / ECC
 
-**RSA 密钥生成**：取两个大素数 `p, q` → <img class="fml" src="/formulas/0799dd782b011c.png" alt="n= p \times q" width="80" height="33">，<img class="fml" src="/formulas/33ea2b7c35bd89.png" alt="\phi(n)=(p- 1)(q- 1)" width="172" height="33"> → 选与 <img class="fml" src="/formulas/971f4f787a24dc.png" alt="\phi(n)" width="41" height="33"> 互素的 `e` → 求 `d` 使 <img class="fml" src="/formulas/63d03ac9c87ada.png" alt="e \cdot d \equiv 1(mod \phi(n))" width="152" height="33"> → 公钥 `(e, n)`、私钥 `(d, n)`。加密 `c = m^e mod n`，解密 `m = c^d mod n`。安全性基于**大整数分解困难**。
+**RSA 密钥生成**：取两个大素数 `p, q` → <img class="fml" src="/formulas/0799dd782b011c.png" alt="n= p \times q" width="81" height="33">，<img class="fml" src="/formulas/33ea2b7c35bd89.png" alt="\phi(n)=(p- 1)(q- 1)" width="173" height="33"> → 选与 <img class="fml" src="/formulas/971f4f787a24dc.png" alt="\phi(n)" width="42" height="33"> 互素的 `e` → 求 `d` 使 <img class="fml" src="/formulas/63d03ac9c87ada.png" alt="e \cdot d \equiv 1(mod \phi(n))" width="154" height="33"> → 公钥 `(e, n)`、私钥 `(d, n)`。加密 `c = m^e mod n`，解密 `m = c^d mod n`。安全性基于**大整数分解困难**。
 
 ::: tip 工作示例 · RSA 手算
-取 `p = 3, q = 11` → `n = 33`，<img class="fml" src="/formulas/797bda01a9573d.png" alt="\phi(n)= 2 \times 10= 20" width="155" height="33">；取 `e = 3`（与 20 互素），解 <img class="fml" src="/formulas/2d72be026b00aa.png" alt="3d \equiv 1(mod 20)" width="122" height="33"> 得 `d = 7`。
+取 `p = 3, q = 11` → `n = 33`，<img class="fml" src="/formulas/797bda01a9573d.png" alt="\phi(n)= 2 \times 10= 20" width="156" height="33">；取 `e = 3`（与 20 互素），解 <img class="fml" src="/formulas/2d72be026b00aa.png" alt="3d \equiv 1(mod 20)" width="123" height="33"> 得 `d = 7`。
 
 
 <p class="fml-block"><img class="fml" src="/formulas/2844e667c2d6a9.png" alt="\begin{gathered}
 \text{明文} \; m= 4 \to c= 4^{3} mod 33= 64 mod 33= 31 \\
 \text{密文} \; c= 31 \to m= 31^{7} mod 33 \; \text{：} \; 31 \equiv- 2(mod 33) \; \text{，} \; (- 2)^{7}=- 128 \equiv 4(mod 33) \checkmark \\
 \text{用私钥签名则把运算反过来：签名} \; \text{s = m(d) mod n} \; \text{，验证} \; \text{m = s(e) mod n}
-\end{gathered}" width="647" height="84"></p>
+\end{gathered}" width="648" height="85"></p>
 
 
 真实 RSA 用 2048/3072 bit 模数；因速度慢，只用于**签名和密钥封装**，不直接加密大数据。
 :::
 
 - **Diffie-Hellman（DH / ECDHE）**：双方各自选秘密数，交换公开值后各自算出**相同共享密钥**，窃听者无法由公开值反推（离散对数 / 椭圆曲线离散对数困难）。用**临时**（ephemeral）密钥的 ECDHE 提供**前向保密 PFS**：即使日后私钥泄露，历史会话也无法解密。
-- **ECC**：同等安全强度下密钥远短于 RSA（<img class="fml" src="/formulas/041dd6ec598e9a.png" alt="256 bit ECC \approx 3072" width="155" height="33">），适合移动与物联网；国密 **SM2** 基于椭圆曲线，SM9 是基于身份的标识密码。
+- **ECC**：同等安全强度下密钥远短于 RSA（<img class="fml" src="/formulas/041dd6ec598e9a.png" alt="256 bit ECC \approx 3072" width="156" height="33">），适合移动与物联网；国密 **SM2** 基于椭圆曲线，SM9 是基于身份的标识密码。
 
 #### 7.8.3 散列函数与报文鉴别码
 
@@ -1652,11 +1652,11 @@ DHCP 报文固定含：`op`（1=请求/2=回答）、`htype/hlen`（硬件类型
 | --- | --- |
 | 单向性 | 由哈希值反推输入在计算上不可行 |
 | 抗弱碰撞 | 给定 M，找不到 M′ 使 H(M′) = H(M) |
-| 抗强碰撞 | 找不到任意一对 <img class="fml" src="/formulas/3da650751a184d.png" alt="M= M" width="68" height="33">′ 使哈希相同 |
+| 抗强碰撞 | 找不到任意一对 <img class="fml" src="/formulas/3da650751a184d.png" alt="M= M" width="69" height="33">′ 使哈希相同 |
 
-**生日攻击**：n bit 哈希大约 `2^(n/2)` 次尝试即可找到碰撞，故 MD5（128 bit → 约 <img class="fml" src="/formulas/a7147e08f8e4dd.png" alt="2^{64}" width="28" height="33">）、SHA-1（160 bit → 约 <img class="fml" src="/formulas/ebe3d7eee66fc4.png" alt="2^{80}" width="28" height="33">，已有实际碰撞构造）不再安全；应使用 **SHA-256 / SHA-3 / SM3**。
+**生日攻击**：n bit 哈希大约 `2^(n/2)` 次尝试即可找到碰撞，故 MD5（128 bit → 约 <img class="fml" src="/formulas/a7147e08f8e4dd.png" alt="2^{64}" width="29" height="33">）、SHA-1（160 bit → 约 <img class="fml" src="/formulas/ebe3d7eee66fc4.png" alt="2^{80}" width="30" height="33">，已有实际碰撞构造）不再安全；应使用 **SHA-256 / SHA-3 / SM3**。
 
-- **MAC / HMAC**：<img class="fml" src="/formulas/20b08955c932e3.png" alt="HMAC(K, M)= H((K ⊕ opad) \| H((K ⊕ ipad) \| M))" width="422" height="33">，收发共享密钥 K；能防篡改与伪造，但**双方都能生成**，故**不能防抵赖**（这与数字签名的关键区别）。
+- **MAC / HMAC**：<img class="fml" src="/formulas/20b08955c932e3.png" alt="HMAC(K, M)= H((K ⊕ opad) \| H((K ⊕ ipad) \| M))" width="423" height="33">，收发共享密钥 K；能防篡改与伪造，但**双方都能生成**，故**不能防抵赖**（这与数字签名的关键区别）。
 - AEAD 模式（GCM）的认证标签本质也是一种 MAC，把加密与完整性一次性完成。
 
 #### 7.8.4 工作示例 · 证书链验证过程
@@ -1776,7 +1776,7 @@ DHCP 报文固定含：`op`（1=请求/2=回答）、`htype/hlen`（硬件类型
 \text{后续按} \; \text{180 / 200 ms} \; \text{播放；最晚的} \; \text{150 ms} \; \text{到达仍早于} \; 180 ms \to \; \text{全部按时播放} \\
 \text{取} \; \text{Q = 30 ms} \; \text{：第} \; \text{1} \; \text{个在} \; \text{130 ms} \; \text{播放，第} \; \text{2} \; \text{个应在} \; \text{150 ms} \; \text{播放，} \\
 \text{但它恰好} \; \text{150 ms} \; \text{才到（再晚一点就会被丢弃）} \; \to \; \text{出现卡顿}
-\end{gathered}" width="622" height="137"></p>
+\end{gathered}" width="623" height="138"></p>
 
 
 **结论**：Q 必须不小于最大抖动才能平滑播放，但 Q 越大交互时延越大。实时通话取较小 Q（接受少量丢包），点播/直播可取较大 Q（更流畅）。自适应抖动缓冲会依据实测抖动动态调整 Q。
@@ -1828,14 +1828,14 @@ DHCP 报文固定含：`op`（1=请求/2=回答）、`htype/hlen`（硬件类型
 | **令牌桶 token bucket（管制）** | 桶中以速率 r 注入令牌、容量 b；发送需取令牌 | 允许**最大 b 的突发**，长期平均不超过 r |
 
 ::: tip 工作示例 · 令牌桶
-令牌速率 <img class="fml" src="/formulas/5baf2792a9b7e2.png" alt="r= \frac{1 MB}{s}" width="72" height="33">、桶容量 `b = 4 MB`，桶初始为满。某应用要突发发送 `6 MB`：
+令牌速率 <img class="fml" src="/formulas/5baf2792a9b7e2.png" alt="r= \frac{1 MB}{s}" width="74" height="33">、桶容量 `b = 4 MB`，桶初始为满。某应用要突发发送 `6 MB`：
 
 
 <p class="fml-block"><img class="fml" src="/formulas/5e6ee17ff4dc2b.png" alt="\begin{gathered}
 \text{立即取走} \; \text{4 MB} \; \text{令牌} \; \to \; \text{立刻发出} \; \text{4 MB} \\
 \text{剩余} \; \text{2 MB} \; \text{需等待} \; \text{2 s} \; \text{攒够令牌} \; \to \; \text{共约} \; \text{2 s} \; \text{发完，长期平均速率仍为} \; \text{1 MB/s} \\
 \text{若改用漏桶（恒定} \; \text{1 MB/s} \; \text{输出），} \; \text{6 MB} \; \text{必须花} \; \text{6 s} \; \text{，且突发部分可能被丢弃}
-\end{gathered}" width="613" height="83"></p>
+\end{gathered}" width="613" height="84"></p>
 
 
 令牌桶允许合理突发，是流量管制（policing）与 DiffServ 中常见的参数化方式 `(r, b)`。
@@ -1937,16 +1937,16 @@ DHCP 报文固定含：`op`（1=请求/2=回答）、`htype/hlen`（硬件类型
 
 | 帧间隔（802.11b DSSS 典型值） | 时长 | 用途 |
 | --- | --- | --- |
-| **SIFS** | <img class="fml" src="/formulas/8d94b0d20055ba.png" alt="10 \mu s" width="43" height="33"> | 最短，用于 **ACK、CTS、分片 burst** 及轮询响应 |
-| **PIFS** | SIFS + <img class="fml" src="/formulas/8edb14c84c3b76.png" alt="1 Slot= 30 \mu s" width="109" height="33"> | PCF 集中轮询优先接入 |
+| **SIFS** | <img class="fml" src="/formulas/8d94b0d20055ba.png" alt="10 \mu s" width="44" height="34"> | 最短，用于 **ACK、CTS、分片 burst** 及轮询响应 |
+| **PIFS** | SIFS + <img class="fml" src="/formulas/8edb14c84c3b76.png" alt="1 Slot= 30 \mu s" width="110" height="33"> | PCF 集中轮询优先接入 |
 | **DIFS** | SIFS + <img class="fml" src="/formulas/cbf4c6f358ab19.png" alt="2 Slot= 50 \mu s" width="109" height="33"> | DCF 普通竞争前必须空闲的时间 |
 | **EIFS** | 最长 | 收到**坏帧/未正确解调**后等待，避免干扰可能正在进行的 ACK |
-| Slot time | <img class="fml" src="/formulas/9470ec138e3640.png" alt="20 \mu s" width="43" height="33">（802.11b）；OFDM PHY 为 <img class="fml" src="/formulas/647ebd8fce318c.png" alt="9 \mu s" width="34" height="33"> | 退避计数器的基本单位 |
+| Slot time | <img class="fml" src="/formulas/9470ec138e3640.png" alt="20 \mu s" width="44" height="33">（802.11b）；OFDM PHY 为 <img class="fml" src="/formulas/647ebd8fce318c.png" alt="9 \mu s" width="35" height="33"> | 退避计数器的基本单位 |
 
-**802.11 退避与以太网不同**：以太网从第 `i` 次重传的 <img class="fml" src="/formulas/44519728163d9f.png" alt="{0 \cdots 2^k- 1}" width="89" height="33"> 取 `r`（单位 512 bit time）；802.11 用**竞争窗口 CW**：初始 `CW_min = 31`（802.11b），每次失败 <img class="fml" src="/formulas/97f6a7c992027c.png" alt="CW= 2(CW+1)- 1" width="181" height="33">，序列 <img class="fml" src="/formulas/d61f64f31761bf.png" alt="31 \to 63 \to 127 \to 255 \to 511 \to 1023" width="297" height="33">（CW_max），在 `[0, CW]` 中均匀随机取退避时隙数；**仅在信道空闲满 DIFS 后每个 Slot 递减**，信道变忙则冻结计数，归零才发送。
+**802.11 退避与以太网不同**：以太网从第 `i` 次重传的 <img class="fml" src="/formulas/44519728163d9f.png" alt="{0 \cdots 2^k- 1}" width="91" height="33"> 取 `r`（单位 512 bit time）；802.11 用**竞争窗口 CW**：初始 `CW_min = 31`（802.11b），每次失败 <img class="fml" src="/formulas/97f6a7c992027c.png" alt="CW= 2(CW+1)- 1" width="181" height="33">，序列 <img class="fml" src="/formulas/d61f64f31761bf.png" alt="31 \to 63 \to 127 \to 255 \to 511 \to 1023" width="298" height="33">（CW_max），在 `[0, CW]` 中均匀随机取退避时隙数；**仅在信道空闲满 DIFS 后每个 Slot 递减**，信道变忙则冻结计数，归零才发送。
 
 ::: tip 工作示例 · 退避时隙
-站点第 3 次发送失败后 `CW = 127`，抽中 `r = 40`，Slot = <img class="fml" src="/formulas/9470ec138e3640.png" alt="20 \mu s" width="43" height="33"> 需累计约 <img class="fml" src="/formulas/db15a23c7c3efa.png" alt="40 \times 20 \mu s= 800 \mu s" width="152" height="33"> 的**空闲**时间才能发送；期间若有别的站点开始发送，计数器冻结，等它发完并再空闲 DIFS 后继续倒数。这比「固定等待」更能适应负载变化。
+站点第 3 次发送失败后 `CW = 127`，抽中 `r = 40`，Slot = <img class="fml" src="/formulas/9470ec138e3640.png" alt="20 \mu s" width="44" height="33"> 需累计约 <img class="fml" src="/formulas/db15a23c7c3efa.png" alt="40 \times 20 \mu s= 800 \mu s" width="153" height="33"> 的**空闲**时间才能发送；期间若有别的站点开始发送，计数器冻结，等它发完并再空闲 DIFS 后继续倒数。这比「固定等待」更能适应负载变化。
 :::
 
 #### 9.5.3 隐藏站 / 暴露站与 RTS 门限
@@ -1959,12 +1959,12 @@ DHCP 报文固定含：`op`（1=请求/2=回答）、`htype/hlen`（硬件类型
 \text{解决：} \; \text{A} \; \text{发} \; RTS \to B \; \text{广播} \; \text{CTS} \; \text{（含} \; \text{NAV} \; \text{时长）} \; \to \; \text{听到} \; \text{CTS} \; \text{的} \; \text{C} \; \text{静默} \\
 \text{暴露站：} \; \text{B} \; \text{正在给} \; \text{A} \; \text{发送，} \; \text{C} \; \text{想给} \; \text{D} \; \text{发送，} \; \text{C} \; \text{能听到} \; \text{B} \; \text{却不会干扰} \; \text{A} \; \text{的接收} \\
 \text{CSMA/CA} \; \text{让} \; \text{C} \; \text{退避，属「过度保守」，白白浪费空间复用机会}
-\end{gathered}" width="683" height="137"></p>
+\end{gathered}" width="685" height="138"></p>
 
 
 
 - **NAV（网络分配向量）** 是"虚拟载波监听"：帧的 Duration 字段声明将占用信道多久，收到者据此设置本地计时器，**不必真的持续监听物理载波**。
-- RTS/CTS 交换有 4 次握手开销（RTS → <img class="fml" src="/formulas/f5fc0a876ec8eb.png" alt="SIFS \to CTS \to SIFS \to DATA \to SIFS" width="352" height="33">），只对**长帧**划算；设备通常可配置 **RTS 门限**（如 2347 B，默认常等于最大帧长即"不启用"）。
+- RTS/CTS 交换有 4 次握手开销（RTS → <img class="fml" src="/formulas/f5fc0a876ec8eb.png" alt="SIFS \to CTS \to SIFS \to DATA \to SIFS" width="353" height="33">），只对**长帧**划算；设备通常可配置 **RTS 门限**（如 2347 B，默认常等于最大帧长即"不启用"）。
 
 #### 9.5.4 802.11 MAC 帧字段与四地址
 
@@ -2011,17 +2011,17 @@ DHCP 报文固定含：`op`（1=请求/2=回答）、`htype/hlen`（硬件类型
 \text{每个小区可用信道数} \; = \frac{M}{N}= \frac{700}{7}= 100 \\
 \text{每个簇（} \; \text{7} \; \text{个小区）恰好用完} \; \text{700} \; \text{个信道且不相邻小区互不干扰} \\
 \text{系统总并发信道数} \; = M \times \; \text{簇数} \; = 700 \times 100= 70000
-\end{gathered}" width="508" height="98"></p>
+\end{gathered}" width="508" height="99"></p>
 
 
-减小 N（如 4 或 3）可提高每小区信道数，但**同频干扰**增大，需靠功率控制、扇区化（<img class="fml" src="/formulas/2f4e0af1651be2.png" alt="120^{\circ}" width="40" height="33"> 定向天线）、小区分裂（微小区/微微小区）、MIMO 与干扰协调来补偿。
+减小 N（如 4 或 3）可提高每小区信道数，但**同频干扰**增大，需靠功率控制、扇区化（<img class="fml" src="/formulas/2f4e0af1651be2.png" alt="120^{\circ}" width="41" height="34"> 定向天线）、小区分裂（微小区/微微小区）、MIMO 与干扰协调来补偿。
 
 | 移动性管理概念 | 作用 |
 | --- | --- |
 | **HLR / VLR** | 归属位置寄存器保存用户签约与当前位置指针；访问位置寄存器暂存来访用户信息 |
 | 位置更新 / 寻呼 | 终端跨越位置区时登记；有来电时在该位置区内广播寻呼 |
 | **切换 handover** | 硬切换（先断后连，GSM/LTE）／软切换（先连后断，CDMA）；由信号强度/质量与邻区测量触发 |
-| <img class="fml" src="/formulas/48053b638a1354.png" alt="1G \to 5G" width="80" height="33"> | 模拟话音 → 数字（GSM/CDMA）→ 3G（WCDMA/CDMA2000/TD-SCDMA）→ **4G LTE 全 IP** → **5G（eMBB / URLLC / mMTC）+ 网络切片 + 边缘计算** |
+| <img class="fml" src="/formulas/48053b638a1354.png" alt="1G \to 5G" width="81" height="34"> | 模拟话音 → 数字（GSM/CDMA）→ 3G（WCDMA/CDMA2000/TD-SCDMA）→ **4G LTE 全 IP** → **5G（eMBB / URLLC / mMTC）+ 网络切片 + 边缘计算** |
 
 #### 9.5.8 移动 IP 的完整报文流程
 
@@ -2052,23 +2052,23 @@ DHCP 报文固定含：`op`（1=请求/2=回答）、`htype/hlen`（硬件类型
 
 | 主题 | 公式 / 结论 |
 | --- | --- |
-| 速率单位 | <img class="fml" src="/formulas/f7e9f7db1476b5.png" alt="k=10^{3}, M=10^{6}, G=10^{9}" width="211" height="33"> bit/s（存储容量才用 2 的幂） |
+| 速率单位 | <img class="fml" src="/formulas/f7e9f7db1476b5.png" alt="k=10^{3}, M=10^{6}, G=10^{9}" width="212" height="34"> bit/s（存储容量才用 2 的幂） |
 | 发送时延 | `数据长度(bit) / 发送速率(bit/s)` |
 | 传播时延 | `信道长度(m) / 传播速率(m/s)`（与发送速率无关） |
 | 总时延 | `发送 + 传播 + 处理 + 排队` |
 | 时延带宽积 | `传播时延 × 带宽`（链路上在途比特数） |
-| 利用率与时延 | <img class="fml" src="/formulas/e4dcf9a22e29c4.png" alt="D= \frac{D_{0}}{1- U}" width="75" height="33">，U→1 时延急剧增大 |
-| 奈氏准则 | 无噪声：最高码元速率 `2W` Baud；最高数据率 <img class="fml" src="/formulas/ead4e28b3f7a6d.png" alt="2W \cdot \log_{2}V" width="95" height="33"> |
-| 香农公式 | <img class="fml" src="/formulas/ae8962d46a3969.png" alt="C= W \cdot \log_{2}\left(1+ \frac{S}{N}\right)" width="172" height="33">；<img class="fml" src="/formulas/4d837f44526dab.png" alt="\frac{S}{N}= 10^{\frac{dB}{10}}" width="80" height="33"> |
-| CDMA | 与自身码片规格化内积 = `1`，与其他站 = `0`，与反码 = <img class="fml" src="/formulas/9b57cdc57dbb1e.png" alt="- 1" width="29" height="33"> |
+| 利用率与时延 | <img class="fml" src="/formulas/e4dcf9a22e29c4.png" alt="D= \frac{D_{0}}{1- U}" width="76" height="34">，U→1 时延急剧增大 |
+| 奈氏准则 | 无噪声：最高码元速率 `2W` Baud；最高数据率 <img class="fml" src="/formulas/ead4e28b3f7a6d.png" alt="2W \cdot \log_{2}V" width="96" height="34"> |
+| 香农公式 | <img class="fml" src="/formulas/ae8962d46a3969.png" alt="C= W \cdot \log_{2}\left(1+ \frac{S}{N}\right)" width="173" height="34">；<img class="fml" src="/formulas/4d837f44526dab.png" alt="\frac{S}{N}= 10^{\frac{dB}{10}}" width="81" height="34"> |
+| CDMA | 与自身码片规格化内积 = `1`，与其他站 = `0`，与反码 = <img class="fml" src="/formulas/9b57cdc57dbb1e.png" alt="- 1" width="30" height="33"> |
 | CRC | `M + R`，R 为模 2 除法余数，位数 = 生成多项式次数；接收端余数为 0 判无错 |
 | 以太网最短帧 | **64 B**（争用期 512 bit time）；帧长 64~1518 B；VLAN 帧 1522 B |
-| 交换机 | 自学习「源 <img class="fml" src="/formulas/7e90339ebfa754.png" alt="MAC \leftrightarrow" width="76" height="33">端口」；未知目的泛洪；STP 破环 |
-| IP 前缀 | `IP & 掩码 = 网络地址`；可用主机数 <img class="fml" src="/formulas/3282592f7dd53f.png" alt="2^{32- n}- 2" width="76" height="33">；**最长前缀匹配** |
-| 停止等待利用率 | <img class="fml" src="/formulas/d89dcd04afb139.png" alt="U= \frac{T_{D}}{T_{D}+ RTT+ T_{A}}" width="126" height="34"> |
-| 窗口约束 | Go-back-N <img class="fml" src="/formulas/23b339fbb0908c.png" alt="W_{T} \le 2^n- 1" width="105" height="33">；选择重传 <img class="fml" src="/formulas/0e8292098d2716.png" alt="W_{T} \le 2^{n- 1}" width="90" height="33"> |
+| 交换机 | 自学习「源 <img class="fml" src="/formulas/7e90339ebfa754.png" alt="MAC \leftrightarrow" width="77" height="34">端口」；未知目的泛洪；STP 破环 |
+| IP 前缀 | `IP & 掩码 = 网络地址`；可用主机数 <img class="fml" src="/formulas/3282592f7dd53f.png" alt="2^{32- n}- 2" width="77" height="34">；**最长前缀匹配** |
+| 停止等待利用率 | <img class="fml" src="/formulas/d89dcd04afb139.png" alt="U= \frac{T_{D}}{T_{D}+ RTT+ T_{A}}" width="127" height="35"> |
+| 窗口约束 | Go-back-N <img class="fml" src="/formulas/23b339fbb0908c.png" alt="W_{T} \le 2^n- 1" width="105" height="34">；选择重传 <img class="fml" src="/formulas/0e8292098d2716.png" alt="W_{T} \le 2^{n- 1}" width="91" height="34"> |
 | TCP 发送窗口 | `min(rwnd, cwnd)`；序号按**字节**，确认号 = 期望下一字节 |
-| 拥塞控制 | `cwnd < ssthresh` 慢开始（每 RTT 加倍）；否则拥塞避免（+1 MSS/RTT）；超时 <img class="fml" src="/formulas/bb5444438e4555.png" alt="ssthresh=\frac{cwnd}{2}, cwnd=1" width="214" height="33">；3 个重复 ACK 触发快重传 + 快恢复 |
+| 拥塞控制 | `cwnd < ssthresh` 慢开始（每 RTT 加倍）；否则拥塞避免（+1 MSS/RTT）；超时 <img class="fml" src="/formulas/bb5444438e4555.png" alt="ssthresh=\frac{cwnd}{2}, cwnd=1" width="215" height="34">；3 个重复 ACK 触发快重传 + 快恢复 |
 | 连接管理 | 三次握手（SYN 消耗序号）；四次挥手；**TIME-WAIT = 2MSL** |
 | DNS | UDP/TCP 53；主机→本地递归，本地→根/TLD/权限迭代 |
 | 熟知端口 | FTP 21/20、SSH 22、TELNET 23、SMTP 25、DNS 53、DHCP 67/68、TFTP 69、HTTP 80、POP3 110、IMAP 143、SNMP 161/162、HTTPS 443、SIP 5060、RTSP 554 |
@@ -2076,35 +2076,35 @@ DHCP 报文固定含：`op`（1=请求/2=回答）、`htype/hlen`（硬件类型
 | 802.11 | 空闲 DIFS 后竞争、SIFS 后回 ACK；RTS/CTS + NAV 解决隐藏站；每帧必须 ACK |
 | IntServ / DiffServ | 前者 RSVP 每流预留（扩展性差）；后者 DSCP 按类 PHB（主流） |
 | 分组交换流水线 | 总时延 = `(段数 + 分组数 − 1) × 每分组发送时延` |
-| 采样定理 / PCM | <img class="fml" src="/formulas/4bbc0c8446cde3.png" alt="f_{s} \ge 2 \cdot f_{\max}" width="100" height="33">；话音 <img class="fml" src="/formulas/c54a0b6693b879.png" alt="8 kHz \times 8" width="81" height="33"> **64 kbit/s**；T1 1.544 / E1 2.048 Mbit/s |
+| 采样定理 / PCM | <img class="fml" src="/formulas/4bbc0c8446cde3.png" alt="f_{s} \ge 2 \cdot f_{\max}" width="101" height="33">；话音 <img class="fml" src="/formulas/c54a0b6693b879.png" alt="8 kHz \times 8" width="82" height="33"> **64 kbit/s**；T1 1.544 / E1 2.048 Mbit/s |
 | 码元与比特率 | `数据率 = 波特率(Baud) × log2V`；奈氏限码元速率、香农限信息速率 |
-| 差错控制 | 检 e 位错需最小码距 <img class="fml" src="/formulas/2e934f4f6ce1cb.png" alt="\ge e+1" width="64" height="33">；纠 t 位错需 <img class="fml" src="/formulas/c13e041bf57a95.png" alt="\ge 2t+1" width="71" height="33">；CRC 漏检概率约 <img class="fml" src="/formulas/bb57179844e5a0.png" alt="2^{- r}" width="32" height="33"> |
-| CSMA/CD | 争用期 512 bit time → 最短帧 64 B；<img class="fml" src="/formulas/887d73e1cba8ad.png" alt="S_{\max}= \frac{1}{1+a}" width="92" height="33">，<img class="fml" src="/formulas/6126ea6e64ff90.png" alt="a= \frac{\tau}{T_{0}}" width="56" height="34">；退避 <img class="fml" src="/formulas/f3dc3d0b2d7939.png" alt="k=\min(i,10)" width="115" height="33">，16 次丢弃 |
+| 差错控制 | 检 e 位错需最小码距 <img class="fml" src="/formulas/2e934f4f6ce1cb.png" alt="\ge e+1" width="65" height="34">；纠 t 位错需 <img class="fml" src="/formulas/c13e041bf57a95.png" alt="\ge 2t+1" width="72" height="34">；CRC 漏检概率约 <img class="fml" src="/formulas/bb57179844e5a0.png" alt="2^{- r}" width="32" height="34"> |
+| CSMA/CD | 争用期 512 bit time → 最短帧 64 B；<img class="fml" src="/formulas/887d73e1cba8ad.png" alt="S_{\max}= \frac{1}{1+a}" width="92" height="34">，<img class="fml" src="/formulas/6126ea6e64ff90.png" alt="a= \frac{\tau}{T_{0}}" width="57" height="35">；退避 <img class="fml" src="/formulas/f3dc3d0b2d7939.png" alt="k=\min(i,10)" width="117" height="34">，16 次丢弃 |
 | 802.1Q VLAN | 插入 4 B（TPID `0x8100` + TCI：PCP 3 / DEI 1 / VID 12 bit），帧最长 **1522 B** |
 | IP 分片 | 片偏移以 **8 B** 为单位；重组只在目的主机；`DF=1` 触发 PMTUD |
 | IP 首部检验和 | 16 bit 反码求和再取反；**只校验首部**且每跳因 TTL 变化而重算 |
 | ARP | 跨网解析的是**下一跳网关** MAC；免费 ARP 检冲突、代理 ARP 代答 |
 | 路由协议 | RIP：UDP 520 / ≤15 跳 / 30 s；OSPF：IP 协议号 89 / Dijkstra / 区域 0；BGP：TCP 179 / AS_PATH |
 | IPv6 | 128 bit，首部固定 40 B，无首部检验和、无广播，NDP 取代 ARP，只源主机分片 |
-| 可靠传输利用率 | 停止等待 <img class="fml" src="/formulas/fd787d43280bfa.png" alt="U= \frac{T_{D}}{T_{D}+RTT+T_{A}}" width="126" height="34">；窗口 W 时 <img class="fml" src="/formulas/63b78cf42f0168.png" alt="U= \min\left(1, \frac{W \cdot T_{D}}{T_{D}+RTT}\right)" width="172" height="40"> |
-| RTO | <img class="fml" src="/formulas/30795c8379e83a.png" alt="RTT_{S}=(1- \alpha)RTT_{S}+\alpha \cdot M" width="244" height="33">（<img class="fml" src="/formulas/9dedcb03509796.png" alt="\alpha=\frac{1}{8}" width="52" height="33">）；`RTT_D=(1−β)RTT_D+β·偏差绝对值`（<img class="fml" src="/formulas/46017bc4bb3aba.png" alt="\beta=\frac{1}{4}" width="51" height="33">）；`RTO=RTT_S+4RTT_D` |
+| 可靠传输利用率 | 停止等待 <img class="fml" src="/formulas/fd787d43280bfa.png" alt="U= \frac{T_{D}}{T_{D}+RTT+T_{A}}" width="127" height="35">；窗口 W 时 <img class="fml" src="/formulas/63b78cf42f0168.png" alt="U= \min\left(1, \frac{W \cdot T_{D}}{T_{D}+RTT}\right)" width="173" height="41"> |
+| RTO | <img class="fml" src="/formulas/30795c8379e83a.png" alt="RTT_{S}=(1- \alpha)RTT_{S}+\alpha \cdot M" width="245" height="34">（<img class="fml" src="/formulas/9dedcb03509796.png" alt="\alpha=\frac{1}{8}" width="53" height="34">）；`RTT_D=(1−β)RTT_D+β·偏差绝对值`（<img class="fml" src="/formulas/46017bc4bb3aba.png" alt="\beta=\frac{1}{4}" width="52" height="34">）；`RTO=RTT_S+4RTT_D` |
 | TCP 窗口 | 发送窗口 = `min(rwnd, cwnd)`；窗口扩大选项把 16 bit 窗口乘 `2^s`；序号按字节编号 |
-| 拥塞控制 | 超时：<img class="fml" src="/formulas/11683c89d1e2d4.png" alt="ssthresh=\frac{cwnd}{2}" width="132" height="33">、`cwnd=1`；3 个重复 ACK：快重传 + 快恢复，跳过慢开始 |
+| 拥塞控制 | 超时：<img class="fml" src="/formulas/11683c89d1e2d4.png" alt="ssthresh=\frac{cwnd}{2}" width="133" height="34">、`cwnd=1`；3 个重复 ACK：快重传 + 快恢复，跳过慢开始 |
 | TLS | 证书认证 → ECDHE 协商会话密钥 → AEAD 对称加密；TLS 1.3 = 1-RTT + 强制前向保密 |
 | 播放时延 | 接收缓冲吸收抖动，需 `Q ≥ 最大抖动`；Q 越大越平滑但交互时延越大 |
 | 令牌桶 / 漏桶 | 令牌桶允许最大 `b` 突发、长期平均 `r`；漏桶恒定速率输出 |
-| 802.11 | `SIFS < PIFS < DIFS < EIFS`；每帧必须 ACK；CW <img class="fml" src="/formulas/d61f64f31761bf.png" alt="31 \to 63 \to 127 \to 255 \to 511 \to 1023" width="297" height="33">；RTS/CTS + NAV 防隐藏站 |
+| 802.11 | `SIFS < PIFS < DIFS < EIFS`；每帧必须 ACK；CW <img class="fml" src="/formulas/d61f64f31761bf.png" alt="31 \to 63 \to 127 \to 255 \to 511 \to 1023" width="298" height="33">；RTS/CTS + NAV 防隐藏站 |
 | 蜂窝频率复用 | 每小区可用信道 = `M/N`；系统总容量 = `M × 簇数` |
-| 移动 IP | HA 维护「归属地址 <img class="fml" src="/formulas/4401ce3296861e.png" alt="\leftrightarrow" width="24" height="33">」绑定并隧道转发；回程形成三角路由，可路由优化 |
+| 移动 IP | HA 维护「归属地址 <img class="fml" src="/formulas/4401ce3296861e.png" alt="\leftrightarrow" width="24" height="34">」绑定并隧道转发；回程形成三角路由，可路由优化 |
 
 ## 附录 B 各章易错点速查
 
 1. `internet`（泛指互连网）≠ `Internet`（专指采用 TCP/IP 的全球互联网）。
-2. 速率单位用 10 的幂（<img class="fml" src="/formulas/603b6e893fc4b3.png" alt="\frac{1 kbit}{s}= \frac{1000 bit}{s}" width="105" height="33">），存储容量用 2 的幂（`1 KB = 1024 B`）。
+2. 速率单位用 10 的幂（<img class="fml" src="/formulas/603b6e893fc4b3.png" alt="\frac{1 kbit}{s}= \frac{1000 bit}{s}" width="106" height="34">），存储容量用 2 的幂（`1 KB = 1024 B`）。
 3. 提高发送速率**只减少发送时延**，不减少传播时延；短报文长距离时传播时延主导。
 4. `带宽` 在频域单位是 Hz，在时域单位是 bit/s，两者含义不同。
 5. 时延带宽积 = 传播时延 × 带宽，单位最终是**比特**，不是字节也不是秒。
-6. <img class="fml" src="/formulas/e4dcf9a22e29c4.png" alt="D= \frac{D_{0}}{1- U}" width="75" height="33">：利用率接近 1 时排队时延趋于无穷，不是"越高越好"。
+6. <img class="fml" src="/formulas/e4dcf9a22e29c4.png" alt="D= \frac{D_{0}}{1- U}" width="76" height="34">：利用率接近 1 时排队时延趋于无穷，不是"越高越好"。
 7. 分组交换**不保证**可靠与按序；电路交换独占带宽但利用率低。
 8. 协议是**水平的**（对等实体），服务是**垂直的**（上下层）；SAP 是层间接口。
 9. OSI 七层、TCP/IP 四层、五层原理体系别混；TCP/IP 的「网络接口层」没有具体内容。
@@ -2120,7 +2120,7 @@ DHCP 报文固定含：`op`（1=请求/2=回答）、`htype/hlen`（硬件类型
 19. 802.1Q 插入 4 字节标记，帧最长变 **1522 字节**；VID 12 bit 最多 4094 个 VLAN。
 20. MAC 帧长 64~1518 B 不含前导码与 SFD；FCS 校验出错的帧**直接丢弃不重传**。
 21. 分类地址（A/B/C）已被 CIDR 取代，答题一律按 `/n` 或子网掩码算。
-22. 主机号全 0 是网络地址、全 1 是广播地址，都不能分配给主机；可用主机数要 <img class="fml" src="/formulas/26b6ba8d0d0bf8.png" alt="- 2" width="29" height="33">。
+22. 主机号全 0 是网络地址、全 1 是广播地址，都不能分配给主机；可用主机数要 <img class="fml" src="/formulas/26b6ba8d0d0bf8.png" alt="- 2" width="30" height="34">。
 23. 跨网通信时 ARP 解析的是**默认网关/下一跳**的 MAC，不是最终目的主机的 MAC。
 24. 转发时 **IP 源/目的地址不变、MAC 每跳重写、TTL 减 1、首部检验和重算**。
 25. IP 首部检验和**只校验首部**；片偏移以 **8 字节**为单位；重组只在**目的主机**进行。
@@ -2136,7 +2136,7 @@ DHCP 报文固定含：`op`（1=请求/2=回答）、`htype/hlen`（硬件类型
 35. SYN / FIN 报文段**不携带数据也消耗一个序号**；ACK 报文段若不携带数据则不消耗序号。
 36. 流量控制看 `rwnd`（接收方），拥塞控制看 `cwnd`（网络）；发送窗口 = `min(rwnd, cwnd)`。
 37. 零窗口用**持续计时器 + 1 字节探测**防死锁；Nagle 缓解糊涂窗口综合症。
-38. 超时重传：<img class="fml" src="/formulas/067f144b939df2.png" alt="ssthresh= \frac{cwnd}{2}" width="132" height="33"> 且 `cwnd = 1`；**3 个重复 ACK** 走快重传/快恢复，不回到 1。
+38. 超时重传：<img class="fml" src="/formulas/067f144b939df2.png" alt="ssthresh= \frac{cwnd}{2}" width="133" height="34"> 且 `cwnd = 1`；**3 个重复 ACK** 走快重传/快恢复，不回到 1。
 39. 三次握手的标准理由是**防止已失效的连接请求报文段突然到达服务端**造成错误。
 40. TIME-WAIT = **2MSL**：保证最后 ACK 到达 + 让旧报文消散；四次挥手存在**半关闭**状态。
 41. DNS 主机→本地多为**递归**，本地→根/TLD/权限多为**迭代**；根是 13 个**逻辑**根（任播镜像）。
@@ -2155,9 +2155,9 @@ DHCP 报文固定含：`op`（1=请求/2=回答）、`htype/hlen`（硬件类型
 54. 蜂窝靠频率复用与切换解决移动性；移动 IP 靠 HA + CoA + 隧道保持 IP 不变，会产生三角路由。
 55. 波特率（Baud，码元/秒）不等于比特率，必须乘 <img class="fml" src="/formulas/3d1b29e3981078.png" alt="\log_{2}V" width="54" height="33">；奈氏限的是码元速率，香农限的是信息速率。
 56. 曼彻斯特在**位周期中心**必跳变自带时钟；差分曼彻斯特看**位开始边界**有无跳变。
-57. PCM 一路话音 <img class="fml" src="/formulas/45e0829d48b67e.png" alt="8 kHz \times 8 bit= \frac{64 kbit}{s}" width="163" height="33">；<img class="fml" src="/formulas/f8d1487e78ae50.png" alt="E1= \frac{2.048 Mbit}{s}" width="113" height="33">（30/32 路）、<img class="fml" src="/formulas/02c0639464883a.png" alt="T1= \frac{1.544 Mbit}{s}" width="112" height="33">（24 路）。
+57. PCM 一路话音 <img class="fml" src="/formulas/45e0829d48b67e.png" alt="8 kHz \times 8 bit= \frac{64 kbit}{s}" width="164" height="34">；<img class="fml" src="/formulas/f8d1487e78ae50.png" alt="E1= \frac{2.048 Mbit}{s}" width="114" height="33">（30/32 路）、<img class="fml" src="/formulas/02c0639464883a.png" alt="T1= \frac{1.544 Mbit}{s}" width="113" height="33">（24 路）。
 58. 同步卫星传播时延约 250~270 ms，属传播时延；提高发送速率对此毫无帮助。
-59. CRC 只能检错，漏检概率约 <img class="fml" src="/formulas/bb57179844e5a0.png" alt="2^{- r}" width="32" height="33">；检 e 位错要求最小码距 <img class="fml" src="/formulas/2e934f4f6ce1cb.png" alt="\ge e+1" width="64" height="33">，纠 t 位错要求 <img class="fml" src="/formulas/c13e041bf57a95.png" alt="\ge 2t+1" width="71" height="33">。
+59. CRC 只能检错，漏检概率约 <img class="fml" src="/formulas/bb57179844e5a0.png" alt="2^{- r}" width="32" height="34">；检 e 位错要求最小码距 <img class="fml" src="/formulas/2e934f4f6ce1cb.png" alt="\ge e+1" width="65" height="34">，纠 t 位错要求 <img class="fml" src="/formulas/c13e041bf57a95.png" alt="\ge 2t+1" width="72" height="34">。
 60. PPP 的 A=`0xFF`、C=`0x03`；协议字段区分 IP(`0x0021`)/LCP(`0xC021`)/NCP(`0x8021`)；PPPoE 分发现与会话两阶段。
 61. 802.1Q 帧最长 1522 B；不同 VLAN 是不同广播域，**必须经三层设备**才能互通。
 62. STP 靠桥 ID（优先级 + MAC）选根桥并阻塞冗余端口防环；交换机不隔离广播域。
@@ -2168,8 +2168,8 @@ DHCP 报文固定含：`op`（1=请求/2=回答）、`htype/hlen`（硬件类型
 67. IPv6 用 NDP 取代 ARP、MLD 取代 IGMP；任播用于根镜像与 CDN；过渡靠双栈/隧道/NAT64。
 68. IPsec 的 AH 不加密且与 NAT 冲突，SA 是**单向**的，双向通信需两个 SA；TLS 保护运输层之上。
 69. 分组交换流水线总时延 = `(段数 + 分组数 − 1) × 每分组发送时延`；报文交换要逐段收完整个报文。
-70. 采样定理 <img class="fml" src="/formulas/9f058260d1f0d9.png" alt="f_{s} \ge 2f_{\max}" width="87" height="33">；OFDM 是正交子载波并行，OFDMA 进一步把子载波按用户分配。
-71. 停止等待利用率低，发送窗口 <img class="fml" src="/formulas/0b03119809f6b0.png" alt="W \ge \frac{T_{D}+RTT}{T_{D}}" width="107" height="34"> 才能填满"长肥管道"；窗口扩大选项为此而生。
+70. 采样定理 <img class="fml" src="/formulas/9f058260d1f0d9.png" alt="f_{s} \ge 2f_{\max}" width="88" height="34">；OFDM 是正交子载波并行，OFDMA 进一步把子载波按用户分配。
+71. 停止等待利用率低，发送窗口 <img class="fml" src="/formulas/0b03119809f6b0.png" alt="W \ge \frac{T_{D}+RTT}{T_{D}}" width="107" height="35"> 才能填满"长肥管道"；窗口扩大选项为此而生。
 72. RTO 用 RTT 加权平均 + 偏差估计；**Karn 算法**在重传时不采样本并把 RTO 加倍退避。
 73. TCP 的 MSS 只在 SYN 中通告；SACK 只重传真正丢失的段；纯 ACK 不携带数据则不消耗序号。
 74. 糊涂窗口综合症来自接收方小窗口通告与发送方小报文；零窗口靠**持续计时器 + 1 字节探测**防死锁。
@@ -2184,7 +2184,7 @@ DHCP 报文固定含：`op`（1=请求/2=回答）、`htype/hlen`（硬件类型
 83. MD5/SHA-1 因碰撞与生日攻击已弃用；**HMAC 共享密钥不能防抵赖**，数字签名才能；签名本身不保密。
 84. TLS 1.3 只保留 AEAD 套件、1-RTT（0-RTT 有重放风险）、强制前向保密，并把 ServerHello 之后的消息加密。
 85. RTP 时间戳即使静音也要递增；RTCP 有 SR / RR / SDES / BYE / APP 五类；RTP 本身**不保证 QoS**。
-86. IntServ 是**每流**预留（RSVP，扩展性差），DiffServ 是**每类**（<img class="fml" src="/formulas/12fb0c70e3bfc0.png" alt="\frac{DSCP}{EF}=46" width="91" height="33"> 常用于 VoIP）；后者只给相对优先级。
+86. IntServ 是**每流**预留（RSVP，扩展性差），DiffServ 是**每类**（<img class="fml" src="/formulas/12fb0c70e3bfc0.png" alt="\frac{DSCP}{EF}=46" width="92" height="34"> 常用于 VoIP）；后者只给相对优先级。
 87. 令牌桶允许最大 `b` 的突发、长期平均 `r`；漏桶恒定速率输出，二者分别是管制与整形的典型手段。
 88. 802.11 的 `SIFS < PIFS < DIFS < EIFS`；退避计数器在信道忙时**冻结**；CW 序列上限 1023，与以太网退避规则不同。
 89. 802.11 MAC 帧最多 4 个地址，含义由 To DS / From DS 两位决定；WPA3 用 SAE 抗离线字典攻击并提供前向保密。

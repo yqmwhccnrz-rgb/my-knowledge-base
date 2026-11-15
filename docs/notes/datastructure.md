@@ -60,7 +60,7 @@ ADT ＝ 数据对象 ＋ 数据关系 ＋ 基本操作集。定义时只规定"�
 
 **时间复杂度**：用 O 记号描述渐近时间复杂度 `T(n) = O(f(n))`，表示随问题规模 n 增大，执行时间的增长率与 f(n) 相同。计算步骤：找基本语句 → 算其频度 f(n) → 取数量级 `O(f(n))`。多项式取最高次幂、忽略系数（定理 1.1）。
 
-常见数量级（由快到慢）：`O(1)` → `O(log n)` → `O(n)` → `O(n log n)` → <img class="fml" src="/formulas/10999089d04da9.png" alt="O(n^{2})" width="52" height="33"> → <img class="fml" src="/formulas/678333378ac467.png" alt="O(n^{3})" width="52" height="33"> → <img class="fml" src="/formulas/f64ea5e0ff8eac.png" alt="O(2^{n})" width="51" height="33">。**指数阶 O(2ⁿ) 效率极低，n 稍大即不可用**，应优选多项式阶。
+常见数量级（由快到慢）：`O(1)` → `O(log n)` → `O(n)` → `O(n log n)` → <img class="fml" src="/formulas/10999089d04da9.png" alt="O(n^{2})" width="52" height="33"> → <img class="fml" src="/formulas/678333378ac467.png" alt="O(n^{3})" width="52" height="34"> → <img class="fml" src="/formulas/f64ea5e0ff8eac.png" alt="O(2^{n})" width="53" height="34">。**指数阶 O(2ⁿ) 效率极低，n 稍大即不可用**，应优选多项式阶。
 
 最好／最坏／平均时间复杂度：除特别说明，本笔记与教材讨论的均为**最坏情况**时间复杂度（执行时间上界）。
 
@@ -68,16 +68,16 @@ ADT ＝ 数据对象 ＋ 数据关系 ＋ 基本操作集。定义时只规定"�
 
 ::: danger 易错 · 复杂度
 - 复杂度看的是"增长率"，不是具体步数；常量再大也是 `O(1)`（如固定 10000 次循环仍是 `O(1)`）。
-- `O(log n)` 中的 log 默认以 2 为底（对数阶循环常见写法 `i = i * 2`，频度 ≈ <img class="fml" src="/formulas/4fb8d0a5648ce9.png" alt="\log_{2}n" width="50" height="33">）。
-- 嵌套循环复杂度由**最深层基本语句**的频度决定，不是简单相乘各层上限（注意 `for j=1..i` 这类依赖外层变量的循环，如 <img class="fml" src="/formulas/cef097b454930b.png" alt="\sum i \cdot \sum j" width="77" height="33"> 实际为 <img class="fml" src="/formulas/678333378ac467.png" alt="O(n^{3})" width="52" height="33"> 而非 <img class="fml" src="/formulas/10999089d04da9.png" alt="O(n^{2})" width="52" height="33">）。
+- `O(log n)` 中的 log 默认以 2 为底（对数阶循环常见写法 `i = i * 2`，频度 ≈ <img class="fml" src="/formulas/4fb8d0a5648ce9.png" alt="\log_{2}n" width="51" height="34">）。
+- 嵌套循环复杂度由**最深层基本语句**的频度决定，不是简单相乘各层上限（注意 `for j=1..i` 这类依赖外层变量的循环，如 <img class="fml" src="/formulas/cef097b454930b.png" alt="\sum i \cdot \sum j" width="78" height="34"> 实际为 <img class="fml" src="/formulas/678333378ac467.png" alt="O(n^{3})" width="52" height="34"> 而非 <img class="fml" src="/formulas/10999089d04da9.png" alt="O(n^{2})" width="52" height="33">）。
 
-**工作示例**：下面这段代码的复杂度是 <img class="fml" src="/formulas/10999089d04da9.png" alt="O(n^{2})" width="52" height="33"> 还是 <img class="fml" src="/formulas/678333378ac467.png" alt="O(n^{3})" width="52" height="33">？
+**工作示例**：下面这段代码的复杂度是 <img class="fml" src="/formulas/10999089d04da9.png" alt="O(n^{2})" width="52" height="33"> 还是 <img class="fml" src="/formulas/678333378ac467.png" alt="O(n^{3})" width="52" height="34">？
 ```c
 for (i = 1; i <= n; i++)
     for (j = 1; j <= i; j++)
         x++;
 ```
-基本语句 `x++` 的频度 <img class="fml" src="/formulas/edec51c09b49ff.png" alt="\sum_{i=1}^{n} \sum_{j=1}^{i} 1= \sum i= \frac{n(n+1)}{2}" width="223" height="34">，故为 <img class="fml" src="/formulas/10999089d04da9.png" alt="O(n^{2})" width="52" height="33">（内循环上界依赖 `i`，不是独立的 `n`）。若写成 `for j=1..n` 才是 <img class="fml" src="/formulas/10999089d04da9.png" alt="O(n^{2})" width="52" height="33"> 的两倍仍 <img class="fml" src="/formulas/10999089d04da9.png" alt="O(n^{2})" width="52" height="33">；若再加一层 `for k=1..j` 则频度为 <img class="fml" src="/formulas/678333378ac467.png" alt="O(n^{3})" width="52" height="33">。
+基本语句 `x++` 的频度 <img class="fml" src="/formulas/edec51c09b49ff.png" alt="\sum_{i=1}^{n} \sum_{j=1}^{i} 1= \sum i= \frac{n(n+1)}{2}" width="224" height="35">，故为 <img class="fml" src="/formulas/10999089d04da9.png" alt="O(n^{2})" width="52" height="33">（内循环上界依赖 `i`，不是独立的 `n`）。若写成 `for j=1..n` 才是 <img class="fml" src="/formulas/10999089d04da9.png" alt="O(n^{2})" width="52" height="33"> 的两倍仍 <img class="fml" src="/formulas/10999089d04da9.png" alt="O(n^{2})" width="52" height="33">；若再加一层 `for k=1..j` 则频度为 <img class="fml" src="/formulas/678333378ac467.png" alt="O(n^{3})" width="52" height="34">。
 :::
 
 ---
@@ -88,9 +88,9 @@ for (i = 1; i <= n; i++)
 线性表是 n 个数据元素的有限序列，元素间是**一对一**的线性关系（除首元无前驱、末元无后继外，其余各有唯一前驱与后继）。
 
 ### 2.2 顺序存储——顺序表（★★★）
-用一组地址连续的存储单元依次存放。第 i 个元素地址：<img class="fml" src="/formulas/f3b26d7a4716f4.png" alt="LOC(a_{i})= LOC(a_{1})+(i- 1) \times L" width="276" height="33">（L 为元素字节数）。
+用一组地址连续的存储单元依次存放。第 i 个元素地址：<img class="fml" src="/formulas/f3b26d7a4716f4.png" alt="LOC(a_{i})= LOC(a_{1})+(i- 1) \times L" width="277" height="34">（L 为元素字节数）。
 - **插入**：平均移动 n/2 个元素，时间复杂度 `O(n)`。
-- **删除**：平均移动 <img class="fml" src="/formulas/b46ea9117fa81a.png" alt="\frac{n- 1}{2}" width="34" height="33"> 个元素，时间复杂度 `O(n)`。
+- **删除**：平均移动 <img class="fml" src="/formulas/b46ea9117fa81a.png" alt="\frac{n- 1}{2}" width="35" height="34"> 个元素，时间复杂度 `O(n)`。
 - 随机存取 `O(1)`；但插入／删除需大量移动，且需预先分配空间（溢出或浪费）。
 
 **关键算法（顺序表取值、插入、删除）**：
@@ -317,11 +317,11 @@ Status DeQueue(LinkQueue &Q, QElemType &e) {
 - 队列：层序遍历、缓冲区、BFS、操作系统作业调度。
 
 ::: tip 工作示例 · 数制转换（十进制 → 八进制）
-不断 `N % 8` 取余压栈、<img class="fml" src="/formulas/4b2535da914e01.png" alt="N= \frac{N}{8}" width="62" height="33">，直至 N 为 0；最后依次弹栈输出即得八进制。栈保证"余数逆序输出"。例如 N=100：`100%8=4`(压)、`N=12`；`12%8=4`(压)、`N=1`；`1%8=1`(压)、`N=0`；弹栈得 <img class="fml" src="/formulas/f168dd646ed6eb.png" alt="144_{8}" width="40" height="33">。
+不断 `N % 8` 取余压栈、<img class="fml" src="/formulas/4b2535da914e01.png" alt="N= \frac{N}{8}" width="62" height="34">，直至 N 为 0；最后依次弹栈输出即得八进制。栈保证"余数逆序输出"。例如 N=100：`100%8=4`(压)、`N=12`；`12%8=4`(压)、`N=1`；`1%8=1`(压)、`N=0`；弹栈得 <img class="fml" src="/formulas/f168dd646ed6eb.png" alt="144_{8}" width="41" height="34">。
 :::
 
 ::: tip 补充考点 · 合法出栈序列的个数（卡特兰数）
-n 个元素按 <img class="fml" src="/formulas/95df9bd963590a.png" alt="1,2, \cdots,n" width="85" height="33"> 依次入栈，可能的**合法出栈序列数** = 卡特兰数 `C(2n,n)/(n+1)`：<img class="fml" src="/formulas/57e0cdc6693dd3.png" alt="n=1 \to 1" width="86" height="33">、<img class="fml" src="/formulas/ddbf5cc3422690.png" alt="n=2 \to 2" width="86" height="33">、<img class="fml" src="/formulas/50847a9e5e5522.png" alt="n=3 \to 5" width="86" height="33">、<img class="fml" src="/formulas/c2ddbc4e688180.png" alt="n=4 \to 14" width="95" height="33">、<img class="fml" src="/formulas/b1642a1ac0753a.png" alt="n=5 \to 42" width="95" height="33">。判断某序列是否合法：模拟入栈出栈过程，或检查是否存在"大小中"型禁式（对任意 i<j<k，输出中不能出现 `p_k < p_i < p_j`）。这是选择题高频考点。
+n 个元素按 <img class="fml" src="/formulas/95df9bd963590a.png" alt="1,2, \cdots,n" width="86" height="34"> 依次入栈，可能的**合法出栈序列数** = 卡特兰数 `C(2n,n)/(n+1)`：<img class="fml" src="/formulas/57e0cdc6693dd3.png" alt="n=1 \to 1" width="88" height="34">、<img class="fml" src="/formulas/ddbf5cc3422690.png" alt="n=2 \to 2" width="87" height="34">、<img class="fml" src="/formulas/50847a9e5e5522.png" alt="n=3 \to 5" width="87" height="34">、<img class="fml" src="/formulas/c2ddbc4e688180.png" alt="n=4 \to 14" width="96" height="34">、<img class="fml" src="/formulas/b1642a1ac0753a.png" alt="n=5 \to 42" width="96" height="34">。判断某序列是否合法：模拟入栈出栈过程，或检查是否存在"大小中"型禁式（对任意 i<j<k，输出中不能出现 `p_k < p_i < p_j`）。这是选择题高频考点。
 :::
 
 ---
@@ -332,7 +332,7 @@ n 个元素按 <img class="fml" src="/formulas/95df9bd963590a.png" alt="1,2, \cd
 串是字符的有限序列。存储：定长顺序、堆分配、块链。基本运算：赋值、比较、连接、求子串、定位（index）等。
 
 ### 4.2 串的模式匹配（★★★）
-- **BF（朴素）算法**：逐字符回溯，最坏 <img class="fml" src="/formulas/e0f6ed782a9ef2.png" alt="O(n \times m)" width="82" height="33">（n 主串长、m 模式串长）。
+- **BF（朴素）算法**：逐字符回溯，最坏 <img class="fml" src="/formulas/e0f6ed782a9ef2.png" alt="O(n \times m)" width="83" height="34">（n 主串长、m 模式串长）。
 - **KMP 算法**：利用**失配函数 next**（或优化 `nextval`）避免主串指针回退，时间 **`O(n+m)`**。
 
 **关键算法（BF、KMP、get_next）**：
@@ -373,7 +373,7 @@ void get_next(SString T, int next[]) {
 - `nextval`：当 `next[j]` 位置字符与 j 位置字符相同时进一步回退，减少无效比较。
 
 ::: tip KMP 核心
-KMP 的精髓是"模式串自己跟自己比"，预先算出每个位置失配后该跳到哪。手算 next：对每个 j，找 <img class="fml" src="/formulas/cdfb46fd2064be.png" alt="p_{1} \cdots p_{j-1}" width="81" height="33"> 的最长相等前后缀长度 k，则 `next[j]=k+1`（`next[1]=0`）。
+KMP 的精髓是"模式串自己跟自己比"，预先算出每个位置失配后该跳到哪。手算 next：对每个 j，找 <img class="fml" src="/formulas/cdfb46fd2064be.png" alt="p_{1} \cdots p_{j-1}" width="82" height="34"> 的最长相等前后缀长度 k，则 `next[j]=k+1`（`next[1]=0`）。
 :::
 
 ::: danger 易错 · next 手算（例题）
@@ -382,14 +382,14 @@ KMP 的精髓是"模式串自己跟自己比"，预先算出每个位置失配�
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 字符 | a | b | a | b | a | a | b | a | b |
 | next | 0 | 1 | 1 | 2 | 3 | 4 | 2 | 3 | 4 |
-手算要点：j=5 时前缀 `abab`、后缀 `abab` 最长相等前后缀长 <img class="fml" src="/formulas/51b29dd866f426.png" alt="3 \to next[5]=4" width="130" height="33">；j=6 时前缀 `ababa` 最长相等前后缀为 `aba`（长 3）→ next[6]=4。务必是"真"前后缀（不含自身）。
+手算要点：j=5 时前缀 `abab`、后缀 `abab` 最长相等前后缀长 <img class="fml" src="/formulas/51b29dd866f426.png" alt="3 \to next[5]=4" width="131" height="34">；j=6 时前缀 `ababa` 最长相等前后缀为 `aba`（长 3）→ next[6]=4。务必是"真"前后缀（不含自身）。
 :::
 
 ### 4.3 数组（★★★）
 数组是下标→存储地址的映射，维度固定、随机存取。
-- **行优先／列优先**存储：以二维数组 `a[m][n]` 为例，行优先 <img class="fml" src="/formulas/df35b1b487e3ac.png" alt="LOC(i,j)=base+(i \times n+j) \times L" width="279" height="33">；列优先 <img class="fml" src="/formulas/e99c14232dcc88.png" alt="LOC(i,j)=base+(j \times m+i) \times L" width="284" height="33">。务必分清两种顺序！
+- **行优先／列优先**存储：以二维数组 `a[m][n]` 为例，行优先 <img class="fml" src="/formulas/df35b1b487e3ac.png" alt="LOC(i,j)=base+(i \times n+j) \times L" width="279" height="33">；列优先 <img class="fml" src="/formulas/e99c14232dcc88.png" alt="LOC(i,j)=base+(j \times m+i) \times L" width="285" height="33">。务必分清两种顺序！
 - **特殊矩阵压缩**：
-  - 对称矩阵：只存下三角（或上三角），<img class="fml" src="/formulas/6cb4d9168d3028.png" alt="k= \frac{i(i- 1)}{2}+ j" width="108" height="33">（i≥j 时，否则交换 i、j）。
+  - 对称矩阵：只存下三角（或上三角），<img class="fml" src="/formulas/6cb4d9168d3028.png" alt="k= \frac{i(i- 1)}{2}+ j" width="110" height="33">（i≥j 时，否则交换 i、j）。
   - 三角矩阵：类似，再加常数偏移。
   - **稀疏矩阵**：三元组表 `(i, j, v)` 或十字链表（行／列指针交叉）。
 
@@ -411,11 +411,11 @@ KMP 的精髓是"模式串自己跟自己比"，预先算出每个位置失配�
 ### 5.2 二叉树（★★★）
 二叉树每个结点至多两棵子树（左右有序，可为空）。
 **五大性质**：
-1. 第 i 层最多 <img class="fml" src="/formulas/faa78215bf9209.png" alt="2^{i- 1}" width="36" height="33"> 个结点（i≥1）。
-2. 深度为 k 的二叉树最多 <img class="fml" src="/formulas/b7d2aa2a1573ca.png" alt="2^{k}- 1" width="53" height="33"> 个结点。
-3. 任何二叉树，叶子数 <img class="fml" src="/formulas/45626a2aa980fe.png" alt="n_{0}" width="24" height="33"> ＝ 分支数为 2 的结点数 `n2 ＋ 1`（即 <img class="fml" src="/formulas/f9cefe88295c98.png" alt="n_{0}= n_{2}+ 1" width="96" height="33">）。
+1. 第 i 层最多 <img class="fml" src="/formulas/faa78215bf9209.png" alt="2^{i- 1}" width="37" height="33"> 个结点（i≥1）。
+2. 深度为 k 的二叉树最多 <img class="fml" src="/formulas/b7d2aa2a1573ca.png" alt="2^{k}- 1" width="54" height="33"> 个结点。
+3. 任何二叉树，叶子数 <img class="fml" src="/formulas/45626a2aa980fe.png" alt="n_{0}" width="25" height="33"> ＝ 分支数为 2 的结点数 `n2 ＋ 1`（即 <img class="fml" src="/formulas/f9cefe88295c98.png" alt="n_{0}= n_{2}+ 1" width="97" height="33">）。
 4. 完全二叉树（按层序编号）中，结点 i 的双亲为 `⌊i/2⌋`，左孩子 `2i`、右孩子 `2i+1`（i≤⌊n/2⌋ 时为分支结点）。
-5. 有 n 个结点的完全二叉树深度为 <img class="fml" src="/formulas/fc8db094d9c0d0.png" alt="⌊\log_{2}n⌋+ 1" width="97" height="33">。
+5. 有 n 个结点的完全二叉树深度为 <img class="fml" src="/formulas/fc8db094d9c0d0.png" alt="⌊\log_{2}n⌋+ 1" width="98" height="33">。
 
 - **满二叉树**：每层都满；**完全二叉树**：除最后一层，其余满且最后一层左连续。
 
@@ -462,11 +462,11 @@ void InorderTraverse(BiTree T) {
 - 遍历对应：树先根↔ 二叉树先序；树后根↔ 二叉树中序；森林先序／中序↔ 二叉树先序／中序。
 
 ::: tip 补充考点 · 树的结点数与边数
-任何树（含森林中每棵树）都满足 **边数 = 结点数 − 1**（所有结点除根外恰有一条指向双亲的边）。由此推出常考结论：① 度为 m 的树中，总结点数 <img class="fml" src="/formulas/48dd39ef976213.png" alt="n= 1+ \sum(i \times n_{i})" width="148" height="33">（ni 为度 i 的结点数）；② 含 n 个结点的完全二叉树有 <img class="fml" src="/formulas/935098afc5ab64.png" alt="n- 1" width="47" height="33"> 条边、`⌊n/2⌋` 个分支结点、<img class="fml" src="/formulas/1b5a5ece21f321.png" alt="n- ⌊\frac{n}{2}⌋= ⌈\frac{n}{2}⌉" width="118" height="33"> 个叶子；③ 二叉树的 <img class="fml" src="/formulas/f9cefe88295c98.png" alt="n_{0}= n_{2}+ 1" width="96" height="33"> 由"边数 = <img class="fml" src="/formulas/52193a9caf44f3.png" alt="n- 1= n_{1}+ 2n_{2}" width="138" height="33">"与"<img class="fml" src="/formulas/ffd4c7335903bf.png" alt="n= n_{0}+n_{1}+n_{2}" width="138" height="33">"联立即得——这是最常考的推导题。
+任何树（含森林中每棵树）都满足 **边数 = 结点数 − 1**（所有结点除根外恰有一条指向双亲的边）。由此推出常考结论：① 度为 m 的树中，总结点数 <img class="fml" src="/formulas/48dd39ef976213.png" alt="n= 1+ \sum(i \times n_{i})" width="149" height="33">（ni 为度 i 的结点数）；② 含 n 个结点的完全二叉树有 <img class="fml" src="/formulas/935098afc5ab64.png" alt="n- 1" width="48" height="33"> 条边、`⌊n/2⌋` 个分支结点、<img class="fml" src="/formulas/1b5a5ece21f321.png" alt="n- ⌊\frac{n}{2}⌋= ⌈\frac{n}{2}⌉" width="119" height="33"> 个叶子；③ 二叉树的 <img class="fml" src="/formulas/f9cefe88295c98.png" alt="n_{0}= n_{2}+ 1" width="97" height="33"> 由"边数 = <img class="fml" src="/formulas/52193a9caf44f3.png" alt="n- 1= n_{1}+ 2n_{2}" width="138" height="33">"与"<img class="fml" src="/formulas/ffd4c7335903bf.png" alt="n= n_{0}+n_{1}+n_{2}" width="139" height="33">"联立即得——这是最常考的推导题。
 :::
 
 ### 5.7 哈夫曼树与编码（★★★）
-- 带权路径长度 <img class="fml" src="/formulas/e4289a0653ba89.png" alt="WPL= \sum w_{i} \times l_{i}" width="147" height="33">；**哈夫曼树**是 WPL 最小的二叉树（最优二叉树）。
+- 带权路径长度 <img class="fml" src="/formulas/e4289a0653ba89.png" alt="WPL= \sum w_{i} \times l_{i}" width="148" height="33">；**哈夫曼树**是 WPL 最小的二叉树（最优二叉树）。
 - 构造：每次取权值最小的两棵合并，新结点权为二者之和，重复至单树。
 - **哈夫曼编码**：左／右分支记 0/1，叶子对应字符，是前缀码（无歧义、压缩率高）。
 
@@ -489,13 +489,13 @@ void CreateHuffmanTree(HuffmanTree &HT, int n) {
 ```
 
 ::: danger 易错 · 二叉树
-- 性质 3（<img class="fml" src="/formulas/55b9ca96c85d29.png" alt="n_{0}=n_{2}+1" width="96" height="33">）只对二叉树成立，对一般树不成立。
+- 性质 3（<img class="fml" src="/formulas/55b9ca96c85d29.png" alt="n_{0}=n_{2}+1" width="98" height="33">）只对二叉树成立，对一般树不成立。
 - "先序＋后序"不能唯一确定二叉树；"中序＋先序"或"中序＋后序"可以。
 - 哈夫曼树不唯一（权值相同时合并顺序可变），但 WPL 唯一最小；编码长度取决于合并路径。
 :::
 
 ::: tip 工作示例 · 哈夫曼 WPL
-权值 `w=(5,29,7,8,14,23,3,11)`，<img class="fml" src="/formulas/85618004b2a6c2.png" alt="n=8 \to m=15" width="135" height="33">。合并过程：先并 3、5→8；再并 7、<img class="fml" src="/formulas/8a03083fa7ef9f.png" alt="8 \to 15" width="61" height="33">；…最终 WPL = <img class="fml" src="/formulas/bef4730205e9ea.png" alt="23 \times 2+11 \times 3+5 \times 4+3 \times 4+29 \times 2+14 \times 3+7 \times 4+8 \times 4= 271" width="562" height="33">。
+权值 `w=(5,29,7,8,14,23,3,11)`，<img class="fml" src="/formulas/85618004b2a6c2.png" alt="n=8 \to m=15" width="135" height="33">。合并过程：先并 3、5→8；再并 7、<img class="fml" src="/formulas/8a03083fa7ef9f.png" alt="8 \to 15" width="62" height="33">；…最终 WPL = <img class="fml" src="/formulas/bef4730205e9ea.png" alt="23 \times 2+11 \times 3+5 \times 4+3 \times 4+29 \times 2+14 \times 3+7 \times 4+8 \times 4= 271" width="563" height="33">。
 :::
 
 ![](/ds/ds-tree.svg)
@@ -508,7 +508,7 @@ void CreateHuffmanTree(HuffmanTree &HT, int n) {
 图 `G=(V, E)`。无向图边 `(u,v)`；有向图弧 `<u,v>`。度（无向）／入度出度（有向）；连通（无向）／强连通（有向）；连通分量／强连通分量；生成树（n 顶点 n−1 边、连通无环）；生成森林。
 
 ### 6.2 存储（★★★）
-- **邻接矩阵**：<img class="fml" src="/formulas/e055c6b516accb.png" alt="|V| \times|V|" width="76" height="33"> 矩阵，无向图对称、空间 <img class="fml" src="/formulas/d1d672f34f9c7e.png" alt="O(|V|^{2})" width="65" height="33">；适合稠密图，查边 `O(1)`。
+- **邻接矩阵**：<img class="fml" src="/formulas/e055c6b516accb.png" alt="|V| \times|V|" width="77" height="33"> 矩阵，无向图对称、空间 <img class="fml" src="/formulas/d1d672f34f9c7e.png" alt="O(|V|^{2})" width="67" height="33">；适合稠密图，查边 `O(1)`。
 - **邻接表**：顶点表 ＋ 边链表，空间 `O(|V|+|E|)`；适合稀疏图。
 - 还有十字链表（有向）、邻接多重表（无向，便于删边）。
 
@@ -544,10 +544,10 @@ void BFS(Graph G, int v) {
 
 | 问题 | 算法 | 时间复杂度 | 要点 |
 | --- | --- | --- | --- |
-| 最小生成树 MST | Prim | <img class="fml" src="/formulas/9b648ef359145c.png" alt="O(\|V\|^{2})" width="73" height="33"> | 适合稠密图（与边数无关） |
+| 最小生成树 MST | Prim | <img class="fml" src="/formulas/9b648ef359145c.png" alt="O(\|V\|^{2})" width="74" height="33"> | 适合稠密图（与边数无关） |
 | 最小生成树 MST | Kruskal | `O(\|E\| log \|E\|)` | 适合稀疏图（并查集） |
-| 单源最短路径 | Dijkstra | <img class="fml" src="/formulas/9b648ef359145c.png" alt="O(\|V\|^{2})" width="73" height="33">（堆优化 `O((V+E)logV)`） | **不能处理负权边** |
-| 各顶点最短路径 | Floyd | <img class="fml" src="/formulas/75f5d0d4299f3c.png" alt="O(\|V\|^{3})" width="73" height="33"> | 可处理负权（无负权回路） |
+| 单源最短路径 | Dijkstra | <img class="fml" src="/formulas/9b648ef359145c.png" alt="O(\|V\|^{2})" width="74" height="33">（堆优化 `O((V+E)logV)`） | **不能处理负权边** |
+| 各顶点最短路径 | Floyd | <img class="fml" src="/formulas/75f5d0d4299f3c.png" alt="O(\|V\|^{3})" width="75" height="33"> | 可处理负权（无负权回路） |
 | 拓扑排序 | Kahn / DFS | `O(\|V\|+\|E\|)` | AOV 网，可判有环 |
 | 关键路径 | AOE | `O(\|V\|+\|E\|)` | 最长路径，求 ve/vl、e/l |
 
@@ -591,7 +591,7 @@ void ShortestPath_DIJ(AMGraph G, int v0) {
 ```
 
 ::: tip 工作示例 · Dijkstra 读路径
-从源点 `v0` 到终点 `v5`：沿 <img class="fml" src="/formulas/3886285df7889a.png" alt="Path[5] \to Path[3] \to Path[4] \to 0" width="275" height="33"> 反向得到路径 <img class="fml" src="/formulas/7aa6d013c3767e.png" alt="0 \to 4 \to 3 \to 5" width="125" height="33">。每轮把"距离最小的未确定顶点"加入 S 集，并用它松弛其余顶点。
+从源点 `v0` 到终点 `v5`：沿 <img class="fml" src="/formulas/3886285df7889a.png" alt="Path[5] \to Path[3] \to Path[4] \to 0" width="276" height="33"> 反向得到路径 <img class="fml" src="/formulas/7aa6d013c3767e.png" alt="0 \to 4 \to 3 \to 5" width="126" height="33">。每轮把"距离最小的未确定顶点"加入 S 集，并用它松弛其余顶点。
 :::
 
 ### 6.4.1 Kruskal 算法（代码）
@@ -599,7 +599,7 @@ void ShortestPath_DIJ(AMGraph G, int v0) {
 Kruskal 与 Prim 思想相反：Prim 是"加点"（每次并入离已选集合最近的顶点），Kruskal 是"加边"（每次选全局最短且不成环的边），用**并查集**判环，更适合稀疏图。
 
 ::: tip 补充考点 · 并查集的两个优化
-并查集（Union-Find）维护不相交集合，支持 Find（查根）与 Union（合并）。朴素实现最坏退化为链（`O(n)`），两个优化后接近 `O(1)`（反阿克曼函数 <img class="fml" src="/formulas/4bebaa7a73167b.png" alt="\alpha(n) \le 4" width="75" height="33">）：
+并查集（Union-Find）维护不相交集合，支持 Find（查根）与 Union（合并）。朴素实现最坏退化为链（`O(n)`），两个优化后接近 `O(1)`（反阿克曼函数 <img class="fml" src="/formulas/4bebaa7a73167b.png" alt="\alpha(n) \le 4" width="76" height="33">）：
 ① **按大小/秩合并**：把小树根挂到大树根下，避免树变高；
 ② **路径压缩**：Find 时把沿途结点直接挂到根上，压扁树。
 应用：Kruskal 判环、等价类划分、判断无向图连通分量个数。
@@ -624,7 +624,7 @@ void MiniSpanTree_Kruskal(MGraph G) {
 
 ### 6.4.2 Floyd 算法（各顶点对最短路，代码＋例题）
 
-Floyd 用动态规划：以 `k` 为中转点递推 <img class="fml" src="/formulas/da24f194c6666d.png" alt="D[i][j]= \min(D[i][j], D[i][k]+D[k][j])" width="307" height="33">，三维可优化为二维（覆盖写）。可处理负权边（只要无负权回路），时间 <img class="fml" src="/formulas/33fdc671ed06d8.png" alt="O(V^{3})" width="56" height="33">。
+Floyd 用动态规划：以 `k` 为中转点递推 <img class="fml" src="/formulas/da24f194c6666d.png" alt="D[i][j]= \min(D[i][j], D[i][k]+D[k][j])" width="308" height="33">，三维可优化为二维（覆盖写）。可处理负权边（只要无负权回路），时间 <img class="fml" src="/formulas/33fdc671ed06d8.png" alt="O(V^{3})" width="57" height="33">。
 
 ```c
 void ShortestPath_Floyd(AMGraph G, int D[][MAX], int Path[][MAX]) {
@@ -644,7 +644,7 @@ void ShortestPath_Floyd(AMGraph G, int D[][MAX], int Path[][MAX]) {
 ```
 
 ::: tip 工作示例 · Floyd 一步更新
-设 A、B、C 三点，边 `A-B=3`、`B-C=4`、`A-C=10`。初始 `D[A][C]=10`；当 `k=B` 时，`D[A][B]+D[B][C]=3+4=7 < 10`，于是 `D[A][C]` 被更新为 `7`（绕 B 更短）。最终 `Path[A][C]=B`，沿 `Path` 逐层回溯得 <img class="fml" src="/formulas/7666e513fbc1af.png" alt="A \to B \to C" width="103" height="33">。
+设 A、B、C 三点，边 `A-B=3`、`B-C=4`、`A-C=10`。初始 `D[A][C]=10`；当 `k=B` 时，`D[A][B]+D[B][C]=3+4=7 < 10`，于是 `D[A][C]` 被更新为 `7`（绕 B 更短）。最终 `Path[A][C]=B`，沿 `Path` 逐层回溯得 <img class="fml" src="/formulas/7666e513fbc1af.png" alt="A \to B \to C" width="104" height="33">。
 :::
 
 ### 6.4.3 拓扑排序（代码）
@@ -675,10 +675,10 @@ AOE 网（边表活动、边权＝工期），关键路径是"从源点到汇点
 - 活动 `a=<i,j>`：`e=ve[i]`（最早开始），`l=vl[j]−权`（最迟开始）；`e==l` 的活动为**关键活动**，连成关键路径。
 
 ::: tip 工作示例 · 关键路径演算
-活动与权：<img class="fml" src="/formulas/dcfe7ff3c5c462.png" alt="v0 \to v1:3" width="94" height="33">，<img class="fml" src="/formulas/b40c55ef3abb43.png" alt="v0 \to v2:2" width="94" height="33">，<img class="fml" src="/formulas/7135bb02af59a5.png" alt="v1 \to v3:4" width="94" height="33">，<img class="fml" src="/formulas/cf459d5ea6e19c.png" alt="v2 \to v3:1" width="94" height="33">，<img class="fml" src="/formulas/159e9de112d98b.png" alt="v3 \to v4:6" width="94" height="33">，<img class="fml" src="/formulas/a873b808b5c57c.png" alt="v2 \to v4:3" width="94" height="33">。
-- ve：ve[0]=0；ve[1]=3；ve[2]=2；<img class="fml" src="/formulas/5bda9e381a171c.png" alt="ve[3]=\max(3+4, 2+1)=7" width="233" height="33">；<img class="fml" src="/formulas/67533eabdbf927.png" alt="ve[4]=\max(7+6, 2+3)=13" width="242" height="33">。
-- vl：vl[4]=13；<img class="fml" src="/formulas/ce7f6045259199.png" alt="vl[3]=13- 6=7" width="145" height="33">；<img class="fml" src="/formulas/c7c814835fc7f4.png" alt="vl[2]=\min(7- 1, 13- 3)=6" width="236" height="33">；<img class="fml" src="/formulas/c23e691f1a1985.png" alt="vl[1]=7- 4=3" width="136" height="33">；<img class="fml" src="/formulas/9bb0dd9772b717.png" alt="vl[0]=\min(3- 3, 6- 2)=0" width="227" height="33">。
-- 关键活动（e=l）：<img class="fml" src="/formulas/9578074dfb6a72.png" alt="v0 \to v1(0=0)" width="126" height="33">、<img class="fml" src="/formulas/a17ba444e9daad.png" alt="v1 \to v3(3=3)" width="126" height="33">、<img class="fml" src="/formulas/7b7dbe86d359d2.png" alt="v3 \to v4(7=7)" width="126" height="33">；关键路径 <img class="fml" src="/formulas/10ac238eafc743.png" alt="v0 \to v1 \to v3 \to v4" width="162" height="33">，总工期 **13**。
+活动与权：<img class="fml" src="/formulas/dcfe7ff3c5c462.png" alt="v0 \to v1:3" width="95" height="33">，<img class="fml" src="/formulas/b40c55ef3abb43.png" alt="v0 \to v2:2" width="95" height="33">，<img class="fml" src="/formulas/7135bb02af59a5.png" alt="v1 \to v3:4" width="95" height="33">，<img class="fml" src="/formulas/cf459d5ea6e19c.png" alt="v2 \to v3:1" width="95" height="34">，<img class="fml" src="/formulas/159e9de112d98b.png" alt="v3 \to v4:6" width="95" height="34">，<img class="fml" src="/formulas/a873b808b5c57c.png" alt="v2 \to v4:3" width="95" height="34">。
+- ve：ve[0]=0；ve[1]=3；ve[2]=2；<img class="fml" src="/formulas/5bda9e381a171c.png" alt="ve[3]=\max(3+4, 2+1)=7" width="234" height="34">；<img class="fml" src="/formulas/67533eabdbf927.png" alt="ve[4]=\max(7+6, 2+3)=13" width="244" height="34">。
+- vl：vl[4]=13；<img class="fml" src="/formulas/ce7f6045259199.png" alt="vl[3]=13- 6=7" width="146" height="34">；<img class="fml" src="/formulas/c7c814835fc7f4.png" alt="vl[2]=\min(7- 1, 13- 3)=6" width="237" height="34">；<img class="fml" src="/formulas/c23e691f1a1985.png" alt="vl[1]=7- 4=3" width="137" height="34">；<img class="fml" src="/formulas/9bb0dd9772b717.png" alt="vl[0]=\min(3- 3, 6- 2)=0" width="228" height="34">。
+- 关键活动（e=l）：<img class="fml" src="/formulas/9578074dfb6a72.png" alt="v0 \to v1(0=0)" width="127" height="34">、<img class="fml" src="/formulas/a17ba444e9daad.png" alt="v1 \to v3(3=3)" width="127" height="34">、<img class="fml" src="/formulas/7b7dbe86d359d2.png" alt="v3 \to v4(7=7)" width="127" height="34">；关键路径 <img class="fml" src="/formulas/10ac238eafc743.png" alt="v0 \to v1 \to v3 \to v4" width="163" height="34">，总工期 **13**。
 :::
 
 ::: danger 易错 · 图
@@ -695,11 +695,11 @@ AOE 网（边表活动、边权＝工期），关键路径是"从源点到汇点
 ## 第 7 章 查找
 
 ### 7.1 基本概念（★★）
-查找：在数据结构上找出关键字等于给定值的记录。**平均查找长度 ASL** ＝ <img class="fml" src="/formulas/141dbef1d459a3.png" alt="\sum p_{i} \times c_{i}" width="77" height="33">（ci 为第 i 个记录的比较次数）。
+查找：在数据结构上找出关键字等于给定值的记录。**平均查找长度 ASL** ＝ <img class="fml" src="/formulas/141dbef1d459a3.png" alt="\sum p_{i} \times c_{i}" width="78" height="34">（ci 为第 i 个记录的比较次数）。
 
 ### 7.2 静态查找（★★★）
-- 顺序查找：<img class="fml" src="/formulas/693fa982c6aed7.png" alt="\frac{ASL \approx(n+1)}{2}" width="79" height="33">，`O(n)`，对表无要求。
-- **折半查找**：要求**有序且顺序存储**；每次折半，`O(log n)`；判定树为平衡二叉树，<img class="fml" src="/formulas/68c74a305c754d.png" alt="ASL \approx \log_{2}(n+1)- 1" width="184" height="33">。
+- 顺序查找：<img class="fml" src="/formulas/693fa982c6aed7.png" alt="\frac{ASL \approx(n+1)}{2}" width="80" height="34">，`O(n)`，对表无要求。
+- **折半查找**：要求**有序且顺序存储**；每次折半，`O(log n)`；判定树为平衡二叉树，<img class="fml" src="/formulas/68c74a305c754d.png" alt="ASL \approx \log_{2}(n+1)- 1" width="185" height="34">。
 - 分块查找（索引顺序）：块内无序、块间有序，`ASL` 介于两者之间。
 
 **关键算法（折半查找）**：
@@ -717,7 +717,7 @@ int Search_Bin(SSTable ST, KeyType key) {
 ```
 
 ::: tip 工作示例 · 折半查找
-有序表 `(5,16,20,27,30,36,44,55,60,67,71)` 查 27：`mid=6`<img class="fml" src="/formulas/b28c3fdc87ec98.png" alt="(36)&gt;27 \to high=5" width="176" height="33">；`mid=3`<img class="fml" src="/formulas/7f95aa16545dfb.png" alt="(20)&lt;27 \to low=4" width="168" height="33">；`mid=4`(27)=27 成功，比较 3 次。查 65：最终 `low>high` 失败。
+有序表 `(5,16,20,27,30,36,44,55,60,67,71)` 查 27：`mid=6`<img class="fml" src="/formulas/b28c3fdc87ec98.png" alt="(36)&gt;27 \to high=5" width="177" height="34">；`mid=3`<img class="fml" src="/formulas/7f95aa16545dfb.png" alt="(20)&lt;27 \to low=4" width="168" height="34">；`mid=4`(27)=27 成功，比较 3 次。查 65：最终 `low>high` 失败。
 :::
 
 ### 7.3 动态查找（★★★）
@@ -725,7 +725,7 @@ int Search_Bin(SSTable ST, KeyType key) {
 - **平衡二叉树 AVL**：任一结点左右子树深度差（平衡因子 BF）绝对值 ≤ 1。插入／删除后若失衡，通过 **LL / RR / LR / RL** 四种旋转调整，维持 `O(log n)`。
 - **B-树（m 阶）**：平衡多路查找树，每个结点最多 m−1 个关键字、m 个孩子；用于**外存**索引；插入可能分裂、删除可能合并／借位，所有叶子在同一层。
   - **B+树**：非叶结点只作索引（关键字重复出现在叶子），叶子用指针串成有序链表，**范围查询／全表扫描高效**，是数据库索引主流。
-  - **红黑树**：自平衡二叉查找树（1972 年 Bayer 提出，后由 Guibas/Sedgewick 定型），满足五条性质：① 结点非红即黑；② 根结点为黑；③ 红结点的孩子必为黑（无连续红结点）；④ 任一结点到其所有后代 NIL 叶子的路径上含相同数目的黑结点（黑高一致）；⑤ 叶子（NIL）为黑。由③④⑤可推：从根到叶的最长路径不超过最短路径的 2 倍，故树高 ≈ <img class="fml" src="/formulas/2ac3b7c085a234.png" alt="2\log_{2}(n+1)" width="103" height="33">，查找／插入／删除均 **O(log n)**。与 AVL 相比：AVL 平衡更严（查询略快），红黑树插入删除旋转更少（增删略快），工程实现（C++ STL `map`、Java `TreeMap`、Linux 内核）多选用红黑树。**伸展树（splay）** 则每次访问后将结点旋到根，均摊 O(log n)，利于局部性访问。
+  - **红黑树**：自平衡二叉查找树（1972 年 Bayer 提出，后由 Guibas/Sedgewick 定型），满足五条性质：① 结点非红即黑；② 根结点为黑；③ 红结点的孩子必为黑（无连续红结点）；④ 任一结点到其所有后代 NIL 叶子的路径上含相同数目的黑结点（黑高一致）；⑤ 叶子（NIL）为黑。由③④⑤可推：从根到叶的最长路径不超过最短路径的 2 倍，故树高 ≈ <img class="fml" src="/formulas/2ac3b7c085a234.png" alt="2\log_{2}(n+1)" width="105" height="34">，查找／插入／删除均 **O(log n)**。与 AVL 相比：AVL 平衡更严（查询略快），红黑树插入删除旋转更少（增删略快），工程实现（C++ STL `map`、Java `TreeMap`、Linux 内核）多选用红黑树。**伸展树（splay）** 则每次访问后将结点旋到根，均摊 O(log n)，利于局部性访问。
 
 **关键算法（BST 查找、插入、删除-双子情况）**：
 ```c
@@ -757,11 +757,11 @@ delete s;
 ```
 
 ::: tip 红黑树 vs AVL
-两者都保证 O(log n)；AVL 平衡因子严格 <img class="fml" src="/formulas/26e1b3d1602f7d.png" alt="\in{-1,0,1}" width="79" height="33">、查询更快但增删旋转多；红黑树仅保证"黑平衡"、增删代价更低，是大多数语言标准库与系统的首选。
+两者都保证 O(log n)；AVL 平衡因子严格 <img class="fml" src="/formulas/26e1b3d1602f7d.png" alt="\in{-1,0,1}" width="80" height="34">、查询更快但增删旋转多；红黑树仅保证"黑平衡"、增删代价更低，是大多数语言标准库与系统的首选。
 :::
 
 ::: tip AVL 四种失衡与旋转
-失衡结点 `BF=+2`（左重）→ 看左孩子 BF：左孩子 <img class="fml" src="/formulas/b6ac89242d1e1c.png" alt="BF \ge 0" width="67" height="33"> 用 **LL**（右旋）；左孩子 `BF<0` 用 **LR**（先左后右）。<img class="fml" src="/formulas/7620cf6a7ad740.png" alt="BF=- 2" width="81" height="33">（右重）→ 看右孩子 BF：右孩子 <img class="fml" src="/formulas/3a869ce0910b3a.png" alt="BF \le 0" width="67" height="33"> 用 **RR**（左旋）；右孩子 `BF>0` 用 **RL**（先右后左）。旋转后整树仍保持 BST 中序有序且高度降低。
+失衡结点 `BF=+2`（左重）→ 看左孩子 BF：左孩子 <img class="fml" src="/formulas/b6ac89242d1e1c.png" alt="BF \ge 0" width="68" height="34"> 用 **LL**（右旋）；左孩子 `BF<0` 用 **LR**（先左后右）。<img class="fml" src="/formulas/7620cf6a7ad740.png" alt="BF=- 2" width="82" height="34">（右重）→ 看右孩子 BF：右孩子 <img class="fml" src="/formulas/3a869ce0910b3a.png" alt="BF \le 0" width="68" height="34"> 用 **RR**（左旋）；右孩子 `BF>0` 用 **RL**（先右后左）。旋转后整树仍保持 BST 中序有序且高度降低。
 :::
 
 **关键算法（AVL 旋转）**：
@@ -810,12 +810,12 @@ void LeftBalance(AVLTree &p) {
 
 ### 7.3.1 B-树插入与分裂（m 阶）
 
-**插入**：若目标叶子结点关键字数 <img class="fml" src="/formulas/47e4e92d51058d.png" alt="&lt; m- 1" width="71" height="33">，直接按序插入；否则该结点溢出（关键字数达 `m`），取**中位数关键字上移至父结点**，该结点分裂为左右两结点；若父结点也溢出则继续向上分裂，直至根——根分裂会使**树高 +1**。
+**插入**：若目标叶子结点关键字数 <img class="fml" src="/formulas/47e4e92d51058d.png" alt="&lt; m- 1" width="72" height="34">，直接按序插入；否则该结点溢出（关键字数达 `m`），取**中位数关键字上移至父结点**，该结点分裂为左右两结点；若父结点也溢出则继续向上分裂，直至根——根分裂会使**树高 +1**。
 
-**删除**（与插入相反）：删除后关键字数低于下限 <img class="fml" src="/formulas/3accfc64556b00.png" alt="⌈\frac{m}{2}⌉- 1" width="68" height="33"> 时，先向左右兄弟"借"一个（父结点对应关键字下沉到本结点、兄弟的一个关键字上升补父）；借不到则与兄弟合并，并下迁父结点一个关键字——可能使**树高 −1**。
+**删除**（与插入相反）：删除后关键字数低于下限 <img class="fml" src="/formulas/3accfc64556b00.png" alt="⌈\frac{m}{2}⌉- 1" width="69" height="34"> 时，先向左右兄弟"借"一个（父结点对应关键字下沉到本结点、兄弟的一个关键字上升补父）；借不到则与兄弟合并，并下迁父结点一个关键字——可能使**树高 −1**。
 
 ::: tip 工作示例 · B-树（m=3）分裂
-某结点插入后变为 `[52,55,58]`（3 个关键字 > <img class="fml" src="/formulas/2b764fdddc515a.png" alt="m- 1=2" width="85" height="33">）溢出：取中位数 `55` 上移至父结点，左 `[52]`、右 `[58]` 各成新结点（详见示意图"③ 插入分裂"）。若父结点因此也变为 3 个关键字，则继续向上分裂。
+某结点插入后变为 `[52,55,58]`（3 个关键字 > <img class="fml" src="/formulas/2b764fdddc515a.png" alt="m- 1=2" width="86" height="34">）溢出：取中位数 `55` 上移至父结点，左 `[52]`、右 `[58]` 各成新结点（详见示意图"③ 插入分裂"）。若父结点因此也变为 3 个关键字，则继续向上分裂。
 :::
 
 ![](/ds/ds-btree.svg)
@@ -825,7 +825,7 @@ void LeftBalance(AVLTree &p) {
 - **冲突处理**：
   - 开放定址：线性探测（易"聚集"）、二次探测、伪随机探测；
   - **链地址法**（同义词拉链）：不易聚集，装载因子 α 可 >1，常用。
-- **装填因子** `α = 记录数 / 表长`，决定 ASL；α 越大冲突越多。链地址法 <img class="fml" src="/formulas/f7a79d03ad7e9e.png" alt="ASL \approx 1+\frac{\alpha}{2}" width="110" height="33">。
+- **装填因子** `α = 记录数 / 表长`，决定 ASL；α 越大冲突越多。链地址法 <img class="fml" src="/formulas/f7a79d03ad7e9e.png" alt="ASL \approx 1+\frac{\alpha}{2}" width="111" height="34">。
 
 **关键算法（线性探测查找）**：
 ```c
@@ -844,9 +844,9 @@ int SearchHash(HashTable HT, KeyType key) {
 
 | 处理冲突方法 | 查找成功 ASL | 查找失败 ASL |
 | --- | --- | --- |
-| 线性探测法 | <img class="fml" src="/formulas/831bfcb003cee0.png" alt="\frac{1}{2}\left(1+\frac{1}{1- \alpha}\right)" width="95" height="33"> | <img class="fml" src="/formulas/da5265a662a7b7.png" alt="\frac{1}{2}\left(1+\frac{1}{(1- \alpha)^{2}}\right)" width="115" height="40"> |
-| 二次探测法 | <img class="fml" src="/formulas/fa376d67f37091.png" alt="- \log_{2}(1- \alpha)" width="109" height="33">（近似） | <img class="fml" src="/formulas/421adc90fc4185.png" alt="\frac{1}{1- \alpha}" width="34" height="33"> |
-| 链地址法 | <img class="fml" src="/formulas/be69c262cff80c.png" alt="1+ \frac{\alpha}{2}" width="49" height="33"> | <img class="fml" src="/formulas/a6dd4765c753b6.png" alt="\alpha+ e^{- \alpha}" width="66" height="33"> |
+| 线性探测法 | <img class="fml" src="/formulas/831bfcb003cee0.png" alt="\frac{1}{2}\left(1+\frac{1}{1- \alpha}\right)" width="96" height="34"> | <img class="fml" src="/formulas/da5265a662a7b7.png" alt="\frac{1}{2}\left(1+\frac{1}{(1- \alpha)^{2}}\right)" width="116" height="41"> |
+| 二次探测法 | <img class="fml" src="/formulas/fa376d67f37091.png" alt="- \log_{2}(1- \alpha)" width="110" height="34">（近似） | <img class="fml" src="/formulas/421adc90fc4185.png" alt="\frac{1}{1- \alpha}" width="36" height="34"> |
+| 链地址法 | <img class="fml" src="/formulas/be69c262cff80c.png" alt="1+ \frac{\alpha}{2}" width="50" height="34"> | <img class="fml" src="/formulas/a6dd4765c753b6.png" alt="\alpha+ e^{- \alpha}" width="67" height="34"> |
 
 ::: danger 易错 · 查找
 - 折半查找必须"有序 ＋ 顺序存储"；链表不能折半。
@@ -1056,7 +1056,7 @@ void RadixSort(SqList &L) {
 - 多路平衡归并 ＋ 置换-选择生成初始归并段 ＋ **最佳归并树**（哈夫曼思想）减少归并趟数／IO。
 
 ::: tip 补充考点 · 归并趟数公式与最佳归并树
-设待排序记录总数为 `n`、内存工作区可容纳 `m` 条、做 **k 路归并**，则初始归并段数 <img class="fml" src="/formulas/b615ab635e362f.png" alt="r= ⌈\frac{n}{m}⌉" width="69" height="33">，**归并趟数 `S = ⌈log_k r⌉`**。每增加一趟就多一次全量读写（`2n` 次 IO），故减少趟数是外排提速关键：
+设待排序记录总数为 `n`、内存工作区可容纳 `m` 条、做 **k 路归并**，则初始归并段数 <img class="fml" src="/formulas/b615ab635e362f.png" alt="r= ⌈\frac{n}{m}⌉" width="71" height="34">，**归并趟数 `S = ⌈log_k r⌉`**。每增加一趟就多一次全量读写（`2n` 次 IO），故减少趟数是外排提速关键：
 ① 增大 k 或增大工作区 m；② k 增大时每次从 k 个段选最小需比较 k−1 次，引入**败者树**（Loser Tree）把选最小的代价降为 `O(log k)`；③ 归并段数 r 不满足 `(r−1) % (k−1) == 0` 时补**虚段**（长度为 0 的段），使归并树成为严格的 k 叉哈夫曼树，即**最佳归并树**——它就是外排版的哈夫曼编码问题。
 :::
 
@@ -1098,12 +1098,12 @@ void RadixSort(SqList &L) {
 | 分支限界法 | 优先队列层次遍历解空间树 ＋ 限界函数 | 0-1 背包（最优）、TSP | 求一个最优解，效率高于回溯 |
 
 ### 9.2 分治法与 Master 定理（★★★）
-分治三步骤：分解（原问题 → 若干规模更小的子问题）、解决（递归求解子问题）、合并（子问题解 → 原问题解）。递归方程 <img class="fml" src="/formulas/93e22e4fbfeaf2.png" alt="T(n)= aT\left(\frac{n}{b}\right)+ f(n)" width="178" height="33">（a≥1，b>1）。
+分治三步骤：分解（原问题 → 若干规模更小的子问题）、解决（递归求解子问题）、合并（子问题解 → 原问题解）。递归方程 <img class="fml" src="/formulas/93e22e4fbfeaf2.png" alt="T(n)= aT\left(\frac{n}{b}\right)+ f(n)" width="178" height="34">（a≥1，b>1）。
 **主定理**：记 `c = log_b a`，比较 `f(n)` 与 `n^c`：
-1. 若 <img class="fml" src="/formulas/d9c03fcd1358cc.png" alt="f(n)= O(n^{c- \epsilon})" width="125" height="33">（ε>0），则 <img class="fml" src="/formulas/9428d024abc881.png" alt="T(n)= \Theta(n^c)" width="112" height="33">；
-2. 若 <img class="fml" src="/formulas/3c508a640afdea.png" alt="f(n)= \Theta(n^c \log^k n)" width="157" height="33">，则 <img class="fml" src="/formulas/f7f7b121d09a03.png" alt="T(n)= \Theta(n^c \log^{k+1} n)" width="176" height="33">；
-3. 若 <img class="fml" src="/formulas/9c2935f714b88d.png" alt="f(n)= \Omega(n^{c+\epsilon})" width="124" height="33"> 且正规（<img class="fml" src="/formulas/571f84ec0d0a5c.png" alt="a f\left(\frac{n}{b}\right) \le c f(n)" width="124" height="33">），则 <img class="fml" src="/formulas/97d76c9116ad1a.png" alt="T(n)= \Theta(f(n))" width="130" height="33">。
-例：归并排序 <img class="fml" src="/formulas/7d84bb574dca1b.png" alt="a=b=2 \Rightarrow c=1" width="148" height="33">，<img class="fml" src="/formulas/8b1ac876626201.png" alt="f(n)=\Theta(n)" width="104" height="33"> 属第 2 类 ⇒ <img class="fml" src="/formulas/6bb24e8c8bda9c.png" alt="\Theta(n \log n)" width="84" height="33">；二分查找 a=1，<img class="fml" src="/formulas/69daa3130cc6cd.png" alt="b=2 \Rightarrow c=0" width="115" height="33">，<img class="fml" src="/formulas/18de4168d3cab4.png" alt="f(n)=\Theta(1)" width="102" height="33"> ⇒ <img class="fml" src="/formulas/50d51ac7d90648.png" alt="\Theta(\log n)" width="71" height="33">。
+1. 若 <img class="fml" src="/formulas/d9c03fcd1358cc.png" alt="f(n)= O(n^{c- \epsilon})" width="126" height="34">（ε>0），则 <img class="fml" src="/formulas/9428d024abc881.png" alt="T(n)= \Theta(n^c)" width="114" height="34">；
+2. 若 <img class="fml" src="/formulas/3c508a640afdea.png" alt="f(n)= \Theta(n^c \log^k n)" width="158" height="34">，则 <img class="fml" src="/formulas/f7f7b121d09a03.png" alt="T(n)= \Theta(n^c \log^{k+1} n)" width="177" height="34">；
+3. 若 <img class="fml" src="/formulas/9c2935f714b88d.png" alt="f(n)= \Omega(n^{c+\epsilon})" width="124" height="34"> 且正规（<img class="fml" src="/formulas/571f84ec0d0a5c.png" alt="a f\left(\frac{n}{b}\right) \le c f(n)" width="125" height="34">），则 <img class="fml" src="/formulas/97d76c9116ad1a.png" alt="T(n)= \Theta(f(n))" width="132" height="34">。
+例：归并排序 <img class="fml" src="/formulas/7d84bb574dca1b.png" alt="a=b=2 \Rightarrow c=1" width="149" height="34">，<img class="fml" src="/formulas/8b1ac876626201.png" alt="f(n)=\Theta(n)" width="104" height="34"> 属第 2 类 ⇒ <img class="fml" src="/formulas/6bb24e8c8bda9c.png" alt="\Theta(n \log n)" width="85" height="34">；二分查找 a=1，<img class="fml" src="/formulas/69daa3130cc6cd.png" alt="b=2 \Rightarrow c=0" width="116" height="34">，<img class="fml" src="/formulas/18de4168d3cab4.png" alt="f(n)=\Theta(1)" width="103" height="34"> ⇒ <img class="fml" src="/formulas/50d51ac7d90648.png" alt="\Theta(\log n)" width="71" height="34">。
 
 ### 9.3 贪心算法（★★★）
 两个基本要素：**贪心选择性质**（整体最优可由一系列局部最优达到，不依赖子问题解）＋ **最优子结构**（问题最优解包含子问题最优解）。
@@ -1111,7 +1111,7 @@ void RadixSort(SqList &L) {
 - **陷阱**：贪心不保证全局最优。如硬币面值 `{1,5,11}`、找 15 分，贪心给 `11+1+1+1=4` 枚，而 `5+5+5=3` 枚更优。**0-1 背包不能用贪心（须 DP），可拆背包可用贪心**。
 
 ### 9.4 回溯法（★★★）
-解空间树：① **子集树**（每层 2 叉，<img class="fml" src="/formulas/1475105e7f5cff.png" alt="2^{n}" width="23" height="33"> 叶子，如 0-1 背包、子集和、装载）；② **排列树**（`n!` 叶子，如 N 皇后、TSP、全排列）。算法 ＝ 深度优先遍历解空间树 ＋ **约束函数**（剪去不满足约束的分支）＋ **限界函数**（剪去不可能更优的分支）。N 皇后：每行放一后，约束为不同列、不同正/反对角线。
+解空间树：① **子集树**（每层 2 叉，<img class="fml" src="/formulas/1475105e7f5cff.png" alt="2^{n}" width="24" height="34"> 叶子，如 0-1 背包、子集和、装载）；② **排列树**（`n!` 叶子，如 N 皇后、TSP、全排列）。算法 ＝ 深度优先遍历解空间树 ＋ **约束函数**（剪去不满足约束的分支）＋ **限界函数**（剪去不可能更优的分支）。N 皇后：每行放一后，约束为不同列、不同正/反对角线。
 
 ![](/ds/ds-algo.svg)
 
@@ -1142,21 +1142,21 @@ void NQueens(int k, int n) {
 
 ### 9.6 动态规划（★★★）
 基本要素：**最优子结构** ＋ **重叠子问题**。设计步骤：定义状态 → 写状态转移方程 → 定边界 → 选计算序（自底向上或带备忘自顶向下）。
-- 0-1 背包：<img class="fml" src="/formulas/19f134bb67c228.png" alt="dp[i][c]= \max(dp[i- 1][c], dp[i- 1][c- w_{i}]+ v_{i})" width="378" height="33">。
+- 0-1 背包：<img class="fml" src="/formulas/19f134bb67c228.png" alt="dp[i][c]= \max(dp[i- 1][c], dp[i- 1][c- w_{i}]+ v_{i})" width="379" height="34">。
 - 最长公共子序列 LCS、矩阵连乘、Floyd（各顶点最短路）均属 DP。
 
 ::: tip 工作示例 · 0-1 背包（DP）
 容量 `C=10`，物品 `(w,v)={(2,6),(2,3),(6,5),(5,4),(4,6)}`。`dp[i][c]` 表示前 `i` 件、容量限制 `c` 下的最大价值。
-状态转移：<img class="fml" src="/formulas/9875747720550e.png" alt="dp[i][c]= \max(dp[i-1][c], dp[i-1][c-w_{i}]+ v_{i})" width="378" height="33">（<img class="fml" src="/formulas/a6c2037655bb2a.png" alt="c \ge w_{i}" width="56" height="33">，否则沿用 `dp[i-1][c]`）；边界 `dp[0][*]=0`。
-填表后 `dp[5][10]=15`，对应选物品 **1、2、5**（重 <img class="fml" src="/formulas/1c034775b472bf.png" alt="2+2+4=8 \le 10" width="151" height="33">，价值 `6+3+6=15`）。注意与"可拆背包"不同：0-1 背包每件只能选 0 或 1 次，必须 DP，贪心（按 `v/w` 降序）不能保证最优。
+状态转移：<img class="fml" src="/formulas/9875747720550e.png" alt="dp[i][c]= \max(dp[i-1][c], dp[i-1][c-w_{i}]+ v_{i})" width="379" height="34">（<img class="fml" src="/formulas/a6c2037655bb2a.png" alt="c \ge w_{i}" width="57" height="34">，否则沿用 `dp[i-1][c]`）；边界 `dp[0][*]=0`。
+填表后 `dp[5][10]=15`，对应选物品 **1、2、5**（重 <img class="fml" src="/formulas/1c034775b472bf.png" alt="2+2+4=8 \le 10" width="152" height="34">，价值 `6+3+6=15`）。注意与"可拆背包"不同：0-1 背包每件只能选 0 或 1 次，必须 DP，贪心（按 `v/w` 降序）不能保证最优。
 :::
 
 ::: danger 易错 · 算法范式
 - 贪心 vs DP：都需最优子结构；但贪心每步不依赖子问题解（只看当前局部），DP 每步依赖子问题解。可拆背包贪心得最优，0-1 背包必须 DP。
 - 回溯 vs 分支限界：回溯深度优先求"全部/一个"解，分支限界（优先队列）求"一个最优"解、效率更高。
 - 分治要求子问题独立；若子问题重叠（如朴素 Fibonacci 递归）应改记忆化/DP，否则指数级。
-- 主定理先算 `c=log_b a`，再与 `f(n)` 比阶；第 2 类别忘了 <img class="fml" src="/formulas/3ece788cad0be4.png" alt="\log^{k+1}n" width="67" height="33">。
-- 红黑树"黑高一致"保证高度 <img class="fml" src="/formulas/7f1e97ca3ab7ee.png" alt="\approx 2\log(n+1)" width="115" height="33">，是工程首选；AVL 更平衡但增删旋转多。
+- 主定理先算 `c=log_b a`，再与 `f(n)` 比阶；第 2 类别忘了 <img class="fml" src="/formulas/3ece788cad0be4.png" alt="\log^{k+1}n" width="67" height="34">。
+- 红黑树"黑高一致"保证高度 <img class="fml" src="/formulas/7f1e97ca3ab7ee.png" alt="\approx 2\log(n+1)" width="116" height="34">，是工程首选；AVL 更平衡但增删旋转多。
 :::
 
 ---
@@ -1165,25 +1165,25 @@ void NQueens(int k, int n) {
 
 | 类别 | 公式／结论 |
 | --- | --- |
-| 顺序表地址 | <img class="fml" src="/formulas/5e82602820ca48.png" alt="LOC(a_{i})=LOC(a_{1})+(i- 1)L" width="254" height="33">；行优先二维 <img class="fml" src="/formulas/68bdf42a5d9608.png" alt="a[i][j]=base+(i \times n+j)L" width="224" height="33"> |
-| 顺序表增删 | 平均移动 `n/2`、<img class="fml" src="/formulas/b46ea9117fa81a.png" alt="\frac{n- 1}{2}" width="34" height="33">，`O(n)` |
+| 顺序表地址 | <img class="fml" src="/formulas/5e82602820ca48.png" alt="LOC(a_{i})=LOC(a_{1})+(i- 1)L" width="255" height="33">；行优先二维 <img class="fml" src="/formulas/68bdf42a5d9608.png" alt="a[i][j]=base+(i \times n+j)L" width="225" height="33"> |
+| 顺序表增删 | 平均移动 `n/2`、<img class="fml" src="/formulas/b46ea9117fa81a.png" alt="\frac{n- 1}{2}" width="35" height="34">，`O(n)` |
 | 单链表插入 | 先 `s->next=p->next` 后 `p->next=s`；平均 `O(n)` |
-| 时间复杂度阶 | <img class="fml" src="/formulas/093db31c9f470e.png" alt="O(1)&lt;O(\log n)&lt;O(n)&lt;O(n \log n)&lt;O(n^{2})&lt;O(n^{3})&lt;O(2^{n})" width="505" height="33"> |
+| 时间复杂度阶 | <img class="fml" src="/formulas/093db31c9f470e.png" alt="O(1)&lt;O(\log n)&lt;O(n)&lt;O(n \log n)&lt;O(n^{2})&lt;O(n^{3})&lt;O(2^{n})" width="506" height="33"> |
 | 循环队列 | 队空 `front==rear`；队满 `(rear+1)%MAX==front`；长度 `(rear-front+MAX)%MAX` |
-| 串匹配 | BF <img class="fml" src="/formulas/b5dabdff4c3008.png" alt="O(n \cdot m)" width="73" height="33">；KMP `O(n+m)`，`next[j]`=最长相等前后缀长+1 |
-| 二叉树性质 | <img class="fml" src="/formulas/55b9ca96c85d29.png" alt="n_{0}=n_{2}+1" width="96" height="33">；第 i 层 ≤ <img class="fml" src="/formulas/faa78215bf9209.png" alt="2^{i- 1}" width="36" height="33">；深度 k 最多 <img class="fml" src="/formulas/b7d2aa2a1573ca.png" alt="2^{k}- 1" width="53" height="33">；完全树深度 <img class="fml" src="/formulas/73d3591f329bb8.png" alt="⌊\log_{2}n⌋+1" width="97" height="33"> |
+| 串匹配 | BF <img class="fml" src="/formulas/b5dabdff4c3008.png" alt="O(n \cdot m)" width="74" height="33">；KMP `O(n+m)`，`next[j]`=最长相等前后缀长+1 |
+| 二叉树性质 | <img class="fml" src="/formulas/55b9ca96c85d29.png" alt="n_{0}=n_{2}+1" width="98" height="33">；第 i 层 ≤ <img class="fml" src="/formulas/faa78215bf9209.png" alt="2^{i- 1}" width="37" height="33">；深度 k 最多 <img class="fml" src="/formulas/b7d2aa2a1573ca.png" alt="2^{k}- 1" width="54" height="33">；完全树深度 <img class="fml" src="/formulas/73d3591f329bb8.png" alt="⌊\log_{2}n⌋+1" width="97" height="33"> |
 | 哈夫曼 WPL | <img class="fml" src="/formulas/1302ba4f8b16d7.png" alt="WPL=\sum w_{i}l_{i}" width="126" height="33">（最小） |
-| 折半查找 ASL | <img class="fml" src="/formulas/4c6d3399b221b2.png" alt="\approx \log_{2}(n+1)- 1" width="141" height="33">，`O(log n)` |
-| AVL | 平衡因子 <img class="fml" src="/formulas/9896f2023f87c7.png" alt="BF \in{- 1,0,1}" width="113" height="33">，失衡用 LL/RR/LR/RL 旋转，`O(log n)` |
-| 哈希 ASL（链地址） | <img class="fml" src="/formulas/7755408d337ffb.png" alt="\approx 1+\frac{\alpha}{2}" width="68" height="33">（α 为装填因子） |
+| 折半查找 ASL | <img class="fml" src="/formulas/4c6d3399b221b2.png" alt="\approx \log_{2}(n+1)- 1" width="142" height="33">，`O(log n)` |
+| AVL | 平衡因子 <img class="fml" src="/formulas/9896f2023f87c7.png" alt="BF \in{- 1,0,1}" width="114" height="33">，失衡用 LL/RR/LR/RL 旋转，`O(log n)` |
+| 哈希 ASL（链地址） | <img class="fml" src="/formulas/7755408d337ffb.png" alt="\approx 1+\frac{\alpha}{2}" width="69" height="33">（α 为装填因子） |
 | 图 MST | Prim <img class="fml" src="/formulas/83de65f93714ed.png" alt="O(V^{2})" width="56" height="33">、Kruskal `O(E log E)` |
-| 图 最短路 | Dijkstra <img class="fml" src="/formulas/83de65f93714ed.png" alt="O(V^{2})" width="56" height="33">（无负权）、Floyd <img class="fml" src="/formulas/33fdc671ed06d8.png" alt="O(V^{3})" width="56" height="33"> |
+| 图 最短路 | Dijkstra <img class="fml" src="/formulas/83de65f93714ed.png" alt="O(V^{2})" width="56" height="33">（无负权）、Floyd <img class="fml" src="/formulas/33fdc671ed06d8.png" alt="O(V^{3})" width="57" height="33"> |
 | 排序（稳定且最坏不退化） | 堆排序、归并排序 |
 | 排序（不稳定） | 希尔、快速、简单选择、堆 |
-| 分治主定理 | <img class="fml" src="/formulas/2dbf7c7bea89d4.png" alt="T(n)=aT\left(\frac{n}{b}\right)+f(n)" width="178" height="33">，`c=log_b a`；比阶定 <img class="fml" src="/formulas/c661296dfbd8b1.png" alt="\Theta" width="20" height="33"> |
-| 红黑树 | 5 性质保黑高一致；树高 <img class="fml" src="/formulas/67bba4348c649e.png" alt="\approx 2\log_{2}(n+1)" width="122" height="33">，`O(log n)` |
+| 分治主定理 | <img class="fml" src="/formulas/2dbf7c7bea89d4.png" alt="T(n)=aT\left(\frac{n}{b}\right)+f(n)" width="179" height="33">，`c=log_b a`；比阶定 <img class="fml" src="/formulas/c661296dfbd8b1.png" alt="\Theta" width="21" height="33"> |
+| 红黑树 | 5 性质保黑高一致；树高 <img class="fml" src="/formulas/67bba4348c649e.png" alt="\approx 2\log_{2}(n+1)" width="124" height="33">，`O(log n)` |
 | 贪心要素 | 贪心选择性质 ＋ 最优子结构 |
-| 回溯解空间树 | 子集树 <img class="fml" src="/formulas/1475105e7f5cff.png" alt="2^{n}" width="23" height="33"> 叶、排列树 `n!` 叶；约束/限界剪枝 |
+| 回溯解空间树 | 子集树 <img class="fml" src="/formulas/1475105e7f5cff.png" alt="2^{n}" width="24" height="34"> 叶、排列树 `n!` 叶；约束/限界剪枝 |
 
 ## 附录 B 各章易错点速查
 
@@ -1195,7 +1195,7 @@ void NQueens(int k, int n) {
 6. 栈 LIFO、队列 FIFO；递归靠系统栈实现，可借栈改写为非递归。
 7. KMP 用 next/nextval 避免主串回退，`O(n+m)`；next 为最长相等前后缀长度 ＋1。
 8. 矩阵压缩务必分清行优先／列优先；对称矩阵只存下三角。
-9. 二叉树 <img class="fml" src="/formulas/55b9ca96c85d29.png" alt="n_{0}=n_{2}+1" width="96" height="33"> 仅对二叉树成立；"先序＋后序"不能确定一棵二叉树。
+9. 二叉树 <img class="fml" src="/formulas/55b9ca96c85d29.png" alt="n_{0}=n_{2}+1" width="98" height="33"> 仅对二叉树成立；"先序＋后序"不能确定一棵二叉树。
 10. 遍历恢复树必须含中序；二叉排序树中序遍历有序。
 11. 哈夫曼树 WPL 最小但不唯一；编码为前缀码。
 12. 图的 DFS/BFS 均 `O(V+E)`；Dijkstra 不能处理负权边。
@@ -1212,5 +1212,5 @@ void NQueens(int k, int n) {
 23. 贪心 vs DP：都需最优子结构；贪心不依赖子问题解，DP 依赖；可拆背包贪心、0-1 背包须 DP。
 24. 回溯（深度优先、求全部解）vs 分支限界（优先队列、求一个最优解）：后者求最优时更高效。
 25. 分治要求子问题独立；子问题重叠（朴素 Fibonacci）应改记忆化/DP，否则指数级。
-26. 主定理先算 `c=log_b a` 再比阶；第 2 类莫忘 <img class="fml" src="/formulas/3ece788cad0be4.png" alt="\log^{k+1}n" width="67" height="33">。
-27. 红黑树靠"黑高一致"保证高度 <img class="fml" src="/formulas/7f1e97ca3ab7ee.png" alt="\approx 2\log(n+1)" width="115" height="33">；AVL 更平衡但增删旋转多，工程多取红黑树。
+26. 主定理先算 `c=log_b a` 再比阶；第 2 类莫忘 <img class="fml" src="/formulas/3ece788cad0be4.png" alt="\log^{k+1}n" width="67" height="34">。
+27. 红黑树靠"黑高一致"保证高度 <img class="fml" src="/formulas/7f1e97ca3ab7ee.png" alt="\approx 2\log(n+1)" width="116" height="34">；AVL 更平衡但增删旋转多，工程多取红黑树。

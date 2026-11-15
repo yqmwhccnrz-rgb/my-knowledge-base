@@ -7,7 +7,7 @@ summary: "14 章 MATLAB 笔记：从矩阵与运算、程序流程控制、绘�
 ::: info 笔记概要
 - **所属课程**：MATLAB 程序设计与应用
 - **核心内容**：以矩阵为基本数据对象，掌握数据运算、矩阵处理、M 文件与流程控制、绘图、数据分析与多项式、数值微分积分、方程求解、符号计算，并了解句柄图形、GUI、Simulink 与外部接口
-- **学习建议**：每个函数都要亲手敲一遍并观察 `size` / `class` / 输出；**点运算（`.*` `./` `.^`）与矩阵运算（`*` `/` `^`）的区别**是全书第一重点，务必分清；统计函数默认「按列」，可用 <img class="fml" src="/formulas/1c575817c57df7.png" alt="\dim=2" width="69" height="33"> 改按行
+- **学习建议**：每个函数都要亲手敲一遍并观察 `size` / `class` / 输出；**点运算（`.*` `./` `.^`）与矩阵运算（`*` `/` `^`）的区别**是全书第一重点，务必分清；统计函数默认「按列」，可用 <img class="fml" src="/formulas/1c575817c57df7.png" alt="\dim=2" width="70" height="34"> 改按行
 - **关键词**：矩阵、点运算、冒号表达式、M 文件、函数文件、plot、polyfit、integral、ode45、syms、句柄
 :::
 
@@ -208,7 +208,7 @@ D = sub2ind(size(A), I, J)    % 下标 → 序号
 ```
 
 ::: danger 易错点 · 按列优先，不是按行
-`A = [1 2 3; 4 5 6]` 的线性索引顺序是 <img class="fml" src="/formulas/bb13f813cb614e.png" alt="1 \to 4 \to 2 \to 5 \to 3 \to 6" width="198" height="33">，不是 1 2 3 4 5 6。用 `reshape`、`A(:)`、`find` 时务必记住这一点。
+`A = [1 2 3; 4 5 6]` 的线性索引顺序是 <img class="fml" src="/formulas/bb13f813cb614e.png" alt="1 \to 4 \to 2 \to 5 \to 3 \to 6" width="199" height="34">，不是 1 2 3 4 5 6。用 `reshape`、`A(:)`、`find` 时务必记住这一点。
 :::
 
 **用冒号取子矩阵**：
@@ -312,8 +312,8 @@ B = sqrt(A)         % → [2.0000 1.4142; 1.7321 2.4495]
 ```
 
 ::: danger 易错点 · `rem` 与 `mod` 对负数不同
-<img class="fml" src="/formulas/dd5d50d922246c.png" alt="rem(a,b)= a- b.*fix\left(\frac{a}{b}\right)" width="219" height="33">，商向 **0** 取整，结果符号随 **a**；
-<img class="fml" src="/formulas/f9dd99c8989662.png" alt="mod(a,b)= a- b.*floor\left(\frac{a}{b}\right)" width="236" height="33">，商向 **负无穷** 取整，结果符号随 **b**。
+<img class="fml" src="/formulas/dd5d50d922246c.png" alt="rem(a,b)= a- b.*fix\left(\frac{a}{b}\right)" width="221" height="34">，商向 **0** 取整，结果符号随 **a**；
+<img class="fml" src="/formulas/f9dd99c8989662.png" alt="mod(a,b)= a- b.*floor\left(\frac{a}{b}\right)" width="236" height="34">，商向 **负无穷** 取整，结果符号随 **b**。
 
 ```matlab
 >> rem(-7,4), mod(-7,4)     % → -3, 1
@@ -352,7 +352,7 @@ A ^ 2             % 方阵乘方，等价于 A*A
 ```
 
 ::: danger 易错点 · 左除与右除不相等
-对矩阵一般 <img class="fml" src="/formulas/35da423708a865.png" alt="A \backslash B= \frac{B}{A}" width="81" height="33">（前者解 `A*X=B`，后者解 `X*A=B`）；含标量时两者结果才相同（如 `3/4 == 4\3 == 0.75`）。维数不相容时 `A*B` 会报「内部矩阵维度必须一致」。
+对矩阵一般 <img class="fml" src="/formulas/35da423708a865.png" alt="A \backslash B= \frac{B}{A}" width="82" height="34">（前者解 `A*X=B`，后者解 `X*A=B`）；含标量时两者结果才相同（如 `3/4 == 4\3 == 0.75`）。维数不相容时 `A*B` 会报「内部矩阵维度必须一致」。
 :::
 
 
@@ -513,7 +513,7 @@ ans =
 ```
 
 ::: danger 易错点 · 希尔伯特矩阵高度病态
-`hilb(n)` 元素 <img class="fml" src="/formulas/513ed80f42a0f4.png" alt="h(i,j)= \frac{1}{i+j-1}" width="117" height="35">，是典型的**病态矩阵**：n 稍大时条件数极大，`inv(hilb(n))` 的数值结果很不可靠。原书给 `invhilb(n)` 正是因为它返回**精确的有理数逆**，可直接用来对比展示浮点误差。测试线性方程组算法常用它做「压力测试」。
+`hilb(n)` 元素 <img class="fml" src="/formulas/513ed80f42a0f4.png" alt="h(i,j)= \frac{1}{i+j-1}" width="118" height="36">，是典型的**病态矩阵**：n 稍大时条件数极大，`inv(hilb(n))` 的数值结果很不可靠。原书给 `invhilb(n)` 正是因为它返回**精确的有理数逆**，可直接用来对比展示浮点误差。测试线性方程组算法常用它做「压力测试」。
 :::
 
 ### 3.2 矩阵变换
@@ -573,7 +573,7 @@ det(A), rank(A), trace(A), norm(A), cond(A)
 ```
 
 ::: danger 易错点 · 条件数不是行列式
-判断方程组是否「难算」看 **`cond(A)`**（越大越病态，1e16 量级基本不可用），**不是** `det(A)`。行列式很小不代表病态（缩放矩阵即可让 det 任意小而条件数不变）。另外 <img class="fml" src="/formulas/e7cfea77c8fb5e.png" alt="\det(A) \approx 0" width="91" height="33"> 作为奇异判据也不可靠，应用 `rank(A)` 或 `rcond(A)`。
+判断方程组是否「难算」看 **`cond(A)`**（越大越病态，1e16 量级基本不可用），**不是** `det(A)`。行列式很小不代表病态（缩放矩阵即可让 det 任意小而条件数不变）。另外 <img class="fml" src="/formulas/e7cfea77c8fb5e.png" alt="\det(A) \approx 0" width="92" height="34"> 作为奇异判据也不可靠，应用 `rank(A)` 或 `rcond(A)`。
 :::
 
 ### 3.4 矩阵的特征值与特征向量
@@ -961,7 +961,7 @@ plot(x,y)
 ```
 
 ::: danger 易错点 · 绘图必须点运算
-<img class="fml" src="/formulas/a62a583dadb89a.png" alt="y= 2*\exp(-0.5*x).*\sin(2*pi*x)" width="296" height="33">：`2` 是标量可用 `*`，但 `exp(...)` 与 `sin(...)` 都是**向量**，中间必须 `.*`。写成 `*` 会报「内部矩阵维度必须一致」。这是第 2 章点运算坑在绘图里的直接体现。
+<img class="fml" src="/formulas/a62a583dadb89a.png" alt="y= 2*\exp(-0.5*x).*\sin(2*pi*x)" width="296" height="34">：`2` 是标量可用 `*`，但 `exp(...)` 与 `sin(...)` 都是**向量**，中间必须 `.*`。写成 `*` 会报「内部矩阵维度必须一致」。这是第 2 章点运算坑在绘图里的直接体现。
 :::
 
 **线型、颜色、标记**（可组合成字符串，如 `'r--o'`）：
@@ -1127,7 +1127,7 @@ movie(F, 2, 30)              % 播放 2 遍，每秒 30 帧
 ### 6.1 数据统计分析
 
 ::: danger 最重要的规则 · 默认按列
-MATLAB 的统计函数默认对矩阵的**每一列**分别计算（<img class="fml" src="/formulas/955739499bb047.png" alt="\dim=1" width="69" height="33">），返回一个行向量；要对**每一行**计算，须显式给 <img class="fml" src="/formulas/1c575817c57df7.png" alt="\dim=2" width="69" height="33">。这与 numpy 的 `axis` 习惯不同，是最容易出错的地方。
+MATLAB 的统计函数默认对矩阵的**每一列**分别计算（<img class="fml" src="/formulas/955739499bb047.png" alt="\dim=1" width="70" height="34">），返回一个行向量；要对**每一行**计算，须显式给 <img class="fml" src="/formulas/1c575817c57df7.png" alt="\dim=2" width="70" height="34">。这与 numpy 的 `axis` 习惯不同，是最容易出错的地方。
 :::
 
 ```matlab
@@ -1224,7 +1224,7 @@ polyvalm(p, A)       % 矩阵多项式：p(2) 项用 A*A（矩阵乘），常数
 ```
 
 ::: danger 易错点 · polyval 与 polyvalm 本质不同
-对 <img class="fml" src="/formulas/fb080a906c913f.png" alt="p= x^{2}+2x+1" width="128" height="33"> 与方阵 A：
+对 <img class="fml" src="/formulas/fb080a906c913f.png" alt="p= x^{2}+2x+1" width="129" height="34"> 与方阵 A：
 - `polyval(p,A)` = `A.^2 + 2*A + 1`（**逐元素**平方）；
 - `polyvalm(p,A)` = `A*A + 2*A + I`（**矩阵**乘、常数项为**单位阵**）。
 
@@ -1307,7 +1307,7 @@ diff(X, n)           % n 阶差分
 diff(A, n, dim)      % 矩阵按指定维差分
 ```
 
-近似导数：<img class="fml" src="/formulas/4ac33e9692dabb.png" alt="f&#x27;(x) \approx \frac{f(x+h)- f(x)}{h}" width="149" height="33">（向前差商），更精确可用**中心差商** `(f(x+h)-f(x-h))/(2h)`。
+近似导数：<img class="fml" src="/formulas/4ac33e9692dabb.png" alt="f&#x27;(x) \approx \frac{f(x+h)- f(x)}{h}" width="149" height="34">（向前差商），更精确可用**中心差商** `(f(x+h)-f(x-h))/(2h)`。
 
 #### 7.1.2 数值微分实现
 
@@ -1325,7 +1325,7 @@ df = (f(1+h) - f(1-h)) / (2*h);
 
 
 ::: danger 易错点 · h 不是越小越精确
-h 太小会因浮点相减而**灾难性抵消**，误差反而变大。双精度下 <img class="fml" src="/formulas/32cb56f769c099.png" alt="h \approx 1e-5 \sim 1e-6" width="160" height="33">（约 `eps^(1/3)` 量级）较稳妥；需要高精度时用**符号微分**（第 9 章 `diff(syms)`）或复步导数。
+h 太小会因浮点相减而**灾难性抵消**，误差反而变大。双精度下 <img class="fml" src="/formulas/32cb56f769c099.png" alt="h \approx 1e-5 \sim 1e-6" width="161" height="34">（约 `eps^(1/3)` 量级）较稳妥；需要高精度时用**符号微分**（第 9 章 `diff(syms)`）或复步导数。
 :::
 
 ### 7.2 数值积分
@@ -1525,7 +1525,7 @@ S = sym('a*x^2 + b*x + c');
 ```
 
 ::: danger 易错点 · sym(1/3) 与 sym('1/3')
-`sym(1/3)` 先把 1/3 算成 double（<img class="fml" src="/formulas/e3d08f11b425dd.png" alt="0.3333 \cdots" width="79" height="33">）再转符号，会得到近似有理数；要精确值应写 `sym('1/3')` 或 `sym(1)/3`。同理 `sym(pi)` 与 `sym('pi')` 不同。
+`sym(1/3)` 先把 1/3 算成 double（<img class="fml" src="/formulas/e3d08f11b425dd.png" alt="0.3333 \cdots" width="80" height="34">）再转符号，会得到近似有理数；要精确值应写 `sym('1/3')` 或 `sym(1)/3`。同理 `sym(pi)` 与 `sym('pi')` 不同。
 :::
 
 ```matlab
@@ -1552,7 +1552,7 @@ pretty(f)             % 类数学排版显示
 ```
 
 ::: danger 易错点 · 符号与数值混用
-<img class="fml" src="/formulas/334177464f9268.png" alt="syms x; y= \frac{x}{3}" width="111" height="33"> 得到精确符号 1/3*x；若写 `y = x*0.3333` 就引入浮点近似。符号推导中尽量用整数、有理数、`sym('pi')`，避免任何 double 常量。
+<img class="fml" src="/formulas/334177464f9268.png" alt="syms x; y= \frac{x}{3}" width="112" height="34"> 得到精确符号 1/3*x；若写 `y = x*0.3333` 就引入浮点近似。符号推导中尽量用整数、有理数、`sym('pi')`，避免任何 double 常量。
 :::
 
 #### 9.1.3 符号运算中变量的确定
@@ -1587,7 +1587,7 @@ int(int(x*y, y, 0, 1), x, 0, 1) % 重积分
 ```
 
 ::: danger 易错点 · 不定积分没有积分常数
-`int(f,x)` 返回**一个**原函数，**不写 +C**，需要时自行加上。另外很多初等函数的原函数不存在初等闭式（如 <img class="fml" src="/formulas/8a4ae61a882e78.png" alt="\exp(-x^2)" width="78" height="33"> 的不定积分），MATLAB 会返回 `erf` 等特殊函数或原样返回，这不是错误。
+`int(f,x)` 返回**一个**原函数，**不写 +C**，需要时自行加上。另外很多初等函数的原函数不存在初等闭式（如 <img class="fml" src="/formulas/8a4ae61a882e78.png" alt="\exp(-x^2)" width="79" height="34"> 的不定积分），MATLAB 会返回 `erf` 等特殊函数或原样返回，这不是错误。
 :::
 
 ### 9.3 级数
@@ -1881,7 +1881,7 @@ end
 ```
 
 ::: danger 易错点 · 递归要有终止条件
-递归函数**必须有 `n == 0` 之类的基线分支**，否则无限递归直到栈溢出。科赫曲线层数 n=5 时线段数是 <img class="fml" src="/formulas/d53c06dbb18072.png" alt="4^{5}=1024" width="82" height="33">，n 再大绘制会明显变慢。
+递归函数**必须有 `n == 0` 之类的基线分支**，否则无限递归直到栈溢出。科赫曲线层数 n=5 时线段数是 <img class="fml" src="/formulas/d53c06dbb18072.png" alt="4^{5}=1024" width="83" height="34">，n 再大绘制会明显变慢。
 :::
 
 ### 14.4 最优化问题求解
@@ -1903,14 +1903,14 @@ end
 | # | 易错点 | 正确做法 |
 | --- | --- | --- |
 | 1 | `*` 与 `.*` 混用 | 逐元素运算一律加点；向量化函数内部也要 `.*` `.^` `./` |
-| 2 | 统计函数默认按列 | 按行要加 <img class="fml" src="/formulas/1c575817c57df7.png" alt="\dim=2" width="69" height="33">：`mean(A,2)`、`max(A,[],2)` |
+| 2 | 统计函数默认按列 | 按行要加 <img class="fml" src="/formulas/1c575817c57df7.png" alt="\dim=2" width="70" height="34">：`mean(A,2)`、`max(A,[],2)` |
 | 3 | 线性索引按列优先 | `A(3)` 是第 1 列第 3 行；`reshape` 也按列 |
 | 4 | `length(A)` 是最大维长度 | 元素总数用 `numel(A)`，行数用 `size(A,1)` |
 | 5 | `i`/`j` 被覆盖 | 复数写 `1i`、`7+5i`，别拿 i 当循环变量 |
 | 6 | `A'` 与 `A.'` | 复数矩阵 `A'` 是共轭转置，纯转置用 `A.'` |
 | 7 | 用 `inv(A)*b` 解方程组 | 一律用 `x = A\b` |
 | 8 | `polyval` / `polyvalm` 混淆 | 矩阵多项式用 `polyvalm`（常数项是单位阵） |
-| 9 | 多项式缺项忘补 0 | <img class="fml" src="/formulas/111df25c3dab73.png" alt="x^{3}+2x-5" width="95" height="33"> → `[1 0 2 -5]` |
+| 9 | 多项式缺项忘补 0 | <img class="fml" src="/formulas/111df25c3dab73.png" alt="x^{3}+2x-5" width="96" height="34"> → `[1 0 2 -5]` |
 | 10 | 浮点数用 `==` 比较 | 用容差 `abs(a-b) < 1e-12`；`isnan` 判 NaN |
 | 11 | `if` 条件用数组 | 明确写 `all(...)` / `any(...)` |
 | 12 | `elseif` 写成 `else if` | `elseif` 是一个词，不多加 `end` |

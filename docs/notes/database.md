@@ -124,8 +124,8 @@ DBMS 的主要功能：① **数据定义**（DDL）；② **数据操纵**（DM
 | 域 Domain | 一组具有相同数据类型的值的集合 | 数据类型 + 取值约束 |
 | 元组 Tuple | 笛卡尔积中的一个元素 | 一行 / 一条记录 |
 | 属性 Attribute | 关系的一列，每列有域名 | 字段 / 列 |
-| 关系 Relation | <img class="fml" src="/formulas/e177f2971ad79e.png" alt="D_{1} \times D_{2} \times \cdots \times D_{n}" width="159" height="33"> 的**有限子集**，即元组的集合 | 表（严格说是满足规范化的二维表） |
-| 关系模式 | `R(U, D, DOM, F)`，常简写 <img class="fml" src="/formulas/b8625bd3a5c1f2.png" alt="R(A_{1}, A_{2}, \cdots, A_{n})" width="147" height="33"> | `CREATE TABLE` 的表结构 |
+| 关系 Relation | <img class="fml" src="/formulas/e177f2971ad79e.png" alt="D_{1} \times D_{2} \times \cdots \times D_{n}" width="160" height="33"> 的**有限子集**，即元组的集合 | 表（严格说是满足规范化的二维表） |
+| 关系模式 | `R(U, D, DOM, F)`，常简写 <img class="fml" src="/formulas/b8625bd3a5c1f2.png" alt="R(A_{1}, A_{2}, \cdots, A_{n})" width="148" height="33"> | `CREATE TABLE` 的表结构 |
 | 关系数据库模式 | 全体关系模式的集合 | 数据库 schema |
 
 **关系的六条性质**（区分「关系」与随便一张表）：① 列同质（同一列来自同一域）；② 不同列可同域但须不同名；③ 列的次序可换；④ 行的次序可换；⑤ **任意两元组不能完全相同**（集合无重复元素）；⑥ **每个分量必须是不可再分的原子值**（即满足 1NF，不允许「表中有表」）。
@@ -162,13 +162,13 @@ DBMS 的主要功能：① **数据定义**（DDL）；② **数据操纵**（DM
 
 | 运算 | 记号 | 含义 |
 | --- | --- | --- |
-| 并 | <img class="fml" src="/formulas/c8e92e60e6a529.png" alt="R \cup S" width="51" height="33"> | 属于 R 或 S 的元组（去重） |
-| 差 | <img class="fml" src="/formulas/b8f611178f62e5.png" alt="R- S" width="53" height="33"> | 属于 R 但不属于 S 的元组 |
-| 交 | <img class="fml" src="/formulas/c6c98ec5f5f07f.png" alt="R \cap S" width="51" height="33"> | 同时属于两者的元组，<img class="fml" src="/formulas/655fd6af0ebef3.png" alt="R \cap S= R-(R- S)" width="172" height="33"> |
-| 笛卡尔积 | <img class="fml" src="/formulas/82d5379a135d9f.png" alt="R \times S" width="53" height="33"> | R 的每个元组与 S 的每个元组拼接；基数 <img class="fml" src="/formulas/3dc8c7fbbc5ba9.png" alt="=\vert R\vert  \times\vert S\vert" width="92" height="33">，度数 `= 属性数之和` |
-| **选择** | <img class="fml" src="/formulas/b4048d530873d1.png" alt="\sigma_{F}(R)" width="54" height="33"> | 按条件 F **选行**（水平方向） |
-| **投影** | <img class="fml" src="/formulas/661156ac7d9b9b.png" alt="\pi_{A}(R)" width="54" height="33"> | 选出指定属性**列**并**去重**（垂直方向） |
-| **连接** | <img class="fml" src="/formulas/89b6a26eee24b1.png" alt="R ⋈_{A\theta B} S" width="84" height="33"> | `σ_条件(R × S)`；等值连接、自然连接（自动按同名属性等值并去掉重复列） |
+| 并 | <img class="fml" src="/formulas/c8e92e60e6a529.png" alt="R \cup S" width="53" height="33"> | 属于 R 或 S 的元组（去重） |
+| 差 | <img class="fml" src="/formulas/b8f611178f62e5.png" alt="R- S" width="54" height="33"> | 属于 R 但不属于 S 的元组 |
+| 交 | <img class="fml" src="/formulas/c6c98ec5f5f07f.png" alt="R \cap S" width="53" height="33"> | 同时属于两者的元组，<img class="fml" src="/formulas/655fd6af0ebef3.png" alt="R \cap S= R-(R- S)" width="173" height="33"> |
+| 笛卡尔积 | <img class="fml" src="/formulas/82d5379a135d9f.png" alt="R \times S" width="54" height="33"> | R 的每个元组与 S 的每个元组拼接；基数 <img class="fml" src="/formulas/3dc8c7fbbc5ba9.png" alt="=\vert R\vert  \times\vert S\vert" width="93" height="33">，度数 `= 属性数之和` |
+| **选择** | <img class="fml" src="/formulas/b4048d530873d1.png" alt="\sigma_{F}(R)" width="56" height="33"> | 按条件 F **选行**（水平方向） |
+| **投影** | <img class="fml" src="/formulas/661156ac7d9b9b.png" alt="\pi_{A}(R)" width="55" height="33"> | 选出指定属性**列**并**去重**（垂直方向） |
+| **连接** | <img class="fml" src="/formulas/89b6a26eee24b1.png" alt="R ⋈_{A\theta B} S" width="85" height="33"> | `σ_条件(R × S)`；等值连接、自然连接（自动按同名属性等值并去掉重复列） |
 | **除** | `R ÷ S` | 找出"与 S 中所有值都配对"的 R 中属性值，常用来表达"全部/所有" |
 
 ![关系代数八种运算](/db/db-algebra.svg)
@@ -185,10 +185,10 @@ DBMS 的主要功能：① **数据定义**（DDL）；② **数据操纵**（DM
 \pi_{Sno},Cno(SC) \div  \pi_{Cno}(Course) \\
 \text{(4)} \; \text{查询未选修任何课程的学生姓名：} \\
 \pi_{Sname}(Student)- \pi_{Sname}(Student ⋈ SC)
-\end{gathered}" width="560" height="217"></p>
+\end{gathered}" width="561" height="218"></p>
 
 
-**要点**：自然连接会**自动按同名属性**拼接并去掉重复列；若两表没有同名属性却直接写 `⋈`，结果退化为笛卡尔积，是常见错误。除运算几乎总对应 SQL 中的 <img class="fml" src="/formulas/729a7eee52b30f.png" alt="NOT EXISTS \cdots NOT EXISTS" width="272" height="33"> 双重否定或 `GROUP BY + HAVING COUNT` 写法。
+**要点**：自然连接会**自动按同名属性**拼接并去掉重复列；若两表没有同名属性却直接写 `⋈`，结果退化为笛卡尔积，是常见错误。除运算几乎总对应 SQL 中的 <img class="fml" src="/formulas/729a7eee52b30f.png" alt="NOT EXISTS \cdots NOT EXISTS" width="273" height="33"> 双重否定或 `GROUP BY + HAVING COUNT` 写法。
 :::
 
 **关系演算**：以数理逻辑谓词为基础，是**非过程化**的。元组关系演算（如 ALPHA：`GET W (Student.Sname): Student.Sdept='CS'`）、域关系演算（如 QBE）。SQL 在表达能力上等价于关系代数 + 关系演算，且**具有关系完备性**；实际 SQL 还带聚合、分组、更新等超出的能力。
@@ -203,15 +203,15 @@ DBMS 的主要功能：① **数据定义**（DDL）；② **数据操纵**（DM
 
 | 关系代数 | SQL |
 | --- | --- |
-| <img class="fml" src="/formulas/b4048d530873d1.png" alt="\sigma_{F}(R)" width="54" height="33"> | `SELECT * FROM R WHERE F` |
-| <img class="fml" src="/formulas/661156ac7d9b9b.png" alt="\pi_{A}(R)" width="54" height="33"> | `SELECT DISTINCT A FROM R` |
-| <img class="fml" src="/formulas/c8e92e60e6a529.png" alt="R \cup S" width="51" height="33"> | `SELECT … FROM R UNION SELECT … FROM S` |
-| <img class="fml" src="/formulas/b8f611178f62e5.png" alt="R- S" width="53" height="33"> | `SELECT … FROM R EXCEPT SELECT … FROM S`（MySQL 8.0.31 起原生支持，更早版本用 `NOT EXISTS` / <img class="fml" src="/formulas/0d5c8d66c617d1.png" alt="LEFT JOIN \cdots IS NULL" width="213" height="33">） |
-| <img class="fml" src="/formulas/c6c98ec5f5f07f.png" alt="R \cap S" width="51" height="33"> | `INTERSECT`（MySQL 8.0.31 起原生支持，更早版本用 `INNER JOIN` / `IN`） |
-| <img class="fml" src="/formulas/82d5379a135d9f.png" alt="R \times S" width="53" height="33"> | `CROSS JOIN` |
-| `R ⋈ S` | <img class="fml" src="/formulas/e73f18d20ede86.png" alt="JOIN \cdots ON" width="115" height="33"> / `NATURAL JOIN` |
+| <img class="fml" src="/formulas/b4048d530873d1.png" alt="\sigma_{F}(R)" width="56" height="33"> | `SELECT * FROM R WHERE F` |
+| <img class="fml" src="/formulas/661156ac7d9b9b.png" alt="\pi_{A}(R)" width="55" height="33"> | `SELECT DISTINCT A FROM R` |
+| <img class="fml" src="/formulas/c8e92e60e6a529.png" alt="R \cup S" width="53" height="33"> | `SELECT … FROM R UNION SELECT … FROM S` |
+| <img class="fml" src="/formulas/b8f611178f62e5.png" alt="R- S" width="54" height="33"> | `SELECT … FROM R EXCEPT SELECT … FROM S`（MySQL 8.0.31 起原生支持，更早版本用 `NOT EXISTS` / <img class="fml" src="/formulas/0d5c8d66c617d1.png" alt="LEFT JOIN \cdots IS NULL" width="214" height="33">） |
+| <img class="fml" src="/formulas/c6c98ec5f5f07f.png" alt="R \cap S" width="53" height="33"> | `INTERSECT`（MySQL 8.0.31 起原生支持，更早版本用 `INNER JOIN` / `IN`） |
+| <img class="fml" src="/formulas/82d5379a135d9f.png" alt="R \times S" width="54" height="33"> | `CROSS JOIN` |
+| `R ⋈ S` | <img class="fml" src="/formulas/e73f18d20ede86.png" alt="JOIN \cdots ON" width="116" height="33"> / `NATURAL JOIN` |
 | `R ÷ S` | 双重 `NOT EXISTS` 或 `GROUP BY + HAVING COUNT(DISTINCT)` |
-| <img class="fml" src="/formulas/1cbdbde7b6806f.png" alt="\gamma_{G, agg}(R)" width="76" height="33"> | `SELECT G, agg(…) FROM R GROUP BY G`（分组聚合是关系代数的扩展） |
+| <img class="fml" src="/formulas/1cbdbde7b6806f.png" alt="\gamma_{G, agg}(R)" width="77" height="33"> | `SELECT G, agg(…) FROM R GROUP BY G`（分组聚合是关系代数的扩展） |
 
 ::: tip 工作示例 · 除运算的两种 SQL 写法
 查询「选修了全部课程的学生学号」：
@@ -259,7 +259,7 @@ SQL（Structured Query Language）是关系数据库的**标准语言**，集 DD
 \to \; \text{服务层（} \; \text{SQL} \; \text{接口} \; \to \; \text{解析器} \; \to \; \text{预处理器} \; \to \; \text{优化器} \; \to \; \text{执行器} \; \text{+} \; \text{查询缓存} \; \text{[8.0} \; \text{已移除} \; \text{]} \; \text{）} \\
 \to \; \text{存储引擎层（} \; \text{InnoDB / MyISAM / MEMORY} \; \text{，插件式）} \\
 \to \; \text{文件系统（数据文件、日志文件）}
-\end{gathered}" width="788" height="110"></p>
+\end{gathered}" width="789" height="111"></p>
 
 
 
@@ -273,7 +273,7 @@ SQL（Structured Query Language）是关系数据库的**标准语言**，集 DD
 
 ::: danger 易错 · SQL 标准与 MySQL 方言
 - SQL 标准用 `||` 拼接字符串，MySQL 用 `CONCAT()`（除非开启 `PIPES_AS_CONCAT`）。
-- MySQL 的 `LIMIT n OFFSET m`（或 `LIMIT m, n`）是方言，标准 SQL 用 <img class="fml" src="/formulas/4f7f54e647dad0.png" alt="OFFSET \cdots FETCH FIRST \cdots ROWS ONLY" width="390" height="33">。
+- MySQL 的 `LIMIT n OFFSET m`（或 `LIMIT m, n`）是方言，标准 SQL 用 <img class="fml" src="/formulas/4f7f54e647dad0.png" alt="OFFSET \cdots FETCH FIRST \cdots ROWS ONLY" width="391" height="33">。
 - 反引号 `` ` `` 是 MySQL 标识符引用符，标准 SQL 用双引号；字符串统一用单引号。
 - 聚合函数与 `GROUP BY`：MySQL 在非 `ONLY_FULL_GROUP_BY` 模式下允许 SELECT 非分组列，结果**不确定**；标准 SQL 与严格模式都禁止。
 :::
@@ -283,7 +283,7 @@ SQL（Structured Query Language）是关系数据库的**标准语言**，集 DD
 | 特性 | 说明 |
 | --- | --- |
 | **CTE 与递归 CTE** | `WITH cte AS (…) SELECT …`；`WITH RECURSIVE` 处理树形/层级数据 |
-| **窗口函数** | <img class="fml" src="/formulas/c1220050b5e013.png" alt="\frac{\frac{\frac{\frac{\frac{ROW_{NUMBER}}{RANK}}{DENSE_{RANK}}}{LAG}}{LEAD}}{SUM() OVER(PARTITION BY \cdots)}" width="219" height="66">，不折叠行 |
+| **窗口函数** | <img class="fml" src="/formulas/c1220050b5e013.png" alt="\frac{\frac{\frac{\frac{\frac{ROW_{NUMBER}}{RANK}}{DENSE_{RANK}}}{LAG}}{LEAD}}{SUM() OVER(PARTITION BY \cdots)}" width="220" height="67">，不折叠行 |
 | JSON 增强 | JSON 类型、JSON 函数、函数索引（Generated Column） |
 | 角色、原子 DDL、降序索引、不可见索引 | 权限批量管理、DDL 崩溃安全、排序优化、索引灰度下线 |
 | `utf8mb4_0900_ai_ci` 默认校对 | 真正 UTF-8、性能更好 |
@@ -347,7 +347,7 @@ DROP DATABASE IF EXISTS teaching;
 
 ::: danger 易错 · 字符集与建库
 - `DROP DATABASE` 会删除库中**所有表与数据**且不可回滚；生产环境必须先备份。
-- 「改了库的默认字符集」**不会**自动转换已有表/列的字符集，需 <img class="fml" src="/formulas/264691a7bf199d.png" alt="ALTER TABLE \cdots CONVERT TO CHARACTER SET utf8mb4" width="526" height="33">。
+- 「改了库的默认字符集」**不会**自动转换已有表/列的字符集，需 <img class="fml" src="/formulas/264691a7bf199d.png" alt="ALTER TABLE \cdots CONVERT TO CHARACTER SET utf8mb4" width="527" height="34">。
 - 字符集不一致会导致 JOIN 时索引失效或报 `Illegal mix of collations`；工程上全库统一 utf8mb4。
 :::
 
@@ -373,7 +373,7 @@ DROP DATABASE IF EXISTS teaching;
 | 约束 | 写法 | 作用 |
 | --- | --- | --- |
 | `PRIMARY KEY` | 列级或表级 | 实体完整性；自动 NOT NULL + UNIQUE；**每表最多一个**（可组合多列） |
-| <img class="fml" src="/formulas/f6f6a4119f115a.png" alt="FOREIGN KEY \cdots REFERENCES" width="314" height="33"> | 表级 | 参照完整性；要求被参照列有唯一索引，两表通常同为 InnoDB |
+| <img class="fml" src="/formulas/f6f6a4119f115a.png" alt="FOREIGN KEY \cdots REFERENCES" width="314" height="34"> | 表级 | 参照完整性；要求被参照列有唯一索引，两表通常同为 InnoDB |
 | `UNIQUE` | 列级/表级 | 唯一性；**允许多个 NULL**（MySQL） |
 | `NOT NULL` | 列级 | 禁止 NULL |
 | `DEFAULT` | 列级 | 未给值时填默认值 |
@@ -504,18 +504,18 @@ SELECT DISTINCT Sdept FROM Student ORDER BY Sdept ASC LIMIT 2;
 
 | 常用谓词 / 函数 | 说明 |
 | --- | --- |
-| `BETWEEN a AND b` / <img class="fml" src="/formulas/f14c3a46c63cdd.png" alt="IN( \cdots)" width="69" height="33"> / `LIKE '模式'` | 范围 / 集合 / 模糊匹配（`%` 任意串、`_` 单字符，`ESCAPE` 转义） |
+| `BETWEEN a AND b` / <img class="fml" src="/formulas/f14c3a46c63cdd.png" alt="IN( \cdots)" width="71" height="34"> / `LIKE '模式'` | 范围 / 集合 / 模糊匹配（`%` 任意串、`_` 单字符，`ESCAPE` 转义） |
 | `IS NULL` / `IS NOT NULL` | 判空 |
 | `COUNT / SUM / AVG / MAX / MIN` | 聚合函数，除 `COUNT(*)` 外都**忽略 NULL**；`SUM` 遇全 NULL 返回 NULL |
 | `AND / OR / NOT` | 三值逻辑：TRUE / FALSE / **UNKNOWN**，`NOT IN` 遇子查询含 NULL 会返回空结果 |
-| <img class="fml" src="/formulas/3bd4e172c88b25.png" alt="CASE WHEN \cdots THEN \cdots ELSE \cdots END" width="364" height="33"> | 条件表达式（可实现行列转换、分组打标） |
+| <img class="fml" src="/formulas/3bd4e172c88b25.png" alt="CASE WHEN \cdots THEN \cdots ELSE \cdots END" width="365" height="34"> | 条件表达式（可实现行列转换、分组打标） |
 | `COALESCE / IFNULL` | 用默认值替换 NULL |
 
 ### 6.2 多表连接（★★★）
 
 | 连接 | 结果 | 记忆 |
 | --- | --- | --- |
-| <img class="fml" src="/formulas/8ea24215ed4e95.png" alt="INNER JOIN \cdots ON" width="184" height="33"> | 两表都匹配的行 | 交集 |
+| <img class="fml" src="/formulas/8ea24215ed4e95.png" alt="INNER JOIN \cdots ON" width="185" height="34"> | 两表都匹配的行 | 交集 |
 | `LEFT [OUTER] JOIN` | 左表全部 + 右表匹配（无匹配补 NULL） | 左表不丢 |
 | `RIGHT [OUTER] JOIN` | 右表全部 + 左表匹配 | 右表不丢 |
 | `CROSS JOIN` | 笛卡尔积 | 忘写 ON 的后果 |
@@ -549,10 +549,10 @@ GROUP BY s.Sno, s.Sname ORDER BY cnt DESC, s.Sname;
 | --- | --- | --- |
 | 标量子查询 | `WHERE Sage > (SELECT AVG(Sage) FROM Student)` | 返回单值 |
 | `IN` 子查询 | `WHERE Sno IN (SELECT Sno FROM SC …)` | 返回一列多行；含 NULL 时小心 |
-| 比较 + `ANY/ALL` | <img class="fml" src="/formulas/6b1cc4dc7ff724.png" alt="&gt; ANY( \cdots)" width="107" height="33">（大于最小）/ <img class="fml" src="/formulas/d3649b2253d389.png" alt="&gt; ALL( \cdots)" width="100" height="33">（大于最大） | 与聚合 MAX/MIN 等价 |
+| 比较 + `ANY/ALL` | <img class="fml" src="/formulas/6b1cc4dc7ff724.png" alt="&gt; ANY( \cdots)" width="108" height="34">（大于最小）/ <img class="fml" src="/formulas/d3649b2253d389.png" alt="&gt; ALL( \cdots)" width="101" height="34">（大于最大） | 与聚合 MAX/MIN 等价 |
 | `EXISTS` 相关子查询 | `WHERE EXISTS (SELECT 1 FROM SC WHERE …)` | 逐行求值、找到即停，通常效率高 |
 | `NOT EXISTS` 双重否定 | 表达「全部 / 所有」 | 对应关系代数除运算 |
-| 派生表 / CTE | `FROM (SELECT …) AS t` / <img class="fml" src="/formulas/8e130edddf9c34.png" alt="WITH cte AS( \cdots)" width="149" height="33"> | MySQL 8.0 支持 CTE 与窗口函数 |
+| 派生表 / CTE | `FROM (SELECT …) AS t` / <img class="fml" src="/formulas/8e130edddf9c34.png" alt="WITH cte AS( \cdots)" width="151" height="34"> | MySQL 8.0 支持 CTE 与窗口函数 |
 
 ::: tip 工作示例 · 子查询与「全部」表达（含实际结果）
 ```sql
@@ -891,10 +891,10 @@ T2: R(A)  W(A)  R(B)  W(B)
 \text{A} \; \text{上：} \; \text{R2(A)} \; \text{在} \; \text{W1(A)} \; \text{之前} \; \to T2 \to T1 \; \text{；} \; \text{W1(A)} \; \text{在} \; \text{W2(A)} \; \text{之前} \; \to T1 \to T2 \Rightarrow \; \text{出现环} \\
 \text{B} \; \text{上：} \; \text{W2(B)} \; \text{在} \; \text{R1(B)} \; \text{之前} \; \to T2 \to T1 \; \text{；} \; \text{R2(B)} \; \text{在} \; \text{W1(B)} \; \text{之前} \; \to T2 \to T1 \\
 \text{优先图：} \; \text{T1 ⇄  T2} \; \text{（有环）} \; \Rightarrow \; \text{该调度} \; \text{**} \; \text{不是冲突可串行化} \; \text{**} \; \text{的}
-\end{gathered}" width="737" height="83"></p>
+\end{gathered}" width="738" height="83"></p>
 
 
-若优先图无环，则拓扑序即等价的串行次序（如 <img class="fml" src="/formulas/ee183f8a61aae9.png" alt="T1 \to T2" width="77" height="33">）。**2PL 保证可串行化但不保证无死锁**；时间戳排序、乐观并发控制（OCC/MVCC）是另外的实现路线。
+若优先图无环，则拓扑序即等价的串行次序（如 <img class="fml" src="/formulas/ee183f8a61aae9.png" alt="T1 \to T2" width="78" height="34">）。**2PL 保证可串行化但不保证无死锁**；时间戳排序、乐观并发控制（OCC/MVCC）是另外的实现路线。
 
 ::: tip 并发控制的三条技术路线（对比记忆）
 - **封锁法（悲观）**：先加锁再操作，2PL 保证可串行化，代价是并发度下降与死锁。
@@ -951,7 +951,7 @@ mysqlbinlog --stop-datetime="2026-11-13 14:29:59" mysql-bin.000003 | mysql -u ro
 \text{(1)} \; \text{记录} \; \text{undo} \; \text{（保存旧值）} \; \text{(2)} \; \text{修改内存中的} \; \text{Buffer Pool} \; \text{页} \\
 \text{(3)} \; \text{写} \; redo \log \; \text{（} \; \text{prepare} \; \text{状态）} \; \text{(4)} \; \text{写} \; \text{binlog} \\
 (5) redo \log \; \text{改写成} \; \text{commit}
-\end{gathered}" width="481" height="110"></p>
+\end{gathered}" width="481" height="111"></p>
 
 
 **为什么要两阶段提交**：binlog 与 redo 分属两层，若「redo 已提交但 binlog 没写」→ 主库有数据、从库没有；反之从库多数据。2PC 以 binlog 是否完整写入作为最终提交依据，保证**主库与从库一致**。崩溃恢复时：redo 为 prepare 且 binlog 完整 → 提交；redo 为 prepare 但 binlog 不完整 → 回滚。
@@ -1029,7 +1029,7 @@ Sno \to Sdept \; \text{（部分依赖：} \; \text{Sdept} \; \text{只依赖主
 Sno \to Sloc \\
 Sdept \to Sloc \; \text{（传递依赖）} \\
 \text{候选码} \; \text{= (Sno, Cno)}
-\end{gathered}" width="455" height="137"></p>
+\end{gathered}" width="456" height="137"></p>
 
 
 它引发四类异常：
@@ -1045,11 +1045,11 @@ Sdept \to Sloc \; \text{（传递依赖）} \\
 
 | 概念 | 定义 |
 | --- | --- |
-| 函数依赖 <img class="fml" src="/formulas/a7224936efce3a.png" alt="X \to Y" width="64" height="33"> | 对 R 的任意合法关系，任意两元组若在 X 上取值相同，则在 Y 上必相同 |
-| 平凡函数依赖 | `Y ⊆ X`（如 <img class="fml" src="/formulas/b6c544e9b7b5d1.png" alt="(Sno,Cno) \to Sno" width="152" height="33">），恒成立 |
-| **完全函数依赖** <img class="fml" src="/formulas/99b4daedf908cb.png" alt="X \to f Y" width="75" height="33"> | Y 依赖整个 X，不依赖 X 的任一真子集 |
-| **部分函数依赖** <img class="fml" src="/formulas/615c199de46f83.png" alt="X \to p Y" width="73" height="33"> | Y 只依赖 X 的某个真子集 |
-| **传递函数依赖** | <img class="fml" src="/formulas/a7224936efce3a.png" alt="X \to Y" width="64" height="33">、<img class="fml" src="/formulas/b61a2a9d950881.png" alt="Y \to Z" width="62" height="33">、`Y \not\to  X`、`Z ⊄ Y` ⇒ <img class="fml" src="/formulas/a464c950554f6e.png" alt="X \to t Z" width="70" height="33"> |
+| 函数依赖 <img class="fml" src="/formulas/a7224936efce3a.png" alt="X \to Y" width="66" height="34"> | 对 R 的任意合法关系，任意两元组若在 X 上取值相同，则在 Y 上必相同 |
+| 平凡函数依赖 | `Y ⊆ X`（如 <img class="fml" src="/formulas/b6c544e9b7b5d1.png" alt="(Sno,Cno) \to Sno" width="152" height="34">），恒成立 |
+| **完全函数依赖** <img class="fml" src="/formulas/99b4daedf908cb.png" alt="X \to f Y" width="76" height="34"> | Y 依赖整个 X，不依赖 X 的任一真子集 |
+| **部分函数依赖** <img class="fml" src="/formulas/615c199de46f83.png" alt="X \to p Y" width="75" height="34"> | Y 只依赖 X 的某个真子集 |
+| **传递函数依赖** | <img class="fml" src="/formulas/a7224936efce3a.png" alt="X \to Y" width="66" height="34">、<img class="fml" src="/formulas/b61a2a9d950881.png" alt="Y \to Z" width="62" height="34">、`Y \not\to  X`、`Z ⊄ Y` ⇒ <img class="fml" src="/formulas/a464c950554f6e.png" alt="X \to t Z" width="71" height="34"> |
 
 **Armstrong 公理系统**（自反律、增广律、传递律，是**完备且可靠**的推理规则）：
 
@@ -1059,17 +1059,17 @@ Sdept \to Sloc \; \text{（传递依赖）} \\
 \text{A2} \; \text{增广律：若} \; X \to Y \; \text{且} \; \text{Z ⊆ U} \; \text{，则} \; XZ \to YZ \\
 \text{A3} \; \text{传递律：若} \; X \to Y \; \text{且} \; Y \to Z \; \text{，则} \; X \to Z \\
 \text{推论：合并规则} \; (X \to Y, X \to Z \Rightarrow X \to YZ) \; \text{、分解规则} \; (X \to YZ \Rightarrow X \to Y) \; \text{、伪传递规则} \; (X \to Y, WY \to Z \Rightarrow WX \to Z)
-\end{gathered}" width="1020" height="110"></p>
+\end{gathered}" width="1021" height="111"></p>
 
 
-**属性闭包 <img class="fml" src="/formulas/721a78bcb357a3.png" alt="X^{+}" width="33" height="33">**：由 X 在函数依赖集 F 下能推出的全部属性。算法：从 <img class="fml" src="/formulas/4977c51d5349aa.png" alt="X^{+}=X" width="73" height="33"> 开始，反复把满足 <img class="fml" src="/formulas/7c41173826b7f4.png" alt="A ⊆ X^{+}" width="70" height="33"> 的 <img class="fml" src="/formulas/95ac6ae055127f.png" alt="A \to B" width="62" height="33"> 中的 B 并入，直到不再变化。若 <img class="fml" src="/formulas/13872f961b9508.png" alt="X^{+}= U" width="71" height="33">，则 X 是**超码**；若再无真子集满足，则是**候选码**。
+**属性闭包 <img class="fml" src="/formulas/721a78bcb357a3.png" alt="X^{+}" width="34" height="34">**：由 X 在函数依赖集 F 下能推出的全部属性。算法：从 <img class="fml" src="/formulas/4977c51d5349aa.png" alt="X^{+}=X" width="74" height="34"> 开始，反复把满足 <img class="fml" src="/formulas/7c41173826b7f4.png" alt="A ⊆ X^{+}" width="71" height="34"> 的 <img class="fml" src="/formulas/95ac6ae055127f.png" alt="A \to B" width="62" height="34"> 中的 B 并入，直到不再变化。若 <img class="fml" src="/formulas/13872f961b9508.png" alt="X^{+}= U" width="72" height="34">，则 X 是**超码**；若再无真子集满足，则是**候选码**。
 
 ::: tip 最小函数依赖集（最小覆盖）
 F 的最小覆盖 F_min 满足三条件：① 每个 FD 右部都是**单属性**；② 不存在可用其余 FD 推出的**冗余 FD**；③ 每个 FD 左部不含**冗余属性**（去掉任一属性后闭包不变）。求法：拆右部 → 逐个尝试删 FD → 逐个尝试删左部属性。最小覆盖是 3NF 保持依赖分解算法（综合模式法）的输入，也是「同一 F 的最小覆盖不唯一」这一判断题的来源。
 :::
 
 ::: tip 工作示例 · 求候选码（含完整推导）
-设 `R(A,B,C,D,E)`，<img class="fml" src="/formulas/8dfd8ccbf7c576.png" alt="F={AB \to C, C \to D, D \to E, E \to A}" width="307" height="33">，求候选码。
+设 `R(A,B,C,D,E)`，<img class="fml" src="/formulas/8dfd8ccbf7c576.png" alt="F={AB \to C, C \to D, D \to E, E \to A}" width="308" height="34">，求候选码。
 
 
 
@@ -1082,10 +1082,10 @@ F 的最小覆盖 F_min 满足三条件：① 每个 FD 右部都是**单属性*
 \text{(BD)+ = {B,D} → D→E → E→A → (AB} \; \text{已含} \; \text{? A} \; \text{、} \; \text{B} \; \text{、} \; \text{C?} \; \text{由} \; AB \to C \; \text{得} \; \text{C) =} \; \text{全部} \; \checkmark \; \text{候选码} \\
 (BE)^{+}={B,E} \to E \to A \to AB \to C \to C \to D= \; \text{全部} \; \checkmark \; \text{候选码} \\
 \text{(4)} \; \text{故候选码为} \; \text{AB} \; \text{、} \; \text{BC} \; \text{、} \; \text{BD} \; \text{、} \; \text{BE} \; \text{（四个）；主属性} \; \text{= {A,B,C,D,E}} \; \text{全部，非主属性为空}
-\end{gathered}" width="765" height="217"></p>
+\end{gathered}" width="766" height="217"></p>
 
 
-**结论**：R 中所有属性都是主属性 → 至少属于 3NF；再检查决定因素是否都含码（如 <img class="fml" src="/formulas/5a045cea38e0ed.png" alt="C \to D" width="63" height="33"> 中 C 不是码）→ **不属于 BCNF**。
+**结论**：R 中所有属性都是主属性 → 至少属于 3NF；再检查决定因素是否都含码（如 <img class="fml" src="/formulas/5a045cea38e0ed.png" alt="C \to D" width="64" height="34"> 中 C 不是码）→ **不属于 BCNF**。
 :::
 
 ### 12.3 范式与分解（★★★）
@@ -1096,9 +1096,9 @@ F 的最小覆盖 F_min 满足三条件：① 每个 FD 右部都是**单属性*
 | **2NF** | 1NF + 每个**非主属性完全函数依赖**于每个候选码 | 消除非主属性对码的**部分依赖** |
 | **3NF** | 2NF + 每个非主属性**不传递依赖**于码 | 消除非主属性的**传递依赖** |
 | **BCNF** | 1NF + **每一个非平凡函数依赖 X→Y 中 X 都含候选码**（即决定因素必为超码） | 消除**主属性**对码的部分/传递依赖 |
-| **4NF** | BCNF + 每个非平凡**多值依赖** <img class="fml" src="/formulas/14ba21efbfd651.png" alt="X \to \to Y" width="82" height="33"> 中 X 含码 | 消除独立的多值事实造成的冗余 |
+| **4NF** | BCNF + 每个非平凡**多值依赖** <img class="fml" src="/formulas/14ba21efbfd651.png" alt="X \to \to Y" width="84" height="34"> 中 X 含码 | 消除独立的多值事实造成的冗余 |
 
-等价表述：**3NF** 允许 <img class="fml" src="/formulas/dbe04000a4f7fc.png" alt="X \to A" width="63" height="33"> 中 A 是主属性（可"放松"），BCNF 完全不允许决定因素不含码。
+等价表述：**3NF** 允许 <img class="fml" src="/formulas/dbe04000a4f7fc.png" alt="X \to A" width="64" height="34"> 中 A 是主属性（可"放松"），BCNF 完全不允许决定因素不含码。
 
 ![函数依赖、范式判定与模式分解](/db/db-normalization.svg)
 
@@ -1118,18 +1118,18 @@ SL(Sno, Sdept, Sloc) F2={Sno \to Sdept, Sno \to Sloc, Sdept \to Sloc} \; \text{�
 SD(Sno, Sdept) F3={Sno \to Sdept} \\
 DL(Sdept, Sloc) F4={Sdept \to Sloc} \\
 \text{最终：} \; \text{SC} \; \text{、} \; \text{SD} \; \text{、} \; \text{DL} \; \text{均达} \; \text{BCNF} \; \text{，且四类异常全部消除}
-\end{gathered}" width="754" height="343"></p>
+\end{gathered}" width="755" height="345"></p>
 
 
 **每步都要能答**：违反哪个范式、依据哪条函数依赖、按什么拆、拆完有没有丢东西。
 :::
 
 ::: tip BCNF、4NF 与「无损连接 / 保持依赖」
-**BCNF 反例**：`STJ(S, T, J)`（学生、教师、课程），<img class="fml" src="/formulas/68f02b912270fb.png" alt="F={(S,J) \to T,(S,T) \to J, T \to J}" width="284" height="33">，候选码 `(S,J)` 与 `(S,T)`。所有属性都是主属性 ⇒ 满足 3NF；但 <img class="fml" src="/formulas/be67296b11f7d3.png" alt="T \to J" width="58" height="33"> 中 T 不含码 ⇒ **不满足 BCNF**。分解为 `ST(S,T)` + `TJ(T,J)` 达 BCNF，但**丢失了 <img class="fml" src="/formulas/f0f4b7770a5a62.png" alt="(S,J) \to T" width="92" height="33">**（说明 BCNF 分解不保证保持依赖）。
-**4NF 反例**：`CTB(Course, Teacher, Book)`，一门课有多位教师、多套教材且二者相互独立 ⇒ 存在非平凡多值依赖 <img class="fml" src="/formulas/2720b1e5f4b4cc.png" alt="Course \to \to Teacher" width="175" height="33">、<img class="fml" src="/formulas/99b660398183a5.png" alt="Course \to \to Book" width="151" height="33">，属 BCNF 但不是 4NF；分解为 `CT(Course,Teacher)`、`CB(Course,Book)`。
+**BCNF 反例**：`STJ(S, T, J)`（学生、教师、课程），<img class="fml" src="/formulas/68f02b912270fb.png" alt="F={(S,J) \to T,(S,T) \to J, T \to J}" width="285" height="33">，候选码 `(S,J)` 与 `(S,T)`。所有属性都是主属性 ⇒ 满足 3NF；但 <img class="fml" src="/formulas/be67296b11f7d3.png" alt="T \to J" width="59" height="33"> 中 T 不含码 ⇒ **不满足 BCNF**。分解为 `ST(S,T)` + `TJ(T,J)` 达 BCNF，但**丢失了 <img class="fml" src="/formulas/f0f4b7770a5a62.png" alt="(S,J) \to T" width="93" height="33">**（说明 BCNF 分解不保证保持依赖）。
+**4NF 反例**：`CTB(Course, Teacher, Book)`，一门课有多位教师、多套教材且二者相互独立 ⇒ 存在非平凡多值依赖 <img class="fml" src="/formulas/2720b1e5f4b4cc.png" alt="Course \to \to Teacher" width="177" height="33">、<img class="fml" src="/formulas/99b660398183a5.png" alt="Course \to \to Book" width="152" height="33">，属 BCNF 但不是 4NF；分解为 `CT(Course,Teacher)`、`CB(Course,Book)`。
 
 **模式分解的两条质量判据**：
-- **无损连接性**：分解后各子关系自然连接能**精确还原**原关系（不产生伪元组、不丢失元组）。二元分解 <img class="fml" src="/formulas/56a48f4f9329e9.png" alt="R \to R1,R2" width="101" height="33"> 无损 ⟺ <img class="fml" src="/formulas/08556d7faf41a8.png" alt="(R1 \cap R2) \to(R1- R2)" width="194" height="33"> 或 <img class="fml" src="/formulas/9beb0414a76a42.png" alt="(R1 \cap R2) \to(R2- R1)" width="194" height="33"> 在 <img class="fml" src="/formulas/2c8e1024ebb41e.png" alt="F^{+}" width="31" height="33"> 中。上例 <img class="fml" src="/formulas/318ddc5cec46a4.png" alt="SL \to SD+DL" width="134" height="33">：交集 `Sdept`，<img class="fml" src="/formulas/a97d92ceaa11f2.png" alt="Sdept \to Sloc" width="113" height="33"> 成立 ⇒ 无损。
+- **无损连接性**：分解后各子关系自然连接能**精确还原**原关系（不产生伪元组、不丢失元组）。二元分解 <img class="fml" src="/formulas/56a48f4f9329e9.png" alt="R \to R1,R2" width="102" height="33"> 无损 ⟺ <img class="fml" src="/formulas/08556d7faf41a8.png" alt="(R1 \cap R2) \to(R1- R2)" width="195" height="33"> 或 <img class="fml" src="/formulas/9beb0414a76a42.png" alt="(R1 \cap R2) \to(R2- R1)" width="194" height="33"> 在 <img class="fml" src="/formulas/2c8e1024ebb41e.png" alt="F^{+}" width="32" height="33"> 中。上例 <img class="fml" src="/formulas/318ddc5cec46a4.png" alt="SL \to SD+DL" width="135" height="33">：交集 `Sdept`，<img class="fml" src="/formulas/a97d92ceaa11f2.png" alt="Sdept \to Sloc" width="114" height="33"> 成立 ⇒ 无损。
 - **保持依赖性**：分解后各子模式上函数依赖集的并集能逻辑蕴含原 F（保证约束仍可**局部检查**，不必每次做连接）。
 - 定理：任何关系模式都可分解为 **3NF 且同时满足无损连接与保持依赖**；BCNF 一定无损但**不一定保持依赖**——这正是工程上常停在 3NF 的原因。
 :::
@@ -1152,10 +1152,10 @@ DL(Sdept, Sloc) F4={Sdept \to Sloc} \\
 \text{(3)} \; \text{检查} \; Sdept \to Sno \; \text{？不成立；} \; Sdept \to Sloc \; \text{？} \; \text{F} \; \text{中有} \; \checkmark \Rightarrow \; \text{无损连接} \\
 \text{(4)} \; \text{保持依赖：} \; F1={Sno \to Sdept} \; \text{、} \; F2={Sdept \to Sloc} \; \text{，} \\
 \text{二者的并集可推出原} \; \text{F} \; \text{中} \; Sno \to Sloc \; \text{（传递）} \; \checkmark \Rightarrow \; \text{保持依赖}
-\end{gathered}" width="589" height="137"></p>
+\end{gathered}" width="590" height="137"></p>
 
 
-作为对照，BCNF 分解 <img class="fml" src="/formulas/7954443fbfc6e4.png" alt="STJ \to ST+ TJ" width="141" height="33"> 虽无损，却丢失 <img class="fml" src="/formulas/f0f4b7770a5a62.png" alt="(S,J) \to T" width="92" height="33">（不保持依赖）——这正是「3NF 可同时保证无损+保持依赖，BCNF 只能保证无损」的具体例证。
+作为对照，BCNF 分解 <img class="fml" src="/formulas/7954443fbfc6e4.png" alt="STJ \to ST+ TJ" width="142" height="33"> 虽无损，却丢失 <img class="fml" src="/formulas/f0f4b7770a5a62.png" alt="(S,J) \to T" width="93" height="33">（不保持依赖）——这正是「3NF 可同时保证无损+保持依赖，BCNF 只能保证无损」的具体例证。
 
 ---
 
@@ -1193,7 +1193,7 @@ DL(Sdept, Sloc) F4={Sdept \to Sloc} \\
 \text{(2)} \; \text{学生} \; \text{(} \; \text{学号} \; \text{PK,} \; \text{姓名} \; \text{,} \; \text{性别} \; \text{,} \; \text{系号} \; \text{FK,} \; \text{入学年份} \; \text{)     ← 1:n} \; \text{把} \; \text{1} \; \text{端码与联系属性并入} \; \text{n} \; \text{端} \\
 \text{(3)} \; \text{课程} \; \text{(} \; \text{课程号} \; \text{PK,} \; \text{课程名} \; \text{,} \; \text{学分} \; \text{)} \\
 \text{(4)} \; \text{选修} \; \text{(} \; \text{学号} \; \text{FK,} \; \text{课程号} \; \text{FK,} \; \text{成绩} \; \text{, PRIMARY KEY(} \; \text{学号} \; \text{,} \; \text{课程号} \; \text{))  ← m:n} \; \text{必须独立建表}
-\end{gathered}" width="742" height="110"></p>
+\end{gathered}" width="743" height="111"></p>
 
 
 **得分点**：① 每个实体一个关系；② 1:n 不单独建表；③ m:n 单独建表且组合主码；④ 联系属性不能丢；⑤ 标出 PK/FK。
@@ -1268,8 +1268,8 @@ DL(Sdept, Sloc) F4={Sdept \to Sloc} \\
 | 局部变量 | `DECLARE v_name VARCHAR(20) DEFAULT '';`（须在 `BEGIN` 后最前面） |
 | 赋值 | `SET v = 10;` / `SELECT col INTO v FROM t WHERE …;` |
 | 用户变量 / 系统变量 | `@v`（会话级） / `@@global.var`、`@@session.var` |
-| 分支 | <img class="fml" src="/formulas/686597a63ed7fb.png" alt="IF \cdots THEN \cdots ELSEIF \cdots ELSE \cdots END IF;" width="399" height="33"> / <img class="fml" src="/formulas/37b6b02d7160cc.png" alt="CASE \cdots WHEN \cdots THEN \cdots END CASE;" width="370" height="33"> |
-| 循环 | <img class="fml" src="/formulas/5fb25b34ceb2e6.png" alt="WHILE \cdots DO \cdots END WHILE" width="277" height="33"> / <img class="fml" src="/formulas/012982dc565188.png" alt="REPEAT \cdots UNTIL \cdots END REPEAT" width="335" height="33"> / <img class="fml" src="/formulas/2227ea361f267a.png" alt="LOOP \cdots LEAVE label; \cdots END LOOP" width="324" height="33"> |
+| 分支 | <img class="fml" src="/formulas/686597a63ed7fb.png" alt="IF \cdots THEN \cdots ELSEIF \cdots ELSE \cdots END IF;" width="399" height="33"> / <img class="fml" src="/formulas/37b6b02d7160cc.png" alt="CASE \cdots WHEN \cdots THEN \cdots END CASE;" width="371" height="33"> |
+| 循环 | <img class="fml" src="/formulas/5fb25b34ceb2e6.png" alt="WHILE \cdots DO \cdots END WHILE" width="279" height="33"> / <img class="fml" src="/formulas/012982dc565188.png" alt="REPEAT \cdots UNTIL \cdots END REPEAT" width="335" height="33"> / <img class="fml" src="/formulas/2227ea361f267a.png" alt="LOOP \cdots LEAVE label; \cdots END LOOP" width="326" height="33"> |
 | 内置函数 | 字符串 `CONCAT/SUBSTRING/TRIM/UPPER`、数值 `ROUND/CEIL/FLOOR`、日期 `NOW/DATE_ADD/DATEDIFF`、聚合 `COUNT/SUM/AVG`、条件 `IFNULL/COALESCE/CASE` |
 
 ### 15.2 存储过程（★★★）
@@ -1434,7 +1434,7 @@ DROP EVENT IF EXISTS ev_purge_log;
 \text{(1)} \; \text{加载驱动} \; \text{/} \; \text{导入模块} \; \to(2) \; \text{建立连接（主机、端口、库、用户、密码、字符集）} \\
 \to(3) \; \text{创建游标} \; Statement \to(4) \; \text{执行} \; \text{SQL} \; \text{（参数化）} \; \to(5) \; \text{取结果集} \\
 \to(6) \; \text{事务提交或回滚} \; \to(7) \; \text{关闭游标与连接（或归还连接池）}
-\end{gathered}" width="667" height="83"></p>
+\end{gathered}" width="668" height="84"></p>
 
 
 
@@ -1567,7 +1567,7 @@ SL(Sno,Sdept,Sloc) F2={Sno \to Sdept, Sno \to Sloc, Sdept \to Sloc} \\
 \text{(7)} \; \text{最终} \; \text{SC} \; \text{、} \; \text{SD} \; \text{、} \; \text{DL} \; \text{三个关系均达} \; \text{BCNF} \; \text{（每个决定因素都含码）} \\
 \text{(8)} \; \text{无损验证（} \; SL \to SD+DL \; \text{）：交集} \; \text{Sdept} \; \text{，} \; Sdept \to Sloc \in F^{+} \Rightarrow \; \text{无损连接} \\
 \text{保持依赖：} \; {Sno \to Sdept} \cup{Sdept \to Sloc} \; \text{可推出} \; Sno \to Sloc \Rightarrow \; \text{保持依赖}
-\end{gathered}" width="810" height="312"></p>
+\end{gathered}" width="812" height="313"></p>
 
 
 **结论**：该分解同时满足无损连接、保持依赖与 BCNF，是理想结果；但并非所有模式都能三者兼得（BCNF 分解可能丢依赖，此时常停在 3NF）。
@@ -1597,7 +1597,7 @@ SL(Sno,Sdept,Sloc) F2={Sno \to Sdept, Sno \to Sloc, Sdept \to Sloc} \\
 \text{A} \; \text{：} \; \text{R2(A)} \; \text{先于} \; W1(A) \to T2 \to T1 \; \text{；} \; \text{W1(A)} \; \text{先于} \; W2(A) \to T1 \to T2 \\
 \text{B} \; \text{：} \; \text{R2(B)} \; \text{先于} \; W1(B) \to T2 \to T1 \; \text{；} \; \text{W2(B)} \; \text{先于} \; R1(B) \to T2 \to T1 \\
 \text{优先图含} \; \text{T1⇄ T2} \; \text{环} \; \Rightarrow \; \text{不是冲突可串行化调度}
-\end{gathered}" width="580" height="83"></p>
+\end{gathered}" width="580" height="84"></p>
 
 
 若要修正，可让 T1 与 T2 遵守**两段锁协议**（各自一次性申请所需 X 锁，事务结束统一释放），所得调度必可串行化，但可能出现死锁需要检测与回滚。
@@ -1609,7 +1609,7 @@ SL(Sno,Sdept,Sloc) F2={Sno \to Sdept, Sno \to Sloc, Sdept \to Sloc} \\
 **解**：
 
 
-<p class="fml-block"><img class="fml" src="/formulas/a7363dd840c6fc.png" alt="\text{不加控制：} \; \text{T1} \; \text{、} \; \text{T2} \; \text{同时读到} \; \text{100} \; \text{，各算出} \; \text{90} \; \text{并写回} \; \to \; \text{最终} \; \text{90} \; \text{（应} \; \text{80} \; \text{）} \; \Rightarrow \; \text{丢失修改}" width="729" height="33"></p>
+<p class="fml-block"><img class="fml" src="/formulas/a7363dd840c6fc.png" alt="\text{不加控制：} \; \text{T1} \; \text{、} \; \text{T2} \; \text{同时读到} \; \text{100} \; \text{，各算出} \; \text{90} \; \text{并写回} \; \to \; \text{最终} \; \text{90} \; \text{（应} \; \text{80} \; \text{）} \; \Rightarrow \; \text{丢失修改}" width="730" height="34"></p>
 
 
 对策：
@@ -1715,15 +1715,15 @@ finally:
 | # | 主题 | 语法 / 公式 |
 | --- | --- | --- |
 | 1 | 三级模式 | 外模式（多个）— 外模式/模式映像 → 逻辑独立性；模式（唯一）— 模式/内模式映像 → 物理独立性；内模式（唯一） |
-| 2 | 关系模式 | `R(U, D, DOM, F)`，简写 <img class="fml" src="/formulas/52f6d3174cbed6.png" alt="R(A_{1}, \cdots,A_{n})" width="119" height="33">；关系 = 元组的有限集合 |
-| 3 | 关系代数 | <img class="fml" src="/formulas/b4048d530873d1.png" alt="\sigma_{F}(R)" width="54" height="33"> 选择、<img class="fml" src="/formulas/661156ac7d9b9b.png" alt="\pi_{A}(R)" width="54" height="33"> 投影、`R⋈S` 连接、`R÷S` 除、<img class="fml" src="/formulas/a0789c3b640bf2.png" alt="\frac{R \cup S}{R}- \frac{\frac{S}{R \cap S}}{R \times S}" width="90" height="36"> |
-| 4 | 除运算 | <img class="fml" src="/formulas/7fae22807d4c63.png" alt="\pi_{Sno,Cno}(SC) \div  \pi_{Cno}(Course)" width="234" height="33"> = 选修全部课程的学生 |
-| 5 | 建库 | <img class="fml" src="/formulas/36ea0197df4471.png" alt="CREATE DATABASE[IF NOT EXISTS] db DEFAULT CHARACTER SET utf8mb4[COLLATE \cdots];" width="831" height="33"> |
+| 2 | 关系模式 | `R(U, D, DOM, F)`，简写 <img class="fml" src="/formulas/52f6d3174cbed6.png" alt="R(A_{1}, \cdots,A_{n})" width="120" height="34">；关系 = 元组的有限集合 |
+| 3 | 关系代数 | <img class="fml" src="/formulas/b4048d530873d1.png" alt="\sigma_{F}(R)" width="56" height="33"> 选择、<img class="fml" src="/formulas/661156ac7d9b9b.png" alt="\pi_{A}(R)" width="55" height="33"> 投影、`R⋈S` 连接、`R÷S` 除、<img class="fml" src="/formulas/a0789c3b640bf2.png" alt="\frac{R \cup S}{R}- \frac{\frac{S}{R \cap S}}{R \times S}" width="91" height="37"> |
+| 4 | 除运算 | <img class="fml" src="/formulas/7fae22807d4c63.png" alt="\pi_{Sno,Cno}(SC) \div  \pi_{Cno}(Course)" width="235" height="34"> = 选修全部课程的学生 |
+| 5 | 建库 | <img class="fml" src="/formulas/36ea0197df4471.png" alt="CREATE DATABASE[IF NOT EXISTS] db DEFAULT CHARACTER SET utf8mb4[COLLATE \cdots];" width="832" height="34"> |
 | 6 | 建表 | `CREATE TABLE t (col type [约束], …, [表级约束]) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;` |
-| 7 | 六类约束 | <img class="fml" src="/formulas/7a70b7ada1d7e7.png" alt="\frac{PRIMARY KEY}{FOREIGN KEY} \cdots \frac{\frac{\frac{\frac{REFERENCES}{UNIQUE}}{NOT NULL}}{DEFAULT}}{CHECK}" width="224" height="52"> |
+| 7 | 六类约束 | <img class="fml" src="/formulas/7a70b7ada1d7e7.png" alt="\frac{PRIMARY KEY}{FOREIGN KEY} \cdots \frac{\frac{\frac{\frac{REFERENCES}{UNIQUE}}{NOT NULL}}{DEFAULT}}{CHECK}" width="226" height="53"> |
 | 8 | 外键动作 | `ON DELETE {RESTRICT\|CASCADE\|SET NULL\|NO ACTION}`（UPDATE 同理） |
-| 9 | 改表 | <img class="fml" src="/formulas/2940dea32bd1bf.png" alt="\frac{\frac{\frac{ALTER TABLE t ADD}{MODIFY}}{CHANGE}}{DROP COLUMN} \cdots; RENAME TO \cdots" width="293" height="43"> |
-| 10 | 插入 | <img class="fml" src="/formulas/1fe07a17edb979.png" alt="INSERT INTO t[(cols)] VALUES( \cdots),( \cdots);" width="366" height="33"> / `INSERT INTO t SELECT …` |
+| 9 | 改表 | <img class="fml" src="/formulas/2940dea32bd1bf.png" alt="\frac{\frac{\frac{ALTER TABLE t ADD}{MODIFY}}{CHANGE}}{DROP COLUMN} \cdots; RENAME TO \cdots" width="294" height="44"> |
+| 10 | 插入 | <img class="fml" src="/formulas/1fe07a17edb979.png" alt="INSERT INTO t[(cols)] VALUES( \cdots),( \cdots);" width="367" height="34"> / `INSERT INTO t SELECT …` |
 | 11 | 更新删除 | `UPDATE t SET c=… WHERE …;` / `DELETE FROM t WHERE …;` / `TRUNCATE TABLE t;` |
 | 12 | SELECT 书写 | `SELECT [DISTINCT] … FROM … [JOIN … ON …] [WHERE …] [GROUP BY … [HAVING …]] [ORDER BY …] [LIMIT …]` |
 | 13 | SELECT 执行序 | FROM/JOIN → WHERE → GROUP BY → HAVING → SELECT → ORDER BY → LIMIT |
@@ -1734,14 +1734,14 @@ finally:
 | 18 | 集合 | `UNION`（去重）/ `UNION ALL`（不去重）/ `INTERSECT` / `EXCEPT`（MySQL 用 JOIN/NOT EXISTS 模拟） |
 | 19 | 子查询 | `IN / ANY / ALL / EXISTS / NOT EXISTS`；派生表 `FROM (SELECT …) AS t` |
 | 20 | CTE | `WITH cte AS (SELECT …) SELECT * FROM cte;`；递归 `WITH RECURSIVE` |
-| 21 | 窗口函数 | <img class="fml" src="/formulas/205c1ddf7f5923.png" alt="ROW_{NUMBER}() OVER(PARTITION BY \cdots ORDER BY \cdots)" width="498" height="33">、`RANK / LAG / LEAD` |
+| 21 | 窗口函数 | <img class="fml" src="/formulas/205c1ddf7f5923.png" alt="ROW_{NUMBER}() OVER(PARTITION BY \cdots ORDER BY \cdots)" width="499" height="34">、`RANK / LAG / LEAD` |
 | 22 | 视图 | `CREATE [OR REPLACE] VIEW v AS SELECT … [WITH CHECK OPTION];` |
 | 23 | 索引 | `CREATE [UNIQUE] INDEX idx ON t(c1,c2);` / `DROP INDEX` / `SHOW INDEX` / `EXPLAIN` |
 | 24 | 最左前缀 | 联合索引 `(a,b,c)` 可用 `a`、`a,b`、`a,b,c`；范围列之后不再用于定位 |
-| 25 | 用户权限 | <img class="fml" src="/formulas/357ae91850f244.png" alt="CREATE USER &#x27;u&#x27;@&#x27;h&#x27; IDENTIFIED BY &#x27; \cdots &#x27;;" width="393" height="33"> / <img class="fml" src="/formulas/65d4fc5133fc26.png" alt="GRANT privileges ON db.t TO \cdots;" width="276" height="33"> / `REVOKE` / `SHOW GRANTS` |
-| 26 | 角色 | <img class="fml" src="/formulas/822a1c7c5d982c.png" alt="CREATE ROLE r; GRANT \cdots TO r; GRANT r TO &#x27;u&#x27;@&#x27;h&#x27;; SET DEFAULT ROLE r TO &#x27;u&#x27;@&#x27;h&#x27;;" width="747" height="33"> |
-| 27 | 事务 | <img class="fml" src="/formulas/c6a4631d1c2530.png" alt="START TRANSACTION; \cdots SAVEPOINT sp; \cdots \frac{COMMIT}{ROLLBACK}[TO sp];" width="561" height="33"> |
-| 28 | ACID | <img class="fml" src="/formulas/5e1207ad1dbbd9.png" alt="A \leftrightarrow undo \log" width="112" height="33">；C↔ 完整性约束 + A/I/D；I↔ 锁 + MVCC；<img class="fml" src="/formulas/820cb2b5311150.png" alt="D \leftrightarrow redo \log" width="110" height="33"> |
+| 25 | 用户权限 | <img class="fml" src="/formulas/357ae91850f244.png" alt="CREATE USER &#x27;u&#x27;@&#x27;h&#x27; IDENTIFIED BY &#x27; \cdots &#x27;;" width="394" height="34"> / <img class="fml" src="/formulas/65d4fc5133fc26.png" alt="GRANT privileges ON db.t TO \cdots;" width="277" height="34"> / `REVOKE` / `SHOW GRANTS` |
+| 26 | 角色 | <img class="fml" src="/formulas/822a1c7c5d982c.png" alt="CREATE ROLE r; GRANT \cdots TO r; GRANT r TO &#x27;u&#x27;@&#x27;h&#x27;; SET DEFAULT ROLE r TO &#x27;u&#x27;@&#x27;h&#x27;;" width="747" height="34"> |
+| 27 | 事务 | <img class="fml" src="/formulas/c6a4631d1c2530.png" alt="START TRANSACTION; \cdots SAVEPOINT sp; \cdots \frac{COMMIT}{ROLLBACK}[TO sp];" width="563" height="34"> |
+| 28 | ACID | <img class="fml" src="/formulas/5e1207ad1dbbd9.png" alt="A \leftrightarrow undo \log" width="113" height="34">；C↔ 完整性约束 + A/I/D；I↔ 锁 + MVCC；<img class="fml" src="/formulas/820cb2b5311150.png" alt="D \leftrightarrow redo \log" width="111" height="34"> |
 | 29 | 隔离级别 | `READ UNCOMMITTED / READ COMMITTED / REPEATABLE READ(MySQL 默认) / SERIALIZABLE` |
 | 30 | 查看隔离级别 | `SELECT @@transaction_isolation;`（MySQL 8.0；旧版 `@@tx_isolation`） |
 | 31 | 显式加锁 | `SELECT … FOR UPDATE`（X）/ `LOCK IN SHARE MODE`（S，8.0 可用 `FOR SHARE`） |
@@ -1752,24 +1752,24 @@ finally:
 | 36 | PITR | `mysqlbinlog --start-datetime=… --stop-datetime=… mysql-bin.00000N \| mysql -u root -p` |
 | 37 | 日志分工 | binlog（Server/逻辑，复制+PITR）、redo（InnoDB/物理，崩溃恢复）、undo（回滚+MVCC） |
 | 38 | 两阶段提交 | redo prepare → 写 binlog → redo commit；崩溃时按 binlog 是否完整决定提交或回滚 |
-| 39 | 函数依赖 | <img class="fml" src="/formulas/a7224936efce3a.png" alt="X \to Y" width="64" height="33">；完全 <img class="fml" src="/formulas/99b4daedf908cb.png" alt="X \to f Y" width="75" height="33">、部分 <img class="fml" src="/formulas/615c199de46f83.png" alt="X \to p Y" width="73" height="33">、传递 <img class="fml" src="/formulas/a464c950554f6e.png" alt="X \to t Z" width="70" height="33"> |
+| 39 | 函数依赖 | <img class="fml" src="/formulas/a7224936efce3a.png" alt="X \to Y" width="66" height="34">；完全 <img class="fml" src="/formulas/99b4daedf908cb.png" alt="X \to f Y" width="76" height="34">、部分 <img class="fml" src="/formulas/615c199de46f83.png" alt="X \to p Y" width="75" height="34">、传递 <img class="fml" src="/formulas/a464c950554f6e.png" alt="X \to t Z" width="71" height="34"> |
 | 40 | Armstrong | A1 自反律、A2 增广律、A3 传递律；推论：合并/分解/伪传递 |
-| 41 | 闭包 | <img class="fml" src="/formulas/721a78bcb357a3.png" alt="X^{+}" width="33" height="33"> 反复并入满足 <img class="fml" src="/formulas/a66f977f6a9546.png" alt="A⊆X^{+}" width="70" height="33"> 的 <img class="fml" src="/formulas/95ac6ae055127f.png" alt="A \to B" width="62" height="33"> 中的 B；<img class="fml" src="/formulas/d9144fba4ed975.png" alt="X^{+}=U" width="71" height="33"> ⇒ X 为超码 |
+| 41 | 闭包 | <img class="fml" src="/formulas/721a78bcb357a3.png" alt="X^{+}" width="34" height="34"> 反复并入满足 <img class="fml" src="/formulas/a66f977f6a9546.png" alt="A⊆X^{+}" width="71" height="34"> 的 <img class="fml" src="/formulas/95ac6ae055127f.png" alt="A \to B" width="62" height="34"> 中的 B；<img class="fml" src="/formulas/d9144fba4ed975.png" alt="X^{+}=U" width="71" height="34"> ⇒ X 为超码 |
 | 42 | 范式 | 1NF 原子值；2NF 消非主属性部分依赖；3NF 消传递依赖；BCNF 决定因素含码；4NF 消非平凡多值依赖 |
-| 43 | 二元分解无损 | <img class="fml" src="/formulas/56a48f4f9329e9.png" alt="R \to R1,R2" width="101" height="33"> 无损 ⟺ <img class="fml" src="/formulas/08556d7faf41a8.png" alt="(R1 \cap R2) \to(R1- R2)" width="194" height="33"> 或 <img class="fml" src="/formulas/9beb0414a76a42.png" alt="(R1 \cap R2) \to(R2- R1)" width="194" height="33"> 在 <img class="fml" src="/formulas/2c8e1024ebb41e.png" alt="F^{+}" width="31" height="33"> 中 |
+| 43 | 二元分解无损 | <img class="fml" src="/formulas/56a48f4f9329e9.png" alt="R \to R1,R2" width="102" height="33"> 无损 ⟺ <img class="fml" src="/formulas/08556d7faf41a8.png" alt="(R1 \cap R2) \to(R1- R2)" width="195" height="33"> 或 <img class="fml" src="/formulas/9beb0414a76a42.png" alt="(R1 \cap R2) \to(R2- R1)" width="194" height="33"> 在 <img class="fml" src="/formulas/2c8e1024ebb41e.png" alt="F^{+}" width="32" height="33"> 中 |
 | 44 | ER 转换 | 实体→关系；1:1 任一方加外码；1:n 在 n 端加 1 端码；m:n 独立建表（组合主码 + 联系属性） |
 | 45 | 六阶段 | 需求分析 → 概念结构 → 逻辑结构 → 物理结构 → 实施 → 运行维护 |
-| 46 | 存储过程 | <img class="fml" src="/formulas/0f0c2983cbd2aa.png" alt="\frac{DELIMITER}{CREATE PROCEDURE p(IN a INT, OUT b INT) BEGIN} \cdots \frac{END}{DELIMITER};" width="457" height="35"> |
-| 47 | 函数 | <img class="fml" src="/formulas/0f11c02d301d7d.png" alt="CREATE FUNCTION f(x INT) RETURNS type DETERMINISTIC BEGIN RETURN \cdots; END" width="812" height="33"> |
-| 48 | 游标 | <img class="fml" src="/formulas/4ce2bd0f8efa05.png" alt="DECLARE cur CURSOR FOR \cdots; DECLARE CONTINUE HANDLER FOR NOT FOUND SET done=1; \frac{\frac{OPEN}{FETCH}}{CLOSE}" width="926" height="35"> |
-| 49 | 触发器 | <img class="fml" src="/formulas/7c88a4d558b299.png" alt="CREATE TRIGGER trg BEFORE\|AFTER INSERT\|UPDATE\|DELETE ON t FOR EACH ROW BEGIN \cdots \frac{NEW}{OLD} \cdots END" width="1019" height="33"> |
-| 50 | 事件 | <img class="fml" src="/formulas/00f9645a5c179c.png" alt="SET GLOBAL event_{scheduler}=ON; CREATE EVENT e ON SCHEDULE EVERY 1 DAY DO \cdots;" width="778" height="33"> |
+| 46 | 存储过程 | <img class="fml" src="/formulas/0f0c2983cbd2aa.png" alt="\frac{DELIMITER}{CREATE PROCEDURE p(IN a INT, OUT b INT) BEGIN} \cdots \frac{END}{DELIMITER};" width="458" height="37"> |
+| 47 | 函数 | <img class="fml" src="/formulas/0f11c02d301d7d.png" alt="CREATE FUNCTION f(x INT) RETURNS type DETERMINISTIC BEGIN RETURN \cdots; END" width="813" height="34"> |
+| 48 | 游标 | <img class="fml" src="/formulas/4ce2bd0f8efa05.png" alt="DECLARE cur CURSOR FOR \cdots; DECLARE CONTINUE HANDLER FOR NOT FOUND SET done=1; \frac{\frac{OPEN}{FETCH}}{CLOSE}" width="927" height="37"> |
+| 49 | 触发器 | <img class="fml" src="/formulas/7c88a4d558b299.png" alt="CREATE TRIGGER trg BEFORE\|AFTER INSERT\|UPDATE\|DELETE ON t FOR EACH ROW BEGIN \cdots \frac{NEW}{OLD} \cdots END" width="1020" height="34"> |
+| 50 | 事件 | <img class="fml" src="/formulas/00f9645a5c179c.png" alt="SET GLOBAL event_{scheduler}=ON; CREATE EVENT e ON SCHEDULE EVERY 1 DAY DO \cdots;" width="779" height="34"> |
 | 51 | 参数化 | Python `cur.execute("… WHERE a=%s AND b=%s",(x,y))`；Java `PreparedStatement` + `setString/setInt` |
-| 52 | 例题结果 | 教学库：CS|2|19.5；李勇|92；选课数 3/2/1/1；<img class="fml" src="/formulas/4f190e7d9fcb0c.png" alt="COUNT(*)=\frac{7}{COUNT(Grade)}=6" width="256" height="35">；无人选修=操作系统 |
+| 52 | 例题结果 | 教学库：CS|2|19.5；李勇|92；选课数 3/2/1/1；<img class="fml" src="/formulas/4f190e7d9fcb0c.png" alt="COUNT(*)=\frac{7}{COUNT(Grade)}=6" width="256" height="36">；无人选修=操作系统 |
 
 ## 附录 B 易错点速查
 
-1. DBS <img class="fml" src="/formulas/5aedb7f76ff8f1.png" alt="= DB" width="55" height="33">：数据库系统还包含 DBMS、应用、DBA、用户与硬件平台。
+1. DBS <img class="fml" src="/formulas/5aedb7f76ff8f1.png" alt="= DB" width="56" height="34">：数据库系统还包含 DBMS、应用、DBA、用户与硬件平台。
 2. 文件系统阶段的根本缺陷是**数据共享性差、冗余大、数据独立性差**，不只是"速度慢"。
 3. 三级模式中模式与内模式**各只有一个**，外模式可以有多个。
 4. 逻辑独立性来自外模式/模式映像，物理独立性来自模式/内模式映像，别对调。
@@ -1786,7 +1786,7 @@ finally:
 14. 外码违反时可选 RESTRICT/CASCADE/SET NULL，默认是拒绝。
 15. 自然连接会按**同名属性**自动等值并去掉重复列；等值连接保留两列。
 16. 若无同名属性却写 `R⋈S`，结果退化为笛卡尔积。
-17. 投影 <img class="fml" src="/formulas/0e03884f457656.png" alt="\pi" width="17" height="33"> 会去重；SQL 的 `SELECT` 默认不去重，须显式 `DISTINCT`。
+17. 投影 <img class="fml" src="/formulas/0e03884f457656.png" alt="\pi" width="18" height="34"> 会去重；SQL 的 `SELECT` 默认不去重，须显式 `DISTINCT`。
 
 18. SQL 是非过程化、面向集合的语言；一次操作作用于元组集合而非单条记录。
 19. `TRUNCATE` 属于 **DDL**、隐式提交、不可回滚、重置自增值；`DELETE` 是 DML。
@@ -1861,8 +1861,8 @@ finally:
 79. 2NF 只消除**非主属性**对码的部分依赖；3NF 再消除传递依赖。
 80. 全主属性的关系至少 3NF，但可能因"决定因素不含码"而不满足 BCNF。
 81. BCNF 要求每个非平凡函数依赖的决定因素都含候选码；4NF 再处理多值依赖。
-82. <img class="fml" src="/formulas/fb9d78d70ce655.png" alt="X \to Z" width="63" height="33"> 为传递依赖还要求 `Y\not\to X`，否则是相互决定。
-83. 二元分解无损判据：<img class="fml" src="/formulas/08556d7faf41a8.png" alt="(R1 \cap R2) \to(R1- R2)" width="194" height="33"> 或 <img class="fml" src="/formulas/9beb0414a76a42.png" alt="(R1 \cap R2) \to(R2- R1)" width="194" height="33"> 在 F+ 中。
+82. <img class="fml" src="/formulas/fb9d78d70ce655.png" alt="X \to Z" width="64" height="34"> 为传递依赖还要求 `Y\not\to X`，否则是相互决定。
+83. 二元分解无损判据：<img class="fml" src="/formulas/08556d7faf41a8.png" alt="(R1 \cap R2) \to(R1- R2)" width="195" height="33"> 或 <img class="fml" src="/formulas/9beb0414a76a42.png" alt="(R1 \cap R2) \to(R2- R1)" width="194" height="33"> 在 F+ 中。
 84. 3NF 分解可同时保证无损与保持依赖；BCNF 保证无损但可能丢失依赖。
 85. 范式越高并非越好：连接开销上升，读多写少的分析场景常主动反规范化。
 
