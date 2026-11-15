@@ -1,5 +1,5 @@
 ---
-summary: "数据库原理及应用 全面详解笔记，共 17 章：数据库系统概述、关系数据库、SQL 与 MySQL 基础、数据库创建与管理、数据表管理与数据操纵、数据查询、视图与索引、安全性管理、并发控制与封锁、备份还原与日志、数据库设计概述与需求分析、关系模式规范化理论、概念结构与逻辑结构设计、物理设计与运行维护、存储过程与函数、触发器与事件、编程语言连接 MySQL。覆盖三级模式两级映像、关系代数与完整性约束、DDL/DML/DQL/DCL、多表连接与子查询、B+树索引与最左前缀、事务 ACID 与隔离级别、MVCC 与两段锁、备份恢复与 binlog/redo/undo、函数依赖与 1NF–BCNF/4NF、ER 图向关系模式转换、数据库设计六阶段、存储过程/触发器/事件与预处理防注入。含 19 张自绘图、大量可运行 SQL 示例与工作例题、跨章综合题、语法速查与 92 条易错点，并对课件中的缺漏与笔误作了补充修正。"
+summary: "数据库原理及应用 全面详解笔记，共 17 章：数据库系统概述、关系数据库、SQL 与 MySQL 基础、数据库创建与管理、数据表管理与数据操纵、数据查询、视图与索引、安全性管理、并发控制与封锁、备份还原与日志、数据库设计概述与需求分析、关系模式规范化理论、概念结构与逻辑结构设计、物理设计与运行维护、存储过程与函数、触发器与事件、编程语言连接 MySQL。覆盖三级模式两级映像、关系代数与完整性约束、DDL/DML/DQL/DCL、多表连接与子查询、B+树索引与最左前缀、事务 ACID 与隔离级别、MVCC 与两段锁、备份恢复与 binlog/redo/undo、函数依赖与 $1NF- \frac{BCNF}{4NF}$、ER 图向关系模式转换、数据库设计六阶段、存储过程/触发器/事件与预处理防注入。含 19 张自绘图、大量可运行 SQL 示例与工作例题、跨章综合题、语法速查与 92 条易错点，并对课件中的缺漏与笔误作了补充修正。"
 ---
 
 # 数据库原理及应用笔记
@@ -25,7 +25,7 @@ summary: "数据库原理及应用 全面详解笔记，共 17 章：数据库�
 | 9 | 并发控制与封锁 | 事务 ACID、四类并发异常、四种隔离级别、X/S 锁、三级封锁协议、2PL、MVCC | ★★★ |
 | 10 | 备份还原和日志管理 | 备份分类、mysqldump、binlog/redo/undo、恢复与主从复制 | ★★★ |
 | 11 | 数据库设计与需求分析 | 设计六阶段、需求分析、数据流图与数据字典 | ★★ |
-| 12 | 关系模式规范化理论 | 函数依赖、Armstrong 公理、1NF–BCNF/4NF、无损连接与保持依赖分解 | ★★★ |
+| 12 | 关系模式规范化理论 | 函数依赖、Armstrong 公理、$1NF- \frac{BCNF}{4NF}$、无损连接与保持依赖分解 | ★★★ |
 | 13 | 概念结构与逻辑结构设计 | ER 图、联系类型、冲突合并、ER 向关系模式转换 | ★★★ |
 | 14 | 物理设计、实施与运维 | 索引选择、聚簇与分区、实施、试运行与维护、性能调优 | ★★ |
 | 15 | 存储过程与函数 | 编程基础、内置函数、存储过程、自定义函数、游标 | ★★★ |
@@ -124,8 +124,8 @@ DBMS 的主要功能：① **数据定义**（DDL）；② **数据操纵**（DM
 | 域 Domain | 一组具有相同数据类型的值的集合 | 数据类型 + 取值约束 |
 | 元组 Tuple | 笛卡尔积中的一个元素 | 一行 / 一条记录 |
 | 属性 Attribute | 关系的一列，每列有域名 | 字段 / 列 |
-| 关系 Relation | `D₁×D₂×…×Dₙ` 的**有限子集**，即元组的集合 | 表（严格说是满足规范化的二维表） |
-| 关系模式 | `R(U, D, DOM, F)`，常简写 `R(A₁, A₂, …, Aₙ)` | `CREATE TABLE` 的表结构 |
+| 关系 Relation | $D_{1} \times D_{2} \times \cdots \times D_{n}$ 的**有限子集**，即元组的集合 | 表（严格说是满足规范化的二维表） |
+| 关系模式 | `R(U, D, DOM, F)`，常简写 $R(A_{1}, A_{2}, \cdots, A_{n})$ | `CREATE TABLE` 的表结构 |
 | 关系数据库模式 | 全体关系模式的集合 | 数据库 schema |
 
 **关系的六条性质**（区分「关系」与随便一张表）：① 列同质（同一列来自同一域）；② 不同列可同域但须不同名；③ 列的次序可换；④ 行的次序可换；⑤ **任意两元组不能完全相同**（集合无重复元素）；⑥ **每个分量必须是不可再分的原子值**（即满足 1NF，不允许「表中有表」）。
@@ -162,29 +162,29 @@ DBMS 的主要功能：① **数据定义**（DDL）；② **数据操纵**（DM
 
 | 运算 | 记号 | 含义 |
 | --- | --- | --- |
-| 并 | `R ∪ S` | 属于 R 或 S 的元组（去重） |
-| 差 | `R − S` | 属于 R 但不属于 S 的元组 |
-| 交 | `R ∩ S` | 同时属于两者的元组，`R∩S = R − (R − S)` |
-| 笛卡尔积 | `R × S` | R 的每个元组与 S 的每个元组拼接；基数 `= |R|×|S|`，度数 `= 属性数之和` |
-| **选择** | `σ_F(R)` | 按条件 F **选行**（水平方向） |
-| **投影** | `π_A(R)` | 选出指定属性**列**并**去重**（垂直方向） |
-| **连接** | `R ⋈_{AθB} S` | `σ_条件(R × S)`；等值连接、自然连接（自动按同名属性等值并去掉重复列） |
+| 并 | $R \cup S$ | 属于 R 或 S 的元组（去重） |
+| 差 | $R- S$ | 属于 R 但不属于 S 的元组 |
+| 交 | $R \cap S$ | 同时属于两者的元组，$R \cap S= R-(R- S)$ |
+| 笛卡尔积 | $R \times S$ | R 的每个元组与 S 的每个元组拼接；基数 $=|R| \times|S|$，度数 `= 属性数之和` |
+| **选择** | $\sigma_{F}(R)$ | 按条件 F **选行**（水平方向） |
+| **投影** | $\pi_{A}(R)$ | 选出指定属性**列**并**去重**（垂直方向） |
+| **连接** | $R ⋈_{A\theta B} S$ | `σ_条件(R × S)`；等值连接、自然连接（自动按同名属性等值并去掉重复列） |
 | **除** | `R ÷ S` | 找出"与 S 中所有值都配对"的 R 中属性值，常用来表达"全部/所有" |
 
 ![关系代数八种运算](/db/db-algebra.svg)
 
 ::: tip 工作示例 · 用关系代数写查询（教学库 S / C / SC）
-```text
-① 查询 CS 系学生姓名：
-   π_Sname(σ_Sdept='CS'(Student))
-② 查询选修了「数据库」且成绩 > 80 的学生姓名（三关系连接）：
-   π_Sname(σ_Cname='数据库' ∧ Grade>80 (Student ⋈ SC ⋈ Course))
-③ 查询选修了「全部课程」的学生学号（除运算的经典用法）：
-   π_Sno,Cno(SC) ÷ π_Cno(Course)
-④ 查询未选修任何课程的学生姓名：
-   π_Sname(Student) − π_Sname(Student ⋈ SC)
-```
-**要点**：自然连接会**自动按同名属性**拼接并去掉重复列；若两表没有同名属性却直接写 `⋈`，结果退化为笛卡尔积，是常见错误。除运算几乎总对应 SQL 中的 `NOT EXISTS … NOT EXISTS` 双重否定或 `GROUP BY + HAVING COUNT` 写法。
+$$
+\text{(1)} \; \text{查询} \; \text{CS} \; \text{系学生姓名：} \\
+\pi_{Sname}(\sigma_{Sdept}='CS'(Student)) \\
+\text{(2)} \; \text{查询选修了「数据库」且成绩} \; \text{> 80} \; \text{的学生姓名（三关系连接）：} \\
+\pi \text{\_Sname(}\sigma \text{\_Cname='} \; \text{数据库} \; \text{' ∧ Grade>80 (Student ⋈ SC ⋈ Course))} \\
+\text{(3)} \; \text{查询选修了「全部课程」的学生学号（除运算的经典用法）：} \\
+\pi_{Sno},Cno(SC) ÷ \pi_{Cno}(Course) \\
+\text{(4)} \; \text{查询未选修任何课程的学生姓名：} \\
+\pi_{Sname}(Student)- \pi_{Sname}(Student ⋈ SC)
+$$
+**要点**：自然连接会**自动按同名属性**拼接并去掉重复列；若两表没有同名属性却直接写 `⋈`，结果退化为笛卡尔积，是常见错误。除运算几乎总对应 SQL 中的 $NOT EXISTS \cdots NOT EXISTS$ 双重否定或 `GROUP BY + HAVING COUNT` 写法。
 :::
 
 **关系演算**：以数理逻辑谓词为基础，是**非过程化**的。元组关系演算（如 ALPHA：`GET W (Student.Sname): Student.Sdept='CS'`）、域关系演算（如 QBE）。SQL 在表达能力上等价于关系代数 + 关系演算，且**具有关系完备性**；实际 SQL 还带聚合、分组、更新等超出的能力。
@@ -199,15 +199,15 @@ DBMS 的主要功能：① **数据定义**（DDL）；② **数据操纵**（DM
 
 | 关系代数 | SQL |
 | --- | --- |
-| `σ_F(R)` | `SELECT * FROM R WHERE F` |
-| `π_A(R)` | `SELECT DISTINCT A FROM R` |
-| `R ∪ S` | `SELECT … FROM R UNION SELECT … FROM S` |
-| `R − S` | `SELECT … FROM R EXCEPT SELECT … FROM S`（MySQL 8.0.31 起原生支持，更早版本用 `NOT EXISTS` / `LEFT JOIN … IS NULL`） |
-| `R ∩ S` | `INTERSECT`（MySQL 8.0.31 起原生支持，更早版本用 `INNER JOIN` / `IN`） |
-| `R × S` | `CROSS JOIN` |
-| `R ⋈ S` | `JOIN … ON` / `NATURAL JOIN` |
+| $\sigma_{F}(R)$ | `SELECT * FROM R WHERE F` |
+| $\pi_{A}(R)$ | `SELECT DISTINCT A FROM R` |
+| $R \cup S$ | `SELECT … FROM R UNION SELECT … FROM S` |
+| $R- S$ | `SELECT … FROM R EXCEPT SELECT … FROM S`（MySQL 8.0.31 起原生支持，更早版本用 `NOT EXISTS` / $LEFT JOIN \cdots IS NULL$） |
+| $R \cap S$ | `INTERSECT`（MySQL 8.0.31 起原生支持，更早版本用 `INNER JOIN` / `IN`） |
+| $R \times S$ | `CROSS JOIN` |
+| `R ⋈ S` | $JOIN \cdots ON$ / `NATURAL JOIN` |
 | `R ÷ S` | 双重 `NOT EXISTS` 或 `GROUP BY + HAVING COUNT(DISTINCT)` |
-| `γ_{G, agg}(R)` | `SELECT G, agg(…) FROM R GROUP BY G`（分组聚合是关系代数的扩展） |
+| $\gamma_{G, agg}(R)$ | `SELECT G, agg(…) FROM R GROUP BY G`（分组聚合是关系代数的扩展） |
 
 ::: tip 工作示例 · 除运算的两种 SQL 写法
 查询「选修了全部课程的学生学号」：
@@ -248,12 +248,12 @@ SQL（Structured Query Language）是关系数据库的**标准语言**，集 DD
 
 ### 3.2 MySQL 体系结构与一条 SQL 的执行路径（★★★）
 
-```text
-客户端 → 连接层（连接管理/认证/线程池）
-      → 服务层（SQL 接口 → 解析器 → 预处理器 → 优化器 → 执行器 + 查询缓存[8.0 已移除]）
-      → 存储引擎层（InnoDB / MyISAM / MEMORY，插件式）
-      → 文件系统（数据文件、日志文件）
-```
+$$
+\text{客户端} \; \to \; \text{连接层（连接管理} \; \text{/} \; \text{认证} \; \text{/} \; \text{线程池）} \\
+\to \; \text{服务层（} \; \text{SQL} \; \text{接口} \; \to \; \text{解析器} \; \to \; \text{预处理器} \; \to \; \text{优化器} \; \to \; \text{执行器} \; \text{+} \; \text{查询缓存} \; \text{[8.0} \; \text{已移除} \; \text{]} \; \text{）} \\
+\to \; \text{存储引擎层（} \; \text{InnoDB / MyISAM / MEMORY} \; \text{，插件式）} \\
+\to \; \text{文件系统（数据文件、日志文件）}
+$$
 
 | 步骤 | 做什么 |
 | --- | --- |
@@ -265,7 +265,7 @@ SQL（Structured Query Language）是关系数据库的**标准语言**，集 DD
 
 ::: danger 易错 · SQL 标准与 MySQL 方言
 - SQL 标准用 `||` 拼接字符串，MySQL 用 `CONCAT()`（除非开启 `PIPES_AS_CONCAT`）。
-- MySQL 的 `LIMIT n OFFSET m`（或 `LIMIT m, n`）是方言，标准 SQL 用 `OFFSET … FETCH FIRST … ROWS ONLY`。
+- MySQL 的 `LIMIT n OFFSET m`（或 `LIMIT m, n`）是方言，标准 SQL 用 $OFFSET \cdots FETCH FIRST \cdots ROWS ONLY$。
 - 反引号 `` ` `` 是 MySQL 标识符引用符，标准 SQL 用双引号；字符串统一用单引号。
 - 聚合函数与 `GROUP BY`：MySQL 在非 `ONLY_FULL_GROUP_BY` 模式下允许 SELECT 非分组列，结果**不确定**；标准 SQL 与严格模式都禁止。
 :::
@@ -275,7 +275,7 @@ SQL（Structured Query Language）是关系数据库的**标准语言**，集 DD
 | 特性 | 说明 |
 | --- | --- |
 | **CTE 与递归 CTE** | `WITH cte AS (…) SELECT …`；`WITH RECURSIVE` 处理树形/层级数据 |
-| **窗口函数** | `ROW_NUMBER / RANK / DENSE_RANK / LAG / LEAD / SUM() OVER(PARTITION BY …)`，不折叠行 |
+| **窗口函数** | $\frac{\frac{\frac{\frac{\frac{ROW_{NUMBER}}{RANK}}{DENSE_{RANK}}}{LAG}}{LEAD}}{SUM() OVER(PARTITION BY \cdots)}$，不折叠行 |
 | JSON 增强 | JSON 类型、JSON 函数、函数索引（Generated Column） |
 | 角色、原子 DDL、降序索引、不可见索引 | 权限批量管理、DDL 崩溃安全、排序优化、索引灰度下线 |
 | `utf8mb4_0900_ai_ci` 默认校对 | 真正 UTF-8、性能更好 |
@@ -339,7 +339,7 @@ DROP DATABASE IF EXISTS teaching;
 
 ::: danger 易错 · 字符集与建库
 - `DROP DATABASE` 会删除库中**所有表与数据**且不可回滚；生产环境必须先备份。
-- 「改了库的默认字符集」**不会**自动转换已有表/列的字符集，需 `ALTER TABLE … CONVERT TO CHARACTER SET utf8mb4`。
+- 「改了库的默认字符集」**不会**自动转换已有表/列的字符集，需 $ALTER TABLE \cdots CONVERT TO CHARACTER SET utf8mb4$。
 - 字符集不一致会导致 JOIN 时索引失效或报 `Illegal mix of collations`；工程上全库统一 utf8mb4。
 :::
 
@@ -365,7 +365,7 @@ DROP DATABASE IF EXISTS teaching;
 | 约束 | 写法 | 作用 |
 | --- | --- | --- |
 | `PRIMARY KEY` | 列级或表级 | 实体完整性；自动 NOT NULL + UNIQUE；**每表最多一个**（可组合多列） |
-| `FOREIGN KEY … REFERENCES` | 表级 | 参照完整性；要求被参照列有唯一索引，两表通常同为 InnoDB |
+| $FOREIGN KEY \cdots REFERENCES$ | 表级 | 参照完整性；要求被参照列有唯一索引，两表通常同为 InnoDB |
 | `UNIQUE` | 列级/表级 | 唯一性；**允许多个 NULL**（MySQL） |
 | `NOT NULL` | 列级 | 禁止 NULL |
 | `DEFAULT` | 列级 | 未给值时填默认值 |
@@ -496,18 +496,18 @@ SELECT DISTINCT Sdept FROM Student ORDER BY Sdept ASC LIMIT 2;
 
 | 常用谓词 / 函数 | 说明 |
 | --- | --- |
-| `BETWEEN a AND b` / `IN (…)` / `LIKE '模式'` | 范围 / 集合 / 模糊匹配（`%` 任意串、`_` 单字符，`ESCAPE` 转义） |
+| `BETWEEN a AND b` / $IN( \cdots)$ / `LIKE '模式'` | 范围 / 集合 / 模糊匹配（`%` 任意串、`_` 单字符，`ESCAPE` 转义） |
 | `IS NULL` / `IS NOT NULL` | 判空 |
 | `COUNT / SUM / AVG / MAX / MIN` | 聚合函数，除 `COUNT(*)` 外都**忽略 NULL**；`SUM` 遇全 NULL 返回 NULL |
 | `AND / OR / NOT` | 三值逻辑：TRUE / FALSE / **UNKNOWN**，`NOT IN` 遇子查询含 NULL 会返回空结果 |
-| `CASE WHEN … THEN … ELSE … END` | 条件表达式（可实现行列转换、分组打标） |
+| $CASE WHEN \cdots THEN \cdots ELSE \cdots END$ | 条件表达式（可实现行列转换、分组打标） |
 | `COALESCE / IFNULL` | 用默认值替换 NULL |
 
 ### 6.2 多表连接（★★★）
 
 | 连接 | 结果 | 记忆 |
 | --- | --- | --- |
-| `INNER JOIN … ON` | 两表都匹配的行 | 交集 |
+| $INNER JOIN \cdots ON$ | 两表都匹配的行 | 交集 |
 | `LEFT [OUTER] JOIN` | 左表全部 + 右表匹配（无匹配补 NULL） | 左表不丢 |
 | `RIGHT [OUTER] JOIN` | 右表全部 + 左表匹配 | 右表不丢 |
 | `CROSS JOIN` | 笛卡尔积 | 忘写 ON 的后果 |
@@ -541,10 +541,10 @@ GROUP BY s.Sno, s.Sname ORDER BY cnt DESC, s.Sname;
 | --- | --- | --- |
 | 标量子查询 | `WHERE Sage > (SELECT AVG(Sage) FROM Student)` | 返回单值 |
 | `IN` 子查询 | `WHERE Sno IN (SELECT Sno FROM SC …)` | 返回一列多行；含 NULL 时小心 |
-| 比较 + `ANY/ALL` | `> ANY(…)`（大于最小）/ `> ALL(…)`（大于最大） | 与聚合 MAX/MIN 等价 |
+| 比较 + `ANY/ALL` | $> ANY( \cdots)$（大于最小）/ $> ALL( \cdots)$（大于最大） | 与聚合 MAX/MIN 等价 |
 | `EXISTS` 相关子查询 | `WHERE EXISTS (SELECT 1 FROM SC WHERE …)` | 逐行求值、找到即停，通常效率高 |
 | `NOT EXISTS` 双重否定 | 表达「全部 / 所有」 | 对应关系代数除运算 |
-| 派生表 / CTE | `FROM (SELECT …) AS t` / `WITH cte AS (…)` | MySQL 8.0 支持 CTE 与窗口函数 |
+| 派生表 / CTE | `FROM (SELECT …) AS t` / $WITH cte AS( \cdots)$ | MySQL 8.0 支持 CTE 与窗口函数 |
 
 ::: tip 工作示例 · 子查询与「全部」表达（含实际结果）
 ```sql
@@ -798,7 +798,7 @@ COMMIT;              -- 或 ROLLBACK（全部回滚）
 ![事务状态、ACID 与实现机制](/db/db-transaction.svg)
 
 ::: tip ACID 缩写与实现机制的映射
-上表是考研与面试的标准答案：**A↔undo、D↔redo、I↔锁/MVCC、C↔最终结果**。另外 MySQL 默认 `autocommit=1`，单条 DML 自动成为一个事务；显式事务需 `START TRANSACTION` 或 `SET autocommit=0`。
+上表是考研与面试的标准答案：**A\leftrightarrow undo、D\leftrightarrow redo、I\leftrightarrow 锁/MVCC、C\leftrightarrow 最终结果**。另外 MySQL 默认 `autocommit=1`，单条 DML 自动成为一个事务；显式事务需 `START TRANSACTION` 或 `SET autocommit=0`。
 :::
 
 ### 9.2 四类并发异常与四种隔离级别（★★★）
@@ -877,12 +877,12 @@ T2: R(A)  W(A)  R(B)  W(B)
 调度 S: R1(A) R2(A) W1(A) W2(A) R2(B) W2(B) R1(B) W1(B)
 ```
 **解**：列出**冲突操作**（不同事务、同一数据项、至少一个写）：
-```text
-A 上：R2(A) 在 W1(A) 之前 → T2 → T1；W1(A) 在 W2(A) 之前 → T1 → T2  ⇒ 出现环
-B 上：W2(B) 在 R1(B) 之前 → T2 → T1；R2(B) 在 W1(B) 之前 → T2 → T1
-优先图：T1 ⇄ T2（有环）⇒ 该调度**不是冲突可串行化**的
-```
-若优先图无环，则拓扑序即等价的串行次序（如 T1→T2）。**2PL 保证可串行化但不保证无死锁**；时间戳排序、乐观并发控制（OCC/MVCC）是另外的实现路线。
+$$
+\text{A} \; \text{上：} \; \text{R2(A)} \; \text{在} \; \text{W1(A)} \; \text{之前} \; \to T2 \to T1 \; \text{；} \; \text{W1(A)} \; \text{在} \; \text{W2(A)} \; \text{之前} \; \to T1 \to T2 \Rightarrow \; \text{出现环} \\
+\text{B} \; \text{上：} \; \text{W2(B)} \; \text{在} \; \text{R1(B)} \; \text{之前} \; \to T2 \to T1 \; \text{；} \; \text{R2(B)} \; \text{在} \; \text{W1(B)} \; \text{之前} \; \to T2 \to T1 \\
+\text{优先图：} \; \text{T1 \rightleftarrows  T2} \; \text{（有环）} \; \Rightarrow \; \text{该调度} \; \text{**} \; \text{不是冲突可串行化} \; \text{**} \; \text{的}
+$$
+若优先图无环，则拓扑序即等价的串行次序（如 $T1 \to T2$）。**2PL 保证可串行化但不保证无死锁**；时间戳排序、乐观并发控制（OCC/MVCC）是另外的实现路线。
 
 ::: tip 并发控制的三条技术路线（对比记忆）
 - **封锁法（悲观）**：先加锁再操作，2PL 保证可串行化，代价是并发度下降与死锁。
@@ -932,12 +932,12 @@ mysqlbinlog --stop-datetime="2026-11-13 14:29:59" mysql-bin.000003 | mysql -u ro
 | general log | Server | 全部客户端语句 | 审计（开销大，慎开） |
 | relay log | 从库 | 从主库接收的 binlog 副本 | 主从复制 |
 
-```text
-一条 UPDATE 的日志协作（两阶段提交 2PC）：
-① 记录 undo（保存旧值）       ② 修改内存中的 Buffer Pool 页
-③ 写 redo log（prepare 状态） ④ 写 binlog
-⑤ redo log 改写成 commit
-```
+$$
+\text{一条} \; \text{UPDATE} \; \text{的日志协作（两阶段提交} \; \text{2PC} \; \text{）：} \\
+\text{(1)} \; \text{记录} \; \text{undo} \; \text{（保存旧值）} \; \text{(2)} \; \text{修改内存中的} \; \text{Buffer Pool} \; \text{页} \\
+\text{(3)} \; \text{写} \; redo \log \; \text{（} \; \text{prepare} \; \text{状态）} \; \text{(4)} \; \text{写} \; \text{binlog} \\
+(5) redo \log \; \text{改写成} \; \text{commit}
+$$
 **为什么要两阶段提交**：binlog 与 redo 分属两层，若「redo 已提交但 binlog 没写」→ 主库有数据、从库没有；反之从库多数据。2PC 以 binlog 是否完整写入作为最终提交依据，保证**主库与从库一致**。崩溃恢复时：redo 为 prepare 且 binlog 完整 → 提交；redo 为 prepare 但 binlog 不完整 → 回滚。
 
 ::: tip 三类故障与恢复策略（经典考点）
@@ -1005,13 +1005,13 @@ SLC(Sno, Sdept, Sloc, Cno, Grade)
 -- 学号、系名、系所在楼、课程号、成绩；一个学生可选多门课
 ```
 函数依赖集：
-```text
-(Sno, Cno) →f Grade       （完全依赖）
-Sno → Sdept               （部分依赖：Sdept 只依赖主码的一部分）
-Sno → Sloc
-Sdept → Sloc              （传递依赖）
-候选码 = (Sno, Cno)
-```
+$$
+(Sno, Cno) \to f Grade \; \text{（完全依赖）} \\
+Sno \to Sdept \; \text{（部分依赖：} \; \text{Sdept} \; \text{只依赖主码的一部分）} \\
+Sno \to Sloc \\
+Sdept \to Sloc \; \text{（传递依赖）} \\
+\text{候选码} \; \text{= (Sno, Cno)}
+$$
 它引发四类异常：
 
 | 异常 | 例子 |
@@ -1025,39 +1025,39 @@ Sdept → Sloc              （传递依赖）
 
 | 概念 | 定义 |
 | --- | --- |
-| 函数依赖 `X → Y` | 对 R 的任意合法关系，任意两元组若在 X 上取值相同，则在 Y 上必相同 |
-| 平凡函数依赖 | `Y ⊆ X`（如 `(Sno,Cno) → Sno`），恒成立 |
-| **完全函数依赖** `X →f Y` | Y 依赖整个 X，不依赖 X 的任一真子集 |
-| **部分函数依赖** `X →p Y` | Y 只依赖 X 的某个真子集 |
-| **传递函数依赖** | `X → Y`、`Y → Z`、`Y ↛ X`、`Z ⊄ Y` ⇒ `X →t Z` |
+| 函数依赖 $X \to Y$ | 对 R 的任意合法关系，任意两元组若在 X 上取值相同，则在 Y 上必相同 |
+| 平凡函数依赖 | `Y ⊆ X`（如 $(Sno,Cno) \to Sno$），恒成立 |
+| **完全函数依赖** $X \to f Y$ | Y 依赖整个 X，不依赖 X 的任一真子集 |
+| **部分函数依赖** $X \to p Y$ | Y 只依赖 X 的某个真子集 |
+| **传递函数依赖** | $X \to Y$、$Y \to Z$、`Y \not\to  X`、`Z ⊄ Y` ⇒ $X \to t Z$ |
 
 **Armstrong 公理系统**（自反律、增广律、传递律，是**完备且可靠**的推理规则）：
-```text
-A1 自反律：若 Y ⊆ X ⊆ U，则 X → Y
-A2 增广律：若 X → Y 且 Z ⊆ U，则 XZ → YZ
-A3 传递律：若 X → Y 且 Y → Z，则 X → Z
-推论：合并规则 (X→Y, X→Z ⇒ X→YZ)、分解规则 (X→YZ ⇒ X→Y)、伪传递规则 (X→Y, WY→Z ⇒ WX→Z)
-```
-**属性闭包 `X⁺`**：由 X 在函数依赖集 F 下能推出的全部属性。算法：从 `X⁺=X` 开始，反复把满足 `A ⊆ X⁺` 的 `A→B` 中的 B 并入，直到不再变化。若 `X⁺ = U`，则 X 是**超码**；若再无真子集满足，则是**候选码**。
+$$
+\text{A1} \; \text{自反律：若} \; \text{Y ⊆ X ⊆ U} \; \text{，则} \; X \to Y \\
+\text{A2} \; \text{增广律：若} \; X \to Y \; \text{且} \; \text{Z ⊆ U} \; \text{，则} \; XZ \to YZ \\
+\text{A3} \; \text{传递律：若} \; X \to Y \; \text{且} \; Y \to Z \; \text{，则} \; X \to Z \\
+\text{推论：合并规则} \; (X \to Y, X \to Z \Rightarrow X \to YZ) \; \text{、分解规则} \; (X \to YZ \Rightarrow X \to Y) \; \text{、伪传递规则} \; (X \to Y, WY \to Z \Rightarrow WX \to Z)
+$$
+**属性闭包 $X^{+}$**：由 X 在函数依赖集 F 下能推出的全部属性。算法：从 $X^{+}=X$ 开始，反复把满足 $A ⊆ X^{+}$ 的 $A \to B$ 中的 B 并入，直到不再变化。若 $X^{+}= U$，则 X 是**超码**；若再无真子集满足，则是**候选码**。
 
 ::: tip 最小函数依赖集（最小覆盖）
 F 的最小覆盖 F_min 满足三条件：① 每个 FD 右部都是**单属性**；② 不存在可用其余 FD 推出的**冗余 FD**；③ 每个 FD 左部不含**冗余属性**（去掉任一属性后闭包不变）。求法：拆右部 → 逐个尝试删 FD → 逐个尝试删左部属性。最小覆盖是 3NF 保持依赖分解算法（综合模式法）的输入，也是「同一 F 的最小覆盖不唯一」这一判断题的来源。
 :::
 
 ::: tip 工作示例 · 求候选码（含完整推导）
-设 `R(A,B,C,D,E)`，`F = { AB→C, C→D, D→E, E→A }`，求候选码。
+设 `R(A,B,C,D,E)`，$F={AB \to C, C \to D, D \to E, E \to A}$，求候选码。
 
-```text
-① 分类：L 类（只在左出现）B；R 类（只在右）无；N 类（都不出现）无；LR 类 A,C,D,E
-② B 必属于候选码。求 B⁺ = {B}，无法再扩 → 不是码
-③ 逐个把 LR 属性加入 B 再求闭包：
-   (AB)⁺ = {A,B} → AB→C 加 C → C→D 加 D → D→E 加 E = {A,B,C,D,E} ✔ 候选码
-   (BC)⁺ = {B,C} → C→D → D→E → E→A = {A,B,C,D,E} ✔ 候选码
-   (BD)⁺ = {B,D} → D→E → E→A → (AB 已含? A、B、C? 由 AB→C 得 C) = 全部 ✔ 候选码
-   (BE)⁺ = {B,E} → E→A → AB→C → C→D = 全部 ✔ 候选码
-④ 故候选码为 AB、BC、BD、BE（四个）；主属性 = {A,B,C,D,E} 全部，非主属性为空
-```
-**结论**：R 中所有属性都是主属性 → 至少属于 3NF；再检查决定因素是否都含码（如 `C→D` 中 C 不是码）→ **不属于 BCNF**。
+$$
+\text{(1)} \; \text{分类：} \; \text{L} \; \text{类（只在左出现）} \; \text{B} \; \text{；} \; \text{R} \; \text{类（只在右）无；} \; \text{N} \; \text{类（都不出现）无；} \; \text{LR} \; \text{类} \; \text{A,C,D,E} \\
+\text{(2) B} \; \text{必属于候选码。求} \; B^{+}={B} \; \text{，无法再扩} \; \to \; \text{不是码} \\
+\text{(3)} \; \text{逐个把} \; \text{LR} \; \text{属性加入} \; \text{B} \; \text{再求闭包：} \\
+(AB)^{+}={A,B} \to AB \to C \; \text{加} \; C \to C \to D \; \text{加} \; D \to D \to E \; \text{加} \; \text{E = \{A,B,C,D,E\} }\checkmark \; \text{候选码} \\
+(BC)^{+}={B,C} \to C \to D \to D \to E \to E \to A={A,B,C,D,E} \checkmark \; \text{候选码} \\
+\text{(BD)+ = \{B,D\} → D→E → E→A → (AB} \; \text{已含} \; \text{? A} \; \text{、} \; \text{B} \; \text{、} \; \text{C?} \; \text{由} \; AB \to C \; \text{得} \; \text{C) =} \; \text{全部} \; \checkmark \; \text{候选码} \\
+(BE)^{+}={B,E} \to E \to A \to AB \to C \to C \to D= \; \text{全部} \; \checkmark \; \text{候选码} \\
+\text{(4)} \; \text{故候选码为} \; \text{AB} \; \text{、} \; \text{BC} \; \text{、} \; \text{BD} \; \text{、} \; \text{BE} \; \text{（四个）；主属性} \; \text{= \{A,B,C,D,E\}} \; \text{全部，非主属性为空}
+$$
+**结论**：R 中所有属性都是主属性 → 至少属于 3NF；再检查决定因素是否都含码（如 $C \to D$ 中 C 不是码）→ **不属于 BCNF**。
 :::
 
 ### 12.3 范式与分解（★★★）
@@ -1068,37 +1068,36 @@ F 的最小覆盖 F_min 满足三条件：① 每个 FD 右部都是**单属性*
 | **2NF** | 1NF + 每个**非主属性完全函数依赖**于每个候选码 | 消除非主属性对码的**部分依赖** |
 | **3NF** | 2NF + 每个非主属性**不传递依赖**于码 | 消除非主属性的**传递依赖** |
 | **BCNF** | 1NF + **每一个非平凡函数依赖 X→Y 中 X 都含候选码**（即决定因素必为超码） | 消除**主属性**对码的部分/传递依赖 |
-| **4NF** | BCNF + 每个非平凡**多值依赖** X→→Y 中 X 含码 | 消除独立的多值事实造成的冗余 |
+| **4NF** | BCNF + 每个非平凡**多值依赖** $X \to \to Y$ 中 X 含码 | 消除独立的多值事实造成的冗余 |
 
-等价表述：**3NF** 允许 `X→A` 中 A 是主属性（可"放松"），BCNF 完全不允许决定因素不含码。
+等价表述：**3NF** 允许 $X \to A$ 中 A 是主属性（可"放松"），BCNF 完全不允许决定因素不含码。
 
 ![函数依赖、范式判定与模式分解](/db/db-normalization.svg)
 
 ::: tip 工作示例 · 从 1NF 一步步分解到 3NF（完整链条）
-```text
-R = SLC(Sno, Sdept, Sloc, Cno, Grade)
-F = { (Sno,Cno)→Grade, Sno→Sdept, Sno→Sloc, Sdept→Sloc }
-候选码 (Sno,Cno)；非主属性 Sdept, Sloc, Grade
-
-【判定】Sdept、Sloc 只依赖 Sno（主码的一部分）→ 部分依赖 ⇒ 仅 1NF
-【分解到 2NF】按「导致部分依赖的决定因素」拆：
-   SC(Sno, Cno, Grade)        F1 = {(Sno,Cno)→Grade}      码 (Sno,Cno) → 2NF/3NF/BCNF
-   SL(Sno, Sdept, Sloc)       F2 = {Sno→Sdept, Sno→Sloc, Sdept→Sloc}  码 Sno
-【判定 SL】Sno→Sdept→Sloc 且 Sdept ↛ Sno ⇒ Sloc 传递依赖于码 ⇒ 2NF 但不是 3NF
-【分解到 3NF】
-   SD(Sno, Sdept)             F3 = {Sno→Sdept}
-   DL(Sdept, Sloc)            F4 = {Sdept→Sloc}
-最终：SC、SD、DL 均达 BCNF，且四类异常全部消除
-```
+$$
+\text{R = SLC(Sno, Sdept, Sloc, Cno, Grade)} \\
+F={(Sno,Cno) \to Grade, Sno \to Sdept, Sno \to Sloc, Sdept \to Sloc} \\
+\text{候选码} \; \text{(Sno,Cno)} \; \text{；非主属性} \; \text{Sdept, Sloc, Grade} \\
+\text{【判定】} \; \text{Sdept} \; \text{、} \; \text{Sloc} \; \text{只依赖} \; \text{Sno} \; \text{（主码的一部分）} \; \to \; \text{部分依赖} \; \Rightarrow \; \text{仅} \; \text{1NF} \\
+\text{【分解到} \; \text{2NF} \; \text{】按「导致部分依赖的决定因素」拆：} \\
+SC(Sno, Cno, Grade) F1={(Sno,Cno) \to Grade} \; \text{码} \; (Sno,Cno) \to \frac{\frac{2NF}{3NF}}{BCNF} \\
+SL(Sno, Sdept, Sloc) F2={Sno \to Sdept, Sno \to Sloc, Sdept \to Sloc} \; \text{码} \; \text{Sno} \\
+\text{【判定} \; \text{SL} \; \text{】} \; Sno \to Sdept \to Sloc \; \text{且} \; Sdept \to Sno \Rightarrow Sloc \; \text{传递依赖于码} \; \Rightarrow 2NF \; \text{但不是} \; \text{3NF} \\
+\text{【分解到} \; \text{3NF} \; \text{】} \\
+SD(Sno, Sdept) F3={Sno \to Sdept} \\
+DL(Sdept, Sloc) F4={Sdept \to Sloc} \\
+\text{最终：} \; \text{SC} \; \text{、} \; \text{SD} \; \text{、} \; \text{DL} \; \text{均达} \; \text{BCNF} \; \text{，且四类异常全部消除}
+$$
 **每步都要能答**：违反哪个范式、依据哪条函数依赖、按什么拆、拆完有没有丢东西。
 :::
 
 ::: tip BCNF、4NF 与「无损连接 / 保持依赖」
-**BCNF 反例**：`STJ(S, T, J)`（学生、教师、课程），`F = {(S,J)→T, (S,T)→J, T→J}`，候选码 `(S,J)` 与 `(S,T)`。所有属性都是主属性 ⇒ 满足 3NF；但 `T→J` 中 T 不含码 ⇒ **不满足 BCNF**。分解为 `ST(S,T)` + `TJ(T,J)` 达 BCNF，但**丢失了 `(S,J)→T`**（说明 BCNF 分解不保证保持依赖）。
-**4NF 反例**：`CTB(Course, Teacher, Book)`，一门课有多位教师、多套教材且二者相互独立 ⇒ 存在非平凡多值依赖 `Course→→Teacher`、`Course→→Book`，属 BCNF 但不是 4NF；分解为 `CT(Course,Teacher)`、`CB(Course,Book)`。
+**BCNF 反例**：`STJ(S, T, J)`（学生、教师、课程），$F={(S,J) \to T,(S,T) \to J, T \to J}$，候选码 `(S,J)` 与 `(S,T)`。所有属性都是主属性 ⇒ 满足 3NF；但 $T \to J$ 中 T 不含码 ⇒ **不满足 BCNF**。分解为 `ST(S,T)` + `TJ(T,J)` 达 BCNF，但**丢失了 $(S,J) \to T$**（说明 BCNF 分解不保证保持依赖）。
+**4NF 反例**：`CTB(Course, Teacher, Book)`，一门课有多位教师、多套教材且二者相互独立 ⇒ 存在非平凡多值依赖 $Course \to \to Teacher$、$Course \to \to Book$，属 BCNF 但不是 4NF；分解为 `CT(Course,Teacher)`、`CB(Course,Book)`。
 
 **模式分解的两条质量判据**：
-- **无损连接性**：分解后各子关系自然连接能**精确还原**原关系（不产生伪元组、不丢失元组）。二元分解 `R→R1,R2` 无损 ⟺ `(R1∩R2) → (R1−R2)` 或 `(R1∩R2) → (R2−R1)` 在 `F⁺` 中。上例 `SL→SD+DL`：交集 `Sdept`，`Sdept→Sloc` 成立 ⇒ 无损。
+- **无损连接性**：分解后各子关系自然连接能**精确还原**原关系（不产生伪元组、不丢失元组）。二元分解 $R \to R1,R2$ 无损 ⟺ $(R1 \cap R2) \to(R1- R2)$ 或 $(R1 \cap R2) \to(R2- R1)$ 在 $F^{+}$ 中。上例 $SL \to SD+DL$：交集 `Sdept`，$Sdept \to Sloc$ 成立 ⇒ 无损。
 - **保持依赖性**：分解后各子模式上函数依赖集的并集能逻辑蕴含原 F（保证约束仍可**局部检查**，不必每次做连接）。
 - 定理：任何关系模式都可分解为 **3NF 且同时满足无损连接与保持依赖**；BCNF 一定无损但**不一定保持依赖**——这正是工程上常停在 3NF 的原因。
 :::
@@ -1107,20 +1106,20 @@ F = { (Sno,Cno)→Grade, Sno→Sdept, Sno→Sloc, Sdept→Sloc }
 - 2NF/3NF 只约束**非主属性**；BCNF 连**主属性**也管。全主属性的关系模式「至少 3NF」但未必 BCNF。
 - 「范式越高越好」不绝对：规范化减少冗余却增加**连接开销**，读多写少的报表/数据仓库常主动**反规范化**（冗余列、汇总表、宽表）。
 - 分解必须同时检查**无损连接**与**保持依赖**，只满足其一的分解仍可能有害。
-- 传递依赖要求中间属性 `Y ↛ X`（若 Y 也能决定 X，则是相互决定，不构成传递依赖）。
+- 传递依赖要求中间属性 `Y \not\to  X`（若 Y 也能决定 X，则是相互决定，不构成传递依赖）。
 :::
 
 ### 12.4 无损连接与保持依赖的验证（工作示例）
 
 对 `SL(Sno,Sdept,Sloc)` 分解为 `SD(Sno,Sdept)` + `DL(Sdept,Sloc)`：
-```text
-① 交集 R1∩R2 = {Sdept}
-② R1−R2 = {Sno}；R2−R1 = {Sloc}
-③ 检查 Sdept→Sno？不成立；Sdept→Sloc？F 中有 ✔ ⇒ 无损连接
-④ 保持依赖：F1={Sno→Sdept}、F2={Sdept→Sloc}，
-   二者的并集可推出原 F 中 Sno→Sloc（传递）✔ ⇒ 保持依赖
-```
-作为对照，BCNF 分解 `STJ → ST + TJ` 虽无损，却丢失 `(S,J)→T`（不保持依赖）——这正是「3NF 可同时保证无损+保持依赖，BCNF 只能保证无损」的具体例证。
+$$
+\text{(1)} \; \text{交集} \; R1 \cap R2={Sdept} \\
+(2) R1- R2={Sno} \; \text{；} \; R2- R1={Sloc} \\
+\text{(3)} \; \text{检查} \; Sdept \to Sno \; \text{？不成立；} \; Sdept \to Sloc \; \text{？} \; \text{F} \; \text{中有} \; \checkmark \Rightarrow \; \text{无损连接} \\
+\text{(4)} \; \text{保持依赖：} \; F1={Sno \to Sdept} \; \text{、} \; F2={Sdept \to Sloc} \; \text{，} \\
+\text{二者的并集可推出原} \; \text{F} \; \text{中} \; Sno \to Sloc \; \text{（传递）} \; \checkmark \Rightarrow \; \text{保持依赖}
+$$
+作为对照，BCNF 分解 $STJ \to ST+ TJ$ 虽无损，却丢失 $(S,J) \to T$（不保持依赖）——这正是「3NF 可同时保证无损+保持依赖，BCNF 只能保证无损」的具体例证。
 
 ---
 
@@ -1139,9 +1138,9 @@ F = { (Sno,Cno)→Grade, Sno→Sdept, Sno→Sloc, Sdept→Sloc }
 
 | 联系 | 例子 | 转换方式 |
 | --- | --- | --- |
-| 1:1 | 班级 ↔ 班长 | 在任一方加入另一方主码 + 联系属性；或单独建关系（较少） |
-| **1:n** | 系 ↔ 学生 | 在 **n 端**关系中加入 1 端主码作外码 + 联系属性（不单独建表） |
-| **m:n** | 学生 ↔ 课程 | **必须新建**一个关系，主码为两端主码的组合，含联系自身的属性（如成绩） |
+| 1:1 | 班级 \leftrightarrow  班长 | 在任一方加入另一方主码 + 联系属性；或单独建关系（较少） |
+| **1:n** | 系 \leftrightarrow  学生 | 在 **n 端**关系中加入 1 端主码作外码 + 联系属性（不单独建表） |
+| **m:n** | 学生 \leftrightarrow  课程 | **必须新建**一个关系，主码为两端主码的组合，含联系自身的属性（如成绩） |
 | 多元 / 自联系 | 供应商-项目-零件 / 员工-经理 | 新建关系；自联系用角色名区分两个外码 |
 
 ![E-R 图、联系类型与向关系模式转换](/db/db-er.svg)
@@ -1151,12 +1150,12 @@ F = { (Sno,Cno)→Grade, Sno→Sdept, Sno→Sloc, Sdept→Sloc }
 - 实体：`系(系号, 系名, 系主任)`、`学生(学号, 姓名, 性别)`、`课程(课程号, 课程名, 学分)`
 - 联系：`系—学生` 为 **1:n**（"隶属于"，含属性"入学年份"）；`学生—课程` 为 **m:n**（"选修"，含属性"成绩"）
 
-```text
-① 系(系号 PK, 系名, 系主任)                       ← 实体直接转
-② 学生(学号 PK, 姓名, 性别, 系号 FK, 入学年份)     ← 1:n 把 1 端码与联系属性并入 n 端
-③ 课程(课程号 PK, 课程名, 学分)
-④ 选修(学号 FK, 课程号 FK, 成绩, PRIMARY KEY(学号,课程号))  ← m:n 必须独立建表
-```
+$$
+\text{(1)} \; \text{系} \; \text{(} \; \text{系号} \; \text{PK,} \; \text{系名} \; \text{,} \; \text{系主任} \; \text{)                       ←} \; \text{实体直接转} \\
+\text{(2)} \; \text{学生} \; \text{(} \; \text{学号} \; \text{PK,} \; \text{姓名} \; \text{,} \; \text{性别} \; \text{,} \; \text{系号} \; \text{FK,} \; \text{入学年份} \; \text{)     ← 1:n} \; \text{把} \; \text{1} \; \text{端码与联系属性并入} \; \text{n} \; \text{端} \\
+\text{(3)} \; \text{课程} \; \text{(} \; \text{课程号} \; \text{PK,} \; \text{课程名} \; \text{,} \; \text{学分} \; \text{)} \\
+\text{(4)} \; \text{选修} \; \text{(} \; \text{学号} \; \text{FK,} \; \text{课程号} \; \text{FK,} \; \text{成绩} \; \text{, PRIMARY KEY(} \; \text{学号} \; \text{,} \; \text{课程号} \; \text{))  ← m:n} \; \text{必须独立建表}
+$$
 **得分点**：① 每个实体一个关系；② 1:n 不单独建表；③ m:n 单独建表且组合主码；④ 联系属性不能丢；⑤ 标出 PK/FK。
 :::
 
@@ -1229,8 +1228,8 @@ F = { (Sno,Cno)→Grade, Sno→Sdept, Sno→Sloc, Sdept→Sloc }
 | 局部变量 | `DECLARE v_name VARCHAR(20) DEFAULT '';`（须在 `BEGIN` 后最前面） |
 | 赋值 | `SET v = 10;` / `SELECT col INTO v FROM t WHERE …;` |
 | 用户变量 / 系统变量 | `@v`（会话级） / `@@global.var`、`@@session.var` |
-| 分支 | `IF … THEN … ELSEIF … ELSE … END IF;` / `CASE … WHEN … THEN … END CASE;` |
-| 循环 | `WHILE … DO … END WHILE` / `REPEAT … UNTIL … END REPEAT` / `LOOP … LEAVE label; … END LOOP` |
+| 分支 | $IF \cdots THEN \cdots ELSEIF \cdots ELSE \cdots END IF;$ / $CASE \cdots WHEN \cdots THEN \cdots END CASE;$ |
+| 循环 | $WHILE \cdots DO \cdots END WHILE$ / $REPEAT \cdots UNTIL \cdots END REPEAT$ / $LOOP \cdots LEAVE label; \cdots END LOOP$ |
 | 内置函数 | 字符串 `CONCAT/SUBSTRING/TRIM/UPPER`、数值 `ROUND/CEIL/FLOOR`、日期 `NOW/DATE_ADD/DATEDIFF`、聚合 `COUNT/SUM/AVG`、条件 `IFNULL/COALESCE/CASE` |
 
 ### 15.2 存储过程（★★★）
@@ -1348,7 +1347,7 @@ DROP TRIGGER IF EXISTS trg_sc_before_insert;
 | 粒度 | MySQL 只支持 **`FOR EACH ROW` 行级**触发器，不支持语句级 |
 | `NEW` / `OLD` | `NEW` = 新行（INSERT/UPDATE 可用）；`OLD` = 旧行（UPDATE/DELETE 可用）；**INSERT 无 OLD、DELETE 无 NEW** |
 | 组合 | 一张表同一时机同一事件可有多个触发器（MySQL 5.7+），执行顺序可用 `FOLLOWS/PRECEDES` 指定；旧版本每种最多一个 |
-| 限制 | 触发器内**不能对触发表本身再做 DML**（会报「Can't update table … already in use」）；不能显式事务控制 |
+| 限制 | 触发器内**不能对触发表本身再做 DML**（会报「Can'$t update table \cdots already in$」）；不能显式事务控制 |
 
 ### 16.2 事件调度器（★★）
 
@@ -1389,11 +1388,11 @@ DROP EVENT IF EXISTS ev_purge_log;
 
 ### 17.1 连接流程与两种主流 API（★★★）
 
-```text
-① 加载驱动 / 导入模块 → ② 建立连接（主机、端口、库、用户、密码、字符集）
-→ ③ 创建游标/Statement → ④ 执行 SQL（参数化） → ⑤ 取结果集
-→ ⑥ 事务提交或回滚 → ⑦ 关闭游标与连接（或归还连接池）
-```
+$$
+\text{(1)} \; \text{加载驱动} \; \text{/} \; \text{导入模块} \; \to(2) \; \text{建立连接（主机、端口、库、用户、密码、字符集）} \\
+\to(3) \; \text{创建游标} \; Statement \to(4) \; \text{执行} \; \text{SQL} \; \text{（参数化）} \; \to(5) \; \text{取结果集} \\
+\to(6) \; \text{事务提交或回滚} \; \to(7) \; \text{关闭游标与连接（或归还连接池）}
+$$
 
 ```python
 # Python（PyMySQL，参数化 + 显式事务）
@@ -1507,22 +1506,22 @@ WHERE NOT EXISTS (SELECT 1 FROM SC sc WHERE sc.Cno=c.Cno);
 
 ### 综 2 · 从 1NF 分解到 BCNF（第 2、12 章）
 
-**题**：`SLC(Sno,Sdept,Sloc,Cno,Grade)`，`F={(Sno,Cno)→Grade, Sno→Sdept, Sno→Sloc, Sdept→Sloc}`。指出范式级别、异常，给出分解并验证无损与保持依赖。
+**题**：`SLC(Sno,Sdept,Sloc,Cno,Grade)`，$F={(Sno,Cno) \to Grade, Sno \to Sdept, Sno \to Sloc, Sdept \to Sloc}$。指出范式级别、异常，给出分解并验证无损与保持依赖。
 
 **解**：
-```text
-① 候选码 (Sno,Cno)（由 F 推：Sno、Cno 必须同时出现才能决定 Grade；Sno→Sdept/Sloc）
-② 非主属性 Sdept、Sloc 只依赖 Sno ⇒ 对码部分依赖 ⇒ 仅 1NF
-③ 异常：冗余（系楼重复）、插入（新生未选课无法录）、删除（退课丢系信息）、更新（搬楼改多行）
-④ 分解到 2NF（按部分依赖拆）：
-   SC(Sno,Cno,Grade)    F1={(Sno,Cno)→Grade}
-   SL(Sno,Sdept,Sloc)  F2={Sno→Sdept, Sno→Sloc, Sdept→Sloc}
-⑤ SL 中 Sno→Sdept→Sloc 且 Sdept↛Sno ⇒ 传递依赖 ⇒ 2NF 非 3NF
-⑥ 分解到 3NF：SD(Sno,Sdept)、DL(Sdept,Sloc)
-⑦ 最终 SC、SD、DL 三个关系均达 BCNF（每个决定因素都含码）
-⑧ 无损验证（SL→SD+DL）：交集 Sdept，Sdept→Sloc ∈ F⁺ ⇒ 无损连接
-   保持依赖：{Sno→Sdept} ∪ {Sdept→Sloc} 可推出 Sno→Sloc ⇒ 保持依赖
-```
+$$
+\text{(1)} \; \text{候选码} \; \text{(Sno,Cno)} \; \text{（由} \; \text{F} \; \text{推：} \; \text{Sno} \; \text{、} \; \text{Cno} \; \text{必须同时出现才能决定} \; \text{Grade} \; \text{；} \; \frac{Sno \to Sdept}{Sloc} \; \text{）} \\
+\text{(2)} \; \text{非主属性} \; \text{Sdept} \; \text{、} \; \text{Sloc} \; \text{只依赖} \; Sno \Rightarrow \; \text{对码部分依赖} \; \Rightarrow \; \text{仅} \; \text{1NF} \\
+\text{(3)} \; \text{异常：冗余（系楼重复）、插入（新生未选课无法录）、删除（退课丢系信息）、更新（搬楼改多行）} \\
+\text{(4)} \; \text{分解到} \; \text{2NF} \; \text{（按部分依赖拆）：} \\
+SC(Sno,Cno,Grade) F1={(Sno,Cno) \to Grade} \\
+SL(Sno,Sdept,Sloc) F2={Sno \to Sdept, Sno \to Sloc, Sdept \to Sloc} \\
+\text{(5) SL} \; \text{中} \; Sno \to Sdept \to Sloc \; \text{且} \; Sdept \to Sno \Rightarrow \; \text{传递依赖} \; \Rightarrow 2NF \; \text{非} \; \text{3NF} \\
+\text{(6)} \; \text{分解到} \; \text{3NF} \; \text{：} \; \text{SD(Sno,Sdept)} \; \text{、} \; \text{DL(Sdept,Sloc)} \\
+\text{(7)} \; \text{最终} \; \text{SC} \; \text{、} \; \text{SD} \; \text{、} \; \text{DL} \; \text{三个关系均达} \; \text{BCNF} \; \text{（每个决定因素都含码）} \\
+\text{(8)} \; \text{无损验证（} \; SL \to SD+DL \; \text{）：交集} \; \text{Sdept} \; \text{，} \; Sdept \to Sloc \in F^{+} \Rightarrow \; \text{无损连接} \\
+\text{保持依赖：} \; {Sno \to Sdept} \cup{Sdept \to Sloc} \; \text{可推出} \; Sno \to Sloc \Rightarrow \; \text{保持依赖}
+$$
 **结论**：该分解同时满足无损连接、保持依赖与 BCNF，是理想结果；但并非所有模式都能三者兼得（BCNF 分解可能丢依赖，此时常停在 3NF）。
 
 ### 综 3 · E-R 图转关系模式（第 11、13 章）
@@ -1544,11 +1543,11 @@ WHERE NOT EXISTS (SELECT 1 FROM SC sc WHERE sc.Cno=c.Cno);
 **题**：判断调度 `S = R1(A) R2(A) W1(A) W2(A) R2(B) W2(B) R1(B) W1(B)` 是否冲突可串行化。
 
 **解**：冲突对（不同事务、同一数据项、至少一写）：
-```text
-A：R2(A) 先于 W1(A) → T2→T1；W1(A) 先于 W2(A) → T1→T2
-B：R2(B) 先于 W1(B) → T2→T1；W2(B) 先于 R1(B) → T2→T1
-优先图含 T1⇄T2 环 ⇒ 不是冲突可串行化调度
-```
+$$
+\text{A} \; \text{：} \; \text{R2(A)} \; \text{先于} \; W1(A) \to T2 \to T1 \; \text{；} \; \text{W1(A)} \; \text{先于} \; W2(A) \to T1 \to T2 \\
+\text{B} \; \text{：} \; \text{R2(B)} \; \text{先于} \; W1(B) \to T2 \to T1 \; \text{；} \; \text{W2(B)} \; \text{先于} \; R1(B) \to T2 \to T1 \\
+\text{优先图含} \; \text{T1\rightleftarrows T2} \; \text{环} \; \Rightarrow \; \text{不是冲突可串行化调度}
+$$
 若要修正，可让 T1 与 T2 遵守**两段锁协议**（各自一次性申请所需 X 锁，事务结束统一释放），所得调度必可串行化，但可能出现死锁需要检测与回滚。
 
 ### 综 5 · 并发异常与隔离级别（第 9 章）
@@ -1556,9 +1555,9 @@ B：R2(B) 先于 W1(B) → T2→T1；W2(B) 先于 R1(B) → T2→T1
 **题**：余额 `A=100`。T1、T2 都执行「读 A、减 10、写回」。若不加控制最终结果可能是多少？如何用隔离级别与锁避免？
 
 **解**：
-```text
-不加控制：T1、T2 同时读到 100，各算出 90 并写回 → 最终 90（应 80）⇒ 丢失修改
-```
+$$
+\text{不加控制：} \; \text{T1} \; \text{、} \; \text{T2} \; \text{同时读到} \; \text{100} \; \text{，各算出} \; \text{90} \; \text{并写回} \; \to \; \text{最终} \; \text{90} \; \text{（应} \; \text{80} \; \text{）} \; \Rightarrow \; \text{丢失修改}
+$$
 对策：
 - **一级封锁协议**：写前对 A 加 X 锁并保持到事务结束，第二个事务必须等待 → 最终 80。
 - **原子更新**：`UPDATE account SET bal=bal-10 WHERE id=1`（数据库对该行加行锁）→ 同样避免。
@@ -1662,15 +1661,15 @@ finally:
 | # | 主题 | 语法 / 公式 |
 | --- | --- | --- |
 | 1 | 三级模式 | 外模式（多个）— 外模式/模式映像 → 逻辑独立性；模式（唯一）— 模式/内模式映像 → 物理独立性；内模式（唯一） |
-| 2 | 关系模式 | `R(U, D, DOM, F)`，简写 `R(A₁,…,Aₙ)`；关系 = 元组的有限集合 |
-| 3 | 关系代数 | `σ_F(R)` 选择、`π_A(R)` 投影、`R⋈S` 连接、`R÷S` 除、`R∪S / R−S / R∩S / R×S` |
-| 4 | 除运算 | `π_{Sno,Cno}(SC) ÷ π_{Cno}(Course)` = 选修全部课程的学生 |
-| 5 | 建库 | `CREATE DATABASE [IF NOT EXISTS] db DEFAULT CHARACTER SET utf8mb4 [COLLATE …];` |
+| 2 | 关系模式 | `R(U, D, DOM, F)`，简写 $R(A_{1}, \cdots,A_{n})$；关系 = 元组的有限集合 |
+| 3 | 关系代数 | $\sigma_{F}(R)$ 选择、$\pi_{A}(R)$ 投影、`R⋈S` 连接、`R÷S` 除、$\frac{R \cup S}{R}- \frac{\frac{S}{R \cap S}}{R \times S}$ |
+| 4 | 除运算 | $\pi_{Sno,Cno}(SC) ÷ \pi_{Cno}(Course)$ = 选修全部课程的学生 |
+| 5 | 建库 | $CREATE DATABASE[IF NOT EXISTS] db DEFAULT CHARACTER SET utf8mb4[COLLATE \cdots];$ |
 | 6 | 建表 | `CREATE TABLE t (col type [约束], …, [表级约束]) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;` |
-| 7 | 六类约束 | `PRIMARY KEY / FOREIGN KEY … REFERENCES / UNIQUE / NOT NULL / DEFAULT / CHECK` |
+| 7 | 六类约束 | $\frac{PRIMARY KEY}{FOREIGN KEY} \cdots \frac{\frac{\frac{\frac{REFERENCES}{UNIQUE}}{NOT NULL}}{DEFAULT}}{CHECK}$ |
 | 8 | 外键动作 | `ON DELETE {RESTRICT\|CASCADE\|SET NULL\|NO ACTION}`（UPDATE 同理） |
-| 9 | 改表 | `ALTER TABLE t ADD / MODIFY / CHANGE / DROP COLUMN …; RENAME TO …` |
-| 10 | 插入 | `INSERT INTO t [(cols)] VALUES (…),(…);` / `INSERT INTO t SELECT …` |
+| 9 | 改表 | $\frac{\frac{\frac{ALTER TABLE t ADD}{MODIFY}}{CHANGE}}{DROP COLUMN} \cdots; RENAME TO \cdots$ |
+| 10 | 插入 | $INSERT INTO t[(cols)] VALUES( \cdots),( \cdots);$ / `INSERT INTO t SELECT …` |
 | 11 | 更新删除 | `UPDATE t SET c=… WHERE …;` / `DELETE FROM t WHERE …;` / `TRUNCATE TABLE t;` |
 | 12 | SELECT 书写 | `SELECT [DISTINCT] … FROM … [JOIN … ON …] [WHERE …] [GROUP BY … [HAVING …]] [ORDER BY …] [LIMIT …]` |
 | 13 | SELECT 执行序 | FROM/JOIN → WHERE → GROUP BY → HAVING → SELECT → ORDER BY → LIMIT |
@@ -1681,14 +1680,14 @@ finally:
 | 18 | 集合 | `UNION`（去重）/ `UNION ALL`（不去重）/ `INTERSECT` / `EXCEPT`（MySQL 用 JOIN/NOT EXISTS 模拟） |
 | 19 | 子查询 | `IN / ANY / ALL / EXISTS / NOT EXISTS`；派生表 `FROM (SELECT …) AS t` |
 | 20 | CTE | `WITH cte AS (SELECT …) SELECT * FROM cte;`；递归 `WITH RECURSIVE` |
-| 21 | 窗口函数 | `ROW_NUMBER() OVER (PARTITION BY … ORDER BY …)`、`RANK / LAG / LEAD` |
+| 21 | 窗口函数 | $ROW_{NUMBER}() OVER(PARTITION BY \cdots ORDER BY \cdots)$、`RANK / LAG / LEAD` |
 | 22 | 视图 | `CREATE [OR REPLACE] VIEW v AS SELECT … [WITH CHECK OPTION];` |
 | 23 | 索引 | `CREATE [UNIQUE] INDEX idx ON t(c1,c2);` / `DROP INDEX` / `SHOW INDEX` / `EXPLAIN` |
 | 24 | 最左前缀 | 联合索引 `(a,b,c)` 可用 `a`、`a,b`、`a,b,c`；范围列之后不再用于定位 |
-| 25 | 用户权限 | `CREATE USER 'u'@'h' IDENTIFIED BY '…';` / `GRANT privileges ON db.t TO …;` / `REVOKE` / `SHOW GRANTS` |
-| 26 | 角色 | `CREATE ROLE r; GRANT … TO r; GRANT r TO 'u'@'h'; SET DEFAULT ROLE r TO 'u'@'h';` |
-| 27 | 事务 | `START TRANSACTION; … SAVEPOINT sp; … COMMIT / ROLLBACK [TO sp];` |
-| 28 | ACID | A↔undo log；C↔完整性约束 + A/I/D；I↔锁 + MVCC；D↔redo log + WAL |
+| 25 | 用户权限 | $CREATE USER 'u'@'h' IDENTIFIED BY ' \cdots ';$ / $GRANT privileges ON db.t TO \cdots;$ / `REVOKE` / `SHOW GRANTS` |
+| 26 | 角色 | $CREATE ROLE r; GRANT \cdots TO r; GRANT r TO 'u'@'h'; SET DEFAULT ROLE r TO 'u'@'h';$ |
+| 27 | 事务 | $START TRANSACTION; \cdots SAVEPOINT sp; \cdots \frac{COMMIT}{ROLLBACK}[TO sp];$ |
+| 28 | ACID | $A \leftrightarrow undo \log$；C\leftrightarrow 完整性约束 + A/I/D；I\leftrightarrow 锁 + MVCC；$D \leftrightarrow redo \log$ |
 | 29 | 隔离级别 | `READ UNCOMMITTED / READ COMMITTED / REPEATABLE READ(MySQL 默认) / SERIALIZABLE` |
 | 30 | 查看隔离级别 | `SELECT @@transaction_isolation;`（MySQL 8.0；旧版 `@@tx_isolation`） |
 | 31 | 显式加锁 | `SELECT … FOR UPDATE`（X）/ `LOCK IN SHARE MODE`（S，8.0 可用 `FOR SHARE`） |
@@ -1699,24 +1698,24 @@ finally:
 | 36 | PITR | `mysqlbinlog --start-datetime=… --stop-datetime=… mysql-bin.00000N \| mysql -u root -p` |
 | 37 | 日志分工 | binlog（Server/逻辑，复制+PITR）、redo（InnoDB/物理，崩溃恢复）、undo（回滚+MVCC） |
 | 38 | 两阶段提交 | redo prepare → 写 binlog → redo commit；崩溃时按 binlog 是否完整决定提交或回滚 |
-| 39 | 函数依赖 | `X→Y`；完全 `X→f Y`、部分 `X→p Y`、传递 `X→t Z` |
+| 39 | 函数依赖 | $X \to Y$；完全 $X \to f Y$、部分 $X \to p Y$、传递 $X \to t Z$ |
 | 40 | Armstrong | A1 自反律、A2 增广律、A3 传递律；推论：合并/分解/伪传递 |
-| 41 | 闭包 | `X⁺` 反复并入满足 `A⊆X⁺` 的 `A→B` 中的 B；`X⁺=U` ⇒ X 为超码 |
+| 41 | 闭包 | $X^{+}$ 反复并入满足 $A⊆X^{+}$ 的 $A \to B$ 中的 B；$X^{+}=U$ ⇒ X 为超码 |
 | 42 | 范式 | 1NF 原子值；2NF 消非主属性部分依赖；3NF 消传递依赖；BCNF 决定因素含码；4NF 消非平凡多值依赖 |
-| 43 | 二元分解无损 | `R→R1,R2` 无损 ⟺ `(R1∩R2)→(R1−R2)` 或 `(R1∩R2)→(R2−R1)` 在 `F⁺` 中 |
+| 43 | 二元分解无损 | $R \to R1,R2$ 无损 ⟺ $(R1 \cap R2) \to(R1- R2)$ 或 $(R1 \cap R2) \to(R2- R1)$ 在 $F^{+}$ 中 |
 | 44 | ER 转换 | 实体→关系；1:1 任一方加外码；1:n 在 n 端加 1 端码；m:n 独立建表（组合主码 + 联系属性） |
 | 45 | 六阶段 | 需求分析 → 概念结构 → 逻辑结构 → 物理结构 → 实施 → 运行维护 |
-| 46 | 存储过程 | `DELIMITER // CREATE PROCEDURE p(IN a INT, OUT b INT) BEGIN … END // DELIMITER ;` |
-| 47 | 函数 | `CREATE FUNCTION f(x INT) RETURNS type DETERMINISTIC BEGIN RETURN …; END` |
-| 48 | 游标 | `DECLARE cur CURSOR FOR …; DECLARE CONTINUE HANDLER FOR NOT FOUND SET done=1; OPEN/FETCH/CLOSE` |
-| 49 | 触发器 | `CREATE TRIGGER trg BEFORE\|AFTER INSERT\|UPDATE\|DELETE ON t FOR EACH ROW BEGIN … NEW./OLD. … END` |
-| 50 | 事件 | `SET GLOBAL event_scheduler=ON; CREATE EVENT e ON SCHEDULE EVERY 1 DAY DO …;` |
+| 46 | 存储过程 | $\frac{DELIMITER}{CREATE PROCEDURE p(IN a INT, OUT b INT) BEGIN} \cdots \frac{END}{DELIMITER};$ |
+| 47 | 函数 | $CREATE FUNCTION f(x INT) RETURNS type DETERMINISTIC BEGIN RETURN \cdots; END$ |
+| 48 | 游标 | $DECLARE cur CURSOR FOR \cdots; DECLARE CONTINUE HANDLER FOR NOT FOUND SET done=1; \frac{\frac{OPEN}{FETCH}}{CLOSE}$ |
+| 49 | 触发器 | $CREATE TRIGGER trg BEFORE\|AFTER INSERT\|UPDATE\|DELETE ON t FOR EACH ROW BEGIN \cdots \frac{NEW}{OLD} \cdots END$ |
+| 50 | 事件 | $SET GLOBAL event_{scheduler}=ON; CREATE EVENT e ON SCHEDULE EVERY 1 DAY DO \cdots;$ |
 | 51 | 参数化 | Python `cur.execute("… WHERE a=%s AND b=%s",(x,y))`；Java `PreparedStatement` + `setString/setInt` |
-| 52 | 例题结果 | 教学库：CS|2|19.5；李勇|92；选课数 3/2/1/1；COUNT(*)=7 / COUNT(Grade)=6；无人选修=操作系统 |
+| 52 | 例题结果 | 教学库：CS|2|19.5；李勇|92；选课数 3/2/1/1；$COUNT(*)=\frac{7}{COUNT(Grade)}=6$；无人选修=操作系统 |
 
 ## 附录 B 易错点速查
 
-1. DBS ≠ DB：数据库系统还包含 DBMS、应用、DBA、用户与硬件平台。
+1. DBS $= DB$：数据库系统还包含 DBMS、应用、DBA、用户与硬件平台。
 2. 文件系统阶段的根本缺陷是**数据共享性差、冗余大、数据独立性差**，不只是"速度慢"。
 3. 三级模式中模式与内模式**各只有一个**，外模式可以有多个。
 4. 逻辑独立性来自外模式/模式映像，物理独立性来自模式/内模式映像，别对调。
@@ -1733,7 +1732,7 @@ finally:
 14. 外码违反时可选 RESTRICT/CASCADE/SET NULL，默认是拒绝。
 15. 自然连接会按**同名属性**自动等值并去掉重复列；等值连接保留两列。
 16. 若无同名属性却写 `R⋈S`，结果退化为笛卡尔积。
-17. 投影 `π` 会去重；SQL 的 `SELECT` 默认不去重，须显式 `DISTINCT`。
+17. 投影 $\pi$ 会去重；SQL 的 `SELECT` 默认不去重，须显式 `DISTINCT`。
 
 18. SQL 是非过程化、面向集合的语言；一次操作作用于元组集合而非单条记录。
 19. `TRUNCATE` 属于 **DDL**、隐式提交、不可回滚、重置自增值；`DELETE` 是 DML。
@@ -1808,8 +1807,8 @@ finally:
 79. 2NF 只消除**非主属性**对码的部分依赖；3NF 再消除传递依赖。
 80. 全主属性的关系至少 3NF，但可能因"决定因素不含码"而不满足 BCNF。
 81. BCNF 要求每个非平凡函数依赖的决定因素都含候选码；4NF 再处理多值依赖。
-82. `X→Z` 为传递依赖还要求 `Y↛X`，否则是相互决定。
-83. 二元分解无损判据：`(R1∩R2)→(R1−R2)` 或 `(R1∩R2)→(R2−R1)` 在 F⁺ 中。
+82. $X \to Z$ 为传递依赖还要求 `Y\not\to X`，否则是相互决定。
+83. 二元分解无损判据：$(R1 \cap R2) \to(R1- R2)$ 或 $(R1 \cap R2) \to(R2- R1)$ 在 F+ 中。
 84. 3NF 分解可同时保证无损与保持依赖；BCNF 保证无损但可能丢失依赖。
 85. 范式越高并非越好：连接开销上升，读多写少的分析场景常主动反规范化。
 

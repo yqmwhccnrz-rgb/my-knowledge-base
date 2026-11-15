@@ -2,6 +2,9 @@ import { defineConfig } from 'vitepress'
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import katexMod from '@vscode/markdown-it-katex'
+// 该包为 CJS（exports.default 才是插件函数），ESM 互操作时可能拿到 { default: fn }
+const katexPlugin = katexMod.default || katexMod
 
 const here = path.dirname(fileURLToPath(import.meta.url))
 const notesDir = path.resolve(here, '../notes')
@@ -156,6 +159,18 @@ export default defineConfig({
   router: { prefetchLinks: false },
   ignoreDeadLinks: true,
   srcExclude: ['public/**'],
+  // 数学公式渲染：KaTeX，$...$ 行内 / $$...$$ 块级；分式一律用 \frac 垂直排版
+  markdown: {
+    config: (md) => {
+      md.use(katexPlugin, {
+        output: 'html',
+        strict: 'ignore',
+        trust: false,
+        // 允许 $ 前后紧贴文字时也能识别（默认要求两侧空白，笔记里常写 `x$...$`）
+        enableMathTextInCode: false
+      })
+    }
+  },
   // 首页笔记卡片由 docs/notes 自动生成，新增笔记后无需手改首页；
   // 数据写入 noteCards（而非默认的 features），这样 VitePress 默认网格不渲染，
   // 改由自定义 HomeNotes 组件以左右滑动轮播形式展示，一次显示一张。

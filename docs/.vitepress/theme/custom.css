@@ -962,3 +962,38 @@ select:focus-visible {
   position: relative;
   top: -1px;
 }
+
+/* ==========================================================================
+   KaTeX 数学公式渲染样式
+   需求：垂直分式（\frac）、字体与行距比正文略大一点但不夸张、不拥挤。
+   katex.min.css 默认 .katex 为 1.21em，这里收敛到 1.08em 并微调行高，
+   块级公式（$$...$$）加上下留白，超宽时横向滚动而不撑破版面。
+   ========================================================================== */
+.vp-doc .katex {
+  font-size: 1.1em;
+  line-height: 1.4;
+}
+.vp-doc p .katex,
+.vp-doc li .katex,
+.vp-doc td .katex,
+.vp-doc th .katex {
+  /* 行内公式含分式/根式时略微抬高行距，避免上下被裁切或贴得太紧 */
+  padding: 0.1em 0;
+}
+.vp-doc .katex-display {
+  margin: 1.2em 0;
+  padding: 0.4em 0.5em;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+}
+.vp-doc .katex-display > .katex {
+  font-size: 1.14em;
+  white-space: normal;
+}
+/* 表格单元格内的块级公式不需要大留白 */
+.vp-doc td .katex-display,
+.vp-doc th .katex-display {
+  margin: 0.4em 0;
+  padding: 0.1em 0.2em;
+}

@@ -1,5 +1,5 @@
 ---
-summary: "Java 程序设计 详细笔记，全书 12 章 + 8 个进阶专题，覆盖 Java 平台与开发环境、基本程序结构、对象与类、继承、接口与 lambda、异常与日志、泛型、集合框架、GUI 事件、Swing、并发；并补充 JVM 内存模型与 GC、枚举与注解、java.time、Stream API、NIO.2 文件 I/O、equals/hashCode 契约、Java 8→21 新特性、工程常用工具等进阶知识。含 10 张自绘图（集合框架、异常体系、线程状态、JVM 内存、泛型擦除与 PECS、HashMap 底层、Stream 流水线、I/O 体系、线程池、对象契约）、大量可编译代码示例、工作示例、对比表、公式速查与易错点。"
+summary: "Java 程序设计 详细笔记，全书 12 章 + 8 个进阶专题，覆盖 Java 平台与开发环境、基本程序结构、对象与类、继承、接口与 lambda、异常与日志、泛型、集合框架、GUI 事件、Swing、并发；并补充 JVM 内存模型与 GC、枚举与注解、java.time、Stream API、NIO.2 文件 I/O、equals/hashCode 契约、Java $8 \to 21$ 新特性、工程常用工具等进阶知识。含 10 张自绘图（集合框架、异常体系、线程状态、JVM 内存、泛型擦除与 PECS、HashMap 底层、Stream 流水线、I/O 体系、线程池、对象契约）、大量可编译代码示例、工作示例、对比表、公式速查与易错点。"
 ---
 
 # Java 程序设计笔记
@@ -50,7 +50,7 @@ Java 去除了 C++ 中易错、少用的特性：无指针运算、无头文件�
 - **动态性**：运行时可装载类，适合从网络动态加载。
 
 ### 1.3 Java 发展简史与常见误解（★）
-- Java 1996 年发布，最初由 Sun 公司开发；现由 Oracle 维护。版本节奏：Java 8（LTS，2014）之后改为约每 6 个月一个特性版，LTS 版（8/11/17/21…）才是长期支持版。
+- Java 1996 年发布，最初由 Sun 公司开发；现由 Oracle 维护。版本节奏：Java 8（LTS，2014）之后改为约每 6 个月一个特性版，LTS 版（$\frac{\frac{\frac{8}{11}}{17}}{21 \cdots}$）才是长期支持版。
 - **常见误解纠正**："Java 很慢"——现代 JVM 有 JIT 即时编译与分层编译，性能已接近原生；"Java 只能写 Web"——它覆盖桌面、移动（Android 早期）、大数据、后端、嵌入式等。
 
 ### 1.4 JVM / JRE / JDK 三者关系（★★★）
@@ -125,7 +125,7 @@ JVM 运行时数据区（方法区存类元数据、堆存对象、栈存栈帧�
 操作系统 / CPU 执行
 ```
 
-- **双亲委派模型**：自定义加载器 → Application → Platform → Bootstrap，收到加载请求先委托父加载器，父加载不了才自己尝试。作用是**保证 `java.lang.*` 等核心类不被用户同名类冒名替换**。`Class.forName`、`ClassLoader.loadClass` 会触发加载（是否初始化取决于参数）。
+- **双亲委派模型**：自定义加载器 → $Application \to Platform$，收到加载请求先委托父加载器，父加载不了才自己尝试。作用是**保证 `java.lang.*` 等核心类不被用户同名类冒名替换**。`Class.forName`、`ClassLoader.loadClass` 会触发加载（是否初始化取决于参数）。
 - 常用命令：`javac -encoding UTF-8 -d out src/*.java`（编译到 out）、`java -cp out com.example.Main`（按类路径运行）、`javap -c -p Main`（反汇编字节码，理解 `i++`/装箱/桥方法时极有用）、`jar tf app.jar`（列出归档内容）。
 
 ### 2.6 常见环境错误对照表（★★）
@@ -229,8 +229,8 @@ for (int x : a) System.out.println(x);
 
 | 类型 | 位数 | 默认值 | 包装类 | 字面量写法 | 典型范围 / 说明 |
 | --- | --- | --- | --- | --- | --- |
-| `byte` | 8 | 0 | `Byte` | `(byte) 127` | −128 ~ 127 |
-| `short` | 16 | 0 | `Short` | `(short) 32767` | −32768 ~ 32767 |
+| `byte` | 8 | 0 | `Byte` | `(byte) 127` | $- 128 \sim 127$ |
+| `short` | 16 | 0 | `Short` | `(short) 32767` | $- 32768 \sim 32767$ |
 | `int` | 32 | 0 | `Integer` | `123`、`0b1010`、`0xFF`、`1_000_000` | ±2³¹ |
 | `long` | 64 | 0L | `Long` | `123L` | ±2⁶³ |
 | `float` | 32 | 0.0f | `Float` | `3.14F` | 约 6~7 位有效数字 |
@@ -242,7 +242,7 @@ for (int x : a) System.out.println(x);
 
 #### 3.8.2 数值转换与表达式类型提升
 
-**自动提升顺序**：`byte → short → int → long → float → double`（`char` 先转 `int`）。
+**自动提升顺序**：$byte \to short \to int \to long \to float \to double$（`char` 先转 `int`）。
 
 ```java
 byte  b = 1;
@@ -255,7 +255,7 @@ long   big = 1_000_000_000L * 10;   // 10000000000，若漏掉 L 会先 int 溢�
 ```
 
 ::: danger 易错 · 精度与溢出
-`long → float`、`int → float` 属于**可能丢失精度**的隐式转换（float 尾数只有 24 位），但编译器不报错；反向一律需要强制转换。`Math.round`、`Math.floor`、`Math.ceil` 的返回类型也要注意（`round(float)` 返回 `int`，`round(double)` 返回 `long`）。
+$long \to float$、$int \to float$ 属于**可能丢失精度**的隐式转换（float 尾数只有 24 位），但编译器不报错；反向一律需要强制转换。`Math.round`、`Math.floor`、`Math.ceil` 的返回类型也要注意（`round(float)` 返回 `int`，`round(double)` 返回 `long`）。
 :::
 
 #### 3.8.3 运算符优先级与常见陷阱
@@ -490,7 +490,7 @@ public class Manager extends Employee {      // is-a 关系（Employee 见 4.2�
 - `clone()`：默认浅拷贝，需实现 `Cloneable`；更推荐用拷贝构造器。
 
 ### 5.3 自动装箱与包装类（★★★）
-`int ↔ Integer` 自动转换（autoboxing / unboxing）：
+$int \leftrightarrow Integer$ 自动转换（autoboxing / unboxing）：
 ```java
 Integer a = 100;        // 自动装箱 Integer.valueOf(100)
 int b = a;              // 自动拆箱 a.intValue()
@@ -777,7 +777,7 @@ catch (ScoreException e) {
 | `WARN` | 可恢复的异常、降级、重试 |
 | `ERROR` / `SEVERE` | 需要人工介入的失败 |
 
-- 用**参数化日志** `log.info("user={} cost={}ms", name, cost)`，不要字符串拼接（关闭级别时不产生开销）；异常对象作为最后一个参数传入以打印堆栈。
+- 用**参数化日志** $\log .info("user={} cost={}ms", name, cost)$，不要字符串拼接（关闭级别时不产生开销）；异常对象作为最后一个参数传入以打印堆栈。
 - 不要 `catch (Exception e) {}` 空吞异常；不要在循环中反复抛异常（构造堆栈开销大）；不要用异常做正常流程控制。
 - 受检异常 vs 未检查异常的选择：**调用方能合理恢复** → 受检；**编程错误 / 前置条件违反**（参数非法、状态不对）→ 未检查（`IllegalArgumentException`、`IllegalStateException`）。
 - 断言 `assert x > 0 : "x must > 0";` 只在 `-ea` 开启时生效，用于**内部不变量自检**；对外参数校验必须用 `if + throw`，否则用户关掉断言就绕过了校验。
@@ -945,7 +945,7 @@ public static <T extends Comparable<? super T>> T max(List<? extends T> list) {
 
 ### 9.4 实用 API（★★）
 - `List.of(a,b,c)`、`Set.of(...)`、`Map.of(k,v,...)`（Java 9+，不可变）；可变用 `new ArrayList<>()`。
-- 集合 ↔ 数组：`list.toArray(new String[0])`、`Arrays.asList(arr)`（返回**固定大小**的 List，不能 add/remove）。
+- 集合 \leftrightarrow  数组：`list.toArray(new String[0])`、`Arrays.asList(arr)`（返回**固定大小**的 List，不能 add/remove）。
 
 ![HashMap 底层结构与扩容树化](/java/java-hashmap.svg)
 
@@ -1233,7 +1233,7 @@ private volatile int counter;                       // counter++ 仍非原子！
 | 监视器锁 | `unlock` happens-before 之后对同一把锁的 `lock` |
 | 线程启动 | `start()` happens-before 新线程中的任何操作 |
 | 线程终止 | 线程中所有操作 happens-before 其他线程 `join()` 返回 / `isAlive()` 为 false |
-| 传递性 | A hb B、B hb C ⇒ A hb C |
+| 传递性 | A hb B、$B hb C \Rightarrow A hb C$ |
 
 ```java
 // 死锁：两个线程以相反顺序获取两把锁（各持一把后互相等待）
@@ -1343,10 +1343,10 @@ synchronized (queue) {
 | JVM 内部引用 | 系统类加载器、常驻异常对象、JMX Bean 等 |
 
 ```text
-新对象 → Eden
-  └─ Eden 满 → Minor GC：存活对象复制到 Survivor（S0/S1 来回倒），年龄 +1
-       └─ 年龄达到阈值（默认 15）或 Survivor 放不下 → 晋升老年代
-            └─ 老年代满 → Full GC（标记-整理/清除，STW 时间更长）
+新对象 \to Eden
+└─ Eden 满 \to Minor GC ：存活对象复制到 Survivor （ S0/S1 来回倒），年龄 +1
+└─ 年龄达到阈值（默认 15 ）或 Survivor 放不下 \to 晋升老年代
+└─ 老年代满 \to Full GC （标记 - 整理 / 清除， STW 时间更长）
 ```
 
 > 大对象可能**直接进老年代**（避免新生代反复复制）；`Minor GC` 频繁但快，`Full GC` 少但停顿长，调优目标就是减少 Full GC 次数与时长。
@@ -1606,8 +1606,8 @@ try (ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(Path.
 
 这是面试高频且极易写错的点：
 1. **自反** `x.equals(x)` 为 true；
-2. **对称** `x.equals(y) ⇔ y.equals(x)`；
-3. **传递** `x=y, y=z ⇒ x=z`；
+2. **对称** $x.equals(y) \Leftrightarrow y.equals(x)$；
+3. **传递** $x=y, y=z \Rightarrow x=z$；
 4. **一致** 比较所用字段不变则结果不变；
 5. `x.equals(null)` 返回 false（不要用 `== null` 之外的方式，先 `instanceof` 判断）。
 6. **若 `a.equals(b)` 为 true，则 `a.hashCode() == b.hashCode()` 必须成立**——因此**覆盖 `equals` 必须同时覆盖 `hashCode`**，否则对象在 `HashSet`/`HashMap` 中"找不到自己"。
@@ -1655,7 +1655,7 @@ System.out.println(set.size());               // 2      —— 两个「相等�
 
 ---
 
-### 13.7 Java 8 → 21 常用新特性速览（★★）
+### $13.7 Java 8 \to 21$ 常用新特性速览（★★）
 
 | 版本 | 关键特性 |
 | --- | --- |
