@@ -176,16 +176,16 @@ DBMS 的主要功能：① **数据定义**（DDL）；② **数据操纵**（DM
 ::: tip 工作示例 · 用关系代数写查询（教学库 S / C / SC）
 
 
-<p class="fml-block"><img class="fml" src="/formulas/8ebdb94572b5a5.png" alt="\begin{gathered}
+<p class="fml-block"><img class="fml" src="/formulas/3d130607c7455b.png" alt="\begin{gathered}
 \text{(1)} \; \text{查询} \; \text{CS} \; \text{系学生姓名：} \\
 \pi_{Sname}(\sigma_{Sdept}=&#x27;CS&#x27;(Student)) \\
 \text{(2)} \; \text{查询选修了「数据库」且成绩} \; \text{&gt; 80} \; \text{的学生姓名（三关系连接）：} \\
-\pi \text{\_Sname(}\sigma \text{\_Cname=&#x27;} \; \text{数据库} \; \text{&#x27; ∧ Grade&gt;80 (Student ⋈ SC ⋈ Course))} \\
+\pi_{\text{Sname}}\big(\sigma_{\text{Cname=&#x27;数据库&#x27; ∧ Grade&gt;80}}(\text{Student} \bowtie \text{SC} \bowtie \text{Course})\big) \\
 \text{(3)} \; \text{查询选修了「全部课程」的学生学号（除运算的经典用法）：} \\
 \pi_{Sno},Cno(SC) \div  \pi_{Cno}(Course) \\
 \text{(4)} \; \text{查询未选修任何课程的学生姓名：} \\
 \pi_{Sname}(Student)- \pi_{Sname}(Student ⋈ SC)
-\end{gathered}" width="561" height="218"></p>
+\end{gathered}" width="535" height="217"></p>
 
 
 **要点**：自然连接会**自动按同名属性**拼接并去掉重复列；若两表没有同名属性却直接写 `⋈`，结果退化为笛卡尔积，是常见错误。除运算几乎总对应 SQL 中的 <img class="fml" src="/formulas/729a7eee52b30f.png" alt="NOT EXISTS \cdots NOT EXISTS" width="273" height="33"> 双重否定或 `GROUP BY + HAVING COUNT` 写法。

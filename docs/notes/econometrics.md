@@ -382,10 +382,10 @@ F= t^{2}= 289 \\
 = \beta_{1}+ \frac{\sum x_{i}u_{i}}{Sxx} \; \text{（用} \; \sum x_{i}=0 \; \text{、} \; \sum x_{i}X_{i}=Sxx \; \text{）} \\
 E(\hat{\beta}_{1})= \beta_{1}+ \frac{\sum x_{i} E(u_{i})}{Sxx}= \beta_{1} \checkmark \\
 \operatorname{Var}(\hat{\beta}_{1})= \frac{\operatorname{Var}\left(\sum x_{i}u_{i}\right)}{Sxx^{2}}= \sigma^{2}\frac{Sxx}{Sxx^{2}}= \sigma^{2}/Sxx \; \text{（用同方差} \; \text{+} \; \text{无自相关）}
-\end{gathered}" width="569" height="175"></p>
+\end{gathered}" width="570" height="175"></p>
 
 
-可见**无偏性只需 A2/A3**，而 <img class="fml" src="/formulas/4335f9e535ad03.png" alt="\operatorname{Var}(\hat{\beta}_{1})=\sigma^{2}/Sxx" width="150" height="33"> 还须 A4/A5。
+可见**无偏性只需 A2/A3**，而 <img class="fml" src="/formulas/4335f9e535ad03.png" alt="\operatorname{Var}(\hat{\beta}_{1})=\sigma^{2}/Sxx" width="150" height="34"> 还须 A4/A5。
 
 **一致性**（X 随机但严格外生时）：
 
@@ -819,11 +819,11 @@ DW 显著偏低未必是误差自相关，也可能是**遗漏了滞后变量或
 
 
 
-<p class="fml-block"><img class="fml" src="/formulas/2da1ddca26e5be.png" alt="\begin{gathered}
+<p class="fml-block"><img class="fml" src="/formulas/04d320aae941d9.png" alt="\begin{gathered}
 \text{无约束：} \; Y_{t}= \alpha+ \sum a_{i} Y_{t- i}+ \sum b_{j} X_{t- j}+ u_{t} \to SSE_{u} \\
-\text{受约束：} \; \text{Y\_t = α + Σa\_i Y\_{t−i} + u\_t  (H0:} \; \text{全部} \; \text{b\_j = 0) → SSE\_r} \\
+\text{受约束：} \; Y_{t}= \alpha+ \sum a_{i} Y_{t- i}+ u_{t} \; (H_{0}: b_{j}=0) \to SSE_{r} \\
 F= \frac{\frac{SSE_{r}- SSE_{u}}{q}}{\frac{SSE_{u}}{n- k}} \sim F(q, n- k)
-\end{gathered}" width="527" height="122"></p>
+\end{gathered}" width="441" height="128"></p>
 
 
 
@@ -936,14 +936,14 @@ SC 的惩罚项 `(k+1)ln n` 比 AIC 的 `2(k+1)` 随样本增长更快，因此�
 **Engle-Granger 两步法**：
 
 
-<p class="fml-block"><img class="fml" src="/formulas/0a32342c85ee7f.png" alt="\begin{gathered}
-\text{(1)} \; \text{用} \; \text{OLS} \; \text{估计长期静态回归} \; Y_{t}= \beta_{0}+ \beta_{1}X_{t}+ u_{t} \; \text{，取残差} \; \text{û\_t} \\
-\text{(2)} \; \text{对} \; \text{û\_t} \; \text{做} \; \text{ADF} \; \text{检验（不含趋势，临界值为} \; \text{AEG/EG} \; \text{专用，比普通} \; \text{ADF} \; \text{更负）} \\
-\text{拒绝「} \; \text{û\_t} \; \text{有单位根」} \; \Rightarrow \; \text{协整成立} \\
+<p class="fml-block"><img class="fml" src="/formulas/36e0759261244a.png" alt="\begin{gathered}
+\text{(1)} \; \text{用 OLS 估计长期静态回归} \; Y_{t}= \beta_{0}+ \beta_{1}X_{t}+ u_{t} \; \text{，取残差} \; \hat{u}_{t} \\
+\text{(2)} \; \text{对} \; \hat{u}_{t} \; \text{做 ADF 检验（不含趋势，临界值为 AEG/EG 专用，比普通 ADF 更负）} \\
+\text{拒绝「} \; \hat{u}_{t} \; \text{有单位根」} \; \Rightarrow \; \text{协整成立} \\
 \text{(3)} \; \text{若协整，建立误差修正模型：} \\
 \Delta Y_{t}= \alpha+ \gamma \cdot ECM_{t- 1}+ \sum \delta_{i}\Delta X_{t- i}+ \sum \theta_{j}\Delta Y_{t- j}+ \epsilon_{t} \\
 \text{其中} \; ECM_{t- 1}= \hat{u}_{t- 1}= Y_{t- 1}- \hat{\beta}_{0}- \hat{\beta}_{1}X_{t- 1}
-\end{gathered}" width="663" height="174"></p>
+\end{gathered}" width="649" height="173"></p>
 
 
 **Granger 表述定理**：协整 ⇒ 一定存在 ECM 表示。<img class="fml" src="/formulas/68923f20821012.png" alt="\gamma" width="17" height="34"> 是**调整速度**（应为负），<img class="fml" src="/formulas/411a269ab20d95.png" alt="|\gamma|" width="28" height="34"> 越大，偏离长期均衡后修复越快；例如 <img class="fml" src="/formulas/a97704ef9d9e07.png" alt="\gamma=- 0.3" width="77" height="34"> 表示每期约修正 30% 的偏离。
@@ -1005,10 +1005,10 @@ Ljung-Box <img class="fml" src="/formulas/df4a77f33799bb.png" alt="Q= n(n+2)\sum
 经济系统里变量常**互为因果**。经典宏观例子：
 
 
-<p class="fml-block"><img class="fml" src="/formulas/1dc512a3c16976.png" alt="\begin{gathered}
+<p class="fml-block"><img class="fml" src="/formulas/bcdf09ca890e07.png" alt="\begin{gathered}
 \text{消费函数：} \; C_{t}= \alpha+ \beta Y_{t}+ u_{t} \; \text{（行为方程）} \\
-\text{收入恒等：} \; \text{Y\_t = C\_t + I\_t} \; \text{（恒等式）}
-\end{gathered}" width="353" height="58"></p>
+\text{收入恒等：} \; Y_{t}= C_{t}+ I_{t} \; \text{（恒等式）}
+\end{gathered}" width="352" height="56"></p>
 
 
 把第二式代入第一式整理可得 <img class="fml" src="/formulas/b7c377793b2a15.png" alt="Y_{t}= \frac{\alpha+I_{t}+u_{t}}{1- \beta}" width="99" height="36">，于是 `Y_t` 含 `u_t` ⇒ <img class="fml" src="/formulas/e9458c071d33ff.png" alt="\operatorname{Cov}(Y_{t}, u_{t})\ne 0" width="125" height="33">。用 OLS 估计消费函数得到的 <img class="fml" src="/formulas/38e1ef139b243c.png" alt="\hat{\beta}" width="18" height="34"> **既有偏又不一致**（称**联立性偏误 / 同时方程偏误**），且样本增大也不消失。
@@ -1068,12 +1068,12 @@ Ljung-Box <img class="fml" src="/formulas/df4a77f33799bb.png" alt="Q= n(n+2)\sum
 沿用 8.1 的宏观模型：
 
 
-<p class="fml-block"><img class="fml" src="/formulas/3817a1de23a042.png" alt="\begin{gathered}
-C_{t}= \alpha+ \beta Y_{t}+ u_{t} \; \text{；} \; \text{Y\_t = C\_t + I\_t} \\
+<p class="fml-block"><img class="fml" src="/formulas/ba79f12620dd27.png" alt="\begin{gathered}
+C_{t}= \alpha+ \beta Y_{t}+ u_{t} \; \text{；} \; Y_{t}= C_{t}+ I_{t} \\
 \text{代入：} \; Y_{t}= \alpha+ \beta Y_{t}+ u_{t}+ I_{t} \\
 \to Y_{t}= \frac{\alpha}{1- \beta}+ \frac{I_{t}}{1- \beta}+ \frac{u_{t}}{1- \beta} \; \text{（简化式）} \\
 \to C_{t}= \frac{\alpha}{1- \beta}+ \frac{\beta I_{t}}{1- \beta}+ \frac{u_{t}}{1- \beta}
-\end{gathered}" width="346" height="148"></p>
+\end{gathered}" width="344" height="147"></p>
 
 
 <img class="fml" src="/formulas/04c072634f5062.png" alt="\frac{\partial Y_{t}}{\partial I_{t}}= \frac{1}{1- \beta}" width="82" height="36"> 就是**投资乘数**。若 <img class="fml" src="/formulas/705d9f9e9ea688.png" alt="\beta=0.8" width="64" height="34">，乘数 = 5。由简化式可解出 <img class="fml" src="/formulas/67023af945f094.png" alt="\beta=\dfrac{\pi_{2}}{1+\pi_{2}}" width="94" height="44">（<img class="fml" src="/formulas/34f7210df88994.png" alt="\pi_{2}" width="25" height="34"> 为 I 在 C 方程简化式中的系数），这正是 **ILS 间接最小二乘**：先 OLS 估简化式（前定变量外生，一致），再代数反解结构参数。
@@ -1409,7 +1409,7 @@ d= \frac{0.76}{0.30}= 2.533 \to \hat{\rho}= 1- \frac{d}{2}=- 0.267 \; \text{（�
 VIF_{1}= \frac{1}{1- 0.90}= 10 \\
 \operatorname{Var}(\hat{\beta}_{1})= \sigma^{2}/[Sxx_{1}(1- R^{2}_{1})]= 10 \times \; \text{（无共线时的方差）} \\
 se(\hat{\beta}_{1})= \sqrt{10} \approx 3.16 \; \text{倍} \; \to t \; \text{值约降为} \; \text{1/3.16}
-\end{gathered}" width="461" height="103"></p>
+\end{gathered}" width="463" height="104"></p>
 
 
 典型症状：整体 F 显著、R² 高，但单个 t 多数不显著；增删少量样本系数剧变甚至符号反转。

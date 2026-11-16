@@ -1122,7 +1122,7 @@ $$
 RTT_{S}=(1- \alpha) \cdot RTT_{S}+ \alpha \cdot RTT_{\text{样本}} \; \alpha= \frac{1}{8} \\
 RTT_{D}=(1- \beta) \cdot RTT_{D}+ \beta \cdot\lvert RTT_{S}-RTT_{\text{样本}}\rvert \; \beta= \frac{1}{4} \\
 RTO= RTT_{S}+ 4 \cdot RTT_{D} \\
-\text{首次：} \; \text{RTT\_S =} \; \text{样本值，} \; \text{RTT\_D =} \; \text{样本值的一半}
+\text{首次：} \; RTT_{S} = \text{样本值，} \; RTT_{D} = \text{样本值的一半}
 \end{gathered}
 $$
 

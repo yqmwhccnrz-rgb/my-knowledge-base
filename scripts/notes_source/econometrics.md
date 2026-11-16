@@ -776,7 +776,7 @@ $$
 $$
 \begin{gathered}
 \text{无约束：} \; Y_{t}= \alpha+ \sum a_{i} Y_{t- i}+ \sum b_{j} X_{t- j}+ u_{t} \to SSE_{u} \\
-\text{受约束：} \; \text{Y\_t = α + Σa\_i Y\_{t−i} + u\_t  (H0:} \; \text{全部} \; \text{b\_j = 0) → SSE\_r} \\
+\text{受约束：} \; Y_{t}= \alpha+ \sum a_{i} Y_{t- i}+ u_{t} \; (H_{0}: b_{j}=0) \to SSE_{r} \\
 F= \frac{\frac{SSE_{r}- SSE_{u}}{q}}{\frac{SSE_{u}}{n- k}} \sim F(q, n- k)
 \end{gathered}
 $$
@@ -882,9 +882,9 @@ $$
 **Engle-Granger 两步法**：
 $$
 \begin{gathered}
-\text{(1)} \; \text{用} \; \text{OLS} \; \text{估计长期静态回归} \; Y_{t}= \beta_{0}+ \beta_{1}X_{t}+ u_{t} \; \text{，取残差} \; \text{û\_t} \\
-\text{(2)} \; \text{对} \; \text{û\_t} \; \text{做} \; \text{ADF} \; \text{检验（不含趋势，临界值为} \; \text{AEG/EG} \; \text{专用，比普通} \; \text{ADF} \; \text{更负）} \\
-\text{拒绝「} \; \text{û\_t} \; \text{有单位根」} \; \Rightarrow \; \text{协整成立} \\
+\text{(1)} \; \text{用 OLS 估计长期静态回归} \; Y_{t}= \beta_{0}+ \beta_{1}X_{t}+ u_{t} \; \text{，取残差} \; \hat{u}_{t} \\
+\text{(2)} \; \text{对} \; \hat{u}_{t} \; \text{做 ADF 检验（不含趋势，临界值为 AEG/EG 专用，比普通 ADF 更负）} \\
+\text{拒绝「} \; \hat{u}_{t} \; \text{有单位根」} \; \Rightarrow \; \text{协整成立} \\
 \text{(3)} \; \text{若协整，建立误差修正模型：} \\
 \Delta Y_{t}= \alpha+ \gamma \cdot ECM_{t- 1}+ \sum \delta_{i}\Delta X_{t- i}+ \sum \theta_{j}\Delta Y_{t- j}+ \epsilon_{t} \\
 \text{其中} \; ECM_{t- 1}= \hat{u}_{t- 1}= Y_{t- 1}- \hat{\beta}_{0}- \hat{\beta}_{1}X_{t- 1}
@@ -950,7 +950,7 @@ Ljung-Box $Q= n(n+2)\sum \frac{\hat{\rho}_{k}^{2}}{n- k} \sim \chi^{2}(m)$ 检�
 $$
 \begin{gathered}
 \text{消费函数：} \; C_{t}= \alpha+ \beta Y_{t}+ u_{t} \; \text{（行为方程）} \\
-\text{收入恒等：} \; \text{Y\_t = C\_t + I\_t} \; \text{（恒等式）}
+\text{收入恒等：} \; Y_{t}= C_{t}+ I_{t} \; \text{（恒等式）}
 \end{gathered}
 $$
 把第二式代入第一式整理可得 $Y_{t}= \frac{\alpha+I_{t}+u_{t}}{1- \beta}$，于是 `Y_t` 含 `u_t` ⇒ $\operatorname{Cov}(Y_{t}, u_{t})\ne 0$。用 OLS 估计消费函数得到的 $\hat{\beta}$ **既有偏又不一致**（称**联立性偏误 / 同时方程偏误**），且样本增大也不消失。
@@ -1010,7 +1010,7 @@ $$
 沿用 8.1 的宏观模型：
 $$
 \begin{gathered}
-C_{t}= \alpha+ \beta Y_{t}+ u_{t} \; \text{；} \; \text{Y\_t = C\_t + I\_t} \\
+C_{t}= \alpha+ \beta Y_{t}+ u_{t} \; \text{；} \; Y_{t}= C_{t}+ I_{t} \\
 \text{代入：} \; Y_{t}= \alpha+ \beta Y_{t}+ u_{t}+ I_{t} \\
 \to Y_{t}= \frac{\alpha}{1- \beta}+ \frac{I_{t}}{1- \beta}+ \frac{u_{t}}{1- \beta} \; \text{（简化式）} \\
 \to C_{t}= \frac{\alpha}{1- \beta}+ \frac{\beta I_{t}}{1- \beta}+ \frac{u_{t}}{1- \beta}

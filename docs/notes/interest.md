@@ -888,7 +888,7 @@ summary: "孟生旺《利息理论及其应用》（第4版）7 章精要笔记�
 
 - D 越大 → 价格波动越大 → 利率风险越大
 - **价格近似**：<img class="fml" src="/formulas/a90d072594cd17.png" alt="\frac{\Delta P}{P} \approx- D \cdot \Delta y" width="121" height="34">（收益率变化 Δy 用基点表示，1 bp = 0.01%）
-- <img class="fml" src="/formulas/4ebc5cb5035c87.png" alt="m \to_{\infty}" width="59" height="34"> 时 <img class="fml" src="/formulas/38455d8a7394c2.png" alt="D \to D^{M}" width="80" height="34">（麦考利久期是修正久期的连续复利极限）
+- <img class="fml" src="/formulas/8e6441a1e383bb.png" alt="m \to \infty" width="67" height="33"> 时 <img class="fml" src="/formulas/38455d8a7394c2.png" alt="D \to D^{M}" width="80" height="34">（麦考利久期是修正久期的连续复利极限）
 - D 也是收益率的减函数
 - 基于不同收益率口径（名义 vs 实际）的修正久期**数值不同、含义不同**，必须说明口径
 

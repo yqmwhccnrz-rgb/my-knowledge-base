@@ -1270,7 +1270,7 @@ SMP 中每个核有私有 Cache，同一内存块可能有多份副本，必须�
 | 专用处理机分配 | 并行作业运行期独占一组 CPU，减少切换，但利用率低 |
 | 死锁分类 | 资源死锁 / 通信死锁（互相等待消息）；分布式死锁检测用等待图或超时 |
 
-**Amdahl 定律**（衡量并行加速上限）：<img class="fml" src="/formulas/12befc30c35d69.png" alt="S= \frac{1}{(1- f)+ \frac{f}{N}}" width="102" height="39">，其中 `f` 为可并行部分比例、`N` 为处理器数。即使 <img class="fml" src="/formulas/c77e7a879d1612.png" alt="N \to_{\infty}" width="60" height="33">，<img class="fml" src="/formulas/526d1f7fa444c2.png" alt="S \le \frac{1}{1- f}" width="70" height="35">：若串行部分占 10%，最大加速比仅 10 倍。
+**Amdahl 定律**（衡量并行加速上限）：<img class="fml" src="/formulas/12befc30c35d69.png" alt="S= \frac{1}{(1- f)+ \frac{f}{N}}" width="102" height="39">，其中 `f` 为可并行部分比例、`N` 为处理器数。即使 <img class="fml" src="/formulas/8c6d880255180c.png" alt="N \to \infty" width="68" height="33">，<img class="fml" src="/formulas/526d1f7fa444c2.png" alt="S \le \frac{1}{1- f}" width="70" height="35">：若串行部分占 10%，最大加速比仅 10 倍。
 
 ![多处理机结构与同步机制](/os/os-multicore.svg)
 
@@ -1527,12 +1527,12 @@ EAT=(1- p) \times 100 ns+ p \times 8 \times 10^6 ns \approx 5.33 \times 10^6 ns 
 **解**：
 
 
-<p class="fml-block"><img class="fml" src="/formulas/5fee2c99ca7d47.png" alt="\begin{gathered}
+<p class="fml-block"><img class="fml" src="/formulas/a5241bb796f038.png" alt="\begin{gathered}
 Amdahl: S(N)= \frac{1}{(1- f)+ \frac{f}{N}}= \frac{1}{0.2+ \frac{0.8}{8}}= \frac{1}{0.3} \approx 3.33 \\
-N \to_{\infty} : S \le \frac{1}{1- f}= \frac{1}{0.2}= 5 \; \text{（串行部分} \; \text{20\%} \; \text{决定天花板）} \\
+N \to \infty : S \le \frac{1}{1- f}= \frac{1}{0.2}= 5 \; \text{（串行部分} \; \text{20\%} \; \text{决定天花板）} \\
 \text{含} \; \text{10\%} \; \text{并行开销：并行段时间变为} \; \left(\frac{0.8}{8}\right) \times 1.1= 0.11 \\
 S= \frac{1}{0.2+ 0.11} \approx 3.23
-\end{gathered}" width="479" height="189"></p>
+\end{gathered}" width="492" height="188"></p>
 
 
 **结论**：加核收益**迅速递减**，且伪共享、锁竞争、NUMA 远端访存都会把 `f/N` 项抬高；工程上要先**减少串行段与共享写**，再考虑加核（Gustafson 定律则从"固定时间、放大问题规模"角度看扩展性）。
@@ -1592,7 +1592,7 @@ S= \frac{1}{0.2+ 0.11} \approx 3.23
 | 5 | 响应比 | `R = (等待 + 服务) / 服务 = 1 + 等待/服务` |
 | 6 | SJF 最优性 | 非抢占 SJF 使**平均周转与平均带权周转最小**（可证明） |
 | 7 | 切换开销占比 | `s/(q+s)`（s＝一次上下文切换耗时，q＝时间片） |
-| 8 | RMS 可调度上界 | <img class="fml" src="/formulas/359b80de08b214.png" alt="U \le n\left(2^{\frac{1}{n}}- 1\right)" width="130" height="41">，<img class="fml" src="/formulas/f9f5d28d2b11fe.png" alt="n \to_{\infty}" width="53" height="34"> 时 <img class="fml" src="/formulas/d604d9947e0f18.png" alt="\to \ln 2 \approx 0.693" width="121" height="33"> |
+| 8 | RMS 可调度上界 | <img class="fml" src="/formulas/359b80de08b214.png" alt="U \le n\left(2^{\frac{1}{n}}- 1\right)" width="130" height="41">，<img class="fml" src="/formulas/0d1c47fdbd11b6.png" alt="n \to \infty" width="62" height="33"> 时 <img class="fml" src="/formulas/d604d9947e0f18.png" alt="\to \ln 2 \approx 0.693" width="121" height="33"> |
 | 9 | 松弛度 | `LLF = 必须完成时刻 − 尚需运行时间 − 当前时刻` |
 | 10 | Amdahl 定律 | <img class="fml" src="/formulas/12befc30c35d69.png" alt="S= \frac{1}{(1- f)+ \frac{f}{N}}" width="102" height="39">，上限 <img class="fml" src="/formulas/18fc1f049c7ed2.png" alt="\frac{1}{1- f}" width="35" height="35"> |
 | 11 | 信号量值 | `S>0`：可用资源数；`S<0`：\|S\| 为阻塞进程数；`V` 后 <img class="fml" src="/formulas/a64c6fcc24ecfa.png" alt="\le 0" width="34" height="33"> 才唤醒 |

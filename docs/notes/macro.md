@@ -294,7 +294,7 @@ summary: "宏观经济学 11 章精读笔记：以马工程版知识框架为主
 | 性质 | 结论 |
 | --- | --- |
 | 斜率 | **向右上方倾斜**：Y ↑ → 交易性货币需求 ↑ → r ↑ 以恢复均衡 |
-| **凯恩斯区域**（水平段） | 利率极低、<img class="fml" src="/formulas/7767f09a2d68fd.png" alt="h \to_{\infty}" width="53" height="34">（流动性陷阱），LM 水平 |
+| **凯恩斯区域**（水平段） | 利率极低、<img class="fml" src="/formulas/73f6a83242cd33.png" alt="h \to \infty" width="62" height="33">（流动性陷阱），LM 水平 |
 | **古典区域**（垂直段） | <img class="fml" src="/formulas/497190e546b0bc.png" alt="h \to 0" width="54" height="34">，货币需求与利率无关，LM 垂直 |
 | 中间区域 | 正常向右上方倾斜 |
 | 右移因素 | 名义货币供给 M ↑、价格水平 P ↓ |
@@ -324,7 +324,7 @@ G ↑ → IS 右移 → Y ↑、r ↑ → 利率上升**挤掉私人投资**，�
 | --- | --- |
 | 投资对利率敏感度 **d 越大** | 挤出**越大**，财政效果越弱 |
 | 货币需求对利率敏感度 **h 越小**（LM 越陡） | 利率上升越多，挤出**越大** |
-| LM 水平（<img class="fml" src="/formulas/7767f09a2d68fd.png" alt="h \to_{\infty}" width="53" height="34">，流动性陷阱） | 利率不升，**挤出为零**，财政政策**最有效** |
+| LM 水平（<img class="fml" src="/formulas/73f6a83242cd33.png" alt="h \to \infty" width="62" height="33">，流动性陷阱） | 利率不升，**挤出为零**，财政政策**最有效** |
 | LM 垂直（<img class="fml" src="/formulas/497190e546b0bc.png" alt="h \to 0" width="54" height="34">，古典区） | **完全挤出**，财政政策**完全无效**（只推高利率） |
 
 #### 货币政策与流动性陷阱

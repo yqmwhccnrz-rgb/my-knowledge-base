@@ -1137,12 +1137,12 @@ RFC 2988 的加权平均：
 
 
 
-<p class="fml-block"><img class="fml" src="/formulas/1526ec71e5bc12.png" alt="\begin{gathered}
+<p class="fml-block"><img class="fml" src="/formulas/2a2fb6e3fd6c5e.png" alt="\begin{gathered}
 RTT_{S}=(1- \alpha) \cdot RTT_{S}+ \alpha \cdot RTT_{\text{样本}} \; \alpha= \frac{1}{8} \\
 RTT_{D}=(1- \beta) \cdot RTT_{D}+ \beta \cdot\lvert RTT_{S}-RTT_{\text{样本}}\rvert \; \beta= \frac{1}{4} \\
 RTO= RTT_{S}+ 4 \cdot RTT_{D} \\
-\text{首次：} \; \text{RTT\_S =} \; \text{样本值，} \; \text{RTT\_D =} \; \text{样本值的一半}
-\end{gathered}" width="436" height="139"></p>
+\text{首次：} \; RTT_{S} = \text{样本值，} \; RTT_{D} = \text{样本值的一半}
+\end{gathered}" width="435" height="139"></p>
 
 
 

@@ -120,7 +120,7 @@ summary: "计算机组成与系统结构 全面详解笔记，共 9 章：计算
 
 
 
-<p class="fml-block"><img class="fml" src="/formulas/c8f15c8a32418b.png" alt="\text{系统加速比} \; \text{S = T\_} \; \text{旧} \; \text{/ T\_} \; \text{新} \; \text{= 1 / [ (1 − F) + F / S\_} \; \text{局部} \; \text{]}" width="480" height="34"></p>
+<p class="fml-block"><img class="fml" src="/formulas/a26e01a8fc3e9b.png" alt="\text{系统加速比} \; S= \frac{T_{\text{旧}}}{T_{\text{新}}} = \frac{1}{(1- F)+ \dfrac{F}{S_{\text{局部}}}}" width="275" height="62"></p>
 
 
 其中 `F` 是被改进部分在**原总时间**中所占比例，`S_局部` 是该部分自身的加速倍数。
@@ -147,10 +147,10 @@ summary: "计算机组成与系统结构 全面详解笔记，共 9 章：计算
 若同一任务在 B 上编译出的指令数只有 A 的一半：
 
 
-<p class="fml-block"><img class="fml" src="/formulas/d7ba087eeaee19.png" alt="\begin{gathered}
+<p class="fml-block"><img class="fml" src="/formulas/782176af42359c.png" alt="\begin{gathered}
 \text{A} \; \text{时间} \; = \frac{IC \times 2}{100MHz}= \frac{2IC}{1e8} B \; \text{时间} \; = \frac{0.5IC \times 5}{200MHz}= \frac{1.25IC}{1e8} \\
-\text{B} \; \text{更快，但} \; \text{MIPS\_B(40)} \; \text{小于} \; MIPS_{A}(50)-- \; \text{说明} \; \text{MIPS} \; \text{不能跨} \; \text{ISA/} \; \text{跨编译器比较性能}
-\end{gathered}" width="716" height="73"></p>
+\text{B 更快，但} \; MIPS_{B}(40) \; \text{小于} \; MIPS_{A}(50) \; \text{——说明 MIPS 不能跨 ISA、跨编译器比较性能}
+\end{gathered}" width="715" height="71"></p>
 
 
 :::
@@ -361,13 +361,13 @@ summary: "计算机组成与系统结构 全面详解笔记，共 9 章：计算
 ::: tip 工作示例 · 8 位补码加减与溢出
 
 
-<p class="fml-block"><img class="fml" src="/formulas/85d7e41eb92c1e.png" alt="\begin{gathered}
+<p class="fml-block"><img class="fml" src="/formulas/70442cffdf69cc.png" alt="\begin{gathered}
 (1) 9- 5 \; \text{：} \; \text{0000 1001 + 1111 1011(−5} \; \text{的补码} \; \text{) = 1 0000 0100 →} \; \text{丢弃进位} \; \text{= 0000 0100 = +4 }\checkmark \\
 \text{(2) 120 + 10} \; \text{：} \; 0111 1000+ 0000 1010= 1000 0010=- 126 \; \text{（数学结果} \; \text{+130 &gt; +127} \; \text{）} \\
-\text{C\_n = 0} \; \text{（符号位未产生进位）、} \; C_{n- 1}= 1 \to OV= 1 \; \text{，正溢出} \; \checkmark \\
+C_{n}= 0 \; \text{（符号位未产生进位）、} \; C_{n- 1}= 1 \to OV= 1 \; \text{，正溢出} \; \checkmark \\
 (3)- 120- 20 \; \text{：} \; 1000 1000+ 1110 1100= 1 0111 0100 \to 0111 0100=+116 \; \text{（应为} \; - 140 \; \text{）} \\
 \text{双符号位将出现} \; 10 \to \; \text{负溢出}
-\end{gathered}" width="746" height="138"></p>
+\end{gathered}" width="746" height="137"></p>
 
 
 :::
@@ -1109,13 +1109,13 @@ beq \approx 2+ 8+ 3+ 5+ 8= 26 ns \to \; \text{浪费更多}
 
 
 
-<p class="fml-block"><img class="fml" src="/formulas/286fb7f014dcfe.png" alt="\begin{gathered}
-\text{非流水时间} \; \text{T\_} \; \text{非} \; = n \cdot k \cdot t \\
-\text{流水时间} \; \text{T\_} \; \text{流} \; =(k+ n- 1) \cdot t \; \text{（首条填满流水线需} \; \text{k} \; \text{拍，之后每拍流出} \; \text{1} \; \text{条）} \\
-\text{加速比} \; \text{S = T\_} \; \text{非} \; \text{/ T\_} \; \text{流} \; = \frac{n \cdot k}{k+ n- 1} \to n \to_{\infty} \; \text{时} \; S \to k \\
+<p class="fml-block"><img class="fml" src="/formulas/ea56942b1085ca.png" alt="\begin{gathered}
+\text{非流水时间} \; T_{\text{非}} = n \cdot k \cdot t \\
+\text{流水时间} \; T_{\text{流}} =(k+ n- 1) \cdot t \; \text{（首条填满流水线需} \; k \; \text{拍，之后每拍流出} \; 1 \; \text{条）} \\
+\text{加速比} \; S= \frac{T_{\text{非}}}{T_{\text{流}}} = \frac{n \cdot k}{k+ n- 1} \xrightarrow{n \to \infty} k \\
 \text{吞吐率} \; TP= \frac{n}{(k+n- 1) \cdot t} \; \text{，最大} \; TP_{\max}= \frac{1}{t} \\
 \text{效率} \; E= \frac{S}{k}= \frac{n}{k+n- 1} \; \text{（时空图中被占用的面积占比）}
-\end{gathered}" width="645" height="190"></p>
+\end{gathered}" width="619" height="190"></p>
 
 
 
@@ -1123,11 +1123,11 @@ beq \approx 2+ 8+ 3+ 5+ 8= 26 ns \to \; \text{浪费更多}
 `k = 5`、`n = 100` 条指令、每段 `1 ns`：
 
 
-<p class="fml-block"><img class="fml" src="/formulas/97f84053221650.png" alt="\begin{gathered}
-\text{T\_} \; \text{非} \; = 100 \times 5 \times 1= 500 ns \\
-\text{T\_} \; \text{流} \; =(5+ 100- 1) \times 1= 104 ns \\
+<p class="fml-block"><img class="fml" src="/formulas/b22a7417cc6467.png" alt="\begin{gathered}
+T_{\text{非}} = 100 \times 5 \times 1= 500\,\text{ns} \\
+T_{\text{流}} =(5+ 100- 1) \times 1= 104\,\text{ns} \\
 S= \frac{500}{104} \approx 4.81 \; \text{（理论上限} \; \text{5} \; \text{，} \; \text{n} \; \text{越大越接近）}
-\end{gathered}" width="387" height="99"></p>
+\end{gathered}" width="386" height="97"></p>
 
 
 若各段时间不等：`IF 2 / ID 1 / EX 2 / MEM 2 / WB 1 ns`，锁存器开销 `0.5 ns`：
@@ -1554,15 +1554,15 @@ DMA 传 `1 MB`、总线带宽 `100 MB/s`、预处理 `100` 周期、后处理中
 
 
 
-<p class="fml-block"><img class="fml" src="/formulas/29186fff48cd11.png" alt="\begin{gathered}
+<p class="fml-block"><img class="fml" src="/formulas/f90b1665abf88e.png" alt="\begin{gathered}
 \text{100 = 0110 0100} \; \text{，} \; 40= 0010 1000 \to \; \text{和} \; = 1000 1100=- 116 \; \text{（应为} \; \text{+140} \; \text{）} \\
-\text{C\_n = 0} \; \text{（符号位无进位）、} \; C_{n- 1}= 1 \to OV=1 \; \text{，正溢出，结果无效} \\
+C_{n}= 0 \; \text{（符号位无进位）、} \; C_{n- 1}= 1 \to OV=1 \; \text{，正溢出，结果无效} \\
 - 100= 1001 1100 \; \text{，} \; - 40= 1101 1000 \to \; \text{和} \; = 1 0111 0100 \to 0111 0100=+116 \; \text{（应为} \; - 140 \; \text{）} \\
-\text{C\_n = 1} \; \text{、} \; C_{n- 1}= 0 \to OV=1 \; \text{，负溢出} \\
+C_{n}= 1 \; \text{、} \; C_{n- 1}= 0 \to OV=1 \; \text{，负溢出} \\
 \text{Booth} \; \text{：} \; X=- 3 \; \text{（} \; \text{4} \; \text{位补码} \; \text{1101} \; \text{），} \; \text{Y=+5} \; \text{（} \; \text{0101} \; \text{，末位补} \; 0 \to 01010 \; \text{）} \\
 \text{相邻位从低到高：} \; 10 \to \; \text{减} \; \text{[X]} \; \text{补；} \; 01 \to \; \text{加} \; \text{[X]} \; \text{补；} \; 10 \to \; \text{减} \; \text{[X]} \; \text{补；} \; 01 \to \; \text{加} \; \text{[X]} \; \text{补；最后不移位} \\
 \text{符号} \; \text{=} \; \text{负} \; \text{⊕} \; \text{正} \; \text{=} \; \text{负；数值} \; 3 \times 5= 15 \to \; \text{积} \; =- 15 \; \text{（} \; \text{8} \; \text{位补码} \; \text{1111 0001} \; \text{）}
-\end{gathered}" width="808" height="191"></p>
+\end{gathered}" width="807" height="190"></p>
 
 
 
@@ -1609,15 +1609,15 @@ Tag= 32- 7- 7= 18 bit \; \text{（另需有效位、脏位）} \\
 
 
 
-<p class="fml-block"><img class="fml" src="/formulas/407b40947e682d.png" alt="\begin{gathered}
+<p class="fml-block"><img class="fml" src="/formulas/95533ccc389d01.png" alt="\begin{gathered}
 \text{(1)} \; \text{时钟周期} \; \text{= 2 + 0.5 = 2.5 ns} \\
-\text{理想} \; \text{T\_} \; \text{流} \; =(5+ 200- 1) \times 2.5= 204 \times 2.5= 510 ns \\
+\text{理想} \; T_{\text{流}} =(5+ 200- 1) \times 2.5= 204 \times 2.5= 510\,\text{ns} \\
 \text{非流水} \; T= 200 \times 5 \times 2= 2000 ns \to \; \text{理想加速比} \; \approx 3.92 \\
 \text{(2)} \; \text{分支停顿} \; = 0.20 \times 0.10 \times 3= 0.06 \; \text{周期} \; \text{/} \; \text{指令} \; \to \; \text{实际} \; \text{CPI = 1 + 0.06 = 1.06} \\
 \text{总时间} \; \approx 200 \times 1.06 \times 2.5= 530 ns \; \text{（比理想多} \; \text{20 ns} \; \text{）} \\
 \text{(3)} \; \text{带宽} \; = \frac{64}{8} \times 100 \times 10^{6}= \frac{800 MB}{s} \\
 \text{DMA} \; \text{传送} \; 2 MB \to \frac{2}{800 s}= 2.5 ms \; \text{；} \; \text{CPU} \; \text{只在配置与结束中断时介入}
-\end{gathered}" width="652" height="221"></p>
+\end{gathered}" width="651" height="220"></p>
 
 
 

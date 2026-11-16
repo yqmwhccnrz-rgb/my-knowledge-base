@@ -62,7 +62,7 @@ summary: "机器学习原理与方法 全面详解笔记，共 12 章：导论�
 
 $$
 \begin{gathered}
-\text{期望风险} \; \text{R(f) = E\_{(x,y)~P} [L(f(x), y)]} \; \text{（不可直接计算，} \; \text{P} \; \text{未知）} \\
+\text{期望风险} \; R(f)= E_{(x,y)\sim P}\left[L(f(x), y)\right] \; \text{（不可直接计算，P 未知）} \\
 \text{经验风险} \; \hat{R}(f)=\left(\frac{1}{N}\right) \sum_{i} L(f(x_{i}), y_{i}) \; \text{（可计算，用训练集近似）} \\
 \text{结构风险} \; = \hat{R}(f)+ \lambda \cdot \Omega(f) \; \text{（加正则项控制复杂度）}
 \end{gathered}
@@ -576,7 +576,7 @@ $$
 
 $$
 \begin{gathered}
-\text{PSI = }\sum \text{\_bins (} \; \text{实际占比} \; - \; \text{期望占比} \; ) \cdot \ln( \; \text{实际占比} \; \text{/} \; \text{期望占比} \; \text{)} \\
+PSI= \sum_{\text{bins}} \left(\text{实际占比} - \text{期望占比}\right) \cdot \ln\frac{\text{实际占比}}{\text{期望占比}} \\
 \text{经验阈值：} \; \text{PSI < 0.1} \; \text{稳定；} \; 0.1- 0.25 \; \text{需关注；} \; \text{> 0.25} \; \text{显著漂移}
 \end{gathered}
 $$
@@ -1024,7 +1024,7 @@ $\eta= 0.001+ \frac{1}{2} \times 0.099 \times\left(1+\cos\left(\frac{\pi}{2}\rig
 
 $$
 \begin{gathered}
-\text{输出尺寸} \; H_{out}= ⌊\frac{H_{in}- K+ 2P}{S}⌋+ 1 \; \text{，} \; \text{W\_out} \; \text{同理} \\
+\text{输出尺寸} \; H_{out}= \left\lfloor\frac{H_{in}- K+ 2P}{S}\right\rfloor+ 1 \; \text{，} \; W_{out} \; \text{同理} \\
 \text{输出通道数} \; \text{=} \; \text{卷积核个数；参数量} \; = K \times K \times C_{in} \times C_{out}+ C_{out} \\
 \text{池化层无可训练参数；} \; 1 \times 1 \; \text{卷积用于通道变换与降维}
 \end{gathered}
@@ -1105,13 +1105,13 @@ Transformer 使用 **LayerNorm**（多为 Pre-LN：`x + Sublayer(LN(x))`），�
 
 $$
 \begin{gathered}
-\text{一个编码器块的完整维度流（} \; \text{n=} \; \text{序列长，} \; \text{d=d\_model} \; \text{，} \; \text{h=} \; \text{头数，} \; d_{k}=d_{v}=\frac{d}{h} \; \text{）：} \\
+\text{一个编码器块的完整维度流（n = 序列长，d = } d_{\text{model}} \; \text{，h = 头数，} \; d_{k}=d_{v}=\frac{d}{h} \; \text{）：} \\
 X \in R^{n \times d} \\
 \to Q=XW_{Q} \in R^{n \times d}, K=XW_{K}, V=XW_{V} \; \text{（投影矩阵} \; d \times d \; \text{）} \\
 \to \; \text{每个头：} \; A_{i}= softmax\left(\frac{Q_{i}K_{i}^{T}}{\sqrt{d_{k}}}\right) \in R^{n \times n} \; \text{；} \; head_{i}= A_{i} V_{i} \in R^{n \times d_{k}} \\
 \to MultiHead= Concat(head_1, \cdots,head_{h}) W^O \in R^{n \times d} \\
-\to \; \text{残差} \; \text{+ LayerNorm → FFN: d → d\_ff(} \; \text{常取} \; \text{4d) → d} \; \text{，再残差} \; \text{+ LayerNorm} \\
-\text{参数量} \; \approx 4d^{2} \; \text{（} \; \text{QKV +} \; \text{输出投影）} \; + 2 \cdot d \cdot d_{ff} \; \text{（} \; \text{FFN} \; \text{）} \; \approx 12d^{2} \; \text{（} \; \text{d\_ff=4d} \; \text{时）}
+\to \; \text{残差 + LayerNorm} \to \text{FFN: } d \to d_{ff} \; \text{（常取} \; 4d\text{）} \to d \; \text{，再残差 + LayerNorm} \\
+\text{参数量} \approx 4d^{2} \; \text{（QKV + 输出投影）} + 2 \cdot d \cdot d_{ff} \; \text{（FFN）} \approx 12d^{2} \; \text{（} d_{ff}=4d \; \text{时）}
 \end{gathered}
 $$
 

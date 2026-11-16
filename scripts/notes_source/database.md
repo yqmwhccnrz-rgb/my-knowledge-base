@@ -179,7 +179,7 @@ $$
 \text{(1)} \; \text{查询} \; \text{CS} \; \text{系学生姓名：} \\
 \pi_{Sname}(\sigma_{Sdept}='CS'(Student)) \\
 \text{(2)} \; \text{查询选修了「数据库」且成绩} \; \text{> 80} \; \text{的学生姓名（三关系连接）：} \\
-\pi \text{\_Sname(}\sigma \text{\_Cname='} \; \text{数据库} \; \text{' ∧ Grade>80 (Student ⋈ SC ⋈ Course))} \\
+\pi_{\text{Sname}}\big(\sigma_{\text{Cname='数据库' ∧ Grade>80}}(\text{Student} \bowtie \text{SC} \bowtie \text{Course})\big) \\
 \text{(3)} \; \text{查询选修了「全部课程」的学生学号（除运算的经典用法）：} \\
 \pi_{Sno},Cno(SC) \div  \pi_{Cno}(Course) \\
 \text{(4)} \; \text{查询未选修任何课程的学生姓名：} \\
