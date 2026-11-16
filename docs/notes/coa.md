@@ -410,7 +410,7 @@ y_{0}=1 \to P+= 00.1101= 01.0001 111 \to \; \text{右移} \; \text{1} \; \text{�
 \text{00、11} \to \; \text{部分积不变，仅算术右移} \; \text{1} \; \text{位} \\
 01 \to \; \text{部分积} \; \text{+ [X]} \; \text{补，再右移} \\
 10 \to \; \text{部分积} \; +[- X] \; \text{补，再右移}
-\end{gathered}" width="325" height="83"></p>
+\end{gathered}" width="326" height="84"></p>
 
 
 最后一步只运算不右移；n 位乘数做 n 次判断、n−1 次移位，结果为 2n 位补码。

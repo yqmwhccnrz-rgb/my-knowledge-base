@@ -143,8 +143,8 @@ summary: "计量经济学 全面详解笔记，共 10 章：绪论、统计学�
 | --- | --- | --- |
 | 标准正态 `N(0,1)` | — | 大样本下 z 检验、渐近推断 |
 | <img class="fml" src="/formulas/63a79773f1a12e.png" alt="\chi^{2}(m)" width="55" height="33"> | m 个独立标准正态平方和 | LM 检验、Wald/LR 检验、方差检验 |
-| t(m) | <img class="fml" src="/formulas/d876dafa10dbe3.png" alt="\dfrac{Z}{\sqrt{\chi^{2}(m)/m}}" width="101" height="52"> | **单个系数显著性检验**（小样本、未知 σ） |
-| F(m, n−k−1) | <img class="fml" src="/formulas/f610f521c898ae.png" alt="\dfrac{\chi^{2}(m)/m}{\chi^{2}(df)/df}" width="91" height="51"> | **多个线性约束的联合检验**、整体显著性 |
+| t(m) | <img class="fml" src="/formulas/d876dafa10dbe3.png" alt="\dfrac{Z}{\sqrt{\chi^{2}(m)/m}}" width="102" height="54"> | **单个系数显著性检验**（小样本、未知 σ） |
+| F(m, n−k−1) | <img class="fml" src="/formulas/f610f521c898ae.png" alt="\dfrac{\chi^{2}(m)/m}{\chi^{2}(df)/df}" width="92" height="52"> | **多个线性约束的联合检验**、整体显著性 |
 
 ::: tip 三大抽样分布的关系
 <img class="fml" src="/formulas/dc49e581718791.png" alt="Z \sim N(0,1)" width="100" height="33">、<img class="fml" src="/formulas/e0ecac3eb36a6a.png" alt="V \sim \chi^{2}(m)" width="93" height="33"> 且独立 → <img class="fml" src="/formulas/720278c7a500ec.png" alt="t= \frac{Z}{\sqrt{\frac{V}{m}}} \sim t(m)" width="128" height="41">；<img class="fml" src="/formulas/96cc9501de98f7.png" alt="U \sim \chi^{2}(m)" width="93" height="33">、<img class="fml" src="/formulas/950ff4d5d07e64.png" alt="V \sim \chi^{2}(r)" width="86" height="33"> 独立 → <img class="fml" src="/formulas/e4dcce018f0b5e.png" alt="F= \frac{\frac{U}{m}}{\frac{V}{r}} \sim F(m,r)" width="144" height="42">。由此可得两个常用结论：<img class="fml" src="/formulas/9f5ab34040f4de.png" alt="t^{2}(m)= F(1, m)" width="135" height="34">（单系数 t 检验与 F 检验等价），以及 <img class="fml" src="/formulas/6f177214e95e7c.png" alt="m \cdot F(m, \cdot) \to \chi^{2}(m)" width="168" height="34">（大样本下 LM/Wald/LR 都渐近服从 χ²）。
@@ -260,7 +260,7 @@ n 越大区间越窄（精度 <img class="fml" src="/formulas/87ecc32b4f22b9.png
 | A2 | X 非随机（或与 u 不相关） | `Cov(X_i, u_i) = 0` | **内生性 → 有偏且不一致**（第 5 章） |
 | A3 | 扰动项零均值 | `E(u_i|X) = 0` | 截距有偏；常数项可吸收非零均值 |
 | A4 | **同方差** | <img class="fml" src="/formulas/e61b361a3aacec.png" alt="\operatorname{Var}(u_{i}\vert X)= \sigma^{2}" width="129" height="34"> | 系数仍无偏但**不再有效**，标准误错 |
-| A5 | **无自相关** | <img class="fml" src="/formulas/1ecc6dbd6c1223.png" alt="\operatorname{Cov}(u_{i},u_{j})=0\;(i\ne j)" width="182" height="33"> | 标准误错、t/F 失效 |
+| A5 | **无自相关** | <img class="fml" src="/formulas/1ecc6dbd6c1223.png" alt="\operatorname{Cov}(u_{i},u_{j})=0\;(i\ne j)" width="183" height="33"> | 标准误错、t/F 失效 |
 | A6 | 解释变量有变异、无完全共线 | `Var(X)>0`，n > 参数个数 | 无法识别 |
 | （可选 A7） | 正态性 <img class="fml" src="/formulas/379cc6fb3872e9.png" alt="u \sim N(0,\sigma^{2})" width="106" height="34"> | — | 小样本精确 t/F 推断依赖它；大样本可用渐近正态替代 |
 
@@ -304,7 +304,7 @@ R^{2}= \frac{SSR}{SST}= 1- \frac{SSE}{SST} \in[0,1] \; \text{（含截距且用}
 \operatorname{Var}(\hat{\beta}_{1})= \sigma^{2}/Sxx \; \text{，} \; \operatorname{Var}(\hat{\beta}_{0})= \sigma^{2}\left(\frac{1}{n}+ \frac{\bar{X}^{2}}{Sxx}\right) \\
 \hat{\sigma}^{2}= \frac{SSE}{n- 2} \leftarrow \; \text{用} \; n- 2 \; \text{是因为估计了两个参数（无偏估计）} \\
 se(\hat{\beta}_{1})= \sqrt{\frac{\hat{\sigma}^{2}}{Sxx}}
-\end{gathered}" width="481" height="186"></p>
+\end{gathered}" width="482" height="187"></p>
 
 
 <img class="fml" src="/formulas/b5f2662fd9704d.png" alt="R^{2}" width="27" height="33"> 高不代表模型正确、也不代表因果；<img class="fml" src="/formulas/b5f2662fd9704d.png" alt="R^{2}" width="27" height="33"> 低不代表模型无用（横截面微观数据 <img class="fml" src="/formulas/7cff77cd8210cc.png" alt="R^{2}=0.1" width="74" height="34"> 很常见）。
@@ -377,15 +377,15 @@ F= t^{2}= 289 \\
 **无偏性推导**（一元、X 非随机、`E(u_i)=0`）：
 
 
-<p class="fml-block"><img class="fml" src="/formulas/6751c16db0f4c4.png" alt="\begin{gathered}
+<p class="fml-block"><img class="fml" src="/formulas/8d90415aeda4f9.png" alt="\begin{gathered}
 \hat{\beta}_{1}= \frac{\sum x_{i}Y_{i}}{Sxx}= \frac{\sum x_{i}(\beta_{0}+\beta_{1}X_{i}+u_{i})}{Sxx} \\
 = \beta_{1}+ \frac{\sum x_{i}u_{i}}{Sxx} \; \text{（用} \; \sum x_{i}=0 \; \text{、} \; \sum x_{i}X_{i}=Sxx \; \text{）} \\
 E(\hat{\beta}_{1})= \beta_{1}+ \frac{\sum x_{i} E(u_{i})}{Sxx}= \beta_{1} \checkmark \\
-\operatorname{Var}(\hat{\beta}_{1})= \frac{\operatorname{Var}\left(\sum x_{i}u_{i}\right)}{Sxx^{2}}= \sigma^{2}\frac{Sxx}{Sxx^{2}}= \sigma^{2} Sxx \; \text{（用同方差} \; \text{+} \; \text{无自相关）}
-\end{gathered}" width="561" height="176"></p>
+\operatorname{Var}(\hat{\beta}_{1})= \frac{\operatorname{Var}\left(\sum x_{i}u_{i}\right)}{Sxx^{2}}= \sigma^{2}\frac{Sxx}{Sxx^{2}}= \sigma^{2}/Sxx \; \text{（用同方差} \; \text{+} \; \text{无自相关）}
+\end{gathered}" width="569" height="175"></p>
 
 
-可见**无偏性只需 A2/A3**，而 <img class="fml" src="/formulas/11a051e3625235.png" alt="\operatorname{Var}(\hat{\beta}_{1})=\sigma^{2} Sxx" width="142" height="34"> 还须 A4/A5。
+可见**无偏性只需 A2/A3**，而 <img class="fml" src="/formulas/4335f9e535ad03.png" alt="\operatorname{Var}(\hat{\beta}_{1})=\sigma^{2}/Sxx" width="150" height="33"> 还须 A4/A5。
 
 **一致性**（X 随机但严格外生时）：
 
@@ -464,7 +464,7 @@ F_{0}._{05}(2,26) \approx 3.37 \to \; \text{拒绝约束，说明被排除的两
 | 斜率虚拟变量（交互） | <img class="fml" src="/formulas/831fabe4f095e1.png" alt="Y= \beta_{0}+ \beta_{1}X+ \delta(D \cdot X)+ u" width="238" height="34"> | 两组斜率差 δ |
 | 多重类别 | m 个类别放 <img class="fml" src="/formulas/5666b1e92fb9aa.png" alt="m- 1" width="54" height="34"> 个虚拟变量 | 全放且含截距 ⇒ **虚拟变量陷阱**（完全共线） |
 | 结构变动 | Chow 检验 = 约束 F 检验 | 检验两组所有系数是否相同 |
-| 线性-对数 | <img class="fml" src="/formulas/9a206adfa9a892.png" alt="Y= \beta_{0}+ \beta_{1}lnX" width="134" height="34"> | X 上升 1% → Y 变动约 <img class="fml" src="/formulas/0820fef3b28f17.png" alt="\beta_{1}/100" width="59" height="33">（即 <img class="fml" src="/formulas/9991ce2b491eef.png" alt="0.01\beta_{1}" width="55" height="33">）单位 |
+| 线性-对数 | <img class="fml" src="/formulas/9a206adfa9a892.png" alt="Y= \beta_{0}+ \beta_{1}lnX" width="134" height="34"> | X 上升 1% → Y 变动约 <img class="fml" src="/formulas/0820fef3b28f17.png" alt="\beta_{1}/100" width="60" height="33">（即 <img class="fml" src="/formulas/9991ce2b491eef.png" alt="0.01\beta_{1}" width="56" height="33">）单位 |
 | 对数-线性 | <img class="fml" src="/formulas/abb3a9cf600ca7.png" alt="lnY= \beta_{0}+ \beta_{1}X" width="134" height="34"> | X 上升 1 单位 → Y 变动约 <img class="fml" src="/formulas/e3dbf2512bcbb0.png" alt="100\beta_{1}\%" width="66" height="34"> |
 | **双对数** | <img class="fml" src="/formulas/c87573eff0b199.png" alt="lnY= \beta_{0}+ \beta_{1}lnX" width="150" height="34"> | <img class="fml" src="/formulas/dc60979297b187.png" alt="\beta_{1}" width="25" height="34"> 直接是**弹性**（最常用） |
 | 多项式 / 交互 | <img class="fml" src="/formulas/0938cbc25d8e27.png" alt="Y= \beta_{0}+\beta_{1}X+\beta_{2}X^{2}" width="180" height="34"> | 边际效应 <img class="fml" src="/formulas/ce1975103dffde.png" alt="\beta_{1}+2\beta_{2}X" width="88" height="34"> 随 X 变化 |
@@ -473,7 +473,7 @@ F_{0}._{05}(2,26) \approx 3.37 \to \; \text{拒绝约束，说明被排除的两
 
 ::: danger 易错 · 多元回归
 - 「控制其它变量不变」是**统计上的偏效应**，不代表现实中可以只动一个变量（变量间往往联动）。
-- <img class="fml" src="/formulas/1a6e4adc329ad4.png" alt="\hat{\beta}_{j}" width="24" height="34"> 的方差随其它解释变量对 `X_j` 的解释力上升而变大：<img class="fml" src="/formulas/d069de04c0dc15.png" alt="\operatorname{Var}(\hat{\beta}_{j})= \sigma^{2}/[Sxx_{j}(1- R^{2}_{j})]" width="231" height="33">，这就是多重共线性的数学根源。
+- <img class="fml" src="/formulas/1a6e4adc329ad4.png" alt="\hat{\beta}_{j}" width="24" height="34"> 的方差随其它解释变量对 `X_j` 的解释力上升而变大：<img class="fml" src="/formulas/d069de04c0dc15.png" alt="\operatorname{Var}(\hat{\beta}_{j})= \sigma^{2}/[Sxx_{j}(1- R^{2}_{j})]" width="232" height="34">，这就是多重共线性的数学根源。
 - 加控制变量要警惕**坏控制（bad control）**：控制受处理影响的变量会阻断因果路径（如估计教育对工资影响时控制「职业」）。
 - 对数变换要求变量为正；`lnY` 模型的 <img class="fml" src="/formulas/b5f2662fd9704d.png" alt="R^{2}" width="27" height="33"> 与 `Y` 模型的 <img class="fml" src="/formulas/b5f2662fd9704d.png" alt="R^{2}" width="27" height="33"> **不可直接比较**。
 - 交互项显著时，主效应系数只表示「另一变量为 0 时」的效应，别当成平均效应。
@@ -516,8 +516,8 @@ F_{0}._{05}(2,26) \approx 3.37 \to \; \text{拒绝约束，说明被排除的两
 | --- | --- | --- |
 | <img class="fml" src="/formulas/2c9be2a0271277.png" alt="Y= \beta_{0}+\beta_{1}X" width="118" height="33"> | 绝对变化 | <img class="fml" src="/formulas/dc60979297b187.png" alt="\beta_{1}" width="25" height="34">（常数） |
 | <img class="fml" src="/formulas/43c501106db5a9.png" alt="lnY= \beta_{0}+\beta_{1}X" width="134" height="33"> | X 增 1 单位 → Y 约变 <img class="fml" src="/formulas/e3dbf2512bcbb0.png" alt="100\beta_{1}\%" width="66" height="34"> | <img class="fml" src="/formulas/931329835d6557.png" alt="\beta_{1} \cdot Y" width="51" height="33">（随 Y 变） |
-| <img class="fml" src="/formulas/fbc40ad75c8661.png" alt="Y= \beta_{0}+\beta_{1}lnX" width="134" height="33"> | X 增 1% → Y 变约 <img class="fml" src="/formulas/0820fef3b28f17.png" alt="\beta_{1}/100" width="59" height="33"> 单位 | <img class="fml" src="/formulas/3c92b6a065245e.png" alt="\beta_{1}/X" width="48" height="33"> |
-| <img class="fml" src="/formulas/44884b24257143.png" alt="lnY= \beta_{0}+\beta_{1}lnX" width="150" height="33"> | **弹性** | <img class="fml" src="/formulas/dee77d21376101.png" alt="\beta_{1}\cdot Y/X" width="76" height="33"> |
+| <img class="fml" src="/formulas/fbc40ad75c8661.png" alt="Y= \beta_{0}+\beta_{1}lnX" width="134" height="33"> | X 增 1% → Y 变约 <img class="fml" src="/formulas/0820fef3b28f17.png" alt="\beta_{1}/100" width="60" height="33"> 单位 | <img class="fml" src="/formulas/3c92b6a065245e.png" alt="\beta_{1}/X" width="49" height="33"> |
+| <img class="fml" src="/formulas/44884b24257143.png" alt="lnY= \beta_{0}+\beta_{1}lnX" width="150" height="33"> | **弹性** | <img class="fml" src="/formulas/dee77d21376101.png" alt="\beta_{1}\cdot Y/X" width="77" height="33"> |
 | <img class="fml" src="/formulas/0938cbc25d8e27.png" alt="Y= \beta_{0}+\beta_{1}X+\beta_{2}X^{2}" width="180" height="34"> | 二次（U 型/倒 U 型） | <img class="fml" src="/formulas/ce1975103dffde.png" alt="\beta_{1}+2\beta_{2}X" width="88" height="34"> |
 
 ::: tip 工作示例 · 倒 U 型转折点（环境库兹涅茨曲线、经验-工资曲线常用）
@@ -678,13 +678,13 @@ DW 显著偏低未必是误差自相关，也可能是**遗漏了滞后变量或
 
 ### 5.5 随机解释变量与内生性（★★★）
 
-<img class="fml" src="/formulas/699ce9c2333208.png" alt="\operatorname{Cov}(X, u)\ne 0" width="118" height="33">（内生性）是 OLS 最致命的问题：**有偏且不一致**（增大样本也不能救）。三大来源：
+<img class="fml" src="/formulas/699ce9c2333208.png" alt="\operatorname{Cov}(X, u)\ne 0" width="119" height="33">（内生性）是 OLS 最致命的问题：**有偏且不一致**（增大样本也不能救）。三大来源：
 ① **遗漏变量**（与 X 相关的因素被留在 u 中）；
 ② **联立性 / 反向因果**（Y 也影响 X）；
 ③ **测量误差**（X 的经典测量误差使系数衰减偏误）。
 
 **工具变量 IV / 两阶段最小二乘 2SLS**：找一个 `Z` 满足
-- **相关性**（<img class="fml" src="/formulas/36f6dfcfe2a4e3.png" alt="\operatorname{Cov}(Z,X)\ne 0" width="122" height="33">，第一阶段足够强）；
+- **相关性**（<img class="fml" src="/formulas/36f6dfcfe2a4e3.png" alt="\operatorname{Cov}(Z,X)\ne 0" width="123" height="33">，第一阶段足够强）；
 - **外生性 / 排他性**（`Cov(Z,u)=0`，Z 只通过 X 影响 Y）。
 
 
@@ -786,7 +786,7 @@ DW 显著偏低未必是误差自相关，也可能是**遗漏了滞后变量或
 | 模型 | 经济动机 | 变换后的共同形式 |
 | --- | --- | --- |
 | **Koyck 几何滞后** | <img class="fml" src="/formulas/a08c3e2af541e7.png" alt="\beta_{i}= \beta_{0}\lambda^i, 0&lt;\lambda&lt;1" width="162" height="33">（远期影响几何衰减） | <img class="fml" src="/formulas/b490afb065d6df.png" alt="Y_{t}= \alpha(1- \lambda)+ \beta_{0}X_{t}+ \lambda Y_{t- 1}+ v_{t}" width="273" height="33">，<img class="fml" src="/formulas/4f970fd17767a2.png" alt="v_{t}= u_{t}- \lambda u_{t- 1}" width="124" height="33"> |
-| **部分调整 PAM** | 实际调整只完成期望调整的一部分（有调整成本） | 同上形式，长期乘数 <img class="fml" src="/formulas/aae34718f79168.png" alt="= \beta_{0}/(1- \lambda)" width="106" height="33"> |
+| **部分调整 PAM** | 实际调整只完成期望调整的一部分（有调整成本） | 同上形式，长期乘数 <img class="fml" src="/formulas/aae34718f79168.png" alt="= \beta_{0}/(1- \lambda)" width="107" height="33"> |
 | **适应预期 AE** | 预期按误差逐步修正 <img class="fml" src="/formulas/1f5c37b90ab90f.png" alt="X^e_{t}- X^e_{t- 1}= \gamma(X_{t}- X^e_{t- 1})" width="214" height="33"> | 同上形式，<img class="fml" src="/formulas/6577dc3ea0000f.png" alt="\lambda= 1- \gamma" width="82" height="33"> |
 
 三者数学形式几乎一样，**经济含义与扰动项结构不同**，不能只凭回归式区分。
@@ -801,7 +801,7 @@ DW 显著偏低未必是误差自相关，也可能是**遗漏了滞后变量或
 \text{含义：} \; \text{X} \; \text{永久增加} \; \text{1} \; \text{单位，当期} \; \text{Y} \; \text{只增} \; \text{0.5} \; \text{，但累积最终增} \; \text{1.25} \\
 \text{调整速度：} \; \lambda=0.4 \to \; \text{长期乘数} \; \text{0.833} \; \text{；} \; \lambda=0.8 \to 2.50 \; \text{（} \; \lambda \; \text{越大，长期效应越大、调整越慢）} \\
 \text{平均滞后} \; \approx \frac{\lambda}{1- \lambda} \; \text{：} \; \lambda=0.6 \to 1.5 \; \text{期}
-\end{gathered}" width="762" height="168"></p>
+\end{gathered}" width="763" height="169"></p>
 
 
 :::
@@ -1011,7 +1011,7 @@ Ljung-Box <img class="fml" src="/formulas/df4a77f33799bb.png" alt="Q= n(n+2)\sum
 \end{gathered}" width="353" height="58"></p>
 
 
-把第二式代入第一式整理可得 <img class="fml" src="/formulas/b7c377793b2a15.png" alt="Y_{t}= \frac{\alpha+I_{t}+u_{t}}{1- \beta}" width="99" height="36">，于是 `Y_t` 含 `u_t` ⇒ <img class="fml" src="/formulas/e9458c071d33ff.png" alt="\operatorname{Cov}(Y_{t}, u_{t})\ne 0" width="123" height="33">。用 OLS 估计消费函数得到的 <img class="fml" src="/formulas/38e1ef139b243c.png" alt="\hat{\beta}" width="18" height="34"> **既有偏又不一致**（称**联立性偏误 / 同时方程偏误**），且样本增大也不消失。
+把第二式代入第一式整理可得 <img class="fml" src="/formulas/b7c377793b2a15.png" alt="Y_{t}= \frac{\alpha+I_{t}+u_{t}}{1- \beta}" width="99" height="36">，于是 `Y_t` 含 `u_t` ⇒ <img class="fml" src="/formulas/e9458c071d33ff.png" alt="\operatorname{Cov}(Y_{t}, u_{t})\ne 0" width="125" height="33">。用 OLS 估计消费函数得到的 <img class="fml" src="/formulas/38e1ef139b243c.png" alt="\hat{\beta}" width="18" height="34"> **既有偏又不一致**（称**联立性偏误 / 同时方程偏误**），且样本增大也不消失。
 
 ![联立方程、简化式与识别](/econ/econ-simultaneous.svg)
 
@@ -1076,7 +1076,7 @@ C_{t}= \alpha+ \beta Y_{t}+ u_{t} \; \text{；} \; \text{Y\_t = C\_t + I\_t} \\
 \end{gathered}" width="346" height="148"></p>
 
 
-<img class="fml" src="/formulas/04c072634f5062.png" alt="\frac{\partial Y_{t}}{\partial I_{t}}= \frac{1}{1- \beta}" width="82" height="36"> 就是**投资乘数**。若 <img class="fml" src="/formulas/705d9f9e9ea688.png" alt="\beta=0.8" width="64" height="34">，乘数 = 5。由简化式可解出 <img class="fml" src="/formulas/67023af945f094.png" alt="\beta=\dfrac{\pi_{2}}{1+\pi_{2}}" width="93" height="43">（<img class="fml" src="/formulas/34f7210df88994.png" alt="\pi_{2}" width="25" height="34"> 为 I 在 C 方程简化式中的系数），这正是 **ILS 间接最小二乘**：先 OLS 估简化式（前定变量外生，一致），再代数反解结构参数。
+<img class="fml" src="/formulas/04c072634f5062.png" alt="\frac{\partial Y_{t}}{\partial I_{t}}= \frac{1}{1- \beta}" width="82" height="36"> 就是**投资乘数**。若 <img class="fml" src="/formulas/705d9f9e9ea688.png" alt="\beta=0.8" width="64" height="34">，乘数 = 5。由简化式可解出 <img class="fml" src="/formulas/67023af945f094.png" alt="\beta=\dfrac{\pi_{2}}{1+\pi_{2}}" width="94" height="44">（<img class="fml" src="/formulas/34f7210df88994.png" alt="\pi_{2}" width="25" height="34"> 为 I 在 C 方程简化式中的系数），这正是 **ILS 间接最小二乘**：先 OLS 估简化式（前定变量外生，一致），再代数反解结构参数。
 
 **2SLS 与 IV 等价**：第一阶段 <img class="fml" src="/formulas/700b72ab521e74.png" alt="X= Z\hat{\Pi}+ v" width="105" height="34"> 得 `X̂ = P_Z X`（`P_Z` 为对全部前定变量的投影矩阵），第二阶段 <img class="fml" src="/formulas/d03f5796e48df9.png" alt="\hat{\beta}_2SLS=(X&#x27;P_{Z} X)^{-1}X&#x27;P_{Z} y" width="225" height="34">，恰是以 `Z` 为工具的 IV 估计量。当工具数 = 内生变量数时 <img class="fml" src="/formulas/ee91b996557e15.png" alt="X&#x27;P_{Z} X= X&#x27;Z(Z&#x27;Z)^{-1}Z&#x27;X" width="219" height="34">，退化为标准 IV 公式。
 
@@ -1113,7 +1113,7 @@ C_{t}= \alpha+ \beta Y_{t}+ u_{t} \; \text{；} \; \text{Y\_t = C\_t + I\_t} \\
 | 模型 | 设定 | 估计 | 关键假定 |
 | --- | --- | --- | --- |
 | **混合回归 Pooled OLS** | 忽略 μ_i，把所有观测堆在一起 | OLS | <img class="fml" src="/formulas/9f7799f27b2459.png" alt="\mu_{i}= 0" width="55" height="34">（无个体效应）；通常不成立 |
-| **固定效应 FE** | <img class="fml" src="/formulas/38b4177264bfaa.png" alt="\mu_{i}" width="23" height="34"> 视为待估参数，允许与 x 相关 | **LSDV**（加 N−1 个个体虚拟变量）／**组内去均值（within）**／一阶差分 FD | 允许 <img class="fml" src="/formulas/44d47786caf215.png" alt="\operatorname{Cov}(\mu_{i}, x_{it})\ne 0" width="128" height="33">；一致性更强 |
+| **固定效应 FE** | <img class="fml" src="/formulas/38b4177264bfaa.png" alt="\mu_{i}" width="23" height="34"> 视为待估参数，允许与 x 相关 | **LSDV**（加 N−1 个个体虚拟变量）／**组内去均值（within）**／一阶差分 FD | 允许 <img class="fml" src="/formulas/44d47786caf215.png" alt="\operatorname{Cov}(\mu_{i}, x_{it})\ne 0" width="129" height="33">；一致性更强 |
 | **随机效应 RE** | <img class="fml" src="/formulas/38b4177264bfaa.png" alt="\mu_{i}" width="23" height="34"> 视为随机且与 x **不相关**，并入复合误差 | FGLS（拟去均值 <img class="fml" src="/formulas/0eab0c36c71939.png" alt="y_{it}- \theta \bar{y}_{i}" width="70" height="34">） | <img class="fml" src="/formulas/34162485b900b7.png" alt="\operatorname{Cov}(\mu_{i}, x_{it})= 0" width="129" height="34">；若成立则更有效，且能估**不随时间变**的变量 |
 
 **组内变换**：<img class="fml" src="/formulas/4869c44f08397c.png" alt="y_{it}- \bar{y}_{i}= \beta &#x27;(x_{it}- \bar{x}_{i})+(\epsilon_{it}- \bar{\epsilon}_{i})" width="259" height="34">，μ_i 被相减消掉。
@@ -1288,7 +1288,7 @@ Tobit（潜变量 <img class="fml" src="/formulas/1d15bf897f24d4.png" alt="y*= \
 \text{(2)} \; \text{观测到的} \; \text{y} \; \text{：} \; \frac{\partial E(y|x)}{\partial x_{j}}= \beta_{j} \cdot \Phi\left(\beta &#x27;\frac{x}{\sigma}\right) \\
 \text{(3)} \; \text{参与概率：} \; \frac{\partial P(y&gt;0|x)}{\partial x_{j}}= \phi\left(\beta &#x27;x/\sigma\right) \cdot \beta_{j}/\sigma \\
 \text{(4)} \; \text{条件于} \; \text{y&gt;0} \; \text{：} \; \frac{\partial E(y|y&gt;0,x)}{\partial x_{j}}= \beta_{j} \cdot[1- z\lambda(z)- \lambda(z)^{2}] \; \text{，} \; z=\beta &#x27;\frac{x}{\sigma}
-\end{gathered}" width="560" height="195"></p>
+\end{gathered}" width="561" height="196"></p>
 
 
 
@@ -1300,7 +1300,7 @@ Tobit（潜变量 <img class="fml" src="/formulas/1d15bf897f24d4.png" alt="y*= \
 \text{(2)} \; \text{对每个被选中的样本算逆米尔斯比} \; \lambda_{i}= \dfrac{\phi(\hat{\gamma}&#x27;z_{i})}{\Phi(\hat{\gamma}&#x27;z_{i})} \\
 \text{(3)} \; \text{结果方程（仅选中样本）：} \; y_{i}= \beta &#x27;x_{i}+ \rho \sigma \lambda_{i}+ e_{i} \\
 \lambda \; \text{显著} \; \Rightarrow \; \text{存在选择偏差；} \; \rho \; \text{为选择与结果误差的相关系数}
-\end{gathered}" width="495" height="131"></p>
+\end{gathered}" width="496" height="132"></p>
 
 
 **识别关键**：`z` 中至少要有一个**排除变量**（影响是否进入样本、但不直接影响结果），否则 λ 与 x 高度共线、修正不可靠。
@@ -1405,11 +1405,11 @@ d= \frac{0.76}{0.30}= 2.533 \to \hat{\rho}= 1- \frac{d}{2}=- 0.267 \; \text{（�
 **解**：
 
 
-<p class="fml-block"><img class="fml" src="/formulas/59ff08b3c9bac0.png" alt="\begin{gathered}
+<p class="fml-block"><img class="fml" src="/formulas/f589261e8066d6.png" alt="\begin{gathered}
 VIF_{1}= \frac{1}{1- 0.90}= 10 \\
-\operatorname{Var}(\hat{\beta}_{1})= \sigma^{2}[Sxx_{1}(1- R^{2}_{1})]= 10 \times \; \text{（无共线时的方差）} \\
+\operatorname{Var}(\hat{\beta}_{1})= \sigma^{2}/[Sxx_{1}(1- R^{2}_{1})]= 10 \times \; \text{（无共线时的方差）} \\
 se(\hat{\beta}_{1})= \sqrt{10} \approx 3.16 \; \text{倍} \; \to t \; \text{值约降为} \; \text{1/3.16}
-\end{gathered}" width="454" height="104"></p>
+\end{gathered}" width="461" height="103"></p>
 
 
 典型症状：整体 F 显著、R² 高，但单个 t 多数不显著；增删少量样本系数剧变甚至符号反转。
@@ -1428,7 +1428,7 @@ se(\hat{\beta}_{1})= \sqrt{10} \approx 3.16 \; \text{倍} \; \to t \; \text{值�
 \text{平均滞后} \; \approx \frac{\lambda}{1- \lambda}= 1.5 \; \text{期（调整较慢）} \\
 F= \frac{\frac{1200- 900}{2}}{\frac{900}{60- 5}}= \frac{150}{16.364}= 9.17&gt; F_{0}._{05}(2,55) \approx 3.17 \\
 \to \; \text{拒绝「} \; \text{X} \; \text{的滞后项联合为} \; \text{0} \; \text{」，} \; \text{X Granger} \; \text{引起} \; \text{Y}
-\end{gathered}" width="427" height="195"></p>
+\end{gathered}" width="427" height="196"></p>
 
 
 **解读边界**：这只是**增量预测能力**，不等于结构因果；若变量非平稳需先差分或做 VECM；滞后阶数换一档结论可能改变，应报告稳健性。
@@ -1534,7 +1534,7 @@ OR= e^{0.5}= 1.649 \to x \; \text{每增} \; \text{1} \; \text{单位，发生�
 | 14 | 遗漏变量偏误 | <img class="fml" src="/formulas/8b5c087648b8af.png" alt="plim \tilde{\beta}_{1}= \beta_{1}+ \beta_{2} \cdot \delta_{1}" width="169" height="34">（δ1 为 X2 对 X1 辅助回归斜率） |
 | 15 | 弹性 | 双对数模型 <img class="fml" src="/formulas/459fa3cec78d9d.png" alt="\beta_{1}= \frac{dlnY}{dlnX}" width="82" height="33">；<img class="fml" src="/formulas/03f4e3b04f45ff.png" alt="\epsilon=\left(\frac{dY}{dX}\right)\left(\frac{X}{Y}\right)" width="111" height="33"> |
 | 16 | 均值 / 个别值预测 SE | <img class="fml" src="/formulas/4c4ce8e3555522.png" alt="\hat{\sigma}\sqrt{\frac{1}{n}+ \frac{(X_{0}- \bar{X})^{2}}{Sxx}}" width="126" height="41"> / <img class="fml" src="/formulas/6c1cac4645a522.png" alt="\hat{\sigma}\sqrt{1+ \frac{1}{n}+ \frac{(X_{0}- \bar{X})^{2}}{Sxx}}" width="156" height="41"> |
-| 17 | VIF | <img class="fml" src="/formulas/7d519cb5ca9add.png" alt="VIF_{j}= \frac{1}{1- R^{2}_{j}}" width="108" height="40">；<img class="fml" src="/formulas/310fb78b8bc0dd.png" alt="\operatorname{Var}(\hat{\beta}_{j})=\sigma^{2}/[Sxx_{j}(1- R^{2}_{j})]" width="231" height="33">；>10 严重 |
+| 17 | VIF | <img class="fml" src="/formulas/7d519cb5ca9add.png" alt="VIF_{j}= \frac{1}{1- R^{2}_{j}}" width="108" height="40">；<img class="fml" src="/formulas/310fb78b8bc0dd.png" alt="\operatorname{Var}(\hat{\beta}_{j})=\sigma^{2}/[Sxx_{j}(1- R^{2}_{j})]" width="232" height="34">；>10 严重 |
 | 18 | BP / White 检验 | <img class="fml" src="/formulas/b8bc79ab68e87c.png" alt="LM= n \cdot R^{2}_{aux} \sim \chi^{2}(df)" width="197" height="33">；<img class="fml" src="/formulas/566741a9168d4b.png" alt="\chi^{2}_{0}._{05}(1)=3.84,(2)=5.99,(3)=7.81" width="295" height="33"> |
 | 19 | Goldfeld-Quandt | <img class="fml" src="/formulas/3c2dc636a4ce29.png" alt="F= \frac{SSE_{2}}{SSE_{1}}" width="81" height="35">（按可疑变量排序、去中间段） |
 | 20 | WLS | <img class="fml" src="/formulas/eb8f7f81e3bdd9.png" alt="\operatorname{Var}(u_{i})=\sigma^{2}w_{i}" width="125" height="33"> ⇒ 两边除 <img class="fml" src="/formulas/2176583523f5cc.png" alt="\sqrt{w}_{i}" width="40" height="34"> 后 OLS |
@@ -1545,7 +1545,7 @@ OR= e^{0.5}= 1.649 \to x \; \text{每增} \; \text{1} \; \text{单位，发生�
 | 25 | 2SLS | 第一阶段 <img class="fml" src="/formulas/c2d637fe3c5ce0.png" alt="X=\Pi Z+v" width="105" height="33"> 得 X̂；第二阶段 `Y` 对 X̂ 回归 |
 | 26 | 弱工具判据 | 第一阶段 F < 10 提示弱工具；Hansen J 检验过度识别 |
 | 27 | 分布滞后 | <img class="fml" src="/formulas/24972142d0868c.png" alt="Y_{t}=\alpha+\sum \beta_{i}X_{t-i}+u_{t}" width="189" height="33">；长期乘数 <img class="fml" src="/formulas/f88144714ab1fd.png" alt="\sum \beta_{i}" width="44" height="33"> |
-| 28 | Koyck / 部分调整 | <img class="fml" src="/formulas/eeca1c7376df76.png" alt="Y_{t}=\alpha(1- \lambda)+\beta_{0}X_{t}+\lambda Y_{t- 1}+v_{t}" width="272" height="33">；长期乘数 <img class="fml" src="/formulas/ea678a39bbb918.png" alt="\beta_{0}/(1- \lambda)" width="87" height="33"> |
+| 28 | Koyck / 部分调整 | <img class="fml" src="/formulas/eeca1c7376df76.png" alt="Y_{t}=\alpha(1- \lambda)+\beta_{0}X_{t}+\lambda Y_{t- 1}+v_{t}" width="272" height="33">；长期乘数 <img class="fml" src="/formulas/ea678a39bbb918.png" alt="\beta_{0}/(1- \lambda)" width="88" height="33"> |
 | 29 | 平均滞后 | <img class="fml" src="/formulas/21dd925deaca92.png" alt="\approx \frac{\lambda}{1- \lambda}" width="54" height="34"> |
 | 30 | Granger F | <img class="fml" src="/formulas/d7f31d5c04ec29.png" alt="F=\frac{\frac{SSE_{r}- SSE_{u}}{q}}{\frac{SSE_{u}}{n- k}}" width="108" height="46"> |
 | 31 | AR(1) 平稳 | <img class="fml" src="/formulas/da253f240ad45b.png" alt="\vert \phi\vert &lt;1" width="60" height="34">；<img class="fml" src="/formulas/abe859aced2e63.png" alt="\phi=1" width="51" height="34"> 为单位根 |
@@ -1553,9 +1553,9 @@ OR= e^{0.5}= 1.649 \to x \; \text{每增} \; \text{1} \; \text{单位，发生�
 | 33 | 单整 | <img class="fml" src="/formulas/6952fb27654c4c.png" alt="Y \sim I(d)" width="78" height="34"> 表示差分 d 次平稳 |
 | 34 | 协整 | <img class="fml" src="/formulas/72e41878104488.png" alt="u_{t}=Y_{t}- \beta_{0}- \beta_{1}X_{t} \sim I(0)" width="216" height="34">；EG 两步 + AEG 检验 |
 | 35 | ECM | <img class="fml" src="/formulas/c86b189f73c542.png" alt="\Delta Y_{t}=\alpha+\gamma \cdot ECM_{t- 1}+\sum \delta_{i}\Delta X_{t- i}+\epsilon_{t}" width="325" height="34">，<img class="fml" src="/formulas/fe170df363e532.png" alt="\gamma&lt;0" width="49" height="34"> 为调整速度 |
-| 36 | 半衰期 | <img class="fml" src="/formulas/b37d2d02961dc2.png" alt="\dfrac{\ln(0.5)}{\ln(1+\gamma)}" width="80" height="50">（γ<0 时） |
+| 36 | 半衰期 | <img class="fml" src="/formulas/b37d2d02961dc2.png" alt="\dfrac{\ln(0.5)}{\ln(1+\gamma)}" width="81" height="51">（γ<0 时） |
 | 37 | GARCH(1,1) | <img class="fml" src="/formulas/90eed318dc10d2.png" alt="\sigma^{2}_{t}=\omega+\alpha \epsilon^{2}_{t- 1}+\beta \sigma^{2}_{t- 1}" width="187" height="34">；<img class="fml" src="/formulas/b7dcc33d2e28aa.png" alt="\alpha+\beta \approx 1" width="84" height="34"> 波动持久 |
-| 38 | 联立性偏误 | <img class="fml" src="/formulas/d39ae79b031976.png" alt="\operatorname{Cov}(Y_{t},u_{t})\ne 0" width="123" height="33"> <img class="fml" src="/formulas/e667a8be113ba1.png" alt="\Rightarrow" width="24" height="34"> 有偏且不一致（乘数 <img class="fml" src="/formulas/a737e5df1559ea.png" alt="\frac{1}{1- \beta}" width="35" height="36">） |
+| 38 | 联立性偏误 | <img class="fml" src="/formulas/d39ae79b031976.png" alt="\operatorname{Cov}(Y_{t},u_{t})\ne 0" width="125" height="33"> <img class="fml" src="/formulas/e667a8be113ba1.png" alt="\Rightarrow" width="24" height="34"> 有偏且不一致（乘数 <img class="fml" src="/formulas/a737e5df1559ea.png" alt="\frac{1}{1- \beta}" width="35" height="36">） |
 | 39 | 识别阶条件 | <img class="fml" src="/formulas/a9b094da01dd25.png" alt="K- k \ge g- 1" width="119" height="34">（排除的前定变量数 ≥ 方程内内生变量数 −1） |
 | 40 | 秩条件 | 被排除变量系数矩阵存在非零 <img class="fml" src="/formulas/00b68d8e5f69a3.png" alt="G- 1" width="52" height="34"> 阶行列式（充要） |
 | 41 | ILS / 2SLS | 恰好识别用 ILS；过度识别用 2SLS / LIML / GMM |

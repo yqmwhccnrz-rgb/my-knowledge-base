@@ -202,7 +202,7 @@ summary: "CPA《财务成本管理》20 章精要笔记：第一章至第十一�
 **债券价值** ＝ 各期利息现值 ＋ 本金现值（按必要报酬率折现）。债券价值与必要报酬率反向变动；溢价/折价/平价取决于票面利率与必要报酬率的关系。流通债券（非时点付息）需注意现金流与折现期匹配。
 
 **普通股价值**：
-- 固定增长模型：<img class="fml" src="/formulas/679463657fccad.png" alt="P_{0}=\dfrac{D_{1}}{r_{s}- g}=\dfrac{D_{0}(1+g)}{r_{s}- g}" width="202" height="49">
+- 固定增长模型：<img class="fml" src="/formulas/679463657fccad.png" alt="P_{0}=\dfrac{D_{1}}{r_{s}- g}=\dfrac{D_{0}(1+g)}{r_{s}- g}" width="203" height="50">
 - 零增长：P0 ＝ <img class="fml" src="/formulas/62eb5a51e536f7.png" alt="D \div  r_{s}" width="58" height="33">
 - 阶段性增长：分段折现
 - 期望报酬率 rs ＝ <img class="fml" src="/formulas/a1f3b74bf5f4ef.png" alt="\frac{D_{1}}{P_{0}}" width="27" height="35"> ＋ g
@@ -323,9 +323,9 @@ WACC ＝ Σ（个别资本成本 × 权重）。
 
 | 模型 | 现金流 | 公式（永续增长） |
 | --- | --- | --- |
-| 股利现金流量模型 | 股利 | 股权价值 <img class="fml" src="/formulas/ca2dbcbe9a0480.png" alt="=\sum \dfrac{D_{t}}{(1+r_{s})^{t}}" width="116" height="49"> |
+| 股利现金流量模型 | 股利 | 股权价值 <img class="fml" src="/formulas/ca2dbcbe9a0480.png" alt="=\sum \dfrac{D_{t}}{(1+r_{s})^{t}}" width="117" height="50"> |
 | 股权自由现金流 FCFE | 股权自由现金流 | 同上，用 FCFE 替代 D |
-| 实体现金流 FCFF | 实体自由现金流 | 实体价值 <img class="fml" src="/formulas/71cb9993e88ed8.png" alt="=\sum \dfrac{FCFF_{t}}{(1+WACC)^{t}}" width="162" height="49">；股权价值＝实体价值−净债务 |
+| 实体现金流 FCFF | 实体自由现金流 | 实体价值 <img class="fml" src="/formulas/71cb9993e88ed8.png" alt="=\sum \dfrac{FCFF_{t}}{(1+WACC)^{t}}" width="162" height="50">；股权价值＝实体价值−净债务 |
 
 - 永续增长模型：价值 ＝ 下一期现金流 ÷（折现率 − 增长率 g），要求 g < 折现率。
 - 两阶段/三阶段：高速增长期逐期折现 ＋ 后续永续增长现值。
@@ -735,7 +735,7 @@ EVA 通过会计调整消除准则对决策信号的扭曲（如研发费用费�
 | 主题 | 公式 |
 | --- | --- |
 | 复利终/现值 | F＝P(1＋i)ⁿ；P＝F/(1＋i)ⁿ |
-| 年金现值 | <img class="fml" src="/formulas/bd19b48cdca6e7.png" alt="P=A\cdot\dfrac{1-(1+i)^{-n}}{i}" width="174" height="46"> |
+| 年金现值 | <img class="fml" src="/formulas/bd19b48cdca6e7.png" alt="P=A\cdot\dfrac{1-(1+i)^{-n}}{i}" width="175" height="47"> |
 | 有效年利率 | EAR＝(1＋报价/m)ᵐ−1 |
 | CAPM | Ri＝R_f＋<img class="fml" src="/formulas/0fb95eaae51eae.png" alt="\beta(R_{m}- R_{f})" width="101" height="33"> |
 | 债券/股票价值 | P0＝<img class="fml" src="/formulas/20be22d640aae2.png" alt="\frac{D_{1}}{r_{s}- g}" width="38" height="35">；永续债＝A/i |

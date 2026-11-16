@@ -79,15 +79,15 @@ summary: "高等数学 全面详解笔记，将上下册内容按知识逻辑综
 | 左右极限 | <img class="fml" src="/formulas/9d0af07c339712.png" alt="\lim_{x \to x_{0}} f= A \Leftrightarrow f(x_{0}^{-})= f(x_{0}^{+})= A" width="295" height="33"> |
 | 夹逼准则 | <img class="fml" src="/formulas/4d1a53d264b831.png" alt="g \le f \le h" width="85" height="33"> 且 <img class="fml" src="/formulas/0e8ba1756e1c93.png" alt="\lim g= \lim h= A \Rightarrow \lim f= A" width="246" height="33"> |
 | 单调有界准则 | 单调有界数列必有极限（用于递推数列 <img class="fml" src="/formulas/9c1573b10e5fe9.png" alt="a_{n+1}= f(a_{n})" width="107" height="33">） |
-| 两个重要极限 | <img class="fml" src="/formulas/b298fc2aae7f3a.png" alt="\lim_{x \to 0} \dfrac{\sin x}{x}= 1" width="133" height="44">；<img class="fml" src="/formulas/aa153fcd2785f7.png" alt="\lim_{x \to \infty}\left(1+\frac{1}{x}\right)^{x}= e" width="166" height="33">、<img class="fml" src="/formulas/0a268d0247feea.png" alt="\lim_{x \to 0}(1+x)^{\frac{1}{x}}= e" width="156" height="33"> |
+| 两个重要极限 | <img class="fml" src="/formulas/b298fc2aae7f3a.png" alt="\lim_{x \to 0} \dfrac{\sin x}{x}= 1" width="134" height="46">；<img class="fml" src="/formulas/aa153fcd2785f7.png" alt="\lim_{x \to \infty}\left(1+\frac{1}{x}\right)^{x}= e" width="167" height="34">、<img class="fml" src="/formulas/0a268d0247feea.png" alt="\lim_{x \to 0}(1+x)^{\frac{1}{x}}= e" width="156" height="33"> |
 
 ::: tip 补充 · 海涅定理（归结原则）
-<img class="fml" src="/formulas/47a6f3875babca.png" alt="\lim_{x \to x_{0}} f(x)= A" width="140" height="33"> ⇔ 对任意满足 <img class="fml" src="/formulas/db0e863e9b79dc.png" alt="x_{n} \to x_{0}" width="71" height="33">（<img class="fml" src="/formulas/21e0e1524ca741.png" alt="x_{n}=x_{0}" width="67" height="33">）的数列都有 <img class="fml" src="/formulas/0c2e0bee2db3f8.png" alt="f(x_{n}) \to A" width="91" height="33">。它把**函数极限化为数列极限**，两大用途：① 证明极限不存在——找两个收敛到同一点的数列使 <img class="fml" src="/formulas/a9b4736b037eae.png" alt="f(x_{n})" width="50" height="33"> 极限不同（如 <img class="fml" src="/formulas/9df073beca920d.png" alt="f=\sin\left(\frac{1}{x}\right)" width="94" height="33"> 在 0 处取 <img class="fml" src="/formulas/54eb8f618c2985.png" alt="x_{n}=\frac{1}{2n\pi}" width="75" height="33"> 与 <img class="fml" src="/formulas/afd26818d59b55.png" alt="x_{n}=\frac{1}{2n\pi+\frac{\pi}{2}}" width="95" height="37">）；② 把数列极限转为函数极限来算（先求 <img class="fml" src="/formulas/b10c6870796c52.png" alt="\lim_{x \to \infty}f(x)" width="102" height="33"> 得 <img class="fml" src="/formulas/b3406d14ed7c04.png" alt="\lim a_{n}" width="52" height="33">，反之不行）。
+<img class="fml" src="/formulas/47a6f3875babca.png" alt="\lim_{x \to x_{0}} f(x)= A" width="140" height="33"> ⇔ 对任意满足 <img class="fml" src="/formulas/db0e863e9b79dc.png" alt="x_{n} \to x_{0}" width="71" height="33">（<img class="fml" src="/formulas/21e0e1524ca741.png" alt="x_{n}=x_{0}" width="67" height="33">）的数列都有 <img class="fml" src="/formulas/0c2e0bee2db3f8.png" alt="f(x_{n}) \to A" width="91" height="33">。它把**函数极限化为数列极限**，两大用途：① 证明极限不存在——找两个收敛到同一点的数列使 <img class="fml" src="/formulas/a9b4736b037eae.png" alt="f(x_{n})" width="50" height="33"> 极限不同（如 <img class="fml" src="/formulas/9df073beca920d.png" alt="f=\sin\left(\frac{1}{x}\right)" width="94" height="33"> 在 0 处取 <img class="fml" src="/formulas/54eb8f618c2985.png" alt="x_{n}=\frac{1}{2n\pi}" width="75" height="33"> 与 <img class="fml" src="/formulas/afd26818d59b55.png" alt="x_{n}=\frac{1}{2n\pi+\frac{\pi}{2}}" width="95" height="37">）；② 把数列极限转为函数极限来算（先求 <img class="fml" src="/formulas/b10c6870796c52.png" alt="\lim_{x \to \infty}f(x)" width="102" height="34"> 得 <img class="fml" src="/formulas/b3406d14ed7c04.png" alt="\lim a_{n}" width="52" height="33">，反之不行）。
 :::
 
 ::: tip 工作例题 · 七类未定式的处理
-- `0/0`：<img class="fml" src="/formulas/23e388b2a6df2e.png" alt="\lim_{x \to 0} \dfrac{\sin 3x}{5x}= \dfrac{3}{5}" width="146" height="44">（重要极限），<img class="fml" src="/formulas/d8f00c44425a54.png" alt="\lim_{x \to 0}\frac{e^{x}- 1- x}{x^{2}}= \frac{1}{2}" width="145" height="33">（泰勒或洛必达）。
-- <img class="fml" src="/formulas/638c8be7aac7e4.png" alt="1^\infty" width="29" height="33">：先取对数或用速算 <img class="fml" src="/formulas/fba9944268486d.png" alt="\lim f^g= e^{\lim g(f- 1)}" width="145" height="33">；<img class="fml" src="/formulas/e60e75df37fa9a.png" alt="\lim_{n \to \infty}\left(1+\frac{2}{n}\right)^{n}= e^{2} \approx 7.3891" width="247" height="33">（数值验证：n=10000 时 7.3876）。
+- `0/0`：<img class="fml" src="/formulas/23e388b2a6df2e.png" alt="\lim_{x \to 0} \dfrac{\sin 3x}{5x}= \dfrac{3}{5}" width="147" height="46">（重要极限），<img class="fml" src="/formulas/d8f00c44425a54.png" alt="\lim_{x \to 0}\frac{e^{x}- 1- x}{x^{2}}= \frac{1}{2}" width="145" height="33">（泰勒或洛必达）。
+- <img class="fml" src="/formulas/638c8be7aac7e4.png" alt="1^\infty" width="29" height="33">：先取对数或用速算 <img class="fml" src="/formulas/fba9944268486d.png" alt="\lim f^g= e^{\lim g(f- 1)}" width="145" height="33">；<img class="fml" src="/formulas/e60e75df37fa9a.png" alt="\lim_{n \to \infty}\left(1+\frac{2}{n}\right)^{n}= e^{2} \approx 7.3891" width="248" height="34">（数值验证：n=10000 时 7.3876）。
 - <img class="fml" src="/formulas/2d92d9933e8950.png" alt="\infty- \infty" width="64" height="33">：<img class="fml" src="/formulas/42d7a7c0db68f0.png" alt="\tan x- \sin x" width="103" height="33"> 型不能逐项替换，<img class="fml" src="/formulas/b0e9b2bca1732e.png" alt="\lim_{x \to 0}\frac{\tan x- \sin x}{x^{3}}= \frac{1}{2}" width="162" height="33">（数值验证 0.500000）。
 - <img class="fml" src="/formulas/b6c5dce3826285.png" alt="0 \cdot_{\infty}" width="35" height="33"> 化为 `0/0`；<img class="fml" src="/formulas/0aa24a18a957f4.png" alt="0^{0}" width="23" height="33">、<img class="fml" src="/formulas/96377a713e77fc.png" alt="\infty^{0}" width="32" height="33"> 取对数；<img class="fml" src="/formulas/5486ef8db66980.png" alt="\frac{\infty}{\infty}" width="24" height="33"> 用洛必达或提最高阶。
 :::
@@ -183,7 +183,7 @@ summary: "高等数学 全面详解笔记，将上下册内容按知识逻辑综
 | 参数方程 | <img class="fml" src="/formulas/2ffbc0ff5111cd.png" alt="\frac{dy}{dx}= \frac{\dot{y}}{\dot{x}}" width="61" height="34">；<img class="fml" src="/formulas/963bc8ccccd71f.png" alt="\frac{d^{2}y}{dx^{2}}= \frac{\frac{d}{dt\left(\frac{\dot{y}}{\dot{x}}\right)}}{\dot{x}}= \frac{\dot{x}\ddot{y}- \ddot{y}\ddot{x}}{\dot{x}^{3}}" width="159" height="48">（先对 t 求导再除 ẋ） |
 | 对数求导 | <img class="fml" src="/formulas/bc375f2212094b.png" alt="y=x^{x} \Rightarrow \ln y= x \ln x \Rightarrow y&#x27;= x^{x}(\ln x+ 1)" width="335" height="34"> |
 | 高阶·莱布尼茨 | <img class="fml" src="/formulas/73ab689f70b17b.png" alt="(uv)^{(n)}= \sum_{k} C(n,k) u^{(k)} v^{(n-k)}" width="240" height="34"> |
-| 常用 n 阶 | <img class="fml" src="/formulas/0df498b5ce870f.png" alt="(\sin x)^{(n)}= \sin\left(x+\frac{n\pi}{2}\right)" width="190" height="34">；<img class="fml" src="/formulas/938db9f18e1a2d.png" alt="\left(\dfrac{1}{x+a}\right)^{(n)}=\dfrac{(-1)^{n}\,n!}{(x+a)^{n+1}}" width="204" height="56"> |
+| 常用 n 阶 | <img class="fml" src="/formulas/0df498b5ce870f.png" alt="(\sin x)^{(n)}= \sin\left(x+\frac{n\pi}{2}\right)" width="190" height="34">；<img class="fml" src="/formulas/938db9f18e1a2d.png" alt="\left(\dfrac{1}{x+a}\right)^{(n)}=\dfrac{(-1)^{n}\,n!}{(x+a)^{n+1}}" width="205" height="56"> |
 
 ::: tip 工作例题 · 分段点与含绝对值因子
 <img class="fml" src="/formulas/9cd1bdf42017c3.png" alt="f(x)= x^{2} \sin\left(\frac{1}{x}\right)" width="138" height="34">（x≠0）、`f(0)=0`：在 0 处 <img class="fml" src="/formulas/13162cc1b222ce.png" alt="f&#x27;(0)= \lim x \sin\left(\frac{1}{x}\right)= 0" width="195" height="34">（可导），但 <img class="fml" src="/formulas/6221cb006cdb6f.png" alt="f&#x27;(x)=2x \sin\left(\frac{1}{x}\right)- \cos\left(\frac{1}{x}\right)" width="221" height="34"> 在 0 处极限不存在 ⇒ **导函数不连续**。这是「可导但导函数不连续」的标准反例。
@@ -221,7 +221,7 @@ summary: "高等数学 全面详解笔记，将上下册内容按知识逻辑综
 :::
 
 **洛必达法则的四个前提**（常被忽略）：① 属 `0/0` 或 <img class="fml" src="/formulas/5486ef8db66980.png" alt="\frac{\infty}{\infty}" width="24" height="33">；② 去心邻域内 `f′、g′` 存在且 <img class="fml" src="/formulas/5e61604c0433e7.png" alt="g&#x27;=0" width="53" height="34">；③ `lim f′/g′` 存在或为 ∞；④ 若 `lim f′/g′` 振荡不存在则**法则失效**，须改用定义或泰勒。
-反例：<img class="fml" src="/formulas/eb0ac0abbe2958.png" alt="\lim_{x \to \infty}\frac{x+\sin x}{x}= 1" width="146" height="33">，但 <img class="fml" src="/formulas/bc39eceb5a8e28.png" alt="f&#x27;/g&#x27;= 1+\cos x" width="135" height="33"> 极限不存在，洛必达给不出结论。
+反例：<img class="fml" src="/formulas/eb0ac0abbe2958.png" alt="\lim_{x \to \infty}\frac{x+\sin x}{x}= 1" width="147" height="34">，但 <img class="fml" src="/formulas/bc39eceb5a8e28.png" alt="f&#x27;/g&#x27;= 1+\cos x" width="136" height="34"> 极限不存在，洛必达给不出结论。
 
 ### 3.2 单调性、凹凸性、极值与渐近线
 
@@ -240,7 +240,7 @@ summary: "高等数学 全面详解笔记，将上下册内容按知识逻辑综
 - 铅直 <img class="fml" src="/formulas/26727d6a3b0fb5.png" alt="x= x_{0}" width="58" height="33">，若 <img class="fml" src="/formulas/abc93766cc56ef.png" alt="\lim_{x \to x_{0}} f(x)= \infty" width="144" height="34">（在无定义点、分段点找）；
 - 斜 `y = ax+b`，<img class="fml" src="/formulas/a53ee23e792b13.png" alt="a= \lim \frac{f(x)}{x}" width="96" height="34">，<img class="fml" src="/formulas/fd5083fb1408d4.png" alt="b= \lim[f(x)- ax]" width="150" height="34">（只需在水平不存在时求），且 <img class="fml" src="/formulas/bded77789221e0.png" alt="x \to+ \infty" width="77" height="34"> 与 <img class="fml" src="/formulas/6aa1d0a3ab58c5.png" alt="x \to- \infty" width="76" height="34"> 要分别计算。
 
-**曲率** <img class="fml" src="/formulas/45b75032cc6c0f.png" alt="\kappa=\dfrac{|y&#x27;&#x27;|}{(1+y&#x27;^{2})^{\frac{3}{2}}}" width="119" height="53">，曲率半径 <img class="fml" src="/formulas/77e79fd61c9bae.png" alt="\rho= \frac{1}{\kappa}" width="51" height="34">（直线 <img class="fml" src="/formulas/1d4101825a6d4b.png" alt="\kappa=0" width="50" height="34">）。
+**曲率** <img class="fml" src="/formulas/45b75032cc6c0f.png" alt="\kappa=\dfrac{|y&#x27;&#x27;|}{(1+y&#x27;^{2})^{\frac{3}{2}}}" width="119" height="54">，曲率半径 <img class="fml" src="/formulas/77e79fd61c9bae.png" alt="\rho= \frac{1}{\kappa}" width="51" height="34">（直线 <img class="fml" src="/formulas/1d4101825a6d4b.png" alt="\kappa=0" width="50" height="34">）。
 
 ::: danger 易错 · 导数应用
 - 极值是**局部**概念、最值是**全局**概念；闭区间最值必须比较「驻点 + 不可导点 + 端点」。
@@ -406,14 +406,14 @@ summary: "高等数学 全面详解笔记，将上下册内容按知识逻辑综
 | 奇偶性 | 对称区间：`f` 奇 ⇒ 积分为 0；`f` 偶 ⇒ <img class="fml" src="/formulas/5251304f1fac49.png" alt="2 \int_{0}^{a} f dx" width="72" height="33"> |
 | 周期性 | <img class="fml" src="/formulas/ff023f03acbfea.png" alt="\int_{a}^{a+T} f dx= \int_{0}^{T} f dx" width="157" height="34">；<img class="fml" src="/formulas/2a412be5c4bd3e.png" alt="\int_{0}^{nT} f dx= n \int_{0}^{T} f dx" width="162" height="34"> |
 | 区间再现（King） | <img class="fml" src="/formulas/96886db7fac80f.png" alt="\int_{a}^{b} f(x)dx= \int_{a}^{b} f(a+b- x)dx" width="242" height="34">；用于 <img class="fml" src="/formulas/0fe9f9d707cb3e.png" alt="\int_{0}^{\frac{\pi}{2}} f(\sin x, \cos x)dx" width="157" height="34"> 与 <img class="fml" src="/formulas/f961e93c8b9013.png" alt="\int_{0}^\pi x f(\sin x)dx=\left(\frac{\pi}{2}\right) \int_{0}^\pi f(\sin x)dx" width="277" height="33"> |
-| 华里士公式 | <img class="fml" src="/formulas/46697ae8328a07.png" alt="I_{n}= \int_{0}^{\frac{\pi}{2}}\sin^{n}x dx= \int_{0}^{\frac{\pi}{2}}\cos^{n}x dx" width="250" height="34">；`n` 偶 ⇒ <img class="fml" src="/formulas/b6b8e75e7369d2.png" alt="\dfrac{(n-1)!!}{n!!}\cdot\dfrac{\pi}{2}" width="104" height="46">；`n` 奇 ⇒ <img class="fml" src="/formulas/2bf227fd3d3ba8.png" alt="\dfrac{(n-1)!!}{n!!}" width="76" height="46">；<img class="fml" src="/formulas/860b1485de9ede.png" alt="I_{n}= \frac{n- 1}{n} \cdot I_{n-2}" width="120" height="33"> |
+| 华里士公式 | <img class="fml" src="/formulas/46697ae8328a07.png" alt="I_{n}= \int_{0}^{\frac{\pi}{2}}\sin^{n}x dx= \int_{0}^{\frac{\pi}{2}}\cos^{n}x dx" width="250" height="34">；`n` 偶 ⇒ <img class="fml" src="/formulas/b6b8e75e7369d2.png" alt="\dfrac{(n-1)!!}{n!!}\cdot\dfrac{\pi}{2}" width="105" height="47">；`n` 奇 ⇒ <img class="fml" src="/formulas/2bf227fd3d3ba8.png" alt="\dfrac{(n-1)!!}{n!!}" width="77" height="47">；<img class="fml" src="/formulas/860b1485de9ede.png" alt="I_{n}= \frac{n- 1}{n} \cdot I_{n-2}" width="120" height="33"> |
 
 ### 5.3 反常积分（广义积分）
 
 | 类型 | 定义 | 收敛判据 |
 | --- | --- | --- |
-| 无穷区间 | <img class="fml" src="/formulas/9ce5afbbc387eb.png" alt="\int_{a}^\infty f dx= \lim_{b \to \infty} \int_{a}^{b} f dx" width="199" height="33"> | <img class="fml" src="/formulas/e8bc279d880767.png" alt="\int_{1}^\infty \frac{dx}{x^{p}}" width="53" height="33"> 收敛 ⇔ `p > 1` |
-| 无界函数（瑕积分） | 瑕点在端点/内部，须分段取极限 | <img class="fml" src="/formulas/ff03fc549d6c15.png" alt="\int_{0}^{1}\dfrac{dx}{x^{p}}" width="52" height="45"> 收敛 ⇔ `p < 1` |
+| 无穷区间 | <img class="fml" src="/formulas/9ce5afbbc387eb.png" alt="\int_{a}^\infty f dx= \lim_{b \to \infty} \int_{a}^{b} f dx" width="199" height="34"> | <img class="fml" src="/formulas/e8bc279d880767.png" alt="\int_{1}^\infty \frac{dx}{x^{p}}" width="53" height="33"> 收敛 ⇔ `p > 1` |
+| 无界函数（瑕积分） | 瑕点在端点/内部，须分段取极限 | <img class="fml" src="/formulas/ff03fc549d6c15.png" alt="\int_{0}^{1}\dfrac{dx}{x^{p}}" width="53" height="46"> 收敛 ⇔ `p < 1` |
 
 ::: danger 易错 · 反常积分
 - 两个 `p` 的收敛方向**相反**（无穷区间 `p>1`、瑕积分 `p<1`），是最高频记忆错误。
@@ -791,7 +791,7 @@ L=x^{2}+y^{2}- \lambda(x+y- 1) \; \text{，} \; \frac{\partial L}{\partial x}=2x
 = 2\pi \cdot\left(\frac{1}{2}\right) \cdot\left(\frac{1}{4}\right)= \frac{\pi}{4} \approx 0.785398 \\
 (3) \iiint _\Omega(x^{2}+y^{2}) dV \; \text{（} \; \Omega \; \text{为圆柱} \; x^{2}+y^{2} \le 1, 0 \le z \le 1 \; \text{），柱坐标：} \\
 \int_{0}^{2\pi}d\theta \int_{0}^{1} r^{3} dr \int_{0}^{1} dz= 2\pi \cdot \frac{1}{4}= \frac{\pi}{2}
-\end{gathered}" width="542" height="293"></p>
+\end{gathered}" width="542" height="294"></p>
 
 
 :::
@@ -853,7 +853,7 @@ L=x^{2}+y^{2}- \lambda(x+y- 1) \; \text{，} \; \frac{\partial L}{\partial x}=2x
 \text{(3)} \; \text{高斯：} \; \oiint _{S} x dydz+y dzdx+z dxdy= \iiint _\Omega 3 dV= 3V \\
 \text{单位球} \; V=\frac{4\pi}{3} \Rightarrow 4\pi \approx 12.56637 \\
 \text{(4) div(x,y,z)=3} \; \text{；} \; rot(- y,x,0)=(0,0,2) \; \text{；} \; \nabla(x^{2}+y^{2}+z^{2})=(2x,2y,2z)
-\end{gathered}" width="676" height="308"></p>
+\end{gathered}" width="676" height="309"></p>
 
 
 :::
@@ -1060,7 +1060,7 @@ x= 2\sum_{n=1}^\infty \frac{(- 1)^{n+1} \sin(nx)}{n}, x \in(- \pi,\pi) \\
 \text{取对数：} \; n \ln\left(1+\frac{2}{n}\right) \sim n \cdot\left(\frac{2}{n}\right)= 2 \Rightarrow \; \text{极限} \; = e^{2} \approx 7.389056 \\
 (5) \lim_{x \to \infty}\frac{x+ \sin x}{x} \\
 = 1+ \sin \frac{x}{x} \to 1 \; \text{；洛必达会得} \; 1+\cos x \; \text{（极限不存在）} \; \Rightarrow \; \text{此处洛必达失效}
-\end{gathered}" width="609" height="486"></p>
+\end{gathered}" width="610" height="487"></p>
 
 
 
@@ -1125,7 +1125,7 @@ x= 2\sum_{n=1}^\infty \frac{(- 1)^{n+1} \sin(nx)}{n}, x \in(- \pi,\pi) \\
 \text{(4)} \; \text{判敛：} \; \int_{1}^\infty \frac{dx}{x^{p}} \; \text{收敛} \; \Leftrightarrow p&gt;1 \; \text{；} \; \int_{0}^{1}\dfrac{dx}{x^{p}} \; \text{收敛} \; \Leftrightarrow p&lt;1 \\
 (5) \int_{0}^\infty e^{- x^{2}}dx= \frac{\sqrt{\pi}}{2} \; \text{：设} \; \text{I} \; \text{，} \; I^{2}= \int \int e^{-(x^{2}+y^{2})}dxdy \; \text{（第一象限）} \\
 = \int_{0}^{\frac{\pi}{2}}d\theta \int_{0}^\infty e^{- r^{2}}r dr=\left(\frac{\pi}{2}\right) \cdot\left(\frac{1}{2}\right)= \frac{\pi}{4} \Rightarrow I=\frac{\sqrt{\pi}}{2}
-\end{gathered}" width="535" height="339"></p>
+\end{gathered}" width="535" height="340"></p>
 
 
 
@@ -1203,7 +1203,7 @@ a=1 \Rightarrow \approx 1.985865 \\
 \text{(4)} \; \iiint_{\text{上半球}} z\,dV=\int_{0}^{2\pi}\!d\theta\int_{0}^{\pi/2}\!\sin\phi\cos\phi\,d\phi\int_{0}^{1}\!\rho^{3}d\rho \\
 = 2\pi \cdot\left(\frac{1}{2}\right) \cdot\left(\frac{1}{4}\right)= \frac{\pi}{4} \approx 0.785398 \\
 \text{(5) 单位球} \; \iiint_{\Omega} 1\,dV=\dfrac{4\pi}{3}\approx 4.188790
-\end{gathered}" width="539" height="369"></p>
+\end{gathered}" width="540" height="369"></p>
 
 
 
@@ -1222,7 +1222,7 @@ a=1 \Rightarrow \approx 1.985865 \\
 \text{(4) div(x,y,z)=3} \; \text{；} \; rot(- y,x,0)=(0,0,2) \\
 \text{(5)} \; \text{判路径无关：} \; P=2xy, Q=x^{2} \Rightarrow \frac{\partial P}{\partial y}=2x= \frac{\partial Q}{\partial x} \Rightarrow \; \text{与路径无关} \\
 \text{原函数} \; u= \int Pdx= x^{2}y+\phi(y) \; \text{，由} \; u_{y}=x^{2}+\phi &#x27;=Q \Rightarrow \phi &#x27;=0 \Rightarrow u=x^{2}y+C
-\end{gathered}" width="638" height="409"></p>
+\end{gathered}" width="639" height="411"></p>
 
 
 
@@ -1433,7 +1433,7 @@ a=1 \Rightarrow \approx 1.985865 \\
 
 
 ⇒ <img class="fml" src="/formulas/3ffa4f03f1e932.png" alt="n I_{n}=(n- 1)I_{n-2}" width="146" height="34"> ⇒ <img class="fml" src="/formulas/860b1485de9ede.png" alt="I_{n}= \frac{n- 1}{n} \cdot I_{n-2}" width="120" height="33">。
-由 <img class="fml" src="/formulas/c8a139b7910c8c.png" alt="I_{0}=\frac{\pi}{2}" width="57" height="34">、<img class="fml" src="/formulas/d78f91dea32fcf.png" alt="I_{1}=1" width="55" height="34"> 递推得偶/奇两套结果；令 `n=2` 得 <img class="fml" src="/formulas/ada8c16c9f2001.png" alt="I_{2}= \dfrac{1}{2}\cdot\dfrac{\pi}{2}= \dfrac{\pi}{4}" width="125" height="44"> ✓。
+由 <img class="fml" src="/formulas/c8a139b7910c8c.png" alt="I_{0}=\frac{\pi}{2}" width="57" height="34">、<img class="fml" src="/formulas/d78f91dea32fcf.png" alt="I_{1}=1" width="55" height="34"> 递推得偶/奇两套结果；令 `n=2` 得 <img class="fml" src="/formulas/ada8c16c9f2001.png" alt="I_{2}= \dfrac{1}{2}\cdot\dfrac{\pi}{2}= \dfrac{\pi}{4}" width="126" height="45"> ✓。
 
 ### 推 2 · 泊松积分与 <img class="fml" src="/formulas/12459dbb9aef8b.png" alt="\Gamma\left(\frac{1}{2}\right)" width="48" height="34">
 
@@ -1543,7 +1543,7 @@ y*&#x27;=A(1+x)e^{x}, y*&#x27;&#x27;=A(2+x)e^{x} \Rightarrow y*&#x27;&#x27;- y*=
 f(0)=C_{1}+C_{2}=1 \; \text{；} \; f&#x27;=C_{1}e^{x}- C_{2}e^{- x}+ \frac{1}{2}(1+x)e^{x} \Rightarrow f&#x27;(0)=C_{1}- C_{2}+ \frac{1}{2}=1 \\
 \Rightarrow C_{1}=\frac{3}{4}, C_{2}=\frac{1}{4} \\
 \text{结论：} \; f(x)= \frac{3}{4} e^{x}+ \frac{1}{4} e^{- x}+ \frac{1}{2} x e^{x}
-\end{gathered}" width="653" height="410"></p>
+\end{gathered}" width="654" height="411"></p>
 
 
 **方法要点**：变限积分方程 → 求导化为微分方程 → 从原方程提取初始条件（这一步最易漏）。
@@ -1559,7 +1559,7 @@ f(0)=C_{1}+C_{2}=1 \; \text{；} \; f&#x27;=C_{1}e^{x}- C_{2}e^{- x}+ \frac{1}{2
 \text{(2)} \; \text{化极坐标：} \; x=r \cos \theta, y=r \sin \theta, dxdy= r dr d\theta \; \text{，} \; \theta \text{∈[0,}\pi \text{/2], r∈[0,∞)} \\
 (3) I^{2}= \int_{0}^{\frac{\pi}{2}}d\theta \int_{0}^\infty e^{- r^{2}} r dr=\left(\frac{\pi}{2}\right) \cdot[- \frac{1}{2} e^{- r^{2}}]_{0}^\infty=\left(\frac{\pi}{2}\right)\left(\frac{1}{2}\right)= \frac{\pi}{4} \\
 (4) I= \frac{\sqrt{\pi}}{2} \approx 0.886227 \; \text{（取正根）}
-\end{gathered}" width="583" height="172"></p>
+\end{gathered}" width="584" height="173"></p>
 
 
 **推广**：<img class="fml" src="/formulas/d342d59f64a0ff.png" alt="\int_{- \infty}^\infty e^{- x^{2}}dx= \sqrt{\pi}" width="142" height="35">（高斯积分，概率论正态分布归一化常数的来源）；<img class="fml" src="/formulas/849e4f3575b7ba.png" alt="\Gamma\left(\frac{1}{2}\right)=\sqrt{\pi}" width="98" height="33"> 由此得。
@@ -1631,7 +1631,7 @@ f(0)=C_{1}+C_{2}=1 \; \text{；} \; f&#x27;=C_{1}e^{x}- C_{2}e^{- x}+ \frac{1}{2
 \text{比较} \; x^{k} \; \text{系数：} \; (k+1)a_{k+1}= a_{k} \Rightarrow a_{k+1}= \frac{a_{k}}{k+1} \\
 \text{(3)} \; \text{由} \; a_{0}= y(0)=1 \Rightarrow a_{n}= \frac{1}{n}! \\
 (4) y= \sum \frac{x^{n}}{n}!= e^{x} \; \text{，收敛半径} \; R= \infty \; \text{（比值} \; |\frac{a_{n}}{a_{n+1}}|= n+1 \to \infty \; \text{）}
-\end{gathered}" width="559" height="243"></p>
+\end{gathered}" width="560" height="244"></p>
 
 
 **意义**：把微分方程化为系数的递推关系；教材第十二章「微分方程的幂级数解法」即此，也是非初等函数（贝塞尔、勒让德）的定义方式。
@@ -1766,8 +1766,8 @@ f(0)=C_{1}+C_{2}=1 \; \text{；} \; f&#x27;=C_{1}e^{x}- C_{2}e^{- x}+ \frac{1}{2
 
 | 项目 | 公式 |
 | --- | --- |
-| 两个重要极限 | <img class="fml" src="/formulas/b298fc2aae7f3a.png" alt="\lim_{x \to 0} \dfrac{\sin x}{x}= 1" width="133" height="44">；<img class="fml" src="/formulas/aa153fcd2785f7.png" alt="\lim_{x \to \infty}\left(1+\frac{1}{x}\right)^{x}= e" width="166" height="33"> |
-| <img class="fml" src="/formulas/638c8be7aac7e4.png" alt="1^\infty" width="29" height="33"> 速算 | <img class="fml" src="/formulas/fba9944268486d.png" alt="\lim f^g= e^{\lim g(f- 1)}" width="145" height="33">（<img class="fml" src="/formulas/13443ba212a097.png" alt="f \to 1, g \to \infty" width="116" height="33">） |
+| 两个重要极限 | <img class="fml" src="/formulas/b298fc2aae7f3a.png" alt="\lim_{x \to 0} \dfrac{\sin x}{x}= 1" width="134" height="46">；<img class="fml" src="/formulas/aa153fcd2785f7.png" alt="\lim_{x \to \infty}\left(1+\frac{1}{x}\right)^{x}= e" width="167" height="34"> |
+| <img class="fml" src="/formulas/638c8be7aac7e4.png" alt="1^\infty" width="29" height="33"> 速算 | <img class="fml" src="/formulas/fba9944268486d.png" alt="\lim f^g= e^{\lim g(f- 1)}" width="145" height="33">（<img class="fml" src="/formulas/13443ba212a097.png" alt="f \to 1, g \to \infty" width="117" height="34">） |
 | 等价无穷小 | <img class="fml" src="/formulas/344ed45de374fc.png" alt="\sin x \sim \tan x \sim \arcsin x \sim \ln(1+x) \sim e^{x}- 1 \sim x" width="386" height="34">；<img class="fml" src="/formulas/d50c3c1a66502e.png" alt="1-\cos x \sim \frac{x^{2}}{2}" width="115" height="33">；<img class="fml" src="/formulas/772dbfa6d21bae.png" alt="(1+x)^\alpha- 1 \sim \alpha x" width="147" height="33">；<img class="fml" src="/formulas/a32bff933e21f1.png" alt="x-\sin x \sim \frac{x^{3}}{6}" width="115" height="33"> |
 | 五个麦克劳林 | <img class="fml" src="/formulas/40931e03270efe.png" alt="e^{x}=\sum\frac{x^{n}}{n!}" width="87" height="34">；<img class="fml" src="/formulas/cc981edcc23f87.png" alt="\sin x=\sum\frac{(-1)^{n}x^{2n+1}}{(2n+1)!}" width="153" height="38">；<img class="fml" src="/formulas/5e24e03b8ca63a.png" alt="\cos x=\sum\frac{(-1)^{n}x^{2n}}{(2n)!}" width="144" height="38">；<img class="fml" src="/formulas/d95b3af4a0704d.png" alt="\ln(1+x)=\sum\frac{(-1)^{n-1}x^{n}}{n}" width="183" height="36">；<img class="fml" src="/formulas/2b1f7aadb59a38.png" alt="(1+x)^\alpha=1+\alpha x+\frac{\alpha(\alpha- 1)x^{2}}{2}+ \cdots" width="271" height="36"> |
 | 泰勒余项 | 佩亚诺 <img class="fml" src="/formulas/9fd1de0541847c.png" alt="o((x- x_{0})^{n})" width="101" height="34">；拉格朗日 <img class="fml" src="/formulas/7fd406ee04b439.png" alt="\frac{f^{(n+1)}(\xi)(x- x_{0})^{n+1}}{n+1}!" width="121" height="37"> |
@@ -1780,33 +1780,33 @@ f(0)=C_{1}+C_{2}=1 \; \text{；} \; f&#x27;=C_{1}e^{x}- C_{2}e^{- x}+ \frac{1}{2
 | --- | --- |
 | 定义 | <img class="fml" src="/formulas/de3953bdf1f7e8.png" alt="f&#x27;(x_{0})=\lim \frac{f(x_{0}+\Delta x)- f(x_{0})}{\Delta x}" width="205" height="34">；`dy=f′(x)dx` |
 | 四则 | `(uv)′=u′v+uv′`；<img class="fml" src="/formulas/3955fbd1ba4008.png" alt="\left(\frac{u}{v}\right)&#x27;=\frac{u&#x27;v- uv&#x27;}{v^{2}}" width="111" height="34"> |
-| 链式 / 反函数 | <img class="fml" src="/formulas/432647bacff8e9.png" alt="\frac{dy}{dx}=f&#x27;(u)g&#x27;(x)" width="126" height="34">；<img class="fml" src="/formulas/d4a29afc9d98aa.png" alt="\dfrac{dx}{dy}=\dfrac{1}{y&#x27;}" width="72" height="48"> |
+| 链式 / 反函数 | <img class="fml" src="/formulas/432647bacff8e9.png" alt="\frac{dy}{dx}=f&#x27;(u)g&#x27;(x)" width="126" height="34">；<img class="fml" src="/formulas/d4a29afc9d98aa.png" alt="\dfrac{dx}{dy}=\dfrac{1}{y&#x27;}" width="73" height="49"> |
 | 隐函数 / 参数 | <img class="fml" src="/formulas/5b356ff855960d.png" alt="\frac{dy}{dx}=- \frac{F_{x}}{F_{y}}" width="81" height="37">；<img class="fml" src="/formulas/6423431152458f.png" alt="\frac{dy}{dx}=\frac{\dot{y}}{\dot{x}}" width="61" height="34">，<img class="fml" src="/formulas/b05525fc180749.png" alt="\frac{d^{2}y}{dx^{2}}=\frac{\frac{d}{dt\left(\frac{dy}{dx}\right)}}{\dot{x}}" width="98" height="48"> |
 | 对数求导 | <img class="fml" src="/formulas/016a0d786ae64d.png" alt="y=x^{x} \Rightarrow y&#x27;=x^{x}(\ln x+1)" width="215" height="34"> |
 | 莱布尼茨 | <img class="fml" src="/formulas/db2512e2655eb3.png" alt="(uv)^{(n)}=\sum C(n,k)u^{(k)}v^{(n-k)}" width="232" height="34"> |
-| 常用 n 阶 | <img class="fml" src="/formulas/fe49ed7e31e5de.png" alt="(\sin x)^{(n)}=\sin\left(x+\frac{n\pi}{2}\right)" width="191" height="34">；<img class="fml" src="/formulas/938db9f18e1a2d.png" alt="\left(\dfrac{1}{x+a}\right)^{(n)}=\dfrac{(-1)^{n}\,n!}{(x+a)^{n+1}}" width="204" height="56"> |
+| 常用 n 阶 | <img class="fml" src="/formulas/fe49ed7e31e5de.png" alt="(\sin x)^{(n)}=\sin\left(x+\frac{n\pi}{2}\right)" width="191" height="34">；<img class="fml" src="/formulas/938db9f18e1a2d.png" alt="\left(\dfrac{1}{x+a}\right)^{(n)}=\dfrac{(-1)^{n}\,n!}{(x+a)^{n+1}}" width="205" height="56"> |
 
 ### A.3 中值定理与导数应用（第 3 章）
 
 | 项目 | 公式 |
 | --- | --- |
-| 罗尔 / 拉格朗日 / 柯西 | <img class="fml" src="/formulas/5f4cd0741f20c3.png" alt="f&#x27;(\xi)=0" width="77" height="34">；<img class="fml" src="/formulas/83cd72e4d4dc2a.png" alt="f(b)- f(a)=f&#x27;(\xi)(b- a)" width="209" height="34">；<img class="fml" src="/formulas/e2f1c2ed724c3b.png" alt="\dfrac{f(b)- f(a)}{g(b)- g(a)}=\dfrac{f&#x27;(\xi)}{g&#x27;(\xi)}" width="164" height="50"> |
-| 洛必达 | <img class="fml" src="/formulas/7341116d15fe27.png" alt="\lim \dfrac{f}{g}=\lim \dfrac{f&#x27;}{g&#x27;}" width="120" height="49">（须验证四前提） |
+| 罗尔 / 拉格朗日 / 柯西 | <img class="fml" src="/formulas/5f4cd0741f20c3.png" alt="f&#x27;(\xi)=0" width="77" height="34">；<img class="fml" src="/formulas/83cd72e4d4dc2a.png" alt="f(b)- f(a)=f&#x27;(\xi)(b- a)" width="209" height="34">；<img class="fml" src="/formulas/e2f1c2ed724c3b.png" alt="\dfrac{f(b)- f(a)}{g(b)- g(a)}=\dfrac{f&#x27;(\xi)}{g&#x27;(\xi)}" width="165" height="51"> |
+| 洛必达 | <img class="fml" src="/formulas/7341116d15fe27.png" alt="\lim \dfrac{f}{g}=\lim \dfrac{f&#x27;}{g&#x27;}" width="120" height="50">（须验证四前提） |
 | 单调 / 凹凸 | `f′>0` 增；`f″>0` 凹（∪） |
 | 极值充分 | <img class="fml" src="/formulas/b46c94de817f5c.png" alt="f&#x27;(x_{0})=0, f&#x27;&#x27;(x_{0})&lt;0" width="176" height="34"> 极大、`>0` 极小 |
 | 渐近线 | 水平 `y=A`；铅直 <img class="fml" src="/formulas/8843865fe019e6.png" alt="x=x_{0}" width="58" height="34">；斜 <img class="fml" src="/formulas/4225394c250389.png" alt="a=\lim \frac{f}{x}, b=\lim(f- ax)" width="210" height="34"> |
-| 曲率 | <img class="fml" src="/formulas/e5e29f440e596e.png" alt="\kappa=\dfrac{\vert y&#x27;&#x27;\vert}{(1+y&#x27;^{2})^{\frac{3}{2}}}" width="119" height="53">，<img class="fml" src="/formulas/ad0ac5ca8188b0.png" alt="\rho=\frac{1}{\kappa}" width="51" height="34"> |
+| 曲率 | <img class="fml" src="/formulas/e5e29f440e596e.png" alt="\kappa=\dfrac{\vert y&#x27;&#x27;\vert}{(1+y&#x27;^{2})^{\frac{3}{2}}}" width="119" height="54">，<img class="fml" src="/formulas/ad0ac5ca8188b0.png" alt="\rho=\frac{1}{\kappa}" width="51" height="34"> |
 
 ### A.4 积分（第 4–6 章）
 
 | 项目 | 公式 |
 | --- | --- |
-| 基本 | <img class="fml" src="/formulas/973db64307ff20.png" alt="\int x^{a}\,dx=\dfrac{x^{a+1}}{a+1}+C\ (a\ne -1)" width="240" height="48">；<img class="fml" src="/formulas/983d6b4fed6520.png" alt="\int\dfrac{dx}{x}=\ln\lvert x\rvert+C" width="140" height="46">；<img class="fml" src="/formulas/f20d5ff7533ab5.png" alt="\frac{\int dx}{a^{2}+x^{2}}=\left(\frac{1}{a}\right)\arctan\left(\frac{x}{a}\right)+C" width="215" height="35"> |
+| 基本 | <img class="fml" src="/formulas/973db64307ff20.png" alt="\int x^{a}\,dx=\dfrac{x^{a+1}}{a+1}+C\ (a\ne -1)" width="241" height="49">；<img class="fml" src="/formulas/983d6b4fed6520.png" alt="\int\dfrac{dx}{x}=\ln\lvert x\rvert+C" width="140" height="46">；<img class="fml" src="/formulas/f20d5ff7533ab5.png" alt="\frac{\int dx}{a^{2}+x^{2}}=\left(\frac{1}{a}\right)\arctan\left(\frac{x}{a}\right)+C" width="215" height="35"> |
 | 三类方法 | 第一换元 <img class="fml" src="/formulas/0922aa9def3137.png" alt="\int f(\phi)\phi &#x27;dx= \int f(u)du" width="185" height="34">；第二换元 <img class="fml" src="/formulas/8bbc1d63addef1.png" alt="x=\psi(t)" width="74" height="33">；分部 <img class="fml" src="/formulas/d92337e8f51e94.png" alt="\int u dv=uv- \int v du" width="160" height="34"> |
 | 微积分基本定理 | <img class="fml" src="/formulas/e3e1cc20fa1579.png" alt="\Phi(x)= \int_{a}^{x}f(t)dt \Rightarrow \Phi &#x27;=f" width="216" height="34">；<img class="fml" src="/formulas/873998c398eaca.png" alt="\int_{a}^{b}f dx=F(b)- F(a)" width="177" height="35"> |
 | 变限求导 | <img class="fml" src="/formulas/84c85427133d87.png" alt="\frac{d}{dx} \int_{\alpha(x)}^{\beta(x)}f= f(\beta)\beta &#x27;- f(\alpha)\alpha &#x27;" width="228" height="38"> |
 | 区间再现 | <img class="fml" src="/formulas/a0a511dff3719f.png" alt="\int_{a}^{b}f(x)dx= \int_{a}^{b}f(a+b- x)dx" width="242" height="35">；<img class="fml" src="/formulas/f961e93c8b9013.png" alt="\int_{0}^\pi x f(\sin x)dx=\left(\frac{\pi}{2}\right) \int_{0}^\pi f(\sin x)dx" width="277" height="33"> |
-| 华里士 | <img class="fml" src="/formulas/de7bc3f77add90.png" alt="I_{n}= \int_{0}^{\frac{\pi}{2}}\sin^{n}x dx" width="135" height="34">，<img class="fml" src="/formulas/68b43b5cf16c33.png" alt="I_{n}=\dfrac{n-1}{n}\,I_{n-2}" width="127" height="44">；偶 <img class="fml" src="/formulas/b6b8e75e7369d2.png" alt="\dfrac{(n-1)!!}{n!!}\cdot\dfrac{\pi}{2}" width="104" height="46">，奇 <img class="fml" src="/formulas/2bf227fd3d3ba8.png" alt="\dfrac{(n-1)!!}{n!!}" width="76" height="46"> |
+| 华里士 | <img class="fml" src="/formulas/de7bc3f77add90.png" alt="I_{n}= \int_{0}^{\frac{\pi}{2}}\sin^{n}x dx" width="135" height="34">，<img class="fml" src="/formulas/68b43b5cf16c33.png" alt="I_{n}=\dfrac{n-1}{n}\,I_{n-2}" width="128" height="45">；偶 <img class="fml" src="/formulas/b6b8e75e7369d2.png" alt="\dfrac{(n-1)!!}{n!!}\cdot\dfrac{\pi}{2}" width="105" height="47">，奇 <img class="fml" src="/formulas/2bf227fd3d3ba8.png" alt="\dfrac{(n-1)!!}{n!!}" width="77" height="47"> |
 | 反常积分 | <img class="fml" src="/formulas/50198a4f4d5d5d.png" alt="\int_{1}^\infty x^{- p}" width="62" height="33"> 收敛 ⇔ `p>1`；<img class="fml" src="/formulas/9b4264dd0440fb.png" alt="\int_{0}^{1}x^{- p}" width="56" height="34"> 收敛 ⇔ `p<1`；<img class="fml" src="/formulas/66e13a03582f70.png" alt="\int_{0}^\infty e^{- x^{2}}dx=\frac{\sqrt{\pi}}{2}" width="133" height="34"> |
 | 微元法应用 | 面积 <img class="fml" src="/formulas/76033451cb66ca.png" alt="\int\vert f- g\vert dx" width="93" height="34">；极坐标 <img class="fml" src="/formulas/cf2fafc2af52e8.png" alt="\frac{1}{2} \int r^{2}d\theta" width="70" height="33">；体积 <img class="fml" src="/formulas/ac609748bd74fa.png" alt="\pi \int f^{2}dx" width="73" height="33">（绕 x）、<img class="fml" src="/formulas/77424cb695f2c1.png" alt="2\pi \int x f dx" width="85" height="33">（绕 y）；弧长 <img class="fml" src="/formulas/5601640719f134.png" alt="\int \sqrt{1+y&#x27;^{2}}dx" width="110" height="33">；功 <img class="fml" src="/formulas/1e89d96afa16d3.png" alt="\int F dx" width="55" height="34"> |
 

@@ -364,10 +364,10 @@ $$
 \hat{\beta}_{1}= \frac{\sum x_{i}Y_{i}}{Sxx}= \frac{\sum x_{i}(\beta_{0}+\beta_{1}X_{i}+u_{i})}{Sxx} \\
 = \beta_{1}+ \frac{\sum x_{i}u_{i}}{Sxx} \; \text{（用} \; \sum x_{i}=0 \; \text{、} \; \sum x_{i}X_{i}=Sxx \; \text{）} \\
 E(\hat{\beta}_{1})= \beta_{1}+ \frac{\sum x_{i} E(u_{i})}{Sxx}= \beta_{1} \checkmark \\
-\operatorname{Var}(\hat{\beta}_{1})= \frac{\operatorname{Var}\left(\sum x_{i}u_{i}\right)}{Sxx^{2}}= \sigma^{2}\frac{Sxx}{Sxx^{2}}= \sigma^{2} Sxx \; \text{（用同方差} \; \text{+} \; \text{无自相关）}
+\operatorname{Var}(\hat{\beta}_{1})= \frac{\operatorname{Var}\left(\sum x_{i}u_{i}\right)}{Sxx^{2}}= \sigma^{2}\frac{Sxx}{Sxx^{2}}= \sigma^{2}/Sxx \; \text{（用同方差} \; \text{+} \; \text{无自相关）}
 \end{gathered}
 $$
-可见**无偏性只需 A2/A3**，而 $\operatorname{Var}(\hat{\beta}_{1})=\sigma^{2} Sxx$ 还须 A4/A5。
+可见**无偏性只需 A2/A3**，而 $\operatorname{Var}(\hat{\beta}_{1})=\sigma^{2}/Sxx$ 还须 A4/A5。
 
 **一致性**（X 随机但严格外生时）：
 $$
@@ -1316,7 +1316,7 @@ $$
 $$
 \begin{gathered}
 VIF_{1}= \frac{1}{1- 0.90}= 10 \\
-\operatorname{Var}(\hat{\beta}_{1})= \sigma^{2}[Sxx_{1}(1- R^{2}_{1})]= 10 \times \; \text{（无共线时的方差）} \\
+\operatorname{Var}(\hat{\beta}_{1})= \sigma^{2}/[Sxx_{1}(1- R^{2}_{1})]= 10 \times \; \text{（无共线时的方差）} \\
 se(\hat{\beta}_{1})= \sqrt{10} \approx 3.16 \; \text{倍} \; \to t \; \text{值约降为} \; \text{1/3.16}
 \end{gathered}
 $$

@@ -194,16 +194,16 @@ PPF 外凸 ⇔ 机会成本递增 <img class="fml" src="/formulas/7207a2442104d7
 
 1. **线性需求上的弹性分布**：<img class="fml" src="/formulas/d8544f62866071.png" alt="P= a- bQ" width="98" height="33">，<img class="fml" src="/formulas/9a467312a61422.png" alt="\lvert E_d\rvert=\left(\frac{1}{b}\right)\left(\frac{P}{Q}\right)= \frac{P}{a- P}" width="180" height="41">。纵截距 <img class="fml" src="/formulas/bed5f14eb6683f.png" alt="\lvert E_d\rvert \to_{\infty}" width="73" height="33">、中点 <img class="fml" src="/formulas/46c24a082e0f7e.png" alt="P= \frac{a}{2}" width="56" height="33"> 处 `|Ed| = 1`、横截距 `|Ed| = 0`。所以"需求曲线陡 = 缺乏弹性"只在**同一坐标系、同一价格处**成立，跨图比较必须看弹性而非斜率。
 2. **总收益与边际收益**：<img class="fml" src="/formulas/e76ff24ae10bae.png" alt="MR= P(1- \frac{1}{\lvert E_d\rvert})" width="148" height="36"> ⇒ `|Ed| > 1` 时 `MR > 0`（降价增收）、`|Ed| = 1` 时 `MR = 0`（TR 极大）、`|Ed| < 1` 时 `MR < 0`（降价减收）。这条式子把第 2 章与第 7 章接了起来。
-3. **税负归宿一般式**：单位税 `t` 下 <img class="fml" src="/formulas/fc7ef25f495ce2.png" alt="\frac{dPd}{dt}= \frac{eS}{eS+\lvert E_d\rvert}" width="108" height="36">、<img class="fml" src="/formulas/6e310fa4e168bc.png" alt="\dfrac{dP_{s}}{dt}=-\dfrac{|E_{d}|}{e_{S}+|E_{d}|}" width="150" height="50">（以弹性表示）。**弹性较小（更陡）的一方承担更多**；<img class="fml" src="/formulas/88f17a9b9e3dba.png" alt="eS \to_{\infty}" width="64" height="33"> 时全部转嫁给消费者，<img class="fml" src="/formulas/68a5a953f406b9.png" alt="\lvert E_d\rvert \to 0" width="74" height="33"> 时亦全部由消费者承担。
+3. **税负归宿一般式**：单位税 `t` 下 <img class="fml" src="/formulas/fc7ef25f495ce2.png" alt="\frac{dPd}{dt}= \frac{eS}{eS+\lvert E_d\rvert}" width="108" height="36">、<img class="fml" src="/formulas/6e310fa4e168bc.png" alt="\dfrac{dP_{s}}{dt}=-\dfrac{|E_{d}|}{e_{S}+|E_{d}|}" width="150" height="51">（以弹性表示）。**弹性较小（更陡）的一方承担更多**；<img class="fml" src="/formulas/88f17a9b9e3dba.png" alt="eS \to_{\infty}" width="64" height="33"> 时全部转嫁给消费者，<img class="fml" src="/formulas/68a5a953f406b9.png" alt="\lvert E_d\rvert \to 0" width="74" height="33"> 时亦全部由消费者承担。
 
 ::: tip 工作例题 · 弹性形式的归宿验算
-沿用 2.4 例题：均衡 `P*=12, Q*=26`，<img class="fml" src="/formulas/d8dfd65527cec9.png" alt="|E_{d}|=2\times\dfrac{12}{26}=\dfrac{12}{13}\approx 0.923" width="224" height="44">（注意 <img class="fml" src="/formulas/31aff1d1ccd09b.png" alt="\frac{dQ}{dP}=- 2" width="74" height="34">），<img class="fml" src="/formulas/67776c9814de7a.png" alt="eS= 3 \cdot\left(\frac{12}{26}\right)= \frac{18}{13} \approx 1.385" width="211" height="33">。
+沿用 2.4 例题：均衡 `P*=12, Q*=26`，<img class="fml" src="/formulas/d8dfd65527cec9.png" alt="|E_{d}|=2\times\dfrac{12}{26}=\dfrac{12}{13}\approx 0.923" width="225" height="45">（注意 <img class="fml" src="/formulas/31aff1d1ccd09b.png" alt="\frac{dQ}{dP}=- 2" width="74" height="34">），<img class="fml" src="/formulas/67776c9814de7a.png" alt="eS= 3 \cdot\left(\frac{12}{26}\right)= \frac{18}{13} \approx 1.385" width="211" height="33">。
 <img class="fml" src="/formulas/b8ecf5786c419a.png" alt="\frac{dPd}{dt}= \frac{1.385}{1.385+0.923}= 0.6" width="175" height="34"> ⇒ <img class="fml" src="/formulas/29ea82196a62e3.png" alt="\Delta Pd= 4 \times 0.6= 2.4" width="169" height="33"> ✓ 与方程解一致。
 （用斜率比 `3 : 2` 更快，但弹性形式可推广到非线性曲线。）
 :::
 
 ::: tip 补充考点 · 税收无谓损失的弹性公式
-单位税 `t` 造成的无谓损失可用弹性近似表示：<img class="fml" src="/formulas/f96068eb9b62e2.png" alt="DWL\approx\dfrac{1}{2}\,t^{2}\,\dfrac{Q^{*}}{P^{*}}\cdot\dfrac{|E_{d}|\,e_{S}}{|E_{d}|+e_{S}}" width="222" height="50">。含义：**DWL 随税额的平方增长**（税率翻倍、损失翻两番），且供需双方弹性越大损失越大。沿用 2.4 例题验算：<img class="fml" src="/formulas/8a6ff16703ca42.png" alt="\frac{1}{2} \times 16 \times\left(\frac{26}{12}\right) \times\left(\frac{0.923 \times 1.385}{2.308}\right) \approx 9.6" width="268" height="33">，与三角形法 <img class="fml" src="/formulas/57cab859b1f21f.png" alt="\frac{1}{2} \times 4 \times 4.8= 9.6" width="139" height="33"> 一致 ✓。
+单位税 `t` 造成的无谓损失可用弹性近似表示：<img class="fml" src="/formulas/f96068eb9b62e2.png" alt="DWL\approx\dfrac{1}{2}\,t^{2}\,\dfrac{Q^{*}}{P^{*}}\cdot\dfrac{|E_{d}|\,e_{S}}{|E_{d}|+e_{S}}" width="223" height="51">。含义：**DWL 随税额的平方增长**（税率翻倍、损失翻两番），且供需双方弹性越大损失越大。沿用 2.4 例题验算：<img class="fml" src="/formulas/8a6ff16703ca42.png" alt="\frac{1}{2} \times 16 \times\left(\frac{26}{12}\right) \times\left(\frac{0.923 \times 1.385}{2.308}\right) \approx 9.6" width="268" height="33">，与三角形法 <img class="fml" src="/formulas/57cab859b1f21f.png" alt="\frac{1}{2} \times 4 \times 4.8= 9.6" width="139" height="33"> 一致 ✓。
 :::
 
 ---
@@ -485,7 +485,7 @@ PPF 外凸 ⇔ 机会成本递增 <img class="fml" src="/formulas/7207a2442104d7
 
 
 
-拉格朗日一阶条件 ⇒ <img class="fml" src="/formulas/95d7eed6bc0ff1.png" alt="\dfrac{MPL}{w}= \dfrac{MPK}{r}= \dfrac{1}{MC}" width="195" height="45">（按 <img class="fml" src="/formulas/cc1273dfb0d430.png" alt="L=wL+rK+\lambda(Q_{0}-f)" width="214" height="33"> 的约定，乘子 <img class="fml" src="/formulas/0addd8f69869dc.png" alt="\lambda=MC" width="74" height="33">，公共比值为 <img class="fml" src="/formulas/90d114db8f03b8.png" alt="1/\lambda=1/MC" width="109" height="33">，即边际成本的倒数）。
+拉格朗日一阶条件 ⇒ <img class="fml" src="/formulas/95d7eed6bc0ff1.png" alt="\dfrac{MPL}{w}= \dfrac{MPK}{r}= \dfrac{1}{MC}" width="196" height="46">（按 <img class="fml" src="/formulas/cc1273dfb0d430.png" alt="L=wL+rK+\lambda(Q_{0}-f)" width="215" height="33"> 的约定，乘子 <img class="fml" src="/formulas/0addd8f69869dc.png" alt="\lambda=MC" width="74" height="33">，公共比值为 <img class="fml" src="/formulas/90d114db8f03b8.png" alt="1/\lambda=1/MC" width="110" height="33">，即边际成本的倒数）。
 **产量最大化问题**（给定 C）给出同一条件 —— 这就是第 4 章的**对偶关系**。
 
 由生产函数可反解成本函数：`C(Q; w, r)`；短期存在固定成本，长期全部可变。
@@ -713,7 +713,7 @@ MR 与需求曲线纵截距相同、斜率是 2 倍、横截距是一半。
 | 三级 | 群体定价 | 按可观察特征分割市场（学生票、地区定价） | <img class="fml" src="/formulas/d7a9a9addce070.png" alt="MR_{1}= MR_{2}= MC" width="168" height="33"> |
 
 **三级价格歧视定价法则**：
-<img class="fml" src="/formulas/ab71b7d88df267.png" alt="P_{1}\left(1-\dfrac{1}{|E_{1}|}\right)=P_{2}\left(1-\dfrac{1}{|E_{2}|}\right)=MC" width="313" height="51"> ⇒ **需求弹性小的市场定价更高**。
+<img class="fml" src="/formulas/ab71b7d88df267.png" alt="P_{1}\left(1-\dfrac{1}{|E_{1}|}\right)=P_{2}\left(1-\dfrac{1}{|E_{2}|}\right)=MC" width="315" height="52"> ⇒ **需求弹性小的市场定价更高**。
 
 ::: tip 工作例题 · 三级价格歧视（含统一定价对比）
 市场1 <img class="fml" src="/formulas/f5f69507f28fcc.png" alt="P_{1}= 100- 2Q_{1}" width="128" height="33">，市场2 <img class="fml" src="/formulas/4bed5eb30daea0.png" alt="P_{2}= 80- Q_{2}" width="110" height="33">，`MC = 20`（常数）：
@@ -787,7 +787,7 @@ MR 与需求曲线纵截距相同、斜率是 2 倍、横截距是一半。
 - **勒纳指数** `(P−c)/P = 1/(n·|Ed|市场)`（古诺情形）：市场集中度越高，加成越大（HHI 指数的理论基础）。
 
 **重复博弈中合谋可持续条件**：设合作单期收益 <img class="fml" src="/formulas/babe7659b9e908.png" alt="\pi C" width="32" height="34">、背叛单期收益 <img class="fml" src="/formulas/74072f6e0b1cd2.png" alt="\pi D" width="33" height="34">、惩罚期收益 <img class="fml" src="/formulas/4fb2129ec357e3.png" alt="\pi N" width="34" height="34">，贴现因子 <img class="fml" src="/formulas/8de607292a6775.png" alt="\delta" width="15" height="34">。
-冷酷战略下合谋可持续 ⇔ <img class="fml" src="/formulas/564737d5024da2.png" alt="\dfrac{\pi_{C}}{1-\delta}\ \ge\ \pi_{D}+\delta\dfrac{\pi_{N}}{1-\delta}" width="178" height="42"> ⇔ <img class="fml" src="/formulas/998e495c8d3c01.png" alt="\delta \ge \dfrac{\pi_{D}-\pi_{C}}{\pi_{D}-\pi_{N}}" width="109" height="45">。
+冷酷战略下合谋可持续 ⇔ <img class="fml" src="/formulas/564737d5024da2.png" alt="\dfrac{\pi_{C}}{1-\delta}\ \ge\ \pi_{D}+\delta\dfrac{\pi_{N}}{1-\delta}" width="179" height="42"> ⇔ <img class="fml" src="/formulas/998e495c8d3c01.png" alt="\delta \ge \dfrac{\pi_{D}-\pi_{C}}{\pi_{D}-\pi_{N}}" width="109" height="46">。
 ⇒ 贴现率越低（越有耐心）、背叛收益越小、惩罚越严厉、市场越透明，卡特尔越稳定。这解释了为什么**频繁小幅、公开报价、需求稳定**的行业更易合谋。
 
 ---
@@ -1179,7 +1179,7 @@ P= 10 \to Q= 30 \to Ed= \frac{2 \times 10}{30}= 0.667 \\
 P= 12.5 \to Q= 25 \to Ed= 1 \; \text{（} \; \text{TR} \; \text{极大} \; \text{= 312.5} \; \text{）} \\
 P= 20 \to Q= 10 \to Ed= 4 \\
 \text{结论：线性需求上半段富有弹性、下半段缺乏弹性}
-\end{gathered}" width="494" height="386"></p>
+\end{gathered}" width="495" height="387"></p>
 
 
 
@@ -1675,7 +1675,7 @@ p= 2- 2p \to 3p= 2 \to p= \frac{2}{3} \\
 | --- | --- |
 | 产量三量 | <img class="fml" src="/formulas/afb9490d17f6a5.png" alt="AP= \frac{TP}{L}" width="81" height="33">，<img class="fml" src="/formulas/9fc021fe89b668.png" alt="MP= \frac{dTP}{dL}" width="94" height="33">；`MP = AP` 处 AP 最大；`MP = 0` 处 TP 最大 |
 | 最优要素组合 | <img class="fml" src="/formulas/5319fb51d9866e.png" alt="MRTS(LK)= \frac{MPL}{MPK}= \frac{w}{r}" width="207" height="34"> ⇔ <img class="fml" src="/formulas/2ad8e85f0a7625.png" alt="\frac{MPL}{w}= \frac{MPK}{r}= \frac{1}{MC}" width="158" height="34"> |
-| C-D 生产 | <img class="fml" src="/formulas/487d7baf99d235.png" alt="Q= AL^\alpha K^\beta" width="104" height="34">；<img class="fml" src="/formulas/6e679f4fcdc1e8.png" alt="\alpha+\beta&gt;1" width="84" height="33">、<img class="fml" src="/formulas/c4159c0936e677.png" alt="\alpha+\beta=1" width="83" height="33">、<img class="fml" src="/formulas/11db4924f9f99f.png" alt="\alpha+\beta&lt;1" width="83" height="33"> ⇒ 递增 / 不变 / 递减规模报酬 |
+| C-D 生产 | <img class="fml" src="/formulas/487d7baf99d235.png" alt="Q= AL^\alpha K^\beta" width="104" height="34">；<img class="fml" src="/formulas/6e679f4fcdc1e8.png" alt="\alpha+\beta&gt;1" width="84" height="33">、<img class="fml" src="/formulas/c4159c0936e677.png" alt="\alpha+\beta=1" width="84" height="33">、<img class="fml" src="/formulas/11db4924f9f99f.png" alt="\alpha+\beta&lt;1" width="84" height="33"> ⇒ 递增 / 不变 / 递减规模报酬 |
 | 欧拉定理 | 1 次齐次：<img class="fml" src="/formulas/bb4ea3e6707cb0.png" alt="Q= MPL \cdot L+ MPK \cdot K" width="216" height="34"> ⇒ `PQ = wL + rK`（产品分配净尽） |
 | 成本 | `STC = TFC + TVC`；`AC = AFC + AVC`；<img class="fml" src="/formulas/12e2ae2abb8987.png" alt="SMC= \frac{dSTC}{dQ}" width="114" height="36"> |
 | 三个交点 | `SMC` 过 `AVCmin` 与 `ACmin`，且 `Q(ACmin) > Q(AVCmin)` |
@@ -1694,7 +1694,7 @@ p= 2- 2p \to 3p= 2 \to p= \frac{2}{3} \\
 | 线性需求 MR | <img class="fml" src="/formulas/08429fd8e23663.png" alt="P= a- bQ \Rightarrow MR= a- 2bQ" width="244" height="33"> |
 | MR 与弹性 | <img class="fml" src="/formulas/e76ff24ae10bae.png" alt="MR= P(1- \frac{1}{\lvert E_d\rvert})" width="148" height="36"> ⇒ 勒纳指数 <img class="fml" src="/formulas/ae3b58fed84196.png" alt="L= \frac{P- MC}{P}= \frac{1}{\lvert E_d\rvert}" width="140" height="36"> |
 | 加成法则 | <img class="fml" src="/formulas/fd9a63d874f6f3.png" alt="P=MC\cdot\dfrac{\lvert E_d\rvert}{\lvert E_d\rvert-1}" width="157" height="52"> |
-| 三级价格歧视 | <img class="fml" src="/formulas/d7a9a9addce070.png" alt="MR_{1}= MR_{2}= MC" width="168" height="33"> ⇔ <img class="fml" src="/formulas/7e52db69944259.png" alt="P_{i}\left(1-\dfrac{1}{|E_{i}|}\right)=MC" width="172" height="51"> |
+| 三级价格歧视 | <img class="fml" src="/formulas/d7a9a9addce070.png" alt="MR_{1}= MR_{2}= MC" width="168" height="33"> ⇔ <img class="fml" src="/formulas/7e52db69944259.png" alt="P_{i}\left(1-\dfrac{1}{|E_{i}|}\right)=MC" width="174" height="52"> |
 | 古诺 | <img class="fml" src="/formulas/4e65ec28af34e2.png" alt="P= a- bQ, MC= c" width="170" height="33">：<img class="fml" src="/formulas/2e5b1a54ebc562.png" alt="Qi= \frac{a- c}{(n+1)b}" width="94" height="36">，<img class="fml" src="/formulas/c732821e13a91e.png" alt="P= \frac{a+nc}{n+1}" width="79" height="34"> |
 | 垄断 DWL | <img class="fml" src="/formulas/6890d747108b47.png" alt="\frac{1}{2}(Pm- MC)(Qc- Qm)" width="203" height="33">（线性情形） |
 

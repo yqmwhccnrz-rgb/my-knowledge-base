@@ -67,7 +67,7 @@ summary: "孟生旺《利息理论及其应用》（第4版）7 章精要笔记�
 - **第一期**：<img class="fml" src="/formulas/d3134fd5179040.png" alt="i=a(1)-1" width="100" height="33">，故 <img class="fml" src="/formulas/2e17daa5af11f6.png" alt="a(1)=1+i" width="100" height="33">
 - **支付时点**：实际利率产生的利息只能在**期末一次性支付**
 
-**例 1**（教材例 1-1）：累积函数 <img class="fml" src="/formulas/aa8ee392773bed.png" alt="a(t)= 1.2^{t}+ 0.05t" width="148" height="33">，求 t=2 时的 500 万元在 t=3 时的价值。
+**例 1**（教材例 1-1）：累积函数 <img class="fml" src="/formulas/aa8ee392773bed.png" alt="a(t)= 1.2^{t}+ 0.05t" width="149" height="33">，求 t=2 时的 500 万元在 t=3 时的价值。
 解：从 t=2 到 t=3 的价值比为
 
 
@@ -283,7 +283,7 @@ summary: "孟生旺《利息理论及其应用》（第4版）7 章精要笔记�
 解：<img class="fml" src="/formulas/abd722c17c2225.png" alt="4a_{20}= 5a_{10} \to 4(1- v^{20})= 5(1- v^{10})" width="298" height="34">，令 <img class="fml" src="/formulas/637c6a8561fbb4.png" alt="x= v^{10}" width="64" height="34">：<img class="fml" src="/formulas/1ae0ed73362ceb.png" alt="4x^{2}- 5x+1= 0 \to x= \frac{1}{4}" width="210" height="34">（x=1 舍去）→ <img class="fml" src="/formulas/4904ed920bf4e7.png" alt="v^{10}= 0.25" width="85" height="34">，<img class="fml" src="/formulas/25af19bc357aa5.png" alt="i= 0.25^{- \frac{1}{10}}- 1= 14.87" width="188" height="34">%。翻番：<img class="fml" src="/formulas/e11d043fe8118c.png" alt="(1+i)^{n}= 2" width="99" height="34"> **n = 5**。
 
 **例 9**：永续年金由 A、B、C、D 分享，A 得前 n 次、B 得第 2 个 n 次、C 得第 3 个 n 次、D 得之后全部。已知 PV_C : PV_D = 1，求 PV_B : PV_D。
-解：<img class="fml" src="/formulas/88077f430f7c4a.png" alt="PV_{C}= v^{2n} \cdot a_{n}" width="121" height="34">，<img class="fml" src="/formulas/0e6acabca05b74.png" alt="PV_{D}= \dfrac{v^{3n}}{i}" width="94" height="47">。由 <img class="fml" src="/formulas/224d2cb3ee6de7.png" alt="PV_{C}=PV_{D}" width="101" height="33"> 即 <img class="fml" src="/formulas/6cb887600507f3.png" alt="v^{2n}\cdot\dfrac{1- v^{n}}{i}= \dfrac{v^{3n}}{i}" width="148" height="47"> 得 <img class="fml" src="/formulas/1da7a0e6f67d5c.png" alt="1- v^{n}= v^{n}" width="96" height="33">，解得 <img class="fml" src="/formulas/5c7c647e71a7f1.png" alt="v^{n}= 0.5" width="71" height="34">。<img class="fml" src="/formulas/3f37b045cd962d.png" alt="PV_{B}:PV_{D}= \dfrac{v^{n}a_{n}}{\frac{v^{3n}}{i}}= \dfrac{(1- v^{n})v^{n}}{v^{3n}}= \dfrac{1- v^{n}}{v^{2n}}= \dfrac{1- v^{n}}{(v^{n})^{2}}=2" width="450" height="54">（代入 <img class="fml" src="/formulas/507d1b21a0ddba.png" alt="v^{n}=0.5" width="71" height="34"> 得 <img class="fml" src="/formulas/73b1d8f59cde8a.png" alt="0.5/0.25=2" width="102" height="33">）。
+解：<img class="fml" src="/formulas/88077f430f7c4a.png" alt="PV_{C}= v^{2n} \cdot a_{n}" width="121" height="34">，<img class="fml" src="/formulas/0e6acabca05b74.png" alt="PV_{D}= \dfrac{v^{3n}}{i}" width="95" height="48">。由 <img class="fml" src="/formulas/224d2cb3ee6de7.png" alt="PV_{C}=PV_{D}" width="102" height="33"> 即 <img class="fml" src="/formulas/6cb887600507f3.png" alt="v^{2n}\cdot\dfrac{1- v^{n}}{i}= \dfrac{v^{3n}}{i}" width="149" height="48"> 得 <img class="fml" src="/formulas/1da7a0e6f67d5c.png" alt="1- v^{n}= v^{n}" width="97" height="33">，解得 <img class="fml" src="/formulas/5c7c647e71a7f1.png" alt="v^{n}= 0.5" width="71" height="34">。<img class="fml" src="/formulas/3f37b045cd962d.png" alt="PV_{B}:PV_{D}= \dfrac{v^{n}a_{n}}{\frac{v^{3n}}{i}}= \dfrac{(1- v^{n})v^{n}}{v^{3n}}= \dfrac{1- v^{n}}{v^{2n}}= \dfrac{1- v^{n}}{(v^{n})^{2}}=2" width="450" height="55">（代入 <img class="fml" src="/formulas/507d1b21a0ddba.png" alt="v^{n}=0.5" width="71" height="34"> 得 <img class="fml" src="/formulas/73b1d8f59cde8a.png" alt="0.5/0.25=2" width="103" height="33">）。
 
 ### 2.2 年金终值（★★★）
 
@@ -351,7 +351,7 @@ summary: "孟生旺《利息理论及其应用》（第4版）7 章精要笔记�
 （用 <img class="fml" src="/formulas/3680c486317a86.png" alt="a_{n}^{(m)}" width="38" height="34"> 公式：<img class="fml" src="/formulas/3e5291738af232.png" alt="500000= 12X \cdot a_{5}^{(12)}" width="164" height="34">，结果相同。）
 
 **例 15**：每月初存 1000 元，年实际利率 5%，求 5 年末累积值。
-解：<img class="fml" src="/formulas/edc21cc56fbe07.png" alt="12000 \cdot \ddot{s}_{5}^{(12)}= 12000 \times\left(\frac{i}{d^{(12)}}\right) \times s_{5}= 12000 \times\left(\dfrac{0.05}{0.04869}\right) \times 5.5256\approx 68\,090\,\text{元}" width="609" height="51">。
+解：<img class="fml" src="/formulas/edc21cc56fbe07.png" alt="12000 \cdot \ddot{s}_{5}^{(12)}= 12000 \times\left(\frac{i}{d^{(12)}}\right) \times s_{5}= 12000 \times\left(\dfrac{0.05}{0.04869}\right) \times 5.5256\approx 68\,090\,\text{元}" width="611" height="52">。
 
 ### 2.6 连续支付的等额年金（★★★）
 
@@ -387,7 +387,7 @@ summary: "孟生旺《利息理论及其应用》（第4版）7 章精要笔记�
 
 **价值方程**（equation of value）：基于「现金流入现值 = 现金流出现值」建立的方程。年金问题三变量——现值/终值、支付次数 n、利率 i——知二求一。
 
-- 求 n：解析解 <img class="fml" src="/formulas/df2299f65ce15e.png" alt="n= \dfrac{\ln[\cdots]}{\ln(1+i)}" width="111" height="50">，结果常非整数 → 处理「最后一次非正规付款」：
+- 求 n：解析解 <img class="fml" src="/formulas/df2299f65ce15e.png" alt="n= \dfrac{\ln[\cdots]}{\ln(1+i)}" width="111" height="51">，结果常非整数 → 处理「最后一次非正规付款」：
   - 提前到前一期末付：金额最小
   - 按理论时间（非整数）付：居中
   - 推迟到下一期末付：金额最大
@@ -454,7 +454,7 @@ summary: "孟生旺《利息理论及其应用》（第4版）7 章精要笔记�
 解：次数 <img class="fml" src="/formulas/e8d95b9bc8a061.png" alt="n= \frac{600- 300}{20}+1= 16" width="166" height="33">。拆成 280 元等额 + 20 元递增：
 
 
-<p class="fml-block"><img class="fml" src="/formulas/8330a100ba3175.png" alt="280s_{16}+ 20(Is)_{16}= 280 \times 23.6575+ \frac{20 \times(\ddot{s}_{16}- 16)}{0.05}= 6624.10+ 20 \times 176.81=10\,160.26\,\text{元}" width="674" height="33"></p>
+<p class="fml-block"><img class="fml" src="/formulas/8330a100ba3175.png" alt="280s_{16}+ 20(Is)_{16}= 280 \times 23.6575+ \frac{20 \times(\ddot{s}_{16}- 16)}{0.05}= 6624.10+ 20 \times 176.81=10\,160.26\,\text{元}" width="675" height="34"></p>
 
 
 
@@ -475,9 +475,9 @@ summary: "孟生旺《利息理论及其应用》（第4版）7 章精要笔记�
 - 期初付：<img class="fml" src="/formulas/23492e7a6ab6f4.png" alt="(D\ddot{a})_{n}=(1+i)(Da)_{n}= \frac{n- a_{n}}{d}" width="234" height="34">；<img class="fml" src="/formulas/0af190de99270e.png" alt="(D\ddot{s})_{n}= \frac{n(1+i)^{n}- s_{n}}{d}" width="146" height="34">
 
 **例 21**：10 年期递减年金第 1 年初付 100、以后每年减 10（第 10 年初付 10），i = 6%，求第 10 年末终值。
-解：<img class="fml" src="/formulas/e1ab8968221dcc.png" alt="10 \times(D\ddot{s})_{10}= \dfrac{10 \times[10 \times 1.06^{10}- s_{10}]}{d}= \dfrac{10 \times(17.9085- 13.1808)}{0.0566}=835.22\,\text{元}" width="617" height="47">。
+解：<img class="fml" src="/formulas/e1ab8968221dcc.png" alt="10 \times(D\ddot{s})_{10}= \dfrac{10 \times[10 \times 1.06^{10}- s_{10}]}{d}= \dfrac{10 \times(17.9085- 13.1808)}{0.0566}=835.22\,\text{元}" width="618" height="48">。
 
-**山形年金**（先增后减，<img class="fml" src="/formulas/5fa9fbb7dbae45.png" alt="1,2, \cdots,n,n- 1,...,1" width="175" height="34"> 共 <img class="fml" src="/formulas/b648de892ffc4a.png" alt="2n- 1" width="58" height="34"> 期）：现值 = <img class="fml" src="/formulas/aacc79568b9e1c.png" alt="(Ia)_{n}+ v^{n}(Da)_{(n-1)}= a_{n}\cdot \ddot{a}_{n}" width="232" height="33">（教材例 3-7 优美结论，证明题考点）。
+**山形年金**（先增后减，<img class="fml" src="/formulas/5fa9fbb7dbae45.png" alt="1,2, \cdots,n,n- 1,...,1" width="175" height="34"> 共 <img class="fml" src="/formulas/b648de892ffc4a.png" alt="2n- 1" width="58" height="34"> 期）：现值 = <img class="fml" src="/formulas/aacc79568b9e1c.png" alt="(Ia)_{n}+ v^{n}(Da)_{(n-1)}= a_{n}\cdot \ddot{a}_{n}" width="233" height="34">（教材例 3-7 优美结论，证明题考点）。
 
 ### 3.3 复递增年金（★★★）
 
@@ -489,14 +489,14 @@ summary: "孟生旺《利息理论及其应用》（第4版）7 章精要笔记�
 
 - 推导：每笔现金流除以 <img class="fml" src="/formulas/d987c9b96092e1.png" alt="(1+i)^{t}" width="63" height="33"> 后成为按 j 贴现的等额年金；(1+r)v = 1/(1+j)
 - **<img class="fml" src="/formulas/54d38100a03a6a.png" alt="r=i" width="46" height="34"> 时：<img class="fml" src="/formulas/9f9647fe743550.png" alt="(Ca)_{n}=\dfrac{n}{1+i}" width="118" height="43">**（每笔现值都是 <img class="fml" src="/formulas/d1fb8ffd72883b.png" alt="\dfrac{1}{1+i}" width="48" height="47">）
-- 期初付：<img class="fml" src="/formulas/b3c0c5982d7420.png" alt="(C\ddot{a})_{n}=(1+i)(Ca)_{n}= \dfrac{(1+i)\left[1-(1+j)^{-n}\right]}{(1+r)j}" width="366" height="51">
+- 期初付：<img class="fml" src="/formulas/b3c0c5982d7420.png" alt="(C\ddot{a})_{n}=(1+i)(Ca)_{n}= \dfrac{(1+i)\left[1-(1+j)^{-n}\right]}{(1+r)j}" width="367" height="52">
 - **复递增永续年金存在条件：i > r**，此时 <img class="fml" src="/formulas/cf65d426b4168e.png" alt="(Ca)_{\infty}= \frac{1}{i- r}" width="106" height="34">（由公式取极限）；期初付 <img class="fml" src="/formulas/1ee42a4dd10896.png" alt="(C\ddot{a})_{\infty}= \frac{1+i}{i- r}" width="106" height="34">
 
 **例 22**：10 年期期末付年金第 1 年末付 1000、每年增长 5%，i = 11.3%，求现值。
 解：<img class="fml" src="/formulas/c06109cae55e41.png" alt="j= \frac{0.113- 0.05}{1.05}= 0.06" width="159" height="34">。<img class="fml" src="/formulas/6ab738d6bbe24b.png" alt="PV= \frac{1000 \times[1- 1.06^{-10}]}{1.05 \times 0.06}= \frac{1000 \times 7.3601}{1.05}=7009.61\,\text{元}" width="361" height="36">。
 
 **例 23**：永续年金从第 2 年末开始首次支付 5000、每年增长 5%，i = 8%，求现值。
-解：增长永续在首次支付前一期（第 1 年末）的价值 <img class="fml" src="/formulas/53676d1cd265e8.png" alt="= \dfrac{5000}{0.08- 0.05}= 166 667" width="192" height="45">，再贴现 1 期得 <img class="fml" src="/formulas/93aca732b3152c.png" alt="PV=166667\times 1.08^{-1}=154\,321\,\text{元}" width="283" height="33">；若首次支付在第 3 年末（教材原题口径），则需贴现 2 期：<img class="fml" src="/formulas/9199c97621a808.png" alt="PV=166667\times 1.08^{-2}=142\,890\,\text{元}" width="283" height="33">（教材 142 889.8）。
+解：增长永续在首次支付前一期（第 1 年末）的价值 <img class="fml" src="/formulas/53676d1cd265e8.png" alt="= \dfrac{5000}{0.08- 0.05}= 166 667" width="192" height="46">，再贴现 1 期得 <img class="fml" src="/formulas/93aca732b3152c.png" alt="PV=166667\times 1.08^{-1}=154\,321\,\text{元}" width="285" height="34">；若首次支付在第 3 年末（教材原题口径），则需贴现 2 期：<img class="fml" src="/formulas/9199c97621a808.png" alt="PV=166667\times 1.08^{-2}=142\,890\,\text{元}" width="284" height="34">（教材 142 889.8）。
 
 ### 3.4 每年支付 m 次的变额年金（★★）
 
@@ -532,7 +532,7 @@ summary: "孟生旺《利息理论及其应用》（第4版）7 章精要笔记�
 **（二）连续递增/递减年金**（付款**率**也随时间连续变化，I、a 上都有横线）——积分求得：
 
 > <img class="fml" src="/formulas/8c08abaebffaca.png" alt="(\bar{I}\bar{a})_{n}" width="48" height="34">（时刻 t 付款率为 t）：= <img class="fml" src="/formulas/571dbc3de2c41b.png" alt="\int_{0}^{n} t \cdot e^{- \delta t}dt" width="95" height="34"> <img class="fml" src="/formulas/2fe24e7c5acf7e.png" alt="\frac{\bar{a}_{n}- nv^{n}}{\delta}" width="54" height="34">
-> <img class="fml" src="/formulas/e8f4640f86bdd8.png" alt="(\bar{I}\bar{s})_{n}" width="47" height="34"> = <img class="fml" src="/formulas/c6ecebb64d5cbe.png" alt="\dfrac{(1+i)^{n}- 1- n\delta}{\delta^{2}}" width="141" height="46">（现值累积 n 年）
+> <img class="fml" src="/formulas/e8f4640f86bdd8.png" alt="(\bar{I}\bar{s})_{n}" width="47" height="34"> = <img class="fml" src="/formulas/c6ecebb64d5cbe.png" alt="\dfrac{(1+i)^{n}- 1- n\delta}{\delta^{2}}" width="142" height="47">（现值累积 n 年）
 > **连续递增永续：(Īā)∞ = 1/δ²**
 > <img class="fml" src="/formulas/2c488522e64895.png" alt="(\bar{D}\bar{a})_{n}" width="54" height="34">（时刻 t 付款率为 n−t）：= <img class="fml" src="/formulas/c0be81726e042b.png" alt="n \cdot \bar{a}_{n}-(\bar{I}\bar{a})_{n}" width="111" height="34"> <img class="fml" src="/formulas/5b96fd12986900.png" alt="n \cdot \bar{a}_{n}- \frac{\bar{a}_{n}- nv^{n}}{\delta}" width="118" height="34">
 
@@ -608,7 +608,7 @@ summary: "孟生旺《利息理论及其应用》（第4版）7 章精要笔记�
 - 若再假设新增投资平均发生在期中（t=0.5）：<img class="fml" src="/formulas/c2c10b9d65d023.png" alt="i \approx \frac{2I}{A_{0}+A_{1}- I}" width="97" height="35">（更粗糙）
 
 **例 28**：期初余额 100 万；4 月 1 日投入前余额 120 万…（教材例 4-4：期初 100，4/1 取出 20，9/1 存入 30，期末 120）
-解：<img class="fml" src="/formulas/891b501288f6b3.png" alt="I= 120-(100- 20+30)= 10" width="250" height="34">。加权本金（30/360 规则）= <img class="fml" src="/formulas/8f8b95df1f2271.png" alt="100- 20 \times\left(\frac{8}{12}\right)+ 30 \times\left(\frac{4}{12}\right)= 96.67" width="287" height="34">。<img class="fml" src="/formulas/6da7689fcda4f9.png" alt="i \approx \dfrac{10}{96.67}=10.34\%" width="160" height="44">；精确解（XIRR，实际/365）= **10.547%**。
+解：<img class="fml" src="/formulas/891b501288f6b3.png" alt="I= 120-(100- 20+30)= 10" width="250" height="34">。加权本金（30/360 规则）= <img class="fml" src="/formulas/8f8b95df1f2271.png" alt="100- 20 \times\left(\frac{8}{12}\right)+ 30 \times\left(\frac{4}{12}\right)= 96.67" width="287" height="34">。<img class="fml" src="/formulas/6da7689fcda4f9.png" alt="i \approx \dfrac{10}{96.67}=10.34\%" width="161" height="45">；精确解（XIRR，实际/365）= **10.547%**。
 
 ### 4.3 时间加权收益率（★★★ 概念辨析高频）
 
@@ -980,7 +980,7 @@ YTM 升 50bp 到 12.5%：真实价格 900.51（<img class="fml" src="/formulas/c
 （满足完全免疫 ⟹ 必满足 Redington 免疫：单笔负债 <img class="fml" src="/formulas/afc3c000597619.png" alt="\sigma^{2}=0" width="58" height="33">、两笔资产 <img class="fml" src="/formulas/5dcbd948048705.png" alt="\sigma^{2}&gt;0" width="58" height="33"> ⟹ <img class="fml" src="/formulas/bdd588207bf25b.png" alt="C^{M}(A)= t^{2}+\sigma^{2}&gt; t^{2}= C^{M}(L)" width="255" height="33">。）
 
 **例 49**：10 年末负债 2000 万，持有 5 年期零息债（到期值 620.92 万）+ 15 年期零息债（到期值 1610.51 万），i=10%。
-验证：<img class="fml" src="/formulas/6d426ec09b68f8.png" alt="PV(A)= \frac{620.92}{1.1^{5}}+ \frac{1610.51}{1.1^{15}}= 385.54+385.54= 771.09" width="410" height="33"> 万 = <img class="fml" src="/formulas/69b3f1faa83505.png" alt="PV(L)= \frac{2000}{1.1^{10}}" width="115" height="33"> ✓；<img class="fml" src="/formulas/fc9488e4300257.png" alt="D^{M}(A)= 10" width="106" height="33"> ✓；5<10<15 ✓ → **完全免疫**。利率升到 12%：盈余 = +2.6 万 > 0（利率任意变动盈余都增加）。
+验证：<img class="fml" src="/formulas/6d426ec09b68f8.png" alt="PV(A)= \frac{620.92}{1.1^{5}}+ \frac{1610.51}{1.1^{15}}= 385.54+385.54= 771.09" width="411" height="34"> 万 = <img class="fml" src="/formulas/69b3f1faa83505.png" alt="PV(L)= \frac{2000}{1.1^{10}}" width="115" height="33"> ✓；<img class="fml" src="/formulas/fc9488e4300257.png" alt="D^{M}(A)= 10" width="106" height="33"> ✓；5<10<15 ✓ → **完全免疫**。利率升到 12%：盈余 = +2.6 万 > 0（利率任意变动盈余都增加）。
 
 ### 7.7 现金流配比（★★）
 

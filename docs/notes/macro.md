@@ -223,7 +223,7 @@ summary: "宏观经济学 11 章精读笔记：以马工程版知识框架为主
 | --- | --- | --- |
 | 两部门 | <img class="fml" src="/formulas/ee1e1b8000763a.png" alt="Y = C + I" width="90" height="33">| <img class="fml" src="/formulas/6257838ef03cd3.png" alt="Y= \frac{a+ I_{0}}{1- b}" width="77" height="34"> |
 | 三部门 | <img class="fml" src="/formulas/8f12a58aba8532.png" alt="Y = C + I + G" width="126" height="33">，<img class="fml" src="/formulas/a8e8ef10742651.png" alt="T= T_{0}+ tY" width="104" height="34"> | <img class="fml" src="/formulas/40bec77ad0d7e3.png" alt="Y= \frac{a+ I_{0}+ G_{0}- bT_{0}+ bTR_{0}}{1- b(1- t)}" width="168" height="36"> |
-| 四部门 | <img class="fml" src="/formulas/f16dcebdf8e576.png" alt="Y = C + I + G + NX" width="180" height="33">，<img class="fml" src="/formulas/84052b268bb415.png" alt="M= M_{0}+ mY" width="126" height="34"> | 分母再加 m：<img class="fml" src="/formulas/0cae2c7ddeb06d.png" alt="Y= \dfrac{a- bT_{0}+ bTR_{0}+ I_{0}+ G_{0}+ X_{0}- M_{0}}{1- b(1- t)+ m}" width="338" height="49"> |
+| 四部门 | <img class="fml" src="/formulas/f16dcebdf8e576.png" alt="Y = C + I + G + NX" width="180" height="33">，<img class="fml" src="/formulas/84052b268bb415.png" alt="M= M_{0}+ mY" width="126" height="34"> | 分母再加 m：<img class="fml" src="/formulas/0cae2c7ddeb06d.png" alt="Y= \dfrac{a- bT_{0}+ bTR_{0}+ I_{0}+ G_{0}+ X_{0}- M_{0}}{1- b(1- t)+ m}" width="339" height="50"> |
 
 > 分母里的每一項（储蓄、税收、进口）都是**漏出**，漏出越多，均衡收入越小、乘数越小。
 
@@ -507,7 +507,7 @@ M ↑ → LM 右移 → r ↓ → I ↑ → Y ↑。**传导链**：M ↑ → r 
 
 **增长核算方程**：<img class="fml" src="/formulas/1dccfc63eed516.png" alt="\frac{\Delta Y}{Y}= \frac{\Delta A}{A}+ \alpha \cdot\left(\frac{\Delta K}{K}\right)+ \beta \cdot\left(\frac{\Delta L}{L}\right)" width="254" height="34">（α、β 为资本与劳动的产出弹性，规模报酬不变时 <img class="fml" src="/formulas/b7cde121f961c1.png" alt="\alpha+ \beta= 1" width="84" height="34">）
 
-**索洛剩余（全要素生产率 TFP）**：<img class="fml" src="/formulas/3ff32e1038e949.png" alt="\dfrac{\Delta A}{A}= \dfrac{\Delta Y}{Y}-\alpha\dfrac{\Delta K}{K}-\beta\dfrac{\Delta L}{L}" width="229" height="45">，即产出增长中无法由要素投入解释的部分，主要来自技术进步，是**长期人均收入增长最重要的源泉**。
+**索洛剩余（全要素生产率 TFP）**：<img class="fml" src="/formulas/3ff32e1038e949.png" alt="\dfrac{\Delta A}{A}= \dfrac{\Delta Y}{Y}-\alpha\dfrac{\Delta K}{K}-\beta\dfrac{\Delta L}{L}" width="230" height="46">，即产出增长中无法由要素投入解释的部分，主要来自技术进步，是**长期人均收入增长最重要的源泉**。
 
 三个直接源泉：劳动投入（数量 + 人力资本质量）、资本积累、技术进步（TFP）。
 
@@ -788,7 +788,7 @@ M ↑ → LM 右移 → r ↓ → I ↑ → Y ↑。**传导链**：M ↑ → r 
 | IS 方程 | <img class="fml" src="/formulas/ea440c6424fa22.png" alt="r= \frac{a+ I_{0}}{d}-[\frac{1- b}{d}] \cdot Y" width="156" height="34"> |
 | LM 方程 | <img class="fml" src="/formulas/634cef4c14157b.png" alt="r=\left(\frac{k}{h}\right) \cdot Y-\left(\frac{1}{h}\right) \cdot\left(\frac{M}{P}\right)" width="192" height="33"> |
 | 货币供给 | M = 基础货币 B × 货币乘数 m |
-| 增长核算 | <img class="fml" src="/formulas/abab5d8786e4bd.png" alt="\dfrac{\Delta Y}{Y}= \dfrac{\Delta A}{A}+\alpha\dfrac{\Delta K}{K}+\beta\dfrac{\Delta L}{L}" width="229" height="45"> |
+| 增长核算 | <img class="fml" src="/formulas/abab5d8786e4bd.png" alt="\dfrac{\Delta Y}{Y}= \dfrac{\Delta A}{A}+\alpha\dfrac{\Delta K}{K}+\beta\dfrac{\Delta L}{L}" width="229" height="46"> |
 | 索洛资本积累 | <img class="fml" src="/formulas/a1e2368074589c.png" alt="\Delta k= s \cdot f(k)-(n+ \delta)k" width="197" height="33">；稳态 s·f(k\*) = (n + δ)k\* |
 | 黄金律 | MPK = <img class="fml" src="/formulas/aeb8f470d9fcb7.png" alt="n+ \delta" width="49" height="33">（含技术进步 <img class="fml" src="/formulas/7515974aa5487d.png" alt="n+ g+ \delta" width="79" height="34">） |
 | 附加预期 PC | π = πᵉ − ε(u − u\*) |
