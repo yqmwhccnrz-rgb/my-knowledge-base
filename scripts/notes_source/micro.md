@@ -194,16 +194,16 @@ $50- 2Pd= 3Pd- 22 \Rightarrow Pd= 14.4$，`Ps = 10.4`，`Q = 21.2`。
 
 1. **线性需求上的弹性分布**：$P= a- bQ$，$\lvert E_d\rvert=\left(\frac{1}{b}\right)\left(\frac{P}{Q}\right)= \frac{P}{a- P}$。纵截距 $\lvert E_d\rvert \to_{\infty}$、中点 $P= \frac{a}{2}$ 处 `|Ed| = 1`、横截距 `|Ed| = 0`。所以"需求曲线陡 = 缺乏弹性"只在**同一坐标系、同一价格处**成立，跨图比较必须看弹性而非斜率。
 2. **总收益与边际收益**：$MR= P(1- \frac{1}{\lvert E_d\rvert})$ ⇒ `|Ed| > 1` 时 `MR > 0`（降价增收）、`|Ed| = 1` 时 `MR = 0`（TR 极大）、`|Ed| < 1` 时 `MR < 0`（降价减收）。这条式子把第 2 章与第 7 章接了起来。
-3. **税负归宿一般式**：单位税 `t` 下 $\frac{dPd}{dt}= \frac{eS}{eS+\lvert E_d\rvert}$、$\frac{dPs}{dt}=-\lvert E_d\rvert(eS+\lvert E_d\rvert)$（以弹性表示）。**弹性较小（更陡）的一方承担更多**；$eS \to_{\infty}$ 时全部转嫁给消费者，$\lvert E_d\rvert \to 0$ 时亦全部由消费者承担。
+3. **税负归宿一般式**：单位税 `t` 下 $\frac{dPd}{dt}= \frac{eS}{eS+\lvert E_d\rvert}$、$\dfrac{dP_{s}}{dt}=-\dfrac{|E_{d}|}{e_{S}+|E_{d}|}$（以弹性表示）。**弹性较小（更陡）的一方承担更多**；$eS \to_{\infty}$ 时全部转嫁给消费者，$\lvert E_d\rvert \to 0$ 时亦全部由消费者承担。
 
 ::: tip 工作例题 · 弹性形式的归宿验算
-沿用 2.4 例题：均衡 `P*=12, Q*=26`，$\lvert E_d\rvert=\left(\frac{1}{2}\right) \cdot\left(\frac{12}{26}\right) \cdot 2= \frac{12}{13} \approx 0.923$（注意 $\frac{dQ}{dP}=- 2$），$eS= 3 \cdot\left(\frac{12}{26}\right)= \frac{18}{13} \approx 1.385$。
+沿用 2.4 例题：均衡 `P*=12, Q*=26`，$|E_{d}|=2\times\dfrac{12}{26}=\dfrac{12}{13}\approx 0.923$（注意 $\frac{dQ}{dP}=- 2$），$eS= 3 \cdot\left(\frac{12}{26}\right)= \frac{18}{13} \approx 1.385$。
 $\frac{dPd}{dt}= \frac{1.385}{1.385+0.923}= 0.6$ ⇒ $\Delta Pd= 4 \times 0.6= 2.4$ ✓ 与方程解一致。
 （用斜率比 `3 : 2` 更快，但弹性形式可推广到非线性曲线。）
 :::
 
 ::: tip 补充考点 · 税收无谓损失的弹性公式
-单位税 `t` 造成的无谓损失可用弹性近似表示：$DWL \approx \frac{1}{2} \cdot t^{2} \cdot(Q* P*) \cdot[\lvert E_d\rvert \frac{\cdot eS}{\lvert E_d\rvert+eS}]$。含义：**DWL 随税额的平方增长**（税率翻倍、损失翻两番），且供需双方弹性越大损失越大。沿用 2.4 例题验算：$\frac{1}{2} \times 16 \times\left(\frac{26}{12}\right) \times\left(\frac{0.923 \times 1.385}{2.308}\right) \approx 9.6$，与三角形法 $\frac{1}{2} \times 4 \times 4.8= 9.6$ 一致 ✓。
+单位税 `t` 造成的无谓损失可用弹性近似表示：$DWL\approx\dfrac{1}{2}\,t^{2}\,\dfrac{Q^{*}}{P^{*}}\cdot\dfrac{|E_{d}|\,e_{S}}{|E_{d}|+e_{S}}$。含义：**DWL 随税额的平方增长**（税率翻倍、损失翻两番），且供需双方弹性越大损失越大。沿用 2.4 例题验算：$\frac{1}{2} \times 16 \times\left(\frac{26}{12}\right) \times\left(\frac{0.923 \times 1.385}{2.308}\right) \approx 9.6$，与三角形法 $\frac{1}{2} \times 4 \times 4.8= 9.6$ 一致 ✓。
 :::
 
 ---
@@ -477,7 +477,7 @@ $f(\lambda L, \lambda K)$ 与 $\lambda f(L,K)$ 比较（$\lambda> 1$）：
 
 $$\min wL+ rK s.t. f(L,K)= Q_{0}$$
 
-拉格朗日一阶条件 ⇒ $\frac{MPL}{w}= \frac{MPK}{r}= \lambda$，其中 $\lambda= \frac{1}{MC}$，即**拉格朗日乘子就是边际成本的倒数**。
+拉格朗日一阶条件 ⇒ $\dfrac{MPL}{w}= \dfrac{MPK}{r}= \dfrac{1}{MC}$（按 $L=wL+rK+\lambda(Q_{0}-f)$ 的约定，乘子 $\lambda=MC$，公共比值为 $1/\lambda=1/MC$，即边际成本的倒数）。
 **产量最大化问题**（给定 C）给出同一条件 —— 这就是第 4 章的**对偶关系**。
 
 由生产函数可反解成本函数：`C(Q; w, r)`；短期存在固定成本，长期全部可变。
@@ -705,7 +705,7 @@ $P= 100- 2Q$，`MC = 20`（常数，TFC = 0）：
 | 三级 | 群体定价 | 按可观察特征分割市场（学生票、地区定价） | $MR_{1}= MR_{2}= MC$ |
 
 **三级价格歧视定价法则**：
-$P_{1}(1- 1|E_{1}|)= P_{2}(1- 1|E_{2}|)= MC$ ⇒ **需求弹性小的市场定价更高**。
+$P_{1}\left(1-\dfrac{1}{|E_{1}|}\right)=P_{2}\left(1-\dfrac{1}{|E_{2}|}\right)=MC$ ⇒ **需求弹性小的市场定价更高**。
 
 ::: tip 工作例题 · 三级价格歧视（含统一定价对比）
 市场1 $P_{1}= 100- 2Q_{1}$，市场2 $P_{2}= 80- Q_{2}$，`MC = 20`（常数）：
@@ -775,7 +775,7 @@ $P= a- bQ$，n 家同质、`MC = c`：
 - **勒纳指数** `(P−c)/P = 1/(n·|Ed|市场)`（古诺情形）：市场集中度越高，加成越大（HHI 指数的理论基础）。
 
 **重复博弈中合谋可持续条件**：设合作单期收益 $\pi C$、背叛单期收益 $\pi D$、惩罚期收益 $\pi N$，贴现因子 $\delta$。
-冷酷战略下合谋可持续 ⇔ $\frac{\pi C}{1- \delta} \ge \pi D+ \delta \frac{\cdot \pi N}{1- \delta}$ ⇔ $\delta \ge \frac{\pi D- \pi C}{\pi D- \pi N}$。
+冷酷战略下合谋可持续 ⇔ $\dfrac{\pi_{C}}{1-\delta}\ \ge\ \pi_{D}+\delta\dfrac{\pi_{N}}{1-\delta}$ ⇔ $\delta \ge \dfrac{\pi_{D}-\pi_{C}}{\pi_{D}-\pi_{N}}$。
 ⇒ 贴现率越低（越有耐心）、背叛收益越小、惩罚越严厉、市场越透明，卡特尔越稳定。这解释了为什么**频繁小幅、公开报价、需求稳定**的行业更易合谋。
 
 ---
@@ -857,7 +857,7 @@ $A= 0.5- 0.31= 0.19$ ⇒ $G= \frac{0.19}{0.5}= 0.38$。
 :::
 
 ::: danger 易错 · 分配
-- 基尼系数反映的是**相对**不平等，对同比例的收入整体平移不敏感；也不能反映组内差异与收入流动性，需配合分位数比、泰尔指数、贫困率一起看。
+- 基尼系数反映的是**相对**不平等，对所有人收入同比例缩放（同乘一个系数）不敏感；也不能反映组内差异与收入流动性，需配合分位数比、泰尔指数、贫困率一起看。
 - 地租「由需求决定」只对**总量固定**的土地成立；对某一具体用途而言，土地供给是向上倾斜的（可从其他用途转入），此时地租仍影响配置。
 - 经济租与准租金不是"超额利润"的同义词：前者属要素报酬，后者是短期固定要素报酬。
 :::
@@ -1007,7 +1007,7 @@ $A= 0.5- 0.31= 0.19$ ⇒ $G= \frac{0.19}{0.5}= 0.38$。
 **补充 · 动态博弈与重复博弈**：
 - **子博弈精炼纳什均衡（SPNE）**：用**逆向归纳**从最后一个子博弈往前解，剔除**不可置信威胁**（如"你进入我就打价格战"在事后并不最优）。
 - **有限次重复**囚徒困境：由逆向归纳，最后一期无未来惩罚 ⇒ 每期都背叛（连锁店悖论）。
-- **无限次重复 / 贴现率足够高**：「以牙还牙」「冷酷战略」可维持合作（民间定理），条件是 `δ ≥ (背叛收益 − 合作收益)/(背叛收益 − 惩罚收益)`。这为第 7 章卡特尔的长期维持提供了条件。
+- **无限次重复 / 贴现因子 δ 足够高（贴现率足够低）**：「以牙还牙」「冷酷战略」可维持合作（民间定理），条件是 `δ ≥ (背叛收益 − 合作收益)/(背叛收益 − 惩罚收益)`。这为第 7 章卡特尔的长期维持提供了条件。
 - **不完全信息博弈**：贝叶斯纳什均衡（海萨尼转换，用"自然"先选择类型）；信号博弈与分离/混同均衡连接第 11 章的信号传递。
 
 ### 10.4 混合策略的存在性与机制设计初步
@@ -1151,7 +1151,7 @@ $$
 \begin{gathered}
 \text{已知：} \; P_{1}= 5, Q_{1}= 20 \; \text{；} \; P_{2}= 4, Q_{2}= 30 \\
 \text{(1)} \; \text{中点公式：} \; Ed=-\left(\frac{\Delta Q}{\Delta P}\right) \times \frac{\frac{P_{1}+P_{2}}{2}}{\frac{Q_{1}+Q_{2}}{2}} \\
-\Delta Q=+10, \Delta P=- 1 \to-(10- 1)= 10 \\
+\Delta Q=+10,\ \Delta P=-1\ \Rightarrow\ -\dfrac{\Delta Q}{\Delta P}=-\dfrac{10}{-1}=10 \\
 \text{Pm = 4.5, Qm = 25} \\
 Ed= 10 \times \frac{4.5}{25}= 1.8 \; \text{（富有弹性）} \\
 (2) TR_{1}= 5 \times 20= 100 \; \text{，} \; TR_{2}= 4 \times 30= 120 \to \; \text{降价增收} \; \checkmark \\
@@ -1631,7 +1631,7 @@ $MSB= 100- 2Q$，`MPC = 2Q + 10`，`ME = 6`。
 | --- | --- |
 | 产量三量 | $AP= \frac{TP}{L}$，$MP= \frac{dTP}{dL}$；`MP = AP` 处 AP 最大；`MP = 0` 处 TP 最大 |
 | 最优要素组合 | $MRTS(LK)= \frac{MPL}{MPK}= \frac{w}{r}$ ⇔ $\frac{MPL}{w}= \frac{MPK}{r}= \frac{1}{MC}$ |
-| C-D 生产 | $Q= AL^\alpha K^\beta$；$\alpha+\beta> 1= 1< 1$ ⇒ 递增 / 不变 / 递减规模报酬 |
+| C-D 生产 | $Q= AL^\alpha K^\beta$；$\alpha+\beta>1$、$\alpha+\beta=1$、$\alpha+\beta<1$ ⇒ 递增 / 不变 / 递减规模报酬 |
 | 欧拉定理 | 1 次齐次：$Q= MPL \cdot L+ MPK \cdot K$ ⇒ `PQ = wL + rK`（产品分配净尽） |
 | 成本 | `STC = TFC + TVC`；`AC = AFC + AVC`；$SMC= \frac{dSTC}{dQ}$ |
 | 三个交点 | `SMC` 过 `AVCmin` 与 `ACmin`，且 `Q(ACmin) > Q(AVCmin)` |
@@ -1650,7 +1650,7 @@ $MSB= 100- 2Q$，`MPC = 2Q + 10`，`ME = 6`。
 | 线性需求 MR | $P= a- bQ \Rightarrow MR= a- 2bQ$ |
 | MR 与弹性 | $MR= P(1- \frac{1}{\lvert E_d\rvert})$ ⇒ 勒纳指数 $L= \frac{P- MC}{P}= \frac{1}{\lvert E_d\rvert}$ |
 | 加成法则 | $P=MC\cdot\dfrac{\lvert E_d\rvert}{\lvert E_d\rvert-1}$ |
-| 三级价格歧视 | $MR_{1}= MR_{2}= MC$ ⇔ $P_{1}(1- 1\vert E_{1}\vert )= P_{2}(1- 1\vert E_{2}\vert )= MC$ |
+| 三级价格歧视 | $MR_{1}= MR_{2}= MC$ ⇔ $P_{i}\left(1-\dfrac{1}{|E_{i}|}\right)=MC$ |
 | 古诺 | $P= a- bQ, MC= c$：$Qi= \frac{a- c}{(n+1)b}$，$P= \frac{a+nc}{n+1}$ |
 | 垄断 DWL | $\frac{1}{2}(Pm- MC)(Qc- Qm)$（线性情形） |
 

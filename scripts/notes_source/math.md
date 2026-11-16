@@ -79,15 +79,15 @@ summary: "高等数学 全面详解笔记，将上下册内容按知识逻辑综
 | 左右极限 | $\lim_{x \to x_{0}} f= A \Leftrightarrow f(x_{0}^{-})= f(x_{0}^{+})= A$ |
 | 夹逼准则 | $g \le f \le h$ 且 $\lim g= \lim h= A \Rightarrow \lim f= A$ |
 | 单调有界准则 | 单调有界数列必有极限（用于递推数列 $a_{n+1}= f(a_{n})$） |
-| 两个重要极限 | $\lim_{x \to 0} \sin \frac{x}{x}= 1$；$\lim_{x \to_{\infty}}\left(1+\frac{1}{x}\right)^{x}= e$、$\lim_{x \to 0}(1+x)^{\frac{1}{x}}= e$ |
+| 两个重要极限 | $\lim_{x \to 0} \dfrac{\sin x}{x}= 1$；$\lim_{x \to \infty}\left(1+\frac{1}{x}\right)^{x}= e$、$\lim_{x \to 0}(1+x)^{\frac{1}{x}}= e$ |
 
 ::: tip 补充 · 海涅定理（归结原则）
-$\lim_{x \to x_{0}} f(x)= A$ ⇔ 对任意满足 $x_{n} \to x_{0}$（$x_{n}=x_{0}$）的数列都有 $f(x_{n}) \to A$。它把**函数极限化为数列极限**，两大用途：① 证明极限不存在——找两个收敛到同一点的数列使 $f(x_{n})$ 极限不同（如 $f=\sin\left(\frac{1}{x}\right)$ 在 0 处取 $x_{n}=\frac{1}{2n\pi}$ 与 $x_{n}=\frac{1}{2n\pi+\frac{\pi}{2}}$）；② 把数列极限转为函数极限来算（先求 $\lim_{x \to_{\infty}}f(x)$ 得 $\lim a_{n}$，反之不行）。
+$\lim_{x \to x_{0}} f(x)= A$ ⇔ 对任意满足 $x_{n} \to x_{0}$（$x_{n}=x_{0}$）的数列都有 $f(x_{n}) \to A$。它把**函数极限化为数列极限**，两大用途：① 证明极限不存在——找两个收敛到同一点的数列使 $f(x_{n})$ 极限不同（如 $f=\sin\left(\frac{1}{x}\right)$ 在 0 处取 $x_{n}=\frac{1}{2n\pi}$ 与 $x_{n}=\frac{1}{2n\pi+\frac{\pi}{2}}$）；② 把数列极限转为函数极限来算（先求 $\lim_{x \to \infty}f(x)$ 得 $\lim a_{n}$，反之不行）。
 :::
 
 ::: tip 工作例题 · 七类未定式的处理
-- `0/0`：$\lim_{x \to 0} \sin \frac{3x}{5x}= \frac{3}{5}$（重要极限），$\lim_{x \to 0}\frac{e^{x}- 1- x}{x^{2}}= \frac{1}{2}$（泰勒或洛必达）。
-- $1^\infty$：先取对数或用速算 $\lim f^g= e^{\lim g(f- 1)}$；$\lim_{n \to_{\infty}}\left(1+\frac{2}{n}\right)^{n}= e^{2} \approx 7.3891$（数值验证：n=10000 时 7.3876）。
+- `0/0`：$\lim_{x \to 0} \dfrac{\sin 3x}{5x}= \dfrac{3}{5}$（重要极限），$\lim_{x \to 0}\frac{e^{x}- 1- x}{x^{2}}= \frac{1}{2}$（泰勒或洛必达）。
+- $1^\infty$：先取对数或用速算 $\lim f^g= e^{\lim g(f- 1)}$；$\lim_{n \to \infty}\left(1+\frac{2}{n}\right)^{n}= e^{2} \approx 7.3891$（数值验证：n=10000 时 7.3876）。
 - $\infty- \infty$：$\tan x- \sin x$ 型不能逐项替换，$\lim_{x \to 0}\frac{\tan x- \sin x}{x^{3}}= \frac{1}{2}$（数值验证 0.500000）。
 - $0 \cdot_{\infty}$ 化为 `0/0`；$0^{0}$、$\infty^{0}$ 取对数；$\frac{\infty}{\infty}$ 用洛必达或提最高阶。
 :::
@@ -183,7 +183,7 @@ $f'(x_{0})= \lim_{\Delta x \to 0}\frac{f(x_{0}+\Delta x)- f(x_{0})}{\Delta x}$�
 | 参数方程 | $\frac{dy}{dx}= \frac{\dot{y}}{\dot{x}}$；$\frac{d^{2}y}{dx^{2}}= \frac{\frac{d}{dt\left(\frac{\dot{y}}{\dot{x}}\right)}}{\dot{x}}= \frac{\dot{x}\ddot{y}- \ddot{y}\ddot{x}}{\dot{x}^{3}}$（先对 t 求导再除 ẋ） |
 | 对数求导 | $y=x^{x} \Rightarrow \ln y= x \ln x \Rightarrow y'= x^{x}(\ln x+ 1)$ |
 | 高阶·莱布尼茨 | $(uv)^{(n)}= \sum_{k} C(n,k) u^{(k)} v^{(n-k)}$ |
-| 常用 n 阶 | $(\sin x)^{(n)}= \sin\left(x+\frac{n\pi}{2}\right)$；$\left(\frac{1}{x+a}\right)^{(n)}=(- 1)^{n} n!(x+a)^{n+1}$ |
+| 常用 n 阶 | $(\sin x)^{(n)}= \sin\left(x+\frac{n\pi}{2}\right)$；$\left(\dfrac{1}{x+a}\right)^{(n)}=\dfrac{(-1)^{n}\,n!}{(x+a)^{n+1}}$ |
 
 ::: tip 工作例题 · 分段点与含绝对值因子
 $f(x)= x^{2} \sin\left(\frac{1}{x}\right)$（x≠0）、`f(0)=0`：在 0 处 $f'(0)= \lim x \sin\left(\frac{1}{x}\right)= 0$（可导），但 $f'(x)=2x \sin\left(\frac{1}{x}\right)- \cos\left(\frac{1}{x}\right)$ 在 0 处极限不存在 ⇒ **导函数不连续**。这是「可导但导函数不连续」的标准反例。
@@ -221,7 +221,7 @@ $f(x)= x^{2} \sin\left(\frac{1}{x}\right)$（x≠0）、`f(0)=0`：在 0 处 $f'
 :::
 
 **洛必达法则的四个前提**（常被忽略）：① 属 `0/0` 或 $\frac{\infty}{\infty}$；② 去心邻域内 `f′、g′` 存在且 $g'=0$；③ `lim f′/g′` 存在或为 ∞；④ 若 `lim f′/g′` 振荡不存在则**法则失效**，须改用定义或泰勒。
-反例：$\lim_{x \to_{\infty}}\frac{x+\sin x}{x}= 1$，但 $f' g'= 1+\cos x$ 极限不存在，洛必达给不出结论。
+反例：$\lim_{x \to \infty}\frac{x+\sin x}{x}= 1$，但 $f'/g'= 1+\cos x$ 极限不存在，洛必达给不出结论。
 
 ### 3.2 单调性、凹凸性、极值与渐近线
 
@@ -240,7 +240,7 @@ $f(x)= x^{2} \sin\left(\frac{1}{x}\right)$（x≠0）、`f(0)=0`：在 0 处 $f'
 - 铅直 $x= x_{0}$，若 $\lim_{x \to x_{0}} f(x)= \infty$（在无定义点、分段点找）；
 - 斜 `y = ax+b`，$a= \lim \frac{f(x)}{x}$，$b= \lim[f(x)- ax]$（只需在水平不存在时求），且 $x \to+ \infty$ 与 $x \to- \infty$ 要分别计算。
 
-**曲率** $\kappa=|y''|(1+y'^{2})^{\frac{3}{2}}$，曲率半径 $\rho= \frac{1}{\kappa}$（直线 $\kappa=0$）。
+**曲率** $\kappa=\dfrac{|y''|}{(1+y'^{2})^{\frac{3}{2}}}$，曲率半径 $\rho= \frac{1}{\kappa}$（直线 $\kappa=0$）。
 
 ::: danger 易错 · 导数应用
 - 极值是**局部**概念、最值是**全局**概念；闭区间最值必须比较「驻点 + 不可导点 + 端点」。
@@ -398,14 +398,14 @@ $$
 | 奇偶性 | 对称区间：`f` 奇 ⇒ 积分为 0；`f` 偶 ⇒ $2 \int_{0}^{a} f dx$ |
 | 周期性 | $\int_{a}^{a+T} f dx= \int_{0}^{T} f dx$；$\int_{0}^{nT} f dx= n \int_{0}^{T} f dx$ |
 | 区间再现（King） | $\int_{a}^{b} f(x)dx= \int_{a}^{b} f(a+b- x)dx$；用于 $\int_{0}^{\frac{\pi}{2}} f(\sin x, \cos x)dx$ 与 $\int_{0}^\pi x f(\sin x)dx=\left(\frac{\pi}{2}\right) \int_{0}^\pi f(\sin x)dx$ |
-| 华里士公式 | $I_{n}= \int_{0}^{\frac{\pi}{2}}\sin^{n}x dx= \int_{0}^{\frac{\pi}{2}}\cos^{n}x dx$；`n` 偶 ⇒ $(n- 1)!! n!! \cdot \frac{\pi}{2}$；`n` 奇 ⇒ $(n- 1)!! n!!$；$I_{n}= \frac{n- 1}{n} \cdot I_{n-2}$ |
+| 华里士公式 | $I_{n}= \int_{0}^{\frac{\pi}{2}}\sin^{n}x dx= \int_{0}^{\frac{\pi}{2}}\cos^{n}x dx$；`n` 偶 ⇒ $\dfrac{(n-1)!!}{n!!}\cdot\dfrac{\pi}{2}$；`n` 奇 ⇒ $\dfrac{(n-1)!!}{n!!}$；$I_{n}= \frac{n- 1}{n} \cdot I_{n-2}$ |
 
 ### 5.3 反常积分（广义积分）
 
 | 类型 | 定义 | 收敛判据 |
 | --- | --- | --- |
-| 无穷区间 | $\int_{a}^\infty f dx= \lim_{b \to_{\infty}} \int_{a}^{b} f dx$ | $\int_{1}^\infty \frac{dx}{x^{p}}$ 收敛 ⇔ `p > 1` |
-| 无界函数（瑕积分） | 瑕点在端点/内部，须分段取极限 | $\int_{0}\frac{^{1} dx}{x^{p}}$ 收敛 ⇔ `p < 1` |
+| 无穷区间 | $\int_{a}^\infty f dx= \lim_{b \to \infty} \int_{a}^{b} f dx$ | $\int_{1}^\infty \frac{dx}{x^{p}}$ 收敛 ⇔ `p > 1` |
+| 无界函数（瑕积分） | 瑕点在端点/内部，须分段取极限 | $\int_{0}^{1}\dfrac{dx}{x^{p}}$ 收敛 ⇔ `p < 1` |
 
 ::: danger 易错 · 反常积分
 - 两个 `p` 的收敛方向**相反**（无穷区间 `p>1`、瑕积分 `p<1`），是最高频记忆错误。
@@ -759,7 +759,7 @@ $$
 $$
 \begin{gathered}
 (1) \iiint _{x^{2}+y^{2}+z^{2} \le R^{2}} 1 dV= \frac{4\pi R^{3}}{3} \; \text{（} \; R=1 \Rightarrow \frac{4\pi}{3} \approx 4.18879 \; \text{）} \\
-\text{(2) 三重积分\_{} \; \text{上半球} \; \text{x2+y2+z2≤1, z≥0} z dV} \\
+\text{(2) 上半球} \; \iiint_{\Omega} z\,dV \; (\Omega: x^{2}+y^{2}+z^{2}\le 1,\, z\ge 0) \\
 = \int_{0}^{2\pi}d\theta \int_{0}^{\frac{\pi}{2}}\sin \phi \cos \phi d\phi \int_{0}^{1} \rho^{3} d\rho \\
 = 2\pi \cdot\left(\frac{1}{2}\right) \cdot\left(\frac{1}{4}\right)= \frac{\pi}{4} \approx 0.785398 \\
 (3) \iiint _\Omega(x^{2}+y^{2}) dV \; \text{（} \; \Omega \; \text{为圆柱} \; x^{2}+y^{2} \le 1, 0 \le z \le 1 \; \text{），柱坐标：} \\
@@ -816,9 +816,9 @@ $\frac{\partial P}{\partial y}= \frac{\partial Q}{\partial x}$ ⇔ $\oint _{L} P
 ::: tip 工作例题 · 三大公式
 $$
 \begin{gathered}
-\text{(1)} \; \text{格林求面积：取} \; P=- \frac{y}{2}, Q=\frac{x}{2} \Rightarrow \oint \frac{_{L}(x dy- y dx)}{2}= Area(D) \\
+\text{(1)} \; \text{格林求面积：取} \; P=- \frac{y}{2}, Q=\frac{x}{2} \Rightarrow \oint_{L}\dfrac{x\,dy-y\,dx}{2}= Area(D) \\
 \Rightarrow \; \text{单位圆上} \; \oint  x dy- y dx= 2\pi \approx 6.28319 \\
-\text{(2)} \; \text{奇点陷阱：} \; \text{环积分\_{} \; \text{单位圆} \; \text{} (x dy−y dx)/(x2+y2) = 2π} \\
+\text{(2)} \; \text{奇点陷阱：} \; \oint_{L}\dfrac{x\,dy-y\,dx}{x^{2}+y^{2}} = 2\pi \\
 \text{此处} \; \text{P,Q} \; \text{在原点无定义，不能直接套格林（会错得} \; \text{0} \; \text{）；} \\
 \text{须挖去以原点为心的小圆} \; \epsilon \; \text{，在环形域用格林（旋度为} \; \text{0} \; \text{）} \; \Rightarrow \; \text{等于小圆上的积分} \; 2\pi \\
 \text{(3)} \; \text{高斯：} \; \oiint _{S} x dydz+y dzdx+z dxdy= \iiint _\Omega 3 dV= 3V \\
@@ -1013,9 +1013,9 @@ $$
 (3) \lim_{x \to 0}\frac{\tan x- \sin x}{x^{3}} \; \text{（} \; \text{0/0} \; \text{，加减型不可用等价无穷小直接替换）} \\
 \text{泰勒：} \; \tan x= x+ \frac{x^{3}}{3}+ o(x^{3}) \; \text{，} \; \sin x= x- \frac{x^{3}}{6}+ o(x^{3}) \\
 \text{差} \; = \frac{x^{3}}{2} \Rightarrow \; \text{极限} \; = \frac{1}{2} \; \text{（数值验证} \; x=1e- 4 \; \text{得} \; \text{0.50000000} \; \text{）} \\
-(4) \lim_{n \to_{\infty}}\left(1+ \frac{2}{n}\right)^{n} \; \text{（} \; 1^\infty \; \text{）} \\
+(4) \lim_{n \to \infty}\left(1+ \frac{2}{n}\right)^{n} \; \text{（} \; 1^\infty \; \text{）} \\
 \text{取对数：} \; n \ln\left(1+\frac{2}{n}\right) \sim n \cdot\left(\frac{2}{n}\right)= 2 \Rightarrow \; \text{极限} \; = e^{2} \approx 7.389056 \\
-(5) \lim_{x \to_{\infty}}\frac{x+ \sin x}{x} \\
+(5) \lim_{x \to \infty}\frac{x+ \sin x}{x} \\
 = 1+ \sin \frac{x}{x} \to 1 \; \text{；洛必达会得} \; 1+\cos x \; \text{（极限不存在）} \; \Rightarrow \; \text{此处洛必达失效}
 \end{gathered}
 $$
@@ -1067,11 +1067,11 @@ $$
 
 $$
 \begin{gathered}
-(1) \int_{0}^{\frac{\pi}{2}} \sin^{2}x dx= \int_{0}\frac{^{\frac{\pi}{2}}(1- \cos 2x)}{2 dx} \\
+(1)\; \int_{0}^{\frac{\pi}{2}}\sin^{2}x\,dx=\int_{0}^{\frac{\pi}{2}}\dfrac{1-\cos 2x}{2}\,dx \\
 =[\frac{x}{2}- \frac{\sin 2x}{4}]_{0}^{\frac{\pi}{2}}= \frac{\pi}{4} \approx 0.785398 \\
 (2) \int_{0}^{1} x e^{x} dx=[(x- 1)e^{x}]_{0}^{1}= 0-(- 1)= 1 \\
 (3) \int_{0}^\pi x \sin x dx \; \text{：区间再现} \; \Rightarrow I=\left(\frac{\pi}{2}\right) \int_{0}^\pi \sin x dx=\left(\frac{\pi}{2}\right) \cdot 2= \pi \\
-\text{(4)} \; \text{判敛：} \; \int_{1}^\infty \frac{dx}{x^{p}} \; \text{收敛} \; \Leftrightarrow p>1 \; \text{；} \; \int_{0}\frac{^{1} dx}{x^{p}} \; \text{收敛} \; \Leftrightarrow p<1 \\
+\text{(4)} \; \text{判敛：} \; \int_{1}^\infty \frac{dx}{x^{p}} \; \text{收敛} \; \Leftrightarrow p>1 \; \text{；} \; \int_{0}^{1}\dfrac{dx}{x^{p}} \; \text{收敛} \; \Leftrightarrow p<1 \\
 (5) \int_{0}^\infty e^{- x^{2}}dx= \frac{\sqrt{\pi}}{2} \; \text{：设} \; \text{I} \; \text{，} \; I^{2}= \int \int e^{-(x^{2}+y^{2})}dxdy \; \text{（第一象限）} \\
 = \int_{0}^{\frac{\pi}{2}}d\theta \int_{0}^\infty e^{- r^{2}}r dr=\left(\frac{\pi}{2}\right) \cdot\left(\frac{1}{2}\right)= \frac{\pi}{4} \Rightarrow I=\frac{\sqrt{\pi}}{2}
 \end{gathered}
@@ -1141,9 +1141,9 @@ $$
 = \int_{0}^{1}dy \int_{0}^{y} e^{- y^{2}}dx= \int_{0}^{1} y e^{- y^{2}}dy= \frac{1}{2}(1- e^{-1}) \approx 0.31606 \\
 (3) \iint _{x^{2}+y^{2} \le a^{2}} e^{-(x^{2}+y^{2})}dxdy= 2\pi \int_{0}^{a} r e^{- r^{2}}dr= \pi(1- e^{- a^{2}}) \\
 a=1 \Rightarrow \approx 1.985865 \\
-\text{(4) 三重积分\_{} \; \text{上半球} \; \text{} z dV = 积分0(2π)dθ积分0(π/2)sinφ cosφ dφ积分01ρ3dρ} \\
+\text{(4)} \; \iiint_{\text{上半球}} z\,dV=\int_{0}^{2\pi}\!d\theta\int_{0}^{\pi/2}\!\sin\phi\cos\phi\,d\phi\int_{0}^{1}\!\rho^{3}d\rho \\
 = 2\pi \cdot\left(\frac{1}{2}\right) \cdot\left(\frac{1}{4}\right)= \frac{\pi}{4} \approx 0.785398 \\
-\text{(5) 三重积分\_{} \; \text{单位球} \; \text{} 1 dV = 4π/3 ≈ 4.188790}
+\text{(5) 单位球} \; \iiint_{\Omega} 1\,dV=\dfrac{4\pi}{3}\approx 4.188790
 \end{gathered}
 $$
 
@@ -1154,7 +1154,7 @@ $$
 \text{(1)} \; \text{单位圆} \; \text{L} \; \text{（逆时针）：} \; \oint _{L} x dy- y dx \\
 \text{参数} \; x=\cos t, y=\sin t \Rightarrow x dy- y dx= \cos^{2}t dt+ \sin^{2}t dt= dt \\
 \Rightarrow \; \text{积分} \; = \int_{0}^{2\pi}dt= 2\pi \; \text{（} \; = 2 \cdot Area \; \text{，格林公式验证：} \; \iint _{D} 2 dxdy= 2\pi \; \text{）} \\
-\text{(2)} \; \text{奇点陷阱：} \; \text{环积分\_{} \; \text{单位圆} \; \text{}(x dy−y dx)/(x2+y2)} \\
+\text{(2)} \; \text{奇点陷阱：} \; \oint_{L}\dfrac{x\,dy-y\,dx}{x^{2}+y^{2}} \\
 \frac{\partial Q}{\partial x}- \frac{\partial P}{\partial y}= 0 \; \text{但原点为奇点} \; \Rightarrow \; \text{不能直接得} \; \text{0} \\
 \text{挖去半径} \; \epsilon \; \text{小圆后由格林} \; \Rightarrow \; \text{等于小圆积分} \; = 2\pi \\
 \text{(3)} \; \text{高斯：} \; \oiint _{S} x dydz+y dzdx+z dxdy= \iiint _\Omega 3 dV \; \text{，单位球} \; \Rightarrow 3 \cdot\left(\frac{4\pi}{3}\right)=4\pi \\
@@ -1361,7 +1361,7 @@ $$I_{n}=[- \sin^{n- 1}x \cos x]_{0}^{\frac{\pi}{2}}+(n- 1) \int_{0}^{\frac{\pi}{
 $$=(n- 1) \int \sin^{n- 2}x(1- \sin^{2}x)dx=(n- 1)(I_{n-2}- I_{n})$$
 
 ⇒ $n I_{n}=(n- 1)I_{n-2}$ ⇒ $I_{n}= \frac{n- 1}{n} \cdot I_{n-2}$。
-由 $I_{0}=\frac{\pi}{2}$、$I_{1}=1$ 递推得偶/奇两套结果；令 `n=2` 得 $I_{2}= \frac{1}{2} \frac{\cdot \pi}{2}= \frac{\pi}{4}$ ✓。
+由 $I_{0}=\frac{\pi}{2}$、$I_{1}=1$ 递推得偶/奇两套结果；令 `n=2` 得 $I_{2}= \dfrac{1}{2}\cdot\dfrac{\pi}{2}= \dfrac{\pi}{4}$ ✓。
 
 ### 推 2 · 泊松积分与 $\Gamma\left(\frac{1}{2}\right)$
 
@@ -1453,7 +1453,7 @@ $$
 \text{(2)} \; \text{求导：} \; f'(x)= e^{x}+ \int_{0}^{x} f(t)dt+ x f(x)- x f(x)= e^{x}+ \int_{0}^{x} f(t)dt \\
 \text{(3)} \; \text{再求导：} \; f''(x)= e^{x}+ f(x) \Rightarrow f''- f= e^{x} \\
 \text{(4)} \; \text{特征方程} \; r^{2}- 1=0 \Rightarrow \; \text{齐次解} \; C_{1}e^{x}+C_{2}e^{- x} \\
-\lambda=1 \; \text{是单特征根} \; \Rightarrow \; \text{设特解} \; y*=A x e^{x} \; \text{，代入} \; (- A \cdot ?) \; \text{计算：} \\
+\lambda=1 \; \text{是单特征根} \; \Rightarrow \; \text{设特解} \; y*=A x e^{x} \; \text{，代入方程} \; y*''- y*= e^{x} \; \text{计算：} \\
 y*'=A(1+x)e^{x}, y*''=A(2+x)e^{x} \Rightarrow y*''- y*= 2A e^{x}= e^{x} \Rightarrow A=\frac{1}{2} \\
 (5) f(x)= C_{1}e^{x}+ C_{2}e^{- x}+ \frac{1}{2} x e^{x} \\
 \text{(6)} \; \text{由原式} \; f(0)=e^{0}=1 \; \text{；由} \; (2) f'(0)=e^{0}+0=1 \\
@@ -1470,7 +1470,7 @@ $$
 
 $$
 \begin{gathered}
-\text{(1) I2 = (积分 0 到无穷 e(−x2)dx)(积分 0 到无穷 e(−y2)dy) = 二重积分\_{} \; \text{第一象限} \; \text{} e(−(x2+y2))dxdy} \\
+\text{(1)} \; I^{2}=\left(\int_{0}^{\infty}e^{-x^{2}}dx\right)\left(\int_{0}^{\infty}e^{-y^{2}}dy\right)=\iint_{\text{第一象限}}e^{-(x^{2}+y^{2})}\,dxdy \\
 \text{(2)} \; \text{化极坐标：} \; x=r \cos \theta, y=r \sin \theta, dxdy= r dr d\theta \; \text{，} \; \theta \text{∈[0,}\pi \text{/2], r∈[0,∞)} \\
 (3) I^{2}= \int_{0}^{\frac{\pi}{2}}d\theta \int_{0}^\infty e^{- r^{2}} r dr=\left(\frac{\pi}{2}\right) \cdot[- \frac{1}{2} e^{- r^{2}}]_{0}^\infty=\left(\frac{\pi}{2}\right)\left(\frac{1}{2}\right)= \frac{\pi}{4} \\
 (4) I= \frac{\sqrt{\pi}}{2} \approx 0.886227 \; \text{（取正根）}
@@ -1537,7 +1537,7 @@ $$
 \text{(2)} \; \text{代入：} \; \sum_{n=1}^\infty n a_{n} x^{n- 1}= \sum_{n=0}^\infty a_{n} x^{n} \\
 \text{比较} \; x^{k} \; \text{系数：} \; (k+1)a_{k+1}= a_{k} \Rightarrow a_{k+1}= \frac{a_{k}}{k+1} \\
 \text{(3)} \; \text{由} \; a_{0}= y(0)=1 \Rightarrow a_{n}= \frac{1}{n}! \\
-(4) y= \sum \frac{x^{n}}{n}!= e^{x} \; \text{，收敛半径} \; R= \infty \; \text{（比值} \; |\frac{a_{n}}{a_{n+1}}|= n+1 \to_{\infty} \; \text{）}
+(4) y= \sum \frac{x^{n}}{n}!= e^{x} \; \text{，收敛半径} \; R= \infty \; \text{（比值} \; |\frac{a_{n}}{a_{n+1}}|= n+1 \to \infty \; \text{）}
 \end{gathered}
 $$
 **意义**：把微分方程化为系数的递推关系；教材第十二章「微分方程的幂级数解法」即此，也是非初等函数（贝塞尔、勒让德）的定义方式。
@@ -1672,8 +1672,8 @@ $$
 
 | 项目 | 公式 |
 | --- | --- |
-| 两个重要极限 | $\lim_{x \to 0} \sin \frac{x}{x}= 1$；$\lim_{x \to_{\infty}}\left(1+\frac{1}{x}\right)^{x}= e$ |
-| $1^\infty$ 速算 | $\lim f^g= e^{\lim g(f- 1)}$（$f \to 1, g \to_{\infty}$） |
+| 两个重要极限 | $\lim_{x \to 0} \dfrac{\sin x}{x}= 1$；$\lim_{x \to \infty}\left(1+\frac{1}{x}\right)^{x}= e$ |
+| $1^\infty$ 速算 | $\lim f^g= e^{\lim g(f- 1)}$（$f \to 1, g \to \infty$） |
 | 等价无穷小 | $\sin x \sim \tan x \sim \arcsin x \sim \ln(1+x) \sim e^{x}- 1 \sim x$；$1-\cos x \sim \frac{x^{2}}{2}$；$(1+x)^\alpha- 1 \sim \alpha x$；$x-\sin x \sim \frac{x^{3}}{6}$ |
 | 五个麦克劳林 | $e^{x}=\sum\frac{x^{n}}{n!}$；$\sin x=\sum\frac{(-1)^{n}x^{2n+1}}{(2n+1)!}$；$\cos x=\sum\frac{(-1)^{n}x^{2n}}{(2n)!}$；$\ln(1+x)=\sum\frac{(-1)^{n-1}x^{n}}{n}$；$(1+x)^\alpha=1+\alpha x+\frac{\alpha(\alpha- 1)x^{2}}{2}+ \cdots$ |
 | 泰勒余项 | 佩亚诺 $o((x- x_{0})^{n})$；拉格朗日 $\frac{f^{(n+1)}(\xi)(x- x_{0})^{n+1}}{n+1}!$ |
@@ -1686,33 +1686,33 @@ $$
 | --- | --- |
 | 定义 | $f'(x_{0})=\lim \frac{f(x_{0}+\Delta x)- f(x_{0})}{\Delta x}$；`dy=f′(x)dx` |
 | 四则 | `(uv)′=u′v+uv′`；$\left(\frac{u}{v}\right)'=\frac{u'v- uv'}{v^{2}}$ |
-| 链式 / 反函数 | $\frac{dy}{dx}=f'(u)g'(x)$；$\frac{dx}{dy}=\frac{1}{y}'$ |
+| 链式 / 反函数 | $\frac{dy}{dx}=f'(u)g'(x)$；$\dfrac{dx}{dy}=\dfrac{1}{y'}$ |
 | 隐函数 / 参数 | $\frac{dy}{dx}=- \frac{F_{x}}{F_{y}}$；$\frac{dy}{dx}=\frac{\dot{y}}{\dot{x}}$，$\frac{d^{2}y}{dx^{2}}=\frac{\frac{d}{dt\left(\frac{dy}{dx}\right)}}{\dot{x}}$ |
 | 对数求导 | $y=x^{x} \Rightarrow y'=x^{x}(\ln x+1)$ |
 | 莱布尼茨 | $(uv)^{(n)}=\sum C(n,k)u^{(k)}v^{(n-k)}$ |
-| 常用 n 阶 | $(\sin x)^{(n)}=\sin\left(x+\frac{n\pi}{2}\right)$；$\left(\frac{1}{x+a}\right)^{(n)}=(- 1)^{n}n!(x+a)^{n+1}$ |
+| 常用 n 阶 | $(\sin x)^{(n)}=\sin\left(x+\frac{n\pi}{2}\right)$；$\left(\dfrac{1}{x+a}\right)^{(n)}=\dfrac{(-1)^{n}\,n!}{(x+a)^{n+1}}$ |
 
 ### A.3 中值定理与导数应用（第 3 章）
 
 | 项目 | 公式 |
 | --- | --- |
-| 罗尔 / 拉格朗日 / 柯西 | $f'(\xi)=0$；$f(b)- f(a)=f'(\xi)(b- a)$；$\frac{f(b)- f(a)}{g(b)- g(a)}=f'\frac{\xi}{g}'(\xi)$ |
-| 洛必达 | $\lim \frac{f}{g}= \lim f' g'$（须验证四前提） |
+| 罗尔 / 拉格朗日 / 柯西 | $f'(\xi)=0$；$f(b)- f(a)=f'(\xi)(b- a)$；$\dfrac{f(b)- f(a)}{g(b)- g(a)}=\dfrac{f'(\xi)}{g'(\xi)}$ |
+| 洛必达 | $\lim \dfrac{f}{g}=\lim \dfrac{f'}{g'}$（须验证四前提） |
 | 单调 / 凹凸 | `f′>0` 增；`f″>0` 凹（∪） |
 | 极值充分 | $f'(x_{0})=0, f''(x_{0})<0$ 极大、`>0` 极小 |
 | 渐近线 | 水平 `y=A`；铅直 $x=x_{0}$；斜 $a=\lim \frac{f}{x}, b=\lim(f- ax)$ |
-| 曲率 | $\kappa=\vert y''\vert (1+y'^{2})^{\frac{3}{2}}$，$\rho=\frac{1}{\kappa}$ |
+| 曲率 | $\kappa=\dfrac{\vert y''\vert}{(1+y'^{2})^{\frac{3}{2}}}$，$\rho=\frac{1}{\kappa}$ |
 
 ### A.4 积分（第 4–6 章）
 
 | 项目 | 公式 |
 | --- | --- |
-| 基本 | $\int x^a dx=\frac{x^{a+1}}{a+1}+C(a=- 1)$；$\int\dfrac{dx}{x}=\ln\lvert x\rvert+C$；$\frac{\int dx}{a^{2}+x^{2}}=\left(\frac{1}{a}\right)\arctan\left(\frac{x}{a}\right)+C$ |
+| 基本 | $\int x^{a}\,dx=\dfrac{x^{a+1}}{a+1}+C\ (a\ne -1)$；$\int\dfrac{dx}{x}=\ln\lvert x\rvert+C$；$\frac{\int dx}{a^{2}+x^{2}}=\left(\frac{1}{a}\right)\arctan\left(\frac{x}{a}\right)+C$ |
 | 三类方法 | 第一换元 $\int f(\phi)\phi 'dx= \int f(u)du$；第二换元 $x=\psi(t)$；分部 $\int u dv=uv- \int v du$ |
 | 微积分基本定理 | $\Phi(x)= \int_{a}^{x}f(t)dt \Rightarrow \Phi '=f$；$\int_{a}^{b}f dx=F(b)- F(a)$ |
 | 变限求导 | $\frac{d}{dx} \int_{\alpha(x)}^{\beta(x)}f= f(\beta)\beta '- f(\alpha)\alpha '$ |
 | 区间再现 | $\int_{a}^{b}f(x)dx= \int_{a}^{b}f(a+b- x)dx$；$\int_{0}^\pi x f(\sin x)dx=\left(\frac{\pi}{2}\right) \int_{0}^\pi f(\sin x)dx$ |
-| 华里士 | $I_{n}= \int_{0}^{\frac{\pi}{2}}\sin^{n}x dx$，$I_{n}=\frac{n- 1}{n \cdot I_{n-2}}$；偶 $(n- 1)!! n!! \frac{\cdot \pi}{2}$，奇 $(n- 1)!! n!!$ |
+| 华里士 | $I_{n}= \int_{0}^{\frac{\pi}{2}}\sin^{n}x dx$，$I_{n}=\dfrac{n-1}{n}\,I_{n-2}$；偶 $\dfrac{(n-1)!!}{n!!}\cdot\dfrac{\pi}{2}$，奇 $\dfrac{(n-1)!!}{n!!}$ |
 | 反常积分 | $\int_{1}^\infty x^{- p}$ 收敛 ⇔ `p>1`；$\int_{0}^{1}x^{- p}$ 收敛 ⇔ `p<1`；$\int_{0}^\infty e^{- x^{2}}dx=\frac{\sqrt{\pi}}{2}$ |
 | 微元法应用 | 面积 $\int\vert f- g\vert dx$；极坐标 $\frac{1}{2} \int r^{2}d\theta$；体积 $\pi \int f^{2}dx$（绕 x）、$2\pi \int x f dx$（绕 y）；弧长 $\int \sqrt{1+y'^{2}}dx$；功 $\int F dx$ |
 

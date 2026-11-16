@@ -119,7 +119,7 @@ summary: "宏观经济学 11 章精读笔记：以马工程版知识框架为主
 
 | 部门 | 注入 = 漏出 |
 | --- | --- |
-| 两部门 | <img class="fml" src="/formulas/c6dd3526d2c000.png" alt="I = S" width="51" height="33">|
+| 两部门 | <img class="fml" src="/formulas/c6dd3526d2c000.png" alt="I = S" width="52" height="33">|
 | 三部门 | <img class="fml" src="/formulas/322694cc1d1226.png" alt="I + G = S + T" width="123" height="33">（T 为**净税收** = 税收 − 转移支付） |
 | 四部门 | <img class="fml" src="/formulas/97bd8b376d7121.png" alt="I + G + X = S + T + M" width="201" height="33">|
 
@@ -158,7 +158,7 @@ summary: "宏观经济学 11 章精读笔记：以马工程版知识框架为主
 - GDP 是**国土原则**、GNI/GNP 是**国民原则**；「所有居民」的说法用于 GDP 是错的。
 - 政府购买 G **不含**转移支付与公债利息。
 - 名义 GDP 变动未必是产量变动；实际 GDP 只反映产量变动。
-- 事后恒等式 <img class="fml" src="/formulas/c6dd3526d2c000.png" alt="I = S" width="51" height="33">恒成立；**均衡条件**是「计划投资 = 计划储蓄」，二者不是一回事。
+- 事后恒等式 <img class="fml" src="/formulas/c6dd3526d2c000.png" alt="I = S" width="52" height="33">恒成立；**均衡条件**是「计划投资 = 计划储蓄」，二者不是一回事。
 
 ---
 
@@ -174,9 +174,9 @@ summary: "宏观经济学 11 章精读笔记：以马工程版知识框架为主
 | --- | --- | --- |
 | AE > Y | 存货**意外减少** | 扩大生产 → Y 上升 |
 | AE < Y | 存货**意外增加** | 缩减生产 → Y 下降 |
-| <img class="fml" src="/formulas/fdddd91d25c32f.png" alt="AE = Y" width="72" height="33">| 不变 | 达到均衡 |
+| <img class="fml" src="/formulas/fdddd91d25c32f.png" alt="AE = Y" width="73" height="33">| 不变 | 达到均衡 |
 
-在 **Y–AE 图**中，45 度线表示 <img class="fml" src="/formulas/c39ed394cdb543.png" alt="Y = AE" width="72" height="33">；AE 线（斜率为 MPC）与 45 度线的交点即均衡产出。
+在 **Y–AE 图**中，45 度线表示 <img class="fml" src="/formulas/c39ed394cdb543.png" alt="Y = AE" width="73" height="33">；AE 线（斜率为 MPC）与 45 度线的交点即均衡产出。
 
 - **紧缩性缺口**：均衡产出低于充分就业产出，需扩张需求；
 - **膨胀性缺口**：均衡产出高于充分就业产出（在既定价格下表现为需求过旺），需紧缩需求。
@@ -223,7 +223,7 @@ summary: "宏观经济学 11 章精读笔记：以马工程版知识框架为主
 | --- | --- | --- |
 | 两部门 | <img class="fml" src="/formulas/ee1e1b8000763a.png" alt="Y = C + I" width="90" height="33">| <img class="fml" src="/formulas/6257838ef03cd3.png" alt="Y= \frac{a+ I_{0}}{1- b}" width="77" height="34"> |
 | 三部门 | <img class="fml" src="/formulas/8f12a58aba8532.png" alt="Y = C + I + G" width="126" height="33">，<img class="fml" src="/formulas/a8e8ef10742651.png" alt="T= T_{0}+ tY" width="104" height="34"> | <img class="fml" src="/formulas/40bec77ad0d7e3.png" alt="Y= \frac{a+ I_{0}+ G_{0}- bT_{0}+ bTR_{0}}{1- b(1- t)}" width="168" height="36"> |
-| 四部门 | <img class="fml" src="/formulas/f16dcebdf8e576.png" alt="Y = C + I + G + NX" width="180" height="33">，<img class="fml" src="/formulas/84052b268bb415.png" alt="M= M_{0}+ mY" width="126" height="34"> | 分母再加 m：<img class="fml" src="/formulas/804dc4db595ed9.png" alt="Y= \frac{\cdots}{1- b(1- t)+ m}" width="122" height="36"> |
+| 四部门 | <img class="fml" src="/formulas/f16dcebdf8e576.png" alt="Y = C + I + G + NX" width="180" height="33">，<img class="fml" src="/formulas/84052b268bb415.png" alt="M= M_{0}+ mY" width="126" height="34"> | 分母再加 m：<img class="fml" src="/formulas/0cae2c7ddeb06d.png" alt="Y= \dfrac{a- bT_{0}+ bTR_{0}+ I_{0}+ G_{0}+ X_{0}- M_{0}}{1- b(1- t)+ m}" width="338" height="49"> |
 
 > 分母里的每一項（储蓄、税收、进口）都是**漏出**，漏出越多，均衡收入越小、乘数越小。
 
@@ -266,7 +266,7 @@ summary: "宏观经济学 11 章精读笔记：以马工程版知识框架为主
 
 ### 4.1 产品市场均衡与 IS 曲线
 
-**IS 曲线**：使产品市场均衡（<img class="fml" src="/formulas/c6dd3526d2c000.png" alt="I = S" width="51" height="33">）的所有利率 r 与收入 Y 的组合。
+**IS 曲线**：使产品市场均衡（<img class="fml" src="/formulas/c6dd3526d2c000.png" alt="I = S" width="52" height="33">）的所有利率 r 与收入 Y 的组合。
 
 以两部门、<img class="fml" src="/formulas/26ecbfeaa7ff18.png" alt="I= I_{0}- d \cdot r" width="107" height="34"> 为例：
 
@@ -454,7 +454,7 @@ M ↑ → LM 右移 → r ↓ → I ↑ → Y ↑。**传导链**：M ↑ → r 
 
 | 理论 | 核心 |
 | --- | --- |
-| 货币数量论（弗里德曼） | 通胀永远是货币现象：<img class="fml" src="/formulas/1a768bdd69a925.png" alt="MV = PY" width="92" height="33">，M 增长快于实际产出则 P 上升 |
+| 货币数量论（弗里德曼） | 通胀永远是货币现象：<img class="fml" src="/formulas/1a768bdd69a925.png" alt="MV = PY" width="93" height="33">，M 增长快于实际产出则 P 上升 |
 | 需求拉动 | AD 持续右移，「过多货币追逐过少商品」 |
 | 成本推动 | 要素涨价 → AS 左移 → **工资—价格螺旋** |
 | 结构性 | 部门生产率不同但工资攀比趋同 |
@@ -507,7 +507,7 @@ M ↑ → LM 右移 → r ↓ → I ↑ → Y ↑。**传导链**：M ↑ → r 
 
 **增长核算方程**：<img class="fml" src="/formulas/1dccfc63eed516.png" alt="\frac{\Delta Y}{Y}= \frac{\Delta A}{A}+ \alpha \cdot\left(\frac{\Delta K}{K}\right)+ \beta \cdot\left(\frac{\Delta L}{L}\right)" width="254" height="34">（α、β 为资本与劳动的产出弹性，规模报酬不变时 <img class="fml" src="/formulas/b7cde121f961c1.png" alt="\alpha+ \beta= 1" width="84" height="34">）
 
-**索洛剩余（全要素生产率 TFP）**：<img class="fml" src="/formulas/79e828061d937b.png" alt="\frac{\Delta A}{A}= \frac{\Delta Y}{Y}- \alpha \frac{\cdot \Delta K}{K}- \beta \frac{\cdot \Delta L}{L}" width="202" height="34">，即产出增长中无法由要素投入解释的部分，主要来自技术进步，是**长期人均收入增长最重要的源泉**。
+**索洛剩余（全要素生产率 TFP）**：<img class="fml" src="/formulas/3ff32e1038e949.png" alt="\dfrac{\Delta A}{A}= \dfrac{\Delta Y}{Y}-\alpha\dfrac{\Delta K}{K}-\beta\dfrac{\Delta L}{L}" width="229" height="45">，即产出增长中无法由要素投入解释的部分，主要来自技术进步，是**长期人均收入增长最重要的源泉**。
 
 三个直接源泉：劳动投入（数量 + 人力资本质量）、资本积累、技术进步（TFP）。
 
@@ -519,11 +519,11 @@ M ↑ → LM 右移 → r ↓ → I ↑ → Y ↑。**传导链**：M ↑ → r 
 | 有保证的增长率 G_W | s / v_r（v_r 为企业合意的资本—产出比） |
 | 自然增长率 G_N | n + g（劳动力增长率 + 技术进步率） |
 
-长期稳定增长要求 **<img class="fml" src="/formulas/c78bd27da9703e.png" alt="G_A = G_W" width="83" height="33">= G_N**，条件极其苛刻，称「**刀刃上的均衡**」。弱点：资本—产出比固定、劳动与资本不可替代。
+长期稳定增长要求 **<img class="fml" src="/formulas/c78bd27da9703e.png" alt="G_A = G_W" width="84" height="33">= G_N**，条件极其苛刻，称「**刀刃上的均衡**」。弱点：资本—产出比固定、劳动与资本不可替代。
 
 ### 7.4 索洛—斯旺模型（★ 核心模型）
 
-**假设**：规模报酬不变、资本边际产出递减、<img class="fml" src="/formulas/c6dd3526d2c000.png" alt="I = S" width="51" height="33">= sY、人口以外生速率 n 增长、折旧率 δ。
+**假设**：规模报酬不变、资本边际产出递减、<img class="fml" src="/formulas/c6dd3526d2c000.png" alt="I = S" width="52" height="33">= sY、人口以外生速率 n 增长、折旧率 δ。
 
 **资本积累方程（人均形式）**：
 
@@ -560,7 +560,7 @@ M ↑ → LM 右移 → r ↓ → I ↑ → Y ↑。**传导链**：M ↑ → r 
 
 | 模型 | 核心 |
 | --- | --- |
-| **AK 模型** | <img class="fml" src="/formulas/3158f0583852d6.png" alt="Y = AK" width="74" height="33">，资本边际产出**不变**（无递减），<img class="fml" src="/formulas/7288b19cc0ac23.png" alt="\frac{\Delta k}{k}= sA-(n+ \delta)" width="151" height="34">，**无稳态**，增长可永久持续；政策能永久改变长期增长率 |
+| **AK 模型** | <img class="fml" src="/formulas/3158f0583852d6.png" alt="Y = AK" width="75" height="33">，资本边际产出**不变**（无递减），<img class="fml" src="/formulas/7288b19cc0ac23.png" alt="\frac{\Delta k}{k}= sA-(n+ \delta)" width="151" height="34">，**无稳态**，增长可永久持续；政策能永久改变长期增长率 |
 | 罗默（知识外溢 / 研发） | 知识是非竞争性投入，研发有正外部性 → 市场投入不足 → 需专利保护与研发补贴 |
 | 卢卡斯（人力资本） | 人力资本积累是增长核心，具有正外部性 → 政府应补贴教育 |
 
@@ -672,7 +672,7 @@ M ↑ → LM 右移 → r ↓ → I ↑ → Y ↑。**传导链**：M ↑ → r 
 | 汇率 | M ↑ → 本币贬值 → NX ↑ → Y ↑ |
 | 预期 | 前瞻指引 → 长期利率预期变化 → 即期支出变化 |
 
-**规则 vs 相机抉择**：相机抉择灵活，但有**时间不一致**问题（宣布低通胀后又为刺激产出制造意外通胀）。**泰勒规则**：**<img class="fml" src="/formulas/0ecf8c9f731c5d.png" alt="i = r" width="45" height="33">\* + π + 0.5(π − π\*) + 0.5·(y − y\*)/y\***，名义利率系统性地对通胀偏离与产出缺口作出反应（资料中的 `i*` 应理解为**均衡实际利率 r\***，不是名义利率目标，此处已澄清）。另有通货膨胀目标制、麦卡勒姆规则、弗里德曼单一规则。
+**规则 vs 相机抉择**：相机抉择灵活，但有**时间不一致**问题（宣布低通胀后又为刺激产出制造意外通胀）。**泰勒规则**：**<img class="fml" src="/formulas/0ecf8c9f731c5d.png" alt="i = r" width="46" height="33">\* + π + 0.5(π − π\*) + 0.5·(y − y\*)/y\***，名义利率系统性地对通胀偏离与产出缺口作出反应（资料中的 `i*` 应理解为**均衡实际利率 r\***，不是名义利率目标，此处已澄清）。另有通货膨胀目标制、麦卡勒姆规则、弗里德曼单一规则。
 
 ### 9.4 政策配合
 
@@ -739,7 +739,7 @@ M ↑ → LM 右移 → r ↓ → I ↑ → Y ↑。**传导链**：M ↑ → r 
 | --- | --- |
 | 完全不流动 | **垂直**（只有收入变动才能调节贸易收支） |
 | 不完全流动 | 向右上方倾斜 |
-| **完全流动** | **水平线**，<img class="fml" src="/formulas/7c814c5b646c02.png" alt="r = r" width="47" height="33">\*（国内利率必须等于世界利率） |
+| **完全流动** | **水平线**，<img class="fml" src="/formulas/7c814c5b646c02.png" alt="r = r" width="48" height="33">\*（国内利率必须等于世界利率） |
 
 **资本完全流动下的政策效果（核心结论表）**：
 
@@ -788,12 +788,12 @@ M ↑ → LM 右移 → r ↓ → I ↑ → Y ↑。**传导链**：M ↑ → r 
 | IS 方程 | <img class="fml" src="/formulas/ea440c6424fa22.png" alt="r= \frac{a+ I_{0}}{d}-[\frac{1- b}{d}] \cdot Y" width="156" height="34"> |
 | LM 方程 | <img class="fml" src="/formulas/634cef4c14157b.png" alt="r=\left(\frac{k}{h}\right) \cdot Y-\left(\frac{1}{h}\right) \cdot\left(\frac{M}{P}\right)" width="192" height="33"> |
 | 货币供给 | M = 基础货币 B × 货币乘数 m |
-| 增长核算 | <img class="fml" src="/formulas/3cd9d4a860a06a.png" alt="\frac{\Delta Y}{Y}= \frac{\Delta A}{A}+ \alpha \frac{\cdot \Delta K}{K}+ \beta \frac{\cdot \Delta L}{L}" width="202" height="33"> |
+| 增长核算 | <img class="fml" src="/formulas/abab5d8786e4bd.png" alt="\dfrac{\Delta Y}{Y}= \dfrac{\Delta A}{A}+\alpha\dfrac{\Delta K}{K}+\beta\dfrac{\Delta L}{L}" width="229" height="45"> |
 | 索洛资本积累 | <img class="fml" src="/formulas/a1e2368074589c.png" alt="\Delta k= s \cdot f(k)-(n+ \delta)k" width="197" height="33">；稳态 s·f(k\*) = (n + δ)k\* |
 | 黄金律 | MPK = <img class="fml" src="/formulas/aeb8f470d9fcb7.png" alt="n+ \delta" width="49" height="33">（含技术进步 <img class="fml" src="/formulas/7515974aa5487d.png" alt="n+ g+ \delta" width="79" height="34">） |
 | 附加预期 PC | π = πᵉ − ε(u − u\*) |
 | 奥肯定律 | 失业率高于自然率 1 个百分点 → 实际 GDP 低于潜在 GDP 约 2~3 个百分点 |
-| 泰勒规则 | <img class="fml" src="/formulas/0ecf8c9f731c5d.png" alt="i = r" width="45" height="33">\* + π + 0.5(π − π\*) + 0.5·(y − y\*)/y\* |
+| 泰勒规则 | <img class="fml" src="/formulas/0ecf8c9f731c5d.png" alt="i = r" width="46" height="33">\* + π + 0.5(π − π\*) + 0.5·(y − y\*)/y\* |
 | 实际汇率 | <img class="fml" src="/formulas/a9bd04b0669ce4.png" alt="\epsilon= e \cdot P" width="73" height="33">\*/P（直接标价法） |
 | 马歇尔—勒纳条件 | \|<img class="fml" src="/formulas/f706296790970b.png" alt="\eta_{X}+ \eta_{M}" width="73" height="33">\| > 1 |
 
@@ -808,7 +808,7 @@ M ↑ → LM 右移 → r ↓ → I ↑ → Y ↑。**传导链**：M ↑ → r 
 | 短期 AS | 右上倾 | 不利供给冲击 → 左移 |
 | 短期 PC | 右下倾 | 预期通胀↑ / 不利供给冲击 → 右上移 |
 | 长期 PC | 垂直（u\*） | — |
-| BP（资本完全流动） | 水平（<img class="fml" src="/formulas/7c814c5b646c02.png" alt="r = r" width="47" height="33">\*） | — |
+| BP（资本完全流动） | 水平（<img class="fml" src="/formulas/7c814c5b646c02.png" alt="r = r" width="48" height="33">\*） | — |
 
 ### 11.3 政策效果一句话
 

@@ -283,7 +283,7 @@ $$w_{1}= 0- \frac{- 0.5}{0.25}= 2.0$$
 :::
 
 ::: danger 易错 · 二阶方法
-$H=X^{T}RX$ 半正定；当特征完全共线或数据线性可分（$\frac{\hat{y} \to 0}{1}$ 使 R→0）时 H 奇异，牛顿步会发散，须加阻尼/正则。逻辑回归**线性可分时 MLE 不存在有限解**（$\| w \| \to_{\infty}$），必须加正则化。
+$H=X^{T}RX$ 半正定；当特征完全共线或数据线性可分（$\hat y\to 0$ 或 $\hat y\to 1$ 使 $R\to 0$）时 H 奇异，牛顿步会发散，须加阻尼/正则。逻辑回归**线性可分时 MLE 不存在有限解**（$\| w \| \to \infty$），必须加正则化。
 :::
 
 ---
@@ -686,7 +686,7 @@ $$
 | --- | --- | --- |
 | 线性 | $k=x^{T}z$ | 特征多/样本大，不易过拟合、可解释 |
 | 多项式 | $k=(\gamma x^{T}z+c)^d$ | 显式控制交互阶数，d 大易过拟合 |
-| 高斯 RBF | $\exp\left(- \| x- z \| \frac{^{2}}{2\sigma^{2}}\right)$ | 无穷维、默认首选；$\gamma=\frac{1}{2\sigma^{2}}$ 越大边界越曲折 |
+| 高斯 RBF | $\exp\left(-\dfrac{\|x-z\|^{2}}{2\sigma^{2}}\right)$ | 无穷维、默认首选；$\gamma=\frac{1}{2\sigma^{2}}$ 越大边界越曲折 |
 | Sigmoid | $\tanh(\gamma x^{T}z+c)$ | 部分参数下非半正定，慎用 |
 
 ::: danger 易错 · 超参数与输出
@@ -707,7 +707,7 @@ SVM 本质是二分类器，多分类常用 **one-vs-rest / one-vs-one** 组合�
 $$
 \begin{gathered}
 \min_{w} \frac{1}{2} \| w \|^{2}+ C \sum_{i} \max(0, 1- y_{i}(w^{T}x_{i}+b))= \frac{1}{2} \| w \|^{2}+ C \sum_{i} L_{hinge}(y_{i}f_{i}) \\
-C \to_{\infty} \; \text{时逼近硬间隔；} \; \text{L2-SVM} \; \text{用} \; \max(0,1- yf)^{2} \; \text{得处处可导的目标}
+C \to \infty \; \text{时逼近硬间隔；} \; \text{L2-SVM} \; \text{用} \; \max(0,1- yf)^{2} \; \text{得处处可导的目标}
 \end{gathered}
 $$
 
@@ -820,7 +820,7 @@ $$H(D)=-\left(\frac{9}{14}\right)\log_{2}\left(\frac{9}{14}\right)-\left(\frac{5
 $$
 \begin{gathered}
 \text{AdaBoost} \; \text{第} \; \text{t} \; \text{轮：} \\
-\epsilon_{t}= \; \text{加权错误率；} \; \alpha_{t}= \frac{1}{2} \ln\left(\frac{1- \epsilon_{t}}{\epsilon}_{t}\right) \\
+\epsilon_{t}= \; \text{加权错误率；} \; \alpha_{t}= \frac{1}{2} \ln\left(\dfrac{1-\epsilon_{t}}{\epsilon_{t}}\right) \\
 w_{i} \leftarrow w_{i} \cdot \exp(- \alpha_{t} y_{i} h_{t}(x_{i})) \; \text{，再归一化} \\
 \text{GBDT} \; \text{：每一轮拟合当前损失函数的负梯度（伪残差），逐步加法建模}
 \end{gathered}
@@ -853,7 +853,7 @@ $$
 \text{(1)} \; \text{固定} \; \alpha \; \text{，最小化} \; \sum w_{i} \exp(- \alpha y_{i} h(x_{i})) \Rightarrow \; \text{等价于最小化加权分类误差} \; \epsilon_{t} \\
 \text{故} \; h_{t}= \; \text{加权错误率最小的弱分类器} \\
 \text{(2)} \; \text{固定} \; h_{t} \; \text{，对} \; \alpha \; \text{求导并令为} \; \text{0} \; \text{：} \\
--(1- \epsilon_{t})e^{- \alpha}+ \epsilon_{t} e^{\alpha}= 0 \Rightarrow \alpha_{t}= \frac{1}{2} \ln\left(\frac{1- \epsilon_{t}}{\epsilon}_{t}\right) \leftarrow \; \text{课件公式的来源} \\
+-(1- \epsilon_{t})e^{- \alpha}+ \epsilon_{t} e^{\alpha}= 0 \Rightarrow \alpha_{t}= \frac{1}{2} \ln\left(\dfrac{1-\epsilon_{t}}{\epsilon_{t}}\right) \leftarrow \; \text{课件公式的来源} \\
 \text{(3)} \; \text{代入} \; f_{t}= f_{t- 1}+ \alpha_{t}h_{t} \; \text{得权重更新} \\
 w_{i} \leftarrow w_{i} \exp(- \alpha_{t} y_{i} h_{t}(x_{i})) \; \text{，再归一化} \; \leftarrow \; \text{错分样本权重升高}
 \end{gathered}
@@ -864,7 +864,7 @@ $$
 ::: tip 工作例题 · 权重公式自检
 $\epsilon_{t}=0.3$ → $\alpha_{t}= \frac{1}{2} \ln\left(\frac{0.7}{0.3}\right) \approx 0.4236$；
 错分样本 $y_{i}h_{t}=- 1$ → 乘 $e^{+0.4236} \approx 1.5275$；正确样本乘 $e^{- 0.4236} \approx 0.6547$。
-当 $\epsilon_{t} \to 0$ 时 $\alpha_{t} \to_{\infty}$（完美分类器权重极大）；$\epsilon_{t}=0.5$ 时 $\alpha_{t}=0$（等同随机）；$\epsilon_{t}>0.5$ 时 $\alpha_{t}<0$ 应停止训练或取反。
+当 $\epsilon_{t} \to 0$ 时 $\alpha_{t} \to \infty$（完美分类器权重极大）；$\epsilon_{t}=0.5$ 时 $\alpha_{t}=0$（等同随机）；$\epsilon_{t}>0.5$ 时 $\alpha_{t}<0$ 应停止训练或取反。
 :::
 
 ::: danger 易错 · Boosting 推导
@@ -1070,13 +1070,13 @@ $$
 
 $$
 \begin{gathered}
-Attention(Q,K,V)= softmax\left(\frac{QK^{T}}{\sqrt{d}_{k}}\right) \cdot V \\
+Attention(Q,K,V)= softmax\left(\frac{QK^{T}}{\sqrt{d_{k}}}\right) \cdot V \\
 \text{多头：把} \; \text{Q/K/V} \; \text{投影到} \; \text{h} \; \text{个子空间并行计算，拼接后再线性变换} \\
 \text{Transformer} \; \text{块} \; \text{=} \; \text{多头自注意力} \; \text{+ FFN} \; \text{，各带残差连接与} \; \text{LayerNorm} \; \text{（} \; Repeat \times L \; \text{）}
 \end{gathered}
 $$
 
-除以 $\sqrt{d}_{k}$ 的原因：维度高时点积方差变大，softmax 会进入梯度极小的饱和区。
+除以 $\sqrt{d_{k}}$ 的原因：维度高时点积方差变大，softmax 会进入梯度极小的饱和区。
 
 ::: danger 易错 · 注意力
 - 编码器用**双向**自注意力；解码器必须加**因果掩码**防止「看到未来词」，否则训练时泄露答案。
@@ -1108,7 +1108,7 @@ $$
 \text{一个编码器块的完整维度流（} \; \text{n=} \; \text{序列长，} \; \text{d=d\_model} \; \text{，} \; \text{h=} \; \text{头数，} \; d_{k}=d_{v}=\frac{d}{h} \; \text{）：} \\
 X \in R^{n \times d} \\
 \to Q=XW_{Q} \in R^{n \times d}, K=XW_{K}, V=XW_{V} \; \text{（投影矩阵} \; d \times d \; \text{）} \\
-\to \; \text{每个头：} \; A_{i}= softmax\left(\frac{Q_{i}K_{i}^{T}}{\sqrt{d}_{k}}\right) \in R^{n \times n} \; \text{；} \; head_{i}= A_{i} V_{i} \in R^{n \times d_{k}} \\
+\to \; \text{每个头：} \; A_{i}= softmax\left(\frac{Q_{i}K_{i}^{T}}{\sqrt{d_{k}}}\right) \in R^{n \times n} \; \text{；} \; head_{i}= A_{i} V_{i} \in R^{n \times d_{k}} \\
 \to MultiHead= Concat(head_1, \cdots,head_{h}) W^O \in R^{n \times d} \\
 \to \; \text{残差} \; \text{+ LayerNorm → FFN: d → d\_ff(} \; \text{常取} \; \text{4d) → d} \; \text{，再残差} \; \text{+ LayerNorm} \\
 \text{参数量} \; \approx 4d^{2} \; \text{（} \; \text{QKV +} \; \text{输出投影）} \; + 2 \cdot d \cdot d_{ff} \; \text{（} \; \text{FFN} \; \text{）} \; \approx 12d^{2} \; \text{（} \; \text{d\_ff=4d} \; \text{时）}
@@ -1910,7 +1910,7 @@ $Gini(D_{1})=0.2188$、$Gini(D_{2})=0.4444$ → **Gini_index=0.3155**；
 
 **解**：
 ① 卷积 $⌊\frac{32- 5}{1}⌋+1=28$ → $28 \times 28 \times 6$，参数 $5 \times 5 \times 1 \times 6+6=156$；池化 $⌊\frac{28- 2}{2}⌋+1=14$ → $14 \times 14 \times 6$（无可训练参数）。
-② 因对分数矩阵逐行做 softmax，权重非负且归一；输出是 V 各行的加权平均（例题结果 `[[3.0,4.0],[3.4067,4.4067],[3.5105,4.5105]]`）。除以 $\sqrt{d}_{k}$ 是为防止高维点积把 softmax 推入饱和区。
+② 因对分数矩阵逐行做 softmax，权重非负且归一；输出是 V 各行的加权平均（例题结果 `[[3.0,4.0],[3.4067,4.4067],[3.5105,4.5105]]`）。除以 $\sqrt{d_{k}}$ 是为防止高维点积把 softmax 推入饱和区。
 
 ### 综 8 强化学习与生成模型辨析（第 11–12 章）
 
@@ -2078,7 +2078,7 @@ $\frac{p_{data}}{D}- \frac{p_{g}}{1- D}=0$ → $D*(x)=\frac{p_{data}}{p_{data}+p
 
 $$x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 \approx 1.9679$$
 
-ᾱt 递减说明信号逐渐被噪声淹没，$t \to_{\infty}$ 时分布趋于 `N(0,I)`。
+ᾱt 递减说明信号逐渐被噪声淹没，$t \to \infty$ 时分布趋于 `N(0,I)`。
 ② $\log|\det J|=\sum s=0.4$，$|\det J|=e^{0.4} \approx 1.4918$。
 因 Jacobian 是三角阵，行列式等于对角元素之积，**无需 O(d³) 的一般行列式计算**；逆变换也是解析的（$x_{2}=(y_{2}- t(y_{1}))⊙\exp(- s(y_{1}))$），故采样与密度估计都高效。
 
@@ -2086,12 +2086,12 @@ $$x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 
 
 **题**：分别写出下列三条结论的推导要点：
 ① 逻辑回归的交叉熵来自哪里？牛顿法一步如何算？
-② AdaBoost 的 $\alpha_{t}= \frac{1}{2} \ln\left(\frac{1- \epsilon_{t}}{\epsilon}_{t}\right)$ 从何而来？
+② AdaBoost 的 $\alpha_{t}= \frac{1}{2} \ln\left(\dfrac{1-\epsilon_{t}}{\epsilon_{t}}\right)$ 从何而来？
 ③ 为什么说「PCA 最大化投影方差」与「PCA 最小化重构误差」是同一问题？
 
 **解**：
 ① 交叉熵是 Bernoulli 似然的负对数：$- \log[\hat{y}^y(1- \hat{y})^{1- y}]$。$\nabla L=X^{T}(\hat{y}- y)$、$H=X^{T}RX$（$R=diag(\hat{y}(1- \hat{y}))$），牛顿步 $w \leftarrow w- H^{-1} \nabla L$。单样本 $x=1,y=1,w_{0}=0$：`ŷ=0.5`、$\nabla L=- 0.5$、`H=0.25` → $w_{1}=2.0$。
-② AdaBoost 是**指数损失 $\exp(- yf)$ 上的前向分步加法模型**：固定 $f_{t- 1}$ 后，样本权重 $w_{i}=\exp(- y_{i}f_{t- 1})$；先解出使加权误差最小的 $h_{t}$，再对 $\alpha$ 求导令零得 $-(1- \epsilon)e^{- \alpha}+\epsilon e^{\alpha}=0$ → $\alpha_{t}= \frac{1}{2} \ln\left(\frac{1- \epsilon_{t}}{\epsilon}_{t}\right)$。指数损失对错分样本惩罚随 `e^{|f|}` 增长，故 AdaBoost 对噪声敏感。
+② AdaBoost 是**指数损失 $\exp(- yf)$ 上的前向分步加法模型**：固定 $f_{t- 1}$ 后，样本权重 $w_{i}=\exp(- y_{i}f_{t- 1})$；先解出使加权误差最小的 $h_{t}$，再对 $\alpha$ 求导令零得 $-(1- \epsilon)e^{- \alpha}+\epsilon e^{\alpha}=0$ → $\alpha_{t}= \frac{1}{2} \ln\left(\dfrac{1-\epsilon_{t}}{\epsilon_{t}}\right)$。指数损失对错分样本惩罚随 `e^{|f|}` 增长，故 AdaBoost 对噪声敏感。
 ③ 最大化 $w^{T}Sw$（$\| w \|=1$）由拉格朗日条件得 $Sw=\lambda w$，取最大特征值；最小化 $\| X- Xww^{T} \|^{2}_{F}= tr(S)- w^{T}Sw$ 也是最大化 $w^{T}Sw$。二者都归结为协方差矩阵的前 m 个特征向量，最小重构误差为 $\sum_{j>m}\lambda_{j}$。
 
 ::: tip 答题要点
@@ -2203,12 +2203,12 @@ $$x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 
 | --- | --- |
 | 核条件 | Gram 矩阵对称半正定（Mercer） |
 | 多项式核 | $(1+x^{T}z)^{2} \to \phi(x)$ 六维展开；一般 $(\gamma x^{T}z+c)^d$ |
-| RBF 核 | $\exp\left(- \| x- z \| \frac{^{2}}{2\sigma^{2}}\right)$ |
+| RBF 核 | $\exp\left(-\dfrac{\|x-z\|^{2}}{2\sigma^{2}}\right)$ |
 | SVM 原/对偶 | $\min \frac{1}{2} \| w \|^{2}+C\sum \xi$；$\max \sum \alpha_{i}- \frac{1}{2} \sum \alpha_{i}\alpha_{j}y_{i}y_{j}k(x_{i},x_{j})$ |
 | 间隔 | $\gamma=\frac{2}{\|w\|}$ |
 | 熵 / 增益 | $H=- \sum p \log_{2}p$；$G=H(D)- H(D\vert A)$（取最大） |
 | 增益率 / 基尼 | $GR=\frac{G}{SplitInfo}$；$Gini=1- \sum p^{2}$（取最小） |
-| AdaBoost | $\alpha_{t}= \frac{1}{2} \ln\left(\frac{1- \epsilon_{t}}{\epsilon}_{t}\right)$；$w_{i} \leftarrow w_{i}e^{- \alpha_{t}y_{i}h_{t}}$ |
+| AdaBoost | $\alpha_{t}= \frac{1}{2} \ln\left(\dfrac{1-\epsilon_{t}}{\epsilon_{t}}\right)$；$w_{i} \leftarrow w_{i}e^{- \alpha_{t}y_{i}h_{t}}$ |
 | XGBoost | $w*=- \frac{G}{H+\lambda}$；$Gain= \frac{1}{2}[\frac{G_{L}^{2}}{H_{L}+\lambda}+\frac{G_{R}^{2}}{H_{R}+\lambda}- \frac{G^{2}}{H+\lambda}]- \gamma$ |
 
 ### A.5 神经网络与深度学习
@@ -2221,7 +2221,7 @@ $$x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 
 | ReLU / softmax | `max(0,z)` / $\frac{\exp(a_{k})}{\sum \exp}(a_{j})$ |
 | CNN 尺寸 | $⌊\frac{H- K+2P}{S}⌋+1$；参数 $K^{2}C_{in}C_{out}+C_{out}$ |
 | RNN / LSTM | $h_{t}=\phi(W_{xh} x_{t}+W_{hh} h_{t-1}+b)$；$c_{t}=f⊙c_{t-1}+i⊙g$ |
-| 注意力 | $softmax\left(\frac{QK^{T}}{\sqrt{d}_{k}}\right)V$，复杂度 $O(n^{2}d)$ |
+| 注意力 | $softmax\left(\frac{QK^{T}}{\sqrt{d_{k}}}\right)V$，复杂度 $O(n^{2}d)$ |
 | BN / Dropout | 标准化 + γ、β；训练按 p 置零、推理全开 |
 
 ### A.6 无监督、强化与生成
@@ -2239,7 +2239,7 @@ $$x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 
 | ELBO | $\log p(x) \ge E_{q}[\log p(x\vert z)]- D_{KL}(q(z\vert x) \| p(z))$ |
 | 重参数 | $z=\mu+\sigma ⊙\epsilon, \epsilon \sim N(0,I)$ |
 | GAN | $\min_{G} \max_{D} E[\log D(x)]+E[\log(1- D(G(z)))]$ |
-| 扩散 | $x_{t}=\sqrt{\alpha}_{t}x_{t-1}+\sqrt{1- \alpha_{t}}\epsilon$；$\bar{\alpha}_{t}=\Pi \alpha_{s}$ |
+| 扩散 | $x_{t}=\sqrt{\alpha_{t}}\,x_{t-1}+\sqrt{1-\alpha_{t}}\,\epsilon$；$\bar{\alpha}_{t}=\Pi \alpha_{s}$ |
 | 归一化流 | $\log p(x)=\log p(z)+\sum \log\vert \det \frac{\partial f}{\partial x}\vert $ |
 
 ### A.7 常用超参数与复杂度速查
@@ -2338,7 +2338,7 @@ sklearn 的 `C` 是**正则系数的倒数**（$C=\frac{1}{\lambda}$），C 越�
 | XGBoost | 二阶泰勒 + $\Omega=\gamma T+ \frac{1}{2} \lambda \| w \|^{2}$ | 对叶权重求极值 | $w*=- \frac{G}{H+\lambda}$ |
 | 反向传播 | 链式法则 | $\delta^{(l)}=(W^{(l+1)})^{T}\delta^{(l+1)}⊙\phi '$ | $\frac{\partial L}{\partial W}=\delta(a)^{T}$ |
 | 卷积反向 | `y=Cx`（Toeplitz） | $\frac{\partial L}{\partial x}=\frac{C^{T} \partial L}{\partial y}$ | 转置卷积 / 尺寸 $(H- 1)S- 2P+K$ |
-| 注意力 | $\frac{QK^{T}}{\sqrt{d}_{k}}$ | 逐行 softmax | `A V`，$O(n^{2}d)$ |
+| 注意力 | $\frac{QK^{T}}{\sqrt{d_{k}}}$ | 逐行 softmax | `A V`，$O(n^{2}d)$ |
 | PCA 等价性 | $\max w^{T}Sw$ ↔  $\min \| X- Xww^{T} \|^{2}$ | 拉格朗日 $Sw=\lambda w$ | 前 m 个特征向量 |
 | EM / ELBO | Jensen 不等式 | `q=p(z\|x)` 时界取等 | 似然单调不降 |
 | 值迭代 | 贝尔曼最优算子 | γ-压缩映射 | 唯一不动点 `V*` |
@@ -2458,7 +2458,7 @@ sklearn 的 `C` 是**正则系数的倒数**（$C=\frac{1}{\lambda}$），C 越�
 66. RNN 不能并行（依赖上一步隐状态），Transformer 可并行但复杂度 $O(n^{2})$。
 67. 自注意力不含顺序信息，必须补位置编码；解码器须加因果掩码防看到未来词。
 68. 多头注意力不是模型集成，而是让不同子空间关注不同关系。
-69. 注意力除以 $\sqrt{d}_{k}$ 是为防止高维点积把 softmax 推入饱和区。
+69. 注意力除以 $\sqrt{d_{k}}$ 是为防止高维点积把 softmax 推入饱和区。
 70. 自编码器把无监督重构转化为一种监督学习；瓶颈维小于输入维时近似非线性 PCA。
 71. K-means 须预设 K、对初值与异常值敏感，且只收敛到局部极小。
 72. K-means 假设球形且大小相近的簇；非凸形状应用 DBSCAN / 谱聚类。

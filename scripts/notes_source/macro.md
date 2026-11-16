@@ -223,7 +223,7 @@ summary: "宏观经济学 11 章精读笔记：以马工程版知识框架为主
 | --- | --- | --- |
 | 两部门 | $Y = C + I$| $Y= \frac{a+ I_{0}}{1- b}$ |
 | 三部门 | $Y = C + I + G$，$T= T_{0}+ tY$ | $Y= \frac{a+ I_{0}+ G_{0}- bT_{0}+ bTR_{0}}{1- b(1- t)}$ |
-| 四部门 | $Y = C + I + G + NX$，$M= M_{0}+ mY$ | 分母再加 m：$Y= \frac{\cdots}{1- b(1- t)+ m}$ |
+| 四部门 | $Y = C + I + G + NX$，$M= M_{0}+ mY$ | 分母再加 m：$Y= \dfrac{a- bT_{0}+ bTR_{0}+ I_{0}+ G_{0}+ X_{0}- M_{0}}{1- b(1- t)+ m}$ |
 
 > 分母里的每一項（储蓄、税收、进口）都是**漏出**，漏出越多，均衡收入越小、乘数越小。
 
@@ -507,7 +507,7 @@ M ↑ → LM 右移 → r ↓ → I ↑ → Y ↑。**传导链**：M ↑ → r 
 
 **增长核算方程**：$\frac{\Delta Y}{Y}= \frac{\Delta A}{A}+ \alpha \cdot\left(\frac{\Delta K}{K}\right)+ \beta \cdot\left(\frac{\Delta L}{L}\right)$（α、β 为资本与劳动的产出弹性，规模报酬不变时 $\alpha+ \beta= 1$）
 
-**索洛剩余（全要素生产率 TFP）**：$\frac{\Delta A}{A}= \frac{\Delta Y}{Y}- \alpha \frac{\cdot \Delta K}{K}- \beta \frac{\cdot \Delta L}{L}$，即产出增长中无法由要素投入解释的部分，主要来自技术进步，是**长期人均收入增长最重要的源泉**。
+**索洛剩余（全要素生产率 TFP）**：$\dfrac{\Delta A}{A}= \dfrac{\Delta Y}{Y}-\alpha\dfrac{\Delta K}{K}-\beta\dfrac{\Delta L}{L}$，即产出增长中无法由要素投入解释的部分，主要来自技术进步，是**长期人均收入增长最重要的源泉**。
 
 三个直接源泉：劳动投入（数量 + 人力资本质量）、资本积累、技术进步（TFP）。
 
@@ -784,7 +784,7 @@ $$\Delta k= s \cdot f(k)-(n+ \delta) \cdot k$$
 | IS 方程 | $r= \frac{a+ I_{0}}{d}-[\frac{1- b}{d}] \cdot Y$ |
 | LM 方程 | $r=\left(\frac{k}{h}\right) \cdot Y-\left(\frac{1}{h}\right) \cdot\left(\frac{M}{P}\right)$ |
 | 货币供给 | M = 基础货币 B × 货币乘数 m |
-| 增长核算 | $\frac{\Delta Y}{Y}= \frac{\Delta A}{A}+ \alpha \frac{\cdot \Delta K}{K}+ \beta \frac{\cdot \Delta L}{L}$ |
+| 增长核算 | $\dfrac{\Delta Y}{Y}= \dfrac{\Delta A}{A}+\alpha\dfrac{\Delta K}{K}+\beta\dfrac{\Delta L}{L}$ |
 | 索洛资本积累 | $\Delta k= s \cdot f(k)-(n+ \delta)k$；稳态 s·f(k\*) = (n + δ)k\* |
 | 黄金律 | MPK = $n+ \delta$（含技术进步 $n+ g+ \delta$） |
 | 附加预期 PC | π = πᵉ − ε(u − u\*) |

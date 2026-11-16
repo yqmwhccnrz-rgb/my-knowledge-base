@@ -1128,7 +1128,7 @@ print('原序列', price.tolist(), '一阶差分', d1.tolist())
 
 | 模型 | ACF | PACF | 定阶 |
 | --- | --- | --- | --- |
-| AR(p) | 拖尾（指数/振荡衰减） | **p 阶截尾** | <img class="fml" src="/formulas/a07811ae91a6e8.png" alt="p = PACF" width="94" height="33">截尾阶 |
+| AR(p) | 拖尾（指数/振荡衰减） | **p 阶截尾** | <img class="fml" src="/formulas/a07811ae91a6e8.png" alt="p = PACF" width="95" height="33">截尾阶 |
 | MA(q) | **q 阶截尾** | 拖尾 | q = ACF 截尾阶 |
 | ARMA(p,q) | 拖尾 | 拖尾 | 用 AIC/BIC 网格搜索 |
 

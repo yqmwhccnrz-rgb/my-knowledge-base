@@ -675,7 +675,7 @@ summary: "《中国金融学》11 章精要笔记：货币与货币制度、信�
 
 | 项目 | 现金交易说（费雪） | 现金余额说（剑桥，马歇尔/庇古） |
 | --- | --- | --- |
-| 公式 | **<img class="fml" src="/formulas/d940217c8f2407.png" alt="MV = PT" width="90" height="33">** | **<img class="fml" src="/formulas/28e6312a81c85c.png" alt="M = kPy" width="82" height="33">** |
+| 公式 | **<img class="fml" src="/formulas/d940217c8f2407.png" alt="MV = PT" width="91" height="33">** | **<img class="fml" src="/formulas/28e6312a81c85c.png" alt="M = kPy" width="83" height="33">** |
 | 强调的货币职能 | **交易媒介** | **价值贮藏**（资产） |
 | 分析视角 | 宏观：流通中货币量、交易总量与流通速度 | 微观：个体在货币与其他资产间的**资产选择** |
 | 关键变量 | V（由制度技术决定，短期稳定） | k（人们愿以货币持有的收入比例，受利率、财富、偏好影响） |
@@ -712,7 +712,7 @@ summary: "《中国金融学》11 章精要笔记：货币与货币制度、信�
 
 ### 8.6 易错点
 
-- <img class="fml" src="/formulas/d940217c8f2407.png" alt="MV = PT" width="90" height="33">是费雪现金交易方程式；<img class="fml" src="/formulas/28e6312a81c85c.png" alt="M = kPy" width="82" height="33">是剑桥现金余额方程式，别互换。
+- <img class="fml" src="/formulas/d940217c8f2407.png" alt="MV = PT" width="91" height="33">是费雪现金交易方程式；<img class="fml" src="/formulas/28e6312a81c85c.png" alt="M = kPy" width="83" height="33">是剑桥现金余额方程式，别互换。
 - 收入与货币需求正相关、利率与货币需求负相关；但**收入获取的时间间隔**也是正相关。
 - 流动性陷阱发生在利率**极低、预期只升不降**时，不是「预期利率下降」时。
 - 对凯恩斯理论作发展的是鲍莫尔、惠伦、托宾；现金余额说**早于**凯恩斯。
@@ -930,7 +930,7 @@ summary: "《中国金融学》11 章精要笔记：货币与货币制度、信�
 | 币制演变 | 银本位 → 金银复本位 → 金本位 → 不兑现信用货币 |
 | 实际利率 | 精确式 <img class="fml" src="/formulas/0088e3f32aa9a1.png" alt="i= \frac{1+r}{1+\pi}- 1" width="95" height="34">，简化式 <img class="fml" src="/formulas/26a7b5f2a4ee57.png" alt="i \approx r- \pi" width="78" height="34"> |
 | 期限结构 | 预期假说、分割市场、期限选择（流动性升水）；后者解释力最强 |
-| 两大货币数量论 | 费雪 <img class="fml" src="/formulas/d940217c8f2407.png" alt="MV = PT" width="90" height="33">（交易媒介），剑桥 <img class="fml" src="/formulas/28e6312a81c85c.png" alt="M = kPy" width="82" height="33">（资产选择） |
+| 两大货币数量论 | 费雪 <img class="fml" src="/formulas/d940217c8f2407.png" alt="MV = PT" width="91" height="33">（交易媒介），剑桥 <img class="fml" src="/formulas/28e6312a81c85c.png" alt="M = kPy" width="83" height="33">（资产选择） |
 | 凯恩斯 | 三动机 = 交易 + 预防 + 投机；<img class="fml" src="/formulas/ce7475d6c167ed.png" alt="L= L_{1}(Y)+ L_{2}(r)" width="154" height="34"> |
 | 存款派生 | <img class="fml" src="/formulas/b806a32e8eddf6.png" alt="d= \frac{1}{rd}" width="56" height="34">；漏损、超额准备金、定期存款准备金都会压低乘数 |
 | 货币供给 | <img class="fml" src="/formulas/c04c7f5f24b846.png" alt="Ms= B \times m" width="110" height="34">；B 由央行控制，c、e、t 由公众与银行决定 |

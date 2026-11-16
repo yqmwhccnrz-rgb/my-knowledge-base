@@ -406,11 +406,11 @@ y_{0}=1 \to P+= 00.1101= 01.0001 111 \to \; \text{右移} \; \text{1} \; \text{�
 设乘数低位补 <img class="fml" src="/formulas/13cb99c57a9fd4.png" alt="y_{- 1}= 0" width="65" height="34">，逐位比较 <img class="fml" src="/formulas/5228b14fe54943.png" alt="(y_{i}, y_{i- 1})" width="73" height="34">：
 
 
-<p class="fml-block"><img class="fml" src="/formulas/5f59afc8c65860.png" alt="\begin{gathered}
-\frac{00}{11} \to \; \text{部分积不变，仅算术右移} \; \text{1} \; \text{位} \\
+<p class="fml-block"><img class="fml" src="/formulas/092960951aa640.png" alt="\begin{gathered}
+\text{00、11} \to \; \text{部分积不变，仅算术右移} \; \text{1} \; \text{位} \\
 01 \to \; \text{部分积} \; \text{+ [X]} \; \text{补，再右移} \\
 10 \to \; \text{部分积} \; +[- X] \; \text{补，再右移}
-\end{gathered}" width="295" height="98"></p>
+\end{gathered}" width="325" height="83"></p>
 
 
 最后一步只运算不右移；n 位乘数做 n 次判断、n−1 次移位，结果为 2n 位补码。
@@ -886,7 +886,7 @@ MIPS 有 32 个 32 位通用寄存器：`$zero`(恒 0)、`$at`、`$v0~$v1`(返�
 
 | 主题 | 补充 |
 | --- | --- |
-| **RISC-V** | 开源、模块化扩展（<img class="fml" src="/formulas/c987c6243c7d1e.png" alt="\frac{\frac{\frac{\frac{\frac{I}{M}}{A}}{F}}{D}}{C \cdots}" width="38" height="59">）、定长 32 位指令 + 压缩指令 C 扩展、无延迟槽、特权架构规范；已成为教学与产业热点 |
+| **RISC-V** | 开源、模块化扩展（I/M/A/F/D/C 等，如 RV32IMAFDC）、定长 32 位指令 + 压缩指令 C 扩展、无延迟槽、特权架构规范；已成为教学与产业热点 |
 | **ARM / AArch64** | Load/Store、条件执行（AArch32）、大寄存器堆；移动与服务器广泛；SVE 可伸缩向量 |
 | **x86-64** | 变长 1~15 B、64 位寄存器与地址、REX/VEX/EVEX 前缀、AVX2/AVX-512 向量扩展；向后兼容 32 位 |
 | **SIMD / 向量** | 一条指令处理多个数据通道（SSE/AVX/NEON/SVE/RVV），是 FLOPS 与多媒体性能主要来源 |

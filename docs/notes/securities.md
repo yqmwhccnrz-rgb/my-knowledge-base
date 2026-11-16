@@ -226,14 +226,14 @@ summary: "《证券投资学（第六版精编版）》9 章精要笔记：证�
 | 简单算术平均 | <img class="fml" src="/formulas/41eaf21d94077f.png" alt="\left(\frac{1}{N}\right) \cdot \sum\left(\frac{P_{i1}}{P_{i0}}\right)" width="115" height="41"> 基期指数 | <img class="fml" src="/formulas/3fc548401f8cb1.png" alt="\left(\frac{1}{3}\right)\left(\frac{8}{5}+ \frac{9}{6}+ \frac{7.6}{3}\right) \times 1000=1877.78" width="278" height="34"> |
 | 综合平均 | [ΣP_i1 / ΣP_i0] × 基期指数 | <img class="fml" src="/formulas/203db924ad6b8f.png" alt="\left(\frac{24.6}{14}\right) \times 1000=1757.14" width="190" height="34"> |
 | 几何平均 | <img class="fml" src="/formulas/05aa0825d772a9.png" alt="[\Pi\left(\frac{P_{i1}}{P_{i0}}\right)]^{\frac{1}{N}}" width="89" height="41"> 基期指数 | <img class="fml" src="/formulas/693cec7cb5ed26.png" alt="\left(\frac{8}{5} \times \frac{9}{6} \times \frac{7.6}{3}\right)^{\frac{1}{3}} \times 1000=1825.1" width="249" height="37"> |
-| 加权综合（派许加权） | [ΣP_i1·W_i / ΣP_i0·W_i] × 基期指数 | <img class="fml" src="/formulas/2f51c7db4fd0c8.png" alt="\frac{8 \times 10000+9 \times 8000+7.6 \times 5000}{5 \times 10000+6 \times 8000+3 \times 5000} \times 1000=1830.77" width="309" height="35"> |
+| 加权综合（派许加权） | [ΣP_i1·W_i / ΣP_i0·W_i] × 基期指数 | <img class="fml" src="/formulas/1788d4bf4ef864.png" alt="\frac{8 \times 10000+9 \times 8000+7.6 \times 5000}{5 \times 10000+6 \times 8000+3 \times 5000} \times 1000=1681.42" width="308" height="33"> |
 | 加权几何平均（费雪理想公式） | 几何平均与加权综合的几何均值 | — |
 
 **指数编制四步骤**：确定样本股 → 选定基期 → 计算平均股价并作必要修正 → 指数化（化为"点"）。
 
-**平均股价三种算法**：简单算术平均（<img class="fml" src="/formulas/8b16fc750b6c7f.png" alt="\dfrac{8+9+7.6}{3}=8.2\,\text{元}" width="163" height="45">）、加权平均（计算期市值/总股数 = **8.43 元**）、修正平均股价。修正方法两种：
+**平均股价三种算法**：简单算术平均（<img class="fml" src="/formulas/8b16fc750b6c7f.png" alt="\dfrac{8+9+7.6}{3}=8.2\,\text{元}" width="163" height="45">）、加权平均（计算期市值/总股数 = **8.26 元**）、修正平均股价。修正方法两种：
 - **调整股价法**：把拆股后的股价还原为拆股前价格再平均。例：B 拆细为 3 股，次日 A、B、C 收盘 8.2、3.4、7.8 元 → 修正平均股价 <img class="fml" src="/formulas/2dbf2c8562cc60.png" alt="=\dfrac{8.2+(1+2)\times 3.4+7.8}{3}=8.73\,\text{元}" width="294" height="47">。
-- **修正除数法**：变动除数剔除拆股影响。新除数 = 拆股后总价格 ÷ 拆股前平均数 <img class="fml" src="/formulas/cdde72ae1ec086.png" alt="=\dfrac{8.2+3.4+7.8}{8.2}=2.2683" width="215" height="45">；修正平均股价 <img class="fml" src="/formulas/335135fcc6f203.png" alt="=\dfrac{19.4}{2.2683}\approx 8.55\,\text{元}" width="156" height="45">。
+- **修正除数法**：变动除数剔除拆股影响。新除数 = 拆股后总价格 ÷ 拆股前平均股价 <img class="fml" src="/formulas/2192e507e8b5e0.png" alt="=\dfrac{8.2+3.4+7.8}{8.73}\approx 2.22" width="197" height="44">；修正平均股价 <img class="fml" src="/formulas/cca3bb6c78c61e.png" alt="=\dfrac{19.4}{2.22}\approx 8.73\,\text{元}" width="137" height="44">。
 
 **主要指数一览**（名词解释常考）：
 
@@ -625,7 +625,7 @@ w_{A}&amp;=\frac{0.22^{2}-0.30\times0.22\times0.2}{0.30^{2}+0.22^{2}-2\times0.30
 
 
 故 <img class="fml" src="/formulas/3f2f9bbe5a98f4.png" alt="w_{B}\approx 68.57\%" width="110" height="33">。
-<img class="fml" src="/formulas/11eed0b1c02ec5.png" alt="E(r_{P})= 0.3143 \times 15" width="167" height="33">% + <img class="fml" src="/formulas/badeba45306310.png" alt="0.6857 \times 10" width="96" height="33">% ≈ **11.57%**；<img class="fml" src="/formulas/54c115f52f7ff7.png" alt="\sigma_{P} \approx 22.6" width="84" height="33">%（代入方差公式开方）。
+<img class="fml" src="/formulas/11eed0b1c02ec5.png" alt="E(r_{P})= 0.3143 \times 15" width="167" height="33">% + <img class="fml" src="/formulas/badeba45306310.png" alt="0.6857 \times 10" width="96" height="33">% ≈ **11.57%**；<img class="fml" src="/formulas/d1485c52528796.png" alt="\sigma_{P} \approx 19.3" width="82" height="33">%（代入方差公式开方）。
 
 **例（课件原题）**：三种风险资产预期收益完全一致，标准差之比 1:2:3，两两相关系数为 0。最优组合权重与方差成反比：<img class="fml" src="/formulas/40f0c966128434.png" alt="w \propto \frac{1}{\sigma^{2}}" width="61" height="33">，即 <img class="fml" src="/formulas/e4834b5c0fa618.png" alt="1 : \frac{1}{4} : \frac{1}{9}= 36 : 9 : 4" width="156" height="33">，归一化得 **73.5% : 18.4% : 8.2%**。
 
@@ -688,7 +688,7 @@ w_{A}&amp;=\frac{0.22^{2}-0.30\times0.22\times0.2}{0.30^{2}+0.22^{2}-2\times0.30
 
 **CAPM 两个结论**：① 收益由两部分组成——时间补偿 r_f 与风险补偿 <img class="fml" src="/formulas/2d7d03950f0064.png" alt="[E(r_{M})- r_{f}]" width="106" height="33">；② **并非承担的所有风险都获补偿，只有系统性风险获得补偿**（非系统性风险可分散、市场不予奖励）。
 
-**β 的含义与计算**（补全）：<img class="fml" src="/formulas/d765aebf9b7d80.png" alt="\beta_{i}= \frac{\operatorname{Cov}(r_{i},r_{M})}{\sigma_{M}^{2}}= \rho_{iM} \times \sigma_{i} \sigma_{M}" width="225" height="37">。β=1 与市场同步；β>1 激进（放大市场波动）；β<1 防守。组合的 β 是成分 β 的加权平均。
+**β 的含义与计算**（补全）：<img class="fml" src="/formulas/7fe9d3a66cc58b.png" alt="\beta_{i}= \frac{\operatorname{Cov}(r_{i},r_{M})}{\sigma_{M}^{2}}= \rho_{iM}\dfrac{\sigma_{i}}{\sigma_{M}}" width="191" height="43">。β=1 与市场同步；β>1 激进（放大市场波动）；β<1 防守。组合的 β 是成分 β 的加权平均。
 
 **例（课件原题）**：股票 A、B 收益率标准差 0.25 与 0.6，与市场相关系数 0.4 与 0.7，市场回报率 0.15、标准差 0.1，r_f=0.05。
 <img class="fml" src="/formulas/667a7ec0f4e6a2.png" alt="\beta_{A}= 0.4 \times \frac{0.25}{0.1}=1.0" width="169" height="33">；<img class="fml" src="/formulas/cc44d54f89ab4e.png" alt="\beta_{B}= 0.7 \times \frac{0.6}{0.1}=4.2" width="163" height="33">；组合 <img class="fml" src="/formulas/072204873ec7f8.png" alt="\beta= 0.5 \times 1.0+ 0.5 \times 4.2=2.6" width="245" height="33">。
@@ -722,7 +722,7 @@ w_{A}&amp;=\frac{0.22^{2}-0.30\times0.22\times0.2}{0.30^{2}+0.22^{2}-2\times0.30
 
 **例（课件原题，单因素 APT）**：组合 A、B 均已充分多样化，E(r)=12%、9%，<img class="fml" src="/formulas/4e44f29343d14f.png" alt="\beta=1.2" width="65" height="33">、0.8，单因素经济。由 12% = <img class="fml" src="/formulas/cae40769861071.png" alt="r_{f}+ 1.2\lambda" width="78" height="33">、9% = <img class="fml" src="/formulas/d33e22e4b5f395.png" alt="r_{f}+ 0.8\lambda" width="78" height="33"> 解得 <img class="fml" src="/formulas/2e47c10854ff47.png" alt="\lambda= 7.5" width="64" height="33">%、**r_f = 3%**。
 
-**例（两因素 APT）**：r_f=5%；组合 A：<img class="fml" src="/formulas/21769df0d10a7b.png" alt="\beta_{1}=1.2" width="70" height="33">、<img class="fml" src="/formulas/d70ee694120b2b.png" alt="\beta_{2}=1.8" width="71" height="33">、E(r)=24%；组合 B：<img class="fml" src="/formulas/8578bbc4196e46.png" alt="\beta_{1}=2" width="57" height="33">、<img class="fml" src="/formulas/b10d014148b414.png" alt="\beta_{2}=- 0.3" width="85" height="33">、E(r)=22%。联立 <img class="fml" src="/formulas/428009fadaa12b.png" alt="24= 5+ 1.2\lambda_{1}+ 1.8\lambda_{2}" width="182" height="33">、<img class="fml" src="/formulas/93cbf028e338d4.png" alt="22= 5+ 2\lambda_{1}- 0.3\lambda_{2}" width="168" height="33">，解得 <img class="fml" src="/formulas/cc5a20b54a26ff.png" alt="\lambda_{1} \approx 5.98" width="80" height="33">%、<img class="fml" src="/formulas/2ecda09d4b0a9b.png" alt="\lambda_{2} \approx 5.99" width="80" height="33">% ≈ 6%，即 <img class="fml" src="/formulas/c6cadd4f1b1b2b.png" alt="E(r)= 5\%+ 5.98\%\beta_{1}+ 5.99\%\beta_{2}" width="263" height="33">。
+**例（两因素 APT）**：r_f=5%；组合 A：<img class="fml" src="/formulas/21769df0d10a7b.png" alt="\beta_{1}=1.2" width="70" height="33">、<img class="fml" src="/formulas/d70ee694120b2b.png" alt="\beta_{2}=1.8" width="71" height="33">、E(r)=24%；组合 B：<img class="fml" src="/formulas/8578bbc4196e46.png" alt="\beta_{1}=2" width="57" height="33">、<img class="fml" src="/formulas/b10d014148b414.png" alt="\beta_{2}=- 0.3" width="85" height="33">、E(r)=22%。联立 <img class="fml" src="/formulas/428009fadaa12b.png" alt="24= 5+ 1.2\lambda_{1}+ 1.8\lambda_{2}" width="182" height="33">、<img class="fml" src="/formulas/93cbf028e338d4.png" alt="22= 5+ 2\lambda_{1}- 0.3\lambda_{2}" width="168" height="33">，解得 <img class="fml" src="/formulas/a0352ede2111b4.png" alt="\lambda_{1} \approx 9.17" width="79" height="33">%、<img class="fml" src="/formulas/5bedfc4604cf29.png" alt="\lambda_{2} \approx 4.44" width="79" height="33">%，即 <img class="fml" src="/formulas/e302864a96c548.png" alt="E(r)= 5\%+ 9.17\%\beta_{1}+ 4.44\%\beta_{2}" width="262" height="33">。
 
 **CAPM 与 APT 的异同**（简答高频）：
 
@@ -743,7 +743,7 @@ w_{A}&amp;=\frac{0.22^{2}-0.30\times0.22\times0.2}{0.30^{2}+0.22^{2}-2\times0.30
 **二项式（二叉树）模型例（课件原题）**：股价 40 元，两个月后要么 42 元、要么 38 元，无风险年利率 6%，求两个月期、执行价 39 元的欧式看涨期权价格。
 - 上涨时 payoff = <img class="fml" src="/formulas/6c7add58a63b5b.png" alt="42- 39= 3" width="97" height="33">；下跌时 payoff = <img class="fml" src="/formulas/ee026b9de933ee.png" alt="\max(38- 39,0)= 0" width="161" height="33">
 - 风险中性概率 p：<img class="fml" src="/formulas/4f77b182dd5c3b.png" alt="40\times (1+6\%\times \frac{2}{12})=p\times 42 + (1-p)\times 38 \to 40.4=38 + 4p \to p=0.6" width="566" height="33">
-- 期权价格 <img class="fml" src="/formulas/5de3b69159bc69.png" alt="C=(0.6 \times 3+ 0.4 \times 0)" width="187" height="34">%×2/12) = 1.8/1.01 ≈ **1.78 元**
+- 期权价格 <img class="fml" src="/formulas/e0a138da49c5ee.png" alt="C=\dfrac{0.6\times 3+ 0.4\times 0}{1+ 6\%\times 2/12}= \dfrac{1.8}{1.01}\approx" width="256" height="48"> **1.78 元**
 
 **Black-Scholes 模型**（1973，布莱克与斯科尔斯；补全公式）：
 
@@ -816,10 +816,10 @@ w_{A}&amp;=\frac{0.22^{2}-0.30\times0.22\times0.2}{0.30^{2}+0.22^{2}-2\times0.30
 
 | 指标 | 公式 | 风险度量 | 特点 |
 | --- | --- | --- | --- |
-| **夏普指数** | <img class="fml" src="/formulas/7c7fcec65cd4b3.png" alt="S_{P}= \frac{E(r_{P})- r_{f}}{\sigma}_{P}" width="122" height="35"> | 标准差（**总风险**） | 同时考虑系统性与非系统性风险，可反映经理人分散和降低非系统风险的能力 |
-| **特雷诺指数** | <img class="fml" src="/formulas/12e7f95ca52e82.png" alt="T_{P}= \frac{E(r_{P})- r_{f}}{\beta}_{P}" width="122" height="37"> | β（**系统风险**） | 单位系统风险的超额收益；不含非系统风险 |
+| **夏普指数** | <img class="fml" src="/formulas/e53d07d2c9bd40.png" alt="S_{P}= \frac{E(r_{P})- r_{f}}{\sigma_{P}}" width="110" height="34"> | 标准差（**总风险**） | 同时考虑系统性与非系统性风险，可反映经理人分散和降低非系统风险的能力 |
+| **特雷诺指数** | <img class="fml" src="/formulas/7376040f2de3b5.png" alt="T_{P}= \frac{E(r_{P})- r_{f}}{\beta_{P}}" width="110" height="35"> | β（**系统风险**） | 单位系统风险的超额收益；不含非系统风险 |
 | **詹森指数（α）** | <img class="fml" src="/formulas/e89602f2decc22.png" alt="J_{P}= r_{P}-[r_{f}+(r_{M}- r_{f})\beta_{P}]" width="235" height="33"> | β（基于 CAPM） | **绝对绩效指标**：组合收益与相同系统风险下市场组合收益之差；>0 表示优于市场组合；组合间比较时越大越好 |
-| **信息比率** | <img class="fml" src="/formulas/f9d980e5162949.png" alt="IR= \alpha_{P} \sigma(\epsilon_{P})" width="119" height="33"> | 非系统风险 | 单位非系统风险的非常规收益（Treynor-Black），又称**估价比率**，衡量积极型组合业绩 |
+| **信息比率** | <img class="fml" src="/formulas/770a4d9defa933.png" alt="IR= \dfrac{\alpha_{P}}{\sigma(\epsilon_{P})}" width="100" height="44"> | 非系统风险 | 单位非系统风险的非常规收益（Treynor-Black），又称**估价比率**，衡量积极型组合业绩 |
 
 **M² 测度**：把组合通过杠杆调整到与市场组合相同的风险水平后比较收益，纠正投资者只看原始业绩的倾向，鼓励同时注意风险因素。
 **M³ 测度**：M² 只按收益波动定义风险、未考虑组合与基准风险的相关性；M³ 在考虑相关性的基础上改进 M²。
@@ -907,7 +907,7 @@ CAPM 要求收益 = 6% + (14%−6%)×0.5 = 10% → <img class="fml" src="/formul
 
 **例（课件习题）**：息票率 8%（年末付息）、期限 5 年、按面值发行的债券：发行价=面值（票面利率=贴现率 8%）→ 平价发行；久期 <img class="fml" src="/formulas/60af96aa8655b7.png" alt="D= \frac{\sum t \times PV(CF_{t})}{100}=4.31\,\text{年}" width="208" height="33">（可逐年计算：各期现金流 8,8,8,8,108 按 8% 折现加权）。若投资者期望到期收益率为 10% > 票面利率 8% → **不能按面值发行**，须折价：P = 8×年金系数(10%,5) + 100/1.1⁵ = 8×3.7908 + 62.09 ≈ **92.42 元**。
 
-**债券组合的利率风险对冲（久期套保，课件原题）**：休斯持有 10 万元债券组合、久期 9 年；6 月份国债期货现价 108 元、可交割券久期 8.8 年。对冲需**卖空**期货合约数 N = (组合价值 × 组合久期) / (期货价格 × 交割券久期 × 合约面值/100)。设每手面值 100 元：<img class="fml" src="/formulas/123358f14ef9f4.png" alt="N= \frac{100000 \times 9}{108 \times 8.8}" width="105" height="34"> **94.7 → 卖空约 95 手**，使组合久期归零，规避 6 个月内利率上升风险。
+**债券组合的利率风险对冲（久期套保，课件原题）**：休斯持有 10 万元债券组合、久期 9 年；6 月份国债期货现价 108 元、可交割券久期 8.8 年。对冲需**卖空**期货合约数 N = (组合价值 × 组合久期) / (期货价格 × 交割券久期 × 合约面值/100)。设每手面值 100 元：<img class="fml" src="/formulas/7c873f21c99863.png" alt="N= \dfrac{100000 \times 9}{108 \times 8.8}\approx 947" width="185" height="45"> **手 → 卖空约 947 手**，使组合久期归零，规避 6 个月内利率上升风险。
 
 ### 9.4 可转换债券定价（★★）
 
