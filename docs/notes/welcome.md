@@ -1430,6 +1430,8 @@ struct { char c; int i; };
 | 13 | 构造素数表 | 筛法（数组） |
 | 14 | 井字棋 | 二维数组、函数 |
 
+<div class="kb-exercise">
+
 ### 1. 找零计算器
 
 **思路**：输入金额，按面额从大到小用贪心法计算各面额需要的张数（`/` 算张数、`%` 算余额）。
@@ -1455,6 +1457,10 @@ int main() {
 }
 ```
 
+</div>
+
+<div class="kb-exercise">
+
 ### 2. 输出百以内的素数
 
 **思路**：素数只能被 1 和自身整除。嵌套循环逐个判断 2~99 的每个数。
@@ -1474,6 +1480,10 @@ int main() {
     return 0;
 }
 ```
+
+</div>
+
+<div class="kb-exercise">
 
 ### 3. 输出前 50 个素数
 
@@ -1495,6 +1505,10 @@ int main() {
     return 0;
 }
 ```
+
+</div>
+
+<div class="kb-exercise">
 
 ### 4. 凑硬币（一角、两角、五角凑出 10 元以下的金额）
 
@@ -1524,6 +1538,10 @@ int main() {
 }
 ```
 
+</div>
+
+<div class="kb-exercise">
+
 ### 5. 求和
 
 **思路**：循环累加，注意 `sum` 初始化为 0。
@@ -1540,6 +1558,10 @@ int main() {
     return 0;
 }
 ```
+
+</div>
+
+<div class="kb-exercise">
 
 ### 6. 整数的逆序输出
 
@@ -1561,6 +1583,10 @@ int main() {
     return 0;
 }
 ```
+
+</div>
+
+<div class="kb-exercise">
 
 ### 7. 整数正序输出（逐位分解）
 
@@ -1590,6 +1616,10 @@ int main() {
 }
 ```
 
+</div>
+
+<div class="kb-exercise">
+
 ### 8. 求最大公约数
 
 **思路**：辗转相除法（欧几里得算法）：<img class="fml" src="/formulas/6926a0c3219623.png" alt="\gcd(a, b)= \gcd(b, a \% b)" width="185" height="33">，直到 b 为 0。
@@ -1610,6 +1640,10 @@ int main() {
     return 0;
 }
 ```
+
+</div>
+
+<div class="kb-exercise">
 
 ### 9. 水仙花数
 
@@ -1632,6 +1666,10 @@ int main() {
 }
 ```
 
+</div>
+
+<div class="kb-exercise">
+
 ### 10. 九九乘法表
 
 **思路**：嵌套循环，外层控制行（1~9），内层控制列（1~行号）。
@@ -1650,6 +1688,10 @@ int main() {
     return 0;
 }
 ```
+
+</div>
+
+<div class="kb-exercise">
 
 ### 11. 统计素数并求和
 
@@ -1671,6 +1713,10 @@ int main() {
     return 0;
 }
 ```
+
+</div>
+
+<div class="kb-exercise">
 
 ### 12. 猜数字游戏（给出一个数字，让计算机猜）
 
@@ -1703,6 +1749,10 @@ int main() {
 }
 ```
 
+</div>
+
+<div class="kb-exercise">
+
 ### 13. 构造素数表
 
 **思路**：筛法（埃拉托斯特尼筛法）：把每个素数的倍数全部划掉，剩下的就是素数。
@@ -1731,6 +1781,10 @@ int main() {
     return 0;
 }
 ```
+
+</div>
+
+<div class="kb-exercise">
 
 ### 14. 井字棋
 
@@ -1791,4 +1845,6 @@ int main(void) {
     return 0;
 }
 ```
+
+</div>
 

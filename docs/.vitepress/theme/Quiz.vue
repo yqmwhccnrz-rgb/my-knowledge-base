@@ -593,8 +593,9 @@ function fmtDate(iso) {
 .quiz-card {
   margin-bottom: 16px;
   padding: 18px 20px;
-  background: var(--vp-c-bg);
+  background: var(--vp-c-bg-soft);
   border: 1px solid var(--vp-c-divider);
+  border-left: 4px solid var(--vp-c-brand-2);
   border-radius: 10px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }

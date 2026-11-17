@@ -987,24 +987,83 @@ html.dark img.fml {
 }
 
 /* ==========================================================================
-   Python 生成的静态公式图（替代 LaTeX 渲染）
-   图片按 2 倍分辨率渲染、透明背景；width/height 属性给出 CSS 尺寸，
-   height:auto + max-width:100% 保证缩放时不变形。
-   暗色主题用 invert 把深色字形转成浅色，透明背景不受影响。
+   例题 / 习题板块：作为「完整区域」统一突出显示
+   源笔记里用 <div class="kb-example"> / <div class="kb-exercise"> 整块包裹，
+   内部文字、顺序、公式与列表全部原样保留；这里只加容器外观。
+   - 统一边框 + 左侧强调线 + 淡背景 + 内边距 + 圆角
+   - 首段加粗编号（**例 1** / **例**：）做成标签，醒目且不改文字
+   - 习题小节标题（### N. 题名）作为板块标题单独强调
+   - 打印时整块不跨页拆开
    ========================================================================== */
-img.fml {
+.vp-doc div.kb-example,
+.vp-doc div.kb-exercise {
+  margin: 22px 0;
+  padding: 16px 20px 14px;
+  background: rgba(127, 127, 127, 0.055);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: 4px solid var(--vp-c-brand-2, #5d5f5e);
+  border-radius: 10px;
+}
+
+/* 首段是「**例 1** ...」或「**例（...）**：...」：把开头加粗编号做成小标签 */
+.vp-doc div.kb-example > p:first-child > strong:first-child,
+.vp-doc div.kb-exercise > p:first-child > strong:first-child {
   display: inline-block;
-  max-width: 100%;
-  height: auto;
-  vertical-align: -0.22em;
+  padding: 1px 9px 2px;
+  margin: 0 5px 2px 0;
+  font-size: 0.97em;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--vp-c-bg, #fafaf9);
+  background: var(--vp-c-brand-1, #3f403f);
+  border-radius: 6px;
 }
-p.fml-block {
-  text-align: center;
-  margin: 1.1em 0;
+
+/* 习题小节：板块标题是 ### N. 题名，顶部对齐并加细分隔线 */
+.vp-doc div.kb-exercise > h3:first-child {
+  margin-top: 0 !important;
+  padding: 0 0 8px !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+  font-size: 1.06em !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.01em;
 }
-p.fml-block img.fml {
-  vertical-align: middle;
+
+/* 板块内部首段紧跟标签时不要多余上间距 */
+.vp-doc div.kb-example > p:first-child,
+.vp-doc div.kb-exercise > p:first-child {
+  margin-top: 0;
 }
-html.dark img.fml {
-  filter: invert(1);
+
+html.dark .vp-doc div.kb-example,
+html.dark .vp-doc div.kb-exercise {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.12);
+  border-left-color: var(--vp-c-brand-2, #c8c8c6);
+}
+html.dark .vp-doc div.kb-example > p:first-child > strong:first-child,
+html.dark .vp-doc div.kb-exercise > p:first-child > strong:first-child {
+  color: #262728;
+  background: var(--vp-c-brand-2, #c8c8c6);
+}
+html.dark .vp-doc div.kb-exercise > h3:first-child {
+  border-bottom-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+@media print {
+  .vp-doc div.kb-example,
+  .vp-doc div.kb-exercise {
+    background: transparent !important;
+    border-color: #b9c0c9 !important;
+    border-left: 3px solid var(--vp-c-brand-1, #3f403f) !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  .vp-doc div.kb-example > p:first-child > strong:first-child,
+  .vp-doc div.kb-exercise > p:first-child > strong:first-child {
+    color: #111 !important;
+    background: transparent !important;
+    border: 1px solid #b9c0c9 !important;
+  }
 }

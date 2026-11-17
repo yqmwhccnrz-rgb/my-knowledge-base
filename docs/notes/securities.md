@@ -70,7 +70,11 @@ summary: "《证券投资学（第六版精编版）》9 章精要笔记：证�
 | 购买者收益率 | (到期本息和 − 买入价) / (买入价 × 剩余年限) × 100% |
 | 持有期间收益率 | (卖出价 − 买入价 + 利息) / (买入价 × 持有年限) × 100% |
 
+<div class="kb-example">
+
 **例**：某人以 95 元买入面值 100 元、票面利率 8% 的债券，持有 2 年后以 102 元卖出，期间共收利息 16 元。持有期间收益率 <img class="fml" src="/formulas/b4f4c1a7dc2e1b.png" alt="=\dfrac{102-95+16}{95\times 2}\times 100\%\approx 12.1\%" width="270" height="46">。
+
+</div>
 
 **债券筹资特点**：优点是资本成本低、有财务杠杆作用、属长期资金、筹资范围广金额大；缺点是财务风险大、限制性条款多、资金使用缺乏灵活性。
 
@@ -142,7 +146,11 @@ summary: "《证券投资学（第六版精编版）》9 章精要笔记：证�
 | 看跌买方 | <img class="fml" src="/formulas/0a22e8bae5c8b6.png" alt="\max(X- S_{T}, 0)" width="130" height="34"> | <img class="fml" src="/formulas/f6ec7846d7d4e3.png" alt="\max(X- S_{T}, 0)- P" width="166" height="34"> |
 | 看跌卖方 | <img class="fml" src="/formulas/6ad2572fdc8270.png" alt="\max(S_{T}- X, 0)" width="130" height="34"> | <img class="fml" src="/formulas/a89b111f3c5dd4.png" alt="\max(S_{T}- X, 0)+ P" width="166" height="34"> |
 
+<div class="kb-example">
+
 **例**：买入执行价 10 元的看涨期权，期权费 1 元。到期股价 13 元 → 净收益 = <img class="fml" src="/formulas/94f36da9410ab9.png" alt="(13- 10)- 1=2\,\text{元}" width="162" height="34">；到期股价 8 元 → 不行权，净亏期权费 **−1 元**（买方最大损失锁定为 C）。
+
+</div>
 
 **期权与期货的关系**：① 均以买卖远期标准化合约为特征；② 期货价格影响期权执行价格与期权费的确定；③ 期货交易是期权交易的基础（期货期权的标的即期货合约）；④ 都可做多做空；⑤ 期权履约时买卖双方得到相应期货部位。
 
@@ -382,9 +390,13 @@ summary: "《证券投资学（第六版精编版）》9 章精要笔记：证�
 | 零增长模型 | <img class="fml" src="/formulas/854a623a2c2e38.png" alt="P_{0}= \frac{D}{k}" width="64" height="34"> | 股利恒定（优先股近似） |
 | 戈登增长模型（稳定增长） | <img class="fml" src="/formulas/164447c5b844db.png" alt="P_{0}= \frac{D_{1}}{k- g}" width="77" height="36">，要求 g < k | 股利以固定比率 g 永续增长 |
 
+<div class="kb-example">
+
 **例**：某公司预期明年每股股利 1.2 元，股利稳定增长率 5%，必要收益率 11% → <img class="fml" src="/formulas/faaa00442a6a56.png" alt="P_{0}= \frac{1.2}{0.11- 0.05}=20\,\text{元}" width="170" height="35">。若市价 16 元，则被低估、应买入。
 
 DDM 的四个局限：不适于无股利发放历史或无明确股利政策的公司；不适于股利与收益无直接关系的公司；无交易历史的公司难以用 CAPM 估计必要收益率（贴现率缺失）；股利发放不稳定的公司难以适用。
+
+</div>
 
 **自由现金流贴现法 DCF**：公司价值 = 未来自由现金流按 WACC 贴现；股权价值 = 公司价值 − 净债务。优点：理论上最完善、估值接近内在价值、充分反映经营战略、受市场短期及周期性变化影响小。缺点：方法复杂工作量大、估值区间范围大结果可用性有限、较难捕捉短期盈利机会。
 
@@ -613,6 +625,8 @@ K 线记录某股票某时间段（如一天）的价格变动：**阳线（红�
 - 组合方差：<img class="fml" src="/formulas/d4be326f2d4c65.png" alt="\sigma_{P}^{2}= w_{1}^{2}\sigma_{1}^{2}+ w_{2}^{2}\sigma_{2}^{2}+ 2w_{1}w_{2}\sigma_{1}\sigma_{2}\rho_{12}" width="278" height="34">（ρ 为相关系数）
 - **最小方差组合权重**：<img class="fml" src="/formulas/be647ce26dfed0.png" alt="w_{1}= \frac{\sigma_{2}^{2}- \sigma_{1}\sigma_{2}\rho}{\sigma_{1}^{2}+ \sigma_{2}^{2}- 2\sigma_{1}\sigma_{2}\rho}" width="138" height="40">
 
+<div class="kb-example">
+
 **例（课件原题）**：资产 A：E(R)=15%、<img class="fml" src="/formulas/90c0cb9360a4f7.png" alt="\sigma=30" width="59" height="33">%；资产 B：E(R)=10%、<img class="fml" src="/formulas/0d27c1cfe5d4ab.png" alt="\sigma=22" width="60" height="33">%；<img class="fml" src="/formulas/0a5c7aedb4257c.png" alt="\rho=0.2" width="62" height="33">。求最小方差组合。
 
 
@@ -627,7 +641,13 @@ w_{A}&amp;=\frac{0.22^{2}-0.30\times0.22\times0.2}{0.30^{2}+0.22^{2}-2\times0.30
 故 <img class="fml" src="/formulas/3f2f9bbe5a98f4.png" alt="w_{B}\approx 68.57\%" width="110" height="33">。
 <img class="fml" src="/formulas/11eed0b1c02ec5.png" alt="E(r_{P})= 0.3143 \times 15" width="167" height="33">% + <img class="fml" src="/formulas/badeba45306310.png" alt="0.6857 \times 10" width="96" height="33">% ≈ **11.57%**；<img class="fml" src="/formulas/d1485c52528796.png" alt="\sigma_{P} \approx 19.3" width="84" height="34">%（代入方差公式开方）。
 
+</div>
+
+<div class="kb-example">
+
 **例（课件原题）**：三种风险资产预期收益完全一致，标准差之比 1:2:3，两两相关系数为 0。最优组合权重与方差成反比：<img class="fml" src="/formulas/40f0c966128434.png" alt="w \propto \frac{1}{\sigma^{2}}" width="61" height="33">，即 <img class="fml" src="/formulas/e4834b5c0fa618.png" alt="1 : \frac{1}{4} : \frac{1}{9}= 36 : 9 : 4" width="156" height="33">，归一化得 **73.5% : 18.4% : 8.2%**。
+
+</div>
 
 **卖空**：借入证券卖出、日后买回归还。例：本金 1000 元，卖空股票 A 收入 500 元，连同本金全部买入股票 <img class="fml" src="/formulas/b519db2ba0e513.png" alt="B \to A" width="63" height="33"> 权数 = <img class="fml" src="/formulas/e468ac5cc853be.png" alt="- \frac{500}{1000}" width="50" height="33"> <img class="fml" src="/formulas/e199d482b663b1.png" alt="- 0.5" width="43" height="33">，B 权数 = 1500/1000 = **+1.5**（权数之和仍为 1）。卖空限制会缩小可行集、使有效边界内移。
 
@@ -690,9 +710,13 @@ w_{A}&amp;=\frac{0.22^{2}-0.30\times0.22\times0.2}{0.30^{2}+0.22^{2}-2\times0.30
 
 **β 的含义与计算**（补全）：<img class="fml" src="/formulas/7fe9d3a66cc58b.png" alt="\beta_{i}= \frac{\operatorname{Cov}(r_{i},r_{M})}{\sigma_{M}^{2}}= \rho_{iM}\dfrac{\sigma_{i}}{\sigma_{M}}" width="191" height="43">。β=1 与市场同步；β>1 激进（放大市场波动）；β<1 防守。组合的 β 是成分 β 的加权平均。
 
+<div class="kb-example">
+
 **例（课件原题）**：股票 A、B 收益率标准差 0.25 与 0.6，与市场相关系数 0.4 与 0.7，市场回报率 0.15、标准差 0.1，r_f=0.05。
 <img class="fml" src="/formulas/667a7ec0f4e6a2.png" alt="\beta_{A}= 0.4 \times \frac{0.25}{0.1}=1.0" width="169" height="33">；<img class="fml" src="/formulas/cc44d54f89ab4e.png" alt="\beta_{B}= 0.7 \times \frac{0.6}{0.1}=4.2" width="163" height="33">；组合 <img class="fml" src="/formulas/072204873ec7f8.png" alt="\beta= 0.5 \times 1.0+ 0.5 \times 4.2=2.6" width="245" height="33">。
 <img class="fml" src="/formulas/dce7330838a64b.png" alt="E(r_{A})= 0.05+(0.15- 0.05) \times 1.0=15\%" width="331" height="33">；<img class="fml" src="/formulas/1c502a0503876c.png" alt="E(r_{B})= 0.05+ 0.10 \times 4.2=47\%" width="265" height="33">；<img class="fml" src="/formulas/b799c0ca5cf117.png" alt="E(r_{P})= 0.05+ 0.10 \times 2.6=31\%" width="264" height="33">。
+
+</div>
 
 **CAPM 应用**：① 资产估值——用 CAPM 计算的预期收益与实际收益率比较，发现高估/低估资产，低买高卖；② 资源配置——消极管理者按风险偏好配置无风险资产与市场组合（偏好不变则组合不变）；积极管理者预测市场走势、计算 β 值，据市场走势调整组合结构。
 
@@ -720,9 +744,17 @@ w_{A}&amp;=\frac{0.22^{2}-0.30\times0.22\times0.2}{0.30^{2}+0.22^{2}-2\times0.30
 
 **APT 公式：E(r) = λ0 + β_i1λ1 + β_i2λ2 + … + β_ikλ_k**，其中 λ_k 是承担一个单位 k 因素风险的补偿额（<img class="fml" src="/formulas/aee16ecd4df216.png" alt="\lambda_{0}" width="25" height="33"> 无风险利率），风险大小由 <img class="fml" src="/formulas/6cc258a4f2a216.png" alt="\beta_{ik}" width="29" height="33"> 表示。
 
+<div class="kb-example">
+
 **例（课件原题，单因素 APT）**：组合 A、B 均已充分多样化，E(r)=12%、9%，<img class="fml" src="/formulas/4e44f29343d14f.png" alt="\beta=1.2" width="65" height="33">、0.8，单因素经济。由 12% = <img class="fml" src="/formulas/cae40769861071.png" alt="r_{f}+ 1.2\lambda" width="78" height="33">、9% = <img class="fml" src="/formulas/d33e22e4b5f395.png" alt="r_{f}+ 0.8\lambda" width="78" height="33"> 解得 <img class="fml" src="/formulas/2e47c10854ff47.png" alt="\lambda= 7.5" width="64" height="33">%、**r_f = 3%**。
 
+</div>
+
+<div class="kb-example">
+
 **例（两因素 APT）**：r_f=5%；组合 A：<img class="fml" src="/formulas/21769df0d10a7b.png" alt="\beta_{1}=1.2" width="70" height="33">、<img class="fml" src="/formulas/d70ee694120b2b.png" alt="\beta_{2}=1.8" width="71" height="33">、E(r)=24%；组合 B：<img class="fml" src="/formulas/8578bbc4196e46.png" alt="\beta_{1}=2" width="57" height="33">、<img class="fml" src="/formulas/b10d014148b414.png" alt="\beta_{2}=- 0.3" width="85" height="33">、E(r)=22%。联立 <img class="fml" src="/formulas/428009fadaa12b.png" alt="24= 5+ 1.2\lambda_{1}+ 1.8\lambda_{2}" width="182" height="33">、<img class="fml" src="/formulas/93cbf028e338d4.png" alt="22= 5+ 2\lambda_{1}- 0.3\lambda_{2}" width="168" height="33">，解得 <img class="fml" src="/formulas/a0352ede2111b4.png" alt="\lambda_{1} \approx 9.17" width="81" height="34">%、<img class="fml" src="/formulas/5bedfc4604cf29.png" alt="\lambda_{2} \approx 4.44" width="80" height="34">%，即 <img class="fml" src="/formulas/e302864a96c548.png" alt="E(r)= 5\%+ 9.17\%\beta_{1}+ 4.44\%\beta_{2}" width="262" height="34">。
+
+</div>
 
 **CAPM 与 APT 的异同**（简答高频）：
 
@@ -749,6 +781,8 @@ w_{A}&amp;=\frac{0.22^{2}-0.30\times0.22\times0.2}{0.30^{2}+0.22^{2}-2\times0.30
 
 <img class="fml" src="/formulas/4c646f773996a5.png" alt="C= S \cdot N(d_{1})- X \cdot e^{- rT} \cdot N(d_{2})" width="261" height="34">，其中 <img class="fml" src="/formulas/89f9af73d8f648.png" alt="d_{1}= \frac{\ln\left(\frac{S}{X}\right)+\left(r+\frac{\sigma^{2}}{2}\right)T}{\sigma \sqrt{T}}" width="154" height="46">，<img class="fml" src="/formulas/abd257179d2281.png" alt="d_{2}= d_{1}- \sigma \sqrt{T}" width="124" height="34">；<img class="fml" src="/formulas/721dad2c35b8f9.png" alt="N( \cdot)" width="42" height="34"> 为标准正态分布函数，S 现价、X 执行价、r 无风险利率、T 期限（年）、σ 收益率标准差（方差 σ² 开方）。
 
+<div class="kb-example">
+
 **例（课件原题）**：S=25、X=25、T=0.5、r=12%、方差 0.36（<img class="fml" src="/formulas/0464b568824c80.png" alt="\sigma=0.6" width="64" height="34">），不发股利。
 <img class="fml" src="/formulas/bb7745e1fe8846.png" alt="d_{1}= \frac{\ln(1)+(0.12+ 0.18) \times 0.5}{0.6 \times \sqrt{0.5}}= \frac{0.15}{0.4243} \approx 0.3536" width="313" height="37">；<img class="fml" src="/formulas/3e12bd4ea7c1f7.png" alt="d_{2}= 0.3536- 0.4243 \approx- 0.0707" width="255" height="34">。
 查表 <img class="fml" src="/formulas/67b800ca0754c0.png" alt="N(0.3536) \approx 0.638" width="152" height="34">、<img class="fml" src="/formulas/9240cf05064df7.png" alt="N(- 0.0707) \approx 0.472" width="165" height="33">，故
@@ -758,6 +792,8 @@ w_{A}&amp;=\frac{0.22^{2}-0.30\times0.22\times0.2}{0.30^{2}+0.22^{2}-2\times0.30
 <p class="fml-block"><img class="fml" src="/formulas/d8157628305b4d.png" alt="C= 25 \times 0.638- 25 \times e^{- 0.06} \times 0.472 \approx 15.95- 11.13=4.83\,\text{元}" width="493" height="33"></p>
 
 
+
+</div>
 
 ### 6.4 易错点
 
@@ -838,15 +874,24 @@ w_{A}&amp;=\frac{0.22^{2}-0.30\times0.22\times0.2}{0.30^{2}+0.22^{2}-2\times0.30
 
 ### 8.4 计算例题
 
+<div class="kb-example">
+
 **例 1（詹森指数，课件原题）**：国债利率 6%，市场回报率 14%，组合 <img class="fml" src="/formulas/091d2e2bdd75d3.png" alt="\beta=0.5" width="64" height="33">，实现收益率 10%。
 CAPM 要求收益 = 6% + (14%−6%)×0.5 = 10% → <img class="fml" src="/formulas/63cd6f36b0186e.png" alt="\alpha= 10\%- 10\%= 0" width="163" height="33">，该经理业绩与市场基准持平，没有创造超额收益。
+
+</div>
+<div class="kb-example">
 
 **例 2（夏普/特雷诺综合，课件原题）**：组合 A：E(r)=11%、<img class="fml" src="/formulas/705d9f9e9ea688.png" alt="\beta=0.8" width="64" height="34">、<img class="fml" src="/formulas/f10daade89e059.png" alt="\sigma=10" width="59" height="33">%；组合 B：E(r)=14%、<img class="fml" src="/formulas/598b6f5fbd2d9b.png" alt="\beta=1.5" width="64" height="33">、<img class="fml" src="/formulas/585127cee04940.png" alt="\sigma=31" width="60" height="33">%；r_f=6%，沪深300 预期收益 12%、<img class="fml" src="/formulas/b75b48d6bb17d6.png" alt="\sigma=20" width="59" height="33">%。
 - 已持有市场指数组合（分散化充分，只关心 β 与 α）→ 用**詹森/特雷诺**：<img class="fml" src="/formulas/b4f20553ddd384.png" alt="J_{A}= 11-[6+(12- 6) \times 0.8]" width="239" height="33"> **+0.2%**；<img class="fml" src="/formulas/1a1323956a2a0e.png" alt="J_{B}= 14-[6+ 6 \times 1.5]" width="185" height="33"> <img class="fml" src="/formulas/a7a71501f1df05.png" alt="- 1\%" width="45" height="33">。A 有正 α，应**增持 A**。
 - 只能投国债和一个组合（组合即全部资产，关心总风险）→ 用**夏普**：<img class="fml" src="/formulas/9e2c9ae6398b3b.png" alt="S_{A}= \frac{11- 6}{10}=0.5" width="131" height="33">；<img class="fml" src="/formulas/066da51a345473.png" alt="S_{B}= \frac{14- 6}{31}=0.258" width="150" height="33">；市场组合 <img class="fml" src="/formulas/b2b55b71af76c2.png" alt="S_{M}= \frac{12- 6}{20}= 0.3" width="136" height="33">。选 **A**（夏普比率最高，甚至优于市场）。
 
+</div>
+<div class="kb-example">
+
 **例 3（信息比率）**：组合 P 相对基准 B 的年平均残余收益 4%、残余风险（跟踪误差）8% → IR = 4%/8% = **0.5**。
 
+</div>
 ### 8.5 易错点
 
 - 夏普比率用 <img class="fml" src="/formulas/275516ecc7dc2b.png" alt="\sigma" width="18" height="33">（总风险）、特雷诺用 <img class="fml" src="/formulas/5ed80e3e4d7b8f.png" alt="\beta" width="18" height="34">（系统风险）、詹森用 **CAPM 差值**（绝对 α）、信息比率用**非系统风险**——四个分母是本节最大考点。
@@ -888,10 +933,14 @@ CAPM 要求收益 = 6% + (14%−6%)×0.5 = 10% → <img class="fml" src="/formul
 | 特定期限偏好理论 | 不同投资者有偏好的期限区间，跨区间需补偿 | 各种形状（分段版流动性溢价） |
 | 市场分割理论 | 各期限市场完全分割，利率由各自供求决定 | 各种形状 |
 
+<div class="kb-example">
+
 **例（课件原题，即期与远期利率）**：面值 100 元的 1 年期零息债券价格 94 元、2 年期零息债券价格 88 元。
 - 1 年即期利率：<img class="fml" src="/formulas/352f4e9b0a0033.png" alt="\frac{100}{94}- 1=6.38\%" width="131" height="33">；2 年期零息到期收益率：<img class="fml" src="/formulas/67970811134cc6.png" alt="\left(\frac{100}{88}\right)^{\frac{1}{2}}- 1=6.60\%" width="157" height="36">
 - 第 2 年远期利率 <img class="fml" src="/formulas/661467e37ee8d7.png" alt="f_{2}= \frac{(1.0660)^{2}}{1.0638}- 1=6.82\%" width="202" height="35">
 - 若无偏预期理论成立，新发 2 年期国债（面值 100、年息票率 10%）第 1 年末的预期价格 = 第 2 年现金流 110 按预期 1 年期利率折现：<img class="fml" src="/formulas/9805b9d4f241e6.png" alt="\frac{110}{1+f_{2}}=102.98\,\text{元}" width="133" height="35">，预期到期收益率 = <img class="fml" src="/formulas/c3451360b69ffa.png" alt="\frac{110}{102.98}- 1=6.82\%" width="147" height="33">（即远期利率）。
+
+</div>
 
 ### 9.3 久期与凸度（★★★ 计算 + 名词解释）
 
@@ -905,7 +954,11 @@ CAPM 要求收益 = 6% + (14%−6%)×0.5 = 10% → <img class="fml" src="/formul
 
 **凸度（Convexity）**：价格—收益率曲线弯曲程度的度量；久期只是线性近似，凸度对大幅利率变动作二阶修正：<img class="fml" src="/formulas/df302f98a3f61f.png" alt="\frac{\Delta P}{P}\approx -D\,\Delta y+\frac{1}{2}C(\Delta y)^{2}" width="203" height="33">。凸度对投资者总是有利的（利率大跌时价格涨得更多、大涨时跌得更少），凸度大的债券更有价值。
 
+<div class="kb-example">
+
 **例（课件习题）**：息票率 8%（年末付息）、期限 5 年、按面值发行的债券：发行价=面值（票面利率=贴现率 8%）→ 平价发行；久期 <img class="fml" src="/formulas/60af96aa8655b7.png" alt="D= \frac{\sum t \times PV(CF_{t})}{100}=4.31\,\text{年}" width="208" height="33">（可逐年计算：各期现金流 8,8,8,8,108 按 8% 折现加权）。若投资者期望到期收益率为 10% > 票面利率 8% → **不能按面值发行**，须折价：P = 8×年金系数(10%,5) + 100/1.1⁵ = 8×3.7908 + 62.09 ≈ **92.42 元**。
+
+</div>
 
 **债券组合的利率风险对冲（久期套保，课件原题）**：休斯持有 10 万元债券组合、久期 9 年；6 月份国债期货现价 108 元、可交割券久期 8.8 年。对冲需**卖空**期货合约数 N = (组合价值 × 组合久期) / (期货价格 × 交割券久期 × 合约面值/100)。设每手面值 100 元：<img class="fml" src="/formulas/7c873f21c99863.png" alt="N= \dfrac{100000 \times 9}{108 \times 8.8}\approx 947" width="186" height="46"> **手 → 卖空约 947 手**，使组合久期归零，规避 6 个月内利率上升风险。
 
