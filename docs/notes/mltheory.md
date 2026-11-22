@@ -212,7 +212,7 @@ $$
 :::
 
 ::: danger 易错 · KL
-$D_{KL}(p \| q)= D_{KL}(q \| p)$（非对称），且不满足三角不等式，因此不是度量距离；VAE 的正则项方向固定为 $D_{KL}(q_\phi(z|x) \| p(z))$，不能随意交换。
+$D_{KL}(p \| q)\ne D_{KL}(q \| p)$（非对称），且不满足三角不等式，因此不是度量距离；VAE 的正则项方向固定为 $D_{KL}(q_\phi(z|x) \| p(z))$，不能随意交换。
 :::
 
 ### 2.3 优化：梯度下降与优化器
@@ -391,7 +391,7 @@ $$
 &\text{二分类：} \; p(y=1|x)= \sigma(w^{T}x)= \frac{1}{1+\exp(- w^{T}x)} \\
 &\text{交叉熵损失：} \; L(w)=- \sum_{i}[y_{i} \log \hat{y}_{i}+(1- y_{i}) \log(1- \hat{y}_{i})] \\
 &\text{梯度：} \; \nabla_{w} L= X^{T}(\hat{y}- y) \; \text{（与线性回归形式相似，但} \; \text{ŷ} \; \text{经过} \; \text{sigmoid} \; \text{）} \\
-&\text{多分类：} \; p(C_{k}|x)= \frac{\exp(a_{k})}{\sum}_{j} \exp(a_{j}) \; \text{，损失} \; =- \sum_{i} \log p(y_{i}|x_{i})
+&\text{多分类：} \; p(C_{k}|x)= \dfrac{\exp(a_{k})}{\sum_{j}\exp(a_{j})} \; \text{，损失} \; =- \sum_{i} \log p(y_{i}|x_{i})
 \end{aligned}
 $$
 
@@ -538,7 +538,7 @@ $R(h)- \hat{R}(h) \le \sqrt{\dfrac{\log|H|+ \log\left(\dfrac{2}{\delta}\right)}{
 | 验证方式 | 做法 | 适用 |
 | --- | --- | --- |
 | 留出法 | 一次性按比例切分 | 数据量大、快速 |
-| K 折交叉验证 | 轮流用 1 折验证、K−1 折训练，取平均 | 标准做法，$K=\dfrac{5}{10}$ |
+| K 折交叉验证 | 轮流用 1 折验证、K−1 折训练，取平均 | 标准做法，$K=5$ 或 $10$ |
 | 分层 K 折 | 保持每折类别比例 | 分类且类别不平衡 |
 | 留一法 LOOCV | K=N | 小样本，计算代价高 |
 | 时间序列切分 | 按时间前向滚动 | 时序/金融数据（防泄露） |
@@ -640,7 +640,7 @@ $$
 展开 $(1+x_{1}z_{1}+x_{2}z_{2})^{2}= 1+ 2x_{1}z_{1}+ 2x_{2}z_{2}+ x_{1}^{2}z_{1}^{2}+ x_{2}^{2}z_{2}^{2}+ 2x_{1}x_{2}z_{1}z_{2}$
 恰好等于 $\phi(x)^{T}\phi(z)$，其中
 
-$$\phi(x)=\left(1, \sqrt{2x}_{1}, \sqrt{2x}_{2}, x_{1}^{2}, x_{2}^{2}, \sqrt{2x}_{1}x_{2}\right)$$
+$$\phi(x)=\left(1, \sqrt{2}\,x_{1}, \sqrt{2}\,x_{2}, x_{1}^{2}, x_{2}^{2}, \sqrt{2}\,x_{1}x_{2}\right)$$
 
 即二维输入被映射到**六维**特征空间；直接用核函数可省去显式构造 φ 的计算——这就是**核技巧**。
 :::
@@ -762,17 +762,17 @@ $$
 
 | 算法 | 准则 | 树结构 | 特点 |
 | --- | --- | --- | --- |
-| ID3 | 信息增益 $G(D,A)=H(D)- \sum_{v}(\|D_{v}\| \|D\|)H(D_{v})$ | 多叉 | 偏袒取值多的特征（如「编号」） |
+| ID3 | 信息增益 $G(D,A)=H(D)- \sum_{v}(\|D_{v}\|/\|D\|)H(D_{v})$ | 多叉 | 偏袒取值多的特征（如「编号」） |
 | C4.5 | 增益率 $GR= \dfrac{G(D,A)}{SplitInfo_{A}}$ | 多叉 | 惩罚多值特征；支持连续值与缺失 |
 | CART | 基尼指数 $Gini(D)=1- \sum p_{k}^{2}$ | **二叉** | 分类用基尼、回归用平方误差 |
 
 $$
 \begin{aligned}
 &\text{熵} \; H(D)=- \sum_{k} p_{k} \log_{2} p_{k} \\
-&\text{条件熵} \; H(D|A)= \sum_{v}(|D_{v}||D|) H(D_{v}) \\
+&\text{条件熵} \; H(D|A)= \sum_{v}(|D_{v}|/|D|) H(D_{v}) \\
 &\text{信息增益} \; G(D,A)= H(D)- H(D|A) \leftarrow \; \text{取最大} \\
-&\text{分裂信息} \; SplitInfo_{A}=- \sum_{v}(|D_{v}||D|) \log_{2}(|D_{v}||D|) \\
-&\text{基尼指数} \; Gini_{index}(D,A)= \sum_{v}(|D_{v}||D|) Gini(D_{v}) \leftarrow \; \text{取最小}
+&\text{分裂信息} \; SplitInfo_{A}=- \sum_{v}(|D_{v}|/|D|) \log_{2}(|D_{v}|/|D|) \\
+&\text{基尼指数} \; Gini_{index}(D,A)= \sum_{v}(|D_{v}|/|D|) Gini(D_{v}) \leftarrow \; \text{取最小}
 \end{aligned}
 $$
 
@@ -781,7 +781,7 @@ $$
 
 $$H(D)=-\left(\frac{9}{14}\right)\log_{2}\left(\frac{9}{14}\right)-\left(\frac{5}{14}\right)\log_{2}\left(\frac{5}{14}\right)= 0.9403$$
 
-- $H(D_{1})=0.5436$、$H(D_{2})=0.9183$ → 条件熵 $= \dfrac{8}{14 \times 0.5436}+ \dfrac{6}{14 \times 0.9183}= 0.7042$；
+- $H(D_{1})=0.5436$、$H(D_{2})=0.9183$ → 条件熵 $= \dfrac{8}{14} \times 0.5436+ \dfrac{6}{14} \times 0.9183= 0.7042$；
 - **信息增益 $G= 0.9403- 0.7042= 0.2361$**；
 - `Gini(D)=0.4592`、$Gini(D_{1})=0.2188$、$Gini(D_{2})=0.4444$ → **基尼指数 `= 0.3155`**；
 - `SplitInfo = 0.9852` → **增益率 $GR= \dfrac{0.2361}{0.9852} \approx 0.2397$**。
@@ -879,7 +879,7 @@ GBDT 每轮拟合**负梯度**（伪残差）；XGBoost 进一步对损失作**�
 
 $$
 \begin{aligned}
-&Obj \approx \sum_{i}[g_{i} f_{t}(x_{i})+ \frac{1}{2} h_{i} f_{t}^{2}(x_{i})]+ \Omega(f_{t}) \; \text{，} \; g_{i}= \frac{\partial ℓ}{\partial \hat{y}} \; \text{，} \; h_{i}= \partial^{2}\frac{ℓ}{\partial \hat{y}^{2}} \\
+&Obj \approx \sum_{i}[g_{i} f_{t}(x_{i})+ \frac{1}{2} h_{i} f_{t}^{2}(x_{i})]+ \Omega(f_{t}) \; \text{，} \; g_{i}= \frac{\partial ℓ}{\partial \hat{y}} \; \text{，} \; h_{i}= \frac{\partial^{2}ℓ}{\partial \hat{y}^{2}} \\
 &\Omega(f)= \gamma \cdot T+ \frac{1}{2} \lambda \| w \|^{2} \; \text{（} \; \text{T} \; \text{叶数、} \; \text{w} \; \text{叶权重）} \\
 &\text{最优叶权重} \; w*_{j}=- \frac{G_{j}}{H_{j}+\lambda} \\
 &\text{分裂增益} \; Gain= \frac{1}{2}[ \frac{G_{L}^{2}}{H_{L}+\lambda}+ \frac{G_{R}^{2}}{H_{R}+\lambda}- \frac{(G_{L}+G_{R})^{2}}{H_{L}+H_{R}+\lambda}]- \gamma
@@ -924,7 +924,7 @@ $$
 | Tanh | $\dfrac{e^{z}- e^{-z}}{e^{z}+e^{-z}}$ | $(- 1,1)$ | 零均值 | 仍有梯度消失 |
 | **ReLU** | `max(0,z)` | [0,∞) | 计算极简、正半轴梯度恒 1 | z&lt;0 神经元「死亡」 |
 | LeakyReLU / ELU / GELU | ReLU 变体 | — | 缓解死亡、更平滑 | 需额外超参/计算 |
-| Softmax | $\dfrac{\exp(a_{k})}{\sum}_{j}\exp(a_{j})$ | (0,1) 和为 1 | 多分类输出 | 须减 max 防溢出 |
+| Softmax | $\dfrac{\exp(a_{k})}{\sum_{j}\exp(a_{j})}$ | (0,1) 和为 1 | 多分类输出 | 须减 max 防溢出 |
 
 ::: tip 工作例题 · 一层前向计算
 `x=(1,2)`、$w=(0.5,- 1)$、`b=0.3` → $z= 0.5 \times 1- 1 \times 2+ 0.3=- 1.2$；
@@ -974,7 +974,7 @@ Sigmoid 导数最大仅 0.25，是深网络梯度消失的历史主因。对策�
 | 权重衰减 | L2 惩罚等价于参数乘 $(1- \eta \lambda)$ | AdamW 把权重衰减与梯度解耦，效果更好 |
 | 早停 | 验证误差回升即停 | 验证集不能与测试集混用 |
 | 残差连接 | `y = F(x) + x` 提供梯度高速路 | 使上百层网络可训练 |
-| 初始化 | Xavier $\dfrac{\operatorname{Var} \approx 1}{d_{in}}$、He $\dfrac{\operatorname{Var} \approx 2}{d_{in}}$（配 ReLU） | 全零初始化会导致对称性问题 |
+| 初始化 | Xavier $\operatorname{Var}= \dfrac{1}{d_{in}}$、He $\operatorname{Var}= \dfrac{2}{d_{in}}$（配 ReLU） | 全零初始化会导致对称性问题 |
 
 ::: tip 补充 · 损失函数与输出层配对
 回归 → 线性输出 + MSE；二分类 → sigmoid + 二元交叉熵；多分类 → softmax + 多元交叉熵。配对错误会导致梯度形式复杂或数值不稳（如 softmax 与 MSE 组合在饱和时梯度极小）。
@@ -1237,7 +1237,7 @@ $$
 \begin{aligned}
 &J= \sum_{n} \sum_{k} r_{nk} \| x_{n}- \mu_{k} \|^{2} \\
 &\text{E} \; \text{步（硬分配）：} \; r_{nk}= 1 \; \text{若} \; k= \operatorname*{argmin}_{j} \| x_{n}- \mu_{j} \|^{2} \; \text{，否则} \; \text{0} \\
-&\text{M} \; \text{步（重算质心）：} \; \mu_{k}= \sum_{n}\frac{r_{nk} x_{n}}{\sum}_{n} r_{nk}
+&\text{M} \; \text{步（重算质心）：} \; \mu_{k}= \dfrac{\sum_{n}r_{nk} x_{n}}{\sum_{n}r_{nk}}
 \end{aligned}
 $$
 
@@ -1264,13 +1264,13 @@ def kmeans(X, K, iters=20, seed=42):
 
 ### 10.2 EM 算法与高斯混合模型 GMM
 
-GMM 假设数据由 K 个高斯成分混合生成：$p(x)=\sum_{k} \pi_{k} N\left(x|\mu_{k},\sum_{k}\right)$，隐变量 $z_{k}$ 表示成分归属。直接最大化对数似然 $\sum \log p(x_{n})$ 因 log 内有求和而困难，EM 通过交替两步保证似然单调不降：
+GMM 假设数据由 K 个高斯成分混合生成：$p(x)=\sum_{k} \pi_{k} N\left(x|\mu_{k},\Sigma_{k}\right)$，隐变量 $z_{k}$ 表示成分归属。直接最大化对数似然 $\sum \log p(x_{n})$ 因 log 内有求和而困难，EM 通过交替两步保证似然单调不降：
 
 $$
 \begin{aligned}
-&\text{E} \; \text{步：} \; \gamma(z_{nk})= p(z_{k}=1|x_{n})= \pi_{k}\frac{N\left(x_{n}|\mu_{k},\sum_{k}\right)}{\sum}_{j} \pi_{j}N\left(x_{n}|\mu_{j},\sum_{j}\right) \; \text{（责任度，软分配）} \\
+&\text{E} \; \text{步：} \; \gamma(z_{nk})= p(z_{k}=1|x_{n})= \pi_{k}\dfrac{N\left(x_{n}|\mu_{k},\Sigma_{k}\right)}{\sum_{j}\pi_{j}N\left(x_{n}|\mu_{j},\Sigma_{j}\right)} \; \text{（责任度，软分配）} \\
 &\text{M} \; \text{步：} \; N_{k}= \sum_{n} \gamma(z_{nk}) \; \text{；} \; \pi_{k}= \frac{N_{k}}{N} \; \text{；} \\
-&\mu_{k}= \sum_{n}\frac{\gamma(z_{nk})x_{n}}{N_{k}} \; \text{；} \; \sum_{k}= \sum_{n}\frac{\gamma(z_{nk})(x_{n}- \mu_{k})(x_{n}- \mu_{k})^{T}}{N_{k}}
+&\mu_{k}= \sum_{n}\frac{\gamma(z_{nk})x_{n}}{N_{k}} \; \text{；} \; \Sigma_{k}= \sum_{n}\frac{\gamma(z_{nk})(x_{n}- \mu_{k})(x_{n}- \mu_{k})^{T}}{N_{k}}
 \end{aligned}
 $$
 
@@ -1371,8 +1371,8 @@ $$
 
 $$
 \begin{aligned}
-&\frac{\partial Q}{\partial} \mu_{k}= \sum_{n} \gamma_{nk} \sum_{k}^{-1}(x_{n}- \mu_{k})= 0 \Rightarrow \mu_{k}= \sum_{n}\gamma_{nk}\frac{x_{n}}{N_{k}} \\
-&\frac{\partial Q}{\partial} \sum_{k}^{-1}= 0 \Rightarrow \sum_{k}= \sum_{n}\gamma_{nk}\frac{(x_{n}- \mu_{k})(x_{n}- \mu_{k})^{T}}{N_{k}} \\
+&\frac{\partial Q}{\partial \mu_{k}}= \sum_{n} \gamma_{nk} \Sigma_{k}^{-1}(x_{n}- \mu_{k})= 0 \Rightarrow \mu_{k}= \sum_{n}\gamma_{nk}\frac{x_{n}}{N_{k}} \\
+&\frac{\partial Q}{\partial \Sigma_{k}^{-1}}= 0 \Rightarrow \Sigma_{k}= \sum_{n}\gamma_{nk}\frac{(x_{n}- \mu_{k})(x_{n}- \mu_{k})^{T}}{N_{k}} \\
 &\text{带约束} \; \sum \pi_{k}=1 \; \text{用拉格朗日乘子} \; \Rightarrow \pi_{k}= \frac{N_{k}}{N} \; \text{，其中} \; N_{k}= \sum_{n}\gamma_{nk}
 \end{aligned}
 $$
@@ -1487,7 +1487,7 @@ $$
 递推式为 $V(s_{1})=1+0.9V(s_{2})$、$V(s_{2})=0.9 \times 0.5 \times V(s_{1})=0.45V(s_{1})$。
 从 $V_{0}=(0,0)$ 迭代：
 `k=1: (1.00000, 0)` → `k=2: (1.00000, 0.45000)` → `k=3: (1.40500, 0.45000)` → `k=4: (1.40500, 0.63225)` → `k=5: (1.56902, 0.63225)` → `k=6: (1.56902, 0.70606)` …
-解析解：把 $V(s_{2})=0.45V(s_{1})$ 代入第一式 → $V(s_{1})=\dfrac{1}{1- 0.9 \times 0.45}=\dfrac{1}{0.595 \approx 1.6807}$，$V(s_{2}) \approx 0.7563$，与迭代极限一致。
+解析解：把 $V(s_{2})=0.45V(s_{1})$ 代入第一式 → $V(s_{1})=\dfrac{1}{1- 0.9 \times 0.45}=\dfrac{1}{0.595} \approx 1.6807$，$V(s_{2}) \approx 0.7563$，与迭代极限一致。
 :::
 
 ```python
@@ -1861,7 +1861,7 @@ $$
 **题**：①$w^{T}x=2$ 时二分类正类概率？②三分类 logits `(2,1,0.1)` 的 softmax？③真实为第 1 类、模型给 `0.9` 与 `0.8` 时的交叉熵？
 
 **解**：
-① $\sigma(2)=\dfrac{1}{(1+e^{-2}) \approx 0.8808}$ → 判正类；$w^{T}x=0$ 时恰为 0.5（决策边界）。
+① $\sigma(2)=\dfrac{1}{1+e^{-2}} \approx 0.8808$ → 判正类；$w^{T}x=0$ 时恰为 0.5（决策边界）。
 ② `softmax = (0.6590, 0.2424, 0.0986)`，和为 1，预测第 1 类。
 ③ $- \log 0.9 \approx 0.1054$、$- \log 0.8 \approx 0.2231$：概率降低 0.1，损失约翻倍，体现交叉熵对置信度的强惩罚。
 
@@ -1869,7 +1869,7 @@ $$
 
 **题**：`TP=80, FP=20, FN=10, TN=90`，求 Acc / P / R / F1 / FPR，并说明「提高召回率」通常如何操作及其代价。
 
-**解**：$Acc=\dfrac{170}{200}=0.85$；$P=\dfrac{80}{100}=0.80$；$R=\dfrac{80}{90 \approx 0.8889}$；$F1=\dfrac{2 \times 80}{160+20+10}=\dfrac{160}{190 \approx 0.8421}$；$FPR=\dfrac{20}{110 \approx 0.1818}$。
+**解**：$Acc=\dfrac{170}{200}=0.85$；$P=\dfrac{80}{100}=0.80$；$R=\dfrac{80}{90} \approx 0.8889$；$F1=\dfrac{2 \times 80}{160+20+10}=\dfrac{160}{190} \approx 0.8421$；$FPR=\dfrac{20}{110} \approx 0.1818$。
 降低分类阈值会把更多样本判为正 → TP、FP 同增 → **R 升、P 降**；F1 折中，AUC 不随单一阈值改变。类别不平衡时应看 PR-AUC 而非 accuracy。
 
 ### 综 4 核映射与 SVM 间隔（第 6 章）
@@ -1877,7 +1877,7 @@ $$
 **题**：①写出 $k(x,z)=(1+x^{T}z)^{2}$ 在二维下的显式特征映射；②$w=(1,1), b=- 3$ 的最大间隔是多少？③C 增大对间隔与过拟合有何影响？
 
 **解**：
-① 展开得 $\phi(x)=\left(1, \sqrt{2x}_{1}, \sqrt{2x}_{2}, x_{1}^{2}, x_{2}^{2}, \sqrt{2x}_{1}x_{2}\right)$，六维；核技巧让我们无需显式计算 φ。
+① 展开得 $\phi(x)=\left(1, \sqrt{2}\,x_{1}, \sqrt{2}\,x_{2}, x_{1}^{2}, x_{2}^{2}, \sqrt{2}\,x_{1}x_{2}\right)$，六维；核技巧让我们无需显式计算 φ。
 ② $\gamma= \dfrac{2}{\|w\|}= \dfrac{2}{\sqrt{2}}= \sqrt{2} \approx 1.4142$；间隔边界 $w^{T}x+b=\pm 1$ 即 $x_{1}+x_{2}=2$ 与 `=4`。
 ③ C 增大 → 更不容忍错分 → 间隔变窄、边界更复杂 → **更易过拟合**；C 减小则相反。
 
@@ -2054,7 +2054,7 @@ print(classification_report(y_te, best.predict(X_te)))
 **解**：
 ① $V(s_{1})=1+0.9V(s_{2})$，$V(s_{2})=0.9 \times 0.5 \times V(s_{1})=0.45V(s_{1})$；
 ② `k=1: (1.00000, 0)` → `k=2: (1.00000, 0.45000)` → `k=3: (1.40500, 0.45000)`（依次代入前一轮 V）；继续 `k=4: (1.40500, 0.63225)`、`k=5: (1.56902, 0.63225)`；
-③ 代入消元：$V(s_{1})=1+0.9 \times 0.45V(s_{1})$ → $V(s_{1})=\dfrac{1}{0.595 \approx 1.6807}$，$V(s_{2}) \approx 0.7563$。
+③ 代入消元：$V(s_{1})=1+0.9 \times 0.45V(s_{1})$ → $V(s_{1})=\dfrac{1}{0.595} \approx 1.6807$，$V(s_{2}) \approx 0.7563$。
 收敛依据：γ<1 使贝尔曼最优算子为压缩映射，误差按 $\gamma^{k}$ 衰减，且不动点唯一。
 
 ### 综 16 VAE 与 GAN 的两个经典推导（第 12 章证明题）
@@ -2125,7 +2125,7 @@ $$x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 
 | 19 | F1 | 准确率 | P/R 调和平均 vs 整体正确率（不平衡会失真） |
 | 20 | ROC-AUC | PR-AUC | 阈值无关、负样本多时乐观 vs 不平衡时更敏感 |
 | 21 | 验证集 | 测试集 | 调超参/早停 vs 最终一次性评估 |
-| 22 | K 折交叉验证 | 留一法 | $K=\dfrac{5}{10 vs K}=N$（小样本、代价高） |
+| 22 | K 折交叉验证 | 留一法 | $K=5/10$ vs $K=N$（小样本、代价高） |
 | 23 | 分层 K 折 | 时序切分 | 保持类别比例 vs 按时间前向（防泄露） |
 | 24 | 归一化 min-max | 标准化 z-score | 压到 [0,1] vs 0 均值 1 方差（受异常值影响不同） |
 | 25 | 硬间隔 SVM | 软间隔 SVM | 要求完全可分 vs 引入 ξ 与 C 容许错分 |
@@ -2182,7 +2182,7 @@ $$x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 
 | 闭式解 | $w*=(X^{T}X)^{-1}X^{T}y$；岭 $+\lambda I$ |
 | 正则 | L2 $+\left(\dfrac{\lambda}{2}\right) \| w \|^{2}$；L1 $+\lambda \| w \|_{1}$ |
 | sigmoid | $\sigma(z)=\dfrac{1}{1+e^{-z}}$，$\sigma '=\sigma(1- \sigma)$，最大值 0.25 |
-| softmax | $p_{k}=\dfrac{\exp(a_{k})}{\sum}_{j}\exp(a_{j})$ |
+| softmax | $p_{k}=\dfrac{\exp(a_{k})}{\sum_{j}\exp(a_{j})}$ |
 | 交叉熵 | $- \sum[y \log \hat{y}+(1- y)\log(1- \hat{y})]$；$\nabla L=X^{T}(\hat{y}- y)$ |
 | 朴素贝叶斯 | $p(C\mid x)\propto p(C)\prod_{j}p(x_{j}\mid C)$ |
 | LDA | 最大化类间散度/类内散度比 |
@@ -2218,7 +2218,7 @@ $$x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 
 | 前向 | $z^{(l)}=W^{(l)}a^{(l- 1)}+b^{(l)}$，$a^{(l)}=\phi(z^{(l)})$ |
 | 反向 | $\delta^{(L)}= \nabla_{a} L⊙\phi '(z^{(L)})$；$\delta^{(l)}=(W^{(l+1)})^{T}\delta^{(l+1)}⊙\phi '(z^{(l)})$ |
 | 梯度 | $\dfrac{\partial L}{\partial W^{(l)}}=\delta^{(l)}(a^{(l- 1)})^{T}$ |
-| ReLU / softmax | `max(0,z)` / $\dfrac{\exp(a_{k})}{\sum \exp}(a_{j})$ |
+| ReLU / softmax | `max(0,z)` / $\dfrac{\exp(a_{k})}{\sum_{j}\exp(a_{j})}$ |
 | CNN 尺寸 | $⌊\dfrac{H- K+2P}{S}⌋+1$；参数 $K^{2}C_{in}C_{out}+C_{out}$ |
 | RNN / LSTM | $h_{t}=\phi(W_{xh} x_{t}+W_{hh} h_{t-1}+b)$；$c_{t}=f⊙c_{t-1}+i⊙g$ |
 | 注意力 | $softmax\left(\dfrac{QK^{T}}{\sqrt{d_{k}}}\right)V$，复杂度 $O(n^{2}d)$ |

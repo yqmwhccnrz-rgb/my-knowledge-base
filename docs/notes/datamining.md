@@ -278,9 +278,9 @@ print(df.loc[df['专业'] == 'CS', ['姓名', '成绩']])
 | 集中趋势 | 众数 | 频数最高的取值 | `mode()` |
 | 离散程度 | 极差 | $\max- \min$ | `max()-min()` |
 | 离散程度 | 方差 | $s^{2}= \dfrac{\sum(x_{i}- \bar{x})^{2}}{n- 1}$ | `var()` |
-| 离散程度 | 标准差 | $s= \sqrt{s}^{2}$ | `std()` |
+| 离散程度 | 标准差 | $s= \sqrt{s^{2}}$ | `std()` |
 | 离散程度 | 四分位距 | IQR = $Q3- Q1$ | `quantile(.75)-quantile(.25)` |
-| 离散程度 | 变异系数 | $CV = \dfrac{s}{x}$̄（无量纲，可跨量纲比较） | `std()/mean()` |
+| 离散程度 | 变异系数 | $CV = \dfrac{s}{\bar{x}}$（无量纲，可跨量纲比较） | `std()/mean()` |
 | 分布形态 | 偏度 | 三阶标准矩，右偏为正 | `skew()` |
 | 分布形态 | 峰度 | 四阶标准矩，尖峰厚尾为正 | `kurt()` |
 | 分位数 | Q1 / Q3 | 25% / 75% 分位 | `quantile([.25,.75])` |
@@ -416,7 +416,7 @@ print(pd.crosstab(df['性别'], df['专业'], normalize='index').round(2))
 | --- | --- | --- | --- | --- |
 | 正态 $N(\mu,\sigma^{2})$ | $\mu, \sigma^{2}$ | μ | σ² | 测量误差、连续变量 |
 | 标准正态 N(0,1) | — | 0 | 1 | Z 检验、置信区间 |
-| t(n) | 自由度 n | 0 (n&gt;1) | $\dfrac{n}{n- 2}$&gt;2) | 小样本、σ 未知 |
+| t(n) | 自由度 n | 0 (n&gt;1) | $\dfrac{n}{n- 2}$（n&gt;2 时存在） | 小样本、σ 未知 |
 | $\chi^{2}(k)$ | 自由度 k | k | 2k | 方差检验、拟合优度 |
 | $F(d_{1},d_{2})$ | 两个自由度 | $\dfrac{d_{2}}{d_{2}- 2}$ | — | 方差分析、回归整体检验 |
 | 二项 B(n,p) | n, p | np | $np(1- p)$ | n 次独立试验成功次数 |
@@ -590,7 +590,7 @@ print(fm.predict(pd.DataFrame({'x': [6, 7]})))   # 对新数据预测
 | --- | --- | --- |
 | 总体分布 | 全体个体的取值分布 | $X \sim(\mu, \sigma^{2})$ |
 | 样本分布 | 一次抽样的 n 个观测的直方图 | 近似总体形状 |
-| 抽样分布 | 统计量（如 x̄）在反复抽样下的分布 | x̄ ~ $N(\mu, \sigma^{2} n)$ |
+| 抽样分布 | 统计量（如 x̄）在反复抽样下的分布 | x̄ ~ $N(\mu, \sigma^{2}/n)$ |
 
 **标准误** $SE= \dfrac{\sigma}{\sqrt{n}}$（σ 未知时用 s 估计）。中心极限定理保证 n 足够大时 x̄ 近似正态，与总体分布形状无关；这就是 t 检验/置信区间的理论依据。
 
@@ -744,7 +744,7 @@ $$
 &\text{正向指标（越大越好）：} \; z= \frac{x- \min}{\max- \min} \\
 &\text{负向指标（越小越好）：} \; z= \frac{\max- x}{\max- \min} \\
 &\text{标准分数法：} \; z= \frac{x- \bar{x}}{s} \\
-&\text{适度指标（越接近某值越好）：} \; z= 1-|x- x*| \max|x- x*|
+&\text{适度指标（越接近某值越好）：} \; z= 1- \dfrac{|x- x*|}{\max|x- x*|}
 \end{aligned}
 $$
 
@@ -818,10 +818,10 @@ $$
 $$
 \begin{aligned}
 &F_{j}= a_{j1}X_{1}+ a_{j2}X_{2}+ \cdots+ a_{jp}X_{p} \\
-&\text{约束：} \; (1) \operatorname{Cov}(F_{i}, F_{j})=0(i=j) \; \text{；} \; (2) a_{j} \; \text{为单位向量；} \; (3) \operatorname{Var}(F_{1}) \ge \operatorname{Var}(F_{2}) \ge \cdots \\
+&\text{约束：} \; (1) \operatorname{Cov}(F_{i}, F_{j})=0(i\ne j) \; \text{；} \; (2) a_{j} \; \text{为单位向量；} \; (3) \operatorname{Var}(F_{1}) \ge \operatorname{Var}(F_{2}) \ge \cdots \\
 &\text{求解：对标准化后的相关矩阵} \; \text{R} \; \text{求特征值} \; \lambda_{j} \; \text{与单位特征向量} \; a_{j} \\
 &\operatorname{Var}(F_{j})=\lambda_{j} \; \text{，且} \; \sum \lambda_{j}= p \; \text{（标准化后）} \\
-&\text{方差贡献率} \; = \lambda_{j} \sum \lambda_{i} \; \text{；累计贡献率} \; = \frac{\lambda_{1}+ \cdots+\lambda_{m}}{\sum} \lambda_{i} \\
+&\text{方差贡献率} \; = \dfrac{\lambda_{j}}{\sum \lambda_{i}} \; \text{；累计贡献率} \; = \dfrac{\lambda_{1}+ \cdots+\lambda_{m}}{\sum \lambda_{i}} \\
 &\text{载荷} \; = a_{ji} \cdot \sqrt{\lambda}_{j} \; \text{（用于解释主成分的实际含义）}
 \end{aligned}
 $$
@@ -879,7 +879,7 @@ p=4 个变量，特征值 $\lambda=(2.4, 0.9, 0.5, 0.2)$，$\sum \lambda=4.0$：
 
 | 类别 | 度量 | 公式 / 说明 | 值域含义 |
 | --- | --- | --- | --- |
-| 距离（Q 型，样品间） | 欧氏 | $d= \sqrt{\sum}(x_{i}- y_{i})^{2}$ | 越小越相似 |
+| 距离（Q 型，样品间） | 欧氏 | $d= \sqrt{\sum(x_{i}- y_{i})^{2}}$ | 越小越相似 |
 | 距离 | 曼哈顿 | $d= \sum\vert x_{i}- y_{i}\vert $ | 对异常值较稳健 |
 | 距离 | 闵可夫斯基 | $d=\left(\sum\vert x_{i}- y_{i}\vert ^p\right)^{\dfrac{1}{p}}$ | p=1 曼哈顿、p=2 欧氏 |
 | 距离 | 马氏 | $d= \sqrt{(x- y)^{T} S^{-1}(x- y)}$ | 消除量纲与变量相关 |
@@ -979,7 +979,7 @@ for lam in (0.1, 1.0, 10.0):
 
 ### 4.7 熵权法与 TOPSIS 完整计算
 
-**熵权法**：先按列归一化 $p_{ij}= \dfrac{z_{ij}}{\sum}_{i}z_{ij}$，再算熵 $e_{j}=- \sum_{i}\dfrac{p_{ij} \cdot \ln(p_{ij})}{\ln}(n)$，差异系数 $g_{j}= 1- e_{j}$，权重 $w_{j}= \dfrac{g_{j}}{\sum g_{j}}$。熵越小（该指标取值越分散）权重越大。
+**熵权法**：先按列归一化 $p_{ij}= \dfrac{z_{ij}}{\sum_{i}z_{ij}}$，再算熵 $e_{j}=- \dfrac{\sum_{i}p_{ij} \cdot \ln(p_{ij})}{\ln(n)}$，差异系数 $g_{j}= 1- e_{j}$，权重 $w_{j}= \dfrac{g_{j}}{\sum g_{j}}$。熵越小（该指标取值越分散）权重越大。
 
 ::: tip 工作例题 · 两种客观赋权对照（3 对象 × 3 指标）
 标准化矩阵 Z = [[0.8,0.6,0.4],[0.5,0.9,0.7],[0.2,0.3,1.0]]：
@@ -988,7 +988,7 @@ for lam in (0.1, 1.0, 10.0):
 两种方法都让「指标 1」权重最高，但数值不同 → 客观赋权也**不是唯一的**，须说明方法。
 :::
 
-**TOPSIS**：正理想解 Z+（各列最大）、负理想解 Z-（各列最小），加权距离 $D^{+}= \sqrt{\sum} w_{j}(z_{j}- z^{+}_{j})^{2}$、$D^{-}= \sqrt{\sum} w_{j}(z_{j}- z^{-}_{j})^{2}$，贴近度 $C= \dfrac{D^{-}}{D^{+}+D^{-}}$。
+**TOPSIS**：正理想解 Z+（各列最大）、负理想解 Z-（各列最小），加权距离 $D^{+}= \sqrt{\sum w_{j}(z_{j}- z^{+}_{j})^{2}}$、$D^{-}= \sqrt{\sum w_{j}(z_{j}- z^{-}_{j})^{2}}$，贴近度 $C= \dfrac{D^{-}}{D^{+}+D^{-}}$。
 
 ::: tip 工作例题 · TOPSIS
 Z = [[1.0,0.2],[0.6,0.8],[0.2,1.0]]、$w=(0.5,0.5) \to Z^{+}=(1,1)$、$Z^{-}=(0.2,0.2)$：
@@ -1027,7 +1027,7 @@ Z = [[1.0,0.2],[0.6,0.8],[0.2,1.0]]、$w=(0.5,0.5) \to Z^{+}=(1,1)$、$Z^{-}=(0.
 **严平稳**：任意时间平移后联合分布不变；**宽平稳**（实际常用）：均值恒定、方差恒定、自协方差只依赖滞后阶数 k 而与时间 t 无关。
 
 $$
-\text{白噪声} \; u_{t} \; \text{：} \; E(u_{t})=0, \operatorname{Var}(u_{t})=\sigma^{2}, \operatorname{Cov}(u_{t}, u_{s})=0(t=s) \; \text{，常记作} \; u_{t} \sim N(0, \sigma^{2})
+\text{白噪声} \; u_{t} \; \text{：} \; E(u_{t})=0, \operatorname{Var}(u_{t})=\sigma^{2}, \operatorname{Cov}(u_{t}, u_{s})=0(t\ne s) \; \text{，常记作} \; u_{t} \sim N(0, \sigma^{2})
 $$
 
 ::: danger 易错 · 平稳性
@@ -1058,7 +1058,7 @@ print(simple_ret.round(4).tolist())
 ```
 
 ::: tip 工作例题 · 收益率
-价格 $100 \to 102$：简单收益率 2/100 = **0.0200**；$102 \to 101$：$\dfrac{101- 102}{102}$ $- 0.0098$；
+价格 $100 \to 102$：简单收益率 2/100 = **0.0200**；$102 \to 101$：$\dfrac{101- 102}{102}= - 0.0098$；
 对数收益率 $\ln\left(\dfrac{101}{102}\right) \approx- 0.00985$。对数收益率可跨期相加、近似对称，金融建模更常用。
 :::
 
@@ -1085,7 +1085,7 @@ print('原序列', price.tolist(), '一阶差分', d1.tolist())
 | 模型 | 表达式 | 适用 |
 | --- | --- | --- |
 | AR(p) 自回归 | $y_{t}= \phi_{1}y_{t-1}+ \cdots+ \phi_{p}y_{t-p}+ u_{t}$ | 平稳，历史值影响当前 |
-| MA(q) 移动平均 | $y_{t}= u_{t}+ \theta_{1}u_{t-1}+ \cdots+ \theta_{q} u_{t-}q$ | 平稳，历史冲击影响当前 |
+| MA(q) 移动平均 | $y_{t}= u_{t}+ \theta_{1}u_{t-1}+ \cdots+ \theta_{q} u_{t-q}$ | 平稳，历史冲击影响当前 |
 | ARMA(p,q) | AR + MA 组合 | **平稳**序列 |
 | ARIMA(p,d,q) | 先 d 阶差分，再对差分序列建 ARMA | 非平稳但可差分平稳 |
 | SARIMA | 再加季节项 (P,D,Q,s) | 有季节周期 |
@@ -1626,7 +1626,7 @@ $$
 
 **解**：
 ① Σ=780 → x̄=**78**；中位数=(75+80)/2=**77.5**；偏差平方和：
-676+100+49+49+9+4+49+100+196+400 = **1632** → $s^{2}=\dfrac{1632}{9 \approx}=181.33$，s≈**13.47**。
+676+100+49+49+9+4+49+100+196+400 = **1632** → $s^{2}=1632/9 \approx 181.33$，s≈**13.47**。
 ② CS 前 5 人：$52+68+71+71+75=337\to$ 平均 **67.4**；MA 后 5 人：$80+85+88+92+98=443\to$ 平均 **88.6**。
 ③ 用 pandas 线性插值：Q1 位置 (10−1)×0.25=2.25 → 71+0.25×(71−71)=**71**；Q3 位置 6.75 → 85+0.75×(88−85)=**87.25**；IQR=16.25 → 下界 71−24.375=**46.625**、上界 87.25+24.375=**111.625**，全部成绩在区间内 → **无异常值**。
 
@@ -1770,7 +1770,7 @@ $$
 | --- | --- |
 | 均值 | $\bar{x}= \dfrac{\sum x_{i}}{n}$；`mean()` |
 | 样本方差 | $s^{2}= \dfrac{\sum(x_{i}- \bar{x})^{2}}{n- 1}$；`var()`（ddof=1） |
-| 样本标准差 | $s= \sqrt{s}^{2}$；`std()` |
+| 样本标准差 | $s= \sqrt{s^{2}}$；`std()` |
 | 变异系数 | $CV= \dfrac{s}{\bar{x}}$ |
 | 四分位距 | $IQR= Q3- Q1$；异常界 $[Q1- 1.5IQR, Q3+1.5IQR]$ |
 | 偏度 / 峰度 | `skew()` / `kurt()`；&gt;0 右偏 / 尖峰 |
@@ -1818,14 +1818,14 @@ $$
 | smf.ols | `smf.ols('y ~ x1 + x2', data=df).fit().summary()` |
 | 正向化 | $z=\dfrac{x- \min}{\max- \min}$；负向 $z=\dfrac{\max- x}{\max- \min}$ |
 | 变异系数权 | $w_{j}= \dfrac{CV_{j}}{\sum CV_{j}}$ |
-| 熵权 | $e_{j}=- \sum p_{ij}\ln \dfrac{p_{ij}}{\ln} n$；$w_{j}=\dfrac{1- e_{j}}{\sum}(1- e)$ |
+| 熵权 | $e_{j}=- \dfrac{\sum_{i}p_{ij}\ln p_{ij}}{\ln n}$；$w_{j}=\dfrac{1- e_{j}}{\sum_{k}(1- e_{k})}$ |
 | AHP | $CI=\dfrac{\lambda_{\max}-n}{n-1}$；$CR=\dfrac{CI}{RI}<0.1$ |
 | TOPSIS | $C= \dfrac{D^{-}}{D^{+}+D^{-}}$，越大越优 |
-| PCA | 相关矩阵特征值 $\lambda_{j}$；贡献率 $\lambda_{j} \sum \lambda_{i}$；累计 ≥80% 定 m |
+| PCA | 相关矩阵特征值 $\lambda_{j}$；贡献率 $\lambda_{j}/\sum \lambda_{i}$；累计 ≥80% 定 m |
 | 载荷 | $a_{ji}\sqrt{\lambda}_{j}$ |
-| 欧氏距离 | $d=\sqrt{\sum}(x_{i}- y_{i})^{2}$ |
+| 欧氏距离 | $d=\sqrt{\sum(x_{i}- y_{i})^{2}}$ |
 | 夹角余弦 | $\cos\theta=\dfrac{X\cdot Y}{|X||Y|}$ |
-| 轮廓系数 | $s=\dfrac{b- a}{\max}(a,b) \in[- 1,1]$ |
+| 轮廓系数 | $s=\dfrac{b- a}{\max(a,b)} \in[- 1,1]$ |
 | PCA 代码 | `StandardScaler().fit_transform(X); PCA().fit(Z)` |
 | 层次聚类 | $pdist \to linkage(method='ward') \to fcluster(t=K)$ |
 
@@ -1837,14 +1837,14 @@ $$
 | 差分 | `diff()`；`ARIMA(p,d,q)` 中 d 为差分阶数 |
 | AR(p) | $y_{t}= \sum \phi_{i}y_{t-i}+ u_{t}$ |
 | MA(q) | $y_{t}= u_{t}+ \sum \theta_{i}u_{t-i}$ |
-| 白噪声 | $E=0, \operatorname{Var}=\sigma^{2}, \operatorname{Cov}=0(t=s)$ |
+| 白噪声 | $E=0, \operatorname{Var}=\sigma^{2}, \operatorname{Cov}=0(t\ne s)$ |
 | ACF / PACF | $\rho_{k}= \dfrac{\operatorname{Cov}(y_{t},y_{t-k})}{\operatorname{Var}(y_{t})}$；PACF 剔除中间变量 |
 | 定阶 | AR: PACF 截尾；MA: ACF 截尾；ARMA: AIC/BIC 网格 |
 | ADF | $\Delta y_{t}= \alpha+ \beta t+ \gamma y_{t-1}+ \sum \delta_{i}\Delta y_{t-i}+ u_{t}$，$H_{0}: \gamma=0$ |
 | 临界值 | 用 MacKinnon 表（`adfuller` 返回 `crit`），非 1.96 |
 | AIC / BIC | $- 2lnL+2k$ / $- 2lnL+\ln(n)k$，越小越好 |
 | 残差诊断 | Ljung-Box：p &gt; 0.05 才为白噪声 |
-| 预测 | $\dfrac{m.get_{forecast}(steps=h).predicted_{mean}}{conf_{int}()}$ |
+| 预测 | `m.get_forecast(steps=h).predicted_mean` 与 `m.get_forecast(steps=h).conf_int()` |
 
 ### A.5 大数据、文献计量与网络
 
@@ -1860,7 +1860,7 @@ $$
 | h 指数 | 有 h 篇每篇被引 ≥ h 次 |
 | 模块度 | $Q=\left(\dfrac{1}{2m}\right)\sum_{ij}[A_{ij}- \dfrac{k_{i}k_{j}}{2m}]\delta(c_{i},c_{j})$ |
 | PageRank | $PR(v)=\dfrac{1- d}{N}+ d \cdot \sum_{u \to v}\dfrac{PR(u)}{out(u)}$ |
-| 密度 | 无向图 $2\vert E\vert (\vert V\vert (\vert V\vert - 1))$ |
+| 密度 | 无向图 $\dfrac{2\vert E\vert}{\vert V\vert (\vert V\vert - 1)}$ |
 | 度中心度 | $\dfrac{deg(v)}{n- 1}$ |
 | networkx | `nx.Graph(); add_edges_from(); nx.degree_centrality(G)` |
 

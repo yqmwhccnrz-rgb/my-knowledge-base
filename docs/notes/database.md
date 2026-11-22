@@ -181,7 +181,7 @@ $$
 &\text{(2)} \; \text{查询选修了「数据库」且成绩} \; \text{> 80} \; \text{的学生姓名（三关系连接）：} \\
 &\pi_{\text{Sname}}\big(\sigma_{\text{Cname='数据库' ∧ Grade>80}}(\text{Student} \bowtie \text{SC} \bowtie \text{Course})\big) \\
 &\text{(3)} \; \text{查询选修了「全部课程」的学生学号（除运算的经典用法）：} \\
-&\pi_{Sno},Cno(SC) \div  \pi_{Cno}(Course) \\
+&\pi_{Sno,Cno}(SC) \div  \pi_{Cno}(Course) \\
 &\text{(4)} \; \text{查询未选修任何课程的学生姓名：} \\
 &\pi_{Sname}(Student)- \pi_{Sname}(Student ⋈ SC)
 \end{aligned}
@@ -279,7 +279,7 @@ $$
 | 特性 | 说明 |
 | --- | --- |
 | **CTE 与递归 CTE** | `WITH cte AS (…) SELECT …`；`WITH RECURSIVE` 处理树形/层级数据 |
-| **窗口函数** | $\dfrac{\dfrac{\dfrac{\dfrac{\dfrac{ROW_{NUMBER}}{RANK}}{DENSE_{RANK}}}{LAG}}{LEAD}}{SUM() OVER(PARTITION BY \cdots)}$，不折叠行 |
+| **窗口函数** | `ROW_NUMBER()`、`RANK`、`DENSE_RANK`、`LAG`、`LEAD`、`SUM() OVER(PARTITION BY …)`，不折叠行 |
 | JSON 增强 | JSON 类型、JSON 函数、函数索引（Generated Column） |
 | 角色、原子 DDL、降序索引、不可见索引 | 权限批量管理、DDL 崩溃安全、排序优化、索引灰度下线 |
 | `utf8mb4_0900_ai_ci` 默认校对 | 真正 UTF-8、性能更好 |
@@ -1096,9 +1096,9 @@ $$
 &\text{候选码} \; \text{(Sno,Cno)} \; \text{；非主属性} \; \text{Sdept, Sloc, Grade} \\
 &\text{【判定】} \; \text{Sdept} \; \text{、} \; \text{Sloc} \; \text{只依赖} \; \text{Sno} \; \text{（主码的一部分）} \; \to \; \text{部分依赖} \; \Rightarrow \; \text{仅} \; \text{1NF} \\
 &\text{【分解到} \; \text{2NF} \; \text{】按「导致部分依赖的决定因素」拆：} \\
-&SC(Sno, Cno, Grade) F1={(Sno,Cno) \to Grade} \; \text{码} \; (Sno,Cno) \to \frac{\frac{2NF}{3NF}}{BCNF} \\
+&SC(Sno, Cno, Grade) F1={(Sno,Cno) \to Grade} \; \text{码} \; (Sno,Cno) \; \text{；} \; SC \; \text{可达} \; 2NF, 3NF, BCNF \\
 &SL(Sno, Sdept, Sloc) F2={Sno \to Sdept, Sno \to Sloc, Sdept \to Sloc} \; \text{码} \; \text{Sno} \\
-&\text{【判定} \; \text{SL} \; \text{】} \; Sno \to Sdept \to Sloc \; \text{且} \; Sdept \to Sno \Rightarrow Sloc \; \text{传递依赖于码} \; \Rightarrow 2NF \; \text{但不是} \; \text{3NF} \\
+&\text{【判定} \; \text{SL} \; \text{】} \; Sno \to Sdept \to Sloc \; \text{且} \; Sdept \not\to Sno \Rightarrow Sloc \; \text{传递依赖于码} \; \Rightarrow 2NF \; \text{但不是} \; \text{3NF} \\
 &\text{【分解到} \; \text{3NF} \; \text{】} \\
 &SD(Sno, Sdept) F3={Sno \to Sdept} \\
 &DL(Sdept, Sloc) F4={Sdept \to Sloc} \\
@@ -1367,7 +1367,7 @@ DROP TRIGGER IF EXISTS trg_sc_before_insert;
 | 粒度 | MySQL 只支持 **`FOR EACH ROW` 行级**触发器，不支持语句级 |
 | `NEW` / `OLD` | `NEW` = 新行（INSERT/UPDATE 可用）；`OLD` = 旧行（UPDATE/DELETE 可用）；**INSERT 无 OLD、DELETE 无 NEW** |
 | 组合 | 一张表同一时机同一事件可有多个触发器（MySQL 5.7+），执行顺序可用 `FOLLOWS/PRECEDES` 指定；旧版本每种最多一个 |
-| 限制 | 触发器内**不能对触发表本身再做 DML**（会报「Can'$t update table \cdots already in$」）；不能显式事务控制 |
+| 限制 | 触发器内**不能对触发表本身再做 DML**（会报「Can't update table ... already used by statement」）；不能显式事务控制 |
 
 ### 16.2 事件调度器（★★）
 
@@ -1533,13 +1533,13 @@ WHERE NOT EXISTS (SELECT 1 FROM SC sc WHERE sc.Cno=c.Cno);
 **解**：
 $$
 \begin{aligned}
-&\text{(1)} \; \text{候选码} \; \text{(Sno,Cno)} \; \text{（由} \; \text{F} \; \text{推：} \; \text{Sno} \; \text{、} \; \text{Cno} \; \text{必须同时出现才能决定} \; \text{Grade} \; \text{；} \; \frac{Sno \to Sdept}{Sloc} \; \text{）} \\
+&\text{(1)} \; \text{候选码} \; \text{(Sno,Cno)} \; \text{（由} \; \text{F} \; \text{推：} \; \text{Sno} \; \text{、} \; \text{Cno} \; \text{必须同时出现才能决定} \; \text{Grade} \; \text{；} \; Sno \to Sdept, \; \text{故 Sno 单独不是码} \; \text{）} \\
 &\text{(2)} \; \text{非主属性} \; \text{Sdept} \; \text{、} \; \text{Sloc} \; \text{只依赖} \; Sno \Rightarrow \; \text{对码部分依赖} \; \Rightarrow \; \text{仅} \; \text{1NF} \\
 &\text{(3)} \; \text{异常：冗余（系楼重复）、插入（新生未选课无法录）、删除（退课丢系信息）、更新（搬楼改多行）} \\
 &\text{(4)} \; \text{分解到} \; \text{2NF} \; \text{（按部分依赖拆）：} \\
 &SC(Sno,Cno,Grade) F1={(Sno,Cno) \to Grade} \\
 &SL(Sno,Sdept,Sloc) F2={Sno \to Sdept, Sno \to Sloc, Sdept \to Sloc} \\
-&\text{(5) SL} \; \text{中} \; Sno \to Sdept \to Sloc \; \text{且} \; Sdept \to Sno \Rightarrow \; \text{传递依赖} \; \Rightarrow 2NF \; \text{非} \; \text{3NF} \\
+&\text{(5) SL} \; \text{中} \; Sno \to Sdept \to Sloc \; \text{且} \; Sdept \not\to Sno \Rightarrow \; \text{传递依赖} \; \Rightarrow 2NF \; \text{非} \; \text{3NF} \\
 &\text{(6)} \; \text{分解到} \; \text{3NF} \; \text{：} \; \text{SD(Sno,Sdept)} \; \text{、} \; \text{DL(Sdept,Sloc)} \\
 &\text{(7)} \; \text{最终} \; \text{SC} \; \text{、} \; \text{SD} \; \text{、} \; \text{DL} \; \text{三个关系均达} \; \text{BCNF} \; \text{（每个决定因素都含码）} \\
 &\text{(8)} \; \text{无损验证（} \; SL \to SD+DL \; \text{）：交集} \; \text{Sdept} \; \text{，} \; Sdept \to Sloc \in F^{+} \Rightarrow \; \text{无损连接} \\
@@ -1688,13 +1688,13 @@ finally:
 | --- | --- | --- |
 | 1 | 三级模式 | 外模式（多个）— 外模式/模式映像 → 逻辑独立性；模式（唯一）— 模式/内模式映像 → 物理独立性；内模式（唯一） |
 | 2 | 关系模式 | `R(U, D, DOM, F)`，简写 $R(A_{1}, \cdots,A_{n})$；关系 = 元组的有限集合 |
-| 3 | 关系代数 | $\sigma_{F}(R)$ 选择、$\pi_{A}(R)$ 投影、`R⋈S` 连接、`R÷S` 除、$\dfrac{R \cup S}{R}- \dfrac{\dfrac{S}{R \cap S}}{R \times S}$ |
+| 3 | 关系代数 | $\sigma_{F}(R)$ 选择、$\pi_{A}(R)$ 投影、`R⋈S` 连接、`R÷S` 除、$R \cup S$、$R- S$、$R \cap S$、$R \times S$ |
 | 4 | 除运算 | $\pi_{Sno,Cno}(SC) \div  \pi_{Cno}(Course)$ = 选修全部课程的学生 |
 | 5 | 建库 | $CREATE DATABASE[IF NOT EXISTS] db DEFAULT CHARACTER SET utf8mb4[COLLATE \cdots];$ |
 | 6 | 建表 | `CREATE TABLE t (col type [约束], …, [表级约束]) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;` |
-| 7 | 六类约束 | $\dfrac{PRIMARY KEY}{FOREIGN KEY} \cdots \dfrac{\dfrac{\dfrac{\dfrac{REFERENCES}{UNIQUE}}{NOT NULL}}{DEFAULT}}{CHECK}$ |
+| 7 | 六类约束 | `PRIMARY KEY`、`FOREIGN KEY … REFERENCES …`、`UNIQUE`、`NOT NULL`、`DEFAULT`、`CHECK` |
 | 8 | 外键动作 | `ON DELETE {RESTRICT\|CASCADE\|SET NULL\|NO ACTION}`（UPDATE 同理） |
-| 9 | 改表 | $\dfrac{\dfrac{\dfrac{ALTER TABLE t ADD}{MODIFY}}{CHANGE}}{DROP COLUMN} \cdots; RENAME TO \cdots$ |
+| 9 | 改表 | `ALTER TABLE t ADD / MODIFY / CHANGE / DROP COLUMN …; RENAME TO …` |
 | 10 | 插入 | $INSERT INTO t[(cols)] VALUES( \cdots),( \cdots);$ / `INSERT INTO t SELECT …` |
 | 11 | 更新删除 | `UPDATE t SET c=… WHERE …;` / `DELETE FROM t WHERE …;` / `TRUNCATE TABLE t;` |
 | 12 | SELECT 书写 | `SELECT [DISTINCT] … FROM … [JOIN … ON …] [WHERE …] [GROUP BY … [HAVING …]] [ORDER BY …] [LIMIT …]` |
@@ -1703,16 +1703,16 @@ finally:
 | 15 | 模糊匹配 | `LIKE '%串%'`，`_` 单字符，`ESCAPE` 转义；前置 `%` 无法用索引 |
 | 16 | 聚合 | `COUNT(*) 计全部行`；`COUNT(col)/SUM/AVG/MAX/MIN` 忽略 NULL |
 | 17 | 连接 | `INNER JOIN / LEFT JOIN / RIGHT JOIN / CROSS JOIN / 自连接（别名）` |
-| 18 | 集合 | `UNION`（去重）/ `UNION ALL`（不去重）/ `INTERSECT` / `EXCEPT`（MySQL 用 JOIN/NOT EXISTS 模拟） |
+| 18 | 集合 | `UNION`（去重）/ `UNION ALL`（不去重）/ `INTERSECT` / `EXCEPT`（MySQL 8.0.31 起原生支持，旧版用 JOIN/NOT EXISTS 模拟） |
 | 19 | 子查询 | `IN / ANY / ALL / EXISTS / NOT EXISTS`；派生表 `FROM (SELECT …) AS t` |
 | 20 | CTE | `WITH cte AS (SELECT …) SELECT * FROM cte;`；递归 `WITH RECURSIVE` |
-| 21 | 窗口函数 | $ROW_{NUMBER}() OVER(PARTITION BY \cdots ORDER BY \cdots)$、`RANK / LAG / LEAD` |
+| 21 | 窗口函数 | `ROW_NUMBER() OVER(PARTITION BY … ORDER BY …)`、`RANK / LAG / LEAD` |
 | 22 | 视图 | `CREATE [OR REPLACE] VIEW v AS SELECT … [WITH CHECK OPTION];` |
 | 23 | 索引 | `CREATE [UNIQUE] INDEX idx ON t(c1,c2);` / `DROP INDEX` / `SHOW INDEX` / `EXPLAIN` |
 | 24 | 最左前缀 | 联合索引 `(a,b,c)` 可用 `a`、`a,b`、`a,b,c`；范围列之后不再用于定位 |
 | 25 | 用户权限 | $CREATE USER 'u'@'h' IDENTIFIED BY ' \cdots ';$ / $GRANT privileges ON db.t TO \cdots;$ / `REVOKE` / `SHOW GRANTS` |
 | 26 | 角色 | $CREATE ROLE r; GRANT \cdots TO r; GRANT r TO 'u'@'h'; SET DEFAULT ROLE r TO 'u'@'h';$ |
-| 27 | 事务 | $START TRANSACTION; \cdots SAVEPOINT sp; \cdots \dfrac{COMMIT}{ROLLBACK}[TO sp];$ |
+| 27 | 事务 | `START TRANSACTION; … SAVEPOINT sp; … COMMIT / ROLLBACK [TO sp];` |
 | 28 | ACID | $A \leftrightarrow undo \log$；C↔ 完整性约束 + A/I/D；I↔ 锁 + MVCC；$D \leftrightarrow redo \log$ |
 | 29 | 隔离级别 | `READ UNCOMMITTED / READ COMMITTED / REPEATABLE READ(MySQL 默认) / SERIALIZABLE` |
 | 30 | 查看隔离级别 | `SELECT @@transaction_isolation;`（MySQL 8.0；旧版 `@@tx_isolation`） |
@@ -1731,17 +1731,17 @@ finally:
 | 43 | 二元分解无损 | $R \to R1,R2$ 无损 ⟺ $(R1 \cap R2) \to(R1- R2)$ 或 $(R1 \cap R2) \to(R2- R1)$ 在 $F^{+}$ 中 |
 | 44 | ER 转换 | 实体→关系；1:1 任一方加外码；1:n 在 n 端加 1 端码；m:n 独立建表（组合主码 + 联系属性） |
 | 45 | 六阶段 | 需求分析 → 概念结构 → 逻辑结构 → 物理结构 → 实施 → 运行维护 |
-| 46 | 存储过程 | $\dfrac{DELIMITER}{CREATE PROCEDURE p(IN a INT, OUT b INT) BEGIN} \cdots \dfrac{END}{DELIMITER};$ |
+| 46 | 存储过程 | `DELIMITER`、`CREATE PROCEDURE p(IN a INT, OUT b INT) BEGIN … END`、`DELIMITER;` |
 | 47 | 函数 | $CREATE FUNCTION f(x INT) RETURNS type DETERMINISTIC BEGIN RETURN \cdots; END$ |
-| 48 | 游标 | $DECLARE cur CURSOR FOR \cdots; DECLARE CONTINUE HANDLER FOR NOT FOUND SET done=1; \dfrac{\dfrac{OPEN}{FETCH}}{CLOSE}$ |
+| 48 | 游标 | `DECLARE cur CURSOR FOR …; DECLARE CONTINUE HANDLER FOR NOT FOUND SET done=1; OPEN / FETCH / CLOSE` |
 | 49 | 触发器 | $CREATE TRIGGER trg BEFORE\|AFTER INSERT\|UPDATE\|DELETE ON t FOR EACH ROW BEGIN \cdots \dfrac{NEW}{OLD} \cdots END$ |
 | 50 | 事件 | $SET GLOBAL event_{scheduler}=ON; CREATE EVENT e ON SCHEDULE EVERY 1 DAY DO \cdots;$ |
 | 51 | 参数化 | Python `cur.execute("… WHERE a=%s AND b=%s",(x,y))`；Java `PreparedStatement` + `setString/setInt` |
-| 52 | 例题结果 | 教学库：CS|2|19.5；李勇|92；选课数 3/2/1/1；$COUNT(*)=\dfrac{7}{COUNT(Grade)}=6$；无人选修=操作系统 |
+| 52 | 例题结果 | 教学库：CS|2|19.5；李勇|92；选课数 3/2/1/1；$COUNT(*)=7$、$COUNT(Grade)=6$；无人选修=操作系统 |
 
 ## 附录 B 易错点速查
 
-1. DBS $= DB$：数据库系统还包含 DBMS、应用、DBA、用户与硬件平台。
+1. DBS $\ne DB$：数据库系统还包含 DBMS、应用、DBA、用户与硬件平台。
 2. 文件系统阶段的根本缺陷是**数据共享性差、冗余大、数据独立性差**，不只是"速度慢"。
 3. 三级模式中模式与内模式**各只有一个**，外模式可以有多个。
 4. 逻辑独立性来自外模式/模式映像，物理独立性来自模式/内模式映像，别对调。

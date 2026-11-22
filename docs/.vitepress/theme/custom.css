@@ -439,6 +439,16 @@ body.kb-resizing .VPDoc.has-aside .main {
   min-width: 6.5em;
   max-width: 28em;
 }
+/* 移动端：宽表（如多列数字表）改为块级 + 横向滚动，防止撑破页面。
+   桌面端维持 display: table 的列宽自适应行为；打印规则另行恢复 table。 */
+@media (max-width: 767px) {
+  .vp-doc table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+}
 /* 两列长文本对照表（表头带 .kb-bal 标记）：固定 50/50 列宽，
    避免右列过窄导致折行过多、整行被撑高、左列留大片空白 */
 .vp-doc table:has(.kb-bal) {

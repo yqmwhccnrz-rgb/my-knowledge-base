@@ -553,7 +553,7 @@ $TVC= Q^{3}- 6Q^{2}+15Q$，$AVC= Q^{2}- 6Q+15$，$AC= AVC+ \dfrac{100}{Q}$，$SM
 ### 5.5 生产—成本对偶的严格推导
 
 $L= wL+ rK+ \lambda(Q_{0}- f(L,K))$ ⇒ 一阶条件 $w= \lambda \cdot MPL$、$r= \lambda \cdot MPK$ ⇒ $\dfrac{MPL}{w}= \dfrac{MPK}{r}= \dfrac{1}{\lambda}$。
-由包络定理 $dC* dQ= \lambda$ ⇒ $\lambda= MC$，故 $\dfrac{MPL}{w}= \dfrac{MPK}{r}= \dfrac{1}{MC}$。
+由包络定理 $dC^{*}/dQ= \lambda$ ⇒ $\lambda= MC$，故 $\dfrac{MPL}{w}= \dfrac{MPK}{r}= \dfrac{1}{MC}$。
 $C(Q)= \min{wL+ rK : f(L,K) \ge Q}$ 关于 `(w,r)` 是一次齐次、凹函数；由谢泼德引理 $\dfrac{\partial C}{\partial w}= L*(Q,w,r)$。
 
 **成本函数的形状由生产函数决定**：规模报酬递增（$\alpha+\beta>1$）⇒ `LAC` 递减；不变 ⇒ `LAC` 水平；递减 ⇒ `LAC` 递增。短期 U 形 SAC 则来自"至少一种要素固定 + 边际报酬递减"。
@@ -743,7 +743,7 @@ $$\pi=(60- 20) \times 20+(50- 20) \times 30= 800+ 900= 1700$$
 | 伯特兰 | 价格 | 同时 | `P = MC = 0, Q = a` | **伯特兰悖论**：两家即达竞争结果 |
 
 ::: tip 工作例题 · 古诺模型完整求解（$P= 18- Q$、MC = 0）
-$\pi_{1}=[18-(Q_{1}+Q_{2})]Q_{1}$，$\partial \pi_{1} \partial Q_{1}= 18- 2Q_{1}- Q_{2}= 0$ ⇒ 反应函数 $Q_{1}= 9- \dfrac{Q_{2}}{2}$；对称 $Q_{2}= 9- \dfrac{Q_{1}}{2}$。
+$\pi_{1}=[18-(Q_{1}+Q_{2})]Q_{1}$，$\dfrac{\partial \pi_{1}}{\partial Q_{1}}= 18- 2Q_{1}- Q_{2}= 0$ ⇒ 反应函数 $Q_{1}= 9- \dfrac{Q_{2}}{2}$；对称 $Q_{2}= 9- \dfrac{Q_{1}}{2}$。
 联立 ⇒ $Q_{1}= Q_{2}= 6$，`Q = 12`，`P = 6`，$\pi_{1}= \pi_{2}= 36$。
 
 - **通式**：$P= a- bQ$、`MC = c` 时 $Qi= \dfrac{a- c}{3b}$，n 家同质寡头 $Q= \dfrac{n(a- c)}{(n+1)b}$；$n \to \infty$ 时 $\dfrac{Q \to(a- c)}{b}$（竞争结果），`n = 1` 时回到垄断。
@@ -1261,7 +1261,7 @@ $$
 &\text{已知：} \; P= 18-(Q_{1}+Q_{2}) \; \text{，} \; MC_{1}= MC_{2}= 0 \\
 &\text{【古诺】} \\
 &(1) \pi_{1}=[18- Q_{1}- Q_{2}]Q_{1} \\
-&\partial \pi_{1} \partial Q_{1}= 18- 2Q_{1}- Q_{2}= 0 \to R_{1} \; \text{：} \; Q_{1}= 9- \frac{Q_{2}}{2} \\
+&\dfrac{\partial \pi_{1}}{\partial Q_{1}}= 18- 2Q_{1}- Q_{2}= 0 \to R_{1} \; \text{：} \; Q_{1}= 9- \frac{Q_{2}}{2} \\
 &\text{(2)} \; \text{对称} \; R_{2} \; \text{：} \; Q_{2}= 9- \frac{Q_{1}}{2} \\
 &\text{(3)} \; \text{联立：} \; Q_{1}= 9- \frac{9- \frac{Q_{1}}{2}}{2}= 4.5+ \frac{Q_{1}}{4} \\
 &\left(\frac{3}{4}\right)Q_{1}= 4.5 \to Q_{1}= Q_{2}= 6 \\
@@ -1269,7 +1269,7 @@ $$
 &\text{(5)} \; \text{通式} \; Qi= \frac{a- c}{(n+1)b}= \frac{18}{3 \times 1}= 6 \checkmark \\
 &\text{【斯塔克尔伯格（} \; \text{1} \; \text{领导）】} \\
 &\text{(6)} \; \text{把} \; R_{2} \; \text{代入：} \; \pi_{1}=[18- Q_{1}-\left(9- \frac{Q_{1}}{2}\right)]Q_{1}=\left(9- \frac{Q_{1}}{2}\right)Q_{1} \\
-&d\pi_{1} dQ_{1}= 9- Q_{1}= 0 \to Q_{1}= 9 \; \text{，} \; Q_{2}= 4.5 \; \text{，} \; \text{Q = 13.5} \; \text{，} \; \text{P = 4.5} \\
+&d\pi_{1}/dQ_{1}= 9- Q_{1}= 0 \to Q_{1}= 9 \; \text{，} \; Q_{2}= 4.5 \; \text{，} \; \text{Q = 13.5} \; \text{，} \; \text{P = 4.5} \\
 &\pi_{1}= 40.5 \; \text{，} \; \pi_{2}= 20.25 \; \text{（先动优势）} \\
 &\text{【卡特尔】} \; \text{Q = 9} \; \text{，} \; \text{P = 9} \; \text{，总} \; \pi= 81 \; \text{（各} \; \text{40.5} \; \text{，但有背叛动机）}
 \end{aligned}

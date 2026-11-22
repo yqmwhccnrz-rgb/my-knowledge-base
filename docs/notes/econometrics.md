@@ -305,7 +305,7 @@ $R^{2}$ 高不代表模型正确、也不代表因果；$R^{2}$ 低不代表模�
 
 $$
 \begin{aligned}
-&t= \frac{\hat{\beta}_{1}- \beta_{1},H0}{se(\hat{\beta}_{1})} \sim t(n- 2) \\
+&t= \frac{\hat{\beta}_{1}- \beta_{1}^{0}}{se(\hat{\beta}_{1})} \sim t(n- 2) \; \text{（} H_{0}: \beta_{1}= \beta_{1}^{0} \text{）} \\
 &95\% CI= \hat{\beta}_{1} ± t_{0.025}(n- 2) \cdot se(\hat{\beta}_{1}) \\
 &\text{单解释变量时} \; F= t^{2} \; \text{（检验} \; H_{0}: \beta_{1}=0 \; \text{等价于整体显著性检验）}
 \end{aligned}
@@ -596,7 +596,7 @@ $$
 
 ### 5.4 自相关（Autocorrelation）（★★★）
 
-$\operatorname{Cov}(u_{t}, u_{s})= 0$，时间序列常见。最常用模型 **AR(1)**：$u_{t}= \rho u_{t- 1}+ \epsilon_{t}$，$\epsilon_{t}$ 为白噪声。
+$\operatorname{Cov}(u_{t}, u_{s})\ne 0$，时间序列常见。最常用模型 **AR(1)**：$u_{t}= \rho u_{t- 1}+ \epsilon_{t}$，$\epsilon_{t}$ 为白噪声。
 
 | 后果 | 系数仍无偏一致（若解释变量严格外生）；**标准误被低估、t 值虚高**；OLS 不再有效；预测失效 |
 | --- | --- |
@@ -840,7 +840,7 @@ SC 的惩罚项 `(k+1)ln n` 比 AIC 的 `2(k+1)` 随样本增长更快，因此�
 | --- | --- |
 | **严格平稳** | 任意 k 个时点的联合分布不随时间平移而改变 |
 | **弱（协方差）平稳** | $E(Y_{t})=\mu$（常数）、$\operatorname{Var}(Y_{t})=\sigma^{2}$（常数）、$\operatorname{Cov}(Y_{t},Y_{t- k})=\gamma_{k}$ 只依赖间隔 k 而非 t |
-| 白噪声 | $E(\epsilon_{t})=0$、$\operatorname{Var}=\sigma^{2}$、$\operatorname{Cov}(\epsilon_{t},\epsilon_{s})=0(t=s)$ |
+| 白噪声 | $E(\epsilon_{t})=0$、$\operatorname{Var}=\sigma^{2}$、$\operatorname{Cov}(\epsilon_{t},\epsilon_{s})=0\;(t\ne s)$ |
 | 随机游走 | $Y_{t}= Y_{t- 1}+ \epsilon_{t}$（无漂移）/ $Y_{t}= \mu+ Y_{t- 1}+ \epsilon_{t}$（带漂移）；**非平稳**、`Var` 随 t 线性增长 |
 | AR(1) | $Y_{t}= c+ \phi Y_{t- 1}+ \epsilon_{t}$；$\vert \phi\vert <1$ 平稳，$\phi=1$ 为单位根 |
 | MA(q) / ARMA(p,q) | 用过去扰动 / 过去值与扰动的组合刻画序列相关 |
