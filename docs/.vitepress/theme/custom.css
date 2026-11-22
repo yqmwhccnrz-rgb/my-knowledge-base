@@ -1203,7 +1203,8 @@ html.dark .vp-doc div.kb-tile-2col > div.kb-tile-item {
 
 /* 首段是「**例 1** ...」或「**例（...）**：...」：把开头加粗编号做成小标签 */
 .vp-doc div.kb-example > p:first-child > strong:first-child,
-.vp-doc div.kb-exercise > p:first-child > strong:first-child {
+.vp-doc div.kb-exercise > p:first-child > strong:first-child,
+.vp-doc div.kb-q > p:first-child > strong:first-child {
   display: inline-block;
   padding: 1px 9px 2px;
   margin: 0 5px 2px 0;
@@ -1239,7 +1240,8 @@ html.dark .vp-doc div.kb-exercise {
   border-left-color: var(--vp-c-brand-2, #c8c8c6);
 }
 html.dark .vp-doc div.kb-example > p:first-child > strong:first-child,
-html.dark .vp-doc div.kb-exercise > p:first-child > strong:first-child {
+html.dark .vp-doc div.kb-exercise > p:first-child > strong:first-child,
+html.dark .vp-doc div.kb-q > p:first-child > strong:first-child {
   color: #262728;
   background: var(--vp-c-brand-2, #c8c8c6);
 }
@@ -1329,5 +1331,156 @@ html.dark .vp-doc .solution-block > p:first-child > strong:first-child {
     color: #111 !important;
     background: transparent !important;
     border: 1px solid #b9c0c9 !important;
+  }
+}
+
+/* ==========================================================================
+   结构化例题卡片：题头 / 解答 / 结论 三段式
+   标记结构：<div class="kb-example"> 内放 .kb-q（题头）、.kb-sol（解答）、
+   .kb-answer（结论）。不含这些子结构的旧例题块维持原样式，互不影响。
+   - 题头：题号标签 + 题干，下方 1px 浅灰分隔线
+   - 解答：白底编号步骤列表，每步独占一行；独立公式 $$...$$ 居中、上下 12px
+   - 结论：浅蓝底 + 左侧 3px 蓝色竖条，答案加粗
+   ========================================================================== */
+.vp-doc div.kb-example:has(> div.kb-sol) {
+  padding: 0;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* 题头区 */
+.vp-doc .kb-q {
+  padding: 14px 20px 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  line-height: 1.8;
+}
+.vp-doc .kb-q > p:first-child {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+/* 题号标签与题干保持 8px 间距（覆盖通用标签的 5px） */
+.vp-doc div.kb-q > p:first-child > strong:first-child {
+  margin-right: 8px;
+}
+
+/* 解答区：白底编号步骤 */
+.vp-doc .kb-sol {
+  padding: 14px 20px;
+  line-height: 1.8;
+}
+.vp-doc .kb-sol ol {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  counter-reset: kb-step;
+}
+.vp-doc .kb-sol li {
+  counter-increment: kb-step;
+  position: relative;
+  margin: 0 0 8px;
+  padding-left: 34px;
+}
+.vp-doc .kb-sol li:last-child {
+  margin-bottom: 0;
+}
+.vp-doc .kb-sol li > p {
+  margin: 0;
+}
+.vp-doc .kb-sol li::before {
+  content: counter(kb-step);
+  position: absolute;
+  left: 0;
+  top: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--vp-c-text-1, #2e2f2e);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* 步骤中的独立公式：居中（默认），上下 12px */
+.vp-doc .kb-sol .katex-display {
+  margin: 12px 0;
+}
+
+/* 结论区：浅蓝高亮块 */
+.vp-doc .kb-answer {
+  padding: 12px 20px;
+  background: #edf4fd;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-left: 3px solid #3b82f6;
+}
+.vp-doc .kb-answer > p:first-child {
+  margin: 0;
+  font-weight: 600;
+}
+.vp-doc .kb-answer > p:first-child > strong:first-child {
+  color: #2b6cb8;
+}
+
+html.dark .vp-doc div.kb-example:has(> div.kb-sol) {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+html.dark .vp-doc .kb-q {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+html.dark .vp-doc .kb-sol li::before {
+  background: rgba(255, 255, 255, 0.08);
+}
+html.dark .vp-doc .kb-answer {
+  background: rgba(59, 130, 246, 0.14);
+  border-top-color: rgba(255, 255, 255, 0.1);
+  border-left-color: #60a5fa;
+}
+html.dark .vp-doc .kb-answer > p:first-child > strong:first-child {
+  color: #85baff;
+}
+
+@media (max-width: 640px) {
+  .vp-doc .kb-q {
+    padding: 12px 16px 10px;
+  }
+  .vp-doc .kb-sol {
+    padding: 12px 16px;
+  }
+  .vp-doc .kb-answer {
+    padding: 12px 16px;
+  }
+  .vp-doc .kb-sol li {
+    padding-left: 30px;
+  }
+}
+
+@media print {
+  .vp-doc div.kb-example:has(> div.kb-sol) {
+    background: transparent !important;
+    border: 1px solid #b9c0c9 !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  .vp-doc .kb-q {
+    border-bottom: 1px solid #d8dee7 !important;
+  }
+  .vp-doc .kb-sol li::before {
+    background: transparent !important;
+    border: 1px solid #b9c0c9 !important;
+  }
+  .vp-doc .kb-answer {
+    background: transparent !important;
+    border-top: 1px solid #d8dee7 !important;
+    border-left: 3px solid #3b82f6 !important;
+  }
+  .vp-doc .kb-answer > p:first-child > strong:first-child {
+    color: #111 !important;
   }
 }
