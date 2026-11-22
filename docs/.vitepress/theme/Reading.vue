@@ -458,15 +458,17 @@ const QTYPE = { detail: '细节理解', inference: '推理判断', vocab: '词�
 <style scoped>
 .rd { margin-top: 24px; }
 .rd-bar {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 12px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px;
   padding: 12px 16px; background: var(--vp-c-bg-soft, #f4f4f2);
-  border: 1px solid var(--vp-c-divider, rgba(0,0,0,.085)); border-radius: 10px;
+  border: 1px solid var(--vp-c-divider, rgba(0,0,0,.085)); border-radius: 12px;
 }
-.rd-tabs { display: inline-flex; border: 1px solid var(--vp-c-divider); border-radius: 8px; overflow: hidden; }
+.rd-tabs { display: inline-flex; border: 1px solid var(--vp-c-divider); border-radius: 9px; overflow: hidden; background: var(--vp-c-bg, #fff); }
 .rd-tabs button {
   padding: 7px 16px; font-size: 13px; cursor: pointer; border: none;
-  background: var(--vp-c-bg, #fff); color: var(--vp-c-text-2, #626463);
+  background: transparent; color: var(--vp-c-text-2, #626463);
+  transition: background .15s, color .15s;
 }
+.rd-tabs button:hover:not(.on) { color: var(--vp-c-text-1); background: var(--vp-c-bg-soft); }
 .rd-tabs button + button { border-left: 1px solid var(--vp-c-divider); }
 .rd-tabs button.on { background: var(--vp-c-brand-1, #3f403f); color: #fff; font-weight: 600; }
 .rd-level { font-size: 13px; color: var(--vp-c-text-2); }
@@ -480,9 +482,12 @@ const QTYPE = { detail: '细节理解', inference: '推理判断', vocab: '词�
 .rd-btn {
   padding: 7px 14px; font-size: 13px; color: var(--vp-c-brand-1, #3f403f);
   background: var(--vp-c-bg, #fff); border: 1px solid var(--vp-c-brand-1, #3f403f);
-  border-radius: 6px; cursor: pointer;
+  border-radius: 7px; cursor: pointer;
+  transition: background .15s, color .15s, border-color .15s, opacity .15s;
 }
+.rd-btn:hover:not(:disabled) { color: #fff; background: var(--vp-c-brand-1, #3f403f); }
 .rd-btn.primary { color: #fff; background: var(--vp-c-brand-1, #3f403f); padding: 10px 20px; }
+.rd-btn.primary:hover:not(:disabled) { background: var(--vp-c-brand-2, #5d5f5e); border-color: var(--vp-c-brand-2, #5d5f5e); }
 .rd-btn:disabled { opacity: .45; cursor: not-allowed; }
 .rd-tip { margin: 14px 0 18px; font-size: 13px; color: var(--vp-c-text-2); }
 .rd-tip strong { color: var(--vp-c-text-1); }
@@ -514,12 +519,19 @@ const QTYPE = { detail: '细节理解', inference: '推理判断', vocab: '词�
 .rd-blank.ok { color: #2f6b4f; background: rgba(47,107,79,.10); border-color: #2f6b4f; }
 .rd-blank.bad { color: #b23b3b; background: rgba(178,59,59,.10); border-color: #b23b3b; }
 .rd-blank:disabled { cursor: default; opacity: 1; }
+.rd-blank:hover:not(:disabled) { border-color: var(--vp-c-brand-2, #5d5f5e); }
 
 .rd-bank { margin-top: 16px; }
 .rd-bank-t { font-size: 12px; font-weight: 600; color: var(--vp-c-text-2); margin-bottom: 8px; letter-spacing: .02em; }
-.rd-bank-list { display: flex; flex-wrap: wrap; gap: 8px 18px; }
-.rd-bank-item { font-size: 13px; color: var(--vp-c-text-1); }
-.rd-bank-item b { color: var(--vp-c-brand-1); }
+.rd-bank-list { display: flex; flex-wrap: wrap; gap: 8px; }
+/* 词组库条目做成胶囊芯片：边界清晰、扫读更快，也不再出现大空档折行 */
+.rd-bank-item {
+  display: inline-flex; align-items: baseline; gap: 5px;
+  padding: 4px 11px; font-size: 13px; color: var(--vp-c-text-1);
+  background: var(--vp-c-bg, #fff);
+  border: 1px solid var(--vp-c-divider); border-radius: 999px;
+}
+.rd-bank-item b { color: var(--vp-c-brand-1); font-weight: 650; }
 .rd-bank-item em { color: var(--vp-c-text-2); font-style: normal; font-size: 12px; }
 .rd-bank-note { margin: 8px 0 0; font-size: 11.5px; color: var(--vp-c-text-3); }
 
@@ -559,7 +571,13 @@ const QTYPE = { detail: '细节理解', inference: '推理判断', vocab: '词�
 .rd-ref-t { margin-bottom: 8px; font-size: 12.5px; font-weight: 600; color: var(--vp-c-brand-1, #3f403f); letter-spacing: .02em; }
 .rd-gloss { margin: 12px 0 4px; font-size: 12.5px; color: var(--vp-c-text-2); }
 .rd-gloss summary { cursor: pointer; }
-.rd-gloss-list { display: flex; flex-wrap: wrap; gap: 6px 20px; padding: 10px 4px; }
+.rd-gloss-list { display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 0 2px; }
+.rd-gloss-list span {
+  display: inline-flex; align-items: baseline; gap: 5px;
+  padding: 3px 11px; font-size: 12.5px; color: var(--vp-c-text-1);
+  background: var(--vp-c-bg-soft, #f4f4f2);
+  border: 1px solid var(--vp-c-divider); border-radius: 999px;
+}
 .rd-gloss-list b { color: var(--vp-c-text-1); }
 
 .rd-q { margin-top: 22px; }
