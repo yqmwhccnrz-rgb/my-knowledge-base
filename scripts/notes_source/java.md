@@ -50,7 +50,7 @@ Java 去除了 C++ 中易错、少用的特性：无指针运算、无头文件�
 - **动态性**：运行时可装载类，适合从网络动态加载。
 
 ### 1.3 Java 发展简史与常见误解（★）
-- Java 1996 年发布，最初由 Sun 公司开发；现由 Oracle 维护。版本节奏：Java 8（LTS，2014）之后改为约每 6 个月一个特性版，LTS 版（$\frac{\frac{\frac{8}{11}}{17}}{21 \cdots}$）才是长期支持版。
+- Java 1996 年发布，最初由 Sun 公司开发；现由 Oracle 维护。版本节奏：Java 8（LTS，2014）之后改为约每 6 个月一个特性版，LTS 版（8、11、17、21…）才是长期支持版。
 - **常见误解纠正**："Java 很慢"——现代 JVM 有 JIT 即时编译与分层编译，性能已接近原生；"Java 只能写 Web"——它覆盖桌面、移动（Android 早期）、大数据、后端、嵌入式等。
 
 ### 1.4 JVM / JRE / JDK 三者关系（★★★）
@@ -231,7 +231,7 @@ for (int x : a) System.out.println(x);
 | --- | --- | --- | --- | --- | --- |
 | `byte` | 8 | 0 | `Byte` | `(byte) 127` | $- 128 \sim 127$ |
 | `short` | 16 | 0 | `Short` | `(short) 32767` | $- 32768 \sim 32767$ |
-| `int` | 32 | 0 | `Integer` | `123`、`0b1010`、`0xFF`、`1_000_000` | $\pm 2^{31}$ |
+| `int` | 32 | 0 | `Integer` | `123`、`0b1010`、`0xFF`、`1_000_000` | $-2^{31} \sim 2^{31}-1$ |
 | `long` | 64 | 0L | `Long` | `123L` | $\pm 2^{63}$ |
 | `float` | 32 | 0.0f | `Float` | `3.14F` | 约 6~7 位有效数字 |
 | `double` | 64 | 0.0 | `Double` | `3.14`、`1e-3` | 约 15 位有效数字（默认） |
@@ -777,7 +777,7 @@ catch (ScoreException e) {
 | `WARN` | 可恢复的异常、降级、重试 |
 | `ERROR` / `SEVERE` | 需要人工介入的失败 |
 
-- 用**参数化日志** $\log .info("user={} cost={}ms", name, cost)$，不要字符串拼接（关闭级别时不产生开销）；异常对象作为最后一个参数传入以打印堆栈。
+- 用**参数化日志** `log.info("user={} cost={}ms", name, cost)`，不要字符串拼接（关闭级别时不产生开销）；异常对象作为最后一个参数传入以打印堆栈。
 - 不要 `catch (Exception e) {}` 空吞异常；不要在循环中反复抛异常（构造堆栈开销大）；不要用异常做正常流程控制。
 - 受检异常 vs 未检查异常的选择：**调用方能合理恢复** → 受检；**编程错误 / 前置条件违反**（参数非法、状态不对）→ 未检查（`IllegalArgumentException`、`IllegalStateException`）。
 - 断言 `assert x > 0 : "x must > 0";` 只在 `-ea` 开启时生效，用于**内部不变量自检**；对外参数校验必须用 `if + throw`，否则用户关掉断言就绕过了校验。
@@ -978,7 +978,7 @@ static final int hash(Object key) {
 
 ```java
 List<String> l = new ArrayList<>(List.of("a", "b", "c"));
-// ✘ for (String s : l) if ("b".equals(s)) l.remove(s);  → ConcurrentModificationException
+// ✘ for (String s : l) if ("a".equals(s)) l.remove(s);  → ConcurrentModificationException（特例：恰好删的是倒数第二个元素时 hasNext() 已为 false，不会抛出）
 Iterator<String> it = l.iterator();
 while (it.hasNext()) { if ("b".equals(it.next())) it.remove(); }  // ✔ 用迭代器自身的 remove
 // 或 Java 8+：l.removeIf(s -> "b".equals(s));
@@ -1324,7 +1324,7 @@ synchronized (queue) {
 
 ### 13.1 JVM 内存模型与垃圾回收（★★★）
 - **线程私有**：程序计数器、虚拟机栈（栈帧=方法调用）、本地方法栈。
-- **线程共享**：**堆（对象实例，GC 主战场）**、**方法区/元空间（类信息、常量、静态变量、JIT 代码缓存）**。
+- **线程共享**：**堆（对象实例，GC 主战场）**、**方法区/元空间（类信息、常量、静态变量）**、**Code Cache（JIT 编译后的本地代码，位于堆外）**。
 - **垃圾回收**：判断对象是否存活用**可达性分析**（从 GC Roots 出发不可达即回收），而非引用计数。常见算法：标记-清除、复制（新生代）、标记-整理（老年代）；分代收集（Young/Old）是主流。
 - `OutOfMemoryError`：堆/元空间不足；`StackOverflowError`：栈深度超限（如无限递归）。
 
@@ -1655,7 +1655,7 @@ System.out.println(set.size());               // 2      —— 两个「相等�
 
 ---
 
-### $13.7 Java 8 \to 21$ 常用新特性速览（★★）
+### 13.7 Java 8 → 21 常用新特性速览（★★）
 
 | 版本 | 关键特性 |
 | --- | --- |
@@ -1663,10 +1663,10 @@ System.out.println(set.size());               // 2      —— 两个「相等�
 | 9 | 模块系统 JPMS、`List.of/Set.of/Map.of` 不可变集合工厂、接口 `private` 方法、`jshell`、try-with-resources 可用已有 final 变量、`takeWhile/dropWhile` |
 | 10 | `var` 局部变量类型推断、G1 并行 Full GC |
 | **11（LTS）** | 标准化 HTTP Client、`String.strip/isBlank/lines/repeat`、`Files.readString/writeString`、单文件源码直接 `java Hello.java`、ZGC（实验） |
-| 14 | `switch` 表达式正式（`->` + `yield`）、`instanceof` 模式匹配预览、`record` 预览、有用的 NPE 详细提示 |
+| 14 | `switch` 表达式正式（`->` + `yield`）、`instanceof` 模式匹配预览、`record` 预览、有用的 NPE 详细提示、移除 CMS（JDK 9 废弃，JEP 363） |
 | 15 | 文本块 `"""` 正式、密封类预览 |
 | 16 | `record` 正式、`instanceof` 模式匹配正式、Stream `toList()` 前置 |
-| **17（LTS）** | 密封类 `sealed` 正式、switch 模式匹配预览、强封装 JDK 内部 API、移除 CMS |
+| **17（LTS）** | 密封类 `sealed` 正式、switch 模式匹配预览、强封装 JDK 内部 API |
 | 18–20 | 默认 UTF-8、虚拟线程 / 结构化并发（预览）、记录模式匹配、`SequencedCollection` 前置 |
 | **21（LTS）** | **虚拟线程**（`Executors.newVirtualThreadPerTaskExecutor()`）正式、序列集合 `SequencedCollection`、switch 模式匹配与记录模式正式、分代 ZGC |
 
@@ -1783,7 +1783,7 @@ class CalculatorTest {
 22. `Stream` 只能消费一次；并行流注意线程安全。
 23. 旧 `Date`/`Calendar` 线程不安全，改用 `java.time`。
 24. `Files.readAllLines` 等 NIO.2 API 更现代；IO 资源务必关闭。
-25. 一个 `.java` 最多一个 public 类，文件名须匹配；`main` 必须 `public static void String[]`。
+25. 一个 `.java` 最多一个 public 类，文件名须匹配；`main` 必须 `public static void main(String[] args)`。
 26. `List.of/Set.of/Map.of` 返回**完全不可变**集合，`sort/add/remove` 抛 `UnsupportedOperationException`；`Arrays.asList` 只是固定大小（`set` 可、`add` 不可）。
 27. 构造器里调用可覆盖方法，会在子类字段初始化之前执行，可能读到 0/null。
 28. Java 只有值传递：`swap(a,b)` 永远无效；能改对象内容，不能改外部变量的指向。

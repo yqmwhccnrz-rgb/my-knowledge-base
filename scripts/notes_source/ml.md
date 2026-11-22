@@ -763,7 +763,7 @@ vect = CountVectorizer(min_df=5, stop_words='english')
 
 **词频—逆文档频率**：对「在某文档中频繁出现、但在语料库多数文档里不常出现」的词给高权重，抑制到处都出现的高频词。
 
-$tf-idf(t, d)= tf(t, d) \times idf(t)$，其中 $idf(t)=\log\left(\frac{1+N}{1+N_{w}}\right)+1$，N 为文档总数，N_w 为包含词 t 的文档数；之后通常再做 L2 归一化。
+$tf-idf(t, d)= tf(t, d) \times idf(t)$，其中 $idf(t)=\log\left(\dfrac{1+N}{1+N_{w}}\right)+1$，N 为文档总数，$N_w$ 为包含词 t 的文档数；之后通常再做 L2 归一化。
 
 ```python
 from sklearn.feature_extraction.text import TfidfVectorizer

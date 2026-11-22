@@ -96,42 +96,42 @@ summary: "计算机网络 精要笔记，共 9 章：概述、物理层、数据
 
 | 指标 | 定义 | 单位 / 要点 |
 | --- | --- | --- |
-| **速率（数据率）** | 单位时间传送的比特数 | bit/s；$\frac{1 kbit}{s}=10^{3}$，$\frac{1 Mbit}{s}=10^{6}$，$\frac{1 Gbit}{s}=10^{9}$（**十进制**，与存储容量 $K=2^{10}B$ 不同） |
+| **速率（数据率）** | 单位时间传送的比特数 | bit/s；$\dfrac{1 kbit}{s}=10^{3}$，$\dfrac{1 Mbit}{s}=10^{6}$，$\dfrac{1 Gbit}{s}=10^{9}$（**十进制**，与存储容量 $K=2^{10}B$ 不同） |
 | **带宽** | ① 频域：信号频带宽度（Hz）；② 时域：链路最高数据率（bit/s） | 网络语境下两者成正比，常混用 |
 | **吞吐量** | 单位时间通过某网络的**实际**数据量 | 受瓶颈链路与负载限制，≤ 额定速率 |
 | **时延** | 数据从一端到另一端所需时间 | 见下 |
 | **时延带宽积** | `传播时延 × 带宽` | 又称「以比特为单位的链路长度」，表示链路上可容纳的比特数 |
 | **往返时间 RTT** | 发送方发出到收到对方确认的时间 | 含**对方处理与排队时延**；有效数据率 ≈ 数据长度 / (发送时延 + RTT) |
-| **利用率 U** | 信道被占用的时间比例 | $D= \frac{D_{0}}{1- U}$，U→1 时时延急剧增大 |
+| **利用率 U** | 信道被占用的时间比例 | $D= \dfrac{D_{0}}{1- U}$，U→1 时时延急剧增大 |
 
 #### 1.6.2 四种时延与计算
 
 $$
-\begin{gathered}
-\text{总时延} \; \text{=} \; \text{发送时延} \; \text{+} \; \text{传播时延} \; \text{+} \; \text{处理时延} \; \text{+} \; \text{排队时延} \\
-\text{发送时延} \; \text{=} \; \text{数据长度} \; \text{(bit) /} \; \text{发送速率} \; \left(\frac{bit}{s}\right) \leftarrow \; \text{与「数据长度、速率」有关} \\
-\text{传播时延} \; \text{=} \; \text{信道长度} \; \text{(m) /} \; \text{电磁波传播速率} \; \left(\frac{m}{s}\right) \leftarrow \; \text{与「距离、介质」有关，与速率无关}
-\end{gathered}
+\begin{aligned}
+&\text{总时延} \; \text{=} \; \text{发送时延} \; \text{+} \; \text{传播时延} \; \text{+} \; \text{处理时延} \; \text{+} \; \text{排队时延} \\
+&\text{发送时延} \; \text{=} \; \text{数据长度} \; \text{(bit) /} \; \text{发送速率} \; \left(\frac{bit}{s}\right) \leftarrow \; \text{与「数据长度、速率」有关} \\
+&\text{传播时延} \; \text{=} \; \text{信道长度} \; \text{(m) /} \; \text{电磁波传播速率} \; \left(\frac{m}{s}\right) \leftarrow \; \text{与「距离、介质」有关，与速率无关}
+\end{aligned}
 $$
 
 ![四种时延与时延带宽积](/net/net-delay.svg)
 
 ::: tip 工作示例 · 时延计算
-用 `1 Gbit/s` 链路发送 `1000 MB`（按 $1 MB= 2^{20} B$）的数据，链路长 1000 km，传播速率 $\frac{2 \times 10^{8} m}{s}$（忽略处理/排队）：
+用 `1 Gbit/s` 链路发送 `1000 MB`（按 $1 MB= 2^{20} B$）的数据，链路长 1000 km，传播速率 $\dfrac{2 \times 10^{8} m}{s}$（忽略处理/排队）：
 - 数据长度 = $1000 \times 2^{20} \times 8= 8.388608 \times 10^{9} bit$
-- 发送时延 = $\frac{8.388608 \times 10^{9}}{10^{9}} \approx 8.39 s$
-- 传播时延 = $\frac{10^{6} m}{\frac{2 \times 10^{8} m}{s}}= 0.005 s= 5 ms$
+- 发送时延 = $\dfrac{8.388608 \times 10^{9}}{10^{9}} \approx 8.39 s$
+- 传播时延 = $\dfrac{10^{6} m}{\dfrac{2 \times 10^{8} m}{s}}= 0.005 s= 5 ms$
 - **总时延 $\approx 8.394\,\mathrm{s}$**，发送时延占绝对主导（大文件 + 高速链路）。
 
-反过来，若只发 1 字节、距离 1000 km：发送时延 $\frac{8}{10^{9}} \approx 8 ns$，传播时延仍是 5 ms —— **传播时延主导**（短报文 + 长距离）。这正是「增大发送速率只能减少发送时延，不能减少传播时延」的含义。
+反过来，若只发 1 字节、距离 1000 km：发送时延 $\dfrac{8}{10^{9}} \approx 8 ns$，传播时延仍是 5 ms —— **传播时延主导**（短报文 + 长距离）。这正是「增大发送速率只能减少发送时延，不能减少传播时延」的含义。
 :::
 
 ::: tip 工作示例 · 时延带宽积与利用率
-链路带宽 `1 Mbit/s`，传播时延 `20 ms`：时延带宽积 = $10^{6} \times 0.02= 20000 bit= 2500 B$，即链路上同时可「在途」约 2500 字节。若空闲时延 $D_{0}= 10 ms$，信道利用率 `U = 0.9` 时 $D= \frac{10}{1- 0.9}= 100 ms$ —— **利用率越高，排队时延增长越剧烈**，所以骨干网通常控制在 50% 以下。
+链路带宽 `1 Mbit/s`，传播时延 `20 ms`：时延带宽积 = $10^{6} \times 0.02= 20000 bit= 2500 B$，即链路上同时可「在途」约 2500 字节。若空闲时延 $D_{0}= 10 ms$，信道利用率 `U = 0.9` 时 $D= \dfrac{10}{1- 0.9}= 100 ms$ —— **利用率越高，排队时延增长越剧烈**，所以骨干网通常控制在 50% 以下。
 :::
 
 ::: danger 易错 · 性能指标
-- 速率单位按 **10 的幂**（$k=10^{3}$、$M=10^{6}$、$G=10^{9}$），而存储容量按 **2 的幂**；`1 KB = 1024 B` 但 $\frac{1 kbit}{s}= \frac{1000 bit}{s}$。
+- 速率单位按 **10 的幂**（$k=10^{3}$、$M=10^{6}$、$G=10^{9}$），而存储容量按 **2 的幂**；$1\,KB=1024\,B$ 但 $\dfrac{1 kbit}{s}= \dfrac{1000 bit}{s}$。
 - 「带宽越大时延越小」只在一定条件下成立：带宽大只减少**发送时延**；传播时延由距离与介质决定；拥塞时排队时延反而上升。
 - `RTT` 不等于两倍的传播时延，还包含接收端处理、排队与发送确认的时间。
 :::
@@ -266,18 +266,18 @@ $$
 | 定理 | 前提 | 结论 | 含义 |
 | --- | --- | --- | --- |
 | **奈氏准则** | 理想低通信道、**无噪声**，带宽 W(Hz) | 最高码元速率 **`2W` Baud**；若码元有 V 种状态，最高数据率 $2W \cdot \log_{2}V$ bit/s | 提高 V 可提高速率，但 V 过大抗噪差 |
-| **香农公式** | 带宽 W(Hz)、**有高斯白噪声**、信噪比 S/N | $C= W \cdot \log_{2}\left(1+ \frac{S}{N}\right)$ bit/s | 只要信息速率 < C，就存在编码可实现无差错传输 |
+| **香农公式** | 带宽 W(Hz)、**有高斯白噪声**、信噪比 S/N | $C= W \cdot \log_{2}\left(1+ \dfrac{S}{N}\right)$ bit/s | 只要信息速率 < C，就存在编码可实现无差错传输 |
 
-- **信噪比换算**：$dB= 10 \cdot \log_{10}\left(\frac{S}{N}\right)$，故 $\frac{S}{N}= 10^{\frac{dB}{10}}$。例如 $30 dB \to \frac{S}{N}= 1000$。
+- **信噪比换算**：$dB= 10 \cdot \log_{10}\left(\dfrac{S}{N}\right)$，故 $\dfrac{S}{N}= 10^{\dfrac{dB}{10}}$。例如 $30 dB \to \dfrac{S}{N}= 1000$。
 
 ::: tip 工作示例 · 香农公式
-信道带宽 `W = 3.1 kHz`，信噪比 `30 dB` → $\frac{S}{N}= 1000$，$C= 3100 \times \log_{2}(1001) \approx 3100 \times 9.967 \approx \frac{30.9 kbit}{s}$。若用 `V = 8` 种状态的码元，奈氏上限 $2W \cdot \log_{2}8= 6200 \times 3= \frac{18.6 kbit}{s}$，**低于香农上限**，则实际信息速率不可能超过约 18.6 kbit/s——**两个上限取较小者**，且香农给的是理论极限，工程上还要打折。
+信道带宽 $W=3.1\,kHz$，信噪比 $30\,dB$ → $\dfrac{S}{N}= 1000$，$C= 3100 \times \log_{2}(1001) \approx 3100 \times 9.967 \approx \dfrac{30.9 kbit}{s}$。若用 $V=8$ 种状态的码元，奈氏上限 $2W \cdot \log_{2}8= 6200 \times 3= \dfrac{18.6 kbit}{s}$，**低于香农上限**，则实际信息速率不可能超过约 18.6 kbit/s——**两个上限取较小者**，且香农给的是理论极限，工程上还要打折。
 :::
 
 ::: danger 易错 · 两个极限
 - 奈氏限制的是**码元速率**（2W Baud），香农限制的是**信息速率**（bit/s）；单位不同、前提不同，不能互相替代。
 - 「只要提高发送功率，速率就能无限提高」错误：信噪比增大虽提高 C，但受香农对数增长限制，且实际编码与硬件有限。
-- 香农公式中 `S/N` 是**线性比值**不是 dB，必须换算；$\log_{2}\left(1+\frac{S}{N}\right)$ 当 S/N 很大时约等于 $\log_{2}\left(\frac{S}{N}\right)$。
+- 香农公式中 `S/N` 是**线性比值**不是 dB，必须换算；$\log_{2}\left(1+\dfrac{S}{N}\right)$ 当 S/N 很大时约等于 $\log_{2}\left(\dfrac{S}{N}\right)$。
 :::
 
 ### 2.3 物理层下面的传输媒体（★★）
@@ -312,7 +312,7 @@ $$
 ### 2.5 数字传输系统（★★）
 
 - **PCM（脉冲编码调制）**：采样（≥ 2×最高频率，奈奎斯特采样定理）→ 量化 → 编码；一路话音 $8 kHz \times 8$ **64 kbit/s**。
-- 早期数字复用体系：$T1= \frac{1.544 Mbit}{s}$（24 路）、$E1= \frac{2.048 Mbit}{s}$（30/32 路，我国/欧洲）；光传输速率表还包括 SONET/SDH：$STS-\frac{1}{OC}-1= \frac{51.84 Mbit}{s}$，$STM-1= \frac{155.52 Mbit}{s}$，逐级 ×4 到 $STM-16= \frac{2488.32 Mbit}{s}$、$STM-64= \frac{9953.28 Mbit}{s}$。
+- 早期数字复用体系：$T1= \dfrac{1.544 Mbit}{s}$（24 路）、$E1= \dfrac{2.048 Mbit}{s}$（30/32 路，我国/欧洲）；光传输速率表还包括 SONET/SDH：$STS-\dfrac{1}{OC}-1= \dfrac{51.84 Mbit}{s}$，$STM-1= \dfrac{155.52 Mbit}{s}$，逐级 ×4 到 $STM-16= \dfrac{2488.32 Mbit}{s}$、$STM-64= \dfrac{9953.28 Mbit}{s}$。
 - **SDH/SONET** 是同步光纤传输体系，有统一帧结构、强大网管与自愈环；现代骨干更多用 **OTN + 以太网/WDM** 组合。
 
 ### 2.6 宽带接入技术（★★）
@@ -350,7 +350,7 @@ $$
 | AMI / 双相码 | 1 交替正负电平、0 为零电平 | 无直流，但长串 0 仍失步 |
 | 4B/5B、8B/10B | 把 4/8 位数据映射为 5/10 位码字 | 用冗余保证足够跳变与直流平衡；FDDI、千兆以太网、PCIe 使用 |
 
-> **波特率（Baud，码元/秒）≠ 比特率（bit/s）**：若一个码元有 V 种离散状态，则 `数据率 = 波特率 × log2V`。例如 16-QAM（V=16）在 2400 Baud 下可传 $2400 \times 4= \frac{9600 bit}{s}$。
+> **波特率（Baud，码元/秒）≠ 比特率（bit/s）**：若一个码元有 V 种离散状态，则 $\text{数据率}=\text{波特率}\times\log_2 V$。例如 16-QAM（V=16）在 2400 Baud 下可传 $2400 \times 4= \dfrac{9600 bit}{s}$。
 
 #### 2.7.3 带通调制与 QAM
 
@@ -365,10 +365,10 @@ $$
 
 #### 2.7.4 工作示例 · 两个上限怎么一起用
 
-信道 `W = 3.1 kHz`、信噪比 `30 dB`（$\frac{S}{N}= 1000$）：
-- 香农极限 $C= 3100 \times \log_{2}(1001) \approx \frac{30.9 kbit}{s}$；
-- 若码元状态数 `V = 8`，奈氏上限 $2W \cdot \log_{2}8= 6200 \times 3= \frac{18.6 kbit}{s}$；
-- 若 `V = 16`，奈氏上限 $6200 \times 4= \frac{24.8 kbit}{s}$，更接近香农极限，但星座点更密、抗噪能力下降，实际误码率升高。
+信道 `W = 3.1 kHz`、信噪比 `30 dB`（$\dfrac{S}{N}= 1000$）：
+- 香农极限 $C= 3100 \times \log_{2}(1001) \approx \dfrac{30.9 kbit}{s}$；
+- 若码元状态数 $V=8$，奈氏上限 $2W \cdot \log_{2}8= 6200 \times 3= \dfrac{18.6 kbit}{s}$；
+- 若 $V=16$，奈氏上限 $6200 \times 4= \dfrac{24.8 kbit}{s}$，更接近香农极限，但星座点更密、抗噪能力下降，实际误码率升高。
 
 **结论**：实际可达速率受「调制阶数决定的奈氏上限」与「信噪比决定的香农极限」**双重约束，取较小者**，工程上还要留编码与协议开销的余量。想突破只能提高带宽或信噪比，或改用更接近香农极限的信道编码（LDPC、Turbo、Polar）。
 
@@ -378,7 +378,7 @@ $$
 | --- | --- | --- |
 | 双绞线 Cat5e / Cat6 / Cat6a | 100 MHz / 250 MHz / 500 MHz；1 / 10 Gbit/s；单段 **100 m** | 局域网水平布线；UTP 无屏蔽、STP 屏蔽抗干扰更强 |
 | 同轴电缆 | $50 \Omega$（基带）/ $75 \Omega$（宽带） | 早期总线以太网、有线电视 HFC，已退出 LAN |
-| 多模光纤 | 850 / 1310 nm，LED 或 VCSEL，芯径 $\frac{50}{62.5 \mu m}$ | 数百米，数据中心内部 |
+| 多模光纤 | 850 / 1310 nm，LED 或 VCSEL，芯径 $\dfrac{50}{62.5 \mu m}$ | 数百米，数据中心内部 |
 | 单模光纤 | 1310 / **1550 nm**（损耗最低约 0.2 dB/km），激光器，芯径约 $9 \mu m$ | 数十至上百公里，骨干与长途；配合 WDM 单纤 Tbit/s |
 | 地面微波 | 2~40 GHz，**视距传播**，需中继塔（约 50 km） | 山区/海岛回传、专网 |
 | 同步卫星 | 约 36000 km 高空，**单程传播时延约 250~270 ms** | 广播、偏远覆盖；不适合实时交互 |
@@ -393,9 +393,9 @@ $$
 
 | 体系 | 基群 | 高次群（逐级 4 倍） |
 | --- | --- | --- |
-| T 体系（北美/日本） | $T1= \frac{1.544 Mbit}{s}$（24 路 × 64 kbit/s + 帧同步位） | T2 6.312、T3 44.736 Mbit/s |
-| E 体系（中国/欧洲） | $E1= \frac{2.048 Mbit}{s}$（30 路话音 + 2 路信令/同步） | $E2 8.448 \to E3 34.368 \to \frac{E4 139.264 Mbit}{s}$ |
-| SONET / SDH | OC-1 = 51.84 Mbit/s；$STM-1= \frac{155.52 Mbit}{s}$ | STM-4 622.08 → STM-16 **2488.32** → STM-64 **9953.28** → STM-256 39813.12 Mbit/s |
+| T 体系（北美/日本） | $T1= \dfrac{1.544 Mbit}{s}$（24 路 × 64 kbit/s + 帧同步位） | T2 6.312、T3 44.736 Mbit/s |
+| E 体系（中国/欧洲） | $E1= \dfrac{2.048 Mbit}{s}$（30 路话音 + 2 路信令/同步） | $E2 8.448 \to E3 34.368 \to \dfrac{E4 139.264 Mbit}{s}$ |
+| SONET / SDH | OC-1 = 51.84 Mbit/s；$STM-1= \dfrac{155.52 Mbit}{s}$ | STM-4 622.08 → STM-16 **2488.32** → STM-64 **9953.28** → STM-256 39813.12 Mbit/s |
 
 - PDH 逐级复接需"码速调整"、难以从高速流中直接分出低速支路；**SDH/SONET** 用统一同步帧结构、丰富的开销字节，可**一次分插低速信号（ADM）**、有强大网管与自愈环保护。
 - 现代骨干在 SDH/WDM 之上直接承载以太网/OTN/IP，SDH 更多是历史与存量概念。
@@ -412,7 +412,7 @@ $$
 | OFDM / OFDMA | 正交子载波（+按用户分配） | 需精确频率同步与循环前缀 | 峰均比高、对相位噪声敏感 |
 
 ::: danger 易错 · 物理层计算
-- $dB= 10 \cdot \log_{10}\left(\frac{S}{N}\right)$ 用于功率比；若是电压/幅度比则用 $20 \cdot \log_{10}$。代入香农公式前**必须把 dB 还原成线性比值**。
+- $dB= 10 \cdot \log_{10}\left(\dfrac{S}{N}\right)$ 用于功率比；若是电压/幅度比则用 $20 \cdot \log_{10}$。代入香农公式前**必须把 dB 还原成线性比值**。
 - 奈氏 `2W` 的单位是 **Baud（码元/秒）**，不是 bit/s；只有乘上 $\log_{2}V$ 才是数据率。
 - 光纤的"单模/多模"说的是**传输模式数量**，不是一根纤芯 vs 多根；单模芯径更细、需激光器、适合长距。
 - 卫星链路**传播时延大**而非发送时延大；增大发送速率对此毫无帮助。
@@ -470,7 +470,7 @@ $$
 - **争用期 / 碰撞窗口** = 端到端往返时延 $2\tau$；以太网规定为 **512 比特时间**（10 Mbit/s 时 = $51.2 \mu s$），因此**最短帧长 = 64 字节**（含 14 B 首部 + 46 B 数据最小值 + 4 B FCS）；短帧必须填充到 64 B。
 - **二进制指数退避**：从 ${0, 1, \cdots, 2^k- 1}$ 随机取 r，重发推迟 $r \times 512 bit time$，`k = min(重传次数, 10)`；**重传 16 次仍失败则丢弃**并报告上层。
 - **强化碰撞**：检测到碰撞后发送 32/48 bit 人为干扰信号（jamming），让所有站点都知道发生了碰撞。
-- **信道利用率**：$S_{\max} \approx \frac{T_{0}}{T_{0}+ \tau}$，其中 $T_{0}$ 为帧发送时延；定义参数 $a= \frac{\tau}{T_{0}}$，则 $S_{\max} \approx \frac{1}{1+ a}$ —— **帧越短、距离越长、速率越高，利用率越低**。
+- **信道利用率**：$S_{\max} \approx \dfrac{T_{0}}{T_{0}+ \tau}$，其中 $T_{0}$ 为帧发送时延；定义参数 $a= \dfrac{\tau}{T_{0}}$，则 $S_{\max} \approx \dfrac{1}{1+ a}$ —— **帧越短、距离越长、速率越高，利用率越低**。
 
 ::: danger 注意 · CSMA/CD 只适用于共享半双工以太网
 CSMA/CD 是**共享式（同轴/集线器）以太网**的介质接入机制。现代交换式以太网采用**交换机 + 全双工点到点链路**，每个端口是一个独立冲突域，**不存在碰撞，也就不再运行 CSMA/CD**（IEEE 802.3 中相关功能已停用）。它仍是考试重点（争用期、最短帧长、退避算法必须会算），但要清楚它**只适用于半双工共享介质**；今天的"以太网"指的是帧格式 + MAC 寻址 + 交换转发。
@@ -533,7 +533,7 @@ CSMA/CD 是**共享式（同轴/集线器）以太网**的介质接入机制。�
 
 #### 3.6.2 差错控制：码距、CRC 与检错能力
 
-- **海明距离**：两个等长合法码字之间对应位不同的位数；一个编码集的**最小码距 d_min** 决定能力：
+- **海明距离**：两个等长合法码字之间对应位不同的位数；一个编码集的**最小码距 $d_{min}$** 决定能力：
   - 检测 `e` 位错，需 $d_{\min} \ge e+ 1$；
   - 纠正 `t` 位错，需 $d_{\min} \ge 2t+ 1$。
 - **CRC 用多项式表示**：生成多项式 $G(x)= x^{4}+ x+ 1$ 对应除数 `10011`（系数 1,0,0,1,1），阶数 `r=4` 即冗余码位数；`G(x)` 的最高次与常数项必须为 1。常见标准：**CRC-8**、**CRC-16-CCITT**、**CRC-32**（以太网 FCS）。
@@ -543,7 +543,7 @@ CSMA/CD 是**共享式（同轴/集线器）以太网**的介质接入机制。�
 - **纠错码**（海明码、RS 码、LDPC/Turbo/Polar）代价是更多冗余，多用于无线、存储与深空通信；数据链路层通常只检错 + 丢弃（必要时由上层重传）。
 
 ::: tip 工作示例 · 海明码校验位数
-数据位 `n = 4`，校验位 `k` 需满足 $2^k \ge n+ k+ 1$：`k=3` 时 $8 \ge 8$ ✓，故需 **3 位校验位**，码字总长 7（即 (7,4) 海明码）。校验位放在 `2⁰、2¹、2²` 位（第 1、2、4 位），每位校验位负责校验其位号二进制含对应 1 的那些位；接收端把三组校验结果按位拼成**指征子 S**，$S= 0$ 时其值即出错位号（可纠 1 位错，符合 $d_{\min} \ge 2t+1= 3$）。常见结论：$n=8 \to k=4$（(12,8)）、$n=16 \to k=5$、$n=64 \to k=7$。
+数据位 `n = 4`，校验位 `k` 需满足 $2^k \ge n+ k+ 1$：`k=3` 时 $8 \ge 8$ ✓，故需 **3 位校验位**，码字总长 7（即 (7,4) 海明码）。校验位放在 `2⁰、2¹、2²` 位（第 1、2、4 位），每位校验位负责校验其位号二进制含对应 1 的那些位；接收端把三组校验结果按位拼成**指征子 S**，$S= 0$ 表示无错，$S\ne 0$ 时其值即出错位号（可纠 1 位错，符合 $d_{\min} \ge 2t+1= 3$）。常见结论：$n=8 \to k=4$（(12,8)）、$n=16 \to k=5$、$n=64 \to k=7$。
 :::
 
 ::: tip 工作示例 · CRC 多项式与检错能力
@@ -571,25 +571,25 @@ $G(x)=x^{4}+x+1 \to 10011$，r=4，故发送帧比原数据多 4 位。若信道
 以 `10 Mbit/s` 共享以太网为例（争用期固定为 **512 bit time**）：
 
 $$
-\begin{gathered}
-\text{争用期时间} \; = \frac{\frac{512 bit}{10 Mbit}}{s}= 51.2 \mu s \; \text{（} \; \text{=} \; \text{往返传播时延} \; 2\tau \; \text{，故单程} \; \tau \approx 25.6 \mu s \; \text{）} \\
-\text{最短帧长} \; = \frac{512 bit}{8}= 64 B \; \text{（保证发完之前能收到最远端的碰撞信号）} \\
-\text{64 B} \; \text{帧发送时延} \; T0= \frac{512}{10^{7}}= 51.2 \mu s \\
-\text{参数} \; a= \frac{\tau}{T0}= \frac{25.6}{51.2}= 0.5 \\
-\text{最大信道利用率} \; Smax= \frac{T0}{T0+\tau}= \frac{1}{1+a} \approx 0.67 \\
-\text{若改为} \; \text{1518 B} \; \text{长帧：} \; T0 \approx 1214.4 \mu s \; \text{，} \; a \approx 0.021 \; \text{，} \; Smax \approx 0.98
-\end{gathered}
+\begin{aligned}
+&\text{争用期时间} \; = \frac{\frac{512 bit}{10 Mbit}}{s}= 51.2 \mu s \; \text{（} \; \text{=} \; \text{往返传播时延} \; 2\tau \; \text{，故单程} \; \tau \approx 25.6 \mu s \; \text{）} \\
+&\text{最短帧长} \; = \frac{512 bit}{8}= 64 B \; \text{（保证发完之前能收到最远端的碰撞信号）} \\
+&\text{64 B} \; \text{帧发送时延} \; T0= \frac{512}{10^{7}}= 51.2 \mu s \\
+&\text{参数} \; a= \frac{\tau}{T0}= \frac{25.6}{51.2}= 0.5 \\
+&\text{最大信道利用率} \; Smax= \frac{T0}{T0+\tau}= \frac{1}{1+a} \approx 0.67 \\
+&\text{若改为} \; \text{1518 B} \; \text{长帧：} \; T0 \approx 1214.4 \mu s \; \text{，} \; a \approx 0.021 \; \text{，} \; Smax \approx 0.98
+\end{aligned}
 $$
 
 **结论**：帧越短、距离越长、速率越高（`T0` 变小而 $\tau$ 不变），`a` 越大、利用率越低。这正是快速以太网必须**缩短网络直径**、吉比特以太网半双工要用「载波延伸 / 帧突发」，而 10GE 干脆**彻底放弃半双工与 CSMA/CD** 的根本原因。
 
 $$
-\begin{gathered}
-\text{二进制指数退避：第} \; \text{i} \; \text{次重传，} \; k= \min(i, 10) \; \text{，从} \; {0, 1, \cdots, 2^k- 1} \; \text{随机取} \; \text{r} \\
-\text{退避时间} \; = r \times 512 bit time \\
-\text{第} \; \text{3} \; \text{次重传：} \; \text{k=3} \; \text{，} \; r \in{0..7} \; \text{，} \; \text{@10 Mbit/s} \; \text{时最长} \; 7 \times 51.2 \mu s= 358.4 \mu s \\
-\text{重传满} \; \text{16} \; \text{次仍失败} \; \to \; \text{丢弃该帧并向上层报错}
-\end{gathered}
+\begin{aligned}
+&\text{二进制指数退避：第} \; \text{i} \; \text{次重传，} \; k= \min(i, 10) \; \text{，从} \; {0, 1, \cdots, 2^k- 1} \; \text{随机取} \; \text{r} \\
+&\text{退避时间} \; = r \times 512 bit time \\
+&\text{第} \; \text{3} \; \text{次重传：} \; \text{k=3} \; \text{，} \; r \in{0..7} \; \text{，} \; \text{@10 Mbit/s} \; \text{时最长} \; 7 \times 51.2 \mu s= 358.4 \mu s \\
+&\text{重传满} \; \text{16} \; \text{次仍失败} \; \to \; \text{丢弃该帧并向上层报错}
+\end{aligned}
 $$
 
 #### 3.6.5 以太网物理层标准演进表
@@ -699,7 +699,7 @@ TCI = PCP(3 bit 优先级) + DEI(1 bit) + VID(12 bit，最多 4094 个可用 VLA
 4. 20 台 → `h = 5` → `/27`，得 `192.168.10.192/27`（.193~.222）；
 5. 10 台 → `h = 4` → `/28`，得 `192.168.10.224/28`（.225~.238），仍余 `.240/28` 可扩展。
 
-要点：主机位 `h` 满足 `2^h − 2 ≥ 需求数`（减去全 0 网络地址与全 1 广播地址）；若问"能划几个等长子网"，借 `n` 位得 `2^n` 个子网、每子网 $2^{8- n}- 2$ 台主机（等长划分）。
+要点：主机位 `h` 满足 $2^h-2\ge\text{需求数}$（减去全 0 网络地址与全 1 广播地址）；若问"能划几个等长子网"，借 `n` 位得 `2^n` 个子网、每子网 $2^{8- n}- 2$ 台主机（等长划分）。
 :::
 
 ::: danger 注意 · 分类地址已废弃
@@ -831,13 +831,13 @@ ARP 报文封装在以太网帧中（类型 `0x0806`），字段含：硬件类�
 原始 IP 数据报总长 **4000 B**（首部 20 B，数据 3980 B），经过 MTU = **1500 B** 的链路，DF=0：
 
 $$
-\begin{gathered}
-\text{每片最大数据} \; = 1500- 20= 1480 B \; \text{，且必须是} \; \text{8} \; \text{的整数倍（} \; \frac{1480}{8}= 185 \checkmark \; \text{）} \\
-\text{片} \; \text{1} \; \text{：总长} \; \text{1500 B} \; \text{，数据} \; \text{1480 B} \; \text{，} \; \text{MF=1} \; \text{，片偏移} \; \text{= 0} \\
-\text{片} \; \text{2} \; \text{：总长} \; \text{1500 B} \; \text{，数据} \; \text{1480 B} \; \text{，} \; \text{MF=1} \; \text{，片偏移} \; = \frac{1480}{8}= 185 \\
-\text{片} \; \text{3} \; \text{：总长} \; \text{1040 B} \; \text{，数据} \; \text{1020 B} \; \text{，} \; \text{MF=0} \; \text{，片偏移} \; = \frac{2960}{8}= 370 \\
-\text{（} \; 3980- 1480 \times 2= 1020 \; \text{；三片数据合计} \; \text{3980 B} \; \text{）}
-\end{gathered}
+\begin{aligned}
+&\text{每片最大数据} \; = 1500- 20= 1480 B \; \text{，且必须是} \; \text{8} \; \text{的整数倍（} \; \frac{1480}{8}= 185 \checkmark \; \text{）} \\
+&\text{片} \; \text{1} \; \text{：总长} \; \text{1500 B} \; \text{，数据} \; \text{1480 B} \; \text{，} \; \text{MF=1} \; \text{，片偏移} \; \text{= 0} \\
+&\text{片} \; \text{2} \; \text{：总长} \; \text{1500 B} \; \text{，数据} \; \text{1480 B} \; \text{，} \; \text{MF=1} \; \text{，片偏移} \; = \frac{1480}{8}= 185 \\
+&\text{片} \; \text{3} \; \text{：总长} \; \text{1040 B} \; \text{，数据} \; \text{1020 B} \; \text{，} \; \text{MF=0} \; \text{，片偏移} \; = \frac{2960}{8}= 370 \\
+&\text{（} \; 3980- 1480 \times 2= 1020 \; \text{；三片数据合计} \; \text{3980 B} \; \text{）}
+\end{aligned}
 $$
 
 - **片偏移单位是 8 字节**，所以除最后一片外每片数据长度必须为 8 的倍数。
@@ -854,8 +854,8 @@ $$
 | | 超时 | type=11，TTL 减到 0（**traceroute** 靠它逐跳发现路由器） |
 | | 参数问题 | type=12，首部字段有误 |
 | | 改变路由（重定向） | type=5，告诉主机有更好的下一跳 |
-| 询问 | 回送请求 / 回答 | $type=\frac{8}{0}$（**ping** 测连通性与 RTT） |
-| | 时间戳请求 / 回答 | $type=\frac{13}{14}$，时钟同步（少用） |
+| 询问 | 回送请求 / 回答 | $type=8/0$（**ping** 测连通性与 RTT） |
+| | 时间戳请求 / 回答 | $type=13/14$，时钟同步（少用） |
 
 > **不发送 ICMP 差错的情况**：对 ICMP 差错报文本身、对非第一个分片、对多播/广播地址、对特殊地址（如 127.0.0.0、0.0.0.0）。这是为了防止差错报文引发"差错风暴"。
 
@@ -965,7 +965,7 @@ $A- B- C$ 串联，A 到某网络 N 原经 B（距离 2）。N 断开后，B 收
 $$
 \text{信道利用率} \; U= \frac{T_{D}}{T_{D}+ RTT+ T_{A}}
 $$
-`T_D` 为分组发送时延，`T_A` 为确认分组发送时延。当 RTT 远大于 T_D 时，U 极低 —— 这是引入**流水线/连续 ARQ** 的原因。
+`T_D` 为分组发送时延，`T_A` 为确认分组发送时延。当 RTT 远大于 $T_D$ 时，U 极低 —— 这是引入**流水线/连续 ARQ** 的原因。
 
 #### 5.4.2 连续 ARQ 与滑动窗口
 
@@ -1000,7 +1000,7 @@ TCP 首部**固定 20 字节**，最长 60 字节（含选项）：
 ### 5.6 TCP 可靠传输的实现（★★★）
 
 - **以字节为单位的滑动窗口**：发送窗口由 `min(rwnd, cwnd)` 决定；已发送未确认的数据必须保留在发送缓存中以便重传；接收方按序上交，非按序数据可暂存（配合 SACK）。
-- **超时重传时间 RTO**：基于 **RTT 的加权平均** `RTT_S = (1−α)·RTT_S + α·RTT样本`，$RTO= RTT_{S}+ 4 \cdot RTT_{D}$（偏差）；**Karn 算法**：发生重传时**不采用**该次往返样本（无法区分确认对应原始还是重传报文段），并让 RTO 适度退避（加倍）。
+- **超时重传时间 RTO**：基于 **RTT 的加权平均** $RTT_S=(1-\alpha)\cdot RTT_S+\alpha\cdot RTT_{\text{样本}}$，$RTO= RTT_{S}+ 4 \cdot RTT_{D}$（偏差）；**Karn 算法**：发生重传时**不采用**该次往返样本（无法区分确认对应原始还是重传报文段），并让 RTO 适度退避（加倍）。
 - **确认与重传**：累计确认 + 超时重传；**快重传**要求接收方**每收到一个失序报文段就立即发重复 ACK**，发送方一连收到 **3 个重复 ACK** 就立即重传未收到的报文段，不必等超时。
 
 ### 5.7 TCP 的流量控制（★★★）
@@ -1029,9 +1029,9 @@ TCP 首部**固定 20 字节**，最长 60 字节（含选项）：
 | **慢开始** | `cwnd < ssthresh` | 每收到一个 ACK，`cwnd += 1 MSS` → 每个 RTT **加倍**（$1 \to 2 \to 4 \to 8 \cdots$），指数增长但起点很低 |
 | **拥塞避免** | $cwnd \ge ssthresh$ | 每个 RTT `cwnd += 1 MSS`，**加法增大**（线性） |
 | **快重传** | 收到 **3 个重复 ACK** | 立即重传丢失报文段，不等超时 |
-| **快恢复** | 配合快重传 | $ssthresh= \frac{cwnd}{2}$，`cwnd` 设为 `ssthresh`（不同实现为 `ssthresh+3 MSS`），**跳过慢开始**直接拥塞避免 |
+| **快恢复** | 配合快重传 | $ssthresh= \dfrac{cwnd}{2}$，`cwnd` 设为 `ssthresh`（不同实现为 `ssthresh+3 MSS`），**跳过慢开始**直接拥塞避免 |
 
-- 一旦判定**超时**（严重拥塞）：$ssthresh= \frac{cwnd}{2}$，`cwnd = 1 MSS`，重新慢开始。
+- 一旦判定**超时**（严重拥塞）：$ssthresh= \dfrac{cwnd}{2}$，`cwnd = 1 MSS`，重新慢开始。
 - 整体思路即 **AIMD（加法增大、乘法减小）**：探测可用带宽时温和增长，检测到拥塞时迅速减半；多条 TCP 流最终趋于公平共享。
 
 ::: tip 工作示例 · cwnd 演算
@@ -1047,8 +1047,8 @@ $$
 \text{吞吐量} \; \approx W \times \frac{MSS}{RTT}
 $$
 例：`RTT = 100 ms`、`rwnd = 64 KB`（无窗口扩大）、`MSS = 1460 B`：
-- 上界 = $\frac{65535 B}{0.1 s} \approx \frac{5.24 Mbit}{s}$ —— 即使链路有 100 Mbit/s，**16 bit 窗口字段也成了瓶颈**（这就是长肥管道问题，必须用窗口扩大选项）；
-- 若 `cwnd` 在 `[ssthresh, cwnd_max]` 间锯齿变化（AIMD），平均吞吐可用 **Mathis 公式**估算：`吞吐 ≈ (MSS/RTT) × C/√p`（p 为丢包率），说明丢包率升高时吞吐按平方根下降。
+- 上界 = $\dfrac{65535 B}{0.1 s} \approx \dfrac{5.24 Mbit}{s}$ —— 即使链路有 100 Mbit/s，**16 bit 窗口字段也成了瓶颈**（这就是长肥管道问题，必须用窗口扩大选项）；
+- 若 `cwnd` 在 `[ssthresh, cwnd_max]` 间锯齿变化（AIMD），平均吞吐可用 **Mathis 公式**估算：$\text{吞吐}\approx\dfrac{MSS}{RTT}\times\dfrac{C}{\sqrt{p}}$（p 为丢包率），说明丢包率升高时吞吐按平方根下降。
 :::
 
 ::: tip 现代拥塞控制
@@ -1104,11 +1104,11 @@ A 等待 2MSL 后 CLOSED
 ::: tip 工作示例 · 信道利用率
 设发送时延 `T_D = 1 ms`、往返时间 `RTT = 20 ms`、确认发送时延忽略：
 $$
-\begin{gathered}
-\text{停止等待：} \; U= \frac{T_{D}}{T_{D}+ RTT}= \frac{1}{21} \approx 4.8\% \\
-\text{连续} \; \text{ARQ} \; \text{，发送窗口} \; \text{W} \; \text{：} \; U= \min\left(1, \frac{W \cdot T_{D}}{T_{D}+ RTT}\right)= \min\left(1, \frac{W}{21}\right) \\
-W= 5 \to U \approx 23.8\% W= 21 \to U= 100\% \; \text{（窗口刚好填满管道）}
-\end{gathered}
+\begin{aligned}
+&\text{停止等待：} \; U= \frac{T_{D}}{T_{D}+ RTT}= \frac{1}{21} \approx 4.8\% \\
+&\text{连续} \; \text{ARQ} \; \text{，发送窗口} \; \text{W} \; \text{：} \; U= \min\left(1, \frac{W \cdot T_{D}}{T_{D}+ RTT}\right)= \min\left(1, \frac{W}{21}\right) \\
+&W= 5 \to U \approx 23.8\% W= 21 \to U= 100\% \; \text{（窗口刚好填满管道）}
+\end{aligned}
 $$
 这就是**发送窗口必须足够大**才能填满「长肥管道」的原因；现代 TCP 用**窗口扩大选项**把 16 bit 窗口字段扩展到最大约 1 GB，以支持高带宽时延积链路。
 :::
@@ -1118,23 +1118,23 @@ $$
 RFC 2988 的加权平均：
 
 $$
-\begin{gathered}
-RTT_{S}=(1- \alpha) \cdot RTT_{S}+ \alpha \cdot RTT_{\text{样本}} \; \alpha= \frac{1}{8} \\
-RTT_{D}=(1- \beta) \cdot RTT_{D}+ \beta \cdot\lvert RTT_{S}-RTT_{\text{样本}}\rvert \; \beta= \frac{1}{4} \\
-RTO= RTT_{S}+ 4 \cdot RTT_{D} \\
-\text{首次：} \; RTT_{S} = \text{样本值，} \; RTT_{D} = \text{样本值的一半}
-\end{gathered}
+\begin{aligned}
+&RTT_{S}=(1- \alpha) \cdot RTT_{S}+ \alpha \cdot RTT_{\text{样本}} \; \alpha= \frac{1}{8} \\
+&RTT_{D}=(1- \beta) \cdot RTT_{D}+ \beta \cdot\lvert RTT_{S}-RTT_{\text{样本}}\rvert \; \beta= \frac{1}{4} \\
+&RTO= RTT_{S}+ 4 \cdot RTT_{D} \\
+&\text{首次：} \; RTT_{S} = \text{样本值，} \; RTT_{D} = \text{样本值的一半}
+\end{aligned}
 $$
 
 ::: tip 工作示例 · RTO 手算
 第一个样本 `RTT = 30 ms` → `RTT_S = 30`、`RTT_D = 15`、$RTO= 30+ 4 \times 15= 90 ms$。
 第二个样本 `RTT = 40 ms`：
 $$
-\begin{gathered}
-RTT_{S}= 0.875 \times 30+ 0.125 \times 40= 31.25 ms \\
-RTT_{D}= 0.75 \times 15+ 0.25 \times|31.25- 40|= 11.25+ 2.1875 \approx 13.44 ms \\
-RTO= 31.25+ 4 \times 13.44 \approx 85 ms
-\end{gathered}
+\begin{aligned}
+&RTT_{S}= 0.875 \times 30+ 0.125 \times 40= 31.25 ms \\
+&RTT_{D}= 0.75 \times 15+ 0.25 \times|31.25- 40|= 11.25+ 2.1875 \approx 13.44 ms \\
+&RTO= 31.25+ 4 \times 13.44 \approx 85 ms
+\end{aligned}
 $$
 **Karn 算法**：报文段一旦重传，就**不采用**该次的 RTT 样本（无法判断确认对应原始还是重传报文段），并把 `RTO` 适度**加倍退避**；直到收到一个未经重传的报文段的确认，才恢复正常估计。
 :::
@@ -1157,18 +1157,18 @@ $$
 | 窗口扩大（kind=3） | 建连时协商移位因子 `s`，实际窗口 = 首部窗口字段 × `2^s`（最大约 1 GB） |
 | 时间戳（kind=8） | 精确测 RTT、配合 PAWS 防止高带宽下序号回绕 |
 | SACK 允许（kind=4）/ SACK（kind=5） | 允许并报告**已收到的非连续字节块边界**，只重传真正丢失的段 |
-| NOP / EOL（$kind=\frac{1}{0}$） | 填充对齐到 4 字节边界 |
+| NOP / EOL（$kind=1/0$） | 填充对齐到 4 字节边界 |
 
 #### 5.10.4 流量控制工作示例与零窗口
 
 设接收方缓存 `4000 B`，已上交应用 `1000 B`、缓存中还有 `3000 B` 未读：
 $$
-\begin{gathered}
-\text{接收方通告} \; rwnd= 4000- 3000= 1000 B \to \; \text{发送方最多再发} \; \text{1000 B} \\
-\text{若应用一直不读，} \; \text{rwnd} \; \text{逐步降到} \; 0 \to \; \text{发送方停止发送，并启动「持续计时器」} \\
-\text{持续计时器到期发} \; \text{1 B} \; \text{零窗口探测；接收方缓存腾空后回一个「窗口更新」} \\
-\text{（若窗口更新丢失，双方靠探测避免永久死锁）}
-\end{gathered}
+\begin{aligned}
+&\text{接收方通告} \; rwnd= 4000- 3000= 1000 B \to \; \text{发送方最多再发} \; \text{1000 B} \\
+&\text{若应用一直不读，} \; \text{rwnd} \; \text{逐步降到} \; 0 \to \; \text{发送方停止发送，并启动「持续计时器」} \\
+&\text{持续计时器到期发} \; \text{1 B} \; \text{零窗口探测；接收方缓存腾空后回一个「窗口更新」} \\
+&\text{（若窗口更新丢失，双方靠探测避免永久死锁）}
+\end{aligned}
 $$
 - **糊涂窗口综合症**的两种成因与对策：接收方每次只通告几个字节 → 等缓存达到一半或 MSS 再通告；发送方每次只发几个字节 → **Nagle 算法**（未被确认的小数据先攒着），实时交互可用 `TCP_NODELAY` 关闭。
 - 区分：`rwnd` 由**接收方**决定（端到端），`cwnd` 由**发送方**根据网络拥塞推断（全局）；实际发送窗口 = `min(rwnd, cwnd)`。
@@ -1177,8 +1177,8 @@ $$
 
 | 版本 | 3 个重复 ACK 的处理 | 超时处理 |
 | --- | --- | --- |
-| **Tahoe** | 与超时相同：$ssthresh= \frac{cwnd}{2}$、`cwnd = 1`，重新慢开始 | 同左 |
-| **Reno**（经典） | $ssthresh= \frac{cwnd}{2}$；`cwnd = ssthresh + 3 MSS`（3 个重复 ACK 说明有 3 个段已离开网络），每多一个重复 ACK `cwnd += 1 MSS`；收到**新数据的 ACK** 后 `cwnd = ssthresh`，进入拥塞避免 | $ssthresh= \frac{cwnd}{2}$、`cwnd = 1` |
+| **Tahoe** | 与超时相同：$ssthresh= \dfrac{cwnd}{2}$、`cwnd = 1`，重新慢开始 | 同左 |
+| **Reno**（经典） | $ssthresh= \dfrac{cwnd}{2}$；`cwnd = ssthresh + 3 MSS`（3 个重复 ACK 说明有 3 个段已离开网络），每多一个重复 ACK `cwnd += 1 MSS`；收到**新数据的 ACK** 后 `cwnd = ssthresh`，进入拥塞避免 | $ssthresh= \dfrac{cwnd}{2}$、`cwnd = 1` |
 | NewReno / SACK | 一个窗口内丢多包时也能逐步恢复，避免多次退避 | 同左 |
 
 ```text
@@ -1223,7 +1223,7 @@ $$
 ::: danger 易错 · 运输层计算
 - 序号单位是**字节**，不是报文段；`ack = N` 表示 **N−1 及之前**全部收到。
 - `SYN`/`FIN` 各消耗 1 个序号，但不携带数据的纯 `ACK` 不消耗；三次握手第三次 ACK 的 `seq = x+1` 就是这个原因。
-- $U= \frac{T_{D}}{T_{D}+RTT+T_{A}}$ 是**停止等待**的利用率；引入窗口后分子变为 $W \cdot T_{D}$ 且上限为 1。
+- $U= \dfrac{T_{D}}{T_{D}+RTT+T_{A}}$ 是**停止等待**的利用率；引入窗口后分子变为 $W \cdot T_{D}$ 且上限为 1。
 - `rwnd` 小可能是接收方应用没读数据，**不代表网络拥塞**；`cwnd` 减小也不代表接收方慢。
 - TIME-WAIT 在**主动关闭方**，2MSL 不是"固定 4 分钟"，而是 $2 \times MSL$（MSL 为最大报文段生存时间，实现常取 30 s/1 min/2 min）。
 :::
@@ -1321,7 +1321,7 @@ TELNET（TCP 23）明文传送、用 NVT 屏蔽终端差异，已因安全原因
 
 ### 6.8 应用进程跨越网络的通信 与 P2P（★★）
 
-- **C/S 模型**：服务器常在线、固定地址、被动等待；客户主动请求；可伸缩性靠服务器集群。系统调用顺序（服务器）：$socket \to bind \to listen \to accept \to \frac{recv}{send} \to close$；客户端：$socket \to connect \to \frac{send}{recv} \to close$。
+- **C/S 模型**：服务器常在线、固定地址、被动等待；客户主动请求；可伸缩性靠服务器集群。系统调用顺序（服务器）：$socket \to bind \to listen \to accept \to \dfrac{recv}{send} \to close$；客户端：$socket \to connect \to \dfrac{send}{recv} \to close$。
 - **P2P**：每个结点既是客户又是服务器，**自扩展性**（参与者越多资源越多）。
   - 拓扑演进：集中式目录（Napster，单点故障）→ 全分布洪泛（Gnutella，开销大）→ **DHT 分布式散列表**（Chord/Kademlia，把「资源键 → 结点」映射分布式存储，查询 O(log N)）→ 混合（BitTorrent 用 tracker/DHT 找结点，用「最稀有优先 + 一报还一报」做块交换）。
 
@@ -1399,12 +1399,12 @@ TELNET（TCP 23）明文传送、用 NVT 屏蔽终端差异，已因安全原因
 ::: tip 工作示例 · 连接复用省了多少 RTT
 访问含 `1 个 HTML + 3 张图片` 的页面，设 DNS 查询 1 RTT、TCP 握手 1 RTT、单次请求-响应 1 RTT（忽略传输时延）：
 $$
-\begin{gathered}
-\text{HTTP/1.0} \; \text{非持久（每对象新建} \; \text{TCP} \; \text{，} \; \text{DNS} \; \text{缓存）：} \; 3+ 3 \times 2= 9 RTT \\
-\text{HTTP/1.1} \; \text{持久连接（顺序请求）} \; \text{：} \; \text{1(DNS) + 1(TCP) + 4(} \; \text{对象} \; \text{) = 6 RTT} \\
-\text{HTTP/1.1} \; \text{流水线（} \; \text{4} \; \text{个请求连发）} \; \text{：} \; 1+ 1+ 2 \approx 4 RTT \\
-\text{HTTP/2} \; \text{多路复用} \; \text{/ HTTP/3(QUIC)} \; \text{：} \; \text{TLS1.3} \; \text{或} \; \text{QUIC} \; \text{可把握手合并到} \; \text{0/1 RTT}
-\end{gathered}
+\begin{aligned}
+&\text{HTTP/1.0} \; \text{非持久（每对象新建} \; \text{TCP} \; \text{，} \; \text{DNS} \; \text{缓存）：} \; 3+ 3 \times 2= 9 RTT \\
+&\text{HTTP/1.1} \; \text{持久连接（顺序请求）} \; \text{：} \; \text{1(DNS) + 1(TCP) + 4(} \; \text{对象} \; \text{) = 6 RTT} \\
+&\text{HTTP/1.1} \; \text{流水线（} \; \text{4} \; \text{个请求连发）} \; \text{：} \; 1+ 1+ 2 \approx 4 RTT \\
+&\text{HTTP/2} \; \text{多路复用} \; \text{/ HTTP/3(QUIC)} \; \text{：} \; \text{TLS1.3} \; \text{或} \; \text{QUIC} \; \text{可把握手合并到} \; \text{0/1 RTT}
+\end{aligned}
 $$
 注意 **HTTP/1.1 流水线仍有队头阻塞**（前一个响应慢会堵住后面的），HTTP/2 的二进制分帧多路复用才真正解决 HTTP 层队头阻塞，HTTP/3 用 QUIC 进一步解决 TCP 层队头阻塞。
 :::
@@ -1425,7 +1425,7 @@ $$
 收件人 UA <--POP3/IMAP-- 接收方邮件服务器（按收件人域名查 MX 记录定位）
 ```
 
-**MIME 常用首部**：`MIME-Version: 1.0`、$Content-Type: \frac{multipart}{mixed}; boundary=...$（多部分附件）、`Content-Transfer-Encoding: base64 | quoted-printable`、`Content-Disposition: attachment; filename=...`、`Content-ID`。Base64 把 3 字节编成 4 个可打印字符（体积增约 1/3）。安全扩展 **SPF / DKIM / DMARC** 借助 DNS TXT 记录与签名验证发件域，防伪造与钓鱼。
+**MIME 常用首部**：`MIME-Version: 1.0`、$Content-Type: \dfrac{multipart}{mixed}; boundary=...$（多部分附件）、`Content-Transfer-Encoding: base64 | quoted-printable`、`Content-Disposition: attachment; filename=...`、`Content-ID`。Base64 把 3 字节编成 4 个可打印字符（体积增约 1/3）。安全扩展 **SPF / DKIM / DMARC** 借助 DNS TXT 记录与签名验证发件域，防伪造与钓鱼。
 
 #### 6.10.5 DHCP 报文与租约状态机
 
@@ -1453,13 +1453,13 @@ DHCP 报文固定含：`op`（1=请求/2=回答）、`htype/hlen`（硬件类型
 #### 6.10.7 套接字 API 与并发服务器
 
 $$
-\begin{gathered}
-\text{TCP} \; \text{服务器：} \; socket() \to bind(IP:port) \to listen(backlog) \to accept() \; \text{【阻塞等连接】} \\
-\to \frac{recv()}{send()} \to close() \; \text{（} \; \text{accept} \; \text{返回新的已连接套接字，与监听套接字分离）} \\
-\text{TCP} \; \text{客户端：} \; socket() \to connect(serverIP:port) \; \text{【触发三次握手】} \; \to \frac{send()}{recv()} \to close() \\
-\text{UDP} \; \text{服务器：} \; socket() \to bind() \to recvfrom() \; \text{【拿到对端地址】} \; \to sendto() \\
-\text{UDP} \; \text{客户端：} \; socket() \to sendto() \to recvfrom() \to close() \; \text{（无需} \; \text{connect/listen} \; \text{）}
-\end{gathered}
+\begin{aligned}
+&\text{TCP} \; \text{服务器：} \; socket() \to bind(IP:port) \to listen(backlog) \to accept() \; \text{【阻塞等连接】} \\
+&\to \frac{recv()}{send()} \to close() \; \text{（} \; \text{accept} \; \text{返回新的已连接套接字，与监听套接字分离）} \\
+&\text{TCP} \; \text{客户端：} \; socket() \to connect(serverIP:port) \; \text{【触发三次握手】} \; \to \frac{send()}{recv()} \to close() \\
+&\text{UDP} \; \text{服务器：} \; socket() \to bind() \to recvfrom() \; \text{【拿到对端地址】} \; \to sendto() \\
+&\text{UDP} \; \text{客户端：} \; socket() \to sendto() \to recvfrom() \to close() \; \text{（无需} \; \text{connect/listen} \; \text{）}
+\end{aligned}
 $$
 
 - `listen` 的 **backlog** 对应全连接队列长度；SYN Flood 攻击打的是**半连接队列**。
@@ -1508,7 +1508,7 @@ $$
 | 依据 | 替换与置换、混淆与扩散 | **单向陷门函数**（大数分解 / 离散对数 / 椭圆曲线） |
 | 速度 | **快**，适合大量数据 | **慢**（比对称慢 2~3 个数量级），适合少量数据 |
 | 主要用途 | 数据加密 | **密钥交换、数字签名、身份认证** |
-| 关键难题 | **密钥分发**（n 个用户两两通信需 $\frac{n(n- 1)}{2}$ 个密钥） | 公钥**真实性**（需 CA 证书绑定身份） |
+| 关键难题 | **密钥分发**（n 个用户两两通信需 $\dfrac{n(n- 1)}{2}$ 个密钥） | 公钥**真实性**（需 CA 证书绑定身份） |
 
 ::: tip 混合密码系统（真实系统的做法）
 现实协议从不单独用公钥加密大文件：先用 **公钥体制/DH 协商出会话密钥**（认证 + 密钥交换），再用**对称加密（AES-GCM / ChaCha20-Poly1305）**加密数据，最后用 **MAC/HMAC 或 AEAD 的认证标签**保证完整性。TLS 1.3、IPsec、SSH、WireGuard 都遵循这一模式。
@@ -1602,11 +1602,11 @@ $$
 ::: tip 工作示例 · RSA 手算
 取 `p = 3, q = 11` → `n = 33`，$\phi(n)= 2 \times 10= 20$；取 `e = 3`（与 20 互素），解 $3d \equiv 1(mod 20)$ 得 `d = 7`。
 $$
-\begin{gathered}
-\text{明文} \; m= 4 \to c= 4^{3} mod 33= 64 mod 33= 31 \\
-\text{密文} \; c= 31 \to m= 31^{7} mod 33 \; \text{：} \; 31 \equiv- 2(mod 33) \; \text{，} \; (- 2)^{7}=- 128 \equiv 4(mod 33) \checkmark \\
-\text{用私钥签名则把运算反过来：签名} \; \text{s = m(d) mod n} \; \text{，验证} \; \text{m = s(e) mod n}
-\end{gathered}
+\begin{aligned}
+&\text{明文} \; m= 4 \to c= 4^{3} mod 33= 64 mod 33= 31 \\
+&\text{密文} \; c= 31 \to m= 31^{7} mod 33 \; \text{：} \; 31 \equiv- 2(mod 33) \; \text{，} \; (- 2)^{7}=- 128 \equiv 4(mod 33) \checkmark \\
+&\text{用私钥签名则把运算反过来：签名} \; \text{s = m(d) mod n} \; \text{，验证} \; \text{m = s(e) mod n}
+\end{aligned}
 $$
 真实 RSA 用 2048/3072 bit 模数；因速度慢，只用于**签名和密钥封装**，不直接加密大数据。
 :::
@@ -1620,7 +1620,7 @@ $$
 | --- | --- |
 | 单向性 | 由哈希值反推输入在计算上不可行 |
 | 抗弱碰撞 | 给定 M，找不到 M′ 使 H(M′) = H(M) |
-| 抗强碰撞 | 找不到任意一对 $M= M$′ 使哈希相同 |
+| 抗强碰撞 | 找不到任意一对不同消息 $M\ne M'$ 使哈希相同 |
 
 **生日攻击**：n bit 哈希大约 `2^(n/2)` 次尝试即可找到碰撞，故 MD5（128 bit → 约 $2^{64}$）、SHA-1（160 bit → 约 $2^{80}$，已有实际碰撞构造）不再安全；应使用 **SHA-256 / SHA-3 / SM3**。
 
@@ -1737,13 +1737,13 @@ $$
 ::: tip 工作示例 · 抖动与播放时延的权衡
 某音频流连续 3 个分组的端到端时延为 `100 / 150 / 120 ms`，分组间隔 20 ms：
 $$
-\begin{gathered}
-\text{最大抖动} \; = 150- 100= 50 ms \\
-\text{取固定播放时延} \; \text{Q = 60 ms} \; \text{：第} \; \text{1} \; \text{个分组在} \; \text{100+60 = 160 ms} \; \text{播放，} \\
-\text{后续按} \; \text{180 / 200 ms} \; \text{播放；最晚的} \; \text{150 ms} \; \text{到达仍早于} \; 180 ms \to \; \text{全部按时播放} \\
-\text{取} \; \text{Q = 30 ms} \; \text{：第} \; \text{1} \; \text{个在} \; \text{130 ms} \; \text{播放，第} \; \text{2} \; \text{个应在} \; \text{150 ms} \; \text{播放，} \\
-\text{但它恰好} \; \text{150 ms} \; \text{才到（再晚一点就会被丢弃）} \; \to \; \text{出现卡顿}
-\end{gathered}
+\begin{aligned}
+&\text{最大抖动} \; = 150- 100= 50 ms \\
+&\text{取固定播放时延} \; \text{Q = 60 ms} \; \text{：第} \; \text{1} \; \text{个分组在} \; \text{100+60 = 160 ms} \; \text{播放，} \\
+&\text{后续按} \; \text{180 / 200 ms} \; \text{播放；最晚的} \; \text{150 ms} \; \text{到达仍早于} \; 180 ms \to \; \text{全部按时播放} \\
+&\text{取} \; \text{Q = 30 ms} \; \text{：第} \; \text{1} \; \text{个在} \; \text{130 ms} \; \text{播放，第} \; \text{2} \; \text{个应在} \; \text{150 ms} \; \text{播放，} \\
+&\text{但它恰好} \; \text{150 ms} \; \text{才到（再晚一点就会被丢弃）} \; \to \; \text{出现卡顿}
+\end{aligned}
 $$
 **结论**：Q 必须不小于最大抖动才能平滑播放，但 Q 越大交互时延越大。实时通话取较小 Q（接受少量丢包），点播/直播可取较大 Q（更流畅）。自适应抖动缓冲会依据实测抖动动态调整 Q。
 :::
@@ -1794,13 +1794,13 @@ $$
 | **令牌桶 token bucket（管制）** | 桶中以速率 r 注入令牌、容量 b；发送需取令牌 | 允许**最大 b 的突发**，长期平均不超过 r |
 
 ::: tip 工作示例 · 令牌桶
-令牌速率 $r= \frac{1 MB}{s}$、桶容量 `b = 4 MB`，桶初始为满。某应用要突发发送 `6 MB`：
+令牌速率 $r= \dfrac{1 MB}{s}$、桶容量 `b = 4 MB`，桶初始为满。某应用要突发发送 `6 MB`：
 $$
-\begin{gathered}
-\text{立即取走} \; \text{4 MB} \; \text{令牌} \; \to \; \text{立刻发出} \; \text{4 MB} \\
-\text{剩余} \; \text{2 MB} \; \text{需等待} \; \text{2 s} \; \text{攒够令牌} \; \to \; \text{共约} \; \text{2 s} \; \text{发完，长期平均速率仍为} \; \text{1 MB/s} \\
-\text{若改用漏桶（恒定} \; \text{1 MB/s} \; \text{输出），} \; \text{6 MB} \; \text{必须花} \; \text{6 s} \; \text{，且突发部分可能被丢弃}
-\end{gathered}
+\begin{aligned}
+&\text{立即取走} \; \text{4 MB} \; \text{令牌} \; \to \; \text{立刻发出} \; \text{4 MB} \\
+&\text{剩余} \; \text{2 MB} \; \text{需等待} \; \text{2 s} \; \text{攒够令牌} \; \to \; \text{共约} \; \text{2 s} \; \text{发完，长期平均速率仍为} \; \text{1 MB/s} \\
+&\text{若改用漏桶（恒定} \; \text{1 MB/s} \; \text{输出），} \; \text{6 MB} \; \text{必须花} \; \text{6 s} \; \text{，且突发部分可能被丢弃}
+\end{aligned}
 $$
 令牌桶允许合理突发，是流量管制（policing）与 DiffServ 中常见的参数化方式 `(r, b)`。
 :::
@@ -1907,7 +1907,7 @@ $$
 | **EIFS** | 最长 | 收到**坏帧/未正确解调**后等待，避免干扰可能正在进行的 ACK |
 | Slot time | $20 \mu s$（802.11b）；OFDM PHY 为 $9 \mu s$ | 退避计数器的基本单位 |
 
-**802.11 退避与以太网不同**：以太网从第 `i` 次重传的 ${0 \cdots 2^k- 1}$ 取 `r`（单位 512 bit time）；802.11 用**竞争窗口 CW**：初始 `CW_min = 31`（802.11b），每次失败 $CW= 2(CW+1)- 1$，序列 $31 \to 63 \to 127 \to 255 \to 511 \to 1023$（CW_max），在 `[0, CW]` 中均匀随机取退避时隙数；**仅在信道空闲满 DIFS 后每个 Slot 递减**，信道变忙则冻结计数，归零才发送。
+**802.11 退避与以太网不同**：以太网从第 `i` 次重传的 ${0 \cdots 2^k- 1}$ 取 `r`（单位 512 bit time）；802.11 用**竞争窗口 CW**：初始 `CW_min = 31`（802.11b），每次失败 $CW= 2(CW+1)- 1$，序列 $31 \to 63 \to 127 \to 255 \to 511 \to 1023$（$CW_{max}$），在 `[0, CW]` 中均匀随机取退避时隙数；**仅在信道空闲满 DIFS 后每个 Slot 递减**，信道变忙则冻结计数，归零才发送。
 
 ::: tip 工作示例 · 退避时隙
 站点第 3 次发送失败后 `CW = 127`，抽中 `r = 40`，Slot = $20 \mu s$ 需累计约 $40 \times 20 \mu s= 800 \mu s$ 的**空闲**时间才能发送；期间若有别的站点开始发送，计数器冻结，等它发完并再空闲 DIFS 后继续倒数。这比「固定等待」更能适应负载变化。
@@ -1916,13 +1916,13 @@ $$
 #### 9.5.3 隐藏站 / 暴露站与 RTS 门限
 
 $$
-\begin{gathered}
-\text{隐藏站：} \; A \leftarrow \to B \leftarrow \to C \; \text{，} \; \text{A} \; \text{与} \; \text{C} \; \text{互相听不到} \\
-\text{A} \; \text{、} \; \text{C} \; \text{都监听到信道空闲并同时向} \; \text{B} \; \text{发送} \; \to \; \text{在} \; \text{B} \; \text{处碰撞，双方却都收不到碰撞信号} \\
-\text{解决：} \; \text{A} \; \text{发} \; RTS \to B \; \text{广播} \; \text{CTS} \; \text{（含} \; \text{NAV} \; \text{时长）} \; \to \; \text{听到} \; \text{CTS} \; \text{的} \; \text{C} \; \text{静默} \\
-\text{暴露站：} \; \text{B} \; \text{正在给} \; \text{A} \; \text{发送，} \; \text{C} \; \text{想给} \; \text{D} \; \text{发送，} \; \text{C} \; \text{能听到} \; \text{B} \; \text{却不会干扰} \; \text{A} \; \text{的接收} \\
-\text{CSMA/CA} \; \text{让} \; \text{C} \; \text{退避，属「过度保守」，白白浪费空间复用机会}
-\end{gathered}
+\begin{aligned}
+&\text{隐藏站：} \; A \leftarrow \to B \leftarrow \to C \; \text{，} \; \text{A} \; \text{与} \; \text{C} \; \text{互相听不到} \\
+&\text{A} \; \text{、} \; \text{C} \; \text{都监听到信道空闲并同时向} \; \text{B} \; \text{发送} \; \to \; \text{在} \; \text{B} \; \text{处碰撞，双方却都收不到碰撞信号} \\
+&\text{解决：} \; \text{A} \; \text{发} \; RTS \to B \; \text{广播} \; \text{CTS} \; \text{（含} \; \text{NAV} \; \text{时长）} \; \to \; \text{听到} \; \text{CTS} \; \text{的} \; \text{C} \; \text{静默} \\
+&\text{暴露站：} \; \text{B} \; \text{正在给} \; \text{A} \; \text{发送，} \; \text{C} \; \text{想给} \; \text{D} \; \text{发送，} \; \text{C} \; \text{能听到} \; \text{B} \; \text{却不会干扰} \; \text{A} \; \text{的接收} \\
+&\text{CSMA/CA} \; \text{让} \; \text{C} \; \text{退避，属「过度保守」，白白浪费空间复用机会}
+\end{aligned}
 $$
 
 - **NAV（网络分配向量）** 是"虚拟载波监听"：帧的 Duration 字段声明将占用信道多久，收到者据此设置本地计时器，**不必真的持续监听物理载波**。
@@ -1968,11 +1968,11 @@ $$
 
 设某运营商共有 `M = 700` 个可用双向信道，采用**簇大小 N = 7** 的频率复用方案，覆盖区划分为 `100` 个簇：
 $$
-\begin{gathered}
-\text{每个小区可用信道数} \; = \frac{M}{N}= \frac{700}{7}= 100 \\
-\text{每个簇（} \; \text{7} \; \text{个小区）恰好用完} \; \text{700} \; \text{个信道且不相邻小区互不干扰} \\
-\text{系统总并发信道数} \; = M \times \; \text{簇数} \; = 700 \times 100= 70000
-\end{gathered}
+\begin{aligned}
+&\text{每个小区可用信道数} \; = \frac{M}{N}= \frac{700}{7}= 100 \\
+&\text{每个簇（} \; \text{7} \; \text{个小区）恰好用完} \; \text{700} \; \text{个信道且不相邻小区互不干扰} \\
+&\text{系统总并发信道数} \; = M \times \; \text{簇数} \; = 700 \times 100= 70000
+\end{aligned}
 $$
 减小 N（如 4 或 3）可提高每小区信道数，但**同频干扰**增大，需靠功率控制、扇区化（$120^{\circ}$ 定向天线）、小区分裂（微小区/微微小区）、MIMO 与干扰协调来补偿。
 
@@ -2017,18 +2017,18 @@ $$
 | 传播时延 | `信道长度(m) / 传播速率(m/s)`（与发送速率无关） |
 | 总时延 | `发送 + 传播 + 处理 + 排队` |
 | 时延带宽积 | `传播时延 × 带宽`（链路上在途比特数） |
-| 利用率与时延 | $D= \frac{D_{0}}{1- U}$，U→1 时延急剧增大 |
+| 利用率与时延 | $D= \dfrac{D_{0}}{1- U}$，U→1 时延急剧增大 |
 | 奈氏准则 | 无噪声：最高码元速率 `2W` Baud；最高数据率 $2W \cdot \log_{2}V$ |
-| 香农公式 | $C= W \cdot \log_{2}\left(1+ \frac{S}{N}\right)$；$\frac{S}{N}= 10^{\frac{dB}{10}}$ |
+| 香农公式 | $C= W \cdot \log_{2}\left(1+ \dfrac{S}{N}\right)$；$\dfrac{S}{N}= 10^{\dfrac{dB}{10}}$ |
 | CDMA | 与自身码片规格化内积 = `1`，与其他站 = `0`，与反码 = $- 1$ |
 | CRC | `M + R`，R 为模 2 除法余数，位数 = 生成多项式次数；接收端余数为 0 判无错 |
 | 以太网最短帧 | **64 B**（争用期 512 bit time）；帧长 64~1518 B；VLAN 帧 1522 B |
 | 交换机 | 自学习「源 $MAC \leftrightarrow$端口」；未知目的泛洪；STP 破环 |
 | IP 前缀 | `IP & 掩码 = 网络地址`；可用主机数 $2^{32- n}- 2$；**最长前缀匹配** |
-| 停止等待利用率 | $U= \frac{T_{D}}{T_{D}+ RTT+ T_{A}}$ |
+| 停止等待利用率 | $U= \dfrac{T_{D}}{T_{D}+ RTT+ T_{A}}$ |
 | 窗口约束 | Go-back-N $W_{T} \le 2^n- 1$；选择重传 $W_{T} \le 2^{n- 1}$ |
 | TCP 发送窗口 | `min(rwnd, cwnd)`；序号按**字节**，确认号 = 期望下一字节 |
-| 拥塞控制 | `cwnd < ssthresh` 慢开始（每 RTT 加倍）；否则拥塞避免（+1 MSS/RTT）；超时 $ssthresh=\frac{cwnd}{2}, cwnd=1$；3 个重复 ACK 触发快重传 + 快恢复 |
+| 拥塞控制 | `cwnd < ssthresh` 慢开始（每 RTT 加倍）；否则拥塞避免（+1 MSS/RTT）；超时 $ssthresh=\dfrac{cwnd}{2}, cwnd=1$；3 个重复 ACK 触发快重传 + 快恢复 |
 | 连接管理 | 三次握手（SYN 消耗序号）；四次挥手；**TIME-WAIT = 2MSL** |
 | DNS | UDP/TCP 53；主机→本地递归，本地→根/TLD/权限迭代 |
 | 熟知端口 | FTP 21/20、SSH 22、TELNET 23、SMTP 25、DNS 53、DHCP 67/68、TFTP 69、HTTP 80、POP3 110、IMAP 143、SNMP 161/162、HTTPS 443、SIP 5060、RTSP 554 |
@@ -2037,34 +2037,34 @@ $$
 | IntServ / DiffServ | 前者 RSVP 每流预留（扩展性差）；后者 DSCP 按类 PHB（主流） |
 | 分组交换流水线 | 总时延 = `(段数 + 分组数 − 1) × 每分组发送时延` |
 | 采样定理 / PCM | $f_{s} \ge 2 \cdot f_{\max}$；话音 $8 kHz \times 8$ **64 kbit/s**；T1 1.544 / E1 2.048 Mbit/s |
-| 码元与比特率 | `数据率 = 波特率(Baud) × log2V`；奈氏限码元速率、香农限信息速率 |
+| 码元与比特率 | $\text{数据率}=\text{波特率}(Baud)\times\log_2 V$；奈氏限码元速率、香农限信息速率 |
 | 差错控制 | 检 e 位错需最小码距 $\ge e+1$；纠 t 位错需 $\ge 2t+1$；CRC 漏检概率约 $2^{- r}$ |
-| CSMA/CD | 争用期 512 bit time → 最短帧 64 B；$S_{\max}= \frac{1}{1+a}$，$a= \frac{\tau}{T_{0}}$；退避 $k=\min(i,10)$，16 次丢弃 |
+| CSMA/CD | 争用期 512 bit time → 最短帧 64 B；$S_{\max}= \dfrac{1}{1+a}$，$a= \dfrac{\tau}{T_{0}}$；退避 $k=\min(i,10)$，16 次丢弃 |
 | 802.1Q VLAN | 插入 4 B（TPID `0x8100` + TCI：PCP 3 / DEI 1 / VID 12 bit），帧最长 **1522 B** |
 | IP 分片 | 片偏移以 **8 B** 为单位；重组只在目的主机；`DF=1` 触发 PMTUD |
 | IP 首部检验和 | 16 bit 反码求和再取反；**只校验首部**且每跳因 TTL 变化而重算 |
 | ARP | 跨网解析的是**下一跳网关** MAC；免费 ARP 检冲突、代理 ARP 代答 |
 | 路由协议 | RIP：UDP 520 / ≤15 跳 / 30 s；OSPF：IP 协议号 89 / Dijkstra / 区域 0；BGP：TCP 179 / AS_PATH |
 | IPv6 | 128 bit，首部固定 40 B，无首部检验和、无广播，NDP 取代 ARP，只源主机分片 |
-| 可靠传输利用率 | 停止等待 $U= \frac{T_{D}}{T_{D}+RTT+T_{A}}$；窗口 W 时 $U= \min\left(1, \frac{W \cdot T_{D}}{T_{D}+RTT}\right)$ |
-| RTO | $RTT_{S}=(1- \alpha)RTT_{S}+\alpha \cdot M$（$\alpha=\frac{1}{8}$）；`RTT_D=(1−β)RTT_D+β·偏差绝对值`（$\beta=\frac{1}{4}$）；`RTO=RTT_S+4RTT_D` |
+| 可靠传输利用率 | 停止等待 $U= \dfrac{T_{D}}{T_{D}+RTT+T_{A}}$；窗口 W 时 $U= \min\left(1, \dfrac{W \cdot T_{D}}{T_{D}+RTT}\right)$ |
+| RTO | $RTT_{S}=(1- \alpha)RTT_{S}+\alpha \cdot M$（$\alpha=\dfrac{1}{8}$）；$RTT_D=(1-\beta)RTT_D+\beta\cdot\text{偏差绝对值}$（$\beta=\dfrac{1}{4}$）；`RTO=RTT_S+4RTT_D` |
 | TCP 窗口 | 发送窗口 = `min(rwnd, cwnd)`；窗口扩大选项把 16 bit 窗口乘 `2^s`；序号按字节编号 |
-| 拥塞控制 | 超时：$ssthresh=\frac{cwnd}{2}$、`cwnd=1`；3 个重复 ACK：快重传 + 快恢复，跳过慢开始 |
+| 拥塞控制 | 超时：$ssthresh=\dfrac{cwnd}{2}$、`cwnd=1`；3 个重复 ACK：快重传 + 快恢复，跳过慢开始 |
 | TLS | 证书认证 → ECDHE 协商会话密钥 → AEAD 对称加密；TLS 1.3 = 1-RTT + 强制前向保密 |
-| 播放时延 | 接收缓冲吸收抖动，需 `Q ≥ 最大抖动`；Q 越大越平滑但交互时延越大 |
+| 播放时延 | 接收缓冲吸收抖动，需 $Q\ge\text{最大抖动}$；Q 越大越平滑但交互时延越大 |
 | 令牌桶 / 漏桶 | 令牌桶允许最大 `b` 突发、长期平均 `r`；漏桶恒定速率输出 |
 | 802.11 | `SIFS < PIFS < DIFS < EIFS`；每帧必须 ACK；CW $31 \to 63 \to 127 \to 255 \to 511 \to 1023$；RTS/CTS + NAV 防隐藏站 |
 | 蜂窝频率复用 | 每小区可用信道 = `M/N`；系统总容量 = `M × 簇数` |
-| 移动 IP | HA 维护「归属地址 $\leftrightarrow$」绑定并隧道转发；回程形成三角路由，可路由优化 |
+| 移动 IP | HA 维护「归属地址 $\leftrightarrow$ CoA」绑定并隧道转发；回程形成三角路由，可路由优化 |
 
 ## 附录 B 各章易错点速查
 
 1. `internet`（泛指互连网）≠ `Internet`（专指采用 TCP/IP 的全球互联网）。
-2. 速率单位用 10 的幂（$\frac{1 kbit}{s}= \frac{1000 bit}{s}$），存储容量用 2 的幂（`1 KB = 1024 B`）。
+2. 速率单位用 10 的幂（$\dfrac{1 kbit}{s}= \dfrac{1000 bit}{s}$），存储容量用 2 的幂（$1\,KB=1024\,B$）。
 3. 提高发送速率**只减少发送时延**，不减少传播时延；短报文长距离时传播时延主导。
 4. `带宽` 在频域单位是 Hz，在时域单位是 bit/s，两者含义不同。
 5. 时延带宽积 = 传播时延 × 带宽，单位最终是**比特**，不是字节也不是秒。
-6. $D= \frac{D_{0}}{1- U}$：利用率接近 1 时排队时延趋于无穷，不是"越高越好"。
+6. $D= \dfrac{D_{0}}{1- U}$：利用率接近 1 时排队时延趋于无穷，不是"越高越好"。
 7. 分组交换**不保证**可靠与按序；电路交换独占带宽但利用率低。
 8. 协议是**水平的**（对等实体），服务是**垂直的**（上下层）；SAP 是层间接口。
 9. OSI 七层、TCP/IP 四层、五层原理体系别混；TCP/IP 的「网络接口层」没有具体内容。
@@ -2096,7 +2096,7 @@ $$
 35. SYN / FIN 报文段**不携带数据也消耗一个序号**；ACK 报文段若不携带数据则不消耗序号。
 36. 流量控制看 `rwnd`（接收方），拥塞控制看 `cwnd`（网络）；发送窗口 = `min(rwnd, cwnd)`。
 37. 零窗口用**持续计时器 + 1 字节探测**防死锁；Nagle 缓解糊涂窗口综合症。
-38. 超时重传：$ssthresh= \frac{cwnd}{2}$ 且 `cwnd = 1`；**3 个重复 ACK** 走快重传/快恢复，不回到 1。
+38. 超时重传：$ssthresh= \dfrac{cwnd}{2}$ 且 `cwnd = 1`；**3 个重复 ACK** 走快重传/快恢复，不回到 1。
 39. 三次握手的标准理由是**防止已失效的连接请求报文段突然到达服务端**造成错误。
 40. TIME-WAIT = **2MSL**：保证最后 ACK 到达 + 让旧报文消散；四次挥手存在**半关闭**状态。
 41. DNS 主机→本地多为**递归**，本地→根/TLD/权限多为**迭代**；根是 13 个**逻辑**根（任播镜像）。
@@ -2115,7 +2115,7 @@ $$
 54. 蜂窝靠频率复用与切换解决移动性；移动 IP 靠 HA + CoA + 隧道保持 IP 不变，会产生三角路由。
 55. 波特率（Baud，码元/秒）不等于比特率，必须乘 $\log_{2}V$；奈氏限的是码元速率，香农限的是信息速率。
 56. 曼彻斯特在**位周期中心**必跳变自带时钟；差分曼彻斯特看**位开始边界**有无跳变。
-57. PCM 一路话音 $8 kHz \times 8 bit= \frac{64 kbit}{s}$；$E1= \frac{2.048 Mbit}{s}$（30/32 路）、$T1= \frac{1.544 Mbit}{s}$（24 路）。
+57. PCM 一路话音 $8 kHz \times 8 bit= \dfrac{64 kbit}{s}$；$E1= \dfrac{2.048 Mbit}{s}$（30/32 路）、$T1= \dfrac{1.544 Mbit}{s}$（24 路）。
 58. 同步卫星传播时延约 250~270 ms，属传播时延；提高发送速率对此毫无帮助。
 59. CRC 只能检错，漏检概率约 $2^{- r}$；检 e 位错要求最小码距 $\ge e+1$，纠 t 位错要求 $\ge 2t+1$。
 60. PPP 的 A=`0xFF`、C=`0x03`；协议字段区分 IP(`0x0021`)/LCP(`0xC021`)/NCP(`0x8021`)；PPPoE 分发现与会话两阶段。
@@ -2129,7 +2129,7 @@ $$
 68. IPsec 的 AH 不加密且与 NAT 冲突，SA 是**单向**的，双向通信需两个 SA；TLS 保护运输层之上。
 69. 分组交换流水线总时延 = `(段数 + 分组数 − 1) × 每分组发送时延`；报文交换要逐段收完整个报文。
 70. 采样定理 $f_{s} \ge 2f_{\max}$；OFDM 是正交子载波并行，OFDMA 进一步把子载波按用户分配。
-71. 停止等待利用率低，发送窗口 $W \ge \frac{T_{D}+RTT}{T_{D}}$ 才能填满"长肥管道"；窗口扩大选项为此而生。
+71. 停止等待利用率低，发送窗口 $W \ge \dfrac{T_{D}+RTT}{T_{D}}$ 才能填满"长肥管道"；窗口扩大选项为此而生。
 72. RTO 用 RTT 加权平均 + 偏差估计；**Karn 算法**在重传时不采样本并把 RTO 加倍退避。
 73. TCP 的 MSS 只在 SYN 中通告；SACK 只重传真正丢失的段；纯 ACK 不携带数据则不消耗序号。
 74. 糊涂窗口综合症来自接收方小窗口通告与发送方小报文；零窗口靠**持续计时器 + 1 字节探测**防死锁。
@@ -2144,7 +2144,7 @@ $$
 83. MD5/SHA-1 因碰撞与生日攻击已弃用；**HMAC 共享密钥不能防抵赖**，数字签名才能；签名本身不保密。
 84. TLS 1.3 只保留 AEAD 套件、1-RTT（0-RTT 有重放风险）、强制前向保密，并把 ServerHello 之后的消息加密。
 85. RTP 时间戳即使静音也要递增；RTCP 有 SR / RR / SDES / BYE / APP 五类；RTP 本身**不保证 QoS**。
-86. IntServ 是**每流**预留（RSVP，扩展性差），DiffServ 是**每类**（$\frac{DSCP}{EF}=46$ 常用于 VoIP）；后者只给相对优先级。
+86. IntServ 是**每流**预留（RSVP，扩展性差），DiffServ 是**每类**（EF 即 DSCP=46，常用于 VoIP）；后者只给相对优先级。
 87. 令牌桶允许最大 `b` 的突发、长期平均 `r`；漏桶恒定速率输出，二者分别是管制与整形的典型手段。
 88. 802.11 的 `SIFS < PIFS < DIFS < EIFS`；退避计数器在信道忙时**冻结**；CW 序列上限 1023，与以太网退避规则不同。
 89. 802.11 MAC 帧最多 4 个地址，含义由 To DS / From DS 两位决定；WPA3 用 SAE 抗离线字典攻击并提供前向保密。

@@ -80,7 +80,7 @@ summary: "计量经济学 全面详解笔记，共 10 章：绪论、统计学�
 $$
 \hat{Q}= 76.05- 3.88 \times 4.50= 76.05- 17.46= 58.59
 $$
-延伸：斜率 $- 3.88$ 表示价格每上升 1 个单位，需求量平均减少 3.88 个单位；若 `P` 与 `Q` 的单位分别是「元/件」与「万件」，则要看 elasticity 才便于跨商品比较：$\epsilon=\left(\frac{dQ}{dP}\right) \cdot\left(\frac{P}{Q}\right)=- 3.88 \times \frac{4.50}{58.59} \approx- 0.298$，即价格上升 1%，需求量约下降 0.30%（缺乏弹性）。**注意**：预测只能给出点估计，严格报告还需给预测区间（第 3 章）。
+延伸：斜率 $- 3.88$ 表示价格每上升 1 个单位，需求量平均减少 3.88 个单位；若 `P` 与 `Q` 的单位分别是「元/件」与「万件」，则要看 elasticity 才便于跨商品比较：$\epsilon=\left(\dfrac{dQ}{dP}\right) \cdot\left(\dfrac{P}{Q}\right)=- 3.88 \times \dfrac{4.50}{58.59} \approx- 0.298$，即价格上升 1%，需求量约下降 0.30%（缺乏弹性）。**注意**：预测只能给出点估计，严格报告还需给预测区间（第 3 章）。
 :::
 
 ### 1.4 模型、软件与工作流（★★）
@@ -131,10 +131,10 @@ $$
 
 | 概念 | 定义 / 结论 |
 | --- | --- |
-| 期望 `E(X)` | 随机变量分布的集中位置；`E(aX+b)=aE(X)+b` |
+| 期望 `E(X)` | 随机变量分布的集中位置；$E(aX+b)=aE(X)+b$ |
 | 方差 `Var(X)` | $E[(X- E(X))^{2}]$；$\operatorname{Var}(aX+b)=a^{2}\operatorname{Var}(X)$ |
 | 协方差 `Cov(X,Y)` | 共变程度；独立 ⇒ 协方差为 0，**反之不成立** |
-| 相关系数 $\rho$ | $\frac{\operatorname{Cov}(X,Y)}{\sigma_{X} \sigma_{Y}} \in[- 1,1]$，只度量**线性**相关 |
+| 相关系数 $\rho$ | $\dfrac{\operatorname{Cov}(X,Y)}{\sigma_{X} \sigma_{Y}} \in[- 1,1]$，只度量**线性**相关 |
 | 条件期望 | `E(Y|X)` 是回归分析的数学核心（总体回归函数即条件均值） |
 
 | 分布 | 由谁构造 | 在计量中的用途 |
@@ -145,7 +145,7 @@ $$
 | F(m, n−k−1) | $\dfrac{\chi^{2}(m)/m}{\chi^{2}(df)/df}$ | **多个线性约束的联合检验**、整体显著性 |
 
 ::: tip 三大抽样分布的关系
-$Z \sim N(0,1)$、$V \sim \chi^{2}(m)$ 且独立 → $t= \frac{Z}{\sqrt{\frac{V}{m}}} \sim t(m)$；$U \sim \chi^{2}(m)$、$V \sim \chi^{2}(r)$ 独立 → $F= \frac{\frac{U}{m}}{\frac{V}{r}} \sim F(m,r)$。由此可得两个常用结论：$t^{2}(m)= F(1, m)$（单系数 t 检验与 F 检验等价），以及 $m \cdot F(m, \cdot) \to \chi^{2}(m)$（大样本下 LM/Wald/LR 都渐近服从 χ²）。
+$Z \sim N(0,1)$、$V \sim \chi^{2}(m)$ 且独立 → $t= \dfrac{Z}{\sqrt{\dfrac{V}{m}}} \sim t(m)$；$U \sim \chi^{2}(m)$、$V \sim \chi^{2}(r)$ 独立 → $F= \dfrac{\dfrac{U}{m}}{\dfrac{V}{r}} \sim F(m,r)$。由此可得两个常用结论：$t^{2}(m)= F(1, m)$（单系数 t 检验与 F 检验等价），以及 $m \cdot F(m, \cdot) \to \chi^{2}(m)$（大样本下 LM/Wald/LR 都渐近服从 χ²）。
 :::
 
 ### 2.2 抽样分布、估计量的性质（★★★）
@@ -163,7 +163,7 @@ $Z \sim N(0,1)$、$V \sim \chi^{2}(m)$ 且独立 → $t= \frac{Z}{\sqrt{\frac{V}
 ![抽样分布、置信区间与假设检验](/econ/econ-inference.svg)
 
 ::: danger 易错 · 无偏 ≠ 一致，有效 ≠ 无偏
-- **无偏是小样本性质**，与 n 无关；**一致是大样本性质**。无偏但不一致的例子：$\hat{\theta}= X_{1}$（用第一个观测估计均值，无偏但方差不随 n 缩小）；有偏但一致的例子：样本方差用 `1/n` 而非 $\frac{1}{n- 1}$（有偏，但 n→∞ 时偏差消失）。
+- **无偏是小样本性质**，与 n 无关；**一致是大样本性质**。无偏但不一致的例子：$\hat{\theta}= X_{1}$（用第一个观测估计均值，无偏但方差不随 n 缩小）；有偏但一致的例子：样本方差用 `1/n` 而非 $\dfrac{1}{n- 1}$（有偏，但 n→∞ 时偏差消失）。
 - 「有效性」必须在**同类估计量**（如都是线性无偏）内比较；有偏估计量方差可以更小（岭回归、LASSO 正是用偏差换方差）。
 - 中心极限定理给的是**估计量的渐近分布**，不是「样本数据的分布变成正态」。
 :::
@@ -177,19 +177,19 @@ $Z \sim N(0,1)$、$V \sim \chi^{2}(m)$ 且独立 → $t= \frac{Z}{\sqrt{\frac{V}
 | **极大似然 MLE** | 使观测样本出现概率最大 | Logit/Probit、GARCH |
 | 广义矩 GMM | 让样本矩条件尽可能接近 0 | 动态面板、工具变量 |
 
-**置信区间**：`θ̂ ± 临界值 × se(θ̂)`。95% 置信度的正确含义是「**反复抽样**构造的区间中约 95% 会覆盖真值」，不是「真值以 95% 概率落在这个已算出的区间里」（频率学派下真值固定、区间随机）。
+**置信区间**：$\hat{\theta}\pm\text{临界值}\times se(\hat{\theta})$。95% 置信度的正确含义是「**反复抽样**构造的区间中约 95% 会覆盖真值」，不是「真值以 95% 概率落在这个已算出的区间里」（频率学派下真值固定、区间随机）。
 
 ::: tip 工作示例 · 均值区间估计
-`n=25`，样本均值 `X̄=10`，已知总体标准差 $\sigma=2$：
+$n=25$，样本均值 $\bar{X}=10$，已知总体标准差 $\sigma=2$：
 $$
-\begin{gathered}
-se(\bar{X})= \frac{\sigma}{\sqrt{n}}= \frac{2}{5}= 0.4 \\
-95\% CI= 10 ± 1.96 \times 0.4=[9.216, 10.784] \\
-\text{若} \; \sigma \; \text{未知、样本标准差} \; \text{s=2} \; \text{，改用} \; \text{t(24)} \; \text{临界值} \; \text{2.064} \; \text{：} \\
-95\% CI= 10 ± 2.064 \times 0.4=[9.174, 10.826] \; \text{（略宽）}
-\end{gathered}
+\begin{aligned}
+&se(\bar{X})= \frac{\sigma}{\sqrt{n}}= \frac{2}{5}= 0.4 \\
+&95\% CI= 10 ± 1.96 \times 0.4=[9.216, 10.784] \\
+&\text{若} \; \sigma \; \text{未知、样本标准差} \; \text{s=2} \; \text{，改用} \; \text{t(24)} \; \text{临界值} \; \text{2.064} \; \text{：} \\
+&95\% CI= 10 ± 2.064 \times 0.4=[9.174, 10.826] \; \text{（略宽）}
+\end{aligned}
 $$
-n 越大区间越窄（精度 $\propto \frac{1}{\sqrt{n}}$）：要把宽度减半，样本量需增到 4 倍。
+n 越大区间越窄（精度 $\propto \dfrac{1}{\sqrt{n}}$）：要把宽度减半，样本量需增到 4 倍。
 :::
 
 ### 2.4 假设检验（★★★）
@@ -200,8 +200,8 @@ n 越大区间越窄（精度 $\propto \frac{1}{\sqrt{n}}$）：要把宽度减�
 | 第一类错误 | H0 为真却拒绝，概率 = **显著性水平 α**（常取 0.05 / 0.01 / 0.10） |
 | 第二类错误 | H0 为假却未拒绝，概率 = β；$1- \beta$ 称检验功效（power） |
 | **p 值** | H0 成立时，观测到「当前这么极端或更极端」结果的概率；$p< \alpha$ 则拒绝 |
-| 拒绝域 | 双侧 $\vert t\vert > t_{\frac{\alpha}{2}}$；单侧 $t> t_\alpha$ 或 $t<- t_\alpha$ |
-| 检验流程 | 设 $\frac{H_{0}}{H_{1}}$ 选统计量与其分布 → 定 α 与临界值 → 算统计量 → 比较或看 p 值 → 用**经济语言**下结论 |
+| 拒绝域 | 双侧 $\vert t\vert > t_{\dfrac{\alpha}{2}}$；单侧 $t> t_\alpha$ 或 $t<- t_\alpha$ |
+| 检验流程 | 设 $\dfrac{H_{0}}{H_{1}}$ 选统计量与其分布 → 定 α 与临界值 → 算统计量 → 比较或看 p 值 → 用**经济语言**下结论 |
 
 ::: tip p 值与置信区间的对偶
 - 双侧检验在 α 水平拒绝 H0: $\beta=\beta_{0}$ ⟺ $\beta_{0}$ 落在 $(1- \alpha)$ 置信区间**之外**。
@@ -222,10 +222,10 @@ $F(1, df)=t^{2}(df)$；$F(2,26,5\%) \approx 3.37$，$F(3,26,5\%) \approx 2.98$�
 ::: tip 工作示例 · 检验功效计算
 设 $\hat{\theta} \sim N(\theta, 1)$，双侧检验 $H_{0}: \theta=0$，$\alpha=0.05$（拒绝域 $|\hat{\theta}|> 1.96$），真实 $\theta=2$：
 $$
-\begin{gathered}
-\text{功效} \; = P(\hat{\theta}> 1.96| \theta=2)+ P(\hat{\theta}<- 1.96| \theta=2) \\
-= P(Z>- 0.04)+ P(Z<- 3.96)= 0.5160+ 0.00004 \approx 0.516
-\end{gathered}
+\begin{aligned}
+&\text{功效} \; = P(\hat{\theta}> 1.96| \theta=2)+ P(\hat{\theta}<- 1.96| \theta=2) \\
+&= P(Z>- 0.04)+ P(Z<- 3.96)= 0.5160+ 0.00004 \approx 0.516
+\end{aligned}
 $$
 含义：真效应为 2 个标准误时，重复抽样仍有约 **48% 的概率检不出来**（第二类错误）。要提高到 80%，需 $\theta \approx 2.8$ 个标准误（即把样本量约增到 2 倍）——**「不显著」经常只是样本不够**。
 :::
@@ -251,7 +251,7 @@ $$
 | # | 假定 | 数学表达 | 被破坏的后果 |
 | --- | --- | --- | --- |
 | A1 | 参数线性 | $Y= \beta_{0}+ \beta_{1}X+ u$ | 需改用非线性最小二乘 / 变换 |
-| A2 | X 非随机（或与 u 不相关） | `Cov(X_i, u_i) = 0` | **内生性 → 有偏且不一致**（第 5 章） |
+| A2 | X 非随机（或与 u 不相关） | $Cov(X_i,u_i)=0$ | **内生性 → 有偏且不一致**（第 5 章） |
 | A3 | 扰动项零均值 | `E(u_i|X) = 0` | 截距有偏；常数项可吸收非零均值 |
 | A4 | **同方差** | $\operatorname{Var}(u_{i}\vert X)= \sigma^{2}$ | 系数仍无偏但**不再有效**，标准误错 |
 | A5 | **无自相关** | $\operatorname{Cov}(u_{i},u_{j})=0\;(i\ne j)$ | 标准误错、t/F 失效 |
@@ -270,30 +270,30 @@ $$
 最小化 $\sum e_{i}^{2}= \sum(Y_{i}- \hat{\beta}_{0}- \hat{\beta}_{1}X_{i})^{2}$，对两个参数求偏导并令为 0，得**正规方程**：
 
 $$
-\begin{gathered}
-\sum Y_{i}= n\hat{\beta}_{0}+ \hat{\beta}_{1}\sum X_{i} \\
-\sum X_{i}Y_{i}= \hat{\beta}_{0}\sum X_{i}+ \hat{\beta}_{1}\sum X_{i}^{2}
-\end{gathered}
+\begin{aligned}
+&\sum Y_{i}= n\hat{\beta}_{0}+ \hat{\beta}_{1}\sum X_{i} \\
+&\sum X_{i}Y_{i}= \hat{\beta}_{0}\sum X_{i}+ \hat{\beta}_{1}\sum X_{i}^{2}
+\end{aligned}
 $$
 解得（小写字母表示离差 $x_{i}= X_{i}- \bar{X}$）：
 
 $$
-\begin{gathered}
-\hat{\beta}_{1}= \frac{\sum x_{i} y_{i}}{\sum x_{i}^{2}}= \frac{Sxy}{Sxx}= \frac{\operatorname{Cov}(X,Y)}{\operatorname{Var}(X)} \\
-\hat{\beta}_{0}= \bar{Y}- \hat{\beta}_{1}\bar{X}
-\end{gathered}
+\begin{aligned}
+&\hat{\beta}_{1}= \frac{\sum x_{i} y_{i}}{\sum x_{i}^{2}}= \frac{Sxy}{Sxx}= \frac{\operatorname{Cov}(X,Y)}{\operatorname{Var}(X)} \\
+&\hat{\beta}_{0}= \bar{Y}- \hat{\beta}_{1}\bar{X}
+\end{aligned}
 $$
-**OLS 的数值性质**（无论假定是否成立）：① 回归线过样本均值点 `(X̄, Ȳ)`；② $\sum e_{i}= 0$（含截距时）；③ $\sum e_{i}X_{i}=0$（残差与解释变量不相关）；④ `Ȳ = Ŷ̄`；⑤ `SST = SSR + SSE`（总平方和 = 解释平方和 + 残差平方和）。
+**OLS 的数值性质**（无论假定是否成立）：① 回归线过样本均值点 `(X̄, Ȳ)`；② $\sum e_{i}= 0$（含截距时）；③ $\sum e_{i}X_{i}=0$（残差与解释变量不相关）；④ $\bar{Y}=\hat{\bar{Y}}$；⑤ $SST=SSR+SSE$（总平方和 = 解释平方和 + 残差平方和）。
 
 ### 3.4 拟合优度与估计量方差（★★★）
 
 $$
-\begin{gathered}
-R^{2}= \frac{SSR}{SST}= 1- \frac{SSE}{SST} \in[0,1] \; \text{（含截距且用} \; \text{OLS} \; \text{时）} \\
-\operatorname{Var}(\hat{\beta}_{1})= \sigma^{2}/Sxx \; \text{，} \; \operatorname{Var}(\hat{\beta}_{0})= \sigma^{2}\left(\frac{1}{n}+ \frac{\bar{X}^{2}}{Sxx}\right) \\
-\hat{\sigma}^{2}= \frac{SSE}{n- 2} \leftarrow \; \text{用} \; n- 2 \; \text{是因为估计了两个参数（无偏估计）} \\
-se(\hat{\beta}_{1})= \sqrt{\frac{\hat{\sigma}^{2}}{Sxx}}
-\end{gathered}
+\begin{aligned}
+&R^{2}= \frac{SSR}{SST}= 1- \frac{SSE}{SST} \in[0,1] \; \text{（含截距且用} \; \text{OLS} \; \text{时）} \\
+&\operatorname{Var}(\hat{\beta}_{1})= \sigma^{2}/Sxx \; \text{，} \; \operatorname{Var}(\hat{\beta}_{0})= \sigma^{2}\left(\frac{1}{n}+ \frac{\bar{X}^{2}}{Sxx}\right) \\
+&\hat{\sigma}^{2}= \frac{SSE}{n- 2} \leftarrow \; \text{用} \; n- 2 \; \text{是因为估计了两个参数（无偏估计）} \\
+&se(\hat{\beta}_{1})= \sqrt{\frac{\hat{\sigma}^{2}}{Sxx}}
+\end{aligned}
 $$
 $R^{2}$ 高不代表模型正确、也不代表因果；$R^{2}$ 低不代表模型无用（横截面微观数据 $R^{2}=0.1$ 很常见）。
 
@@ -304,38 +304,38 @@ $R^{2}$ 高不代表模型正确、也不代表因果；$R^{2}$ 低不代表模�
 ### 3.5 区间估计、t 检验与 F 检验（★★★）
 
 $$
-\begin{gathered}
-t= \frac{\hat{\beta}_{1}- \beta_{1},H0}{se(\hat{\beta}_{1})} \sim t(n- 2) \\
-95\% CI= \hat{\beta}_{1} ± t_{0.025}(n- 2) \cdot se(\hat{\beta}_{1}) \\
-\text{单解释变量时} \; F= t^{2} \; \text{（检验} \; H_{0}: \beta_{1}=0 \; \text{等价于整体显著性检验）}
-\end{gathered}
+\begin{aligned}
+&t= \frac{\hat{\beta}_{1}- \beta_{1}^{0}}{se(\hat{\beta}_{1})} \sim t(n- 2) \; \text{（} H_{0}: \beta_{1}= \beta_{1}^{0} \text{）} \\
+&95\% CI= \hat{\beta}_{1} ± t_{0.025}(n- 2) \cdot se(\hat{\beta}_{1}) \\
+&\text{单解释变量时} \; F= t^{2} \; \text{（检验} \; H_{0}: \beta_{1}=0 \; \text{等价于整体显著性检验）}
+\end{aligned}
 $$
 
 ::: tip 工作示例 · OLS 全套手算（务必自己复算一遍）
 样本 `n=5`：`X = [1,2,3,4,5]`，`Y = [2,4,5,7,9]`。
 
 $$
-\begin{gathered}
-\text{(1)} \; \text{均值：} \; \text{X̄ = 3} \; \text{，} \; \text{Ȳ = 5.4} \\
-\text{(2)} \; \text{离差平方与交叉积：} \\
-Sxx=(- 2)^{2}+(- 1)^{2}+0^{2}+1^{2}+2^{2}= 10 \\
-Sxy=(- 2)(- 3.4)+(- 1)(- 1.4)+0(- 0.4)+1(1.6)+2(3.6)= 17.0 \\
-\text{(3)} \; \text{估计：} \; \hat{\beta}_{1}= \frac{17}{10}= 1.7 \; \text{，} \; \hat{\beta}_{0}= 5.4- 1.7 \times 3= 0.3 \\
-\text{Ŷ = 0.3 + 1.7X} \\
-\text{(4)} \; \text{拟合与残差：} \\
-\text{X :  1     2     3     4     5} \\
-\text{Ŷ :  2.0   3.7   5.4   7.1   8.8} \\
-e : 0.0 0.3- 0.4- 0.1 0.2 \\
-\text{(5)} \; \text{平方和：} \; \text{SSE = 0+0.09+0.16+0.01+0.04 = 0.30} \\
-\text{SST = 29.20} \; \text{，} \; \text{SSR = 28.90} \\
-R^{2}= \frac{28.90}{29.20}= 0.9897 \; \text{调整} \; R^{2}= 0.9863 \\
-\text{(6)} \; \text{方差与检验：} \; \hat{\sigma}^{2}= \frac{0.30}{3}= 0.10 \\
-se(\hat{\beta}_{1})= \sqrt{\frac{0.10}{10}}= 0.10 \\
-\text{t = 1.7/0.10 = 17.0  (> t0.025(3)=3.182} \; \text{，强烈拒绝} \; \text{H0: }\beta \text{1=0)} \\
-95\% CI= 1.7 ± 3.182 \times 0.10=[1.382, 2.018] \\
-F= t^{2}= 289 \\
-\text{(7)} \; \text{预测：} \; \text{X=6} \; \text{时} \; \hat{Y}= 0.3+ 1.7 \times 6= 10.5
-\end{gathered}
+\begin{aligned}
+&\text{(1)} \; \text{均值：} \; \text{X̄ = 3} \; \text{，} \; \text{Ȳ = 5.4} \\
+&\text{(2)} \; \text{离差平方与交叉积：} \\
+&Sxx=(- 2)^{2}+(- 1)^{2}+0^{2}+1^{2}+2^{2}= 10 \\
+&Sxy=(- 2)(- 3.4)+(- 1)(- 1.4)+0(- 0.4)+1(1.6)+2(3.6)= 17.0 \\
+&\text{(3)} \; \text{估计：} \; \hat{\beta}_{1}= \frac{17}{10}= 1.7 \; \text{，} \; \hat{\beta}_{0}= 5.4- 1.7 \times 3= 0.3 \\
+&\text{Ŷ = 0.3 + 1.7X} \\
+&\text{(4)} \; \text{拟合与残差：} \\
+&\text{X :  1     2     3     4     5} \\
+&\text{Ŷ :  2.0   3.7   5.4   7.1   8.8} \\
+&e : 0.0 0.3- 0.4- 0.1 0.2 \\
+&\text{(5)} \; \text{平方和：} \; \text{SSE = 0+0.09+0.16+0.01+0.04 = 0.30} \\
+&\text{SST = 29.20} \; \text{，} \; \text{SSR = 28.90} \\
+&R^{2}= \frac{28.90}{29.20}= 0.9897 \; \text{调整} \; R^{2}= 0.9863 \\
+&\text{(6)} \; \text{方差与检验：} \; \hat{\sigma}^{2}= \frac{0.30}{3}= 0.10 \\
+&se(\hat{\beta}_{1})= \sqrt{\frac{0.10}{10}}= 0.10 \\
+&\text{t = 1.7/0.10 = 17.0  (> t0.025(3)=3.182} \; \text{，强烈拒绝} \; \text{H0: }\beta \text{1=0)} \\
+&95\% CI= 1.7 ± 3.182 \times 0.10=[1.382, 2.018] \\
+&F= t^{2}= 289 \\
+&\text{(7)} \; \text{预测：} \; \text{X=6} \; \text{时} \; \hat{Y}= 0.3+ 1.7 \times 6= 10.5
+\end{aligned}
 $$
 **检查点**：残差和 $0+0.3- 0.4- 0.1+0.2= 0$ ✓；回归线过 `(3, 5.4)` ✓。
 :::
@@ -344,13 +344,13 @@ $$
 
 | 类型 | 对象 | 标准误 |
 | --- | --- | --- |
-| 均值预测 | $E(Y\vert X_{0})$ | $se_{mean}= \hat{\sigma}\sqrt{\frac{1}{n}+ \frac{(X_{0}- \bar{X})^{2}}{Sxx}}$ |
-| 个别值预测 | 单个 $Y_{0}$ | $se_{ind}= \hat{\sigma}\sqrt{1+ \frac{1}{n}+ \frac{(X_{0}- \bar{X})^{2}}{Sxx}}$ |
+| 均值预测 | $E(Y\vert X_{0})$ | $se_{mean}= \hat{\sigma}\sqrt{\dfrac{1}{n}+ \dfrac{(X_{0}- \bar{X})^{2}}{Sxx}}$ |
+| 个别值预测 | 单个 $Y_{0}$ | $se_{ind}= \hat{\sigma}\sqrt{1+ \dfrac{1}{n}+ \dfrac{(X_{0}- \bar{X})^{2}}{Sxx}}$ |
 
 个别值预测区间**更宽**（多了扰动项自身的不确定性 $\sigma^{2}$）。两者都在 $X_{0}= \bar{X}$ 处最窄，$X_{0}$ 离样本中心越远区间越宽；**样本外远推**风险很大（函数形式可能已变）。
 
 ::: danger 易错 · 一元回归
-- `u` 与 `e` 不同；$\operatorname{Var}(\hat{\beta})$ 公式里的 $\sigma^{2}$ 是**扰动项方差**，要用 $\frac{SSE}{n- 2}$ 估计，不是 `SSE/n`。
+- `u` 与 `e` 不同；$\operatorname{Var}(\hat{\beta})$ 公式里的 $\sigma^{2}$ 是**扰动项方差**，要用 $\dfrac{SSE}{n- 2}$ 估计，不是 `SSE/n`。
 - 「σ̂² 无偏」用 n−2；MLE 估计用 n（有偏但一致）。
 - $R^{2}$ 不能跨不同被解释变量（如线性模型 vs 对数模型）直接比较；加变量 $R^{2}$ 只增不减，故多元要用调整 R²。
 - t 检验显著只说明「线性关联显著」，不能推出「X 导致 Y」。
@@ -358,14 +358,14 @@ $$
 
 ### 3.7 OLS 无偏性与一致性的证明范式
 
-**无偏性推导**（一元、X 非随机、`E(u_i)=0`）：
+**无偏性推导**（一元、X 非随机、$E(u_i)=0$）：
 $$
-\begin{gathered}
-\hat{\beta}_{1}= \frac{\sum x_{i}Y_{i}}{Sxx}= \frac{\sum x_{i}(\beta_{0}+\beta_{1}X_{i}+u_{i})}{Sxx} \\
-= \beta_{1}+ \frac{\sum x_{i}u_{i}}{Sxx} \; \text{（用} \; \sum x_{i}=0 \; \text{、} \; \sum x_{i}X_{i}=Sxx \; \text{）} \\
-E(\hat{\beta}_{1})= \beta_{1}+ \frac{\sum x_{i} E(u_{i})}{Sxx}= \beta_{1} \checkmark \\
-\operatorname{Var}(\hat{\beta}_{1})= \frac{\operatorname{Var}\left(\sum x_{i}u_{i}\right)}{Sxx^{2}}= \sigma^{2}\frac{Sxx}{Sxx^{2}}= \sigma^{2}/Sxx \; \text{（用同方差} \; \text{+} \; \text{无自相关）}
-\end{gathered}
+\begin{aligned}
+&\hat{\beta}_{1}= \frac{\sum x_{i}Y_{i}}{Sxx}= \frac{\sum x_{i}(\beta_{0}+\beta_{1}X_{i}+u_{i})}{Sxx} \\
+&= \beta_{1}+ \frac{\sum x_{i}u_{i}}{Sxx} \; \text{（用} \; \sum x_{i}=0 \; \text{、} \; \sum x_{i}X_{i}=Sxx \; \text{）} \\
+&E(\hat{\beta}_{1})= \beta_{1}+ \frac{\sum x_{i} E(u_{i})}{Sxx}= \beta_{1} \checkmark \\
+&\operatorname{Var}(\hat{\beta}_{1})= \frac{\operatorname{Var}\left(\sum x_{i}u_{i}\right)}{Sxx^{2}}= \sigma^{2}\frac{Sxx}{Sxx^{2}}= \sigma^{2}/Sxx \; \text{（用同方差} \; \text{+} \; \text{无自相关）}
+\end{aligned}
 $$
 可见**无偏性只需 A2/A3**，而 $\operatorname{Var}(\hat{\beta}_{1})=\sigma^{2}/Sxx$ 还须 A4/A5。
 
@@ -373,7 +373,7 @@ $$
 $$
 plim \hat{\beta}_{1}= \beta_{1}+ \frac{plim[\left(\frac{1}{n}\right)\sum x_{i}u_{i}]}{plim[\left(\frac{1}{n}\right)\sum x_{i}^{2}]}= \beta_{1}+ \frac{\operatorname{Cov}(X,u)}{\operatorname{Var}(X)}
 $$
-因此只要 `Cov(X,u)=0` 就一致；这也直接给出**内生性偏误** $plim \hat{\beta}_{1}- \beta_{1}= \frac{\operatorname{Cov}(X,u)}{\operatorname{Var}(X)}$。
+因此只要 `Cov(X,u)=0` 就一致；这也直接给出**内生性偏误** $plim \hat{\beta}_{1}- \beta_{1}= \dfrac{\operatorname{Cov}(X,u)}{\operatorname{Var}(X)}$。
 
 ---
 
@@ -396,22 +396,22 @@ $plim \tilde{\beta}_{1}= \beta_{1}+ \beta_{2} \cdot \delta_{1}$，其中 $\delta
 ### 4.2 矩阵形式与估计（★★★）
 
 $$
-\begin{gathered}
-\text{y = X}\beta \text{ + u        (X} \; \text{为} \; n \times(k+1) \; \text{矩阵，第一列全} \; \text{1)} \\
-\hat{\beta}=(X'X)^{-1}X'y \leftarrow \; \text{要求} \; \text{X′X} \; \text{可逆，即无完全多重共线且} \; \text{n > k+1} \\
-\operatorname{Var}(\hat{\beta})= \sigma^{2}(X'X)^{-1} \; \text{，} \; \hat{\sigma}^{2}= e'\frac{e}{n- k- 1} \\
-e= y- X\hat{\beta}= My \; \text{（} \; M= I- X(X'X)^{-1}X' \; \text{为「残差制造者」矩阵）}
-\end{gathered}
+\begin{aligned}
+&\text{y = X}\beta \text{ + u        (X} \; \text{为} \; n \times(k+1) \; \text{矩阵，第一列全} \; \text{1)} \\
+&\hat{\beta}=(X'X)^{-1}X'y \leftarrow \; \text{要求} \; \text{X′X} \; \text{可逆，即无完全多重共线且} \; \text{n > k+1} \\
+&\operatorname{Var}(\hat{\beta})= \sigma^{2}(X'X)^{-1} \; \text{，} \; \hat{\sigma}^{2}= e'\frac{e}{n- k- 1} \\
+&e= y- X\hat{\beta}= My \; \text{（} \; M= I- X(X'X)^{-1}X' \; \text{为「残差制造者」矩阵）}
+\end{aligned}
 $$
 
 ### 4.3 拟合优度、信息准则与整体显著性（★★★）
 
 | 指标 | 公式 | 用途 |
 | --- | --- | --- |
-| 调整 R² | $\bar{R}^{2}= 1- \frac{(1- R^{2})(n- 1)}{n- k- 1}$ | 惩罚加变量；**可能为负**；可比较同被解释变量模型 |
-| 整体 F | $F= \frac{\frac{R^{2}}{k}}{\frac{1- R^{2}}{n- k- 1}} \sim F(k, n- k- 1)$ | 检验 H0: $\beta_{1}= \cdots=\beta_{k}=0$ |
-| AIC / SC(BIC) | $\ln\left(\frac{SSE}{n}\right)+ \frac{2(k+1)}{n}$ / $\cdots+ \frac{(k+1)\ln(n)}{n}$ | 越小越好；SC 对变量个数惩罚更重 |
-| 约束 F | $\frac{\frac{SSE_{r}- SSE_{u}}{q}}{\frac{SSE_{u}}{n- k- 1}} \sim F(q, n- k- 1)$ | q 个线性约束的联合检验 |
+| 调整 R² | $\bar{R}^{2}= 1- \dfrac{(1- R^{2})(n- 1)}{n- k- 1}$ | 惩罚加变量；**可能为负**；可比较同被解释变量模型 |
+| 整体 F | $F= \dfrac{\dfrac{R^{2}}{k}}{\dfrac{1- R^{2}}{n- k- 1}} \sim F(k, n- k- 1)$ | 检验 H0: $\beta_{1}= \cdots=\beta_{k}=0$ |
+| AIC / SC(BIC) | $\ln\left(\dfrac{SSE}{n}\right)+ \dfrac{2(k+1)}{n}$ / $\cdots+ \dfrac{(k+1)\ln(n)}{n}$ | 越小越好；SC 对变量个数惩罚更重 |
+| 约束 F | $\dfrac{\dfrac{SSE_{r}- SSE_{u}}{q}}{\dfrac{SSE_{u}}{n- k- 1}} \sim F(q, n- k- 1)$ | q 个线性约束的联合检验 |
 
 **三大检验原理**（大样本渐近等价，小样本可能不同）：`Wald`（只估无约束模型，看约束离 0 多远）、`LM / 得分检验`（只估约束模型，看得分是否接近 0，$LM= nR^{2}_{aux}$）、`LR`（两者都估，比较似然值 $2(lnL_{u}- lnL_{r})$），三者均渐近 $\sim \chi^{2}(q)$。一般 `Wald > LR > LM`。
 
@@ -419,13 +419,13 @@ $$
 无约束模型 $n=30, k=3, R^{2}_{u}=0.86$；施加 `q=2` 个约束后 $R^{2}_{r}=0.62$。
 
 $$
-\begin{gathered}
-F= \frac{\frac{0.86- 0.62}{2}}{\frac{1- 0.86}{30- 3- 1}} \\
-= \frac{0.12}{\frac{0.14}{26}}= \frac{0.12}{0.0053846}= 22.29 \\
-F_{0}._{05}(2,26) \approx 3.37 \to \; \text{拒绝约束，说明被排除的两个变量联合显著} \\
-\bar{R}^{2}= 1- \frac{(1- 0.86) \times 29}{26}= 1- 0.1562= 0.8438 \\
-\text{整体} \; F= \frac{\frac{0.86}{3}}{\frac{0.14}{26}}= 53.24> F_{0}._{05}(3,26) \approx 2.98 \to \; \text{方程整体显著}
-\end{gathered}
+\begin{aligned}
+&F= \frac{\frac{0.86- 0.62}{2}}{\frac{1- 0.86}{30- 3- 1}} \\
+&= \frac{0.12}{\frac{0.14}{26}}= \frac{0.12}{0.0053846}= 22.29 \\
+&F_{0}._{05}(2,26) \approx 3.37 \to \; \text{拒绝约束，说明被排除的两个变量联合显著} \\
+&\bar{R}^{2}= 1- \frac{(1- 0.86) \times 29}{26}= 1- 0.1562= 0.8438 \\
+&\text{整体} \; F= \frac{\frac{0.86}{3}}{\frac{0.14}{26}}= 53.24> F_{0}._{05}(3,26) \approx 2.98 \to \; \text{方程整体显著}
+\end{aligned}
 $$
 注意：单个 t 都不显著但整体 F 显著，常是**多重共线性**的信号（第 5 章）。
 :::
@@ -456,7 +456,7 @@ $$
 ::: tip 补充考点 · Chow 检验的完整操作步骤
 检验两个子样本（如改革前/后）的回归系数是否发生结构性变化：
 ① 分别对子样本 1（n1）、子样本 2（n2）与合并样本回归，得 `SSE1、SSE2、SSE_p`（p = pooled）；
-② $F= \frac{\frac{SSE_{p}-(SSE_{1}+SSE_{2})}{k+1}}{\frac{SSE_{1}+SSE_{2}}{n_{1}+n_{2}- 2(k+1)}} \sim F(k+1, n_{1}+n_{2}- 2k- 2)$，$q = k+1$（所有系数含截距）；
+② $F= \dfrac{\dfrac{SSE_{p}-(SSE_{1}+SSE_{2})}{k+1}}{\dfrac{SSE_{1}+SSE_{2}}{n_{1}+n_{2}- 2(k+1)}} \sim F(k+1, n_{1}+n_{2}- 2k- 2)$，$q = k+1$（所有系数含截距）；
 ③ F 大于临界值 ⇒ 结构发生变化，应分段建模或加虚拟变量交互项。
 **注意**：任一子样本观测数少于待估参数个数时 Chow 检验失效，改用**虚拟变量法**（D 与各变量交互）等价检验；它本质就是 4.3 节约束 F 检验的特例。
 :::
@@ -464,12 +464,12 @@ $$
 ### 4.5 残差几何与 $Frisch- Waugh- Lovell$ 定理
 
 $$
-\begin{gathered}
-\text{帽子矩阵} \; H= X(X'X)^{-1}X' \; \text{拟合值} \; \text{ŷ = Hy} \\
-\text{残差制造者} \; M= I- H \; \text{残差} \; \text{e = My = Mu} \\
-\text{性质：} \; \text{H} \; \text{、} \; \text{M} \; \text{对称幂等（} \; H^{2}=H, M^{2}=M \; \text{），} \; \text{HM=0} \; \text{，} \; \text{MX=0} \; \text{，} \; \text{rank(H)=k+1} \\
-\text{SSE = e′e = u′Mu} \; \text{；} \; E(SSE)= \sigma^{2} \cdot tr(M)= \sigma^{2}(n- k- 1) \to \hat{\sigma}^{2}=\frac{SSE}{n- k- 1} \; \text{无偏}
-\end{gathered}
+\begin{aligned}
+&\text{帽子矩阵} \; H= X(X'X)^{-1}X' \; \text{拟合值} \; \text{ŷ = Hy} \\
+&\text{残差制造者} \; M= I- H \; \text{残差} \; \text{e = My = Mu} \\
+&\text{性质：} \; \text{H} \; \text{、} \; \text{M} \; \text{对称幂等（} \; H^{2}=H, M^{2}=M \; \text{），} \; \text{HM=0} \; \text{，} \; \text{MX=0} \; \text{，} \; \text{rank(H)=k+1} \\
+&\text{SSE = e′e = u′Mu} \; \text{；} \; E(SSE)= \sigma^{2} \cdot tr(M)= \sigma^{2}(n- k- 1) \to \hat{\sigma}^{2}=\frac{SSE}{n- k- 1} \; \text{无偏}
+\end{aligned}
 $$
 **FWL 定理**：多元回归 $y= X_{1}\beta_{1}+ X_{2}\beta_{2}+ u$ 中
 $$
@@ -493,11 +493,11 @@ $$
 ::: tip 工作示例 · 倒 U 型转折点（环境库兹涅茨曲线、经验-工资曲线常用）
 估计得 $\hat{Y}= 10+ 2X- 0.1X^{2}$：
 $$
-\begin{gathered}
-\text{边际效应} \; \frac{dY}{dX}= 2- 0.2X \\
-\text{令其为} \; 0 \to \; \text{转折点} \; X*= \frac{2}{0.2}= 10 \\
-\text{X<10} \; \text{时正效应，} \; \text{X>10} \; \text{时负效应（倒} \; \text{U} \; \text{型）}
-\end{gathered}
+\begin{aligned}
+&\text{边际效应} \; \frac{dY}{dX}= 2- 0.2X \\
+&\text{令其为} \; 0 \to \; \text{转折点} \; X*= \frac{2}{0.2}= 10 \\
+&\text{X<10} \; \text{时正效应，} \; \text{X>10} \; \text{时负效应（倒} \; \text{U} \; \text{型）}
+\end{aligned}
 $$
 **报告要点**：不能只报 $\beta_{2}$ 显著为负就说存在倒 U 型，还须检验转折点是否落在**样本数据支持区间**内（Lind-Mehlum 检验），并检查两端区间是否都有足够数据，否则可能只是单调凹曲线的一段。
 :::
@@ -536,13 +536,13 @@ $$
 | 诊断 | 判据 |
 | --- | --- |
 | 相关系数矩阵 | 两解释变量 `|r| > 0.8` 提示（但无法发现多变量线性组合） |
-| **VIF** | $VIF_{j}= \frac{1}{1- R^{2}_{j}}$，$R^{2}_{j}$ 为 `X_j` 对其余解释变量回归的决定系数；`VIF>10` 通常认为严重 |
-| 容忍度 | $Tol= \frac{1}{VIF}$ |
+| **VIF** | $VIF_{j}= \dfrac{1}{1- R^{2}_{j}}$，$R^{2}_{j}$ 为 `X_j` 对其余解释变量回归的决定系数；`VIF>10` 通常认为严重 |
+| 容忍度 | $Tol= \dfrac{1}{VIF}$ |
 | 条件数 / 特征值 | 条件数 > 30 提示严重共线 |
 
 ::: tip 工作示例 · VIF 手算
 把 $X_{1}$ 对其余解释变量做辅助回归得 $R^{2}_{1}= 0.90$，则
-$VIF_{1}= \frac{1}{1- 0.90}= 10$，即 $\operatorname{Var}(\hat{\beta}_{1})$ 是**无共线时的 10 倍**（标准误是 $\sqrt{10} \approx 3.16$ 倍）。
+$VIF_{1}= \dfrac{1}{1- 0.90}= 10$，即 $\operatorname{Var}(\hat{\beta}_{1})$ 是**无共线时的 10 倍**（标准误是 $\sqrt{10} \approx 3.16$ 倍）。
 对照：$R^{2}_{j}= 0.8 \to VIF=5$；$0.95 \to 20$；$0.99 \to 100$。
 **补救**：① 增加样本或获取更多信息；② 删去冗余变量（须有理论依据）；③ 变量变换（差分、标准化、取比值）；④ 合并成指数/主成分；⑤ 用有偏估计（岭回归、LASSO）预测；⑥ 若研究目标是**总效应**，直接检验线性组合而不纠结单个系数。
 :::
@@ -562,17 +562,17 @@ $\operatorname{Var}(u_{i}|X)= \sigma_{i}^{2}$ 非常数（横截面数据常见�
 | --- | --- | --- |
 | 图示法 | 画 $e_{i}^{2}$ 或 `|e_i|` 对 `Ŷ_i` / 某解释变量的散点 | 漏斗形、扇形提示异方差 |
 | Park / Glejser | $\ln e^{2}$ 或 `|e|` 对变量回归 | t 检验 |
-| Goldfeld-Quandt | 按可疑变量排序、去中间 c 个、分别回归两段 | $F= \frac{SSE_{2}}{SSE_{1}}$ |
+| Goldfeld-Quandt | 按可疑变量排序、去中间 c 个、分别回归两段 | $F= \dfrac{SSE_{2}}{SSE_{1}}$ |
 | **Breusch-Pagan / Godfrey** | $e^{2}$ 对全部解释变量辅助回归 | $LM= n \cdot R^{2}_{aux} \sim \chi^{2}(k)$ |
 | **White 检验** | 辅助回归含解释变量、平方项与交叉项 | `LM = n·R²_aux ∼ χ²(自由度)`，还能查设定误差 |
 
 ::: tip 工作示例 · BP / White 的 LM 检验
 `n = 50`，把残差平方对解释变量做辅助回归得 $R^{2}_{aux}= 0.12$，含 2 个约束：
 $$
-\begin{gathered}
-LM= n \times R^{2}_{aux}= 50 \times 0.12= 6.00 \\
-\chi^{2}_{0}._{05}(2)= 5.99 \to 6.00> 5.99 \; \text{，在} \; \text{5\%} \; \text{水平拒绝同方差（临界，需谨慎下结论）}
-\end{gathered}
+\begin{aligned}
+&LM= n \times R^{2}_{aux}= 50 \times 0.12= 6.00 \\
+&\chi^{2}_{0}._{05}(2)= 5.99 \to 6.00> 5.99 \; \text{，在} \; \text{5\%} \; \text{水平拒绝同方差（临界，需谨慎下结论）}
+\end{aligned}
 $$
 再如 $n=100, R^{2}_{aux}=0.08, df=3$ → $LM=8.00> \chi^{2}_{0}._{05}(3)=7.81$ → 拒绝。
 **注意**：White 检验的辅助回归项数随 k 快速增长，小样本自由度可能不足；此时用简化版（只对 `Ŷ` 与 $\hat{Y}^{2}$ 回归）。
@@ -596,7 +596,7 @@ $$
 
 ### 5.4 自相关（Autocorrelation）（★★★）
 
-$\operatorname{Cov}(u_{t}, u_{s})= 0$，时间序列常见。最常用模型 **AR(1)**：$u_{t}= \rho u_{t- 1}+ \epsilon_{t}$，$\epsilon_{t}$ 为白噪声。
+$\operatorname{Cov}(u_{t}, u_{s})\ne 0$，时间序列常见。最常用模型 **AR(1)**：$u_{t}= \rho u_{t- 1}+ \epsilon_{t}$，$\epsilon_{t}$ 为白噪声。
 
 | 后果 | 系数仍无偏一致（若解释变量严格外生）；**标准误被低估、t 值虚高**；OLS 不再有效；预测失效 |
 | --- | --- |
@@ -604,8 +604,8 @@ $\operatorname{Cov}(u_{t}, u_{s})= 0$，时间序列常见。最常用模型 **A
 | 检验 | 判据与局限 |
 | --- | --- |
 | 残差图 / 自相关图 | 残差呈连续正/负串 |
-| **DW 检验** | $d= \frac{\sum(e_{t}- e_{t- 1})^{2}}{\sum e_{t}^{2}} \approx 2(1- \hat{\rho})$；$d \approx 2$ 无一阶自相关，$d \to 0$ 正相关，$d \to 4$ 负相关 |
-| **DW 的硬限制** | ① 只检一阶 AR(1)；② **解释变量不能含被解释变量滞后项**（否则用 Durbin h / LM）；③ 需含截距；④ 有不确定区（d_L、d_U）不能判；⑤ 不能有缺失观测 |
+| **DW 检验** | $d= \dfrac{\sum(e_{t}- e_{t- 1})^{2}}{\sum e_{t}^{2}} \approx 2(1- \hat{\rho})$；$d \approx 2$ 无一阶自相关，$d \to 0$ 正相关，$d \to 4$ 负相关 |
+| **DW 的硬限制** | ① 只检一阶 AR(1)；② **解释变量不能含被解释变量滞后项**（否则用 Durbin h / LM）；③ 需含截距；④ 有不确定区（$d_L$、$d_U$）不能判；⑤ 不能有缺失观测 |
 | Breusch-Godfrey LM | $(n- p)R^{2}_{aux} \sim \chi^{2}(p)$，可检高阶、允许滞后被解释变量，**现代首选** |
 
 ![自相关与 DW 判据](/econ/econ-autocorr.svg)
@@ -613,12 +613,12 @@ $\operatorname{Cov}(u_{t}, u_{s})= 0$，时间序列常见。最常用模型 **A
 ::: tip 工作示例 · DW 手算
 沿用第 3 章例题残差 $e=[0, 0.3,- 0.4,- 0.1, 0.2]$，`SSE = 0.30`：
 $$
-\begin{gathered}
-\sum(e_{t}- e_{t- 1})^{2}= 0.3^{2}+(- 0.7)^{2}+ 0.3^{2}+ 0.3^{2} \\
-\text{= 0.09 + 0.49 + 0.09 + 0.09 = 0.76} \\
-d= \frac{0.76}{0.30}= 2.533 \\
-\hat{\rho}= 1- \frac{d}{2}=- 0.267 \to \; \text{轻微负一阶自相关（} \; \text{n=5} \; \text{仅演示算法，实际不可据此判断）}
-\end{gathered}
+\begin{aligned}
+&\sum(e_{t}- e_{t- 1})^{2}= 0.3^{2}+(- 0.7)^{2}+ 0.3^{2}+ 0.3^{2} \\
+&\text{= 0.09 + 0.49 + 0.09 + 0.09 = 0.76} \\
+&d= \frac{0.76}{0.30}= 2.533 \\
+&\hat{\rho}= 1- \frac{d}{2}=- 0.267 \to \; \text{轻微负一阶自相关（} \; \text{n=5} \; \text{仅演示算法，实际不可据此判断）}
+\end{aligned}
 $$
 对照：$d=0.8 \to \hat{\rho}=0.60$（明显正自相关）；$d=1.5 \to 0.25$；$d=2.0 \to 0$；$d=2.6 \to- 0.30$；$d=3.4 \to- 0.70$。
 :::
@@ -652,10 +652,10 @@ $\operatorname{Cov}(X, u)\ne 0$（内生性）是 OLS 最致命的问题：**有
 - **外生性 / 排他性**（`Cov(Z,u)=0`，Z 只通过 X 影响 Y）。
 
 $$
-\begin{gathered}
-\text{第一阶段：} \; X= \pi_{0}+ \pi_{1}Z+ \; \text{其它外生变量} \; + v \to \; \text{得} \; \text{X̂} \\
-\text{第二阶段：} \; Y= \beta_{0}+ \beta_{1}\hat{X}+ \cdots+ u \to \; \text{得} \; \text{2SLS} \; \text{估计}
-\end{gathered}
+\begin{aligned}
+&\text{第一阶段：} \; X= \pi_{0}+ \pi_{1}Z+ \; \text{其它外生变量} \; + v \to \; \text{得} \; \text{X̂} \\
+&\text{第二阶段：} \; Y= \beta_{0}+ \beta_{1}\hat{X}+ \cdots+ u \to \; \text{得} \; \text{2SLS} \; \text{估计}
+\end{aligned}
 $$
 
 | 诊断 / 概念 | 结论 |
@@ -688,17 +688,17 @@ $$
 ### 5.7 稳健标准误、衰减偏误与双重差分
 
 $$
-\begin{gathered}
-\text{OLS} \; \text{方差（同方差）：} \; \operatorname{Var}(\hat{\beta})= \sigma^{2}(X'X)^{-1} \\
-\text{HC0} \; \text{异方差稳健：} \; \operatorname{Var}(\hat{\beta})=(X'X)^{-1}[\sum e_{i}^{2} x_{i} x_{i}'](X'X)^{-1} \\
-\text{HC1} \; \text{（} \; \text{Stata robust} \; \text{默认）：乘} \; \frac{n}{n- k- 1} \; \text{小样本校正} \\
-\text{HC3} \; \text{：} \; \text{用} \; \frac{e_{i}^{2}}{(1- h_{i})^{2}} \; \text{，小样本表现最好} \\
-\text{聚类稳健：} \; \text{按个体} \; \text{g} \; \text{分组求和} \; \sum_{g}\left(\sum_{i \in g} e_{i} x_{i}\right)\left(\sum_{i \in g} e_{i} x_{i}\right)'
-\end{gathered}
+\begin{aligned}
+&\text{OLS} \; \text{方差（同方差）：} \; \operatorname{Var}(\hat{\beta})= \sigma^{2}(X'X)^{-1} \\
+&\text{HC0} \; \text{异方差稳健：} \; \operatorname{Var}(\hat{\beta})=(X'X)^{-1}[\sum e_{i}^{2} x_{i} x_{i}'](X'X)^{-1} \\
+&\text{HC1} \; \text{（} \; \text{Stata robust} \; \text{默认）：乘} \; \frac{n}{n- k- 1} \; \text{小样本校正} \\
+&\text{HC3} \; \text{：} \; \text{用} \; \frac{e_{i}^{2}}{(1- h_{i})^{2}} \; \text{，小样本表现最好} \\
+&\text{聚类稳健：} \; \text{按个体} \; \text{g} \; \text{分组求和} \; \sum_{g}\left(\sum_{i \in g} e_{i} x_{i}\right)\left(\sum_{i \in g} e_{i} x_{i}\right)'
+\end{aligned}
 $$
 
 ::: tip 工作示例 · 测量误差衰减偏误与 $2 \times 2$
-**衰减偏误**：真实 X 方差 $\sigma^{2}_{x}=9$，测量误差方差 $\sigma^{2}_{v}=1$，则 $plim \hat{\beta}= \beta \frac{\cdot 9}{9+1}= 0.9\beta$，系数被**压向 0 约 10%**。这与遗漏变量偏误方向不确定不同：经典测量误差一定造成衰减。
+**衰减偏误**：真实 X 方差 $\sigma^{2}_{x}=9$，测量误差方差 $\sigma^{2}_{v}=1$，则 $plim \hat{\beta}= \beta \dfrac{\cdot 9}{9+1}= 0.9\beta$，系数被**压向 0 约 10%**。这与遗漏变量偏误方向不确定不同：经典测量误差一定造成衰减。
 
 **DID 2×2 表**：
 
@@ -752,13 +752,13 @@ $$
 ::: tip 工作示例 · 长期乘数手算
 设部分调整模型估计得 $\beta_{0}= 0.5$，$\lambda= 0.6$（每期完成 60% 的调整）：
 $$
-\begin{gathered}
-\text{短期乘数} \; \text{= 0.5} \\
-\text{长期乘数} \; = \beta_{0}/(1- \lambda)= \frac{0.5}{0.4}= 1.25 \\
-\text{含义：} \; \text{X} \; \text{永久增加} \; \text{1} \; \text{单位，当期} \; \text{Y} \; \text{只增} \; \text{0.5} \; \text{，但累积最终增} \; \text{1.25} \\
-\text{调整速度：} \; \lambda=0.4 \to \; \text{长期乘数} \; \text{0.833} \; \text{；} \; \lambda=0.8 \to 2.50 \; \text{（} \; \lambda \; \text{越大，长期效应越大、调整越慢）} \\
-\text{平均滞后} \; \approx \frac{\lambda}{1- \lambda} \; \text{：} \; \lambda=0.6 \to 1.5 \; \text{期}
-\end{gathered}
+\begin{aligned}
+&\text{短期乘数} \; \text{= 0.5} \\
+&\text{长期乘数} \; = \beta_{0}/(1- \lambda)= \frac{0.5}{0.4}= 1.25 \\
+&\text{含义：} \; \text{X} \; \text{永久增加} \; \text{1} \; \text{单位，当期} \; \text{Y} \; \text{只增} \; \text{0.5} \; \text{，但累积最终增} \; \text{1.25} \\
+&\text{调整速度：} \; \lambda=0.4 \to \; \text{长期乘数} \; \text{0.833} \; \text{；} \; \lambda=0.8 \to 2.50 \; \text{（} \; \lambda \; \text{越大，长期效应越大、调整越慢）} \\
+&\text{平均滞后} \; \approx \frac{\lambda}{1- \lambda} \; \text{：} \; \lambda=0.6 \to 1.5 \; \text{期}
+\end{aligned}
 $$
 :::
 
@@ -766,7 +766,7 @@ $$
 
 含 $Y_{t- 1}$ 时：
 - 若 `u_t` 存在自相关，则 $Y_{t- 1}$ 与 `u_t` **相关**（因为 $Y_{t- 1}$ 含 $u_{t- 1}$）→ OLS **有偏且不一致**；
-- **DW 检验失效**（偏向 2，倾向于「检不出」自相关）→ 改用 **Durbin h 检验**（$h= \hat{\rho}\sqrt{\frac{n}{1- n \cdot \operatorname{Var}(\hat{\lambda})}} \sim N(0,1)$）或 **Breusch-Godfrey LM**；
+- **DW 检验失效**（偏向 2，倾向于「检不出」自相关）→ 改用 **Durbin h 检验**（$h= \hat{\rho}\sqrt{\dfrac{n}{1- n \cdot \operatorname{Var}(\hat{\lambda})}} \sim N(0,1)$）或 **Breusch-Godfrey LM**；
 - 小样本下 $\hat{\lambda}$ 有向下偏误（动态面板中即 Nickell 偏误，第 9 章）。
 
 ### 6.5 Granger 因果关系检验（★★★）
@@ -774,20 +774,20 @@ $$
 「X Granger 引起 Y」＝**X 的滞后项对 Y 有增量预测能力**（在控制 Y 自身滞后之后），这是**预测意义上的因果**，不等于哲学/结构意义上的因果。
 
 $$
-\begin{gathered}
-\text{无约束：} \; Y_{t}= \alpha+ \sum a_{i} Y_{t- i}+ \sum b_{j} X_{t- j}+ u_{t} \to SSE_{u} \\
-\text{受约束：} \; Y_{t}= \alpha+ \sum a_{i} Y_{t- i}+ u_{t} \; (H_{0}: b_{j}=0) \to SSE_{r} \\
-F= \frac{\frac{SSE_{r}- SSE_{u}}{q}}{\frac{SSE_{u}}{n- k}} \sim F(q, n- k)
-\end{gathered}
+\begin{aligned}
+&\text{无约束：} \; Y_{t}= \alpha+ \sum a_{i} Y_{t- i}+ \sum b_{j} X_{t- j}+ u_{t} \to SSE_{u} \\
+&\text{受约束：} \; Y_{t}= \alpha+ \sum a_{i} Y_{t- i}+ u_{t} \; (H_{0}: b_{j}=0) \to SSE_{r} \\
+&F= \frac{\frac{SSE_{r}- SSE_{u}}{q}}{\frac{SSE_{u}}{n- k}} \sim F(q, n- k)
+\end{aligned}
 $$
 
 ::: tip 工作示例 · Granger F 统计量
 `SSE_r = 1200`，`SSE_u = 900`，滞后阶 `q=2`，`n=60`，无约束模型参数 `k=5`：
 $$
-\begin{gathered}
-F= \frac{\frac{1200- 900}{2}}{\frac{900}{60- 5}}= \frac{150}{16.364}= 9.17 \\
-F_{0}._{05}(2,55) \approx 3.17 \to \; \text{拒绝} \; H_{0} \; \text{，} \; \text{X Granger} \; \text{引起} \; \text{Y}
-\end{gathered}
+\begin{aligned}
+&F= \frac{\frac{1200- 900}{2}}{\frac{900}{60- 5}}= \frac{150}{16.364}= 9.17 \\
+&F_{0}._{05}(2,55) \approx 3.17 \to \; \text{拒绝} \; H_{0} \; \text{，} \; \text{X Granger} \; \text{引起} \; \text{Y}
+\end{aligned}
 $$
 **三个前提**：① 变量平稳（非平稳须先差分或做协整/VECM）；② 滞后阶数由 AIC/SC 选，结论可能对阶数敏感；③ 存在共同原因、预期先行、遗漏第三变量时「Granger 因果」会被误读。反向也须检验（Y 是否 Granger 引起 X），可能出现双向反馈。
 :::
@@ -808,24 +808,24 @@ $$
 
 设滞后长度 `s=4`、多项式阶 `p=2`，令 $\beta_{i}= a_{0}+ a_{1}i+ a_{2}i^{2}(i=0 \cdots 4)$：
 $$
-\begin{gathered}
-Z_{0}t= X_{t}+ X_{t- 1}+ X_{t- 2}+ X_{t- 3}+ X_{t- 4} \\
-Z_{1}t= X_{t- 1}+ 2X_{t- 2}+ 3X_{t- 3}+ 4X_{t- 4} \\
-Z_{2}t= X_{t- 1}+ 4X_{t- 2}+ 9X_{t- 3}+ 16X_{t- 4} \\
-\text{回归} \; Y_{t}= \alpha+ a_{0}Z_{0}t+ a_{1}Z_{1}t+ a_{2}Z_{2}t+ u_{t} \\
-\text{回代：} \; \hat{\beta}_{i}= \hat{a}_{0}+ \hat{a}_{1}i+ \hat{a}_{2}i^{2} \; \text{，长期乘数} \; = \sum \hat{\beta}_{i}
-\end{gathered}
+\begin{aligned}
+&Z_{0}t= X_{t}+ X_{t- 1}+ X_{t- 2}+ X_{t- 3}+ X_{t- 4} \\
+&Z_{1}t= X_{t- 1}+ 2X_{t- 2}+ 3X_{t- 3}+ 4X_{t- 4} \\
+&Z_{2}t= X_{t- 1}+ 4X_{t- 2}+ 9X_{t- 3}+ 16X_{t- 4} \\
+&\text{回归} \; Y_{t}= \alpha+ a_{0}Z_{0}t+ a_{1}Z_{1}t+ a_{2}Z_{2}t+ u_{t} \\
+&\text{回代：} \; \hat{\beta}_{i}= \hat{a}_{0}+ \hat{a}_{1}i+ \hat{a}_{2}i^{2} \; \text{，长期乘数} \; = \sum \hat{\beta}_{i}
+\end{aligned}
 $$
 原来要估 5 个 β，现在只估 3 个 a；端点约束（如 $\beta_{5}=0$ 或 $\beta_{- 1}=0$）可再减 1 个参数，但约束是**先验信息**，设错会系统性扭曲滞后结构。
 
 ::: tip 工作示例 · AIC / SC 选阶
 `n=100`，两个候选模型：
 $$
-\begin{gathered}
-k=3, SSE=180 \to AIC= \ln(1.80)+ \frac{8}{100}= 0.6678 \; \text{；} \; SC= \ln(1.80)+ \frac{4 \cdot \ln(100)}{100}= 0.7720 \\
-k=4, SSE=178 \to AIC= \ln(1.78)+ \frac{10}{100}= 0.6766 \; \text{；} \; SC= \ln(1.78)+ \frac{5 \cdot \ln(100)}{100}= 0.8069 \\
-\text{两者都选} \; \text{k=3} \; \text{（更简洁的模型）}
-\end{gathered}
+\begin{aligned}
+&k=3, SSE=180 \to AIC= \ln(1.80)+ \frac{8}{100}= 0.6678 \; \text{；} \; SC= \ln(1.80)+ \frac{4 \cdot \ln(100)}{100}= 0.7720 \\
+&k=4, SSE=178 \to AIC= \ln(1.78)+ \frac{10}{100}= 0.6766 \; \text{；} \; SC= \ln(1.78)+ \frac{5 \cdot \ln(100)}{100}= 0.8069 \\
+&\text{两者都选} \; \text{k=3} \; \text{（更简洁的模型）}
+\end{aligned}
 $$
 SC 的惩罚项 `(k+1)ln n` 比 AIC 的 `2(k+1)` 随样本增长更快，因此在临界情形**更倾向小模型**；AIC 以提高预测精度为目标，SC 具有「真模型若在其中则一致选中它」的性质。
 :::
@@ -840,7 +840,7 @@ SC 的惩罚项 `(k+1)ln n` 比 AIC 的 `2(k+1)` 随样本增长更快，因此�
 | --- | --- |
 | **严格平稳** | 任意 k 个时点的联合分布不随时间平移而改变 |
 | **弱（协方差）平稳** | $E(Y_{t})=\mu$（常数）、$\operatorname{Var}(Y_{t})=\sigma^{2}$（常数）、$\operatorname{Cov}(Y_{t},Y_{t- k})=\gamma_{k}$ 只依赖间隔 k 而非 t |
-| 白噪声 | $E(\epsilon_{t})=0$、$\operatorname{Var}=\sigma^{2}$、$\operatorname{Cov}(\epsilon_{t},\epsilon_{s})=0(t=s)$ |
+| 白噪声 | $E(\epsilon_{t})=0$、$\operatorname{Var}=\sigma^{2}$、$\operatorname{Cov}(\epsilon_{t},\epsilon_{s})=0\;(t\ne s)$ |
 | 随机游走 | $Y_{t}= Y_{t- 1}+ \epsilon_{t}$（无漂移）/ $Y_{t}= \mu+ Y_{t- 1}+ \epsilon_{t}$（带漂移）；**非平稳**、`Var` 随 t 线性增长 |
 | AR(1) | $Y_{t}= c+ \phi Y_{t- 1}+ \epsilon_{t}$；$\vert \phi\vert <1$ 平稳，$\phi=1$ 为单位根 |
 | MA(q) / ARMA(p,q) | 用过去扰动 / 过去值与扰动的组合刻画序列相关 |
@@ -857,11 +857,11 @@ SC 的惩罚项 `(k+1)ln n` 比 AIC 的 `2(k+1)` 随样本增长更快，因此�
 ### 7.2 单位根检验（★★★）
 
 $$
-\begin{gathered}
-\text{DF} \; \text{检验：} \; \Delta Y_{t}=(\rho- 1)Y_{t- 1}+ \epsilon_{t} \; \text{，检验} \; H_{0}: \rho=1 \; \text{（有单位根，非平稳）} \\
-\text{ADF} \; \text{：加入滞后差分项} \; \Delta Y_{t- i} \; \text{以消除残差自相关} \\
-\Delta Y_{t}= \alpha+ \beta t+ \gamma Y_{t- 1}+ \sum \delta_{i}\Delta Y_{t- i}+ \epsilon_{t} \; \text{，} \; H_{0}: \gamma= 0
-\end{gathered}
+\begin{aligned}
+&\text{DF} \; \text{检验：} \; \Delta Y_{t}=(\rho- 1)Y_{t- 1}+ \epsilon_{t} \; \text{，检验} \; H_{0}: \rho=1 \; \text{（有单位根，非平稳）} \\
+&\text{ADF} \; \text{：加入滞后差分项} \; \Delta Y_{t- i} \; \text{以消除残差自相关} \\
+&\Delta Y_{t}= \alpha+ \beta t+ \gamma Y_{t- 1}+ \sum \delta_{i}\Delta Y_{t- i}+ \epsilon_{t} \; \text{，} \; H_{0}: \gamma= 0
+\end{aligned}
 $$
 **关键点**：检验统计量在原假设下**不服从标准 t 分布**，必须用 **DF / MacKinnon 临界值**（更负，如 5% 约 $- 2.86$（含截距）、$- 3.41$（含截距和趋势））；`t` 值要**比临界值更负**才能拒绝非平稳。
 
@@ -881,14 +881,14 @@ $$
 
 **Engle-Granger 两步法**：
 $$
-\begin{gathered}
-\text{(1)} \; \text{用 OLS 估计长期静态回归} \; Y_{t}= \beta_{0}+ \beta_{1}X_{t}+ u_{t} \; \text{，取残差} \; \hat{u}_{t} \\
-\text{(2)} \; \text{对} \; \hat{u}_{t} \; \text{做 ADF 检验（不含趋势，临界值为 AEG/EG 专用，比普通 ADF 更负）} \\
-\text{拒绝「} \; \hat{u}_{t} \; \text{有单位根」} \; \Rightarrow \; \text{协整成立} \\
-\text{(3)} \; \text{若协整，建立误差修正模型：} \\
-\Delta Y_{t}= \alpha+ \gamma \cdot ECM_{t- 1}+ \sum \delta_{i}\Delta X_{t- i}+ \sum \theta_{j}\Delta Y_{t- j}+ \epsilon_{t} \\
-\text{其中} \; ECM_{t- 1}= \hat{u}_{t- 1}= Y_{t- 1}- \hat{\beta}_{0}- \hat{\beta}_{1}X_{t- 1}
-\end{gathered}
+\begin{aligned}
+&\text{(1)} \; \text{用 OLS 估计长期静态回归} \; Y_{t}= \beta_{0}+ \beta_{1}X_{t}+ u_{t} \; \text{，取残差} \; \hat{u}_{t} \\
+&\text{(2)} \; \text{对} \; \hat{u}_{t} \; \text{做 ADF 检验（不含趋势，临界值为 AEG/EG 专用，比普通 ADF 更负）} \\
+&\text{拒绝「} \; \hat{u}_{t} \; \text{有单位根」} \; \Rightarrow \; \text{协整成立} \\
+&\text{(3)} \; \text{若协整，建立误差修正模型：} \\
+&\Delta Y_{t}= \alpha+ \gamma \cdot ECM_{t- 1}+ \sum \delta_{i}\Delta X_{t- i}+ \sum \theta_{j}\Delta Y_{t- j}+ \epsilon_{t} \\
+&\text{其中} \; ECM_{t- 1}= \hat{u}_{t- 1}= Y_{t- 1}- \hat{\beta}_{0}- \hat{\beta}_{1}X_{t- 1}
+\end{aligned}
 $$
 **Granger 表述定理**：协整 ⇒ 一定存在 ECM 表示。$\gamma$ 是**调整速度**（应为负），$|\gamma|$ 越大，偏离长期均衡后修复越快；例如 $\gamma=- 0.3$ 表示每期约修正 30% 的偏离。
 
@@ -897,7 +897,7 @@ $$
 ::: tip 工作示例 · AEG 检验与 ECM 解读
 典型例中对协整残差做 ADF 型检验得到 $AEG=- 4.99$，而 5% 临界值约 $- 3.01$（或 $- 3.4$ 视设定）：$-4.99<- 3.01$ ⇒ **拒绝非平稳，协整成立**。
 配套对照：对原序列水平值检验 $t=- 1.71>- 3.01$、$- 0.72>- 1.96$ 等 ⇒ 不能拒绝单位根（非平稳）；$- 3.68<- 1.96$、$- 3.49<- 1.96$ ⇒ 一阶差分后平稳。这正是「`I(1)` 且协整」的典型证据链。
-若 ECM 估计得 $\hat{\gamma}=- 0.25$，含义是上期偏离均衡 1 单位，本期 Y 反向调整 0.25 单位，半衰期约 $\frac{\ln 0.5}{\ln 0.75} \approx 2.4$ 期。
+若 ECM 估计得 $\hat{\gamma}=- 0.25$，含义是上期偏离均衡 1 单位，本期 Y 反向调整 0.25 单位，半衰期约 $\dfrac{\ln 0.5}{\ln 0.75} \approx 2.4$ 期。
 :::
 
 | 方法 | 适用 | 优点 | 局限 |
@@ -934,7 +934,7 @@ $$
 | ARMA(p,q) | 拖尾 | 拖尾 |
 | 白噪声 | 所有 k>0 均不显著 | 同左 |
 
-Ljung-Box $Q= n(n+2)\sum \frac{\hat{\rho}_{k}^{2}}{n- k} \sim \chi^{2}(m)$ 检验残差是否白噪声；显著说明还有结构没提取。
+Ljung-Box $Q= n(n+2)\sum \dfrac{\hat{\rho}_{k}^{2}}{n- k} \sim \chi^{2}(m)$ 检验残差是否白噪声；显著说明还有结构没提取。
 
 **VAR(p)**：每个变量对**所有**变量的 1…p 期滞后回归；要求各变量平稳（协整则用 VECM）。产出主要是**脉冲响应函数 IRF**（一个变量一单位冲击对其它变量的动态影响）与**方差分解**（各冲击对预测误差方差的贡献）。VAR 的滞后阶由 AIC/SC/LR 定，且需检验特征根是否在单位圆内（稳定性）。
 
@@ -948,12 +948,12 @@ Ljung-Box $Q= n(n+2)\sum \frac{\hat{\rho}_{k}^{2}}{n- k} \sim \chi^{2}(m)$ 检�
 
 经济系统里变量常**互为因果**。经典宏观例子：
 $$
-\begin{gathered}
-\text{消费函数：} \; C_{t}= \alpha+ \beta Y_{t}+ u_{t} \; \text{（行为方程）} \\
-\text{收入恒等：} \; Y_{t}= C_{t}+ I_{t} \; \text{（恒等式）}
-\end{gathered}
+\begin{aligned}
+&\text{消费函数：} \; C_{t}= \alpha+ \beta Y_{t}+ u_{t} \; \text{（行为方程）} \\
+&\text{收入恒等：} \; Y_{t}= C_{t}+ I_{t} \; \text{（恒等式）}
+\end{aligned}
 $$
-把第二式代入第一式整理可得 $Y_{t}= \frac{\alpha+I_{t}+u_{t}}{1- \beta}$，于是 `Y_t` 含 `u_t` ⇒ $\operatorname{Cov}(Y_{t}, u_{t})\ne 0$。用 OLS 估计消费函数得到的 $\hat{\beta}$ **既有偏又不一致**（称**联立性偏误 / 同时方程偏误**），且样本增大也不消失。
+把第二式代入第一式整理可得 $Y_{t}= \dfrac{\alpha+I_{t}+u_{t}}{1- \beta}$，于是 `Y_t` 含 `u_t` ⇒ $\operatorname{Cov}(Y_{t}, u_{t})\ne 0$。用 OLS 估计消费函数得到的 $\hat{\beta}$ **既有偏又不一致**（称**联立性偏误 / 同时方程偏误**），且样本增大也不消失。
 
 ![联立方程、简化式与识别](/econ/econ-simultaneous.svg)
 
@@ -1002,21 +1002,21 @@ $$
 - 阶条件**只是必要**条件：满足阶条件仍可能因秩条件不满足而不可识别（如某变量虽被排除，但在其它方程系数全为 0）。
 - 恒等式**没有随机扰动、无需估计**，但仍算一个方程、计入 `G`。
 - 2SLS 第二阶段的标准误须用**修正后的残差**（含原始内生变量），直接用拟合值算会低估标准误；软件会自动处理，手算要小心。
-- 「简化式系数」不是「结构系数」：简化式给的是外生变量对内生变量的**总效应**（含乘数），例如 $\frac{1}{1- \beta}$ 就是投资乘数。
+- 「简化式系数」不是「结构系数」：简化式给的是外生变量对内生变量的**总效应**（含乘数），例如 $\dfrac{1}{1- \beta}$ 就是投资乘数。
 :::
 
 ### 8.4 简化式求解与 2SLS 的 IV 等价性
 
 沿用 8.1 的宏观模型：
 $$
-\begin{gathered}
-C_{t}= \alpha+ \beta Y_{t}+ u_{t} \; \text{；} \; Y_{t}= C_{t}+ I_{t} \\
-\text{代入：} \; Y_{t}= \alpha+ \beta Y_{t}+ u_{t}+ I_{t} \\
-\to Y_{t}= \frac{\alpha}{1- \beta}+ \frac{I_{t}}{1- \beta}+ \frac{u_{t}}{1- \beta} \; \text{（简化式）} \\
-\to C_{t}= \frac{\alpha}{1- \beta}+ \frac{\beta I_{t}}{1- \beta}+ \frac{u_{t}}{1- \beta}
-\end{gathered}
+\begin{aligned}
+&C_{t}= \alpha+ \beta Y_{t}+ u_{t} \; \text{；} \; Y_{t}= C_{t}+ I_{t} \\
+&\text{代入：} \; Y_{t}= \alpha+ \beta Y_{t}+ u_{t}+ I_{t} \\
+&\to Y_{t}= \frac{\alpha}{1- \beta}+ \frac{I_{t}}{1- \beta}+ \frac{u_{t}}{1- \beta} \; \text{（简化式）} \\
+&\to C_{t}= \frac{\alpha}{1- \beta}+ \frac{\beta I_{t}}{1- \beta}+ \frac{u_{t}}{1- \beta}
+\end{aligned}
 $$
-$\frac{\partial Y_{t}}{\partial I_{t}}= \frac{1}{1- \beta}$ 就是**投资乘数**。若 $\beta=0.8$，乘数 = 5。由简化式可解出 $\beta=\dfrac{\pi_{2}}{1+\pi_{2}}$（$\pi_{2}$ 为 I 在 C 方程简化式中的系数），这正是 **ILS 间接最小二乘**：先 OLS 估简化式（前定变量外生，一致），再代数反解结构参数。
+$\dfrac{\partial Y_{t}}{\partial I_{t}}= \dfrac{1}{1- \beta}$ 就是**投资乘数**。若 $\beta=0.8$，乘数 = 5。由简化式可解出 $\beta=\dfrac{\pi_{2}}{1+\pi_{2}}$（$\pi_{2}$ 为 I 在 C 方程简化式中的系数），这正是 **ILS 间接最小二乘**：先 OLS 估简化式（前定变量外生，一致），再代数反解结构参数。
 
 **2SLS 与 IV 等价**：第一阶段 $X= Z\hat{\Pi}+ v$ 得 `X̂ = P_Z X`（`P_Z` 为对全部前定变量的投影矩阵），第二阶段 $\hat{\beta}_2SLS=(X'P_{Z} X)^{-1}X'P_{Z} y$，恰是以 `Z` 为工具的 IV 估计量。当工具数 = 内生变量数时 $X'P_{Z} X= X'Z(Z'Z)^{-1}Z'X$，退化为标准 IV 公式。
 
@@ -1038,10 +1038,10 @@ $\frac{\partial Y_{t}}{\partial I_{t}}= \frac{1}{1- \beta}$ 就是**投资乘数
 代价：面板常有**组内相关**（同一个体跨期误差相关）、**异方差与截面相关**、**样本流失（attrition）**、测量误差；普通 OLS 标准误会严重低估。
 
 $$
-\begin{gathered}
-\text{通用设定：} \; y_{it}= \alpha+ \beta 'x_{it}+ \mu_{i}+ \lambda_{t}+ \epsilon_{it} \\
-\mu_{i} \; \text{：个体效应（不随时间变）；} \; \lambda_{t} \; \text{：时间效应（不随个体变）；} \; \epsilon_{it} \; \text{：特异误差}
-\end{gathered}
+\begin{aligned}
+&\text{通用设定：} \; y_{it}= \alpha+ \beta 'x_{it}+ \mu_{i}+ \lambda_{t}+ \epsilon_{it} \\
+&\mu_{i} \; \text{：个体效应（不随时间变）；} \; \lambda_{t} \; \text{：时间效应（不随个体变）；} \; \epsilon_{it} \; \text{：特异误差}
+\end{aligned}
 $$
 
 ![面板数据三种模型与 Hausman 检验](/econ/econ-panel.svg)
@@ -1062,21 +1062,21 @@ $$
 ### 9.3 Hausman 检验（★★★）
 
 $$
-\begin{gathered}
-H_{0}: \; \text{个体效应与解释变量不相关（} \; \text{RE} \; \text{一致且有效）} \; \to \; \text{选} \; \text{RE} \\
-H_{1}: \; \text{相关（} \; \text{RE} \; \text{不一致，} \; \text{FE} \; \text{仍一致）} \; \to \; \text{选} \; \text{FE} \\
-H=(\hat{\beta}_{FE}- \hat{\beta}_{RE})'[\operatorname{Var}(\hat{\beta}_{FE})- \operatorname{Var}(\hat{\beta}_{RE})]^{-1}(\hat{\beta}_{FE}- \hat{\beta}_{RE}) \sim \chi^{2}(k)
-\end{gathered}
+\begin{aligned}
+&H_{0}: \; \text{个体效应与解释变量不相关（} \; \text{RE} \; \text{一致且有效）} \; \to \; \text{选} \; \text{RE} \\
+&H_{1}: \; \text{相关（} \; \text{RE} \; \text{不一致，} \; \text{FE} \; \text{仍一致）} \; \to \; \text{选} \; \text{FE} \\
+&H=(\hat{\beta}_{FE}- \hat{\beta}_{RE})'[\operatorname{Var}(\hat{\beta}_{FE})- \operatorname{Var}(\hat{\beta}_{RE})]^{-1}(\hat{\beta}_{FE}- \hat{\beta}_{RE}) \sim \chi^{2}(k)
+\end{aligned}
 $$
 显著（H 大于临界值）⇒ 拒绝 $H_{0} \Rightarrow$ **用 FE**；不显著 ⇒ 可用 RE（更有效）。
 
 ::: tip 工作示例 · Hausman 手算（单系数）
 设 $\hat{\beta}_{FE}= 0.62, \operatorname{Var}= 0.004$；$\hat{\beta}_{RE}= 0.45, \operatorname{Var}= 0.001$：
 $$
-\begin{gathered}
-H= \frac{(0.62- 0.45)^{2}}{0.004- 0.001}= \frac{0.0289}{0.003}= 9.63 \\
-\chi^{2}_{0}._{05}(1)= 3.84 \to 9.63> 3.84 \Rightarrow \; \text{拒绝} \; \text{RE} \; \text{，应选固定效应}
-\end{gathered}
+\begin{aligned}
+&H= \frac{(0.62- 0.45)^{2}}{0.004- 0.001}= \frac{0.0289}{0.003}= 9.63 \\
+&\chi^{2}_{0}._{05}(1)= 3.84 \to 9.63> 3.84 \Rightarrow \; \text{拒绝} \; \text{RE} \; \text{，应选固定效应}
+\end{aligned}
 $$
 **注意**：① 检验只比较**时变变量**的系数（FE 估不了时不变变量）；② 若 $\operatorname{Var}(\hat{\beta}_{FE})- \operatorname{Var}(\hat{\beta}_{RE})$ 非正定（小样本常见），H 可能为负，需改用稳健版或 `suest`；③ 即便 Hausman 不显著，只要理论上怀疑个体效应与 x 相关（如研究企业效率），多数应用计量仍优先 FE；④ 现代做法常用 **Mundlak / 相关随机效应（CRE）**：把组内均值 `x̄_i` 加入 RE 模型，既保留时不变变量又能检验并缓解相关性。
 :::
@@ -1087,7 +1087,7 @@ $$
 | --- | --- |
 | **聚类稳健标准误** | 按个体聚类（允许任意组内自相关与异方差）；DID 常按处理分配层级聚类；聚类数少（< 40）须用 wild cluster bootstrap |
 | 双向聚类 / Driscoll-Kraay | 同时处理截面相关与时间相关 |
-| **动态面板与 Nickell 偏误** | 含 $y_{i,t- 1}$ 且 T 小时，FE 估计不一致（偏误约 $- \frac{1}{T}$）；用 **Arellano-Bond 差分 GMM / Blundell-Bond 系统 GMM**，并做 AR(2) 与 Hansen 检验 |
+| **动态面板与 Nickell 偏误** | 含 $y_{i,t- 1}$ 且 T 小时，FE 估计不一致（偏误约 $- \dfrac{1}{T}$）；用 **Arellano-Bond 差分 GMM / Blundell-Bond 系统 GMM**，并做 AR(2) 与 Hansen 检验 |
 | 交互固定效应 / 因子结构 | 控制随时间变化但有共同因子的不可观测异质性 |
 | 交错处理 DID 的 TWFE 偏误 | 处理时点不同且效应异质时 TWFE 可能给错权重；用 $Callaway- Sant$'Anna、$Sun- Abraham$、Borusyak 等稳健估计量 |
 | 面板单位根 / 面板协整 | LLC、IPS、Fisher-ADF；Pedroni / Kao 协整检验 |
@@ -1107,12 +1107,12 @@ $$
 ### 9.5 面板的三种变异与 Mundlak 设定
 
 $$
-\begin{gathered}
-\text{总变异} \; \text{overall} \; \text{：} \; y_{it}- \bar{y} \; \text{（混合} \; \text{OLS} \; \text{用）} \\
-\text{组内变异} \; \text{within} \; \text{：} \; y_{it}- \bar{y}_{i} \; \text{（} \; \text{FE} \; \text{用，只识别时变变量的效应）} \\
-\text{组间变异} \; \text{between} \; \text{：} \; \bar{y}_{i}- \bar{y} \; \text{（} \; \text{BE} \; \text{用，易受个体异质性污染）} \\
-\text{RE =} \; \text{组内与组间估计量的加权平均，权重} \; \theta \; \text{由} \; \sigma^{2}_\mu \; \text{与} \; \sigma^{2}_\epsilon \; \text{、} \; \text{T} \; \text{决定}
-\end{gathered}
+\begin{aligned}
+&\text{总变异} \; \text{overall} \; \text{：} \; y_{it}- \bar{y} \; \text{（混合} \; \text{OLS} \; \text{用）} \\
+&\text{组内变异} \; \text{within} \; \text{：} \; y_{it}- \bar{y}_{i} \; \text{（} \; \text{FE} \; \text{用，只识别时变变量的效应）} \\
+&\text{组间变异} \; \text{between} \; \text{：} \; \bar{y}_{i}- \bar{y} \; \text{（} \; \text{BE} \; \text{用，易受个体异质性污染）} \\
+&\text{RE =} \; \text{组内与组间估计量的加权平均，权重} \; \theta \; \text{由} \; \sigma^{2}_\mu \; \text{与} \; \sigma^{2}_\epsilon \; \text{、} \; \text{T} \; \text{决定}
+\end{aligned}
 $$
 **Mundlak / 相关随机效应 CRE**：在 RE 模型中加入各时变变量的**个体均值** `x̄_i`：
 $$
@@ -1147,7 +1147,7 @@ $$
 
 | 模型 | 分布 | `P(Y=1|X)` | 边际效应 | 系数换算 |
 | --- | --- | --- | --- | --- |
-| **Logit** | 逻辑分布 | $\Lambda(z)= \frac{1}{1+e^{- z}}$ | $\beta_{j} \cdot P(1- P)$ | $e^{\beta_{j}}$ = **优势比 odds ratio** |
+| **Logit** | 逻辑分布 | $\Lambda(z)= \dfrac{1}{1+e^{- z}}$ | $\beta_{j} \cdot P(1- P)$ | $e^{\beta_{j}}$ = **优势比 odds ratio** |
 | **Probit** | 标准正态 | $\Phi(z)$ | $\beta_{j} \cdot \phi(z)$ | 与 Logit 系数约差 1.6 倍：$\beta_{Logit} \approx 1.6 \beta_{Probit}$ |
 | LPM | — | `z`（线性） | $\beta_{j}$（常数） | 直接是概率变化 |
 
@@ -1157,13 +1157,13 @@ $$
 设估计得 $z=- 1+ 0.5x$（$\beta_{0}=- 1$，$\beta_{1}=0.5$）：
 
 $$
-\begin{gathered}
-x=2 \to z=0 \to P= \frac{1}{1+e^{0}}= 0.5000 \; \text{，边际效应} \; = 0.5 \times 0.5 \times 0.5= 0.1250 \; \text{（最大）} \\
-x=4 \to z=1 \to P= \frac{1}{1+e^{-1}}= 0.7311 \; \text{，边际效应} \; = 0.5 \times 0.7311 \times 0.2689= 0.0983 \\
-x=6 \to z=2 \to P= 0.8808 \; \text{，边际效应} \; = 0.5 \times 0.8808 \times 0.1192= 0.0525 \\
-x=0 \to z=- 1 \to P= 0.2689 \; \text{，边际效应} \; \text{= 0.0983} \\
-\text{优势比} \; \text{OR = e(0.5) = 1.649} \; \text{：} \; \text{x} \; \text{每增} \; \text{1} \; \text{单位，发生比（} \; \frac{P}{1- P} \; \text{）乘以} \; \text{1.649} \; \text{（约} \; \text{+64.9\%} \; \text{）}
-\end{gathered}
+\begin{aligned}
+&x=2 \to z=0 \to P= \frac{1}{1+e^{0}}= 0.5000 \; \text{，边际效应} \; = 0.5 \times 0.5 \times 0.5= 0.1250 \; \text{（最大）} \\
+&x=4 \to z=1 \to P= \frac{1}{1+e^{-1}}= 0.7311 \; \text{，边际效应} \; = 0.5 \times 0.7311 \times 0.2689= 0.0983 \\
+&x=6 \to z=2 \to P= 0.8808 \; \text{，边际效应} \; = 0.5 \times 0.8808 \times 0.1192= 0.0525 \\
+&x=0 \to z=- 1 \to P= 0.2689 \; \text{，边际效应} \; \text{= 0.0983} \\
+&\text{优势比} \; \text{OR = e(0.5) = 1.649} \; \text{：} \; \text{x} \; \text{每增} \; \text{1} \; \text{单位，发生比（} \; \frac{P}{1- P} \; \text{）乘以} \; \text{1.649} \; \text{（约} \; \text{+64.9\%} \; \text{）}
+\end{aligned}
 $$
 **读法**：① 系数符号决定概率随 x 增减的方向，但**大小不是概率变化**；② 边际效应随 x 变化，在 $P \approx 0.5$ 处最大、两端趋于 0（S 形曲线）；③ 报告结果应给**平均边际效应 AME** 或指定 x 处的 MEM，而非只报 β；④ Probit 在 z=1 时 $\Phi(1)=0.8413$，边际效应 $0.5 \times \phi(1)=0.5 \times 0.2420=0.1210$。
 :::
@@ -1180,7 +1180,7 @@ $$
 | Wald / z 检验 | 单个系数显著性（渐近正态） |
 | **似然比 LR** | $LR= 2(lnL_{u}- lnL_{r}) \sim \chi^{2}(q)$，比较嵌套模型，最可靠 |
 | LM（得分）检验 | 只需估约束模型 |
-| 伪 R²（McFadden） | $1- \frac{lnL_{u}}{lnL_{r}}$，**不能**与 OLS 的 R² 比大小，0.2–0.4 已算不错 |
+| 伪 R²（McFadden） | $1- \dfrac{lnL_{u}}{lnL_{r}}$，**不能**与 OLS 的 R² 比大小，0.2–0.4 已算不错 |
 | 分类表 / ROC-AUC / Hosmer-Lemeshow | 预测准确度与校准度；不平衡样本要看 PR-AUC 与阈值选择 |
 
 ### 10.4 扩展模型（★★★）
@@ -1206,22 +1206,22 @@ $$
 
 Tobit（潜变量 $y*= \beta 'x+u$，观测 $y= \max(0, y*)$）中 β 有三种不同的边际效应，**必须明确报的是哪一个**：
 $$
-\begin{gathered}
-\text{(1)} \; \text{潜变量：} \; \frac{\partial E(y*|x)}{\partial x_{j}}= \beta_{j} \\
-\text{(2)} \; \text{观测到的} \; \text{y} \; \text{：} \; \frac{\partial E(y|x)}{\partial x_{j}}= \beta_{j} \cdot \Phi\left(\beta '\frac{x}{\sigma}\right) \\
-\text{(3)} \; \text{参与概率：} \; \frac{\partial P(y>0|x)}{\partial x_{j}}= \phi\left(\beta 'x/\sigma\right) \cdot \beta_{j}/\sigma \\
-\text{(4)} \; \text{条件于} \; \text{y>0} \; \text{：} \; \frac{\partial E(y|y>0,x)}{\partial x_{j}}= \beta_{j} \cdot[1- z\lambda(z)- \lambda(z)^{2}] \; \text{，} \; z=\beta '\frac{x}{\sigma}
-\end{gathered}
+\begin{aligned}
+&\text{(1)} \; \text{潜变量：} \; \frac{\partial E(y*|x)}{\partial x_{j}}= \beta_{j} \\
+&\text{(2)} \; \text{观测到的} \; \text{y} \; \text{：} \; \frac{\partial E(y|x)}{\partial x_{j}}= \beta_{j} \cdot \Phi\left(\beta '\frac{x}{\sigma}\right) \\
+&\text{(3)} \; \text{参与概率：} \; \frac{\partial P(y>0|x)}{\partial x_{j}}= \phi\left(\beta 'x/\sigma\right) \cdot \beta_{j}/\sigma \\
+&\text{(4)} \; \text{条件于} \; \text{y>0} \; \text{：} \; \frac{\partial E(y|y>0,x)}{\partial x_{j}}= \beta_{j} \cdot[1- z\lambda(z)- \lambda(z)^{2}] \; \text{，} \; z=\beta '\frac{x}{\sigma}
+\end{aligned}
 $$
 
 **Heckman 两阶段（样本选择）**：
 $$
-\begin{gathered}
-\text{(1)} \; \text{选择方程（全样本} \; \text{Probit} \; \text{）：} \; P(s_{i}=1|z_{i})=\Phi(\gamma 'z_{i}) \; \text{，估} \; \hat{\gamma} \\
-\text{(2)} \; \text{对每个被选中的样本算逆米尔斯比} \; \lambda_{i}= \dfrac{\phi(\hat{\gamma}'z_{i})}{\Phi(\hat{\gamma}'z_{i})} \\
-\text{(3)} \; \text{结果方程（仅选中样本）：} \; y_{i}= \beta 'x_{i}+ \rho \sigma \lambda_{i}+ e_{i} \\
-\lambda \; \text{显著} \; \Rightarrow \; \text{存在选择偏差；} \; \rho \; \text{为选择与结果误差的相关系数}
-\end{gathered}
+\begin{aligned}
+&\text{(1)} \; \text{选择方程（全样本} \; \text{Probit} \; \text{）：} \; P(s_{i}=1|z_{i})=\Phi(\gamma 'z_{i}) \; \text{，估} \; \hat{\gamma} \\
+&\text{(2)} \; \text{对每个被选中的样本算逆米尔斯比} \; \lambda_{i}= \dfrac{\phi(\hat{\gamma}'z_{i})}{\Phi(\hat{\gamma}'z_{i})} \\
+&\text{(3)} \; \text{结果方程（仅选中样本）：} \; y_{i}= \beta 'x_{i}+ \rho \sigma \lambda_{i}+ e_{i} \\
+&\lambda \; \text{显著} \; \Rightarrow \; \text{存在选择偏差；} \; \rho \; \text{为选择与结果误差的相关系数}
+\end{aligned}
 $$
 **识别关键**：`z` 中至少要有一个**排除变量**（影响是否进入样本、但不直接影响结果），否则 λ 与 x 高度共线、修正不可靠。
 
@@ -1237,19 +1237,19 @@ $$
 
 **解**：
 $$
-\begin{gathered}
-\text{(1) X̄=3, Ȳ=5.4} \; \text{；} \; \text{Sxx=10, Sxy=17} \\
-(2) \hat{\beta}_{1}= \frac{17}{10}= 1.7 \; \text{；} \; \hat{\beta}_{0}= 5.4- 1.7 \times 3= 0.3 \to \hat{Y}= 0.3+ 1.7X \\
-\text{(3)} \; \text{拟合值} \; \text{[2.0, 3.7, 5.4, 7.1, 8.8]} \; \text{；残差} \; [0, 0.3,- 0.4,- 0.1, 0.2] \; \text{（和为} \; \text{0 }\checkmark \; \text{）} \\
-\text{(4) SSE = 0.30, SST = 29.20, SSR = 28.90} \\
-R^{2}= \frac{28.90}{29.20}= 0.9897 \; \text{；} \; \bar{R}^{2}= 1- \frac{(1- 0.9897) \times 4}{3}= 0.9863 \\
-(5) \hat{\sigma}^{2}= \frac{SSE}{n- 2}= \frac{0.30}{3}= 0.10 \\
-se(\hat{\beta}_{1})= \sqrt{\frac{0.10}{10}}= 0.10 \\
-(6) t= \frac{1.7}{0.10}= 17.0> t_{0}._{025}(3)=3.182 \to \; \text{拒绝} \; H_{0}: \beta_{1}=0 \\
-95\% CI= 1.7 ± 3.182 \times 0.10=[1.382, 2.018] \\
-F= t^{2}= 289 \\
-(7) X=6 \to \hat{Y}= 0.3+ 1.7 \times 6= 10.5
-\end{gathered}
+\begin{aligned}
+&\text{(1) X̄=3, Ȳ=5.4} \; \text{；} \; \text{Sxx=10, Sxy=17} \\
+&(2) \hat{\beta}_{1}= \frac{17}{10}= 1.7 \; \text{；} \; \hat{\beta}_{0}= 5.4- 1.7 \times 3= 0.3 \to \hat{Y}= 0.3+ 1.7X \\
+&\text{(3)} \; \text{拟合值} \; \text{[2.0, 3.7, 5.4, 7.1, 8.8]} \; \text{；残差} \; [0, 0.3,- 0.4,- 0.1, 0.2] \; \text{（和为} \; \text{0 }\checkmark \; \text{）} \\
+&\text{(4) SSE = 0.30, SST = 29.20, SSR = 28.90} \\
+&R^{2}= \frac{28.90}{29.20}= 0.9897 \; \text{；} \; \bar{R}^{2}= 1- \frac{(1- 0.9897) \times 4}{3}= 0.9863 \\
+&(5) \hat{\sigma}^{2}= \frac{SSE}{n- 2}= \frac{0.30}{3}= 0.10 \\
+&se(\hat{\beta}_{1})= \sqrt{\frac{0.10}{10}}= 0.10 \\
+&(6) t= \frac{1.7}{0.10}= 17.0> t_{0}._{025}(3)=3.182 \to \; \text{拒绝} \; H_{0}: \beta_{1}=0 \\
+&95\% CI= 1.7 ± 3.182 \times 0.10=[1.382, 2.018] \\
+&F= t^{2}= 289 \\
+&(7) X=6 \to \hat{Y}= 0.3+ 1.7 \times 6= 10.5
+\end{aligned}
 $$
 **易错**：σ̂² 用 $n- 2$ 而不是 `n`；个别值预测区间比均值预测区间多一个 `1`；本例 n=5 过小，t 检验依赖正态性假定。
 
@@ -1259,13 +1259,13 @@ $$
 
 **解**：
 $$
-\begin{gathered}
-F= \frac{\frac{R^{2}_{u}- R^{2}_{r}}{q}}{\frac{1- R^{2}_{u}}{n- k- 1}} \\
-= \frac{\frac{0.86- 0.62}{2}}{\frac{0.14}{26}}= \frac{0.12}{0.0053846}= 22.29 \\
-F_{0}._{05}(2,26) \approx 3.37 \to \; \text{拒绝约束（被排除变量联合显著）} \\
-\bar{R}^{2}= 1- \frac{(1- 0.86) \times 29}{26}= 0.8438 \\
-\text{整体} \; F= \frac{\frac{0.86}{3}}{\frac{0.14}{26}}= 53.24> F_{0}._{05}(3,26) \approx 2.98 \to \; \text{方程整体显著}
-\end{gathered}
+\begin{aligned}
+&F= \frac{\frac{R^{2}_{u}- R^{2}_{r}}{q}}{\frac{1- R^{2}_{u}}{n- k- 1}} \\
+&= \frac{\frac{0.86- 0.62}{2}}{\frac{0.14}{26}}= \frac{0.12}{0.0053846}= 22.29 \\
+&F_{0}._{05}(2,26) \approx 3.37 \to \; \text{拒绝约束（被排除变量联合显著）} \\
+&\bar{R}^{2}= 1- \frac{(1- 0.86) \times 29}{26}= 0.8438 \\
+&\text{整体} \; F= \frac{\frac{0.86}{3}}{\frac{0.14}{26}}= 53.24> F_{0}._{05}(3,26) \approx 2.98 \to \; \text{方程整体显著}
+\end{aligned}
 $$
 **延伸**：若各系数 t 值都很小但整体 F 很大，首先怀疑**多重共线性**；若单个系数符号与经济理论相反且标准误很大，同样指向共线或样本不足。
 
@@ -1275,10 +1275,10 @@ $$
 
 **解**：
 $$
-\begin{gathered}
-LM= n \cdot R^{2}_{aux}= 50 \times 0.12= 6.00 \; \text{；} \; \chi^{2}_{0}._{05}(2)=5.99 \to 6.00> 5.99 \; \text{，勉强拒绝同方差} \\
-\text{（结论应谨慎：贴近临界值，宜结合残差图与} \; \text{White} \; \text{检验；} \; \text{White} \; \text{的} \; \text{df} \; \text{更大，可能不拒绝）}
-\end{gathered}
+\begin{aligned}
+&LM= n \cdot R^{2}_{aux}= 50 \times 0.12= 6.00 \; \text{；} \; \chi^{2}_{0}._{05}(2)=5.99 \to 6.00> 5.99 \; \text{，勉强拒绝同方差} \\
+&\text{（结论应谨慎：贴近临界值，宜结合残差图与} \; \text{White} \; \text{检验；} \; \text{White} \; \text{的} \; \text{df} \; \text{更大，可能不拒绝）}
+\end{aligned}
 $$
 - **方案 A（现代实证首选）**：保留 OLS 系数，改用**异方差稳健标准误**（HC1/HC3）重算 t 与置信区间。优点是不需设定 $\sigma_{i}^{2}$ 的具体形式。
 - **方案 B（效率优先）**：若已知 $\operatorname{Var}(u_{i})=\sigma^{2}X_{i}^{2}$，两边同除 `X_i` 得 WLS；若 $\sigma_{i}^{2}$ 未知，先用残差估计再做 FGLS。
@@ -1290,21 +1290,21 @@ $$
 
 **解**：
 $$
-\begin{gathered}
-\sum(e_{t}- e_{t- 1})^{2}= 0.09+0.49+0.09+0.09= 0.76 \; \text{；} \; \sum e_{t}^{2}= 0.30 \\
-d= \frac{0.76}{0.30}= 2.533 \to \hat{\rho}= 1- \frac{d}{2}=- 0.267 \; \text{（轻微负相关；} \; \text{n=5} \; \text{仅演示算法）} \\
-\text{若} \; d= 0.8 \to \hat{\rho}= 0.60 \; \text{，明显正自相关}
-\end{gathered}
+\begin{aligned}
+&\sum(e_{t}- e_{t- 1})^{2}= 0.09+0.49+0.09+0.09= 0.76 \; \text{；} \; \sum e_{t}^{2}= 0.30 \\
+&d= \frac{0.76}{0.30}= 2.533 \to \hat{\rho}= 1- \frac{d}{2}=- 0.267 \; \text{（轻微负相关；} \; \text{n=5} \; \text{仅演示算法）} \\
+&\text{若} \; d= 0.8 \to \hat{\rho}= 0.60 \; \text{，明显正自相关}
+\end{aligned}
 $$
 后果：系数（严格外生下）仍无偏，但 OLS 标准误被**低估**，t 值虚高 → 假阳性；OLS 不再有效。
 修正（Cochrane-Orcutt 迭代）：
 $$
-\begin{gathered}
-\text{(1)} \; \text{由残差回归} \; e_{t}= \rho e_{t- 1}+ v_{t} \; \text{得} \; \hat{\rho} \\
-\text{(2)} \; \text{广义差分：} \; Y_{t}- \hat{\rho}Y_{t- 1}= \beta_{0}(1- \hat{\rho})+ \beta_{1}(X_{t}- \hat{\rho}X_{t- 1})+ v_{t} \\
-\text{(3)} \; \text{对变换后模型做} \; \text{OLS} \; \text{，用新残差重估} \; \hat{\rho} \; \text{，迭代至收敛} \\
-\text{(4)} \; \text{第一个观测可用} \; \text{Prais-Winsten} \; \text{变换} \; \left(\sqrt{1- \hat{\rho}^{2}}Y_{1}\right) \; \text{补回，避免损失样本}
-\end{gathered}
+\begin{aligned}
+&\text{(1)} \; \text{由残差回归} \; e_{t}= \rho e_{t- 1}+ v_{t} \; \text{得} \; \hat{\rho} \\
+&\text{(2)} \; \text{广义差分：} \; Y_{t}- \hat{\rho}Y_{t- 1}= \beta_{0}(1- \hat{\rho})+ \beta_{1}(X_{t}- \hat{\rho}X_{t- 1})+ v_{t} \\
+&\text{(3)} \; \text{对变换后模型做} \; \text{OLS} \; \text{，用新残差重估} \; \hat{\rho} \; \text{，迭代至收敛} \\
+&\text{(4)} \; \text{第一个观测可用} \; \text{Prais-Winsten} \; \text{变换} \; \left(\sqrt{1- \hat{\rho}^{2}}Y_{1}\right) \; \text{补回，避免损失样本}
+\end{aligned}
 $$
 **更稳妥的现代做法**：直接报告 **Newey-West HAC 标准误**；或先检查是否因**遗漏滞后变量**造成「伪自相关」。
 
@@ -1314,11 +1314,11 @@ $$
 
 **解**：
 $$
-\begin{gathered}
-VIF_{1}= \frac{1}{1- 0.90}= 10 \\
-\operatorname{Var}(\hat{\beta}_{1})= \sigma^{2}/[Sxx_{1}(1- R^{2}_{1})]= 10 \times \; \text{（无共线时的方差）} \\
-se(\hat{\beta}_{1})= \sqrt{10} \approx 3.16 \; \text{倍} \; \to t \; \text{值约降为} \; \text{1/3.16}
-\end{gathered}
+\begin{aligned}
+&VIF_{1}= \frac{1}{1- 0.90}= 10 \\
+&\operatorname{Var}(\hat{\beta}_{1})= \sigma^{2}/[Sxx_{1}(1- R^{2}_{1})]= 10 \times \; \text{（无共线时的方差）} \\
+&se(\hat{\beta}_{1})= \sqrt{10} \approx 3.16 \; \text{倍} \; \to t \; \text{值约降为} \; \text{1/3.16}
+\end{aligned}
 $$
 典型症状：整体 F 显著、R² 高，但单个 t 多数不显著；增删少量样本系数剧变甚至符号反转。
 **注意**：共线并不使系数有偏，也不必然损害**样本内共线模式延续时**的预测；若只是要检验「两个变量的联合效应」，直接用 F 检验线性组合即可，不必逐个纠结 t 值。
@@ -1329,13 +1329,13 @@ $$
 
 **解**：
 $$
-\begin{gathered}
-\text{短期乘数} \; \text{= 0.5} \\
-\text{长期乘数} \; = \beta_{0}/(1- \lambda)= \frac{0.5}{0.4}= 1.25 \\
-\text{平均滞后} \; \approx \frac{\lambda}{1- \lambda}= 1.5 \; \text{期（调整较慢）} \\
-F= \frac{\frac{1200- 900}{2}}{\frac{900}{60- 5}}= \frac{150}{16.364}= 9.17> F_{0}._{05}(2,55) \approx 3.17 \\
-\to \; \text{拒绝「} \; \text{X} \; \text{的滞后项联合为} \; \text{0} \; \text{」，} \; \text{X Granger} \; \text{引起} \; \text{Y}
-\end{gathered}
+\begin{aligned}
+&\text{短期乘数} \; \text{= 0.5} \\
+&\text{长期乘数} \; = \beta_{0}/(1- \lambda)= \frac{0.5}{0.4}= 1.25 \\
+&\text{平均滞后} \; \approx \frac{\lambda}{1- \lambda}= 1.5 \; \text{期（调整较慢）} \\
+&F= \frac{\frac{1200- 900}{2}}{\frac{900}{60- 5}}= \frac{150}{16.364}= 9.17> F_{0}._{05}(2,55) \approx 3.17 \\
+&\to \; \text{拒绝「} \; \text{X} \; \text{的滞后项联合为} \; \text{0} \; \text{」，} \; \text{X Granger} \; \text{引起} \; \text{Y}
+\end{aligned}
 $$
 **解读边界**：这只是**增量预测能力**，不等于结构因果；若变量非平稳需先差分或做 VECM；滞后阶数换一档结论可能改变，应报告稳健性。
 
@@ -1345,17 +1345,17 @@ $$
 
 **解**：
 $$
-\begin{gathered}
-\text{水平值：} \; - 1.71>- 3.01 \; \text{、} \; - 0.72>- 3.01 \to \; \text{均不能拒绝单位根} \; \Rightarrow Y, X \sim I(1) \\
-\text{一阶差分：} \; - 3.68<- 1.96 \; \text{、} \; - 3.49<- 1.96 \to \; \text{拒绝单位根} \; \Rightarrow \; \text{差分后平稳，确为} \; \text{I(1)} \\
-\text{协整残差：} \; AEG=- 4.99<- 3.01 \to \; \text{拒绝「残差有单位根」} \; \Rightarrow \; \text{二者协整，存在长期均衡}
-\end{gathered}
+\begin{aligned}
+&\text{水平值：} \; - 1.71>- 3.01 \; \text{、} \; - 0.72>- 3.01 \to \; \text{均不能拒绝单位根} \; \Rightarrow Y, X \sim I(1) \\
+&\text{一阶差分：} \; - 3.68<- 1.96 \; \text{、} \; - 3.49<- 1.96 \to \; \text{拒绝单位根} \; \Rightarrow \; \text{差分后平稳，确为} \; \text{I(1)} \\
+&\text{协整残差：} \; AEG=- 4.99<- 3.01 \to \; \text{拒绝「残差有单位根」} \; \Rightarrow \; \text{二者协整，存在长期均衡}
+\end{aligned}
 $$
 因此不能简单把两变量差分后回归（会丢长期信息），应建立 **VECM / ECM**：
 
 $$\Delta Y_{t}= \alpha+ \gamma(Y_{t- 1}- \hat{\beta}_{0}- \hat{\beta}_{1}X_{t- 1})+ \sum \delta_{i}\Delta X_{t- i}+ \epsilon_{t}$$
 
-$\hat{\gamma}=- 0.25$ 表示上期偏离长期均衡 1 单位，本期 Y 反向调整 0.25 单位（约修正 25%），半衰期 $\frac{\ln 0.5}{\ln 0.75} \approx 2.4$ 期；γ 必须显著为负，否则误差修正机制不成立。
+$\hat{\gamma}=- 0.25$ 表示上期偏离长期均衡 1 单位，本期 Y 反向调整 0.25 单位（约修正 25%），半衰期 $\dfrac{\ln 0.5}{\ln 0.75} \approx 2.4$ 期；γ 必须显著为负，否则误差修正机制不成立。
 
 ### 综 8 · 面板 FE / RE 与 Hausman 检验（第 9 章）
 
@@ -1363,10 +1363,10 @@ $\hat{\gamma}=- 0.25$ 表示上期偏离长期均衡 1 单位，本期 Y 反向�
 
 **解**：
 $$
-\begin{gathered}
-H= \frac{(0.62- 0.45)^{2}}{0.004- 0.001}= \frac{0.0289}{0.003}= 9.63> \chi^{2}_{0}._{05}(1)=3.84 \\
-\to \; \text{拒绝「个体效应与解释变量不相关」，} \; \text{RE} \; \text{不一致，应选固定效应} \; \text{FE}
-\end{gathered}
+\begin{aligned}
+&H= \frac{(0.62- 0.45)^{2}}{0.004- 0.001}= \frac{0.0289}{0.003}= 9.63> \chi^{2}_{0}._{05}(1)=3.84 \\
+&\to \; \text{拒绝「个体效应与解释变量不相关」，} \; \text{RE} \; \text{不一致，应选固定效应} \; \text{FE}
+\end{aligned}
 $$
 FE 的局限：① **不能估计**不随时间变化的变量（性别、地区固定属性）的系数（但能控制它们）；② 当 T 小、组内变异少时估计噪声大；③ 含被解释变量滞后项时产生 Nickell 偏误，需 GMM。
 报告时还须使用**按个体聚类的稳健标准误**；可用 Mundlak-CRE 作为兼顾时不变变量与相关性的折中方案。
@@ -1377,13 +1377,13 @@ FE 的局限：① **不能估计**不随时间变化的变量（性别、地区
 
 **解**：
 $$
-\begin{gathered}
-P= \frac{1}{1+e^{- z}} \; \text{，边际效应} \; ME= \beta_{1} \cdot P(1- P) \\
-x=2 \to z=0 \to P=0.5000 \; \text{，} \; ME=0.5 \times 0.25=0.1250 \; \text{（最大）} \\
-x=4 \to z=1 \to P=0.7311 \; \text{，} \; ME=0.5 \times 0.7311 \times 0.2689=0.0983 \\
-x=6 \to z=2 \to P=0.8808 \; \text{，} \; ME=0.5 \times 0.8808 \times 0.1192=0.0525 \\
-OR= e^{0.5}= 1.649 \to x \; \text{每增} \; \text{1} \; \text{单位，发生比} \; \frac{P}{1- P} \; \text{变为} \; \text{1.649} \; \text{倍（} \; \text{+64.9\%} \; \text{）}
-\end{gathered}
+\begin{aligned}
+&P= \frac{1}{1+e^{- z}} \; \text{，边际效应} \; ME= \beta_{1} \cdot P(1- P) \\
+&x=2 \to z=0 \to P=0.5000 \; \text{，} \; ME=0.5 \times 0.25=0.1250 \; \text{（最大）} \\
+&x=4 \to z=1 \to P=0.7311 \; \text{，} \; ME=0.5 \times 0.7311 \times 0.2689=0.0983 \\
+&x=6 \to z=2 \to P=0.8808 \; \text{，} \; ME=0.5 \times 0.8808 \times 0.1192=0.0525 \\
+&OR= e^{0.5}= 1.649 \to x \; \text{每增} \; \text{1} \; \text{单位，发生比} \; \frac{P}{1- P} \; \text{变为} \; \text{1.649} \; \text{倍（} \; \text{+64.9\%} \; \text{）}
+\end{aligned}
 $$
 系数 β 只决定对数发生比的斜率与方向；因为连接函数是 **S 形非线性**，概率变化随 x 而变（$P \approx 0.5$ 处最陡、两端趋平）。因此实证论文应报告 **平均边际效应 AME** 或指定点的 MEM，而非只报 β；OR 描述的是**发生比**变化，不是概率变化 64.9%。
 
@@ -1391,7 +1391,7 @@ $$
 
 | A | B | 关键区别 |
 | --- | --- | --- |
-| 总体扰动 u | 残差 e | 不可观测 vs 可计算；$\sigma^{2}$ 用 $\frac{SSE}{n- k- 1}$ 估计 |
+| 总体扰动 u | 残差 e | 不可观测 vs 可计算；$\sigma^{2}$ 用 $\dfrac{SSE}{n- k- 1}$ 估计 |
 | 无偏性 | 一致性 | 小样本性质 vs 大样本性质，互不蕴含 |
 | 异方差 | 自相关 | 方差随 i 变 vs 误差跨期相关；都不使系数有偏，但都毁掉标准误 |
 | 异方差稳健 SE | 聚类稳健 SE | 只放宽同方差 vs 允许组内任意相关（面板必需） |
@@ -1415,35 +1415,35 @@ $$
 | # | 主题 | 公式 / 结论 |
 | --- | --- | --- |
 | 1 | 总体 / 样本回归 | $Y=\beta_{0}+\beta_{1}X+u$；$\hat{Y}=\hat{\beta}_{0}+\hat{\beta}_{1}X$；$E(Y\vert X)=\beta_{0}+\beta_{1}X$ |
-| 2 | OLS 估计量 | $\hat{\beta}_{1}= \frac{Sxy}{Sxx}= \frac{\operatorname{Cov}(X,Y)}{\operatorname{Var}(X)}$；$\hat{\beta}_{0}= \bar{Y}- \hat{\beta}_{1}\bar{X}$ |
+| 2 | OLS 估计量 | $\hat{\beta}_{1}= \dfrac{Sxy}{Sxx}= \dfrac{\operatorname{Cov}(X,Y)}{\operatorname{Var}(X)}$；$\hat{\beta}_{0}= \bar{Y}- \hat{\beta}_{1}\bar{X}$ |
 | 3 | 矩阵形式 | $\hat{\beta}=(X'X)^{-1}X'y$；$\operatorname{Var}(\hat{\beta})=\sigma^{2}(X'X)^{-1}$ |
-| 4 | σ² 无偏估计 | $\hat{\sigma}^{2}= \frac{SSE}{n- k- 1}$（一元时 n−2） |
-| 5 | 分解式 | `SST = SSR + SSE`；$R^{2}= \frac{SSR}{SST}= 1- \frac{SSE}{SST}$ |
-| 6 | 调整 R² | $\bar{R}^{2}= 1- \frac{(1- R^{2})(n- 1)}{n- k- 1}$ |
-| 7 | 系数标准误 | $se(\hat{\beta}_{1})=\sqrt{\frac{\hat{\sigma}^{2}}{Sxx}}$；多元取 $\hat{\sigma}^{2}(X'X)^{-1}$ 对角元开方 |
-| 8 | t 检验 | $t=\frac{\hat{\beta}- \beta_{H0}}{se(\hat{\beta})} \sim t(n- k- 1)$；$F=t^{2}$ |
-| 9 | 置信区间 | $\hat{\beta} ± t_{\frac{\alpha}{2}} \cdot se(\hat{\beta})$；大样本用 1.96 |
-| 10 | 整体 F | $F= \frac{\frac{R^{2}}{k}}{\frac{1- R^{2}}{n- k- 1}}$ |
-| 11 | 约束 F | $F= \frac{\frac{SSE_{r}- SSE_{u}}{q}}{\frac{SSE_{u}}{n- k- 1}}$ |
+| 4 | σ² 无偏估计 | $\hat{\sigma}^{2}= \dfrac{SSE}{n- k- 1}$（一元时 n−2） |
+| 5 | 分解式 | `SST = SSR + SSE`；$R^{2}= \dfrac{SSR}{SST}= 1- \dfrac{SSE}{SST}$ |
+| 6 | 调整 R² | $\bar{R}^{2}= 1- \dfrac{(1- R^{2})(n- 1)}{n- k- 1}$ |
+| 7 | 系数标准误 | $se(\hat{\beta}_{1})=\sqrt{\dfrac{\hat{\sigma}^{2}}{Sxx}}$；多元取 $\hat{\sigma}^{2}(X'X)^{-1}$ 对角元开方 |
+| 8 | t 检验 | $t=\dfrac{\hat{\beta}- \beta_{H0}}{se(\hat{\beta})} \sim t(n- k- 1)$；$F=t^{2}$ |
+| 9 | 置信区间 | $\hat{\beta} ± t_{\dfrac{\alpha}{2}} \cdot se(\hat{\beta})$；大样本用 1.96 |
+| 10 | 整体 F | $F= \dfrac{\dfrac{R^{2}}{k}}{\dfrac{1- R^{2}}{n- k- 1}}$ |
+| 11 | 约束 F | $F= \dfrac{\dfrac{SSE_{r}- SSE_{u}}{q}}{\dfrac{SSE_{u}}{n- k- 1}}$ |
 | 12 | 三大检验 | Wald / LM / LR 渐近 $\sim \chi^{2}(q)$；$LM= n \cdot R^{2}_{aux}$ |
-| 13 | 信息准则 | $AIC= \ln\left(\frac{SSE}{n}\right)+\frac{2(k+1)}{n}$；$SC= \ln\left(\frac{SSE}{n}\right)+\frac{(k+1)\ln(n)}{n}$ |
+| 13 | 信息准则 | $AIC= \ln\left(\dfrac{SSE}{n}\right)+\dfrac{2(k+1)}{n}$；$SC= \ln\left(\dfrac{SSE}{n}\right)+\dfrac{(k+1)\ln(n)}{n}$ |
 | 14 | 遗漏变量偏误 | $plim \tilde{\beta}_{1}= \beta_{1}+ \beta_{2} \cdot \delta_{1}$（δ1 为 X2 对 X1 辅助回归斜率） |
-| 15 | 弹性 | 双对数模型 $\beta_{1}= \frac{dlnY}{dlnX}$；$\epsilon=\left(\frac{dY}{dX}\right)\left(\frac{X}{Y}\right)$ |
-| 16 | 均值 / 个别值预测 SE | $\hat{\sigma}\sqrt{\frac{1}{n}+ \frac{(X_{0}- \bar{X})^{2}}{Sxx}}$ / $\hat{\sigma}\sqrt{1+ \frac{1}{n}+ \frac{(X_{0}- \bar{X})^{2}}{Sxx}}$ |
-| 17 | VIF | $VIF_{j}= \frac{1}{1- R^{2}_{j}}$；$\operatorname{Var}(\hat{\beta}_{j})=\sigma^{2}/[Sxx_{j}(1- R^{2}_{j})]$；>10 严重 |
+| 15 | 弹性 | 双对数模型 $\beta_{1}= \dfrac{dlnY}{dlnX}$；$\epsilon=\left(\dfrac{dY}{dX}\right)\left(\dfrac{X}{Y}\right)$ |
+| 16 | 均值 / 个别值预测 SE | $\hat{\sigma}\sqrt{\dfrac{1}{n}+ \dfrac{(X_{0}- \bar{X})^{2}}{Sxx}}$ / $\hat{\sigma}\sqrt{1+ \dfrac{1}{n}+ \dfrac{(X_{0}- \bar{X})^{2}}{Sxx}}$ |
+| 17 | VIF | $VIF_{j}= \dfrac{1}{1- R^{2}_{j}}$；$\operatorname{Var}(\hat{\beta}_{j})=\sigma^{2}/[Sxx_{j}(1- R^{2}_{j})]$；>10 严重 |
 | 18 | BP / White 检验 | $LM= n \cdot R^{2}_{aux} \sim \chi^{2}(df)$；$\chi^{2}_{0}._{05}(1)=3.84,(2)=5.99,(3)=7.81$ |
-| 19 | Goldfeld-Quandt | $F= \frac{SSE_{2}}{SSE_{1}}$（按可疑变量排序、去中间段） |
+| 19 | Goldfeld-Quandt | $F= \dfrac{SSE_{2}}{SSE_{1}}$（按可疑变量排序、去中间段） |
 | 20 | WLS | $\operatorname{Var}(u_{i})=\sigma^{2}w_{i}$ ⇒ 两边除 $\sqrt{w}_{i}$ 后 OLS |
 | 21 | 稳健标准误 | $HC0- HC3$ 修异方差；Newey-West(HAC) 同时修异方差与自相关 |
-| 22 | DW | $d= \frac{\sum(e_{t}- e_{t- 1})^{2}}{\sum e_{t}^{2}} \approx 2(1- \hat{\rho})$；d≈2 无自相关 |
+| 22 | DW | $d= \dfrac{\sum(e_{t}- e_{t- 1})^{2}}{\sum e_{t}^{2}} \approx 2(1- \hat{\rho})$；d≈2 无自相关 |
 | 23 | BG-LM | $(n- p)R^{2}_{aux} \sim \chi^{2}(p)$，可检高阶、允许滞后被解释变量 |
 | 24 | 广义差分 | $Y_{t}- \rho Y_{t- 1}= \beta_{0}(1- \rho)+\beta_{1}(X_{t}- \rho X_{t- 1})+v_{t}$ |
 | 25 | 2SLS | 第一阶段 $X=\Pi Z+v$ 得 X̂；第二阶段 `Y` 对 X̂ 回归 |
 | 26 | 弱工具判据 | 第一阶段 F < 10 提示弱工具；Hansen J 检验过度识别 |
 | 27 | 分布滞后 | $Y_{t}=\alpha+\sum \beta_{i}X_{t-i}+u_{t}$；长期乘数 $\sum \beta_{i}$ |
 | 28 | Koyck / 部分调整 | $Y_{t}=\alpha(1- \lambda)+\beta_{0}X_{t}+\lambda Y_{t- 1}+v_{t}$；长期乘数 $\beta_{0}/(1- \lambda)$ |
-| 29 | 平均滞后 | $\approx \frac{\lambda}{1- \lambda}$ |
-| 30 | Granger F | $F=\frac{\frac{SSE_{r}- SSE_{u}}{q}}{\frac{SSE_{u}}{n- k}}$ |
+| 29 | 平均滞后 | $\approx \dfrac{\lambda}{1- \lambda}$ |
+| 30 | Granger F | $F=\dfrac{\dfrac{SSE_{r}- SSE_{u}}{q}}{\dfrac{SSE_{u}}{n- k}}$ |
 | 31 | AR(1) 平稳 | $\vert \phi\vert <1$；$\phi=1$ 为单位根 |
 | 32 | ADF | $\Delta Y_{t}=\alpha+\beta t+\gamma Y_{t- 1}+\sum \delta_{i}\Delta Y_{t- i}+\epsilon_{t}$；$H_{0}: \gamma=0$，用 MacKinnon 临界值 |
 | 33 | 单整 | $Y \sim I(d)$ 表示差分 d 次平稳 |
@@ -1451,19 +1451,19 @@ $$
 | 35 | ECM | $\Delta Y_{t}=\alpha+\gamma \cdot ECM_{t- 1}+\sum \delta_{i}\Delta X_{t- i}+\epsilon_{t}$，$\gamma<0$ 为调整速度 |
 | 36 | 半衰期 | $\dfrac{\ln(0.5)}{\ln(1+\gamma)}$（γ<0 时） |
 | 37 | GARCH(1,1) | $\sigma^{2}_{t}=\omega+\alpha \epsilon^{2}_{t- 1}+\beta \sigma^{2}_{t- 1}$；$\alpha+\beta \approx 1$ 波动持久 |
-| 38 | 联立性偏误 | $\operatorname{Cov}(Y_{t},u_{t})\ne 0$ $\Rightarrow$ 有偏且不一致（乘数 $\frac{1}{1- \beta}$） |
+| 38 | 联立性偏误 | $\operatorname{Cov}(Y_{t},u_{t})\ne 0$ $\Rightarrow$ 有偏且不一致（乘数 $\dfrac{1}{1- \beta}$） |
 | 39 | 识别阶条件 | $K- k \ge g- 1$（排除的前定变量数 ≥ 方程内内生变量数 −1） |
 | 40 | 秩条件 | 被排除变量系数矩阵存在非零 $G- 1$ 阶行列式（充要） |
 | 41 | ILS / 2SLS | 恰好识别用 ILS；过度识别用 2SLS / LIML / GMM |
 | 42 | 面板设定 | $y_{it}=\alpha+\beta 'x_{it}+\mu_{i}+\lambda_{t}+\epsilon_{it}$ |
 | 43 | 组内变换 | $y_{it}- \bar{y}_{i}= \beta '(x_{it}- \bar{x}_{i})+(\epsilon_{it}- \bar{\epsilon}_{i})$，消去 μ_i |
-| 44 | RE 拟去均值 | $y_{it}- \theta \bar{y}_{i}$，$\theta=1- \frac{\sigma_\epsilon}{\sqrt{\sigma_\epsilon^{2}+T\sigma_\mu^{2}}}$ |
+| 44 | RE 拟去均值 | $y_{it}- \theta \bar{y}_{i}$，$\theta=1- \dfrac{\sigma_\epsilon}{\sqrt{\sigma_\epsilon^{2}+T\sigma_\mu^{2}}}$ |
 | 45 | Hausman | $H=(\hat{\beta}_{FE}- \hat{\beta}_{RE})'[\operatorname{Var}(\hat{\beta}_{FE})- \operatorname{Var}(\hat{\beta}_{RE})]^{-1}(\hat{\beta}_{FE}- \hat{\beta}_{RE}) \sim \chi^{2}(k)$ |
 | 46 | 例题数值 | `H=9.63>3.84` ⇒ 选 FE；`H=1.63<3.84` ⇒ 不拒绝 RE |
-| 47 | Logit | $P=\frac{1}{1+e^{- z}}$，$z=\beta 'X$；$ME_{j}=\beta_{j} P(1- P)$；$OR=e^{\beta_{j}}$ |
+| 47 | Logit | $P=\dfrac{1}{1+e^{- z}}$，$z=\beta 'X$；$ME_{j}=\beta_{j} P(1- P)$；$OR=e^{\beta_{j}}$ |
 | 48 | Probit | $P=\Phi(z)$；$ME_{j}=\beta_{j} \phi(z)$；$\phi(1)=0.2420$ |
 | 49 | 对数似然 | $lnL=\sum[y_{i} lnF(z_{i})+(1- y_{i})\ln(1- F(z_{i}))]$ |
-| 50 | LR 检验 / 伪 R² | $LR=2(lnL_{u}- lnL_{r}) \sim \chi^{2}(q)$；$McFadden R^{2}=1- \frac{lnL_{u}}{lnL_{r}}$ |
+| 50 | LR 检验 / 伪 R² | $LR=2(lnL_{u}- lnL_{r}) \sim \chi^{2}(q)$；$McFadden R^{2}=1- \dfrac{lnL_{u}}{lnL_{r}}$ |
 | 51 | Logit 例题 | $z=- 1+0.5x$：$x=4 \Rightarrow P=0.7311$，ME=0.0983，OR=1.649 |
 | 52 | 常用临界值 | z: 1.96(双侧5%)；t(3)=3.182；$\chi^{2}(1)=3.84$；$F(2,26) \approx 3.37$ |
 
@@ -1481,7 +1481,7 @@ $$
 9. 有效性只在「同类（线性无偏）」估计量内比较；有偏估计方差可以更小。
 10. $\operatorname{Var}(aX+b)=a^{2}\operatorname{Var}(X)$；常数项不影响方差但影响期望。
 11. 协方差为 0 只说明无**线性**相关，不能推出独立。
-12. t 分布来自 $\frac{Z}{\sqrt{\chi^{2} m}}$；F 来自两个独立 χ² 之比除以各自自由度。
+12. t 分布来自 $\dfrac{Z}{\sqrt{\chi^{2} m}}$；F 来自两个独立 χ² 之比除以各自自由度。
 13. $t^{2}(m)=F(1,m)$；大样本下 `Wald/LM/LR` 都渐近 $\chi^{2}(q)$。
 14. 95% 置信区间是「反复抽样区间覆盖真值的频率」，不是「真值有 95% 概率落在此区间」。
 15. 第一类错误概率 = α；第二类错误概率 = β，功效 $1- \beta$；α 与 β 此消彼长。
@@ -1490,7 +1490,7 @@ $$
 17. OLS 的「线性」指对**参数**线性，$Y=\beta_{0}+\beta_{1}X^{2}+u$ 仍属线性回归。
 18. 高斯-马尔可夫定理**不要求正态性**；正态性只用于小样本精确 t/F 推断。
 19. BLUE 的「最佳」限于线性无偏类，且 $A1- A6$ 任一被破坏结论即失效。
-20. $\hat{\sigma}^{2}= \frac{SSE}{n- k- 1}$ 的分母是自由度，不是 n；MLE 用 n 但有偏。
+20. $\hat{\sigma}^{2}= \dfrac{SSE}{n- k- 1}$ 的分母是自由度，不是 n；MLE 用 n 但有偏。
 21. `SST=SSR+SSE` 只在**含截距且用 OLS** 时成立，无截距模型不成立。
 22. 回归线必过 `(X̄, Ȳ)`；含截距时残差和为 0、残差与 X 不相关。
 23. $R^{2}$ 单调不减，不能跨不同被解释变量（线性 vs 对数）比较。
@@ -1512,13 +1512,13 @@ $$
 37. 异方差与自相关**不使系数有偏**，只毁掉标准误、t/F 与置信区间。
 38. 内生性（遗漏变量、反向因果、测量误差）才使系数**有偏且不一致**。
 39. 增大样本能救不一致之外的多数问题，但**救不了内生性**。
-40. VIF = $\frac{1}{1- R^{2}_{j}}$；VIF=10 意味着标准误约为 $\sqrt{10} \approx 3.16$ 倍。
+40. VIF = $\dfrac{1}{1- R^{2}_{j}}$；VIF=10 意味着标准误约为 $\sqrt{10} \approx 3.16$ 倍。
 41. 多重共线下**预测**在共线模式延续时仍可可靠，只是单个系数不可靠。
 42. 稳健标准误只修标准误，不修设定错误、不修内生性。
 43. 面板 / 分组数据要用**聚类稳健标准误**，仅用异方差稳健仍会低估。
 44. DW 只检一阶 AR(1)，且要求解释变量**不含被解释变量滞后项**、含截距、无缺失值。
 45. 含 $Y_{t- 1}$ 时 DW 偏向 2 易漏检，应改用 Durbin h 或 Breusch-Godfrey LM。
-46. DW 有「不可判定区」（d_L、d_U），不能只凭 d≈2 下结论。
+46. DW 有「不可判定区」（$d_L$、$d_U$），不能只凭 d≈2 下结论。
 47. $d=0.8 \to \hat{\rho}=0.6$；$d=2 \to \hat{\rho}=0$；$d=3.4 \to \hat{\rho}=- 0.7$。
 48. DW 偏低也可能是**遗漏滞后变量**造成的伪自相关，先查设定再修误差。
 49. 工具变量必须同时满足相关性与**排他性**（只通过 X 影响 Y）。
@@ -1547,13 +1547,13 @@ $$
 69. 识别阶条件只是**必要**条件，秩条件才是充要条件。
 70. 恰好识别可用 ILS；过度识别须用 2SLS / LIML / GMM。
 71. 2SLS 第二阶段标准误要用原始内生变量计算的残差修正，不能直接用拟合值。
-72. 简化式系数是总效应（含乘数 $\frac{1}{1- \beta}$），不等于结构系数。
+72. 简化式系数是总效应（含乘数 $\dfrac{1}{1- \beta}$），不等于结构系数。
 
 73. FE 用组内变换消去 μ_i，允许 $\operatorname{Cov}(\mu_{i},x)=0$，一致性更强。
 74. FE **不能估计**时不变变量的系数，但能控制它们的影响。
 75. RE 更有效的代价是强假定 $\operatorname{Cov}(\mu_{i},x)=0$，违反则不一致。
 76. Hausman 显著 ⇒ 拒绝 RE、选 FE；不显著只表示「证据不足」，不等于假定成立。
-77. 含滞后被解释变量的短面板 FE 有 **Nickell 偏误**（约 $- \frac{1}{T}$），须用系统 GMM。
+77. 含滞后被解释变量的短面板 FE 有 **Nickell 偏误**（约 $- \dfrac{1}{T}$），须用系统 GMM。
 78. 面板标准误必须按个体聚类；聚类数少时用 wild cluster bootstrap。
 79. 交错处理时点的 TWFE 在异质效应下可能偏误，需专用稳健估计量。
 

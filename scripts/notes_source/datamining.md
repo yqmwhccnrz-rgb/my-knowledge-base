@@ -238,7 +238,7 @@ print(df.loc[df['专业'] == 'CS', ['姓名', '成绩']])
 ```
 
 ::: tip 工作例题 · Series.std() 的 ddof
-`pd.Series([178,165,170]).std()` 用 **ddof=1**（除以 $n- 1=2$）：均值 171，偏差平方 49+36+1=86，86/2=43，√43≈**6.5574**。而 `numpy.std()` 默认 **ddof=0**（除以 n=3）得 $\sqrt{\frac{86}{3}} \approx 5.3541$。这是 pandas 与 numpy 最经典的数值差异。
+`pd.Series([178,165,170]).std()` 用 **ddof=1**（除以 $n- 1=2$）：均值 171，偏差平方 49+36+1=86，86/2=43，√43≈**6.5574**。而 `numpy.std()` 默认 **ddof=0**（除以 n=3）得 $\sqrt{\dfrac{86}{3}} \approx 5.3541$。这是 pandas 与 numpy 最经典的数值差异。
 :::
 
 ::: danger 易错 · Python 基础
@@ -273,14 +273,14 @@ print(df.loc[df['专业'] == 'CS', ['姓名', '成绩']])
 
 | 类别 | 统计量 | 公式 / 定义 | pandas 方法 |
 | --- | --- | --- | --- |
-| 集中趋势 | 均值 | x̄ = $\frac{\sum x_{i}}{n}$ | `mean()` |
+| 集中趋势 | 均值 | x̄ = $\dfrac{\sum x_{i}}{n}$ | `mean()` |
 | 集中趋势 | 中位数 | 排序后居中值（偶数取中间两数均值） | `median()` |
 | 集中趋势 | 众数 | 频数最高的取值 | `mode()` |
 | 离散程度 | 极差 | $\max- \min$ | `max()-min()` |
-| 离散程度 | 方差 | $s^{2}= \frac{\sum(x_{i}- \bar{x})^{2}}{n- 1}$ | `var()` |
-| 离散程度 | 标准差 | $s= \sqrt{s}^{2}$ | `std()` |
+| 离散程度 | 方差 | $s^{2}= \dfrac{\sum(x_{i}- \bar{x})^{2}}{n- 1}$ | `var()` |
+| 离散程度 | 标准差 | $s= \sqrt{s^{2}}$ | `std()` |
 | 离散程度 | 四分位距 | IQR = $Q3- Q1$ | `quantile(.75)-quantile(.25)` |
-| 离散程度 | 变异系数 | $CV = \frac{s}{x}$̄（无量纲，可跨量纲比较） | `std()/mean()` |
+| 离散程度 | 变异系数 | $CV = \dfrac{s}{\bar{x}}$（无量纲，可跨量纲比较） | `std()/mean()` |
 | 分布形态 | 偏度 | 三阶标准矩，右偏为正 | `skew()` |
 | 分布形态 | 峰度 | 四阶标准矩，尖峰厚尾为正 | `kurt()` |
 | 分位数 | Q1 / Q3 | 25% / 75% 分位 | `quantile([.25,.75])` |
@@ -298,9 +298,9 @@ print('IQR', x.quantile(.75) - x.quantile(.25), 'CV', round(x.std()/x.mean(), 4)
 ::: tip 工作例题 · 手算全过程（2, 4, 5, 7, 9）
 $\bar{x}=\dfrac{27}{5}=5.4$；中位数 **5**；
 偏差平方：$11.56+1.96+0.16+2.56+12.96=29.20$；
-样本方差 $s^{2}= \frac{29.20}{4}=7.30$（ddof=1）；$s= \sqrt{7.30}=2.7019$；
+样本方差 $s^{2}= \dfrac{29.20}{4}=7.30$（ddof=1）；$s= \sqrt{7.30}=2.7019$；
 Q1=4、$Q3=7 \to IQR=3$ 上界 $7+1.5 \times 3=11.5$，无异常值；
-$CV= \frac{2.7019}{5.4}=0.5003$。
+$CV= \dfrac{2.7019}{5.4}=0.5003$。
 :::
 
 ::: danger 易错 · 方差与偏度
@@ -416,13 +416,13 @@ print(pd.crosstab(df['性别'], df['专业'], normalize='index').round(2))
 | --- | --- | --- | --- | --- |
 | 正态 $N(\mu,\sigma^{2})$ | $\mu, \sigma^{2}$ | μ | σ² | 测量误差、连续变量 |
 | 标准正态 N(0,1) | — | 0 | 1 | Z 检验、置信区间 |
-| t(n) | 自由度 n | 0 (n&gt;1) | $\frac{n}{n- 2}$&gt;2) | 小样本、σ 未知 |
+| t(n) | 自由度 n | 0 (n&gt;1) | $\dfrac{n}{n- 2}$（n&gt;2 时存在） | 小样本、σ 未知 |
 | $\chi^{2}(k)$ | 自由度 k | k | 2k | 方差检验、拟合优度 |
-| $F(d_{1},d_{2})$ | 两个自由度 | $\frac{d_{2}}{d_{2}- 2}$ | — | 方差分析、回归整体检验 |
+| $F(d_{1},d_{2})$ | 两个自由度 | $\dfrac{d_{2}}{d_{2}- 2}$ | — | 方差分析、回归整体检验 |
 | 二项 B(n,p) | n, p | np | $np(1- p)$ | n 次独立试验成功次数 |
 | 泊松 $P(\lambda)$ | λ | λ | λ | 单位时间稀有事件计数 |
-| 均匀 U(a,b) | a, b | (a+b)/2 | $\frac{(b- a)^{2}}{12}$ | 随机数生成基础 |
-| 指数 $Exp(\lambda)$ | λ | 1/λ | $\frac{1}{\lambda}^{2}$ | 等待时间、寿命 |
+| 均匀 U(a,b) | a, b | (a+b)/2 | $\dfrac{(b- a)^{2}}{12}$ | 随机数生成基础 |
+| 指数 $Exp(\lambda)$ | λ | 1/λ | $\dfrac{1}{\lambda}^{2}$ | 等待时间、寿命 |
 
 ```python
 import numpy as np
@@ -443,7 +443,7 @@ print(rng.poisson(lam=2, size=5))        # 泊松；E=Var=2
 
 ### 3.2 随机模拟及其应用（蒙特卡罗）
 
-**蒙特卡罗（Monte Carlo）模拟**：以概率统计理论为基础，用大量随机抽样近似求解难以解析计算的问题。四步：① 建立概率模型 → ② 按分布生成随机数 → ③ 重复 N 次试验 → ④ 用频率近似概率 / 用样本均值近似期望。理论依据是**大数定律**（频率收敛于概率）与中心极限定理（误差约 $O\left(\frac{1}{\sqrt{N}}\right)$）。
+**蒙特卡罗（Monte Carlo）模拟**：以概率统计理论为基础，用大量随机抽样近似求解难以解析计算的问题。四步：① 建立概率模型 → ② 按分布生成随机数 → ③ 重复 N 次试验 → ④ 用频率近似概率 / 用样本均值近似期望。理论依据是**大数定律**（频率收敛于概率）与中心极限定理（误差约 $O\left(\dfrac{1}{\sqrt{N}}\right)$）。
 
 ```python
 import numpy as np
@@ -456,7 +456,7 @@ print(f'π ≈ {pi_hat:.4f}, 绝对误差 {abs(pi_hat - np.pi):.4f}')
 ```
 
 ::: tip 工作例题 · 投针估算 π
-单位正方形内四分之一圆面积占比 = $\frac{\pi}{4}$，故 π ≈ 4×(落入圆内点数/N)。以 seed=42、N=100000 的古典伪随机数实算约 **3.1373**（误差约 0.004）；把 N 提高 100 倍，误差约缩小 10 倍，这正是 $O\left(\frac{1}{\sqrt{N}}\right)$ 收敛速度。
+单位正方形内四分之一圆面积占比 = $\dfrac{\pi}{4}$，故 π ≈ 4×(落入圆内点数/N)。以 seed=42、N=100000 的古典伪随机数实算约 **3.1373**（误差约 0.004）；把 N 提高 100 倍，误差约缩小 10 倍，这正是 $O\left(\dfrac{1}{\sqrt{N}}\right)$ 收敛速度。
 :::
 
 ::: tip 模拟的常见用途
@@ -503,7 +503,7 @@ print(f'95% CI = [{xbar - tcrit*se:.3f}, {xbar + tcrit*se:.3f}]')
 
 ::: tip 工作例题 · 单样本 t 检验
 n=16，x̄=52，s=4，检验 $H_{0}: \mu=50$（$\alpha=0.05$，双侧）。
-$t= \frac{52- 50}{\frac{4}{\sqrt{16}}}=2.00$，df=15，临界值 t0.025(15)=**2.131**。
+$t= \dfrac{52- 50}{\dfrac{4}{\sqrt{16}}}=2.00$，df=15，临界值 t0.025(15)=**2.131**。
 因 |t| &lt; 2.131（p &gt; 0.05）→ **不拒绝 H0**；95% 置信区间 **[49.869, 54.131]** 包含 50，结论一致。
 :::
 
@@ -532,12 +532,12 @@ $t= \frac{52- 50}{\frac{4}{\sqrt{16}}}=2.00$，df=15，临界值 t0.025(15)=**2.
 模型 $y= \beta_{0}+ \beta_{1}x+ \epsilon$，最小二乘解：
 
 $$
-\begin{gathered}
-\hat{\beta}_{1}= \frac{\sum(x_{i}-\bar{x})(y_{i}-\bar{y})}{\sum(x_{i}-\bar{x})^{2}}= \frac{Sxy}{Sxx} \\
-\hat{\beta}_{0}= \bar{y}- \hat{\beta}_{1} \cdot \bar{x} \\
-\hat{y}_{i}= \hat{\beta}_{0}+ \hat{\beta}_{1}x_{i}; e_{i}= y_{i}- \hat{y}_{i} \\
-R^{2}= 1- \frac{SSE}{SST}= \frac{SSR}{SST}
-\end{gathered}
+\begin{aligned}
+&\hat{\beta}_{1}= \frac{\sum(x_{i}-\bar{x})(y_{i}-\bar{y})}{\sum(x_{i}-\bar{x})^{2}}= \frac{Sxy}{Sxx} \\
+&\hat{\beta}_{0}= \bar{y}- \hat{\beta}_{1} \cdot \bar{x} \\
+&\hat{y}_{i}= \hat{\beta}_{0}+ \hat{\beta}_{1}x_{i}; e_{i}= y_{i}- \hat{y}_{i} \\
+&R^{2}= 1- \frac{SSE}{SST}= \frac{SSR}{SST}
+\end{aligned}
 $$
 
 ```python
@@ -561,7 +561,7 @@ print('拟合值', fit, ' x=6 预测', b0 + b1*6)
 ::: tip 工作例题 · 完整手算
 x=[1,2,3,4,5]、y=[2,4,5,7,9]：x̄=3、ȳ=5.4，Sxx=10、Sxy=17 → **β̂1=1.7、β̂0=0.3**，即 ŷ=0.3+1.7x。
 拟合值 [2.0, 3.7, 5.4, 7.1, 8.8]、残差 [0, 0.3, −0.4, −0.1, 0.2]；
-SSE=0.30、SST=29.20 → $R^{2}=0.989726$；$se(\hat{\beta}_{1})=\sqrt{\frac{\frac{0.30}{3}}{10}}=0.1$ **t=17**（极显著）。
+SSE=0.30、SST=29.20 → $R^{2}=0.989726$；$se(\hat{\beta}_{1})=\sqrt{\dfrac{\dfrac{0.30}{3}}{10}}=0.1$ **t=17**（极显著）。
 x=6 时 ŷ=**10.5**，但已超出样本范围，属**外推**，需谨慎。
 :::
 
@@ -590,17 +590,17 @@ print(fm.predict(pd.DataFrame({'x': [6, 7]})))   # 对新数据预测
 | --- | --- | --- |
 | 总体分布 | 全体个体的取值分布 | $X \sim(\mu, \sigma^{2})$ |
 | 样本分布 | 一次抽样的 n 个观测的直方图 | 近似总体形状 |
-| 抽样分布 | 统计量（如 x̄）在反复抽样下的分布 | x̄ ~ $N(\mu, \sigma^{2} n)$ |
+| 抽样分布 | 统计量（如 x̄）在反复抽样下的分布 | x̄ ~ $N(\mu, \sigma^{2}/n)$ |
 
-**标准误** $SE= \frac{\sigma}{\sqrt{n}}$（σ 未知时用 s 估计）。中心极限定理保证 n 足够大时 x̄ 近似正态，与总体分布形状无关；这就是 t 检验/置信区间的理论依据。
+**标准误** $SE= \dfrac{\sigma}{\sqrt{n}}$（σ 未知时用 s 估计）。中心极限定理保证 n 足够大时 x̄ 近似正态，与总体分布形状无关；这就是 t 检验/置信区间的理论依据。
 
 ::: tip 工作例题 · 标准误与样本量
-总体 $\sigma=10$、$n=25 \to SE= \frac{10}{5}=2$；若 n 提高到 $100 \to SE=1$，精度提升 2 倍。要把标准误减半，样本量须**翻 4 倍**（$SE \propto \frac{1}{\sqrt{n}}$），这是样本量估算的核心权衡。
+总体 $\sigma=10$、$n=25 \to SE= \dfrac{10}{5}=2$；若 n 提高到 $100 \to SE=1$，精度提升 2 倍。要把标准误减半，样本量须**翻 4 倍**（$SE \propto \dfrac{1}{\sqrt{n}}$），这是样本量估算的核心权衡。
 :::
 
 ### 3.5 检验功效、效应量与样本量
 
-`功效 = 1 − β = P(拒绝 H0 | H0 为假)`。影响功效的四要素：α 越大、真实效应 θ 越大、标准误越小（n 越大）、单侧检验 → 功效越高。
+$\text{功效}=1-\beta=P(\text{拒绝 }H_0\mid H_0\text{ 为假})$。影响功效的四要素：α 越大、真实效应 θ 越大、标准误越小（n 越大）、单侧检验 → 功效越高。
 
 ```python
 import math
@@ -615,7 +615,7 @@ $\alpha=0.05$ 双侧（临界值 1.96），真实效应 θ=2、se=1 → 功效 �
 :::
 
 ::: tip 效应量
-$Cohen's d= \frac{\bar{x}- \mu_{0}}{s}$ 衡量差异**大小**，不受 n 影响；置信区间同时给出方向与精度。论文与考试都应「p 值 + 效应量 + 置信区间」三者一起报告。
+$Cohen's d= \dfrac{\bar{x}- \mu_{0}}{s}$ 衡量差异**大小**，不受 n 影响；置信区间同时给出方向与精度。论文与考试都应「p 值 + 效应量 + 置信区间」三者一起报告。
 :::
 
 ---
@@ -630,14 +630,14 @@ $Cohen's d= \frac{\bar{x}- \mu_{0}}{s}$ 衡量差异**大小**，不受 n 影响
 
 ![多元相关分析与散点图判读](/dm/dm-correlation.svg)
 
-协方差 $\operatorname{Cov}(X,Y)=\frac{\sum(x_{i}- \bar{x})(y_{i}- \bar{y})}{n- 1}$ 带量纲、无法横向比较，故标准化为 **Pearson 相关系数**：
+协方差 $\operatorname{Cov}(X,Y)=\dfrac{\sum(x_{i}- \bar{x})(y_{i}- \bar{y})}{n- 1}$ 带量纲、无法横向比较，故标准化为 **Pearson 相关系数**：
 
 $$
-\begin{gathered}
-r= \frac{\operatorname{Cov}(X,Y)}{s_{x} \cdot s_{y}}= \frac{\sum(x_{i}- \bar{x})(y_{i}- \bar{y})}{\sqrt{\sum(x_{i}- \bar{x})^{2} \cdot \sum(y_{i}- \bar{y})^{2}}} \\
-\text{取值范围} \; [- 1, 1] \; \text{；} \; \text{|r|} \; \text{越大线性相关越强} \\
-\text{检验} \; H_{0}: \rho=0 \; \text{用} \; t= r \cdot \sqrt{\frac{n- 2}{1- r^{2}}} \; \text{，} \; df= n- 2
-\end{gathered}
+\begin{aligned}
+&r= \frac{\operatorname{Cov}(X,Y)}{s_{x} \cdot s_{y}}= \frac{\sum(x_{i}- \bar{x})(y_{i}- \bar{y})}{\sqrt{\sum(x_{i}- \bar{x})^{2} \cdot \sum(y_{i}- \bar{y})^{2}}} \\
+&\text{取值范围} \; [- 1, 1] \; \text{；} \; \text{|r|} \; \text{越大线性相关越强} \\
+&\text{检验} \; H_{0}: \rho=0 \; \text{用} \; t= r \cdot \sqrt{\frac{n- 2}{1- r^{2}}} \; \text{，} \; df= n- 2
+\end{aligned}
 $$
 
 ```python
@@ -657,8 +657,8 @@ print(f't = {t:.3f}, df = {n-2}')        # t = 3.182, df = 18
 ```
 
 ::: tip 工作例题 · 相关系数检验
-n=20、$r=0.6 \to t= 0.6 \times \sqrt{\frac{18}{0.64}}= 0.6 \times 5.3033=3.182$，df=18，临界值 2.101 → **相关显著**。
-注意：显著性强烈依赖 $n-- n=10$ 时同样的 r=0.6 得 $t=0.6 \times \sqrt{\frac{8}{0.64}}=2.121$，df=8 临界值 2.306，就不显著了。
+n=20、$r=0.6 \to t= 0.6 \times \sqrt{\dfrac{18}{0.64}}= 0.6 \times 5.3033=3.182$，df=18，临界值 2.101 → **相关显著**。
+注意：显著性强烈依赖 $n-- n=10$ 时同样的 r=0.6 得 $t=0.6 \times \sqrt{\dfrac{8}{0.64}}=2.121$，df=8 临界值 2.306，就不显著了。
 :::
 
 | r 的绝对值 | 常用描述 | 注意事项 |
@@ -675,7 +675,7 @@ n=20、$r=0.6 \to t= 0.6 \times \sqrt{\frac{18}{0.64}}= 0.6 \times 5.3033=3.182$
 :::
 
 ::: tip 多重共线性诊断
-$VIF_{j}= \frac{1}{1- R_{j}^{2}}$，其中 Rj² 是用其余自变量回归 Xj 的决定系数。经验阈值：VIF &gt; 5 需警惕，VIF &gt; 10 视为严重。例：某自变量与其他变量的相关达 0.95 → VIF≈**10.26**；r=0.9 → VIF≈**5.26**。处理方式：剔除冗余变量、增大样本、岭回归 / 主成分回归。
+$VIF_{j}= \dfrac{1}{1- R_{j}^{2}}$，其中 Rj² 是用其余自变量回归 Xj 的决定系数。经验阈值：VIF &gt; 5 需警惕，VIF &gt; 10 视为严重。例：某自变量与其他变量的相关达 0.95 → VIF≈**10.26**；r=0.9 → VIF≈**5.26**。处理方式：剔除冗余变量、增大样本、岭回归 / 主成分回归。
 :::
 
 #### 4.1.2 多元线性回归：估计、检验与评判
@@ -703,14 +703,14 @@ print('β̂', beta.round(3), 'R²', round(R2, 4), '调整R²', round(adj_R2, 4),
 
 | 层次 | 假设 | 统计量 | 判定 |
 | --- | --- | --- | --- |
-| 整体显著 | $H_{0}: \beta_{1}= \cdots=\beta_{k}=0$ | $F= \frac{\frac{SSR}{k}}{\frac{SSE}{n- k- 1}}$ ~ F(k, n−k−1) | F 大 / p 小 → 模型整体有用 |
-| 单个系数 | $H_{0}: \beta_{j}=0$ | $t= \frac{\hat{\beta}_{j}}{se(\hat{\beta}_{j})}$，$df=n- k- 1$ | 逐个判断变量必要性 |
+| 整体显著 | $H_{0}: \beta_{1}= \cdots=\beta_{k}=0$ | $F= \dfrac{\dfrac{SSR}{k}}{\dfrac{SSE}{n- k- 1}}$ ~ F(k, n−k−1) | F 大 / p 小 → 模型整体有用 |
+| 单个系数 | $H_{0}: \beta_{j}=0$ | $t= \dfrac{\hat{\beta}_{j}}{se(\hat{\beta}_{j})}$，$df=n- k- 1$ | 逐个判断变量必要性 |
 | 拟合优度 | — | R²、调整 R²、AIC/BIC、残差标准误 | 越接近 1（或越小）越好 |
 
 ::: tip 工作例题 · 数值演算（$n=30, k=3, R^{2}=0.86$）
-- 调整 $R^{2}= 1-(1- 0.86) \times\left(\frac{29}{26}\right)= 1- 0.15615=0.8438$；
-- 整体 $F= \frac{\frac{0.86}{3}}{\frac{0.14}{26}}= \frac{0.28667}{0.0053846}=53.24$（远大于临界值，模型整体显著）；
-- 若约束 q=2 个系数后受限模型 $R^{2}=0.62$，则 $F= \frac{\frac{0.86- 0.62}{2}}{\frac{0.14}{26}}= \frac{0.12}{0.0053846}=22.29$，拒绝约束。
+- 调整 $R^{2}= 1-(1- 0.86) \times\left(\dfrac{29}{26}\right)= 1- 0.15615=0.8438$；
+- 整体 $F= \dfrac{\dfrac{0.86}{3}}{\dfrac{0.14}{26}}= \dfrac{0.28667}{0.0053846}=53.24$（远大于临界值，模型整体显著）；
+- 若约束 q=2 个系数后受限模型 $R^{2}=0.62$，则 $F= \dfrac{\dfrac{0.86- 0.62}{2}}{\dfrac{0.14}{26}}= \dfrac{0.12}{0.0053846}=22.29$，拒绝约束。
 :::
 
 ```python
@@ -740,12 +740,12 @@ print('R²', m.rsquared, '调整R²', m.rsquared_adj, 'F', m.fvalue, 'AIC', m.ai
 构建原则：**目的性、全面性、可测性、独立性、层次性**（目标层 → 准则层 → 指标层）。核心难点是把不同量纲、不同方向的指标变成可加的分数。
 
 $$
-\begin{gathered}
-\text{正向指标（越大越好）：} \; z= \frac{x- \min}{\max- \min} \\
-\text{负向指标（越小越好）：} \; z= \frac{\max- x}{\max- \min} \\
-\text{标准分数法：} \; z= \frac{x- \bar{x}}{s} \\
-\text{适度指标（越接近某值越好）：} \; z= 1-|x- x*| \max|x- x*|
-\end{gathered}
+\begin{aligned}
+&\text{正向指标（越大越好）：} \; z= \frac{x- \min}{\max- \min} \\
+&\text{负向指标（越小越好）：} \; z= \frac{\max- x}{\max- \min} \\
+&\text{标准分数法：} \; z= \frac{x- \bar{x}}{s} \\
+&\text{适度指标（越接近某值越好）：} \; z= 1- \dfrac{|x- x*|}{\max|x- x*|}
+\end{aligned}
 $$
 
 ::: danger 易错 · 指标方向
@@ -758,7 +758,7 @@ $$
 | --- | --- | --- | --- |
 | 德尔菲法 | 主观 | 多轮匿名专家打分、反馈直至收敛，用均值/中位数定权 | 能纳入经验；耗时、主观 |
 | 层次分析法 AHP | 主观 | 1–9 标度建判断矩阵，求 $\lambda \max$ 与特征向量 | 结构清晰；须通过一致性检验 |
-| 变异系数法 | 客观 | $CV_{j}= \frac{s_{j}}{\bar{x}_{j}}$，$w_{j}= \frac{CV_{j}}{\sum CV_{j}}$ | 区分度大的指标权重大；依赖样本 |
+| 变异系数法 | 客观 | $CV_{j}= \dfrac{s_{j}}{\bar{x}_{j}}$，$w_{j}= \dfrac{CV_{j}}{\sum CV_{j}}$ | 区分度大的指标权重大；依赖样本 |
 | 熵权法 | 客观 | 信息熵越小（离散度越大）权重越大 | 完全由数据驱动 |
 | CRITIC | 客观 | 对比强度（标准差）× 冲突性（1−相关系数） | 兼顾信息量与独立性 |
 | 组合赋权 | 混合 | 主客观权重线性/乘法合成 | 平衡专家经验与数据 |
@@ -784,27 +784,27 @@ print(f'λmax={lam:.4f}, CI={CI:.4f}, CR={CR:.4f}', '通过一致性检验' if C
 ```
 
 ::: tip AHP 判定规则
-$CI= \frac{\lambda \max- n}{n- 1}$，$CR= \frac{CI}{RI(n)}$。仅当 **CR &lt; 0.1** 时判断矩阵一致性可接受，权重才可用；否则须重新调整两两比较标度。RI 查表：$n=3 \to 0.58$、$4 \to 0.90$、$5 \to 1.12$。
+$CI= \dfrac{\lambda \max- n}{n- 1}$，$CR= \dfrac{CI}{RI(n)}$。仅当 **CR &lt; 0.1** 时判断矩阵一致性可接受，权重才可用；否则须重新调整两两比较标度。RI 查表：$n=3 \to 0.58$、$4 \to 0.90$、$5 \to 1.12$。
 :::
 
 #### 4.2.3 两种综合评分法（工作例题）
 
 $$
-\begin{gathered}
-\text{简单平均法（隐含等权）：} \; S= \frac{z_{1}+ z_{2}+ \cdots+ z_{p}}{p} \\
-\text{加权综合评分法：} \; S= \sum w_{j} \cdot z_{j}
-\end{gathered}
+\begin{aligned}
+&\text{简单平均法（隐含等权）：} \; S= \frac{z_{1}+ z_{2}+ \cdots+ z_{p}}{p} \\
+&\text{加权综合评分法：} \; S= \sum w_{j} \cdot z_{j}
+\end{aligned}
 $$
 
 ::: tip 工作例题
 某单位三个指标标准化得分 z=(0.8, 0.6, 0.4)：
-- 等权简单平均：$S= \frac{1.8}{3}=0.60$；
+- 等权简单平均：$S= \dfrac{1.8}{3}=0.60$；
 - 权重 $w=(0.5,\,0.3,\,0.2)$：$S=0.4+0.18+0.08=0.66$。
 同一对象因权重不同而排名可能变化，故必须做**敏感性分析**并公开权重来源。
 :::
 
 ::: tip TOPSIS 逼近理想解排序法
-构造正理想解 Z+（各指标最优）与负理想解 Z-，计算每个对象到二者的加权欧氏距离 $D^{+}, D^{-}$，贴近度 $C= \frac{D^{-}}{D^{+}+D^{-}}$，C 越大越优。相比加权求和，TOPSIS 利用了指标空间的距离信息，对「单项突出但其他项很差」的对象更敏感。完整算例见 4.5 节。
+构造正理想解 Z+（各指标最优）与负理想解 Z-，计算每个对象到二者的加权欧氏距离 $D^{+}, D^{-}$，贴近度 $C= \dfrac{D^{-}}{D^{+}+D^{-}}$，C 越大越优。相比加权求和，TOPSIS 利用了指标空间的距离信息，对「单项突出但其他项很差」的对象更敏感。完整算例见 4.5 节。
 :::
 
 ### 4.3 主成分分析 PCA（★★★）
@@ -816,14 +816,14 @@ $$
 把 p 个**彼此相关**的原始变量 $X_{1}, \cdots,X_{p}$ 作正交变换，得到互不相关的综合变量 $F_{1}, \cdots,F_{p}$：
 
 $$
-\begin{gathered}
-F_{j}= a_{j1}X_{1}+ a_{j2}X_{2}+ \cdots+ a_{jp}X_{p} \\
-\text{约束：} \; (1) \operatorname{Cov}(F_{i}, F_{j})=0(i=j) \; \text{；} \; (2) a_{j} \; \text{为单位向量；} \; (3) \operatorname{Var}(F_{1}) \ge \operatorname{Var}(F_{2}) \ge \cdots \\
-\text{求解：对标准化后的相关矩阵} \; \text{R} \; \text{求特征值} \; \lambda_{j} \; \text{与单位特征向量} \; a_{j} \\
-\operatorname{Var}(F_{j})=\lambda_{j} \; \text{，且} \; \sum \lambda_{j}= p \; \text{（标准化后）} \\
-\text{方差贡献率} \; = \lambda_{j} \sum \lambda_{i} \; \text{；累计贡献率} \; = \frac{\lambda_{1}+ \cdots+\lambda_{m}}{\sum} \lambda_{i} \\
-\text{载荷} \; = a_{ji} \cdot \sqrt{\lambda}_{j} \; \text{（用于解释主成分的实际含义）}
-\end{gathered}
+\begin{aligned}
+&F_{j}= a_{j1}X_{1}+ a_{j2}X_{2}+ \cdots+ a_{jp}X_{p} \\
+&\text{约束：} \; (1) \operatorname{Cov}(F_{i}, F_{j})=0(i\ne j) \; \text{；} \; (2) a_{j} \; \text{为单位向量；} \; (3) \operatorname{Var}(F_{1}) \ge \operatorname{Var}(F_{2}) \ge \cdots \\
+&\text{求解：对标准化后的相关矩阵} \; \text{R} \; \text{求特征值} \; \lambda_{j} \; \text{与单位特征向量} \; a_{j} \\
+&\operatorname{Var}(F_{j})=\lambda_{j} \; \text{，且} \; \sum \lambda_{j}= p \; \text{（标准化后）} \\
+&\text{方差贡献率} \; = \dfrac{\lambda_{j}}{\sum \lambda_{i}} \; \text{；累计贡献率} \; = \dfrac{\lambda_{1}+ \cdots+\lambda_{m}}{\sum \lambda_{i}} \\
+&\text{载荷} \; = a_{ji} \cdot \sqrt{\lambda}_{j} \; \text{（用于解释主成分的实际含义）}
+\end{aligned}
 $$
 
 **几何解释**：找到数据方差最大的方向作第一主轴，再在与已选轴正交的方向上依次找次大方差方向。降维即保留前 m 个主轴、丢弃方差小的方向。
@@ -857,7 +857,7 @@ print('主成分得分\n', score.round(3))
 ::: tip 工作例题 · 贡献率手算
 p=4 个变量，特征值 $\lambda=(2.4, 0.9, 0.5, 0.2)$，$\sum \lambda=4.0$：
 贡献率依次为 **60%、22.5%、12.5%、5%**；前两个累计 $82.5\% \ge 80\%$ → 取 m=2。
-综合得分若按归一化权重：$F=\left(\frac{60}{82.5}\right)F_{1}+\left(\frac{22.5}{82.5}\right)F_{2}$ $0.727F_{1}+ 0.273F_{2}$；
+综合得分若按归一化权重：$F=\left(\dfrac{60}{82.5}\right)F_{1}+\left(\dfrac{22.5}{82.5}\right)F_{2}$ $0.727F_{1}+ 0.273F_{2}$；
 若直接用贡献率加权则为 $F= 0.60F_{1}+ 0.225F_{2}$。两种写法须**明确说明**并前后一致。
 :::
 
@@ -879,9 +879,9 @@ p=4 个变量，特征值 $\lambda=(2.4, 0.9, 0.5, 0.2)$，$\sum \lambda=4.0$：
 
 | 类别 | 度量 | 公式 / 说明 | 值域含义 |
 | --- | --- | --- | --- |
-| 距离（Q 型，样品间） | 欧氏 | $d= \sqrt{\sum}(x_{i}- y_{i})^{2}$ | 越小越相似 |
+| 距离（Q 型，样品间） | 欧氏 | $d= \sqrt{\sum(x_{i}- y_{i})^{2}}$ | 越小越相似 |
 | 距离 | 曼哈顿 | $d= \sum\vert x_{i}- y_{i}\vert $ | 对异常值较稳健 |
-| 距离 | 闵可夫斯基 | $d=\left(\sum\vert x_{i}- y_{i}\vert ^p\right)^{\frac{1}{p}}$ | p=1 曼哈顿、p=2 欧氏 |
+| 距离 | 闵可夫斯基 | $d=\left(\sum\vert x_{i}- y_{i}\vert ^p\right)^{\dfrac{1}{p}}$ | p=1 曼哈顿、p=2 欧氏 |
 | 距离 | 马氏 | $d= \sqrt{(x- y)^{T} S^{-1}(x- y)}$ | 消除量纲与变量相关 |
 | 相似系数（R 型，变量间） | 夹角余弦 | $\cos\theta=\dfrac{X\cdot Y}{\lvert X\rvert\cdot\lvert Y\rvert}$ | 越大越相似 |
 | 相似系数 | Pearson r | 线性相关程度 | 越大越相似 |
@@ -941,8 +941,8 @@ $$
 
 ::: tip 工作例题 · 验证
 沿用 $x=[1..5],\,y=[2,4,5,7,9]$：$S_{xx}=10$、$S_{yy}=29.20$、$S_{xy}=17$
-→ $r= \frac{17}{\sqrt{10 \times 29.2}}= \frac{17}{17.088}=0.99485$，$r^{2}=0.989726$；
-而 3.3.2 手算 $R^{2}= 1- \frac{0.30}{29.20}=0.989726$，两者完全一致。
+→ $r= \dfrac{17}{\sqrt{10 \times 29.2}}= \dfrac{17}{17.088}=0.99485$，$r^{2}=0.989726$；
+而 3.3.2 手算 $R^{2}= 1- \dfrac{0.30}{29.20}=0.989726$，两者完全一致。
 这也说明：一元线性回归的 F 检验与相关系数 t 检验等价（$F= t^{2}$）。
 :::
 
@@ -955,11 +955,11 @@ $$
 OLS 遇到严重共线时系数方差被放大、极不稳定。正则化在损失函数中加惩罚项：
 
 $$
-\begin{gathered}
-\text{岭回归} \; \text{(L2)} \; \text{：} \; \min \sum(y- X\beta)^{2}+ \lambda \cdot \sum \beta_{j}^{2} \to \; \text{系数缩小但不为} \; \text{0} \; \text{，稳住共线} \\
-\text{Lasso  (L1)} \; \text{：} \; \min \sum(y- X\beta)^{2}+ \lambda \cdot \sum|\beta_{j}| \to \; \text{部分系数恰为} \; \text{0} \; \text{，可自动选变量} \\
-\text{弹性网：} \; \text{L1 + L2} \; \text{折中。} \; \lambda \; \text{由交叉验证选；使用前必须标准化自变量。}
-\end{gathered}
+\begin{aligned}
+&\text{岭回归} \; \text{(L2)} \; \text{：} \; \min \sum(y- X\beta)^{2}+ \lambda \cdot \sum \beta_{j}^{2} \to \; \text{系数缩小但不为} \; \text{0} \; \text{，稳住共线} \\
+&\text{Lasso  (L1)} \; \text{：} \; \min \sum(y- X\beta)^{2}+ \lambda \cdot \sum|\beta_{j}| \to \; \text{部分系数恰为} \; \text{0} \; \text{，可自动选变量} \\
+&\text{弹性网：} \; \text{L1 + L2} \; \text{折中。} \; \lambda \; \text{由交叉验证选；使用前必须标准化自变量。}
+\end{aligned}
 $$
 
 ```python
@@ -979,7 +979,7 @@ for lam in (0.1, 1.0, 10.0):
 
 ### 4.7 熵权法与 TOPSIS 完整计算
 
-**熵权法**：先按列归一化 $p_{ij}= \frac{z_{ij}}{\sum}_{i}z_{ij}$，再算熵 $e_{j}=- \sum_{i}\frac{p_{ij} \cdot \ln(p_{ij})}{\ln}(n)$，差异系数 $g_{j}= 1- e_{j}$，权重 $w_{j}= \frac{g_{j}}{\sum g_{j}}$。熵越小（该指标取值越分散）权重越大。
+**熵权法**：先按列归一化 $p_{ij}= \dfrac{z_{ij}}{\sum_{i}z_{ij}}$，再算熵 $e_{j}=- \dfrac{\sum_{i}p_{ij} \cdot \ln(p_{ij})}{\ln(n)}$，差异系数 $g_{j}= 1- e_{j}$，权重 $w_{j}= \dfrac{g_{j}}{\sum g_{j}}$。熵越小（该指标取值越分散）权重越大。
 
 ::: tip 工作例题 · 两种客观赋权对照（3 对象 × 3 指标）
 标准化矩阵 Z = [[0.8,0.6,0.4],[0.5,0.9,0.7],[0.2,0.3,1.0]]：
@@ -988,7 +988,7 @@ for lam in (0.1, 1.0, 10.0):
 两种方法都让「指标 1」权重最高，但数值不同 → 客观赋权也**不是唯一的**，须说明方法。
 :::
 
-**TOPSIS**：正理想解 Z+（各列最大）、负理想解 Z-（各列最小），加权距离 $D^{+}= \sqrt{\sum} w_{j}(z_{j}- z^{+}_{j})^{2}$、$D^{-}= \sqrt{\sum} w_{j}(z_{j}- z^{-}_{j})^{2}$，贴近度 $C= \frac{D^{-}}{D^{+}+D^{-}}$。
+**TOPSIS**：正理想解 Z+（各列最大）、负理想解 Z-（各列最小），加权距离 $D^{+}= \sqrt{\sum w_{j}(z_{j}- z^{+}_{j})^{2}}$、$D^{-}= \sqrt{\sum w_{j}(z_{j}- z^{-}_{j})^{2}}$，贴近度 $C= \dfrac{D^{-}}{D^{+}+D^{-}}$。
 
 ::: tip 工作例题 · TOPSIS
 Z = [[1.0,0.2],[0.6,0.8],[0.2,1.0]]、$w=(0.5,0.5) \to Z^{+}=(1,1)$、$Z^{-}=(0.2,0.2)$：
@@ -1027,7 +1027,7 @@ Z = [[1.0,0.2],[0.6,0.8],[0.2,1.0]]、$w=(0.5,0.5) \to Z^{+}=(1,1)$、$Z^{-}=(0.
 **严平稳**：任意时间平移后联合分布不变；**宽平稳**（实际常用）：均值恒定、方差恒定、自协方差只依赖滞后阶数 k 而与时间 t 无关。
 
 $$
-\text{白噪声} \; u_{t} \; \text{：} \; E(u_{t})=0, \operatorname{Var}(u_{t})=\sigma^{2}, \operatorname{Cov}(u_{t}, u_{s})=0(t=s) \; \text{，常记作} \; u_{t} \sim N(0, \sigma^{2})
+\text{白噪声} \; u_{t} \; \text{：} \; E(u_{t})=0, \operatorname{Var}(u_{t})=\sigma^{2}, \operatorname{Cov}(u_{t}, u_{s})=0(t\ne s) \; \text{，常记作} \; u_{t} \sim N(0, \sigma^{2})
 $$
 
 ::: danger 易错 · 平稳性
@@ -1058,8 +1058,8 @@ print(simple_ret.round(4).tolist())
 ```
 
 ::: tip 工作例题 · 收益率
-价格 $100 \to 102$：简单收益率 2/100 = **0.0200**；$102 \to 101$：$\frac{101- 102}{102}$ $- 0.0098$；
-对数收益率 $\ln\left(\frac{101}{102}\right) \approx- 0.00985$。对数收益率可跨期相加、近似对称，金融建模更常用。
+价格 $100 \to 102$：简单收益率 2/100 = **0.0200**；$102 \to 101$：$\dfrac{101- 102}{102}= - 0.0098$；
+对数收益率 $\ln\left(\dfrac{101}{102}\right) \approx- 0.00985$。对数收益率可跨期相加、近似对称，金融建模更常用。
 :::
 
 #### 5.1.2 差分与平稳化
@@ -1085,16 +1085,16 @@ print('原序列', price.tolist(), '一阶差分', d1.tolist())
 | 模型 | 表达式 | 适用 |
 | --- | --- | --- |
 | AR(p) 自回归 | $y_{t}= \phi_{1}y_{t-1}+ \cdots+ \phi_{p}y_{t-p}+ u_{t}$ | 平稳，历史值影响当前 |
-| MA(q) 移动平均 | $y_{t}= u_{t}+ \theta_{1}u_{t-1}+ \cdots+ \theta_{q} u_{t-}q$ | 平稳，历史冲击影响当前 |
+| MA(q) 移动平均 | $y_{t}= u_{t}+ \theta_{1}u_{t-1}+ \cdots+ \theta_{q} u_{t-q}$ | 平稳，历史冲击影响当前 |
 | ARMA(p,q) | AR + MA 组合 | **平稳**序列 |
 | ARIMA(p,d,q) | 先 d 阶差分，再对差分序列建 ARMA | 非平稳但可差分平稳 |
 | SARIMA | 再加季节项 (P,D,Q,s) | 有季节周期 |
 
 $$
-\begin{gathered}
-\text{ARIMA(p,d,q)} \; \text{：} \; \text{p=} \; \text{自回归阶数，} \; \text{d=} \; \text{差分次数，} \; \text{q=} \; \text{移动平均阶数} \\
-\text{Box-Jenkins} \; \text{方法：识别} \; \to \; \text{估计} \; \to \; \text{诊断} \; \to \; \text{预测，四步循环}
-\end{gathered}
+\begin{aligned}
+&\text{ARIMA(p,d,q)} \; \text{：} \; \text{p=} \; \text{自回归阶数，} \; \text{d=} \; \text{差分次数，} \; \text{q=} \; \text{移动平均阶数} \\
+&\text{Box-Jenkins} \; \text{方法：识别} \; \to \; \text{估计} \; \to \; \text{诊断} \; \to \; \text{预测，四步循环}
+\end{aligned}
 $$
 
 ::: danger 易错 · 模型记号
@@ -1105,7 +1105,7 @@ $$
 
 #### 5.3.1 相关性检验：ACF 与 PACF
 
-- **ACF（自相关函数）**：$\rho_{k}= \frac{\operatorname{Cov}(y_{t}, y_{t-k})}{\operatorname{Var}(y_{t})}$，衡量 yt 与 $y_{t-k}$ 的直接 + 间接相关。
+- **ACF（自相关函数）**：$\rho_{k}= \dfrac{\operatorname{Cov}(y_{t}, y_{t-k})}{\operatorname{Var}(y_{t})}$，衡量 yt 与 $y_{t-k}$ 的直接 + 间接相关。
 - **PACF（偏自相关函数）**：剔除中间变量 $y_{t-1}, \cdots,y_{t-k+1}$ 影响后 yt 与 $y_{t-k}$ 的**净相关**。
 
 | 模型 | ACF | PACF | 定阶 |
@@ -1133,10 +1133,10 @@ plt.show()
 **ADF（扩展 DF）**：在回归式中加入滞后差分项以消除残差自相关，并可能包含常数项/趋势项：
 
 $$
-\begin{gathered}
-\Delta y_{t}= \alpha+ \beta t+ \gamma \cdot y_{t-1}+ \sum \delta_{i} \cdot \Delta y_{t-i}+ u_{t} \\
-H_{0}: \gamma= 0 \; \text{（有单位根，非平稳）；} \; H_{1}: \gamma< 0 \; \text{（平稳）}
-\end{gathered}
+\begin{aligned}
+&\Delta y_{t}= \alpha+ \beta t+ \gamma \cdot y_{t-1}+ \sum \delta_{i} \cdot \Delta y_{t-i}+ u_{t} \\
+&H_{0}: \gamma= 0 \; \text{（有单位根，非平稳）；} \; H_{1}: \gamma< 0 \; \text{（平稳）}
+\end{aligned}
 $$
 
 ```python
@@ -1174,11 +1174,11 @@ print('最小 AIC 模型', best)
 **定阶准则**：
 
 $$
-\begin{gathered}
-AIC=- 2 \cdot \ln(L)+ 2k \; \text{（} \; \text{k} \; \text{为待估参数个数）} \\
-BIC=- 2 \cdot \ln(L)+ \ln(n) \cdot k \; \text{（} \; \text{n} \; \text{为样本量，惩罚更重）} \\
-\text{两者都是越小越好；} \; \text{BIC} \; \text{倾向更简洁的模型，} \; \text{AIC} \; \text{倾向预测更优的模型}
-\end{gathered}
+\begin{aligned}
+&AIC=- 2 \cdot \ln(L)+ 2k \; \text{（} \; \text{k} \; \text{为待估参数个数）} \\
+&BIC=- 2 \cdot \ln(L)+ \ln(n) \cdot k \; \text{（} \; \text{n} \; \text{为样本量，惩罚更重）} \\
+&\text{两者都是越小越好；} \; \text{BIC} \; \text{倾向更简洁的模型，} \; \text{AIC} \; \text{倾向预测更优的模型}
+\end{aligned}
 $$
 
 ::: tip 工作例题 · AIC 与 BIC 分歧
@@ -1428,7 +1428,7 @@ print(pd.DataFrame(clean))
 | CNKI E-Study / CiteSpace / VOSviewer | 题录管理与可视化 | 标准化后的题录数据库 |
 
 ::: tip 文献计量三大经典定律
-**洛特卡定律**（作者发文频次分布：写 n 篇论文的作者数约与 $\frac{1}{n^{2}}$ 成正比）、**布拉德福定律**（期刊文献集中与分散）、**齐普夫/普赖斯定律**（词频分布与核心作者/文献的老化）。
+**洛特卡定律**（作者发文频次分布：写 n 篇论文的作者数约与 $\dfrac{1}{n^{2}}$ 成正比）、**布拉德福定律**（期刊文献集中与分散）、**齐普夫/普赖斯定律**（词频分布与核心作者/文献的老化）。
 :::
 
 ### 7.2 文献数据的收集与分析
@@ -1436,11 +1436,11 @@ print(pd.DataFrame(clean))
 #### 7.2.1 分析流程
 
 $$
-\begin{gathered}
-\text{(1)} \; \text{确定检索式与数据库} \; \to(2) \; \text{导出题录（含参考文献）} \; \to(3) \; \text{去重与字段清洗} \\
-\to(4) \; \text{描述统计（年度、机构、基金、作者、关键词）} \; \to(5) \; \text{共现} \; \text{/} \; \text{共被引矩阵} \\
-\to(6) \; \text{知识图谱与聚类} \; \to(7) \; \text{科研评价与前沿解读}
-\end{gathered}
+\begin{aligned}
+&\text{(1)} \; \text{确定检索式与数据库} \; \to(2) \; \text{导出题录（含参考文献）} \; \to(3) \; \text{去重与字段清洗} \\
+&\to(4) \; \text{描述统计（年度、机构、基金、作者、关键词）} \; \to(5) \; \text{共现} \; \text{/} \; \text{共被引矩阵} \\
+&\to(6) \; \text{知识图谱与聚类} \; \to(7) \; \text{科研评价与前沿解读}
+\end{aligned}
 $$
 
 ```python
@@ -1570,8 +1570,8 @@ print('接近中心性', {k: round(v,3) for k,v in nx.closeness_centrality(G).it
 ::: tip 工作例题 · 手算核对（左图，n=5）
 边共 6 条：A-B、A-C、B-C、B-D、C-E、D-E。
 度：A=2、B=3、C=3、D=2、E=2 → 总度数 12 = 2×边数 ✓；
-无向完全图最多 $\frac{5 \times 4}{2}= 10$ 条边 → **密度 = 6/10 = 0.6**；
-标准化点度中心度 = $\frac{3}{5- 1}=0.75$（B、C 并列最高）；
+无向完全图最多 $\dfrac{5 \times 4}{2}= 10$ 条边 → **密度 = 6/10 = 0.6**；
+标准化点度中心度 = $\dfrac{3}{5- 1}=0.75$（B、C 并列最高）；
 B、C 是连接左簇 {A,B,C} 与右簇 {D,E} 的**桥节点**，故介数中心性最高。
 :::
 
@@ -1602,12 +1602,12 @@ B、C 是连接左簇 {A,B,C} 与右簇 {D,E} 的**桥节点**，故介数中心
 ### 8.4 模块度与 PageRank
 
 $$
-\begin{gathered}
-\text{模块度} \; Q=\left(\frac{1}{2m}\right) \cdot \sum_{ij}[A_{ij}- \frac{k_{i}k_{j}}{2m}] \cdot \delta(c_{i}, c_{j}) \\
-\text{（} \; \text{m} \; \text{为边数，} \; k_{i} \; \text{为节点} \; \text{i} \; \text{的度，} \; \delta \; \text{表示} \; \text{i} \; \text{、} \; \text{j} \; \text{属于同一社区）} \\
-\text{Q} \; \text{越大表示社区内部连边显著多于随机期望；} \; \text{Louvain} \; \text{通过贪心优化} \; \text{Q} \; \text{发现社群。} \\
-\text{PageRank} \; \text{：} \; PR(v)= \frac{1- d}{N}+ d \cdot \sum_{u \to v}\frac{PR(u)}{out(u)} \; \text{，} \; \text{d} \; \text{常取} \; \text{0.85}
-\end{gathered}
+\begin{aligned}
+&\text{模块度} \; Q=\left(\frac{1}{2m}\right) \cdot \sum_{ij}[A_{ij}- \frac{k_{i}k_{j}}{2m}] \cdot \delta(c_{i}, c_{j}) \\
+&\text{（} \; \text{m} \; \text{为边数，} \; k_{i} \; \text{为节点} \; \text{i} \; \text{的度，} \; \delta \; \text{表示} \; \text{i} \; \text{、} \; \text{j} \; \text{属于同一社区）} \\
+&\text{Q} \; \text{越大表示社区内部连边显著多于随机期望；} \; \text{Louvain} \; \text{通过贪心优化} \; \text{Q} \; \text{发现社群。} \\
+&\text{PageRank} \; \text{：} \; PR(v)= \frac{1- d}{N}+ d \cdot \sum_{u \to v}\frac{PR(u)}{out(u)} \; \text{，} \; \text{d} \; \text{常取} \; \text{0.85}
+\end{aligned}
 $$
 
 ::: danger 易错 · 图算法
@@ -1626,7 +1626,7 @@ $$
 
 **解**：
 ① Σ=780 → x̄=**78**；中位数=(75+80)/2=**77.5**；偏差平方和：
-676+100+49+49+9+4+49+100+196+400 = **1632** → $s^{2}=\frac{1632}{9 \approx}=181.33$，s≈**13.47**。
+676+100+49+49+9+4+49+100+196+400 = **1632** → $s^{2}=1632/9 \approx 181.33$，s≈**13.47**。
 ② CS 前 5 人：$52+68+71+71+75=337\to$ 平均 **67.4**；MA 后 5 人：$80+85+88+92+98=443\to$ 平均 **88.6**。
 ③ 用 pandas 线性插值：Q1 位置 (10−1)×0.25=2.25 → 71+0.25×(71−71)=**71**；Q3 位置 6.75 → 85+0.75×(88−85)=**87.25**；IQR=16.25 → 下界 71−24.375=**46.625**、上界 87.25+24.375=**111.625**，全部成绩在区间内 → **无异常值**。
 
@@ -1720,7 +1720,7 @@ $$
 | 1 | 数据挖掘 | 机器学习 | 前者是完整流程（含业务/准备/评估/部署），后者是建模方法集合 |
 | 2 | 描述统计 | 统计推断 | 描述样本 vs 由样本推总体（含抽样分布与不确定性） |
 | 3 | 方差 var() (pandas) | 方差 np.var() | ddof=1（样本） vs ddof=0（总体） |
-| 4 | 标准差 | 标准误 | 数据离散度 vs 统计量抽样波动（$\frac{\sigma}{\sqrt{n}}$） |
+| 4 | 标准差 | 标准误 | 数据离散度 vs 统计量抽样波动（$\dfrac{\sigma}{\sqrt{n}}$） |
 | 5 | 均值 | 中位数 | 敏感 vs 稳健；右偏时均值更大 |
 | 6 | 偏度 | 峰度 | 不对称方向 vs 尾部厚度 |
 | 7 | groupby | pivot_table | 单/多键分组聚合 vs 行×列二维交叉（默认 mean） |
@@ -1768,10 +1768,10 @@ $$
 
 | 项目 | 公式 / 写法 |
 | --- | --- |
-| 均值 | $\bar{x}= \frac{\sum x_{i}}{n}$；`mean()` |
-| 样本方差 | $s^{2}= \frac{\sum(x_{i}- \bar{x})^{2}}{n- 1}$；`var()`（ddof=1） |
-| 样本标准差 | $s= \sqrt{s}^{2}$；`std()` |
-| 变异系数 | $CV= \frac{s}{\bar{x}}$ |
+| 均值 | $\bar{x}= \dfrac{\sum x_{i}}{n}$；`mean()` |
+| 样本方差 | $s^{2}= \dfrac{\sum(x_{i}- \bar{x})^{2}}{n- 1}$；`var()`（ddof=1） |
+| 样本标准差 | $s= \sqrt{s^{2}}$；`std()` |
+| 变异系数 | $CV= \dfrac{s}{\bar{x}}$ |
 | 四分位距 | $IQR= Q3- Q1$；异常界 $[Q1- 1.5IQR, Q3+1.5IQR]$ |
 | 偏度 / 峰度 | `skew()` / `kurt()`；&gt;0 右偏 / 尖峰 |
 | 全量概括 | `describe()`；分类列用 `include='object'` |
@@ -1788,44 +1788,44 @@ $$
 
 | 项目 | 公式 / 写法 |
 | --- | --- |
-| 标准误 | $SE= \frac{\sigma}{\sqrt{n}}$（未知用 s） |
-| 单样本 t | $t= \frac{\bar{x}- \mu_{0}}{\frac{s}{\sqrt{n}}}$，$df= n- 1$ |
-| 置信区间 | $\bar{x} ± \frac{t_{\frac{\alpha}{2}}(n- 1) \cdot s}{\sqrt{n}}$ |
+| 标准误 | $SE= \dfrac{\sigma}{\sqrt{n}}$（未知用 s） |
+| 单样本 t | $t= \dfrac{\bar{x}- \mu_{0}}{\dfrac{s}{\sqrt{n}}}$，$df= n- 1$ |
+| 置信区间 | $\bar{x} ± \dfrac{t_{\dfrac{\alpha}{2}}(n- 1) \cdot s}{\sqrt{n}}$ |
 | 两类错误 | α（弃真）、β（取伪）、功效 = $1- \beta$ |
-| 效应量 | $Cohen's d= \frac{\bar{x}- \mu_{0}}{s}$ |
-| 相关系数 | $r= \frac{\operatorname{Cov}(X,Y)}{s_{x}s_{y}}$ |
-| 相关检验 | $t= r\sqrt{\frac{n- 2}{1- r^{2}}}$，$df=n- 2$ |
+| 效应量 | $Cohen's d= \dfrac{\bar{x}- \mu_{0}}{s}$ |
+| 相关系数 | $r= \dfrac{\operatorname{Cov}(X,Y)}{s_{x}s_{y}}$ |
+| 相关检验 | $t= r\sqrt{\dfrac{n- 2}{1- r^{2}}}$，$df=n- 2$ |
 | 二项 | $E=np, \operatorname{Var}=np(1- p)$ |
 | 泊松 | $E=\operatorname{Var}=\lambda$ |
-| 均匀 | $E=\frac{a+b}{2}, \operatorname{Var}=\frac{(b- a)^{2}}{12}$ |
+| 均匀 | $E=\dfrac{a+b}{2}, \operatorname{Var}=\dfrac{(b- a)^{2}}{12}$ |
 | 正态随机数 | $rng.normal(\mu, \sigma, size)$ |
 | 整数随机数 | `rng.integers(low, high, size)` |
-| 蒙特卡罗 | `π ≈ 4×(落入 1/4 圆点数)/N` |
+| 蒙特卡罗 | $\pi\approx 4\times\dfrac{\text{落入 }1/4\text{ 圆点数}}{N}$ |
 
 ### A.3 回归、综合评价与多元方法
 
 | 项目 | 公式 / 写法 |
 | --- | --- |
-| 一元回归 | $\hat{\beta}_{1}=\frac{Sxy}{Sxx}, \hat{\beta}_{0}=\bar{y}- \hat{\beta}_{1}\bar{x}$ |
-| 决定系数 | $R^{2}= 1- \frac{SSE}{SST}$；一元时 $R^{2}= r^{2}$ |
+| 一元回归 | $\hat{\beta}_{1}=\dfrac{Sxy}{Sxx}, \hat{\beta}_{0}=\bar{y}- \hat{\beta}_{1}\bar{x}$ |
+| 决定系数 | $R^{2}= 1- \dfrac{SSE}{SST}$；一元时 $R^{2}= r^{2}$ |
 | 多元估计 | $\hat{\beta}=(X^{T}X)^{-1}X^{T}Y$；用 `np.linalg.solve` / `lstsq` |
-| 调整 R² | $1- \frac{(1- R^{2})(n- 1)}{n- k- 1}$ |
-| 整体 F | $F= \frac{\frac{SSR}{k}}{\frac{SSE}{n- k- 1}}$ |
-| 约束 F | $F= \frac{\frac{R^{2}_{u}- R^{2}_{r}}{q}}{\frac{1- R^{2}_{u}}{n- k- 1}}$ |
-| 系数 t | $t= \frac{\hat{\beta}_{j}}{se(\hat{\beta}_{j})}$ |
-| VIF | $VIF_{j}= \frac{1}{1- R_{j}^{2}}$；&gt;10 严重共线 |
+| 调整 R² | $1- \dfrac{(1- R^{2})(n- 1)}{n- k- 1}$ |
+| 整体 F | $F= \dfrac{\dfrac{SSR}{k}}{\dfrac{SSE}{n- k- 1}}$ |
+| 约束 F | $F= \dfrac{\dfrac{R^{2}_{u}- R^{2}_{r}}{q}}{\dfrac{1- R^{2}_{u}}{n- k- 1}}$ |
+| 系数 t | $t= \dfrac{\hat{\beta}_{j}}{se(\hat{\beta}_{j})}$ |
+| VIF | $VIF_{j}= \dfrac{1}{1- R_{j}^{2}}$；&gt;10 严重共线 |
 | 岭 / Lasso | $\min \sum(y- X\beta)^{2}+ \lambda \sum \beta^{2}$ / $+ \lambda \sum\vert \beta\vert $ |
 | smf.ols | `smf.ols('y ~ x1 + x2', data=df).fit().summary()` |
-| 正向化 | $z=\frac{x- \min}{\max- \min}$；负向 $z=\frac{\max- x}{\max- \min}$ |
-| 变异系数权 | $w_{j}= \frac{CV_{j}}{\sum CV_{j}}$ |
-| 熵权 | $e_{j}=- \sum p_{ij}\ln \frac{p_{ij}}{\ln} n$；$w_{j}=\frac{1- e_{j}}{\sum}(1- e)$ |
+| 正向化 | $z=\dfrac{x- \min}{\max- \min}$；负向 $z=\dfrac{\max- x}{\max- \min}$ |
+| 变异系数权 | $w_{j}= \dfrac{CV_{j}}{\sum CV_{j}}$ |
+| 熵权 | $e_{j}=- \dfrac{\sum_{i}p_{ij}\ln p_{ij}}{\ln n}$；$w_{j}=\dfrac{1- e_{j}}{\sum_{k}(1- e_{k})}$ |
 | AHP | $CI=\dfrac{\lambda_{\max}-n}{n-1}$；$CR=\dfrac{CI}{RI}<0.1$ |
-| TOPSIS | $C= \frac{D^{-}}{D^{+}+D^{-}}$，越大越优 |
-| PCA | 相关矩阵特征值 $\lambda_{j}$；贡献率 $\lambda_{j} \sum \lambda_{i}$；累计 ≥80% 定 m |
+| TOPSIS | $C= \dfrac{D^{-}}{D^{+}+D^{-}}$，越大越优 |
+| PCA | 相关矩阵特征值 $\lambda_{j}$；贡献率 $\lambda_{j}/\sum \lambda_{i}$；累计 ≥80% 定 m |
 | 载荷 | $a_{ji}\sqrt{\lambda}_{j}$ |
-| 欧氏距离 | $d=\sqrt{\sum}(x_{i}- y_{i})^{2}$ |
-| 夹角余弦 | `cosθ = X·Y/(|X||Y|)` |
-| 轮廓系数 | $s=\frac{b- a}{\max}(a,b) \in[- 1,1]$ |
+| 欧氏距离 | $d=\sqrt{\sum(x_{i}- y_{i})^{2}}$ |
+| 夹角余弦 | $\cos\theta=\dfrac{X\cdot Y}{|X||Y|}$ |
+| 轮廓系数 | $s=\dfrac{b- a}{\max(a,b)} \in[- 1,1]$ |
 | PCA 代码 | `StandardScaler().fit_transform(X); PCA().fit(Z)` |
 | 层次聚类 | $pdist \to linkage(method='ward') \to fcluster(t=K)$ |
 
@@ -1833,18 +1833,18 @@ $$
 
 | 项目 | 公式 / 写法 |
 | --- | --- |
-| 收益率 | 简单 `pct_change()`；对数 $\ln\left(\frac{P_{t}}{P_{t-1}}\right)$ |
+| 收益率 | 简单 `pct_change()`；对数 $\ln\left(\dfrac{P_{t}}{P_{t-1}}\right)$ |
 | 差分 | `diff()`；`ARIMA(p,d,q)` 中 d 为差分阶数 |
 | AR(p) | $y_{t}= \sum \phi_{i}y_{t-i}+ u_{t}$ |
 | MA(q) | $y_{t}= u_{t}+ \sum \theta_{i}u_{t-i}$ |
-| 白噪声 | $E=0, \operatorname{Var}=\sigma^{2}, \operatorname{Cov}=0(t=s)$ |
-| ACF / PACF | $\rho_{k}= \frac{\operatorname{Cov}(y_{t},y_{t-k})}{\operatorname{Var}(y_{t})}$；PACF 剔除中间变量 |
+| 白噪声 | $E=0, \operatorname{Var}=\sigma^{2}, \operatorname{Cov}=0(t\ne s)$ |
+| ACF / PACF | $\rho_{k}= \dfrac{\operatorname{Cov}(y_{t},y_{t-k})}{\operatorname{Var}(y_{t})}$；PACF 剔除中间变量 |
 | 定阶 | AR: PACF 截尾；MA: ACF 截尾；ARMA: AIC/BIC 网格 |
 | ADF | $\Delta y_{t}= \alpha+ \beta t+ \gamma y_{t-1}+ \sum \delta_{i}\Delta y_{t-i}+ u_{t}$，$H_{0}: \gamma=0$ |
 | 临界值 | 用 MacKinnon 表（`adfuller` 返回 `crit`），非 1.96 |
 | AIC / BIC | $- 2lnL+2k$ / $- 2lnL+\ln(n)k$，越小越好 |
 | 残差诊断 | Ljung-Box：p &gt; 0.05 才为白噪声 |
-| 预测 | $\frac{m.get_{forecast}(steps=h).predicted_{mean}}{conf_{int}()}$ |
+| 预测 | `m.get_forecast(steps=h).predicted_mean` 与 `m.get_forecast(steps=h).conf_int()` |
 
 ### A.5 大数据、文献计量与网络
 
@@ -1858,10 +1858,10 @@ $$
 | DB-API | $connect \to cursor \to execute(?, params) \to commit \to close$ |
 | 参数化 | `cur.execute('... WHERE x &gt;= ?', (v,))` |
 | h 指数 | 有 h 篇每篇被引 ≥ h 次 |
-| 模块度 | $Q=\left(\frac{1}{2m}\right)\sum_{ij}[A_{ij}- \frac{k_{i}k_{j}}{2m}]\delta(c_{i},c_{j})$ |
-| PageRank | $PR(v)=\frac{1- d}{N}+ d \cdot \sum_{u \to v}\frac{PR(u)}{out(u)}$ |
-| 密度 | 无向图 $2\vert E\vert (\vert V\vert (\vert V\vert - 1))$ |
-| 度中心度 | $\frac{deg(v)}{n- 1}$ |
+| 模块度 | $Q=\left(\dfrac{1}{2m}\right)\sum_{ij}[A_{ij}- \dfrac{k_{i}k_{j}}{2m}]\delta(c_{i},c_{j})$ |
+| PageRank | $PR(v)=\dfrac{1- d}{N}+ d \cdot \sum_{u \to v}\dfrac{PR(u)}{out(u)}$ |
+| 密度 | 无向图 $\dfrac{2\vert E\vert}{\vert V\vert (\vert V\vert - 1)}$ |
+| 度中心度 | $\dfrac{deg(v)}{n- 1}$ |
 | networkx | `nx.Graph(); add_edges_from(); nx.degree_centrality(G)` |
 
 ---
@@ -1908,7 +1908,7 @@ $$
 38. 相关系数显著性强烈依赖 n：同样 r=0.6，n=20 显著而 n=10 不显著。
 39. 增加变量 R² 必不降，比较不同变量数的模型须用调整 $R^{2}$。
 40. F 显著但个别 t 不显著，常见原因是多重共线性，不是「变量一定无用」。
-41. $VIF= \frac{1}{1- R_{j}^{2}}$，&gt;10 严重共线；共线时 $X^{T}X$ 近奇异，应用 `lstsq`/`solve`。
+41. $VIF= \dfrac{1}{1- R_{j}^{2}}$，&gt;10 严重共线；共线时 $X^{T}X$ 近奇异，应用 `lstsq`/`solve`。
 42. 多元回归前提：线性、零均值、同方差、无自相关、无完全共线；正态性用于小样本推断。
 43. 残差诊断四项：残差-拟合图、Q-Q 图、DW 自相关、Cook 距离强影响点。
 44. $R^{2}= r^{2}$ 只在**含截距的一元**回归成立，多元回归没有简单对应。
