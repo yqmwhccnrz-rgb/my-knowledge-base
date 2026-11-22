@@ -62,9 +62,9 @@ summary: "《证券投资学（第六版精编版）》9 章精要笔记：证�
 
 | 公式 | 表达 |
 | --- | --- |
-| 单利终值 | <img class="fml" src="/formulas/7fee6640876315.png" alt="FV= P \times(1+ r \cdot n)" width="171" height="34"> |
-| 复利终值 | <img class="fml" src="/formulas/9bcd49388af1d4.png" alt="FV= P \times(1+ r)^{n}" width="157" height="34"> |
-| 复利现值 | <img class="fml" src="/formulas/906d424493be09.png" alt="PV= \frac{FV}{(1+ r)^{n}}" width="101" height="36"> |
+| 单利终值 | $FV= P \times(1+ r \cdot n)$ |
+| 复利终值 | $FV= P \times(1+ r)^{n}$ |
+| 复利现值 | $PV= \frac{FV}{(1+ r)^{n}}$ |
 | 债券收益率（基本公式） | (到期本息和 − 发行价) / (发行价 × 偿还期) × 100% |
 | 出售者收益率 | (卖出价 − 发行价 + 利息) / (发行价 × 持有年限) × 100% |
 | 购买者收益率 | (到期本息和 − 买入价) / (买入价 × 剩余年限) × 100% |
@@ -72,7 +72,7 @@ summary: "《证券投资学（第六版精编版）》9 章精要笔记：证�
 
 <div class="kb-example">
 
-**例**：某人以 95 元买入面值 100 元、票面利率 8% 的债券，持有 2 年后以 102 元卖出，期间共收利息 16 元。持有期间收益率 <img class="fml" src="/formulas/b4f4c1a7dc2e1b.png" alt="=\dfrac{102-95+16}{95\times 2}\times 100\%\approx 12.1\%" width="270" height="46">。
+**例**：某人以 95 元买入面值 100 元、票面利率 8% 的债券，持有 2 年后以 102 元卖出，期间共收利息 16 元。持有期间收益率 $=\dfrac{102-95+16}{95\times 2}\times 100\%\approx 12.1\%$。
 
 </div>
 
@@ -141,14 +141,14 @@ summary: "《证券投资学（第六版精编版）》9 章精要笔记：证�
 
 | 头寸 | 到期价值 R | 净收益 π |
 | --- | --- | --- |
-| 看涨买方 | <img class="fml" src="/formulas/6ad2572fdc8270.png" alt="\max(S_{T}- X, 0)" width="130" height="34"> | <img class="fml" src="/formulas/a14d03271082ff.png" alt="\max(S_{T}- X, 0)- C" width="166" height="34"> |
-| 看涨卖方 | <img class="fml" src="/formulas/0a22e8bae5c8b6.png" alt="\max(X- S_{T}, 0)" width="130" height="34"> | <img class="fml" src="/formulas/32fd6a103d7bce.png" alt="\max(X- S_{T}, 0)+ C" width="165" height="34"> |
-| 看跌买方 | <img class="fml" src="/formulas/0a22e8bae5c8b6.png" alt="\max(X- S_{T}, 0)" width="130" height="34"> | <img class="fml" src="/formulas/f6ec7846d7d4e3.png" alt="\max(X- S_{T}, 0)- P" width="166" height="34"> |
-| 看跌卖方 | <img class="fml" src="/formulas/6ad2572fdc8270.png" alt="\max(S_{T}- X, 0)" width="130" height="34"> | <img class="fml" src="/formulas/a89b111f3c5dd4.png" alt="\max(S_{T}- X, 0)+ P" width="166" height="34"> |
+| 看涨买方 | $\max(S_{T}- X, 0)$ | $\max(S_{T}- X, 0)- C$ |
+| 看涨卖方 | $\max(X- S_{T}, 0)$ | $\max(X- S_{T}, 0)+ C$ |
+| 看跌买方 | $\max(X- S_{T}, 0)$ | $\max(X- S_{T}, 0)- P$ |
+| 看跌卖方 | $\max(S_{T}- X, 0)$ | $\max(S_{T}- X, 0)+ P$ |
 
 <div class="kb-example">
 
-**例**：买入执行价 10 元的看涨期权，期权费 1 元。到期股价 13 元 → 净收益 = <img class="fml" src="/formulas/94f36da9410ab9.png" alt="(13- 10)- 1=2\,\text{元}" width="162" height="34">；到期股价 8 元 → 不行权，净亏期权费 **−1 元**（买方最大损失锁定为 C）。
+**例**：买入执行价 10 元的看涨期权，期权费 1 元。到期股价 13 元 → 净收益 = $(13- 10)- 1=2\,\text{元}$；到期股价 8 元 → 不行权，净亏期权费 **−1 元**（买方最大损失锁定为 C）。
 
 </div>
 
@@ -227,21 +227,21 @@ summary: "《证券投资学（第六版精编版）》9 章精要笔记：证�
 
 **股价指数**是衡量股票市场股价综合变动方向和幅度的动态相对数，用平均值的变化描述股价动态。
 
-**五种编制方法**（案例数据：A 股价 5→8 元、B 股 6→9 元、C 股 <img class="fml" src="/formulas/21f25c16637ed5.png" alt="3 \to 7.6" width="67" height="34"> 元；发行股数 A 10000、B 8000、C 5000；基期指数 1000）：
+**五种编制方法**（案例数据：A 股价 5→8 元、B 股 6→9 元、C 股 $3 \to 7.6$ 元；发行股数 A 10000、B 8000、C 5000；基期指数 1000）：
 
 | 方法 | 公式 | 案例结果 |
 | --- | --- | --- |
-| 简单算术平均 | <img class="fml" src="/formulas/41eaf21d94077f.png" alt="\left(\frac{1}{N}\right) \cdot \sum\left(\frac{P_{i1}}{P_{i0}}\right)" width="115" height="41"> 基期指数 | <img class="fml" src="/formulas/3fc548401f8cb1.png" alt="\left(\frac{1}{3}\right)\left(\frac{8}{5}+ \frac{9}{6}+ \frac{7.6}{3}\right) \times 1000=1877.78" width="278" height="34"> |
-| 综合平均 | [ΣP_i1 / ΣP_i0] × 基期指数 | <img class="fml" src="/formulas/203db924ad6b8f.png" alt="\left(\frac{24.6}{14}\right) \times 1000=1757.14" width="190" height="34"> |
-| 几何平均 | <img class="fml" src="/formulas/05aa0825d772a9.png" alt="[\Pi\left(\frac{P_{i1}}{P_{i0}}\right)]^{\frac{1}{N}}" width="89" height="41"> 基期指数 | <img class="fml" src="/formulas/693cec7cb5ed26.png" alt="\left(\frac{8}{5} \times \frac{9}{6} \times \frac{7.6}{3}\right)^{\frac{1}{3}} \times 1000=1825.1" width="249" height="37"> |
-| 加权综合（派许加权） | [ΣP_i1·W_i / ΣP_i0·W_i] × 基期指数 | <img class="fml" src="/formulas/1788d4bf4ef864.png" alt="\frac{8 \times 10000+9 \times 8000+7.6 \times 5000}{5 \times 10000+6 \times 8000+3 \times 5000} \times 1000=1681.42" width="309" height="35"> |
+| 简单算术平均 | $\left(\frac{1}{N}\right) \cdot \sum\left(\frac{P_{i1}}{P_{i0}}\right)$ 基期指数 | $\left(\frac{1}{3}\right)\left(\frac{8}{5}+ \frac{9}{6}+ \frac{7.6}{3}\right) \times 1000=1877.78$ |
+| 综合平均 | [ΣP_i1 / ΣP_i0] × 基期指数 | $\left(\frac{24.6}{14}\right) \times 1000=1757.14$ |
+| 几何平均 | $[\Pi\left(\frac{P_{i1}}{P_{i0}}\right)]^{\frac{1}{N}}$ 基期指数 | $\left(\frac{8}{5} \times \frac{9}{6} \times \frac{7.6}{3}\right)^{\frac{1}{3}} \times 1000=1825.1$ |
+| 加权综合（派许加权） | [ΣP_i1·W_i / ΣP_i0·W_i] × 基期指数 | $\frac{8 \times 10000+9 \times 8000+7.6 \times 5000}{5 \times 10000+6 \times 8000+3 \times 5000} \times 1000=1681.42$ |
 | 加权几何平均（费雪理想公式） | 几何平均与加权综合的几何均值 | — |
 
 **指数编制四步骤**：确定样本股 → 选定基期 → 计算平均股价并作必要修正 → 指数化（化为"点"）。
 
-**平均股价三种算法**：简单算术平均（<img class="fml" src="/formulas/8b16fc750b6c7f.png" alt="\dfrac{8+9+7.6}{3}=8.2\,\text{元}" width="163" height="45">）、加权平均（计算期市值/总股数 = **8.26 元**）、修正平均股价。修正方法两种：
-- **调整股价法**：把拆股后的股价还原为拆股前价格再平均。例：B 拆细为 3 股，次日 A、B、C 收盘 8.2、3.4、7.8 元 → 修正平均股价 <img class="fml" src="/formulas/2dbf2c8562cc60.png" alt="=\dfrac{8.2+(1+2)\times 3.4+7.8}{3}=8.73\,\text{元}" width="294" height="47">。
-- **修正除数法**：变动除数剔除拆股影响。新除数 = 拆股后总价格 ÷ 拆股前平均股价 <img class="fml" src="/formulas/2192e507e8b5e0.png" alt="=\dfrac{8.2+3.4+7.8}{8.73}\approx 2.22" width="198" height="45">；修正平均股价 <img class="fml" src="/formulas/cca3bb6c78c61e.png" alt="=\dfrac{19.4}{2.22}\approx 8.73\,\text{元}" width="138" height="45">。
+**平均股价三种算法**：简单算术平均（$\dfrac{8+9+7.6}{3}=8.2\,\text{元}$）、加权平均（计算期市值/总股数 = **8.26 元**）、修正平均股价。修正方法两种：
+- **调整股价法**：把拆股后的股价还原为拆股前价格再平均。例：B 拆细为 3 股，次日 A、B、C 收盘 8.2、3.4、7.8 元 → 修正平均股价 $=\dfrac{8.2+(1+2)\times 3.4+7.8}{3}=8.73\,\text{元}$。
+- **修正除数法**：变动除数剔除拆股影响。新除数 = 拆股后总价格 ÷ 拆股前平均股价 $=\dfrac{8.2+3.4+7.8}{8.73}\approx 2.22$；修正平均股价 $=\dfrac{19.4}{2.22}\approx 8.73\,\text{元}$。
 
 **主要指数一览**（名词解释常考）：
 
@@ -383,16 +383,16 @@ summary: "《证券投资学（第六版精编版）》9 章精要笔记：证�
 
 **股利贴现模型 DDM**（补全公式，课件仅有文字）：
 
-一般式：<img class="fml" src="/formulas/924dcd0274b459.png" alt="P_{0}= \sum \frac{D_{i}}{(1+k)^{i}}" width="112" height="37">（D_i 为第 i 期股利，k 为必要收益率）。
+一般式：$P_{0}= \sum \frac{D_{i}}{(1+k)^{i}}$（D_i 为第 i 期股利，k 为必要收益率）。
 
 | 变体 | 公式 | 适用 |
 | --- | --- | --- |
-| 零增长模型 | <img class="fml" src="/formulas/854a623a2c2e38.png" alt="P_{0}= \frac{D}{k}" width="64" height="34"> | 股利恒定（优先股近似） |
-| 戈登增长模型（稳定增长） | <img class="fml" src="/formulas/164447c5b844db.png" alt="P_{0}= \frac{D_{1}}{k- g}" width="77" height="36">，要求 g < k | 股利以固定比率 g 永续增长 |
+| 零增长模型 | $P_{0}= \frac{D}{k}$ | 股利恒定（优先股近似） |
+| 戈登增长模型（稳定增长） | $P_{0}= \frac{D_{1}}{k- g}$，要求 g < k | 股利以固定比率 g 永续增长 |
 
 <div class="kb-example">
 
-**例**：某公司预期明年每股股利 1.2 元，股利稳定增长率 5%，必要收益率 11% → <img class="fml" src="/formulas/faaa00442a6a56.png" alt="P_{0}= \frac{1.2}{0.11- 0.05}=20\,\text{元}" width="170" height="35">。若市价 16 元，则被低估、应买入。
+**例**：某公司预期明年每股股利 1.2 元，股利稳定增长率 5%，必要收益率 11% → $P_{0}= \frac{1.2}{0.11- 0.05}=20\,\text{元}$。若市价 16 元，则被低估、应买入。
 
 DDM 的四个局限：不适于无股利发放历史或无明确股利政策的公司；不适于股利与收益无直接关系的公司；无交易历史的公司难以用 CAPM 估计必要收益率（贴现率缺失）；股利发放不稳定的公司难以适用。
 
@@ -517,7 +517,7 @@ K 线记录某股票某时间段（如一天）的价格变动：**阳线（红�
 
 **推动波四规律**（同一级循环中）：① 浪 2 绝不低于（上升浪）浪 1 的起点；② 浪 1、3、5 中**浪 3 不能最短**；③ 任一浪成为延长浪时，其余两浪的持续时间及幅度趋于一致；④ 浪 4 的底不可低于浪 1 的顶（上升浪）。
 
-**波浪比率**：浪 3 通常为延长浪、最具爆炸力且幅度最大；浪 3 幅度约为浪 1 的 **1.618 或 2.618** 倍；浪 5 幅度 ≈ 浪 1 起点至浪 3 终点总幅度 <img class="fml" src="/formulas/db30538c94c383.png" alt="\times(0.382- 0.618)" width="138" height="34">；浪 5 涨势通常小于浪 3，浪 5 终点低于浪 3 终点时为**失败浪**。调整波形态："之字"形、"不规则"形、"三角形"、"复杂形"。
+**波浪比率**：浪 3 通常为延长浪、最具爆炸力且幅度最大；浪 3 幅度约为浪 1 的 **1.618 或 2.618** 倍；浪 5 幅度 ≈ 浪 1 起点至浪 3 终点总幅度 $\times(0.382- 0.618)$；浪 5 涨势通常小于浪 3，浪 5 终点低于浪 3 终点时为**失败浪**。调整波形态："之字"形、"不规则"形、"三角形"、"复杂形"。
 
 **市场特征**：浪 1 最短，是入市依据；浪 2 回档很深（有时近浪 1 起点），出现再次抄底机会；浪 3 突破浪 1 顶点时是**最强烈买进信号**；浪 5 中二三线股、投机股涨幅常大于蓝筹股；浪 a 出现时多数人还乐观观望，实际是**熊市开始信号**；浪 b 是"多头陷阱"、俗称**逃命浪**；浪 c 跌势强劲、跌幅大、时间长，要分清是上升浪的调整（将出现谷底）还是下降浪的调整（则是股顶）。
 
@@ -538,26 +538,22 @@ K 线记录某股票某时间段（如一天）的价格变动：**阳线（红�
 
 **MACD 平滑异同移动平均线**：由正负差 DIF（快慢 EMA 之差）和移动平均数 DEA（DIF 的平滑）组成；去掉了 MA 频繁出现的买卖信号，增加发出信号的要求和限制，**避免假信号**。
 
-**WMS 威廉指标**（Larry Williams，1973）：n 日 <img class="fml" src="/formulas/a70e4cd9ddd7ba.png" alt="WMS=\frac{(Hn - Ct)}{(Hn - Ln)} \times 100" width="188" height="37">（Hn/Ln 为最近 n 日内最高/最低价，Ct 为当天收盘价）。参数 N 应选**循环周期的一半以上**。取值 0—100：**0 为顶部、100 为底部**（注意与常规方向相反！）。买入信号：WMS > 80；处于高数值区股价还继续下降；连续几次撞底。卖出信号：WMS < 20；处于低数值区股价还继续上升；连续几次撞顶。
+**WMS 威廉指标**（Larry Williams，1973）：n 日 $WMS=\frac{(Hn - Ct)}{(Hn - Ln)} \times 100$（Hn/Ln 为最近 n 日内最高/最低价，Ct 为当天收盘价）。参数 N 应选**循环周期的一半以上**。取值 0—100：**0 为顶部、100 为底部**（注意与常规方向相反！）。买入信号：WMS > 80；处于高数值区股价还继续下降；连续几次撞底。卖出信号：WMS < 20；处于低数值区股价还继续上升；连续几次撞顶。
 
 **KDJ 随机指标**（George Lane）：
-- n 日 <img class="fml" src="/formulas/5cdacb6dfe0acd.png" alt="RSV=\frac{(Ct - Ln)}{(Hn - Ln)} \times 100" width="178" height="37">
-- 今日 <img class="fml" src="/formulas/e08d61dd600edf.png" alt="K= \frac{2}{3}" width="58" height="34"> 昨日 K + 1/3 × 今日 RSV（对 RSV 指数平滑）
-- 今日 <img class="fml" src="/formulas/4418f160c6d06c.png" alt="D= \frac{2}{3}" width="57" height="34"> 昨日 D + 1/3 × 今日 K（对 K 指数平滑）
+- n 日 $RSV=\frac{(Ct - Ln)}{(Hn - Ln)} \times 100$
+- 今日 $K= \frac{2}{3}$ 昨日 K + 1/3 × 今日 RSV（对 RSV 指数平滑）
+- 今日 $D= \frac{2}{3}$ 昨日 D + 1/3 × 今日 K（对 K 指数平滑）
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/b1e50890962720.png" alt="J= 3D- 2K= D+ 2(D- K)" width="251" height="34"></p>
-
-
+$$J= 3D- 2K= D+ 2(D- K)$$
 
 
 应用法则：KD 取值 0—100，**80 以上超买区、20 以下超卖区**，其余为徘徊区；KD 在高位/低位形成头肩形或多重顶（底）时采取行动；K 上（下）穿 D 形成金（死）叉，结合位置和次数决策；**KD 背离**（指标与股价走势背离）应采取行动；**J > 100 或 J < 0 属价格非正常区**。KD 是在 WMS 基础上发展起来的；反映市场变化速度：**WMS 最快、K 其次、D 最慢**——K 敏捷但易出错，D 稍慢但稳、可靠。
 
 **RSI 相对强弱指标**（参数一般取 5、9、14，以 14 为例）：
 - 第一步：取包括当天在内的连续 15 天收盘价，每天减去前一天得 14 个数（有正有负）
-- 第二步：A = 14 个数中正数之和；B = 负数之和 × <img class="fml" src="/formulas/fceb07731aadf4.png" alt="(- 1)" width="44" height="34">
-- 第三步：<img class="fml" src="/formulas/ed60346a66972f.png" alt="RSI(14)= \frac{A}{A+ B} \times 100" width="179" height="35">
+- 第二步：A = 14 个数中正数之和；B = 负数之和 × $(- 1)$
+- 第三步：$RSI(14)= \frac{A}{A+ B} \times 100$
 
 | RSI 值 | 市场特征 | 操作 |
 | --- | --- | --- |
@@ -621,39 +617,37 @@ K 线记录某股票某时间段（如一天）的价格变动：**阳线（红�
 **核心贡献**：组合的风险**不取决于各别资产风险的平均值，而是各资产的协方差**——资产间的相关关系。资产完全不相关时，组合风险随资产数量增加而消失；现实中资产大多不完全正相关，协方差成为组合方差的决定因素，而**协方差（系统性部分）不能靠多元化降低**。引入无风险资产后，无风险资产与风险资产的组合线是一条**直线**（资本配置线）。
 
 **两资产组合公式**（补全，计算题必备）：
-- 组合期望收益：<img class="fml" src="/formulas/5ae1092ce2bf96.png" alt="E(r_{P})= w_{1} \cdot E(r_{1})+ w_{2} \cdot E(r_{2})" width="252" height="34">
-- 组合方差：<img class="fml" src="/formulas/d4be326f2d4c65.png" alt="\sigma_{P}^{2}= w_{1}^{2}\sigma_{1}^{2}+ w_{2}^{2}\sigma_{2}^{2}+ 2w_{1}w_{2}\sigma_{1}\sigma_{2}\rho_{12}" width="278" height="34">（ρ 为相关系数）
-- **最小方差组合权重**：<img class="fml" src="/formulas/be647ce26dfed0.png" alt="w_{1}= \frac{\sigma_{2}^{2}- \sigma_{1}\sigma_{2}\rho}{\sigma_{1}^{2}+ \sigma_{2}^{2}- 2\sigma_{1}\sigma_{2}\rho}" width="138" height="40">
+- 组合期望收益：$E(r_{P})= w_{1} \cdot E(r_{1})+ w_{2} \cdot E(r_{2})$
+- 组合方差：$\sigma_{P}^{2}= w_{1}^{2}\sigma_{1}^{2}+ w_{2}^{2}\sigma_{2}^{2}+ 2w_{1}w_{2}\sigma_{1}\sigma_{2}\rho_{12}$（ρ 为相关系数）
+- **最小方差组合权重**：$w_{1}= \frac{\sigma_{2}^{2}- \sigma_{1}\sigma_{2}\rho}{\sigma_{1}^{2}+ \sigma_{2}^{2}- 2\sigma_{1}\sigma_{2}\rho}$
 
 <div class="kb-example">
 
-**例（课件原题）**：资产 A：E(R)=15%、<img class="fml" src="/formulas/90c0cb9360a4f7.png" alt="\sigma=30" width="59" height="33">%；资产 B：E(R)=10%、<img class="fml" src="/formulas/0d27c1cfe5d4ab.png" alt="\sigma=22" width="60" height="33">%；<img class="fml" src="/formulas/0a5c7aedb4257c.png" alt="\rho=0.2" width="62" height="33">。求最小方差组合。
-
-
-<p class="fml-block"><img class="fml" src="/formulas/ad77f7e2c822a0.png" alt="\begin{aligned}
-w_{A}&amp;=\frac{0.22^{2}-0.30\times0.22\times0.2}{0.30^{2}+0.22^{2}-2\times0.30\times0.22\times0.2}\\
-&amp;=\frac{0.0484-0.0132}{0.09+0.0484-0.0264}
+**例（课件原题）**：资产 A：E(R)=15%、$\sigma=30$%；资产 B：E(R)=10%、$\sigma=22$%；$\rho=0.2$。求最小方差组合。
+$$
+\begin{aligned}
+w_{A}&=\frac{0.22^{2}-0.30\times0.22\times0.2}{0.30^{2}+0.22^{2}-2\times0.30\times0.22\times0.2}\\
+&=\frac{0.0484-0.0132}{0.09+0.0484-0.0264}
 =\frac{0.0352}{0.1120}\approx 31.43\%.
-\end{aligned}" width="395" height="92"></p>
+\end{aligned}
+$$
 
-
-
-故 <img class="fml" src="/formulas/3f2f9bbe5a98f4.png" alt="w_{B}\approx 68.57\%" width="110" height="33">。
-<img class="fml" src="/formulas/11eed0b1c02ec5.png" alt="E(r_{P})= 0.3143 \times 15" width="167" height="33">% + <img class="fml" src="/formulas/badeba45306310.png" alt="0.6857 \times 10" width="96" height="33">% ≈ **11.57%**；<img class="fml" src="/formulas/d1485c52528796.png" alt="\sigma_{P} \approx 19.3" width="84" height="34">%（代入方差公式开方）。
+故 $w_{B}\approx 68.57\%$。
+$E(r_{P})= 0.3143 \times 15$% + $0.6857 \times 10$% ≈ **11.57%**；$\sigma_{P} \approx 19.3$%（代入方差公式开方）。
 
 </div>
 
 <div class="kb-example">
 
-**例（课件原题）**：三种风险资产预期收益完全一致，标准差之比 1:2:3，两两相关系数为 0。最优组合权重与方差成反比：<img class="fml" src="/formulas/40f0c966128434.png" alt="w \propto \frac{1}{\sigma^{2}}" width="61" height="33">，即 <img class="fml" src="/formulas/e4834b5c0fa618.png" alt="1 : \frac{1}{4} : \frac{1}{9}= 36 : 9 : 4" width="156" height="33">，归一化得 **73.5% : 18.4% : 8.2%**。
+**例（课件原题）**：三种风险资产预期收益完全一致，标准差之比 1:2:3，两两相关系数为 0。最优组合权重与方差成反比：$w \propto \frac{1}{\sigma^{2}}$，即 $1 : \frac{1}{4} : \frac{1}{9}= 36 : 9 : 4$，归一化得 **73.5% : 18.4% : 8.2%**。
 
 </div>
 
-**卖空**：借入证券卖出、日后买回归还。例：本金 1000 元，卖空股票 A 收入 500 元，连同本金全部买入股票 <img class="fml" src="/formulas/b519db2ba0e513.png" alt="B \to A" width="63" height="33"> 权数 = <img class="fml" src="/formulas/e468ac5cc853be.png" alt="- \frac{500}{1000}" width="50" height="33"> <img class="fml" src="/formulas/e199d482b663b1.png" alt="- 0.5" width="43" height="33">，B 权数 = 1500/1000 = **+1.5**（权数之和仍为 1）。卖空限制会缩小可行集、使有效边界内移。
+**卖空**：借入证券卖出、日后买回归还。例：本金 1000 元，卖空股票 A 收入 500 元，连同本金全部买入股票 $B \to A$ 权数 = $- \frac{500}{1000}$ $- 0.5$，B 权数 = 1500/1000 = **+1.5**（权数之和仍为 1）。卖空限制会缩小可行集、使有效边界内移。
 
 **确定最小方差组合集合的三种方法**：图像分析法、微积分法、非线性方程（规划）。
 
-**单一指数模型**（夏普）：假设各种资产收益率变动都只受**市场共同因素**影响：<img class="fml" src="/formulas/54c817796cf7da.png" alt="r_{i}=\alpha_{i}+\beta_{i}r_{M}+\epsilon_{i}" width="155" height="33">，其中 <img class="fml" src="/formulas/c45cfb7ac2d020.png" alt="\alpha_{i}" width="24" height="33"> 为与市场无关的期望收益部分；<img class="fml" src="/formulas/46efb263633b7c.png" alt="\beta_{i}" width="22" height="33"> 反映宏观因素（市场）影响的敏感度；<img class="fml" src="/formulas/17d24da4ca7987.png" alt="\epsilon_{i}" width="19" height="33"> 为资产实际收益对回归线的偏离（个别事件造成）。该模型极大简化了组合方差的计算，被广泛用于估计马科维茨模型的组合方差。β 的应用注意：β 是历史估计值、会随时间变化；用 β 决策需结合对市场走势的判断。
+**单一指数模型**（夏普）：假设各种资产收益率变动都只受**市场共同因素**影响：$r_{i}=\alpha_{i}+\beta_{i}r_{M}+\epsilon_{i}$，其中 $\alpha_{i}$ 为与市场无关的期望收益部分；$\beta_{i}$ 反映宏观因素（市场）影响的敏感度；$\epsilon_{i}$ 为资产实际收益对回归线的偏离（个别事件造成）。该模型极大简化了组合方差的计算，被广泛用于估计马科维茨模型的组合方差。β 的应用注意：β 是历史估计值、会随时间变化；用 β 决策需结合对市场走势的判断。
 
 ### 5.3 易错点
 
@@ -678,25 +672,17 @@ w_{A}&amp;=\frac{0.22^{2}-0.30\times0.22\times0.2}{0.30^{2}+0.22^{2}-2\times0.30
 
 **资本市场线 CML**：无风险资产与市场组合 M 的连线，代表市场均衡条件下的**有效边界**。
 
+$$E(r_{P})= r_{f}+\frac{E(r_{M})-r_{f}}{\sigma_{M}} \times \sigma_{P}$$
 
 
-<p class="fml-block"><img class="fml" src="/formulas/80e1940d83de56.png" alt="E(r_{P})= r_{f}+\frac{E(r_{M})-r_{f}}{\sigma_{M}} \times \sigma_{P}" width="220" height="35"></p>
-
-
-
-
-含义：① 有效组合的期望收益与标准差存在简单**线性关系**；② E(r_P) 由两部分构成—<img class="fml" src="/formulas/4857f1bbef2211.png" alt="- r_{f}" width="37" height="33"> 是资金的时间价值（即期消费的价格），风险溢价是对承担风险的奖励；③ 斜率 <img class="fml" src="/formulas/eee3dfd1414678.png" alt="\frac{E(r_{M})-r_{f}}{\sigma_{M}}" width="68" height="35"> 是**风险的价格**（每增加一单位风险获得的收益奖励）。CML 实际上是均衡条件下对**有效组合**的定价。
+含义：① 有效组合的期望收益与标准差存在简单**线性关系**；② E(r_P) 由两部分构成—$- r_{f}$ 是资金的时间价值（即期消费的价格），风险溢价是对承担风险的奖励；③ 斜率 $\frac{E(r_{M})-r_{f}}{\sigma_{M}}$ 是**风险的价格**（每增加一单位风险获得的收益奖励）。CML 实际上是均衡条件下对**有效组合**的定价。
 
 **证券市场线 SML**：同质期望下所有投资者的 CML 是同一条线，共同选择的风险组合就是包含市场所有风险资产的**市场组合**。由此得 CAPM 基本形式：
 
+$$E(r_{i})= r_{f}+[E(r_{M})- r_{f}] \times \beta_{i}$$
 
 
-<p class="fml-block"><img class="fml" src="/formulas/2521901df6fea0.png" alt="E(r_{i})= r_{f}+[E(r_{M})- r_{f}] \times \beta_{i}" width="246" height="33"></p>
-
-
-
-
-以预期收益为纵轴、β 为横轴的图形即 SML——以 r_f 为起点的射线，斜率为 <img class="fml" src="/formulas/83203ff0e1a96c.png" alt="E(r_{M})- r_{f}" width="96" height="33">（市场组合风险溢价），适于**所有**风险资产的收益—风险关系。**合理定价的证券一定落在 SML 上**；位于 SML 上方 = 收益补偿超过风险 = **低估（买入）**；下方 = **高估（卖出）**；偏离表明市场处于非均衡状态。
+以预期收益为纵轴、β 为横轴的图形即 SML——以 r_f 为起点的射线，斜率为 $E(r_{M})- r_{f}$（市场组合风险溢价），适于**所有**风险资产的收益—风险关系。**合理定价的证券一定落在 SML 上**；位于 SML 上方 = 收益补偿超过风险 = **低估（买入）**；下方 = **高估（卖出）**；偏离表明市场处于非均衡状态。
 
 **CML 与 SML 的区别**（★★★ 简答必考）：
 
@@ -706,21 +692,21 @@ w_{A}&amp;=\frac{0.22^{2}-0.30\times0.22\times0.2}{0.30^{2}+0.22^{2}-2\times0.30
 | 适用对象 | 仅**有效组合**（无风险资产与市场组合再组合） | **任何**资产或组合（含单个证券、无效组合） |
 | 均衡含义 | 有效组合的收益—风险线性关系 | 均衡定价关系；偏离即定价错误 |
 
-**CAPM 两个结论**：① 收益由两部分组成——时间补偿 r_f 与风险补偿 <img class="fml" src="/formulas/2d7d03950f0064.png" alt="[E(r_{M})- r_{f}]" width="106" height="33">；② **并非承担的所有风险都获补偿，只有系统性风险获得补偿**（非系统性风险可分散、市场不予奖励）。
+**CAPM 两个结论**：① 收益由两部分组成——时间补偿 r_f 与风险补偿 $[E(r_{M})- r_{f}]$；② **并非承担的所有风险都获补偿，只有系统性风险获得补偿**（非系统性风险可分散、市场不予奖励）。
 
-**β 的含义与计算**（补全）：<img class="fml" src="/formulas/7fe9d3a66cc58b.png" alt="\beta_{i}= \frac{\operatorname{Cov}(r_{i},r_{M})}{\sigma_{M}^{2}}= \rho_{iM}\dfrac{\sigma_{i}}{\sigma_{M}}" width="191" height="43">。β=1 与市场同步；β>1 激进（放大市场波动）；β<1 防守。组合的 β 是成分 β 的加权平均。
+**β 的含义与计算**（补全）：$\beta_{i}= \frac{\operatorname{Cov}(r_{i},r_{M})}{\sigma_{M}^{2}}= \rho_{iM}\dfrac{\sigma_{i}}{\sigma_{M}}$。β=1 与市场同步；β>1 激进（放大市场波动）；β<1 防守。组合的 β 是成分 β 的加权平均。
 
 <div class="kb-example">
 
 **例（课件原题）**：股票 A、B 收益率标准差 0.25 与 0.6，与市场相关系数 0.4 与 0.7，市场回报率 0.15、标准差 0.1，r_f=0.05。
-<img class="fml" src="/formulas/667a7ec0f4e6a2.png" alt="\beta_{A}= 0.4 \times \frac{0.25}{0.1}=1.0" width="169" height="33">；<img class="fml" src="/formulas/cc44d54f89ab4e.png" alt="\beta_{B}= 0.7 \times \frac{0.6}{0.1}=4.2" width="163" height="33">；组合 <img class="fml" src="/formulas/072204873ec7f8.png" alt="\beta= 0.5 \times 1.0+ 0.5 \times 4.2=2.6" width="245" height="33">。
-<img class="fml" src="/formulas/dce7330838a64b.png" alt="E(r_{A})= 0.05+(0.15- 0.05) \times 1.0=15\%" width="331" height="33">；<img class="fml" src="/formulas/1c502a0503876c.png" alt="E(r_{B})= 0.05+ 0.10 \times 4.2=47\%" width="265" height="33">；<img class="fml" src="/formulas/b799c0ca5cf117.png" alt="E(r_{P})= 0.05+ 0.10 \times 2.6=31\%" width="264" height="33">。
+$\beta_{A}= 0.4 \times \frac{0.25}{0.1}=1.0$；$\beta_{B}= 0.7 \times \frac{0.6}{0.1}=4.2$；组合 $\beta= 0.5 \times 1.0+ 0.5 \times 4.2=2.6$。
+$E(r_{A})= 0.05+(0.15- 0.05) \times 1.0=15\%$；$E(r_{B})= 0.05+ 0.10 \times 4.2=47\%$；$E(r_{P})= 0.05+ 0.10 \times 2.6=31\%$。
 
 </div>
 
 **CAPM 应用**：① 资产估值——用 CAPM 计算的预期收益与实际收益率比较，发现高估/低估资产，低买高卖；② 资源配置——消极管理者按风险偏好配置无风险资产与市场组合（偏好不变则组合不变）；积极管理者预测市场走势、计算 β 值，据市场走势调整组合结构。
 
-**CAPM 的发展形式**：零β CAPM：<img class="fml" src="/formulas/e8c8b1dc523882.png" alt="E(r_{i})= E(r_{z})+[E(r_{M})- E(r_{z})]\beta_{i}" width="278" height="33">（用零β组合替代无风险资产）；跨期 CAPM（ICAPM）；多β CAPM：<img class="fml" src="/formulas/b1caf82be876f1.png" alt="E(r_{i})= r_{f}+[E(r_{M})- r_{f}]\beta_{iM}+[E(r_{N})- r_{f}]\beta_{iN}" width="383" height="33">；以消费为基础的 CAPM：<img class="fml" src="/formulas/df53672806c0ac.png" alt="E(r_{i})= r_{f}+[E(r_{C})- r_{f}]\beta_{iC}" width="231" height="33">。
+**CAPM 的发展形式**：零β CAPM：$E(r_{i})= E(r_{z})+[E(r_{M})- E(r_{z})]\beta_{i}$（用零β组合替代无风险资产）；跨期 CAPM（ICAPM）；多β CAPM：$E(r_{i})= r_{f}+[E(r_{M})- r_{f}]\beta_{iM}+[E(r_{N})- r_{f}]\beta_{iN}$；以消费为基础的 CAPM：$E(r_{i})= r_{f}+[E(r_{C})- r_{f}]\beta_{iC}$。
 
 ### 6.2 套利定价理论 APT（★★★）
 
@@ -732,8 +718,8 @@ w_{A}&amp;=\frac{0.22^{2}-0.30\times0.22\times0.2}{0.30^{2}+0.22^{2}-2\times0.30
 
 | 模型 | 因素 | 公式 |
 | --- | --- | --- |
-| 三因素（1993） | 市场超额收益 <img class="fml" src="/formulas/196884309e6337.png" alt="[E(R_{M})- r_{f}]" width="111" height="33">、规模因素 SMB（小公司与大公司收益差）、价值因素 HML（高 B/E 与低 B/E 股票收益差） | <img class="fml" src="/formulas/b286fbbfe68865.png" alt="E(R_{i})- r_{f}= \alpha_{i}+ \beta_{1}[E(R_{M})- r_{f}]+ \beta_{2}E(SMB)+ \beta_{3}E(HML)" width="503" height="33"> |
-| 四因素 | 三因素 + 一年期股票收益冲量 PR1YR（动量） | 上式 + <img class="fml" src="/formulas/5a1de86f6fc6ec.png" alt="\beta_{4}E(PR1YR)" width="117" height="33"> |
+| 三因素（1993） | 市场超额收益 $[E(R_{M})- r_{f}]$、规模因素 SMB（小公司与大公司收益差）、价值因素 HML（高 B/E 与低 B/E 股票收益差） | $E(R_{i})- r_{f}= \alpha_{i}+ \beta_{1}[E(R_{M})- r_{f}]+ \beta_{2}E(SMB)+ \beta_{3}E(HML)$ |
+| 四因素 | 三因素 + 一年期股票收益冲量 PR1YR（动量） | 上式 + $\beta_{4}E(PR1YR)$ |
 | 五因素（2015） | 三因素 + 盈利能力因子 RMW + 投资模式因子 CMA | 能更好解释股票回报，但对高投资比例、低盈利小盘股解释不理想；加入新因素后价值因素 HML 显得多余 |
 
 **套利组合三特征**：① 不需要投资者任何**额外资金**（自融资）；② 对**任何因素都没有敏感性**（无风险）；③ **预期收益率为正**。
@@ -742,17 +728,17 @@ w_{A}&amp;=\frac{0.22^{2}-0.30\times0.22\times0.2}{0.30^{2}+0.22^{2}-2\times0.30
 
 **推导逻辑**：① 有效市场均衡时不存在无风险套利机会；② 高度多元化组合只有几个共同因素需要补偿。
 
-**APT 公式：E(r) = λ0 + β_i1λ1 + β_i2λ2 + … + β_ikλ_k**，其中 λ_k 是承担一个单位 k 因素风险的补偿额（<img class="fml" src="/formulas/aee16ecd4df216.png" alt="\lambda_{0}" width="25" height="33"> 无风险利率），风险大小由 <img class="fml" src="/formulas/6cc258a4f2a216.png" alt="\beta_{ik}" width="29" height="33"> 表示。
+**APT 公式：E(r) = λ0 + β_i1λ1 + β_i2λ2 + … + β_ikλ_k**，其中 λ_k 是承担一个单位 k 因素风险的补偿额（$\lambda_{0}$ 无风险利率），风险大小由 $\beta_{ik}$ 表示。
 
 <div class="kb-example">
 
-**例（课件原题，单因素 APT）**：组合 A、B 均已充分多样化，E(r)=12%、9%，<img class="fml" src="/formulas/4e44f29343d14f.png" alt="\beta=1.2" width="65" height="33">、0.8，单因素经济。由 12% = <img class="fml" src="/formulas/cae40769861071.png" alt="r_{f}+ 1.2\lambda" width="78" height="33">、9% = <img class="fml" src="/formulas/d33e22e4b5f395.png" alt="r_{f}+ 0.8\lambda" width="78" height="33"> 解得 <img class="fml" src="/formulas/2e47c10854ff47.png" alt="\lambda= 7.5" width="64" height="33">%、**r_f = 3%**。
+**例（课件原题，单因素 APT）**：组合 A、B 均已充分多样化，E(r)=12%、9%，$\beta=1.2$、0.8，单因素经济。由 12% = $r_{f}+ 1.2\lambda$、9% = $r_{f}+ 0.8\lambda$ 解得 $\lambda= 7.5$%、**r_f = 3%**。
 
 </div>
 
 <div class="kb-example">
 
-**例（两因素 APT）**：r_f=5%；组合 A：<img class="fml" src="/formulas/21769df0d10a7b.png" alt="\beta_{1}=1.2" width="70" height="33">、<img class="fml" src="/formulas/d70ee694120b2b.png" alt="\beta_{2}=1.8" width="71" height="33">、E(r)=24%；组合 B：<img class="fml" src="/formulas/8578bbc4196e46.png" alt="\beta_{1}=2" width="57" height="33">、<img class="fml" src="/formulas/b10d014148b414.png" alt="\beta_{2}=- 0.3" width="85" height="33">、E(r)=22%。联立 <img class="fml" src="/formulas/428009fadaa12b.png" alt="24= 5+ 1.2\lambda_{1}+ 1.8\lambda_{2}" width="182" height="33">、<img class="fml" src="/formulas/93cbf028e338d4.png" alt="22= 5+ 2\lambda_{1}- 0.3\lambda_{2}" width="168" height="33">，解得 <img class="fml" src="/formulas/a0352ede2111b4.png" alt="\lambda_{1} \approx 9.17" width="81" height="34">%、<img class="fml" src="/formulas/5bedfc4604cf29.png" alt="\lambda_{2} \approx 4.44" width="80" height="34">%，即 <img class="fml" src="/formulas/e302864a96c548.png" alt="E(r)= 5\%+ 9.17\%\beta_{1}+ 4.44\%\beta_{2}" width="262" height="34">。
+**例（两因素 APT）**：r_f=5%；组合 A：$\beta_{1}=1.2$、$\beta_{2}=1.8$、E(r)=24%；组合 B：$\beta_{1}=2$、$\beta_{2}=- 0.3$、E(r)=22%。联立 $24= 5+ 1.2\lambda_{1}+ 1.8\lambda_{2}$、$22= 5+ 2\lambda_{1}- 0.3\lambda_{2}$，解得 $\lambda_{1} \approx 9.17$%、$\lambda_{2} \approx 4.44$%，即 $E(r)= 5\%+ 9.17\%\beta_{1}+ 4.44\%\beta_{2}$。
 
 </div>
 
@@ -773,25 +759,21 @@ w_{A}&amp;=\frac{0.22^{2}-0.30\times0.22\times0.2}{0.30^{2}+0.22^{2}-2\times0.30
 **影响期权价格的六因素**（以股票期权为例）：当前股票价格、执行价格、期权期限、股票价格波动率、无风险利率、存续期预期股息。
 
 **二项式（二叉树）模型例（课件原题）**：股价 40 元，两个月后要么 42 元、要么 38 元，无风险年利率 6%，求两个月期、执行价 39 元的欧式看涨期权价格。
-- 上涨时 payoff = <img class="fml" src="/formulas/6c7add58a63b5b.png" alt="42- 39= 3" width="97" height="33">；下跌时 payoff = <img class="fml" src="/formulas/ee026b9de933ee.png" alt="\max(38- 39,0)= 0" width="161" height="33">
-- 风险中性概率 p：<img class="fml" src="/formulas/4f77b182dd5c3b.png" alt="40\times (1+6\%\times \frac{2}{12})=p\times 42 + (1-p)\times 38 \to 40.4=38 + 4p \to p=0.6" width="566" height="33">
-- 期权价格 <img class="fml" src="/formulas/e0a138da49c5ee.png" alt="C=\dfrac{0.6\times 3+ 0.4\times 0}{1+ 6\%\times 2/12}= \dfrac{1.8}{1.01}\approx" width="257" height="49"> **1.78 元**
+- 上涨时 payoff = $42- 39= 3$；下跌时 payoff = $\max(38- 39,0)= 0$
+- 风险中性概率 p：$40\times (1+6\%\times \frac{2}{12})=p\times 42 + (1-p)\times 38 \to 40.4=38 + 4p \to p=0.6$
+- 期权价格 $C=\dfrac{0.6\times 3+ 0.4\times 0}{1+ 6\%\times 2/12}= \dfrac{1.8}{1.01}\approx$ **1.78 元**
 
 **Black-Scholes 模型**（1973，布莱克与斯科尔斯；补全公式）：
 
-<img class="fml" src="/formulas/4c646f773996a5.png" alt="C= S \cdot N(d_{1})- X \cdot e^{- rT} \cdot N(d_{2})" width="261" height="34">，其中 <img class="fml" src="/formulas/89f9af73d8f648.png" alt="d_{1}= \frac{\ln\left(\frac{S}{X}\right)+\left(r+\frac{\sigma^{2}}{2}\right)T}{\sigma \sqrt{T}}" width="154" height="46">，<img class="fml" src="/formulas/abd257179d2281.png" alt="d_{2}= d_{1}- \sigma \sqrt{T}" width="124" height="34">；<img class="fml" src="/formulas/721dad2c35b8f9.png" alt="N( \cdot)" width="42" height="34"> 为标准正态分布函数，S 现价、X 执行价、r 无风险利率、T 期限（年）、σ 收益率标准差（方差 σ² 开方）。
+$C= S \cdot N(d_{1})- X \cdot e^{- rT} \cdot N(d_{2})$，其中 $d_{1}= \frac{\ln\left(\frac{S}{X}\right)+\left(r+\frac{\sigma^{2}}{2}\right)T}{\sigma \sqrt{T}}$，$d_{2}= d_{1}- \sigma \sqrt{T}$；$N( \cdot)$ 为标准正态分布函数，S 现价、X 执行价、r 无风险利率、T 期限（年）、σ 收益率标准差（方差 σ² 开方）。
 
 <div class="kb-example">
 
-**例（课件原题）**：S=25、X=25、T=0.5、r=12%、方差 0.36（<img class="fml" src="/formulas/0464b568824c80.png" alt="\sigma=0.6" width="64" height="34">），不发股利。
-<img class="fml" src="/formulas/bb7745e1fe8846.png" alt="d_{1}= \frac{\ln(1)+(0.12+ 0.18) \times 0.5}{0.6 \times \sqrt{0.5}}= \frac{0.15}{0.4243} \approx 0.3536" width="313" height="37">；<img class="fml" src="/formulas/3e12bd4ea7c1f7.png" alt="d_{2}= 0.3536- 0.4243 \approx- 0.0707" width="255" height="34">。
-查表 <img class="fml" src="/formulas/67b800ca0754c0.png" alt="N(0.3536) \approx 0.638" width="152" height="34">、<img class="fml" src="/formulas/9240cf05064df7.png" alt="N(- 0.0707) \approx 0.472" width="165" height="33">，故
+**例（课件原题）**：S=25、X=25、T=0.5、r=12%、方差 0.36（$\sigma=0.6$），不发股利。
+$d_{1}= \frac{\ln(1)+(0.12+ 0.18) \times 0.5}{0.6 \times \sqrt{0.5}}= \frac{0.15}{0.4243} \approx 0.3536$；$d_{2}= 0.3536- 0.4243 \approx- 0.0707$。
+查表 $N(0.3536) \approx 0.638$、$N(- 0.0707) \approx 0.472$，故
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/d8157628305b4d.png" alt="C= 25 \times 0.638- 25 \times e^{- 0.06} \times 0.472 \approx 15.95- 11.13=4.83\,\text{元}" width="493" height="33"></p>
-
-
+$$C= 25 \times 0.638- 25 \times e^{- 0.06} \times 0.472 \approx 15.95- 11.13=4.83\,\text{元}$$
 
 </div>
 
@@ -826,7 +808,7 @@ w_{A}&amp;=\frac{0.22^{2}-0.30\times0.22\times0.2}{0.30^{2}+0.22^{2}-2\times0.30
 
 应用：残余边界；量化投资的目标——**增加值 VA 最大化**（VA = 残余收益 − λ×残余风险²的权衡，最优化配置头寸）。
 
-**α 预测的经验法则（基本定律）**：前瞻 IR ≈ <img class="fml" src="/formulas/52b2dd41a9c708.png" alt="IC \times \sqrt{BR}" width="95" height="33">（IC 为信息系数即预测值与实际值的相关系数，BR 为独立预测次数/广度）。应用：股票消息 → 上涨/下跌预测 → 买卖消息 → 前瞻信息比率；**z 评分**（标准化评分）把原始信号转换为期望残余收益。
+**α 预测的经验法则（基本定律）**：前瞻 IR ≈ $IC \times \sqrt{BR}$（IC 为信息系数即预测值与实际值的相关系数，BR 为独立预测次数/广度）。应用：股票消息 → 上涨/下跌预测 → 买卖消息 → 前瞻信息比率；**z 评分**（标准化评分）把原始信号转换为期望残余收益。
 
 ### 7.3 大数据与智能投顾（★）
 
@@ -837,7 +819,7 @@ w_{A}&amp;=\frac{0.22^{2}-0.30\times0.22\times0.2}{0.30^{2}+0.22^{2}-2\times0.30
 ### 7.4 易错点
 
 - 信息比率的分母是**残余风险**（特质风险），夏普比率的分母是**总风险**（σ），特雷诺的分母是 β——三者勿混。
-- 经验法则 <img class="fml" src="/formulas/4689f2f553fd26.png" alt="IR \approx IC \times \sqrt{BR}" width="142" height="33">：预测准确度与广度共同决定信息比率，"多做独立预测"本身就能提升 IR。
+- 经验法则 $IR \approx IC \times \sqrt{BR}$：预测准确度与广度共同决定信息比率，"多做独立预测"本身就能提升 IR。
 - 智能投顾的核心特征是自动化 + 个性化 + **长期**财富目标，不是短线择时。
 
 ---
@@ -852,10 +834,10 @@ w_{A}&amp;=\frac{0.22^{2}-0.30\times0.22\times0.2}{0.30^{2}+0.22^{2}-2\times0.30
 
 | 指标 | 公式 | 风险度量 | 特点 |
 | --- | --- | --- | --- |
-| **夏普指数** | <img class="fml" src="/formulas/e53d07d2c9bd40.png" alt="S_{P}= \frac{E(r_{P})- r_{f}}{\sigma_{P}}" width="111" height="35"> | 标准差（**总风险**） | 同时考虑系统性与非系统性风险，可反映经理人分散和降低非系统风险的能力 |
-| **特雷诺指数** | <img class="fml" src="/formulas/7376040f2de3b5.png" alt="T_{P}= \frac{E(r_{P})- r_{f}}{\beta_{P}}" width="111" height="36"> | β（**系统风险**） | 单位系统风险的超额收益；不含非系统风险 |
-| **詹森指数（α）** | <img class="fml" src="/formulas/e89602f2decc22.png" alt="J_{P}= r_{P}-[r_{f}+(r_{M}- r_{f})\beta_{P}]" width="235" height="33"> | β（基于 CAPM） | **绝对绩效指标**：组合收益与相同系统风险下市场组合收益之差；>0 表示优于市场组合；组合间比较时越大越好 |
-| **信息比率** | <img class="fml" src="/formulas/770a4d9defa933.png" alt="IR= \dfrac{\alpha_{P}}{\sigma(\epsilon_{P})}" width="101" height="45"> | 非系统风险 | 单位非系统风险的非常规收益（Treynor-Black），又称**估价比率**，衡量积极型组合业绩 |
+| **夏普指数** | $S_{P}= \frac{E(r_{P})- r_{f}}{\sigma_{P}}$ | 标准差（**总风险**） | 同时考虑系统性与非系统性风险，可反映经理人分散和降低非系统风险的能力 |
+| **特雷诺指数** | $T_{P}= \frac{E(r_{P})- r_{f}}{\beta_{P}}$ | β（**系统风险**） | 单位系统风险的超额收益；不含非系统风险 |
+| **詹森指数（α）** | $J_{P}= r_{P}-[r_{f}+(r_{M}- r_{f})\beta_{P}]$ | β（基于 CAPM） | **绝对绩效指标**：组合收益与相同系统风险下市场组合收益之差；>0 表示优于市场组合；组合间比较时越大越好 |
+| **信息比率** | $IR= \dfrac{\alpha_{P}}{\sigma(\epsilon_{P})}$ | 非系统风险 | 单位非系统风险的非常规收益（Treynor-Black），又称**估价比率**，衡量积极型组合业绩 |
 
 **M² 测度**：把组合通过杠杆调整到与市场组合相同的风险水平后比较收益，纠正投资者只看原始业绩的倾向，鼓励同时注意风险因素。
 **M³ 测度**：M² 只按收益波动定义风险、未考虑组合与基准风险的相关性；M³ 在考虑相关性的基础上改进 M²。
@@ -876,15 +858,15 @@ w_{A}&amp;=\frac{0.22^{2}-0.30\times0.22\times0.2}{0.30^{2}+0.22^{2}-2\times0.30
 
 <div class="kb-example">
 
-**例 1（詹森指数，课件原题）**：国债利率 6%，市场回报率 14%，组合 <img class="fml" src="/formulas/091d2e2bdd75d3.png" alt="\beta=0.5" width="64" height="33">，实现收益率 10%。
-CAPM 要求收益 = 6% + (14%−6%)×0.5 = 10% → <img class="fml" src="/formulas/63cd6f36b0186e.png" alt="\alpha= 10\%- 10\%= 0" width="163" height="33">，该经理业绩与市场基准持平，没有创造超额收益。
+**例 1（詹森指数，课件原题）**：国债利率 6%，市场回报率 14%，组合 $\beta=0.5$，实现收益率 10%。
+CAPM 要求收益 = 6% + (14%−6%)×0.5 = 10% → $\alpha= 10\%- 10\%= 0$，该经理业绩与市场基准持平，没有创造超额收益。
 
 </div>
 <div class="kb-example">
 
-**例 2（夏普/特雷诺综合，课件原题）**：组合 A：E(r)=11%、<img class="fml" src="/formulas/705d9f9e9ea688.png" alt="\beta=0.8" width="64" height="34">、<img class="fml" src="/formulas/f10daade89e059.png" alt="\sigma=10" width="59" height="33">%；组合 B：E(r)=14%、<img class="fml" src="/formulas/598b6f5fbd2d9b.png" alt="\beta=1.5" width="64" height="33">、<img class="fml" src="/formulas/585127cee04940.png" alt="\sigma=31" width="60" height="33">%；r_f=6%，沪深300 预期收益 12%、<img class="fml" src="/formulas/b75b48d6bb17d6.png" alt="\sigma=20" width="59" height="33">%。
-- 已持有市场指数组合（分散化充分，只关心 β 与 α）→ 用**詹森/特雷诺**：<img class="fml" src="/formulas/b4f20553ddd384.png" alt="J_{A}= 11-[6+(12- 6) \times 0.8]" width="239" height="33"> **+0.2%**；<img class="fml" src="/formulas/1a1323956a2a0e.png" alt="J_{B}= 14-[6+ 6 \times 1.5]" width="185" height="33"> <img class="fml" src="/formulas/a7a71501f1df05.png" alt="- 1\%" width="45" height="33">。A 有正 α，应**增持 A**。
-- 只能投国债和一个组合（组合即全部资产，关心总风险）→ 用**夏普**：<img class="fml" src="/formulas/9e2c9ae6398b3b.png" alt="S_{A}= \frac{11- 6}{10}=0.5" width="131" height="33">；<img class="fml" src="/formulas/066da51a345473.png" alt="S_{B}= \frac{14- 6}{31}=0.258" width="150" height="33">；市场组合 <img class="fml" src="/formulas/b2b55b71af76c2.png" alt="S_{M}= \frac{12- 6}{20}= 0.3" width="136" height="33">。选 **A**（夏普比率最高，甚至优于市场）。
+**例 2（夏普/特雷诺综合，课件原题）**：组合 A：E(r)=11%、$\beta=0.8$、$\sigma=10$%；组合 B：E(r)=14%、$\beta=1.5$、$\sigma=31$%；r_f=6%，沪深300 预期收益 12%、$\sigma=20$%。
+- 已持有市场指数组合（分散化充分，只关心 β 与 α）→ 用**詹森/特雷诺**：$J_{A}= 11-[6+(12- 6) \times 0.8]$ **+0.2%**；$J_{B}= 14-[6+ 6 \times 1.5]$ $- 1\%$。A 有正 α，应**增持 A**。
+- 只能投国债和一个组合（组合即全部资产，关心总风险）→ 用**夏普**：$S_{A}= \frac{11- 6}{10}=0.5$；$S_{B}= \frac{14- 6}{31}=0.258$；市场组合 $S_{M}= \frac{12- 6}{20}= 0.3$。选 **A**（夏普比率最高，甚至优于市场）。
 
 </div>
 <div class="kb-example">
@@ -894,7 +876,7 @@ CAPM 要求收益 = 6% + (14%−6%)×0.5 = 10% → <img class="fml" src="/formul
 </div>
 ### 8.5 易错点
 
-- 夏普比率用 <img class="fml" src="/formulas/275516ecc7dc2b.png" alt="\sigma" width="18" height="33">（总风险）、特雷诺用 <img class="fml" src="/formulas/5ed80e3e4d7b8f.png" alt="\beta" width="18" height="34">（系统风险）、詹森用 **CAPM 差值**（绝对 α）、信息比率用**非系统风险**——四个分母是本节最大考点。
+- 夏普比率用 $\sigma$（总风险）、特雷诺用 $\beta$（系统风险）、詹森用 **CAPM 差值**（绝对 α）、信息比率用**非系统风险**——四个分母是本节最大考点。
 - 组合已充分分散（只是大组合的一小部分）→ 用特雷诺/詹森；组合是投资者的**全部资产** → 用夏普。
 - 詹森指数是**绝对**指标，可能为正可能为负；大于零才优于市场。
 - 时间加权收益率不受客户资金进出的影响，适合评价**经理**能力；货币加权收益率反映**投资者**实际体验。
@@ -908,7 +890,7 @@ CAPM 要求收益 = 6% + (14%−6%)×0.5 = 10% → <img class="fml" src="/formul
 
 **债券价值 = 未来现金流入的现值**（内在价值/理论价格）。计算简单债券价值四步骤：① 选择适当贴现率；② 计算所有利息的现值之和；③ 计算本金的现值；④ 两个现值相加。
 
-**基本公式**（补全）：附息债券 <img class="fml" src="/formulas/b3f9b6dacb05b3.png" alt="P= \sum \frac{C}{(1+y)^t}+ \frac{F}{(1+y)^n}" width="171" height="36">（C 为每期息票、F 面值、y 到期收益率、n 期数）；零息债券 <img class="fml" src="/formulas/415fe8a38dcbcb.png" alt="P= \frac{F}{(1+y)^n}" width="88" height="36">。
+**基本公式**（补全）：附息债券 $P= \sum \frac{C}{(1+y)^t}+ \frac{F}{(1+y)^n}$（C 为每期息票、F 面值、y 到期收益率、n 期数）；零息债券 $P= \frac{F}{(1+y)^n}$。
 
 **复杂情形**：一年付息多次（用 y/2、2n 期）；期限不足一年；两个付息日之间购买——涉及**净价与应计利息**（全价 = 净价 + 应计利息）。
 
@@ -936,31 +918,31 @@ CAPM 要求收益 = 6% + (14%−6%)×0.5 = 10% → <img class="fml" src="/formul
 <div class="kb-example">
 
 **例（课件原题，即期与远期利率）**：面值 100 元的 1 年期零息债券价格 94 元、2 年期零息债券价格 88 元。
-- 1 年即期利率：<img class="fml" src="/formulas/352f4e9b0a0033.png" alt="\frac{100}{94}- 1=6.38\%" width="131" height="33">；2 年期零息到期收益率：<img class="fml" src="/formulas/67970811134cc6.png" alt="\left(\frac{100}{88}\right)^{\frac{1}{2}}- 1=6.60\%" width="157" height="36">
-- 第 2 年远期利率 <img class="fml" src="/formulas/661467e37ee8d7.png" alt="f_{2}= \frac{(1.0660)^{2}}{1.0638}- 1=6.82\%" width="202" height="35">
-- 若无偏预期理论成立，新发 2 年期国债（面值 100、年息票率 10%）第 1 年末的预期价格 = 第 2 年现金流 110 按预期 1 年期利率折现：<img class="fml" src="/formulas/9805b9d4f241e6.png" alt="\frac{110}{1+f_{2}}=102.98\,\text{元}" width="133" height="35">，预期到期收益率 = <img class="fml" src="/formulas/c3451360b69ffa.png" alt="\frac{110}{102.98}- 1=6.82\%" width="147" height="33">（即远期利率）。
+- 1 年即期利率：$\frac{100}{94}- 1=6.38\%$；2 年期零息到期收益率：$\left(\frac{100}{88}\right)^{\frac{1}{2}}- 1=6.60\%$
+- 第 2 年远期利率 $f_{2}= \frac{(1.0660)^{2}}{1.0638}- 1=6.82\%$
+- 若无偏预期理论成立，新发 2 年期国债（面值 100、年息票率 10%）第 1 年末的预期价格 = 第 2 年现金流 110 按预期 1 年期利率折现：$\frac{110}{1+f_{2}}=102.98\,\text{元}$，预期到期收益率 = $\frac{110}{102.98}- 1=6.82\%$（即远期利率）。
 
 </div>
 
 ### 9.3 久期与凸度（★★★ 计算 + 名词解释）
 
-**久期（Duration）**：债券现金流的加权平均到期时间，权重为各期现金流现值占比；衡量债券价格对利率变动的敏感度。麦考利久期 <img class="fml" src="/formulas/5a60b8b6bd9588.png" alt="D= \sum \frac{t \times PV(CF_{t})}{P}" width="138" height="33">。
+**久期（Duration）**：债券现金流的加权平均到期时间，权重为各期现金流现值占比；衡量债券价格对利率变动的敏感度。麦考利久期 $D= \sum \frac{t \times PV(CF_{t})}{P}$。
 
-**价格波动近似**（补全）：<img class="fml" src="/formulas/98ac28f242f401.png" alt="\frac{\Delta P}{P} \approx- D \times \frac{\Delta y}{1+y}" width="133" height="35">；修正久期 D* = D/(1+y)，则 <img class="fml" src="/formulas/0d58d7debbb2fc.png" alt="\frac{\Delta P}{P} \approx- D* \times \Delta y" width="139" height="33">。
+**价格波动近似**（补全）：$\frac{\Delta P}{P} \approx- D \times \frac{\Delta y}{1+y}$；修正久期 D* = D/(1+y)，则 $\frac{\Delta P}{P} \approx- D* \times \Delta y$。
 
 **久期三规则**：① 其他因素不变，**票面利率越低，久期越长**；② **到期收益率越低，久期越长**；③ 一般来说**到期时间越长，久期越长**（其他因素不变）。
 
 **债券的价格波动与久期成比例，而不是与到期时间成比例。**
 
-**凸度（Convexity）**：价格—收益率曲线弯曲程度的度量；久期只是线性近似，凸度对大幅利率变动作二阶修正：<img class="fml" src="/formulas/df302f98a3f61f.png" alt="\frac{\Delta P}{P}\approx -D\,\Delta y+\frac{1}{2}C(\Delta y)^{2}" width="203" height="33">。凸度对投资者总是有利的（利率大跌时价格涨得更多、大涨时跌得更少），凸度大的债券更有价值。
+**凸度（Convexity）**：价格—收益率曲线弯曲程度的度量；久期只是线性近似，凸度对大幅利率变动作二阶修正：$\frac{\Delta P}{P}\approx -D\,\Delta y+\frac{1}{2}C(\Delta y)^{2}$。凸度对投资者总是有利的（利率大跌时价格涨得更多、大涨时跌得更少），凸度大的债券更有价值。
 
 <div class="kb-example">
 
-**例（课件习题）**：息票率 8%（年末付息）、期限 5 年、按面值发行的债券：发行价=面值（票面利率=贴现率 8%）→ 平价发行；久期 <img class="fml" src="/formulas/60af96aa8655b7.png" alt="D= \frac{\sum t \times PV(CF_{t})}{100}=4.31\,\text{年}" width="208" height="33">（可逐年计算：各期现金流 8,8,8,8,108 按 8% 折现加权）。若投资者期望到期收益率为 10% > 票面利率 8% → **不能按面值发行**，须折价：P = 8×年金系数(10%,5) + 100/1.1⁵ = 8×3.7908 + 62.09 ≈ **92.42 元**。
+**例（课件习题）**：息票率 8%（年末付息）、期限 5 年、按面值发行的债券：发行价=面值（票面利率=贴现率 8%）→ 平价发行；久期 $D= \frac{\sum t \times PV(CF_{t})}{100}=4.31\,\text{年}$（可逐年计算：各期现金流 8,8,8,8,108 按 8% 折现加权）。若投资者期望到期收益率为 10% > 票面利率 8% → **不能按面值发行**，须折价：P = 8×年金系数(10%,5) + 100/1.1⁵ = 8×3.7908 + 62.09 ≈ **92.42 元**。
 
 </div>
 
-**债券组合的利率风险对冲（久期套保，课件原题）**：休斯持有 10 万元债券组合、久期 9 年；6 月份国债期货现价 108 元、可交割券久期 8.8 年。对冲需**卖空**期货合约数 N = (组合价值 × 组合久期) / (期货价格 × 交割券久期 × 合约面值/100)。设每手面值 100 元：<img class="fml" src="/formulas/7c873f21c99863.png" alt="N= \dfrac{100000 \times 9}{108 \times 8.8}\approx 947" width="186" height="46"> **手 → 卖空约 947 手**，使组合久期归零，规避 6 个月内利率上升风险。
+**债券组合的利率风险对冲（久期套保，课件原题）**：休斯持有 10 万元债券组合、久期 9 年；6 月份国债期货现价 108 元、可交割券久期 8.8 年。对冲需**卖空**期货合约数 N = (组合价值 × 组合久期) / (期货价格 × 交割券久期 × 合约面值/100)。设每手面值 100 元：$N= \dfrac{100000 \times 9}{108 \times 8.8}\approx 947$ **手 → 卖空约 947 手**，使组合久期归零，规避 6 个月内利率上升风险。
 
 ### 9.4 可转换债券定价（★★）
 
@@ -1001,8 +983,8 @@ CAPM 要求收益 = 6% + (14%−6%)×0.5 = 10% → <img class="fml" src="/formul
 | 股价指数 | 衡量股价综合变动方向和幅度的动态相对数 |
 | 系统性/非系统性风险 | 市场共同因素引起不可分散/个别因素引起可分散 |
 | 有效边界 | 同等收益风险最小、同等风险收益最高的组合集合 |
-| CML | 无风险资产与市场组合连线，均衡下的有效边界，<img class="fml" src="/formulas/d008d55aa7fe00.png" alt="E(r_{P})=r_{f}+\frac{E(r_{M})-r_{f}}{\sigma_{M}}\sigma_{P}" width="199" height="36"> |
-| SML | 收益—β 线性关系，<img class="fml" src="/formulas/d13907dec2cb6a.png" alt="E(r_{i})=r_{f}+[E(r_{M})- r_{f}]\beta_{i}" width="224" height="33">，适用一切资产 |
+| CML | 无风险资产与市场组合连线，均衡下的有效边界，$E(r_{P})=r_{f}+\frac{E(r_{M})-r_{f}}{\sigma_{M}}\sigma_{P}$ |
+| SML | 收益—β 线性关系，$E(r_{i})=r_{f}+[E(r_{M})- r_{f}]\beta_{i}$，适用一切资产 |
 | 市场组合 | 包含市场中所有风险资产的组合，均衡时所有投资者共同持有 |
 | 因素模型 | 把主要经济因素视为宏观指示器解释证券收益的统计模型 |
 | 套利组合 | 不需额外资金、无因素敏感性、预期收益为正的组合 |

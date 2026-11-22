@@ -203,9 +203,9 @@ printf("%zu", sizeof(int));   /* 通常输出 4 */
 原笔记的思路：仿照十进制，用一个特殊的标志表示负数；取中间的数为 0，它左边是负数，右边是正数。
 
 - **补码**：负数以补码形式存储
-- 直观理解：一个字节（8 位）能表示 <img class="fml" src="/formulas/7b8842f366abb0.png" alt="- 128 \sim 127" width="99" height="34">；在 0 的左边依次是 −1、−2、……
+- 直观理解：一个字节（8 位）能表示 $- 128 \sim 127$；在 0 的左边依次是 −1、−2、……
 - `unsigned`：不以补码的形式看待这个数 —— 不能表达负数，但正数的范围扩大一倍
-- 例题：`unsigned char` 表示 0 ~ 255，`signed char` 表示 <img class="fml" src="/formulas/7b8842f366abb0.png" alt="- 128 \sim 127" width="99" height="34">
+- 例题：`unsigned char` 表示 0 ~ 255，`signed char` 表示 $- 128 \sim 127$
 
 ### 2.7 整数与浮点的输入输出 · 输出进阶
 
@@ -1622,7 +1622,7 @@ int main() {
 
 ### 8. 求最大公约数
 
-**思路**：辗转相除法（欧几里得算法）：<img class="fml" src="/formulas/6926a0c3219623.png" alt="\gcd(a, b)= \gcd(b, a \% b)" width="185" height="33">，直到 b 为 0。
+**思路**：辗转相除法（欧几里得算法）：$\gcd(a, b)= \gcd(b, a \% b)$，直到 b 为 0。
 
 ```c
 #include <stdio.h>

@@ -15,6 +15,7 @@ import InstallApp from './InstallApp.vue'
 import Favorites from './Favorites.vue'
 import HomeNotes from './HomeNotes.vue'
 import './custom.css'
+import 'katex/dist/katex.min.css'
 
 export default {
   extends: DefaultTheme,

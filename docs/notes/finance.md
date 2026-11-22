@@ -238,18 +238,18 @@ summary: "《中国金融学》11 章精要笔记：货币与货币制度、信�
 
 ### 3.2 实际利率与收益率计算（★ 计算题）
 
-设名义利率为 **r**、实际利率为 **i**、通货膨胀率为 <img class="fml" src="/formulas/0e03884f457656.png" alt="\pi" width="18" height="34">。
+设名义利率为 **r**、实际利率为 **i**、通货膨胀率为 $\pi$。
 
 | 公式 | 表达 | 说明 |
 | --- | --- | --- |
-| 费雪简化式 | <img class="fml" src="/formulas/26a7b5f2a4ee57.png" alt="i \approx r- \pi" width="78" height="34"> | 通胀较低时近似成立，最常用 |
-| 费雪精确式 | <img class="fml" src="/formulas/d3e6c94066cb66.png" alt="1+ r=(1+ i)(1+ \pi)" width="177" height="34">，即 <img class="fml" src="/formulas/8817fb04bd50b0.png" alt="i= \frac{1+ r}{1+ \pi}- 1" width="95" height="34"> | 通胀较高时必须用此式 |
-| 单利终值 | <img class="fml" src="/formulas/10ad5d033224e5.png" alt="FV= P(1+ r \cdot n)" width="150" height="34"> | P 为本金，n 为期数 |
-| 复利终值 | <img class="fml" src="/formulas/d8e66475534c2a.png" alt="FV= P(1+ r)^{n}" width="135" height="34"> | 利息再投资 |
+| 费雪简化式 | $i \approx r- \pi$ | 通胀较低时近似成立，最常用 |
+| 费雪精确式 | $1+ r=(1+ i)(1+ \pi)$，即 $i= \frac{1+ r}{1+ \pi}- 1$ | 通胀较高时必须用此式 |
+| 单利终值 | $FV= P(1+ r \cdot n)$ | P 为本金，n 为期数 |
+| 复利终值 | $FV= P(1+ r)^{n}$ | 利息再投资 |
 
 <div class="kb-example">
 
-**例**：名义利率 8%、通胀率 3% → 精确实际利率 = <img class="fml" src="/formulas/ef6885800ea356.png" alt="\frac{1.08}{1.03}- 1 \approx 4.85\%" width="134" height="34">；简化式给出 5%，偏差约 0.15 个百分点。通胀越高，简化式偏差越大。
+**例**：名义利率 8%、通胀率 3% → 精确实际利率 = $\frac{1.08}{1.03}- 1 \approx 4.85\%$；简化式给出 5%，偏差约 0.15 个百分点。通胀越高，简化式偏差越大。
 
 </div>
 
@@ -257,13 +257,13 @@ summary: "《中国金融学》11 章精要笔记：货币与货币制度、信�
 
 | 指标 | 公式 | 用途 |
 | --- | --- | --- |
-| 当期收益率 | <img class="fml" src="/formulas/d7d9f400a7f09f.png" alt="i_{c}= \frac{C}{P}" width="58" height="34">（年息票 ÷ 市价） | 债券当期现金回报 |
+| 当期收益率 | $i_{c}= \frac{C}{P}$（年息票 ÷ 市价） | 债券当期现金回报 |
 | 持有期收益率 HPR | **(期末价格 − 期初价格 + 期间收益) / 期初价格** | 衡量持有期间的总回报 |
 | 到期收益率 YTM | 使未来现金流现值等于当前市价的贴现率 | 债券投资比较的标准口径 |
 
 <div class="kb-example">
 
-**例**：以 95 元买入一年后按 100 元兑付并付息 5 元的债券，HPR = <img class="fml" src="/formulas/9fc5281fc71b85.png" alt="\frac{100- 95+ 5}{95} \approx 10.53\%" width="147" height="34">。
+**例**：以 95 元买入一年后按 100 元兑付并付息 5 元的债券，HPR = $\frac{100- 95+ 5}{95} \approx 10.53\%$。
 
 </div>
 
@@ -312,7 +312,7 @@ summary: "《中国金融学》11 章精要笔记：货币与货币制度、信�
 
 ### 3.6 易错点
 
-- 精确费雪式是 <img class="fml" src="/formulas/8817fb04bd50b0.png" alt="i= \frac{1+ r}{1+ \pi}- 1" width="95" height="34">，不是 <img class="fml" src="/formulas/2af2be3e1575cb.png" alt="r- \pi" width="49" height="34">；分母是 (1 + π) 不是 (1 − π)。
+- 精确费雪式是 $i= \frac{1+ r}{1+ \pi}- 1$，不是 $r- \pi$；分母是 (1 + π) 不是 (1 − π)。
 - 收益率曲线**倒挂**指长期利率低于短期利率，不等于「利率下降」。
 - 流动性偏好理论中货币供给由央行**外生**决定，利率是**货币现象**；古典理论中利率是**实物现象**（储蓄与投资）。
 - 预期假说假定长短期债券完全替代，分割市场理论假定完全不替代，期限选择理论介于两者之间。
@@ -416,7 +416,7 @@ summary: "《中国金融学》11 章精要笔记：货币与货币制度、信�
 
 **普通股 vs 优先股**：普通股有表决权、选择管理者与优先配股权，股利从**税后利润**支付、董事会宣告前不构成公司债务；优先股以**放弃表决权**换取固定股息与**优先分配剩余财产**，公司权利更少。按股东权利划分是普通股/优先股，记名与无记名、面额与无面额是按票面记载方式划分。
 
-**股利贴现模型（DDM）**：股票内在价值等于未来股利的现值之和；零增长模型 <img class="fml" src="/formulas/f80cf73c5524d7.png" alt="P_{0}= \frac{D}{r}" width="64" height="34">，固定增长（戈登）模型 <img class="fml" src="/formulas/565626f999844b.png" alt="P_{0}= \frac{D_{1}}{r- g}" width="76" height="36">，其中 r 为必要收益率、g 为股利增长率（须满足 r > g）。市场价格围绕内在价值波动，**并不总是相等**。
+**股利贴现模型（DDM）**：股票内在价值等于未来股利的现值之和；零增长模型 $P_{0}= \frac{D}{r}$，固定增长（戈登）模型 $P_{0}= \frac{D_{1}}{r- g}$，其中 r 为必要收益率、g 为股利增长率（须满足 r > g）。市场价格围绕内在价值波动，**并不总是相等**。
 
 ### 4.9 外汇市场与汇率制度（补全）
 
@@ -683,13 +683,13 @@ summary: "《中国金融学》11 章精要笔记：货币与货币制度、信�
 
 | 项目 | 现金交易说（费雪） | 现金余额说（剑桥，马歇尔/庇古） |
 | --- | --- | --- |
-| 公式 | **<img class="fml" src="/formulas/d940217c8f2407.png" alt="MV = PT" width="91" height="33">** | **<img class="fml" src="/formulas/28e6312a81c85c.png" alt="M = kPy" width="83" height="33">** |
+| 公式 | **$MV = PT$** | **$M = kPy$** |
 | 强调的货币职能 | **交易媒介** | **价值贮藏**（资产） |
 | 分析视角 | 宏观：流通中货币量、交易总量与流通速度 | 微观：个体在货币与其他资产间的**资产选择** |
 | 关键变量 | V（由制度技术决定，短期稳定） | k（人们愿以货币持有的收入比例，受利率、财富、偏好影响） |
 | 结论 | V、T 短期稳定 → **货币量决定物价水平** | 货币需求取决于收入与持币意愿，已隐含机会成本思想 |
 
-两式在 P、T(y)、<img class="fml" src="/formulas/a498d790996f99.png" alt="V= \frac{1}{k}" width="56" height="34"> 对应时可相互转换；现金余额说把货币需求同个体决策联系起来，是凯恩斯货币需求理论的重要源头。
+两式在 P、T(y)、$V= \frac{1}{k}$ 对应时可相互转换；现金余额说把货币需求同个体决策联系起来，是凯恩斯货币需求理论的重要源头。
 
 ### 8.4 凯恩斯的流动性偏好理论（★）
 
@@ -701,7 +701,7 @@ summary: "《中国金融学》11 章精要笔记：货币与货币制度、信�
 | 预防（谨慎）动机 | 应付意外支出而持有货币 | 收入、不确定性 |
 | 投机动机 | 等待未来有利时机在债券市场投机 | **利率（负相关）** |
 
-**总需求函数**：<img class="fml" src="/formulas/ce7475d6c167ed.png" alt="L= L_{1}(Y)+ L_{2}(r)" width="154" height="34">，L1 为交易与预防需求（收入的增函数），L2 为投机需求（利率的减函数）。
+**总需求函数**：$L= L_{1}(Y)+ L_{2}(r)$，L1 为交易与预防需求（收入的增函数），L2 为投机需求（利率的减函数）。
 
 - 预期利率**上升** → 债券价格将下跌 → 抛售债券、持有货币；
 - 预期利率**下降** → 债券价格看涨 → 买入债券、减少持币；
@@ -720,7 +720,7 @@ summary: "《中国金融学》11 章精要笔记：货币与货币制度、信�
 
 ### 8.6 易错点
 
-- <img class="fml" src="/formulas/d940217c8f2407.png" alt="MV = PT" width="91" height="33">是费雪现金交易方程式；<img class="fml" src="/formulas/28e6312a81c85c.png" alt="M = kPy" width="83" height="33">是剑桥现金余额方程式，别互换。
+- $MV = PT$是费雪现金交易方程式；$M = kPy$是剑桥现金余额方程式，别互换。
 - 收入与货币需求正相关、利率与货币需求负相关；但**收入获取的时间间隔**也是正相关。
 - 流动性陷阱发生在利率**极低、预期只升不降**时，不是「预期利率下降」时。
 - 对凯恩斯理论作发展的是鲍莫尔、惠伦、托宾；现金余额说**早于**凯恩斯。
@@ -756,7 +756,7 @@ summary: "《中国金融学》11 章精要笔记：货币与货币制度、信�
 | … | … | … | … |
 | 合计 | **500.00** | **100.00** | 400.00 |
 
-存款总额 <img class="fml" src="/formulas/ead2e14c6903a0.png" alt="D= \frac{100}{0.2}= 500" width="120" height="34"> 万元，**派生存款 <img class="fml" src="/formulas/989ff3a1cc3af1.png" alt="=500-100=400" width="152" height="34"> 万元**；全部准备金恰等于原始存款 100 万元，形成平衡。所以派生存款能力与**原始存款成正比、与法定准备金率成反比**。
+存款总额 $D= \frac{100}{0.2}= 500$ 万元，**派生存款 $=500-100=400$ 万元**；全部准备金恰等于原始存款 100 万元，形成平衡。所以派生存款能力与**原始存款成正比、与法定准备金率成反比**。
 
 ### 9.3 存款乘数的四种情形（★ 补全公式）
 
@@ -764,10 +764,10 @@ summary: "《中国金融学》11 章精要笔记：货币与货币制度、信�
 
 | 情形 | 存款乘数 d | 存款总额 |
 | --- | --- | --- |
-| 简单情形（无漏损、无超额准备金） | <img class="fml" src="/formulas/b806a32e8eddf6.png" alt="d= \frac{1}{rd}" width="56" height="34"> | <img class="fml" src="/formulas/477e70f1d53168.png" alt="\Delta D= \Delta R \times\left(\frac{1}{rd}\right)" width="145" height="34"> |
-| 有超额准备金 | <img class="fml" src="/formulas/d99c9cc94e9dd7.png" alt="d= \frac{1}{rd+ e}" width="72" height="34"> | <img class="fml" src="/formulas/6fc54c0c95518f.png" alt="\Delta D= \frac{\Delta R}{rd+ e}" width="93" height="34"> |
-| 再有现金漏损 | <img class="fml" src="/formulas/3a84c37bb22ce5.png" alt="d= \frac{1}{c+ rd+ e}" width="88" height="34"> | <img class="fml" src="/formulas/20f8bc07da90cb.png" alt="\Delta D= \frac{\Delta R}{c+ rd+ e}" width="108" height="34"> |
-| 再有定期存款 | <img class="fml" src="/formulas/f047a112b06164.png" alt="d= \frac{1}{c+ rd+ e+ rt \cdot t}" width="116" height="34"> | <img class="fml" src="/formulas/5cca1126e6e54d.png" alt="\Delta D= \frac{\Delta R}{c+ rd+ e+ rt \cdot t}" width="137" height="34"> |
+| 简单情形（无漏损、无超额准备金） | $d= \frac{1}{rd}$ | $\Delta D= \Delta R \times\left(\frac{1}{rd}\right)$ |
+| 有超额准备金 | $d= \frac{1}{rd+ e}$ | $\Delta D= \frac{\Delta R}{rd+ e}$ |
+| 再有现金漏损 | $d= \frac{1}{c+ rd+ e}$ | $\Delta D= \frac{\Delta R}{c+ rd+ e}$ |
+| 再有定期存款 | $d= \frac{1}{c+ rd+ e+ rt \cdot t}$ | $\Delta D= \frac{\Delta R}{c+ rd+ e+ rt \cdot t}$ |
 
 分母每多一项，乘数就**变小**——漏损、超额准备金与定期存款准备金都会削弱派生能力。
 
@@ -777,7 +777,7 @@ summary: "《中国金融学》11 章精要笔记：货币与货币制度、信�
 
 **货币供给量 Ms = 基础货币 B × 货币乘数 m**
 
-以 M1 为例：<img class="fml" src="/formulas/6c0c2032a71122.png" alt="m= \frac{1+ c}{c+ rd+ e+ rt \cdot t}" width="122" height="34">，其中分子含公众持有的通货。结论：
+以 M1 为例：$m= \frac{1+ c}{c+ rd+ e+ rt \cdot t}$，其中分子含公众持有的通货。结论：
 
 - 央行能**直接控制**基础货币 B 与法定准备金率 rd；
 - **通货比率 c** 主要由公众持币行为决定，**超额准备金率 e** 由商业银行经营决策决定，**定期存款比率 t** 由存款人决定，三者央行**不能直接控制**；
@@ -940,12 +940,12 @@ summary: "《中国金融学》11 章精要笔记：货币与货币制度、信�
 | 金融核心 | 基础是信用，核心功能是资源配置，决策核心是收益—风险权衡 |
 | 货币职能 | 价值尺度用观念货币，流通手段要现实货币但不必足值 |
 | 币制演变 | 银本位 → 金银复本位 → 金本位 → 不兑现信用货币 |
-| 实际利率 | 精确式 <img class="fml" src="/formulas/0088e3f32aa9a1.png" alt="i= \frac{1+r}{1+\pi}- 1" width="95" height="34">，简化式 <img class="fml" src="/formulas/26a7b5f2a4ee57.png" alt="i \approx r- \pi" width="78" height="34"> |
+| 实际利率 | 精确式 $i= \frac{1+r}{1+\pi}- 1$，简化式 $i \approx r- \pi$ |
 | 期限结构 | 预期假说、分割市场、期限选择（流动性升水）；后者解释力最强 |
-| 两大货币数量论 | 费雪 <img class="fml" src="/formulas/d940217c8f2407.png" alt="MV = PT" width="91" height="33">（交易媒介），剑桥 <img class="fml" src="/formulas/28e6312a81c85c.png" alt="M = kPy" width="83" height="33">（资产选择） |
-| 凯恩斯 | 三动机 = 交易 + 预防 + 投机；<img class="fml" src="/formulas/ce7475d6c167ed.png" alt="L= L_{1}(Y)+ L_{2}(r)" width="154" height="34"> |
-| 存款派生 | <img class="fml" src="/formulas/b806a32e8eddf6.png" alt="d= \frac{1}{rd}" width="56" height="34">；漏损、超额准备金、定期存款准备金都会压低乘数 |
-| 货币供给 | <img class="fml" src="/formulas/c04c7f5f24b846.png" alt="Ms= B \times m" width="110" height="34">；B 由央行控制，c、e、t 由公众与银行决定 |
+| 两大货币数量论 | 费雪 $MV = PT$（交易媒介），剑桥 $M = kPy$（资产选择） |
+| 凯恩斯 | 三动机 = 交易 + 预防 + 投机；$L= L_{1}(Y)+ L_{2}(r)$ |
+| 存款派生 | $d= \frac{1}{rd}$；漏损、超额准备金、定期存款准备金都会压低乘数 |
+| 货币供给 | $Ms= B \times m$；B 由央行控制，c、e、t 由公众与银行决定 |
 | 央行三职能 | 发行的银行、银行的银行、政府的银行 |
 | 三大法宝 | 法定准备金（最猛烈）、再贴现（被动）、公开市场操作（最灵活） |
 | 最终目标 | 物价稳定、充分就业、经济增长、国际收支平衡 |

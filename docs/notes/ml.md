@@ -87,7 +87,7 @@ print(knn.score(X_test, y_test))                    # 4. 评估：分类默认�
 | `predict(X)` | 产生新输出（分类标签、回归值、簇标签） |
 | `transform(X)` | 产生输入数据的**新表示**（缩放、降维、特征提取） |
 | `fit_transform(X)` | `fit` 与 `transform` 合并 |
-| `score(X, y)` | 评估；分类默认**精度**，回归默认 <img class="fml" src="/formulas/b5f2662fd9704d.png" alt="R^{2}" width="27" height="33"> |
+| `score(X, y)` | 评估；分类默认**精度**，回归默认 $R^{2}$ |
 
 > **调用 `fit` 会重置模型之前学到的全部内容**——对同一对象再次 `fit`，等同于在一个全新模型上 `fit`。
 
@@ -120,7 +120,7 @@ print(knn.score(X_test, y_test))                    # 4. 评估：分类默认�
 | **分类** | 离散的**类别**（class） | 鸢尾花品种、 spam / 非 spam | 精度 accuracy |
 | **回归** | 连续值 | 房价、内存价格、租车数量 | **R²（决定系数）** |
 
-<img class="fml" src="/formulas/9d3bdca7613311.png" alt="R^{2}= 1" width="61" height="33"> 为完美预测，<img class="fml" src="/formulas/e00c63ab5b2046.png" alt="R^{2}= 0" width="60" height="33"> 相当于「总预测训练集平均值」的常数模型，也可能为负（比常数模型更差）。二分类是最容易理解的情形，但书中大多数算法**既能分类也能回归**，且分类算法都能用于多分类。
+$R^{2}= 1$ 为完美预测，$R^{2}= 0$ 相当于「总预测训练集平均值」的常数模型，也可能为负（比常数模型更差）。二分类是最容易理解的情形，但书中大多数算法**既能分类也能回归**，且分类算法都能用于多分类。
 
 ### 2.2 泛化、过拟合与欠拟合（★）
 
@@ -153,7 +153,7 @@ reg = KNeighborsRegressor(n_neighbors=3).fit(X_train, y_train)
 
 #### 2.3.2 线性模型
 
-预测公式：<img class="fml" src="/formulas/66184cd77217a2.png" alt="\hat{y}= w[0] \cdot x[0]+ w[1] \cdot x[1]+ \cdots+ w[p] \cdot x[p]+ b" width="378" height="34">，其中 `w` 存于 `coef_`、`b` 存于 `intercept_`。
+预测公式：$\hat{y}= w[0] \cdot x[0]+ w[1] \cdot x[1]+ \cdots+ w[p] \cdot x[p]+ b$，其中 `w` 存于 `coef_`、`b` 存于 `intercept_`。
 
 | 模型 | 类别 | 正则化 | 关键参数与特点 |
 | --- | --- | --- | --- |
@@ -431,7 +431,7 @@ y = data_dummies['income_>50K'].values
 
 | 要点 | 说明 |
 | --- | --- |
-| 与统计学虚拟编码的区别 | 统计学常用 <img class="fml" src="/formulas/20760f11f76078.png" alt="k- 1" width="47" height="34"> 个特征（全 0 表示第 k 类），可避免数据矩阵秩亏；one-hot 用 k 个 |
+| 与统计学虚拟编码的区别 | 统计学常用 $k- 1$ 个特征（全 0 表示第 k 类），可避免数据矩阵秩亏；one-hot 用 k 个 |
 | 必须分离目标 | 把输出变量或其派生列留在特征里，是监督建模**非常常见的错误** |
 | 检查取值 | 先用 `Series.value_counts()` 看唯一值，人工输入常有拼写/大小写差异（male / man） |
 | 类别是数字时 | 数字不代表连续！若语义无顺序关系（如 workclass 的 0~8）**必须**当作离散变量做 one-hot；五星评分则视任务而定 |
@@ -493,8 +493,8 @@ print(poly.get_feature_names())   # 查看每个新特征的来源
 ### 4.6 利用专家知识（Citi Bike 案例，★）
 
 - 任务：用「日期 + 时刻」预测某站点未来 3 小时的租车数量。
-- **失败做法**：直接把时间戳（整数）喂给随机森林 → 训练集很好，测试集 <img class="fml" src="/formulas/b5f2662fd9704d.png" alt="R^{2}" width="27" height="33"> <img class="fml" src="/formulas/8344e1c7141e88.png" alt="- 0.04" width="53" height="34">（什么都没学到）。原因：树模型**无法外推**到训练时间范围之外，只能输出训练集中最近点的目标值。
-- **改进一**：把时间拆成「一周的星期几 + 一天中的时刻」两个特征 → 捕捉周期性，随机森林 <img class="fml" src="/formulas/2a50854ae82226.png" alt="R^{2}=0.84" width="83" height="34">。
+- **失败做法**：直接把时间戳（整数）喂给随机森林 → 训练集很好，测试集 $R^{2}$ $- 0.04$（什么都没学到）。原因：树模型**无法外推**到训练时间范围之外，只能输出训练集中最近点的目标值。
+- **改进一**：把时间拆成「一周的星期几 + 一天中的时刻」两个特征 → 捕捉周期性，随机森林 $R^{2}=0.84$。
 - **改进二**：改用 LinearRegression 直接吃整数编码 → 效果很差，因为它把星期几/时刻当成**连续线性变量**（时间越晚租得越多）。
 - **改进三**：用 `OneHotEncoder` 把星期几与时刻当作**分类变量** → 性能与随机森林相当，且**系数可解释**（每个「星期几 × 时刻」组合一个系数）。
 
@@ -597,7 +597,7 @@ print(classification_report(y_test, y_pred))
 - **PR 曲线**每个点对应一个阈值，曲线下面积即 **average precision**（`average_precision_score`）；把所有样本判为正类可得 100% 召回率，但精确率极低，模型无用；
 - **ROC 曲线**以 FPR 为横轴、TPR 为纵轴，**AUC** 是曲线下面积，衡量「正类样本排名高于反类」的程度；AUC = 1.0 表示存在某个阈值可以完美分类。书中 `gamma=0.01` 的 SVC 精度一般但 **AUC = 1.0**——只看精度会漏掉这个好模型；
 - **多分类**：常用宏平均 / 微平均 / 加权平均的 F1；`classification_report` 逐类给出，类别不平衡时大类会主导；
-- **回归**：默认 <img class="fml" src="/formulas/b5f2662fd9704d.png" alt="R^{2}" width="27" height="33"> 最直观；业务上有时按 MSE / MAE 调参，但书中建议优先 R²。
+- **回归**：默认 $R^{2}$ 最直观；业务上有时按 MSE / MAE 调参，但书中建议优先 R²。
 
 #### 在模型选择中使用指标
 
@@ -632,7 +632,7 @@ print(classification_report(y_test, y_pred))
 
 > **原则：任何从数据中提取信息的处理，都必须只作用于当前折的训练部分；交叉验证应位于整个处理过程的「最外层循环」。**
 
-书中给了一个震撼的例子：100 个样本、10000 个**完全随机**的特征、随机生成的目标（二者本无任何关系）。先在交叉验证**之外**用 `SelectPercentile` 选特征，再评估 Ridge → 交叉验证平均 <img class="fml" src="/formulas/86fc96262b3986.png" alt="R^{2}= 0.91" width="84" height="34">（看似极好）；改用 Pipeline 把特征选择放进循环内 → <img class="fml" src="/formulas/3800f490a7bdd5.png" alt="R^{2}=- 0.25" width="97" height="34">（模型根本无效）。结论从「表现很好」直接翻转为「没有效果」。
+书中给了一个震撼的例子：100 个样本、10000 个**完全随机**的特征、随机生成的目标（二者本无任何关系）。先在交叉验证**之外**用 `SelectPercentile` 选特征，再评估 Ridge → 交叉验证平均 $R^{2}= 0.91$（看似极好）；改用 Pipeline 把特征选择放进循环内 → $R^{2}=- 0.25$（模型根本无效）。结论从「表现很好」直接翻转为「没有效果」。
 
 - 缩放类泄露通常影响有限；**特征选择与特征提取**的泄露会造成显著差异。
 
@@ -763,7 +763,7 @@ vect = CountVectorizer(min_df=5, stop_words='english')
 
 **词频—逆文档频率**：对「在某文档中频繁出现、但在语料库多数文档里不常出现」的词给高权重，抑制到处都出现的高频词。
 
-<img class="fml" src="/formulas/0ce3ebb09af021.png" alt="tf-idf(t, d)= tf(t, d) \times idf(t)" width="256" height="34">，其中 <img class="fml" src="/formulas/44960f95714973.png" alt="idf(t)=\log\left(\frac{1+N}{1+N_{w}}\right)+1" width="194" height="41">，N 为文档总数，N_w 为包含词 t 的文档数；之后通常再做 L2 归一化。
+$tf-idf(t, d)= tf(t, d) \times idf(t)$，其中 $idf(t)=\log\left(\frac{1+N}{1+N_{w}}\right)+1$，N 为文档总数，N_w 为包含词 t 的文档数；之后通常再做 L2 归一化。
 
 ```python
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -905,5 +905,5 @@ class MyTransformer(BaseEstimator, TransformerMixin):
 | 不平衡数据 | 别只看 accuracy；用 precision / recall / F1、PR 曲线、AUC 与 `classification_report` |
 | 防泄露 | 任何依赖数据的步骤（缩放、特征选择、tf-idf）都放进 `Pipeline`，参数名用 `步骤名__参数` |
 | 树不能外推 | 时间序列/未来预测要把时间拆成周期特征或 one-hot，别直接喂时间戳整数 |
-| 文本主线 | 词袋 → `min_df` 去稀有词 → <img class="fml" src="/formulas/0d5fd06b0d8e78.png" alt="tf-idf \to n-gram" width="175" height="34"> 线性模型看系数；主题用 LDA |
+| 文本主线 | 词袋 → `min_df` 去稀有词 → $tf-idf \to n-gram$ 线性模型看系数；主题用 LDA |
 | 聚类评估 | 不用 accuracy；有标签用 ARI/NMI，无标签用轮廓系数 + 人工检查 |

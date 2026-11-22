@@ -2,6 +2,11 @@ import { defineConfig } from 'vitepress'
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { createRequire } from 'node:module'
+const require = createRequire(import.meta.url)
+// KaTeX 公式渲染插件（CommonJS）
+const katexPluginModule = require('@vscode/markdown-it-katex')
+const katexPlugin = katexPluginModule.default || katexPluginModule
 const here = path.dirname(fileURLToPath(import.meta.url))
 const notesDir = path.resolve(here, '../notes')
 
@@ -155,7 +160,12 @@ export default defineConfig({
   router: { prefetchLinks: false },
   ignoreDeadLinks: true,
   srcExclude: ['public/**'],
-  // 公式已由 scripts/render_formulas.py 预渲染为静态图片，页面不再加载 KaTeX。
+  // KaTeX：笔记里的 $...$ / $$...$$ 由 markdown-it-katex 插件在页面渲染。
+  markdown: {
+    config(md) {
+      md.use(katexPlugin, { throwOnError: false, strict: false })
+    }
+  },
   // 首页笔记卡片由 docs/notes 自动生成，新增笔记后无需手改首页；
   // 数据写入 noteCards（而非默认的 features），这样 VitePress 默认网格不渲染，
   // 改由自定义 HomeNotes 组件以左右滑动轮播形式展示，一次显示一张。

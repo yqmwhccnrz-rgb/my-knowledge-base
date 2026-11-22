@@ -964,26 +964,57 @@ select:focus-visible {
 }
 
 /* ==========================================================================
-   Python 生成的静态公式图（替代 LaTeX 渲染）
-   图片按 2 倍分辨率渲染、透明背景；width/height 属性给出 CSS 尺寸，
-   height:auto + max-width:100% 保证缩放时不变形。
-   暗色主题用 invert 把深色字形转成浅色，透明背景不受影响。
+   KaTeX 公式排版（VitePress markdown.math 内联渲染）
+   - 行内公式与中文基线自然对齐，字号略大于正文便于辨认
+   - 块级公式单独居中、上下留白，避免与正文拥挤
+   - 无边框、无背景色卡片，保持灰白简约主调
+   - 加大行距与左右间距，长公式在窄屏可横向滚动而不裁切
    ========================================================================== */
-img.fml {
-  display: inline-block;
-  max-width: 100%;
-  height: auto;
-  vertical-align: -0.22em;
+.vp-doc .katex {
+  font-size: 1.06em;
+  line-height: 1.25;
 }
-p.fml-block {
+/* 行内公式：与中文混排时略放大，保证分子分母可读 */
+.vp-doc p .katex,
+.vp-doc li .katex,
+.vp-doc td .katex,
+.vp-doc th .katex {
+  font-size: 1.1em;
+  line-height: 1.35;
+}
+/* 行内分式：KaTeX 在 textstyle 下会把 \frac 压得很小、分子分母贴在一起，
+   这里放大分式并把分数线上下撑开，避免挤成一团 */
+.vp-doc p .katex .mfrac,
+.vp-doc li .katex .mfrac,
+.vp-doc td .katex .mfrac,
+.vp-doc th .katex .mfrac {
+  font-size: 1.2em !important;
+}
+.vp-doc p .katex .mfrac .frac-line,
+.vp-doc li .katex .mfrac .frac-line,
+.vp-doc td .katex .mfrac .frac-line,
+.vp-doc th .katex .mfrac .frac-line {
+  margin-top: -0.18em !important;
+  border-bottom-width: 0.07em !important;
+}
+/* 块级公式：居中 + 上下呼吸空间 + 窄屏可滚动 */
+.vp-doc .katex-display {
+  display: block;
+  margin: 1.15em 0;
+  padding: 2px 4px;
+  overflow-x: auto;
+  overflow-y: hidden;
   text-align: center;
-  margin: 1.1em 0;
 }
-p.fml-block img.fml {
-  vertical-align: middle;
+.vp-doc .katex-display > .katex {
+  display: inline-block;
+  text-align: left;
+  white-space: nowrap;
 }
-html.dark img.fml {
-  filter: invert(1);
+/* 公式前后不留多余空隙，避免与相邻文字挤在一起 */
+.vp-doc .katex-display + p,
+.vp-doc p + .katex-display {
+  margin-top: 0.6em;
 }
 
 /* ==========================================================================

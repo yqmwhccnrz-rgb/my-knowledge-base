@@ -49,10 +49,10 @@ summary: "西方经济学（微观部分）全面详解笔记，共 11 章：引
 | 边际分析 | 比较「再多一单位」的增量收益与增量成本 | 微观经济学最核心的方法，贯穿全部 11 章 |
 
 ::: tip 工作例题 · PPF 与机会成本递增
-设经济只生产面包 X 与机器 Y，PPF 上的组合为 `(X, Y)`：<img class="fml" src="/formulas/996130bbe0327e.png" alt="(0, 20) \to(1, 18) \to(2, 14) \to(3, 8) \to(4, 0)" width="344" height="34">。
-从 0 到 1 单位 X 的边际转换率 <img class="fml" src="/formulas/7848762617af35.png" alt="MRT=|\frac{\Delta Y}{\Delta X}|= 2" width="145" height="34">，依次为 `2、4、6、8`，**递增**。
+设经济只生产面包 X 与机器 Y，PPF 上的组合为 `(X, Y)`：$(0, 20) \to(1, 18) \to(2, 14) \to(3, 8) \to(4, 0)$。
+从 0 到 1 单位 X 的边际转换率 $MRT=|\frac{\Delta Y}{\Delta X}|= 2$，依次为 `2、4、6、8`，**递增**。
 原因：要素并非同质地适合两种用途，先转出的是最适合 X 生产的资源。
-PPF 外凸 ⇔ 机会成本递增 <img class="fml" src="/formulas/7207a2442104d7.png" alt="\Leftrightarrow" width="25" height="34"> 递增；若两部门要素比例完全相同，PPF 为直线（机会成本不变）。
+PPF 外凸 ⇔ 机会成本递增 $\Leftrightarrow$ 递增；若两部门要素比例完全相同，PPF 为直线（机会成本不变）。
 :::
 
 ::: danger 易错 · 引论
@@ -73,7 +73,7 @@ PPF 外凸 ⇔ 机会成本递增 <img class="fml" src="/formulas/7207a2442104d7
 | 个量分析 | 微观研究单个消费者、厂商、市场（总量分析属宏观） | 单个商品价格 vs 一般物价水平 |
 | 经济模型 | 用假设抽象掉次要因素，保留主要关系 | 「其他条件不变」（ceteris paribus）是前提而非结论 |
 
-- **理性人假定**：行为特征通常表述为完整性（能对任意两组合排序）、传递性（A≻B、B≻<img class="fml" src="/formulas/57b1acf7172163.png" alt="C \Rightarrow A" width="62" height="34">≻C）、自利选择（在约束下选最偏好者）。它是**分析起点**而非对现实的完整描述，行为经济学正是检验与修正它。
+- **理性人假定**：行为特征通常表述为完整性（能对任意两组合排序）、传递性（A≻B、B≻$C \Rightarrow A$≻C）、自利选择（在约束下选最偏好者）。它是**分析起点**而非对现实的完整描述，行为经济学正是检验与修正它。
 - **微观 vs 宏观**：微观研究个体决策与单个市场价格（价格理论），宏观研究总产出、就业、物价与国际收支（国民收入理论）；二者共同的基石是稀缺与选择，但微观的加总并不自动等于宏观结论（合成谬误）。
 
 ::: tip 现代视角
@@ -101,8 +101,8 @@ PPF 外凸 ⇔ 机会成本递增 <img class="fml" src="/formulas/7207a2442104d7
 | 项目 | 需求 | 供给 |
 | --- | --- | --- |
 | 定义 | 一定时期内、各种可能价格下**愿意且能够**购买的数量 | 一定时期内、各种可能价格下**愿意且能够**出售的数量 |
-| 函数 | <img class="fml" src="/formulas/c388a0e9dbb40a.png" alt="Qd= f(P, I, Pr, T, Pe, N, \cdots)" width="247" height="34"> | `Qs = g(P, 投入价格, 技术, 税收, 预期, 厂商数, …)` |
-| 定理 | 其他条件不变，<img class="fml" src="/formulas/50fda860cc169e.png" alt="P↑ \Rightarrow Qd↓" width="95" height="34">（向右下倾斜） | 其他条件不变，<img class="fml" src="/formulas/bf709e340816b6.png" alt="P↑ \Rightarrow Qs↑" width="94" height="34">（向右上倾斜） |
+| 函数 | $Qd= f(P, I, Pr, T, Pe, N, \cdots)$ | `Qs = g(P, 投入价格, 技术, 税收, 预期, 厂商数, …)` |
+| 定理 | 其他条件不变，$P↑ \Rightarrow Qd↓$（向右下倾斜） | 其他条件不变，$P↑ \Rightarrow Qs↑$（向右上倾斜） |
 | 例外 | 吉芬品、炫耀性商品（凡勃伦商品） | 劳动供给向后弯曲、土地总供给垂直 |
 | 图形变动 | **需求量的变动**：沿曲线移动（仅 P 变） | **供给量的变动**：沿曲线移动（仅 P 变） |
 | 曲线平移 | **需求的变动**：收入、相关品价格、偏好、预期、买者人数 | **供给的变动**：技术、投入品价格、税补、预期、卖者人数 |
@@ -119,8 +119,8 @@ PPF 外凸 ⇔ 机会成本递增 <img class="fml" src="/formulas/7207a2442104d7
 **均衡**：`Qd(P*) = Qs(P*)`，此时既无过剩也无短缺，价格没有进一步变动的趋势。
 
 ::: tip 工作例题 · 均衡求解与价格管制
-<img class="fml" src="/formulas/9cc3b267fa6aed.png" alt="Qd= 50- 2P" width="117" height="34">，<img class="fml" src="/formulas/bffa4adc4cb08f.png" alt="Qs=- 10+ 3P" width="130" height="34">：
-<img class="fml" src="/formulas/1de89fcc76269e.png" alt="50- 2P=- 10+ 3P \Rightarrow 5P= 60 \Rightarrow P*= 12" width="354" height="34">，`Q* = 26`。
+$Qd= 50- 2P$，$Qs=- 10+ 3P$：
+$50- 2P=- 10+ 3P \Rightarrow 5P= 60 \Rightarrow P*= 12$，`Q* = 26`。
 
 - **支持价格** `P = 15`（高于均衡，如农产品保护价）：`Qd = 20`，`Qs = 35` ⇒ **过剩 15**，政府须收购或限产，否则出现黑市降价。
 - **限制价格** `P = 8`（低于均衡，如租金管制）：`Qd = 34`，`Qs = 14` ⇒ **短缺 20**，需配给/排队，并催生寻租与黑市。
@@ -145,12 +145,12 @@ PPF 外凸 ⇔ 机会成本递增 <img class="fml" src="/formulas/7207a2442104d7
 
 | 弹性 | 定义式 | 符号与含义 |
 | --- | --- | --- |
-| 需求价格弹性 | <img class="fml" src="/formulas/d8667884e0d66f.png" alt="Ed=-\left(\frac{dQ}{dP}\right) \cdot\left(\frac{P}{Q}\right)" width="162" height="41">（点）；<img class="fml" src="/formulas/5b4010c8bcae2b.png" alt="Ed=- \frac{\left(\frac{\Delta Q}{\Delta P}\right) \cdot[\frac{P_{1}+P_{2}}{2}]}{\frac{Q_{1}+Q_{2}}{2}}" width="149" height="46">（弧/中点） | 通常取绝对值；`>1` 富有、`=1` 单位、`<1` 缺乏 |
-| 需求收入弹性 | <img class="fml" src="/formulas/678e99805ad2ab.png" alt="eI= \frac{\frac{\Delta Q}{Q}}{\frac{\Delta I}{I}}" width="71" height="44"> | `>0` 正常品（`>1` 奢侈品）；`<0` 低档品 |
-| 需求交叉弹性 | <img class="fml" src="/formulas/00d88e7cdbb1df.png" alt="eXY= \frac{\frac{\Delta Qx}{Qx}}{\frac{\Delta Py}{Py}}" width="98" height="47"> | `>0` 替代品；`<0` 互补品；<img class="fml" src="/formulas/c8467dcd1d1789.png" alt="\approx 0" width="35" height="34"> 无关 |
-| 供给价格弹性 | <img class="fml" src="/formulas/5053179a7304f8.png" alt="eS= \frac{\frac{\Delta Q}{Q}}{\frac{\Delta P}{P}}" width="74" height="44"> | 时间越长越大；土地等固定供给 `eS = 0` |
+| 需求价格弹性 | $Ed=-\left(\frac{dQ}{dP}\right) \cdot\left(\frac{P}{Q}\right)$（点）；$Ed=- \frac{\left(\frac{\Delta Q}{\Delta P}\right) \cdot[\frac{P_{1}+P_{2}}{2}]}{\frac{Q_{1}+Q_{2}}{2}}$（弧/中点） | 通常取绝对值；`>1` 富有、`=1` 单位、`<1` 缺乏 |
+| 需求收入弹性 | $eI= \frac{\frac{\Delta Q}{Q}}{\frac{\Delta I}{I}}$ | `>0` 正常品（`>1` 奢侈品）；`<0` 低档品 |
+| 需求交叉弹性 | $eXY= \frac{\frac{\Delta Qx}{Qx}}{\frac{\Delta Py}{Py}}$ | `>0` 替代品；`<0` 互补品；$\approx 0$ 无关 |
+| 供给价格弹性 | $eS= \frac{\frac{\Delta Q}{Q}}{\frac{\Delta P}{P}}$ | 时间越长越大；土地等固定供给 `eS = 0` |
 
-**弹性与总收益 TR = P·Q**：<img class="fml" src="/formulas/697dc7a1d0099c.png" alt="\frac{dTR}{dP}= Q(1-\lvert E_d\rvert)" width="149" height="34">。
+**弹性与总收益 TR = P·Q**：$\frac{dTR}{dP}= Q(1-\lvert E_d\rvert)$。
 
 | 弹性 | 涨价 | 降价 | 典型商品 |
 | --- | --- | --- | --- |
@@ -159,13 +159,13 @@ PPF 外凸 ⇔ 机会成本递增 <img class="fml" src="/formulas/7207a2442104d7
 | `|Ed| < 1` | TR ↑ | TR ↓（谷贱伤农） | 必需品、农产品 |
 
 ::: tip 工作例题 · 弧弹性与总收益
-<img class="fml" src="/formulas/9dd2bf27774ca1.png" alt="P: 5 \to 4" width="82" height="34">，<img class="fml" src="/formulas/805ddd2a48a4b5.png" alt="Q: 20 \to 30" width="99" height="34">：
-<img class="fml" src="/formulas/524243f994418a.png" alt="Ed=\left(\frac{10}{1}\right) \times \frac{\frac{5+4}{2}}{\frac{20+30}{2}}= 10 \times \frac{4.5}{25}= 1.8&gt; 1" width="306" height="41">（富有弹性）。
-<img class="fml" src="/formulas/0dfcd202827018.png" alt="TR: 5 \times 20= 100 \to 4 \times 30= 120" width="274" height="34">，降价增收 ✓ 与理论一致。
+$P: 5 \to 4$，$Q: 20 \to 30$：
+$Ed=\left(\frac{10}{1}\right) \times \frac{\frac{5+4}{2}}{\frac{20+30}{2}}= 10 \times \frac{4.5}{25}= 1.8> 1$（富有弹性）。
+$TR: 5 \times 20= 100 \to 4 \times 30= 120$，降价增收 ✓ 与理论一致。
 
-**点弹性**：<img class="fml" src="/formulas/d7dc22f2599621.png" alt="Q= 50- 2P" width="108" height="34">，<img class="fml" src="/formulas/31aff1d1ccd09b.png" alt="\frac{dQ}{dP}=- 2" width="74" height="34">：
-<img class="fml" src="/formulas/5db235a71e7bae.png" alt="P=5 \Rightarrow Q=40, Ed=\frac{2 \times 5}{40}=0.25" width="275" height="34">；<img class="fml" src="/formulas/c35adcdcf549f9.png" alt="P=12.5 \Rightarrow Q=25, Ed=1" width="224" height="34">；<img class="fml" src="/formulas/593570f7b31aac.png" alt="P=20 \Rightarrow Q=10, Ed=4" width="210" height="34">。
-可见**同一条线性需求曲线上弹性处处不同**：上半段富有、中点单位、下半段缺乏；`P=25` 为纵截距（choke price），<img class="fml" src="/formulas/92dc0d60a09770.png" alt="Q \to 0" width="58" height="34"> 时 <img class="fml" src="/formulas/f869fb5f3c2b58.png" alt="Ed \to \infty" width="75" height="33">。
+**点弹性**：$Q= 50- 2P$，$\frac{dQ}{dP}=- 2$：
+$P=5 \Rightarrow Q=40, Ed=\frac{2 \times 5}{40}=0.25$；$P=12.5 \Rightarrow Q=25, Ed=1$；$P=20 \Rightarrow Q=10, Ed=4$。
+可见**同一条线性需求曲线上弹性处处不同**：上半段富有、中点单位、下半段缺乏；`P=25` 为纵截距（choke price），$Q \to 0$ 时 $Ed \to \infty$。
 :::
 
 **影响需求价格弹性的因素**：替代品可得性（首要）、支出占收入比重、必需程度、时间跨度、市场定义宽窄（"食品"缺乏弹性，"某品牌饼干"富有弹性）。
@@ -175,12 +175,12 @@ PPF 外凸 ⇔ 机会成本递增 <img class="fml" src="/formulas/7207a2442104d7
 ![支持价格、限制价格与税收楔子](/micro/micro-policy-price.svg)
 
 ::: tip 工作例题 · 单位税归宿（无关性定理）
-<img class="fml" src="/formulas/9cc3b267fa6aed.png" alt="Qd= 50- 2P" width="117" height="34">，<img class="fml" src="/formulas/bffa4adc4cb08f.png" alt="Qs=- 10+ 3P" width="130" height="34">，原均衡 `P* = 12`。对**卖方**每单位征税 `t = 4`：
-卖方实得 <img class="fml" src="/formulas/0de5d81f226050.png" alt="Ps= Pd- 4" width="107" height="34">，故 <img class="fml" src="/formulas/e8f2942765fc71.png" alt="Qs=- 10+ 3(Pd- 4)= 3Pd- 22" width="279" height="33">。
-<img class="fml" src="/formulas/ae11ff30e72034.png" alt="50- 2Pd= 3Pd- 22 \Rightarrow Pd= 14.4" width="281" height="33">，`Ps = 10.4`，`Q = 21.2`。
+$Qd= 50- 2P$，$Qs=- 10+ 3P$，原均衡 `P* = 12`。对**卖方**每单位征税 `t = 4`：
+卖方实得 $Ps= Pd- 4$，故 $Qs=- 10+ 3(Pd- 4)= 3Pd- 22$。
+$50- 2Pd= 3Pd- 22 \Rightarrow Pd= 14.4$，`Ps = 10.4`，`Q = 21.2`。
 
-- 消费者负担 <img class="fml" src="/formulas/4af90cd152b128.png" alt="14.4- 12= 2.4" width="125" height="33">；生产者负担 <img class="fml" src="/formulas/d36fb9f88d60d4.png" alt="12- 10.4= 1.6" width="125" height="33">；比例 `3 : 2`。
-- 供给斜率 3、需求斜率绝对值 2 ⇒ 需求相对更陡（更缺乏弹性），消费者承担 <img class="fml" src="/formulas/8bca33e7fdd862.png" alt="\frac{3}{3+2}= 60\%" width="90" height="34">。
+- 消费者负担 $14.4- 12= 2.4$；生产者负担 $12- 10.4= 1.6$；比例 `3 : 2`。
+- 供给斜率 3、需求斜率绝对值 2 ⇒ 需求相对更陡（更缺乏弹性），消费者承担 $\frac{3}{3+2}= 60\%$。
 - 若改为对**买方**征同样的税，均衡 `Pd、Ps、Q` 完全相同 —— 税负归宿与"向谁征收"无关，只由相对弹性决定。
 :::
 
@@ -192,18 +192,18 @@ PPF 外凸 ⇔ 机会成本递增 <img class="fml" src="/formulas/7207a2442104d7
 
 ### 2.5 弹性的高阶结论与税负归宿一般式
 
-1. **线性需求上的弹性分布**：<img class="fml" src="/formulas/d8544f62866071.png" alt="P= a- bQ" width="98" height="33">，<img class="fml" src="/formulas/9a467312a61422.png" alt="\lvert E_d\rvert=\left(\frac{1}{b}\right)\left(\frac{P}{Q}\right)= \frac{P}{a- P}" width="180" height="41">。纵截距 <img class="fml" src="/formulas/d8e7b51e864bfa.png" alt="\lvert E_d\rvert \to \infty" width="82" height="33">、中点 <img class="fml" src="/formulas/46c24a082e0f7e.png" alt="P= \frac{a}{2}" width="56" height="33"> 处 `|Ed| = 1`、横截距 `|Ed| = 0`。所以"需求曲线陡 = 缺乏弹性"只在**同一坐标系、同一价格处**成立，跨图比较必须看弹性而非斜率。
-2. **总收益与边际收益**：<img class="fml" src="/formulas/e76ff24ae10bae.png" alt="MR= P(1- \frac{1}{\lvert E_d\rvert})" width="148" height="36"> ⇒ `|Ed| > 1` 时 `MR > 0`（降价增收）、`|Ed| = 1` 时 `MR = 0`（TR 极大）、`|Ed| < 1` 时 `MR < 0`（降价减收）。这条式子把第 2 章与第 7 章接了起来。
-3. **税负归宿一般式**：单位税 `t` 下 <img class="fml" src="/formulas/fc7ef25f495ce2.png" alt="\frac{dPd}{dt}= \frac{eS}{eS+\lvert E_d\rvert}" width="108" height="36">、<img class="fml" src="/formulas/6e310fa4e168bc.png" alt="\dfrac{dP_{s}}{dt}=-\dfrac{|E_{d}|}{e_{S}+|E_{d}|}" width="150" height="51">（以弹性表示）。**弹性较小（更陡）的一方承担更多**；<img class="fml" src="/formulas/d0eebbf4c97daa.png" alt="eS \to \infty" width="72" height="33"> 时全部转嫁给消费者，<img class="fml" src="/formulas/68a5a953f406b9.png" alt="\lvert E_d\rvert \to 0" width="74" height="33"> 时亦全部由消费者承担。
+1. **线性需求上的弹性分布**：$P= a- bQ$，$\lvert E_d\rvert=\left(\frac{1}{b}\right)\left(\frac{P}{Q}\right)= \frac{P}{a- P}$。纵截距 $\lvert E_d\rvert \to \infty$、中点 $P= \frac{a}{2}$ 处 `|Ed| = 1`、横截距 `|Ed| = 0`。所以"需求曲线陡 = 缺乏弹性"只在**同一坐标系、同一价格处**成立，跨图比较必须看弹性而非斜率。
+2. **总收益与边际收益**：$MR= P(1- \frac{1}{\lvert E_d\rvert})$ ⇒ `|Ed| > 1` 时 `MR > 0`（降价增收）、`|Ed| = 1` 时 `MR = 0`（TR 极大）、`|Ed| < 1` 时 `MR < 0`（降价减收）。这条式子把第 2 章与第 7 章接了起来。
+3. **税负归宿一般式**：单位税 `t` 下 $\frac{dPd}{dt}= \frac{eS}{eS+\lvert E_d\rvert}$、$\dfrac{dP_{s}}{dt}=-\dfrac{|E_{d}|}{e_{S}+|E_{d}|}$（以弹性表示）。**弹性较小（更陡）的一方承担更多**；$eS \to \infty$ 时全部转嫁给消费者，$\lvert E_d\rvert \to 0$ 时亦全部由消费者承担。
 
 ::: tip 工作例题 · 弹性形式的归宿验算
-沿用 2.4 例题：均衡 `P*=12, Q*=26`，<img class="fml" src="/formulas/d8dfd65527cec9.png" alt="|E_{d}|=2\times\dfrac{12}{26}=\dfrac{12}{13}\approx 0.923" width="225" height="45">（注意 <img class="fml" src="/formulas/31aff1d1ccd09b.png" alt="\frac{dQ}{dP}=- 2" width="74" height="34">），<img class="fml" src="/formulas/67776c9814de7a.png" alt="eS= 3 \cdot\left(\frac{12}{26}\right)= \frac{18}{13} \approx 1.385" width="211" height="33">。
-<img class="fml" src="/formulas/b8ecf5786c419a.png" alt="\frac{dPd}{dt}= \frac{1.385}{1.385+0.923}= 0.6" width="175" height="34"> ⇒ <img class="fml" src="/formulas/29ea82196a62e3.png" alt="\Delta Pd= 4 \times 0.6= 2.4" width="169" height="33"> ✓ 与方程解一致。
+沿用 2.4 例题：均衡 `P*=12, Q*=26`，$|E_{d}|=2\times\dfrac{12}{26}=\dfrac{12}{13}\approx 0.923$（注意 $\frac{dQ}{dP}=- 2$），$eS= 3 \cdot\left(\frac{12}{26}\right)= \frac{18}{13} \approx 1.385$。
+$\frac{dPd}{dt}= \frac{1.385}{1.385+0.923}= 0.6$ ⇒ $\Delta Pd= 4 \times 0.6= 2.4$ ✓ 与方程解一致。
 （用斜率比 `3 : 2` 更快，但弹性形式可推广到非线性曲线。）
 :::
 
 ::: tip 补充考点 · 税收无谓损失的弹性公式
-单位税 `t` 造成的无谓损失可用弹性近似表示：<img class="fml" src="/formulas/f96068eb9b62e2.png" alt="DWL\approx\dfrac{1}{2}\,t^{2}\,\dfrac{Q^{*}}{P^{*}}\cdot\dfrac{|E_{d}|\,e_{S}}{|E_{d}|+e_{S}}" width="223" height="51">。含义：**DWL 随税额的平方增长**（税率翻倍、损失翻两番），且供需双方弹性越大损失越大。沿用 2.4 例题验算：<img class="fml" src="/formulas/8a6ff16703ca42.png" alt="\frac{1}{2} \times 16 \times\left(\frac{26}{12}\right) \times\left(\frac{0.923 \times 1.385}{2.308}\right) \approx 9.6" width="268" height="33">，与三角形法 <img class="fml" src="/formulas/57cab859b1f21f.png" alt="\frac{1}{2} \times 4 \times 4.8= 9.6" width="139" height="33"> 一致 ✓。
+单位税 `t` 造成的无谓损失可用弹性近似表示：$DWL\approx\dfrac{1}{2}\,t^{2}\,\dfrac{Q^{*}}{P^{*}}\cdot\dfrac{|E_{d}|\,e_{S}}{|E_{d}|+e_{S}}$。含义：**DWL 随税额的平方增长**（税率翻倍、损失翻两番），且供需双方弹性越大损失越大。沿用 2.4 例题验算：$\frac{1}{2} \times 16 \times\left(\frac{26}{12}\right) \times\left(\frac{0.923 \times 1.385}{2.308}\right) \approx 9.6$，与三角形法 $\frac{1}{2} \times 4 \times 4.8= 9.6$ 一致 ✓。
 :::
 
 ---
@@ -215,18 +215,18 @@ PPF 外凸 ⇔ 机会成本递增 <img class="fml" src="/formulas/7207a2442104d7
 | 概念 | 表达式 | 说明 |
 | --- | --- | --- |
 | 总效用 | `TU = U(X)` | 消费一定量商品获得的满足总和 |
-| 边际效用 | <img class="fml" src="/formulas/572df052a04933.png" alt="MU= \frac{dTU}{dX}" width="94" height="33"> | 每增加一单位消费带来的效用增量 |
+| 边际效用 | $MU= \frac{dTU}{dX}$ | 每增加一单位消费带来的效用增量 |
 | 边际效用递减规律 | `dMU/dX < 0` | 在一定时间内、其他商品消费不变，连续增加某商品消费，其 MU 递减 |
-| 消费者均衡（单商品） | <img class="fml" src="/formulas/a18e4ea08cad97.png" alt="\frac{MU}{P}= \lambda" width="69" height="33"> | <img class="fml" src="/formulas/da7676c04d86b3.png" alt="\lambda" width="18" height="34"> 为货币的边际效用（假定不变） |
-| 消费者均衡（多商品） | <img class="fml" src="/formulas/d27226392ef411.png" alt="\frac{MUx}{Px}= \frac{MUy}{Py}= \cdots= \lambda" width="179" height="35"> | 且预算约束 <img class="fml" src="/formulas/24d6a65087a454.png" alt="\sum Pi \cdot Xi= I" width="117" height="33"> |
+| 消费者均衡（单商品） | $\frac{MU}{P}= \lambda$ | $\lambda$ 为货币的边际效用（假定不变） |
+| 消费者均衡（多商品） | $\frac{MUx}{Px}= \frac{MUy}{Py}= \cdots= \lambda$ | 且预算约束 $\sum Pi \cdot Xi= I$ |
 
 - **推导**：若 `MUx/Px > MUy/Py`，把一元钱从 Y 移到 X 可增加总效用 ⇒ 尚未均衡；调整直到相等。这就是"等边际原则"。
-- **由 MU 递减推导需求曲线**：<img class="fml" src="/formulas/a18e4ea08cad97.png" alt="\frac{MU}{P}= \lambda" width="69" height="33"> 且 <img class="fml" src="/formulas/da7676c04d86b3.png" alt="\lambda" width="18" height="34"> 不变 ⇒ `P` 下降时须 `MU` 下降才重新相等，而 `MU` 下降要求 `X` 增加 ⇒ 需求曲线向右下倾斜。
+- **由 MU 递减推导需求曲线**：$\frac{MU}{P}= \lambda$ 且 $\lambda$ 不变 ⇒ `P` 下降时须 `MU` 下降才重新相等，而 `MU` 下降要求 `X` 增加 ⇒ 需求曲线向右下倾斜。
 - **消费者剩余 CS** = 愿意支付总额 − 实际支付总额 = 需求曲线以下、价格线以上的面积。
 
 ::: danger 易错 · 基数效用
 - 边际效用递减**不是**"总效用递减"：只要 `MU > 0`，TU 仍递增，只是增速放缓；`MU = 0` 时 TU 最大；`MU < 0` 时 TU 才下降。
-- 货币边际效用不变是**简化假设**；严格地说收入变化会改变 <img class="fml" src="/formulas/da7676c04d86b3.png" alt="\lambda" width="18" height="34">，这正是收入效应的来源。
+- 货币边际效用不变是**简化假设**；严格地说收入变化会改变 $\lambda$，这正是收入效应的来源。
 - 基数效用假定效用可测量、可加总，现实中难以成立 ⇒ 序数效用论用无差异曲线绕开它，但**两者给出相同的均衡条件**。
 :::
 
@@ -236,9 +236,9 @@ PPF 外凸 ⇔ 机会成本递增 <img class="fml" src="/formulas/7207a2442104d7
 
 **无差异曲线四性质**：① 完备性 + 传递性（偏好可排序）；② 通常凸向原点（`MRSxy` 递减）；③ 离原点越远效用越高；④ 任意两条不相交。
 
-**边际替代率** <img class="fml" src="/formulas/096a7361fd3157.png" alt="MRSxy=- \frac{dY}{dX}= \frac{MUx}{MUy}" width="190" height="35">：消费者愿意为多得一单位 X 而放弃的 Y 的数量。
+**边际替代率** $MRSxy=- \frac{dY}{dX}= \frac{MUx}{MUy}$：消费者愿意为多得一单位 X 而放弃的 Y 的数量。
 
-**预算线** `Pxx + Pyy = I` ⇒ <img class="fml" src="/formulas/127b1d1816cc2a.png" alt="y= \frac{I}{Py}-\left(\frac{Px}{Py}\right)x" width="138" height="41">；斜率 <img class="fml" src="/formulas/4dda81adc886a7.png" alt="- \frac{Px}{Py}" width="42" height="35">（市场允许的交换比率），截距 `I/Px`、`I/Py`。
+**预算线** `Pxx + Pyy = I` ⇒ $y= \frac{I}{Py}-\left(\frac{Px}{Py}\right)x$；斜率 $- \frac{Px}{Py}$（市场允许的交换比率），截距 `I/Px`、`I/Py`。
 
 | 变动 | 预算线变化 |
 | --- | --- |
@@ -248,24 +248,20 @@ PPF 外凸 ⇔ 机会成本递增 <img class="fml" src="/formulas/7207a2442104d7
 | I 与所有价格同比例 ↑ | 不变（无货币幻觉） |
 
 **消费者均衡（内点解）**：
-<img class="fml" src="/formulas/6e420b378ccadd.png" alt="MRSxy= \frac{Px}{Py}" width="116" height="35"> 且 `Pxx + Pyy = I`
+$MRSxy= \frac{Px}{Py}$ 且 `Pxx + Pyy = I`
 即「主观愿意交换的比率 = 客观能够交换的比率」，几何上为无差异曲线与预算线相切。
 
 ::: tip 工作例题 · 柯布–道格拉斯效用
 `U = XY`，`I = 100`，`Px = 2`，`Py = 5`：
 
+$$MRS= \frac{MUx}{MUy}= \frac{Y}{X}= \frac{Px}{Py}= 0.4 \Rightarrow Y= 0.4X$$
 
+代入 $2X+ 5(0.4X)= 4X= 100 \Rightarrow X*= 25$，`Y* = 10`，`U* = 250`。
 
-<p class="fml-block"><img class="fml" src="/formulas/693b91831651e0.png" alt="MRS= \frac{MUx}{MUy}= \frac{Y}{X}= \frac{Px}{Py}= 0.4 \Rightarrow Y= 0.4X" width="347" height="35"></p>
-
-
-
-代入 <img class="fml" src="/formulas/bf7735d46ce648.png" alt="2X+ 5(0.4X)= 4X= 100 \Rightarrow X*= 25" width="310" height="33">，`Y* = 10`，`U* = 250`。
-
-**通式**：<img class="fml" src="/formulas/336e035fc0d6c0.png" alt="U= X^\alpha Y^\beta" width="93" height="33"> 时 <img class="fml" src="/formulas/789d2cf09aaf9e.png" alt="X*= \frac{[\frac{\alpha}{\alpha+\beta}] \cdot I}{Px}" width="99" height="36">，<img class="fml" src="/formulas/9b396db5bdc9be.png" alt="Y*= \frac{[\frac{\beta}{\alpha+\beta}] \cdot I}{Py}" width="98" height="41">。
+**通式**：$U= X^\alpha Y^\beta$ 时 $X*= \frac{[\frac{\alpha}{\alpha+\beta}] \cdot I}{Px}$，$Y*= \frac{[\frac{\beta}{\alpha+\beta}] \cdot I}{Py}$。
 即每种商品的**支出份额恒等于其效用指数占比**，与价格、收入无关（这是 C-D 需求函数最重要的性质，也是计量中常用它的原因）。
 
-**角点解**：完全替代 `U = aX + bY`（无差异曲线为直线）时，若 `a/b > Px/Py` 则全部买 X；完全互补 <img class="fml" src="/formulas/af15dce985bd3d.png" alt="U= \min(aX, bY)" width="144" height="33">（L 形）时，最优必在折点 `aX = bY`，此时**不满足相切条件**。
+**角点解**：完全替代 `U = aX + bY`（无差异曲线为直线）时，若 `a/b > Px/Py` 则全部买 X；完全互补 $U= \min(aX, bY)$（L 形）时，最优必在折点 `aX = bY`，此时**不满足相切条件**。
 :::
 
 ### 3.3 价格变化、收入变化与需求曲线
@@ -290,19 +286,19 @@ PPF 外凸 ⇔ 机会成本递增 <img class="fml" src="/formulas/7207a2442104d7
 | 分解法 | 补偿标准 | 补偿预算线 | 特点 |
 | --- | --- | --- | --- |
 | 希克斯 | 保持**原效用水平 U0** | 与新预算线平行、与原无差异曲线相切 | 对应补偿变量 CV、等价变量 EV，用于福利度量 |
-| 斯勒茨基 | 保持**原消费组合可负担** | 过原均衡点 A、与新预算线平行 | <img class="fml" src="/formulas/0f2c95ce7cc268.png" alt="\Delta I=(P_{1}- P_{0})X_{0}" width="150" height="33">，可直接观测，导出可测的斯勒茨基方程 |
+| 斯勒茨基 | 保持**原消费组合可负担** | 过原均衡点 A、与新预算线平行 | $\Delta I=(P_{1}- P_{0})X_{0}$，可直接观测，导出可测的斯勒茨基方程 |
 
-**斯勒茨基方程**（连续形式）：<img class="fml" src="/formulas/eefb0d5d7fefb0.png" alt="\frac{\partial X}{\partial Px}= \frac{\partial Xh}{\partial Px}- X \cdot\left( \frac{\partial X}{\partial I}\right)" width="180" height="33">
+**斯勒茨基方程**（连续形式）：$\frac{\partial X}{\partial Px}= \frac{\partial Xh}{\partial Px}- X \cdot\left( \frac{\partial X}{\partial I}\right)$
 即「价格总效应 = 替代效应（希克斯需求，恒为负）+ 收入效应」。无穷小价格变动下两种分解收敛。
 
 ::: tip 工作例题 · 两种分解的完整手算
 `U = XY`，`I = 100`，`Py = 5`，`Px` 从 `2` 降到 `1`：
 
-- 起点 A：<img class="fml" src="/formulas/9865c4b6decde8.png" alt="X_{0}= \frac{I}{2Px}= 25" width="121" height="33">，<img class="fml" src="/formulas/7d695c3adbb32e.png" alt="Y_{0}= 10" width="67" height="33">，<img class="fml" src="/formulas/f41aae9406d21d.png" alt="U_{0}= 250" width="76" height="33">；终点 C：<img class="fml" src="/formulas/5fd57ee25e0eee.png" alt="X_{1}= \frac{100}{2 \times 1}= 50" width="121" height="34">，<img class="fml" src="/formulas/08cf734598b585.png" alt="Y_{1}= 10" width="66" height="33"> ⇒ **总效应 +25**。
-- **希克斯补偿**：新价格比 <img class="fml" src="/formulas/531df82ebf13f6.png" alt="\frac{Px}{Py}= \frac{1}{5}" width="63" height="35">，切点条件 <img class="fml" src="/formulas/d21bad9c914638.png" alt="\frac{Y}{X}= \frac{1}{5} \Rightarrow Y= \frac{X}{5}" width="138" height="33">；保持 <img class="fml" src="/formulas/4ee903a9f0f940.png" alt="XY= 250 \Rightarrow \frac{X^{2}}{5}= 250 \Rightarrow Xh= \sqrt{1250} \approx 35.355" width="390" height="33">。
-  ⇒ 替代效应 <img class="fml" src="/formulas/c2366ca4b9888a.png" alt="35.355- 25=+10.355" width="183" height="33">，收入效应 <img class="fml" src="/formulas/2f8b1b32a4a129.png" alt="50- 35.355=+14.645" width="184" height="33">。
-- **斯勒茨基补偿**：买得起原组合所需收入 <img class="fml" src="/formulas/f3c2936977d0f2.png" alt="I&#x27;= 1 \times 25+ 5 \times 10= 75" width="205" height="33">；<img class="fml" src="/formulas/212801d7033cbb.png" alt="Xs= \frac{75}{2 \times 1}= 37.5" width="137" height="34">。
-  ⇒ 替代效应 <img class="fml" src="/formulas/e238eec7b1e310.png" alt="37.5- 25=+12.5" width="148" height="33">，收入效应 <img class="fml" src="/formulas/ce89889495f029.png" alt="50- 37.5=+12.5" width="148" height="33">。
+- 起点 A：$X_{0}= \frac{I}{2Px}= 25$，$Y_{0}= 10$，$U_{0}= 250$；终点 C：$X_{1}= \frac{100}{2 \times 1}= 50$，$Y_{1}= 10$ ⇒ **总效应 +25**。
+- **希克斯补偿**：新价格比 $\frac{Px}{Py}= \frac{1}{5}$，切点条件 $\frac{Y}{X}= \frac{1}{5} \Rightarrow Y= \frac{X}{5}$；保持 $XY= 250 \Rightarrow \frac{X^{2}}{5}= 250 \Rightarrow Xh= \sqrt{1250} \approx 35.355$。
+  ⇒ 替代效应 $35.355- 25=+10.355$，收入效应 $50- 35.355=+14.645$。
+- **斯勒茨基补偿**：买得起原组合所需收入 $I'= 1 \times 25+ 5 \times 10= 75$；$Xs= \frac{75}{2 \times 1}= 37.5$。
+  ⇒ 替代效应 $37.5- 25=+12.5$，收入效应 $50- 37.5=+12.5$。
 - 两种分解都满足「总效应 = 25」，且替代效应恒与价格反向、收入效应对正常品加强它。
 :::
 
@@ -315,7 +311,7 @@ PPF 外凸 ⇔ 机会成本递增 <img class="fml" src="/formulas/7207a2442104d7
 ::: danger 易错 · 替代与收入效应
 - **替代效应恒为负**（与价格反向），这是希克斯需求曲线必然向下倾斜的原因；吉芬品只能靠收入效应"反超"，故吉芬品**必定是低档品**，但低档品不一定是吉芬品。
 - 吉芬品需同时满足：低档 + 支出占收入比重大 + 缺乏替代品（爱尔兰土豆 famine 是常被引用的历史案例，实证上争议很大）。
-- 价格下降时斯勒茨基补偿收入 <img class="fml" src="/formulas/90103644f955ec.png" alt="\Delta I" width="31" height="33"> 为**负**（要拿走购买力），价格上升时为正；符号别反。
+- 价格下降时斯勒茨基补偿收入 $\Delta I$ 为**负**（要拿走购买力），价格上升时为正；符号别反。
 - 显示偏好理论：若在购买力可负担 A 时选择了 B，则 B 显示偏好于 A；由此可在**不知效用函数**的情况下推导需求定律，是比基数/序数更弱的前提。
 :::
 
@@ -323,16 +319,16 @@ PPF 外凸 ⇔ 机会成本递增 <img class="fml" src="/formulas/7207a2442104d7
 
 | 风险态度 | 效用函数 | `EU` 与 `U(EW)` | 例子 |
 | --- | --- | --- | --- |
-| 风险厌恶 | `U'' < 0`（凹，边际效用递减） | `EU < U(EW)` | <img class="fml" src="/formulas/b39d4d103193a4.png" alt="U= \sqrt{W}" width="79" height="33">、<img class="fml" src="/formulas/06a6ae38643510.png" alt="U= \ln W" width="82" height="33"> |
+| 风险厌恶 | `U'' < 0`（凹，边际效用递减） | `EU < U(EW)` | $U= \sqrt{W}$、$U= \ln W$ |
 | 风险中性 | `U'' = 0`（线性） | `EU = U(EW)` | 只比较期望值 |
 | 风险偏好 | `U'' > 0`（凸） | `EU > U(EW)` | 赌博、彩票 |
 
-- **期望效用** <img class="fml" src="/formulas/39513abeb1f471.png" alt="EU= p \cdot U(W_{1})+(1- p) \cdot U(W_{2})" width="273" height="33">；**确定性等价** `CE` 满足 `U(CE) = EU`；**风险溢价** <img class="fml" src="/formulas/adc4c0e6299849.png" alt="= E(W)- CE" width="123" height="33">（为规避风险愿意放弃的期望收入）。
+- **期望效用** $EU= p \cdot U(W_{1})+(1- p) \cdot U(W_{2})$；**确定性等价** `CE` 满足 `U(CE) = EU`；**风险溢价** $= E(W)- CE$（为规避风险愿意放弃的期望收入）。
 
 ::: tip 工作例题 · 风险溢价
-<img class="fml" src="/formulas/baa11b9587175f.png" alt="U(W)= \sqrt{W}" width="113" height="33">，`p = 0.5`，<img class="fml" src="/formulas/12e1358353c22d.png" alt="W_{1}= 100" width="81" height="33">，<img class="fml" src="/formulas/c1e30a5cf2336e.png" alt="W_{2}= 400" width="82" height="33">：
-<img class="fml" src="/formulas/2c2b500bf8fa79.png" alt="EU= 0.5 \times 10+ 0.5 \times 20= 15" width="247" height="33">；`E(W) = 250`，<img class="fml" src="/formulas/70ddd23fcebbaa.png" alt="U(EW)= \sqrt{250} \approx 15.811&gt; 15" width="249" height="33"> ⇒ 风险厌恶。
-<img class="fml" src="/formulas/4f19d4ef61ea0a.png" alt="CE= EU^{2}= 225" width="145" height="33">，**风险溢价 = 250 − 225 = 25**：此人最多愿花 25 买"确定得到 225"，以替代这场期望值 250 的赌局。
+$U(W)= \sqrt{W}$，`p = 0.5`，$W_{1}= 100$，$W_{2}= 400$：
+$EU= 0.5 \times 10+ 0.5 \times 20= 15$；`E(W) = 250`，$U(EW)= \sqrt{250} \approx 15.811> 15$ ⇒ 风险厌恶。
+$CE= EU^{2}= 225$，**风险溢价 = 250 − 225 = 25**：此人最多愿花 25 买"确定得到 225"，以替代这场期望值 250 的赌局。
 这也解释了保险：风险厌恶者愿支付高于精算公平保费的金额来消除风险。
 :::
 
@@ -340,36 +336,36 @@ PPF 外凸 ⇔ 机会成本递增 <img class="fml" src="/formulas/7207a2442104d7
 
 ### 3.6 需求函数背后的对偶结构
 
-马歇尔需求 `x(p, I)` 与希克斯需求 <img class="fml" src="/formulas/0cd0b4e841fb8d.png" alt="x^{h}(p, U)" width="71" height="33"> 是同一偏好关系的两种表示：
+马歇尔需求 `x(p, I)` 与希克斯需求 $x^{h}(p, U)$ 是同一偏好关系的两种表示：
 
 | 问题 | 目标 | 值函数 | 需求 |
 | --- | --- | --- | --- |
-| 效用最大化 | <img class="fml" src="/formulas/9ebd04b8853bc6.png" alt="\max U(x) s.t. p \cdot x \le I" width="171" height="33"> | 间接效用 `v(p, I)` | 马歇尔需求 `x(p, I)` |
-| 支出最小化 | <img class="fml" src="/formulas/59423804419ea1.png" alt="\min p \cdot x s.t. U(x) \ge U" width="173" height="33"> | 支出函数 `e(p, U)` | 希克斯需求 <img class="fml" src="/formulas/0cd0b4e841fb8d.png" alt="x^{h}(p, U)" width="71" height="33"> |
+| 效用最大化 | $\max U(x) s.t. p \cdot x \le I$ | 间接效用 `v(p, I)` | 马歇尔需求 `x(p, I)` |
+| 支出最小化 | $\min p \cdot x s.t. U(x) \ge U$ | 支出函数 `e(p, U)` | 希克斯需求 $x^{h}(p, U)$ |
 
 **四个恒等式**：
 - `e(p, v(p,I)) = I` 与 `v(p, e(p,U)) = U`（互为反函数）；
-- **罗伊恒等式** <img class="fml" src="/formulas/1fa810d9225394.png" alt="x_{i}(p,I)=- \frac{\frac{\partial v}{\partial p_{i}}}{\frac{\partial v}{\partial I}}" width="122" height="45">：由间接效用函数可反求需求；
-- **谢泼德引理** <img class="fml" src="/formulas/1e2143f9ccf6e1.png" alt="x_{i}^{h}(p,U)= \frac{\partial e(p,U)}{\partial p_{i}}" width="141" height="35">：由支出函数可反求补偿需求；
-- **斯勒茨基矩阵** <img class="fml" src="/formulas/1d7ad161f7f144.png" alt="\frac{\partial x_{i}}{\partial p_{j}}= \frac{\partial x_{i}^{h}}{\partial p_{j}}- x_{j} \cdot \frac{\partial x_{i}}{\partial I}" width="153" height="40">：第 3.4 节分解的一般（多商品）形式；该矩阵**对称且半负定**，是需求理论可检验的核心约束。
+- **罗伊恒等式** $x_{i}(p,I)=- \frac{\frac{\partial v}{\partial p_{i}}}{\frac{\partial v}{\partial I}}$：由间接效用函数可反求需求；
+- **谢泼德引理** $x_{i}^{h}(p,U)= \frac{\partial e(p,U)}{\partial p_{i}}$：由支出函数可反求补偿需求；
+- **斯勒茨基矩阵** $\frac{\partial x_{i}}{\partial p_{j}}= \frac{\partial x_{i}^{h}}{\partial p_{j}}- x_{j} \cdot \frac{\partial x_{i}}{\partial I}$：第 3.4 节分解的一般（多商品）形式；该矩阵**对称且半负定**，是需求理论可检验的核心约束。
 
 ::: tip 工作例题 · C-D 效用的三个函数
-`U = XY`（或 <img class="fml" src="/formulas/d8524f03dd71ee.png" alt="U= X^\alpha Y^{1- \alpha}" width="109" height="33">）：
-- 马歇尔需求 <img class="fml" src="/formulas/29f9f48d457999.png" alt="X= \frac{I}{2Px}" width="75" height="33">、<img class="fml" src="/formulas/37f16375ff6e92.png" alt="Y= \frac{I}{2Py}" width="72" height="35">；
-- 间接效用 <img class="fml" src="/formulas/43b9631ea95020.png" alt="v= \frac{I^{2}}{4PxPy}" width="84" height="35">；
-- 支出函数 <img class="fml" src="/formulas/cab8dbd0b2ea03.png" alt="e(p,U)= 2\sqrt{U \cdot PxPy}" width="182" height="33">；
-- 验算罗伊恒等式：<img class="fml" src="/formulas/e53e33e016a65d.png" alt="- \frac{\frac{\partial v}{\partial Px}}{\frac{\partial v}{\partial I}}= \frac{\frac{I^{2}}{4Px^{2}Py}}{\frac{2I}{4PxPy}}= \frac{I}{2Px}= X" width="204" height="50"> ✓。
+`U = XY`（或 $U= X^\alpha Y^{1- \alpha}$）：
+- 马歇尔需求 $X= \frac{I}{2Px}$、$Y= \frac{I}{2Py}$；
+- 间接效用 $v= \frac{I^{2}}{4PxPy}$；
+- 支出函数 $e(p,U)= 2\sqrt{U \cdot PxPy}$；
+- 验算罗伊恒等式：$- \frac{\frac{\partial v}{\partial Px}}{\frac{\partial v}{\partial I}}= \frac{\frac{I^{2}}{4Px^{2}Py}}{\frac{2I}{4PxPy}}= \frac{I}{2Px}= X$ ✓。
 :::
 
 ### 3.7 补偿变化 CV、等价变化 EV 与消费者剩余
 
 | 度量 | 定义 | 价格下降时 |
 | --- | --- | --- |
-| 补偿变化 CV | 价格变动后，为**维持原效用**所需的收入补偿 | <img class="fml" src="/formulas/ce1e9537d3b9b0.png" alt="CV= e(p_{0},U_{0})- e(p_{1},U_{0})" width="212" height="33"> |
-| 等价变化 EV | 价格变动**前**，等效于该价格变动的收入变化 | <img class="fml" src="/formulas/7195dbebe7a162.png" alt="EV= e(p_{0},U_{1})- e(p_{1},U_{1})" width="213" height="33"> |
+| 补偿变化 CV | 价格变动后，为**维持原效用**所需的收入补偿 | $CV= e(p_{0},U_{0})- e(p_{1},U_{0})$ |
+| 等价变化 EV | 价格变动**前**，等效于该价格变动的收入变化 | $EV= e(p_{0},U_{1})- e(p_{1},U_{1})$ |
 | 消费者剩余 CS | 需求曲线下的面积（马歇尔需求积分） | 介于 CV 与 EV 之间（拟线性偏好时三者相等） |
 
-- 关系：价格下降时 <img class="fml" src="/formulas/f6a7aa68f3f3bf.png" alt="CV \le \Delta CS \le EV" width="152" height="33">（对正常品）；差异来自**收入效应**。收入效应越小（拟线性效用、支出占比小），用 CS 近似福利变化越准确。
+- 关系：价格下降时 $CV \le \Delta CS \le EV$（对正常品）；差异来自**收入效应**。收入效应越小（拟线性效用、支出占比小），用 CS 近似福利变化越准确。
 - 政策评估含义：税收、补贴、价格管制的福利分析，严格应用 CV/EV；初等教材常用 CS 三角形作近似。
 
 ---
@@ -382,17 +378,17 @@ PPF 外凸 ⇔ 机会成本递增 <img class="fml" src="/formulas/7207a2442104d7
 
 | 概念 | 表达式 | 说明 |
 | --- | --- | --- |
-| 生产函数 | <img class="fml" src="/formulas/3a671a6e91ee47.png" alt="Q= f(L, K, \cdots)" width="138" height="33"> | 一定技术下，最大产出与要素投入量的关系 |
+| 生产函数 | $Q= f(L, K, \cdots)$ | 一定技术下，最大产出与要素投入量的关系 |
 | 短期 / 长期 | 至少一种要素固定 / 所有要素可变 | 不是日历时间，而是**调整能力**；不同行业长短不同 |
 | 固定 / 可变投入 | `K̄` 固定 / `L` 可变 | 短期分析的基础 |
 | 总产量 | `TP = Q(L)` | 可变要素带来的总产出 |
-| 平均产量 | <img class="fml" src="/formulas/afb9490d17f6a5.png" alt="AP= \frac{TP}{L}" width="81" height="33"> | 原点向 TP 曲线连线斜率 |
-| 边际产量 | <img class="fml" src="/formulas/9fc021fe89b668.png" alt="MP= \frac{dTP}{dL}" width="94" height="33"> | TP 曲线切线斜率 |
+| 平均产量 | $AP= \frac{TP}{L}$ | 原点向 TP 曲线连线斜率 |
+| 边际产量 | $MP= \frac{dTP}{dL}$ | TP 曲线切线斜率 |
 
 **边际报酬递减规律**：技术给定、其他要素不变时，连续增加某可变要素，其 MP 最终递减。两个前提缺一不可。
 
 ::: tip 工作例题 · 短期生产函数全表
-<img class="fml" src="/formulas/0e1349047e7c8b.png" alt="Q= 10L- L^{2}" width="116" height="33">（K 固定）：
+$Q= 10L- L^{2}$（K 固定）：
 
 | L | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 10 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -400,8 +396,8 @@ PPF 外凸 ⇔ 机会成本递增 <img class="fml" src="/formulas/7207a2442104d7
 | AP | 9 | 8 | 7 | 6 | 5 | 4 | 3 | 0 |
 | MP | 9 | 7 | 5 | 3 | 1 | −1 | −3 | −9 |
 
-<img class="fml" src="/formulas/9aa907c6b623db.png" alt="AP= 10- L" width="110" height="33">，<img class="fml" src="/formulas/3628e122089fcf.png" alt="MP= 10- 2L" width="124" height="33">；`L = 5` 时 `MP = 0`、`TP` 最大 = 25；`L > 5` 进入第Ⅲ阶段（MP 为负，投入越多产量越少）。
-连续设定下 `MP = AP` 发生在 `L = 0`（该函数退化特例），典型三次型 <img class="fml" src="/formulas/415a281342cbde.png" alt="Q= 24L+ 6L^{2}- \frac{L^{3}}{3}" width="164" height="34"> 的 `AP` 最大在 `L = 9`、`MP = 0` 在 <img class="fml" src="/formulas/a38dc6be431390.png" alt="L \approx 13.75" width="84" height="34">，三阶段更清晰。
+$AP= 10- L$，$MP= 10- 2L$；`L = 5` 时 `MP = 0`、`TP` 最大 = 25；`L > 5` 进入第Ⅲ阶段（MP 为负，投入越多产量越少）。
+连续设定下 `MP = AP` 发生在 `L = 0`（该函数退化特例），典型三次型 $Q= 24L+ 6L^{2}- \frac{L^{3}}{3}$ 的 `AP` 最大在 `L = 9`、`MP = 0` 在 $L \approx 13.75$，三阶段更清晰。
 :::
 
 **生产三阶段**：
@@ -421,33 +417,33 @@ PPF 外凸 ⇔ 机会成本递增 <img class="fml" src="/formulas/7207a2442104d7
 
 | 工具 | 方程 / 定义 | 斜率 |
 | --- | --- | --- |
-| 等产量线 | <img class="fml" src="/formulas/6c93d38017f314.png" alt="f(L,K)= Q_{0}" width="113" height="34"> | <img class="fml" src="/formulas/eccc19bbe4daf5.png" alt="- MRTS(LK)=- \frac{MPL}{MPK}" width="198" height="34">（递减 ⇒ 凸向原点） |
-| 等成本线 | `C = wL + rK` ⇒ <img class="fml" src="/formulas/f77d178b1c9183.png" alt="K= \frac{C}{r}-\left(\frac{w}{r}\right)L" width="128" height="34"> | <img class="fml" src="/formulas/7f5640b26979f0.png" alt="- \frac{w}{r}" width="35" height="34"> |
-| 最优组合 | <img class="fml" src="/formulas/156bebaa3c0068.png" alt="MRTS(LK)= \frac{w}{r}" width="144" height="34"> ⇔ <img class="fml" src="/formulas/2ad8e85f0a7625.png" alt="\frac{MPL}{w}= \frac{MPK}{r}= \frac{1}{MC}" width="158" height="34"> | 切点 |
+| 等产量线 | $f(L,K)= Q_{0}$ | $- MRTS(LK)=- \frac{MPL}{MPK}$（递减 ⇒ 凸向原点） |
+| 等成本线 | `C = wL + rK` ⇒ $K= \frac{C}{r}-\left(\frac{w}{r}\right)L$ | $- \frac{w}{r}$ |
+| 最优组合 | $MRTS(LK)= \frac{w}{r}$ ⇔ $\frac{MPL}{w}= \frac{MPK}{r}= \frac{1}{MC}$ | 切点 |
 | 扩展线 | 各等成本线—等产量线切点的轨迹 | 要素价格不变时的长期扩张路径 |
 
 **两组对偶问题**：给定产量求最小成本 ⇔ 给定成本求最大产量，二者给出同一阶条件。这也是第 5 章成本函数与生产函数对偶性的来源。
 
 **特例**：
 - 完全替代（线性生产函数 `Q = aL + bK`）：等产量线为直线，一般取**角点解**（比较 `a/w` 与 `b/r`）。
-- 里昂惕夫固定比例（<img class="fml" src="/formulas/a678ffd9cebc52.png" alt="Q= \min\left(\frac{L}{a}, \frac{K}{b}\right)" width="130" height="34">）：L 形等产量线，最优在直角顶点 <img class="fml" src="/formulas/8bb4e1de1306e1.png" alt="\frac{L}{a}= \frac{K}{b}" width="60" height="34">，不满足相切条件。
-- 柯布–道格拉斯 <img class="fml" src="/formulas/487d7baf99d235.png" alt="Q= AL^\alpha K^\beta" width="104" height="34">：<img class="fml" src="/formulas/7f9e08d6d2500b.png" alt="MRTS=\left(\frac{\alpha}{\beta}\right)\left(\frac{K}{L}\right)" width="157" height="41">；<img class="fml" src="/formulas/6d3fab0dfb5711.png" alt="\alpha" width="19" height="34">、<img class="fml" src="/formulas/5ed80e3e4d7b8f.png" alt="\beta" width="18" height="34"> 分别为 L、K 的**产出弹性**。
+- 里昂惕夫固定比例（$Q= \min\left(\frac{L}{a}, \frac{K}{b}\right)$）：L 形等产量线，最优在直角顶点 $\frac{L}{a}= \frac{K}{b}$，不满足相切条件。
+- 柯布–道格拉斯 $Q= AL^\alpha K^\beta$：$MRTS=\left(\frac{\alpha}{\beta}\right)\left(\frac{K}{L}\right)$；$\alpha$、$\beta$ 分别为 L、K 的**产出弹性**。
 
 ### 4.3 规模报酬与生产函数齐次性
 
-<img class="fml" src="/formulas/ec219ae08e9bf7.png" alt="f(\lambda L, \lambda K)" width="89" height="34"> 与 <img class="fml" src="/formulas/5129b12970b8e1.png" alt="\lambda f(L,K)" width="78" height="34"> 比较（<img class="fml" src="/formulas/b5833edddbcb4f.png" alt="\lambda&gt; 1" width="51" height="34">）：
+$f(\lambda L, \lambda K)$ 与 $\lambda f(L,K)$ 比较（$\lambda> 1$）：
 
 | 类型 | 条件 | C-D 情形 | 等产量线表现 |
 | --- | --- | --- | --- |
-| 递增 | <img class="fml" src="/formulas/a398d0a2668799.png" alt="f(\lambda L,\lambda K)&gt; \lambda Q" width="137" height="34"> | <img class="fml" src="/formulas/e0b6c2b8c6028d.png" alt="\alpha+ \beta&gt; 1" width="84" height="34"> | 等产量线沿射线越来越密 |
-| 不变 | <img class="fml" src="/formulas/1817123b53fd29.png" alt="= \lambda Q" width="50" height="34"> | <img class="fml" src="/formulas/b7cde121f961c1.png" alt="\alpha+ \beta= 1" width="84" height="34"> | 等间距 |
-| 递减 | <img class="fml" src="/formulas/3459b24d0f2dac.png" alt="&lt; \lambda Q" width="51" height="34"> | <img class="fml" src="/formulas/6eee574ee3797d.png" alt="\alpha+ \beta&lt; 1" width="84" height="34"> | 越来越疏 |
+| 递增 | $f(\lambda L,\lambda K)> \lambda Q$ | $\alpha+ \beta> 1$ | 等产量线沿射线越来越密 |
+| 不变 | $= \lambda Q$ | $\alpha+ \beta= 1$ | 等间距 |
+| 递减 | $< \lambda Q$ | $\alpha+ \beta< 1$ | 越来越疏 |
 
-- **齐次函数**：若 <img class="fml" src="/formulas/8de5e0cf628ca0.png" alt="f(\lambda L,\lambda K)= \lambda^{n} f(L,K)" width="192" height="34">，则为 n 次齐次，n 即规模报酬次数；C-D 函数是 <img class="fml" src="/formulas/201e2e9c979253.png" alt="(\alpha+\beta)" width="66" height="34"> 次齐次。
-- **欧拉定理**：n 次齐次函数满足 <img class="fml" src="/formulas/e7d6e5c0e876e9.png" alt="n \cdot Q= MPL \cdot L+ MPK \cdot K" width="239" height="34">；`n = 1`（不变规模报酬）时 <img class="fml" src="/formulas/bb4ea3e6707cb0.png" alt="Q= MPL \cdot L+ MPK \cdot K" width="216" height="34">，即**产品分配净尽定理**（第 8 章边际生产力分配论的依据）。
+- **齐次函数**：若 $f(\lambda L,\lambda K)= \lambda^{n} f(L,K)$，则为 n 次齐次，n 即规模报酬次数；C-D 函数是 $(\alpha+\beta)$ 次齐次。
+- **欧拉定理**：n 次齐次函数满足 $n \cdot Q= MPL \cdot L+ MPK \cdot K$；`n = 1`（不变规模报酬）时 $Q= MPL \cdot L+ MPK \cdot K$，即**产品分配净尽定理**（第 8 章边际生产力分配论的依据）。
 
 ::: tip 技术进步的分类（希克斯/哈罗德/索洛中性）
-除"技术进步使等产量线向内移动"的一般表述外：若技术进步使 MRTS 不变（等产量线沿射线平移）为**希克斯中性**；若使资本—产出比不变为哈罗德中性；若使劳动—产出比不变为索洛中性。中性技术进步只改变生产函数的效率项 A，不改变要素边际产量之比。CES 生产函数 <img class="fml" src="/formulas/44d0ff8e47b926.png" alt="Q= A[\delta L^\rho+(1- \delta)K^\rho]^{\frac{1}{\rho}}" width="205" height="35"> 统一了 C-D（<img class="fml" src="/formulas/4d2cd9e1a75cb7.png" alt="\rho \to 0" width="53" height="34">）、完全替代（<img class="fml" src="/formulas/71f55b31ab0f91.png" alt="\rho=1" width="49" height="34">）、里昂惕夫（<img class="fml" src="/formulas/518d282a380aae.png" alt="\rho \to- \infty" width="76" height="34">），替代弹性 <img class="fml" src="/formulas/0b27165f499d19.png" alt="\sigma= \frac{1}{1- \rho}" width="68" height="35"> 为常数。
+除"技术进步使等产量线向内移动"的一般表述外：若技术进步使 MRTS 不变（等产量线沿射线平移）为**希克斯中性**；若使资本—产出比不变为哈罗德中性；若使劳动—产出比不变为索洛中性。中性技术进步只改变生产函数的效率项 A，不改变要素边际产量之比。CES 生产函数 $Q= A[\delta L^\rho+(1- \delta)K^\rho]^{\frac{1}{\rho}}$ 统一了 C-D（$\rho \to 0$）、完全替代（$\rho=1$）、里昂惕夫（$\rho \to- \infty$），替代弹性 $\sigma= \frac{1}{1- \rho}$ 为常数。
 :::
 
 ---
@@ -469,8 +465,8 @@ PPF 外凸 ⇔ 机会成本递增 <img class="fml" src="/formulas/7207a2442104d7
 ::: tip 工作例题 · 三种利润
 某人辞职创业：原年薪 12 万，自有店面若出租可得 6 万，投入自有资金 50 万（年利率 3% ⇒ 利息 1.5 万）；全年营业收入 60 万，显成本（原料、雇工）38 万。
 - 会计成本 = 38 万 ⇒ **会计利润 = 22 万**。
-- 隐成本 <img class="fml" src="/formulas/c4fe835653f6f3.png" alt="=12+6+1.5=19.5" width="175" height="34"> 万 <img class="fml" src="/formulas/e667a8be113ba1.png" alt="\Rightarrow" width="24" height="34"> 经济成本 <img class="fml" src="/formulas/8d6582646e33b7.png" alt="=57.5" width="58" height="34"> 万 <img class="fml" src="/formulas/e667a8be113ba1.png" alt="\Rightarrow" width="24" height="34"> **经济利润 <img class="fml" src="/formulas/3fca72c8d8ccb5.png" alt="=2.5" width="48" height="34"> 万**（仍值得继续经营）。
-- 若营业收入降到 55 万，经济利润 = <img class="fml" src="/formulas/60971a45f4b9b1.png" alt="- 2.5" width="44" height="34"> 万，虽然账面仍赚 17 万，理性决策是回去上班。
+- 隐成本 $=12+6+1.5=19.5$ 万 $\Rightarrow$ 经济成本 $=57.5$ 万 $\Rightarrow$ **经济利润 $=2.5$ 万**（仍值得继续经营）。
+- 若营业收入降到 55 万，经济利润 = $- 2.5$ 万，虽然账面仍赚 17 万，理性决策是回去上班。
 :::
 
 ### 5.2 成本最小化与生产—成本对偶
@@ -479,17 +475,13 @@ PPF 外凸 ⇔ 机会成本递增 <img class="fml" src="/formulas/7207a2442104d7
 
 **成本最小化问题**：
 
+$$\min wL+ rK s.t. f(L,K)= Q_{0}$$
 
-
-<p class="fml-block"><img class="fml" src="/formulas/efbeffe2574767.png" alt="\min wL+ rK s.t. f(L,K)= Q_{0}" width="242" height="33"></p>
-
-
-
-拉格朗日一阶条件 ⇒ <img class="fml" src="/formulas/95d7eed6bc0ff1.png" alt="\dfrac{MPL}{w}= \dfrac{MPK}{r}= \dfrac{1}{MC}" width="196" height="46">（按 <img class="fml" src="/formulas/cc1273dfb0d430.png" alt="L=wL+rK+\lambda(Q_{0}-f)" width="215" height="33"> 的约定，乘子 <img class="fml" src="/formulas/0addd8f69869dc.png" alt="\lambda=MC" width="74" height="33">，公共比值为 <img class="fml" src="/formulas/90d114db8f03b8.png" alt="1/\lambda=1/MC" width="110" height="33">，即边际成本的倒数）。
+拉格朗日一阶条件 ⇒ $\dfrac{MPL}{w}= \dfrac{MPK}{r}= \dfrac{1}{MC}$（按 $L=wL+rK+\lambda(Q_{0}-f)$ 的约定，乘子 $\lambda=MC$，公共比值为 $1/\lambda=1/MC$，即边际成本的倒数）。
 **产量最大化问题**（给定 C）给出同一条件 —— 这就是第 4 章的**对偶关系**。
 
 由生产函数可反解成本函数：`C(Q; w, r)`；短期存在固定成本，长期全部可变。
-**谢泼德引理**：<img class="fml" src="/formulas/4d809787afcc1d.png" alt="\frac{\partial C}{\partial w}= L*" width="74" height="33">（条件要素需求），把成本函数对要素价格求偏导即可得要素需求。
+**谢泼德引理**：$\frac{\partial C}{\partial w}= L*$（条件要素需求），把成本函数对要素价格求偏导即可得要素需求。
 
 ### 5.3 短期成本曲线族（七条）
 
@@ -500,19 +492,19 @@ PPF 外凸 ⇔ 机会成本递增 <img class="fml" src="/formulas/7207a2442104d7
 | STC | `TFC + TVC` | TVC 上移 TFC |
 | AFC | `TFC/Q` | 直角双曲线，单调递减趋近 0 |
 | AVC | `TVC/Q` | U 形 |
-| AC (SAC) | <img class="fml" src="/formulas/7300c9b7c8d161.png" alt="\frac{STC}{Q}= AFC+ AVC" width="167" height="35"> | U 形；与 AVC 的垂直距离 = AFC，随 Q 缩小 |
-| SMC | <img class="fml" src="/formulas/266225f8b98953.png" alt="\frac{dSTC}{dQ}= \frac{dTVC}{dQ}" width="108" height="35"> | U 形；与 TFC 无关 |
+| AC (SAC) | $\frac{STC}{Q}= AFC+ AVC$ | U 形；与 AVC 的垂直距离 = AFC，随 Q 缩小 |
+| SMC | $\frac{dSTC}{dQ}= \frac{dTVC}{dQ}$ | U 形；与 TFC 无关 |
 
 **三个必考交点**：
 1. `SMC` 从下方穿过 `AVC` 的**最低点**；
 2. `SMC` 从下方穿过 `AC` 的**最低点**；
 3. `AC` 最低点在 `AVC` 最低点的**右上方**（因 AFC 仍在下降，把 AC 最低点推后）。
 
-**生产—成本对偶**：`MP` 递增 ⇔ `MC` 递减；`MP` 最大 ⇔ `MC` 最小；`AP` 最大 ⇔ `AVC` 最小。数学上 <img class="fml" src="/formulas/5ca7ed1d5acd0e.png" alt="AVC= \frac{w}{AP(L)}" width="115" height="36">、<img class="fml" src="/formulas/581d40eed73ebd.png" alt="MC= \frac{w}{MP(L)}" width="109" height="36">（单一可变要素、工资 w 给定时）。
+**生产—成本对偶**：`MP` 递增 ⇔ `MC` 递减；`MP` 最大 ⇔ `MC` 最小；`AP` 最大 ⇔ `AVC` 最小。数学上 $AVC= \frac{w}{AP(L)}$、$MC= \frac{w}{MP(L)}$（单一可变要素、工资 w 给定时）。
 
 ::: tip 工作例题 · 七条曲线的完整数值表
-<img class="fml" src="/formulas/29c88ac752f514.png" alt="STC= Q^{3}- 6Q^{2}+ 15Q+ 100" width="246" height="33">（TFC = 100）：
-<img class="fml" src="/formulas/16abc5753c338d.png" alt="TVC= Q^{3}- 6Q^{2}+15Q" width="199" height="33">，<img class="fml" src="/formulas/51b952e48eaa40.png" alt="AVC= Q^{2}- 6Q+15" width="178" height="33">，<img class="fml" src="/formulas/7845e5c9e08342.png" alt="AC= AVC+ \frac{100}{Q}" width="145" height="35">，<img class="fml" src="/formulas/61ba05fc01279b.png" alt="SMC= 3Q^{2}- 12Q+15" width="200" height="33">。
+$STC= Q^{3}- 6Q^{2}+ 15Q+ 100$（TFC = 100）：
+$TVC= Q^{3}- 6Q^{2}+15Q$，$AVC= Q^{2}- 6Q+15$，$AC= AVC+ \frac{100}{Q}$，$SMC= 3Q^{2}- 12Q+15$。
 
 | Q | TVC | STC | AFC | AVC | AC | SMC |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -535,7 +527,7 @@ PPF 外凸 ⇔ 机会成本递增 <img class="fml" src="/formulas/7207a2442104d7
 | 曲线 | 定义 | 性质 |
 | --- | --- | --- |
 | LTC | 长期生产每个产量的**最低**总成本 | 由扩展线导出（LTC 是所有 STC 的下包络） |
-| LAC | `LTC/Q` | 所有 SAC 的**包络线**，U 形；<img class="fml" src="/formulas/7f03dcf32642e5.png" alt="SAC \ge LAC" width="110" height="33">，只在切点相等 |
+| LAC | `LTC/Q` | 所有 SAC 的**包络线**，U 形；$SAC \ge LAC$，只在切点相等 |
 | LMC | `dLTC/dQ` | 过 LAC 最低点；与对应 SAC 的 SMC 在切点产量处相等 |
 
 **相切位置**：LAC 下降段与 SAC 最低点**左侧**相切；LAC 上升段与 SAC 最低点**右侧**相切；仅 LAC 最低点与某一 SAC 最低点重合。
@@ -544,7 +536,7 @@ PPF 外凸 ⇔ 机会成本递增 <img class="fml" src="/formulas/7207a2442104d7
 | --- | --- | --- |
 | 规模经济 | LAC 随 Q 下降 | 专业化、设备不可分性、副产品利用、融资与采购优势 |
 | 规模不经济 | LAC 随 Q 上升 | 管理层级过多、协调与信息传递成本 |
-| 范围经济 | <img class="fml" src="/formulas/7418508ddf9cc3.png" alt="C(Q_{1},Q_{2})&lt; C(Q_{1},0)+ C(0,Q_{2})" width="263" height="33"> | 共享投入、渠道、品牌与技术（多产品） |
+| 范围经济 | $C(Q_{1},Q_{2})< C(Q_{1},0)+ C(0,Q_{2})$ | 共享投入、渠道、品牌与技术（多产品） |
 | 学习效应 | 平均成本随**累计**产量下降 | 干中学，动态效应而非规模效应 |
 
 ::: tip 补充考点 · 最低效率规模（MES）与市场结构
@@ -560,16 +552,16 @@ PPF 外凸 ⇔ 机会成本递增 <img class="fml" src="/formulas/7207a2442104d7
 
 ### 5.5 生产—成本对偶的严格推导
 
-<img class="fml" src="/formulas/9d6a71c0c3ec2e.png" alt="L= wL+ rK+ \lambda(Q_{0}- f(L,K))" width="265" height="33"> ⇒ 一阶条件 <img class="fml" src="/formulas/be5daccbef2fa7.png" alt="w= \lambda \cdot MPL" width="113" height="33">、<img class="fml" src="/formulas/61f33e94bb0a18.png" alt="r= \lambda \cdot MPK" width="112" height="33"> ⇒ <img class="fml" src="/formulas/9914f279359cf9.png" alt="\frac{MPL}{w}= \frac{MPK}{r}= \frac{1}{\lambda}" width="141" height="33">。
-由包络定理 <img class="fml" src="/formulas/404efcde321499.png" alt="dC* dQ= \lambda" width="105" height="33"> ⇒ <img class="fml" src="/formulas/a6b2529e07dd50.png" alt="\lambda= MC" width="75" height="33">，故 <img class="fml" src="/formulas/2ad8e85f0a7625.png" alt="\frac{MPL}{w}= \frac{MPK}{r}= \frac{1}{MC}" width="158" height="34">。
-<img class="fml" src="/formulas/675e10a6207b67.png" alt="C(Q)= \min{wL+ rK : f(L,K) \ge Q}" width="291" height="33"> 关于 `(w,r)` 是一次齐次、凹函数；由谢泼德引理 <img class="fml" src="/formulas/7b53ec46bc932a.png" alt="\frac{\partial C}{\partial w}= L*(Q,w,r)" width="147" height="33">。
+$L= wL+ rK+ \lambda(Q_{0}- f(L,K))$ ⇒ 一阶条件 $w= \lambda \cdot MPL$、$r= \lambda \cdot MPK$ ⇒ $\frac{MPL}{w}= \frac{MPK}{r}= \frac{1}{\lambda}$。
+由包络定理 $dC* dQ= \lambda$ ⇒ $\lambda= MC$，故 $\frac{MPL}{w}= \frac{MPK}{r}= \frac{1}{MC}$。
+$C(Q)= \min{wL+ rK : f(L,K) \ge Q}$ 关于 `(w,r)` 是一次齐次、凹函数；由谢泼德引理 $\frac{\partial C}{\partial w}= L*(Q,w,r)$。
 
-**成本函数的形状由生产函数决定**：规模报酬递增（<img class="fml" src="/formulas/6e679f4fcdc1e8.png" alt="\alpha+\beta&gt;1" width="84" height="33">）⇒ `LAC` 递减；不变 ⇒ `LAC` 水平；递减 ⇒ `LAC` 递增。短期 U 形 SAC 则来自"至少一种要素固定 + 边际报酬递减"。
+**成本函数的形状由生产函数决定**：规模报酬递增（$\alpha+\beta>1$）⇒ `LAC` 递减；不变 ⇒ `LAC` 水平；递减 ⇒ `LAC` 递增。短期 U 形 SAC 则来自"至少一种要素固定 + 边际报酬递减"。
 
 ::: tip 工作例题 · 由 C-D 生产函数解成本函数
-`Q = L^{0.5}K^{0.5}`，<img class="fml" src="/formulas/8c6ce891c69a52.png" alt="MRTS= \frac{K}{L}= \frac{w}{r} \Rightarrow K=\left(\frac{w}{r}\right)L" width="255" height="33">；代入 <img class="fml" src="/formulas/f3a8a88bef746d.png" alt="Q= L\sqrt{\frac{w}{r}} \Rightarrow L= Q\sqrt{\frac{r}{w}}" width="197" height="34">，<img class="fml" src="/formulas/195fffd8cd546c.png" alt="K= Q\sqrt{\frac{w}{r}}" width="93" height="34">。
-<img class="fml" src="/formulas/94d9f289ab8a57.png" alt="C= wL+ rK= Q\sqrt{wr}+ Q\sqrt{wr}= 2Q\sqrt{wr}" width="348" height="34"> ⇒ <img class="fml" src="/formulas/f182599f0b23dd.png" alt="LAC= LMC= 2\sqrt{wr}" width="185" height="34">（常数，规模报酬不变）。
-验算要素价格齐次性：w、r 同乘 <img class="fml" src="/formulas/0799238416aeb6.png" alt="2 \Rightarrow C" width="58" height="34"> 乘 2 ✓。
+`Q = L^{0.5}K^{0.5}`，$MRTS= \frac{K}{L}= \frac{w}{r} \Rightarrow K=\left(\frac{w}{r}\right)L$；代入 $Q= L\sqrt{\frac{w}{r}} \Rightarrow L= Q\sqrt{\frac{r}{w}}$，$K= Q\sqrt{\frac{w}{r}}$。
+$C= wL+ rK= Q\sqrt{wr}+ Q\sqrt{wr}= 2Q\sqrt{wr}$ ⇒ $LAC= LMC= 2\sqrt{wr}$（常数，规模报酬不变）。
+验算要素价格齐次性：w、r 同乘 $2 \Rightarrow C$ 乘 2 ✓。
 :::
 
 ---
@@ -592,36 +584,36 @@ PPF 外凸 ⇔ 机会成本递增 <img class="fml" src="/formulas/7207a2442104d7
 
 ### 6.2 利润最大化与短期均衡
 
-<img class="fml" src="/formulas/336f4207aaa9e5.png" alt="\pi(Q)= TR(Q)- STC(Q)" width="213" height="34"> ⇒ 一阶条件 <img class="fml" src="/formulas/af262f3f875846.png" alt="\frac{dTR}{dQ}= \frac{dSTC}{dQ}" width="98" height="36">，即 **`MR = MC`**；
+$\pi(Q)= TR(Q)- STC(Q)$ ⇒ 一阶条件 $\frac{dTR}{dQ}= \frac{dSTC}{dQ}$，即 **`MR = MC`**；
 二阶条件要求 `MC` 处于**上升段**（否则该点是利润最小点）。
 
 **五种短期均衡结果**：
 
 | 价格区间 | 利润 | 厂商决策 |
 | --- | --- | --- |
-| `P > ACmin` | <img class="fml" src="/formulas/cd4dbb2046355e.png" alt="\pi&gt; 0" width="50" height="34"> 超额利润 | 继续生产，新厂商将进入 |
-| `P = ACmin` | <img class="fml" src="/formulas/5f873556e397da.png" alt="\pi= 0" width="51" height="34">（**收支相抵点**） | 继续生产，只获正常利润 |
-| `AVCmin < P < ACmin` | <img class="fml" src="/formulas/56608e75d8b419.png" alt="\pi&lt; 0" width="51" height="34"> 但亏损最小 | **继续生产**（能补全部可变成本并分摊部分固定成本） |
-| `P = AVCmin` | <img class="fml" src="/formulas/70690ac6cd03da.png" alt="\pi=- TFC" width="96" height="34">（**停止营业点/关门点**） | 生产与不生产无差别 |
+| `P > ACmin` | $\pi> 0$ 超额利润 | 继续生产，新厂商将进入 |
+| `P = ACmin` | $\pi= 0$（**收支相抵点**） | 继续生产，只获正常利润 |
+| `AVCmin < P < ACmin` | $\pi< 0$ 但亏损最小 | **继续生产**（能补全部可变成本并分摊部分固定成本） |
+| `P = AVCmin` | $\pi=- TFC$（**停止营业点/关门点**） | 生产与不生产无差别 |
 | `P < AVCmin` | 亏损 > TFC | 立即停产，损失限于 TFC |
 
 ::: tip 工作例题 · 短期均衡、盈亏与关门决策
-<img class="fml" src="/formulas/685d45fd7b545d.png" alt="STC= Q^{2}+ 4Q+ 36" width="175" height="34">（`SMC = 2Q + 4`，<img class="fml" src="/formulas/1cac2eb2c1fb06.png" alt="AC= Q+ 4+ \frac{36}{Q}" width="142" height="36">，`AVC = Q + 4`）。
-- `P = 20`：<img class="fml" src="/formulas/d4bf134716c8c4.png" alt="2Q+ 4= 20 \Rightarrow Q*= 8" width="186" height="34">；`TR = 160`，`STC = 132` ⇒ <img class="fml" src="/formulas/665edb9712bd1f.png" alt="\pi= 28" width="60" height="34">。
-- 收支相抵：`AC` 最小 ⇒ <img class="fml" src="/formulas/1eb53d06849605.png" alt="\frac{dAC}{dQ}= 1- \frac{36}{Q^{2}}= 0 \Rightarrow Q= 6" width="218" height="36">，`ACmin = 16`。
+$STC= Q^{2}+ 4Q+ 36$（`SMC = 2Q + 4`，$AC= Q+ 4+ \frac{36}{Q}$，`AVC = Q + 4`）。
+- `P = 20`：$2Q+ 4= 20 \Rightarrow Q*= 8$；`TR = 160`，`STC = 132` ⇒ $\pi= 28$。
+- 收支相抵：`AC` 最小 ⇒ $\frac{dAC}{dQ}= 1- \frac{36}{Q^{2}}= 0 \Rightarrow Q= 6$，`ACmin = 16`。
 - 关门价格：`AVC = Q + 4` 递增，下确界为 4（严格设 U 形时应取 AVCmin）。
 - `P = 14`：`Q = 5`，`TR = 70`，`STC = 81` ⇒ **亏 11**；但 `AVC = 9 < 14` ⇒ **继续生产**（比停产亏 36 好得多）。
 :::
 
 **两条重要曲线**：
-- **厂商短期供给曲线** = <img class="fml" src="/formulas/c0b44a88e7299c.png" alt="SMC \ge AVCmin" width="150" height="34"> 的上升段（每一价格对应利润最大产量）。
+- **厂商短期供给曲线** = $SMC \ge AVCmin$ 的上升段（每一价格对应利润最大产量）。
 - **行业短期供给曲线** = 各厂商短期供给曲线的**水平加总**；与市场需求共同决定短期行业均衡。
 
 ### 6.3 长期均衡与行业长期供给曲线
 
 ![长期零利润均衡与三种行业长期供给曲线](/micro/micro-longrun.svg)
 
-**长期调整机制**：短期 <img class="fml" src="/formulas/cd4dbb2046355e.png" alt="\pi&gt; 0" width="50" height="34"> ⇒ 新厂商进入 ⇒ 行业 S 右移 ⇒ P 下降 ⇒ 单厂商需求线下移；<img class="fml" src="/formulas/56608e75d8b419.png" alt="\pi&lt; 0" width="51" height="34"> ⇒ 退出 ⇒ P 回升。同时厂商调整工厂规模（沿 LAC 选最优 SAC）。
+**长期调整机制**：短期 $\pi> 0$ ⇒ 新厂商进入 ⇒ 行业 S 右移 ⇒ P 下降 ⇒ 单厂商需求线下移；$\pi< 0$ ⇒ 退出 ⇒ P 回升。同时厂商调整工厂规模（沿 LAC 选最优 SAC）。
 
 **长期均衡条件**：
 `P = MR = LMC = SMC = LACmin = SACmin` ⇒ **经济利润 = 0**。
@@ -645,12 +637,12 @@ PPF 外凸 ⇔ 机会成本递增 <img class="fml" src="/formulas/7207a2442104d7
 | 概念 | 定义 | 图形 |
 | --- | --- | --- |
 | 消费者剩余 CS | 愿意支付 − 实际支付 | 需求曲线以下、价格线以上 |
-| 生产者剩余 PS | 实际收入 − 愿意接受的最低报酬 | 价格线以下、SMC 曲线以上；<img class="fml" src="/formulas/31cc9978104931.png" alt="PS= \pi+ TFC" width="131" height="34"> |
+| 生产者剩余 PS | 实际收入 − 愿意接受的最低报酬 | 价格线以下、SMC 曲线以上；$PS= \pi+ TFC$ |
 | 总剩余 | `CS + PS` | 完全竞争均衡时**最大** |
 
 **为什么 `P = MC` 是效率条件**：`P` 反映消费者对最后一单位的社会评价，`MC` 反映生产它的社会成本。`P > MC` 说明还有互利交易未完成（应增产）；`P < MC` 说明资源耗费超过评价（应减产）。只有相等时总剩余最大。
 
-**无谓损失 DWL**：任何使成交量偏离竞争均衡的干预（税收、配额、垄断、价格管制）都会损失一部分本可实现的互利交易，损失面积常用三角形 <img class="fml" src="/formulas/44fd529ec7b01e.png" alt="\frac{1}{2} \cdot \Delta Q \cdot \Delta P" width="101" height="34"> 计算。
+**无谓损失 DWL**：任何使成交量偏离竞争均衡的干预（税收、配额、垄断、价格管制）都会损失一部分本可实现的互利交易，损失面积常用三角形 $\frac{1}{2} \cdot \Delta Q \cdot \Delta P$ 计算。
 
 ::: tip 补充 · 福利分析的两条现代注解
 ① **哈伯格三角形与寻租**：传统垄断福利分析只算 DWL 三角形；塔洛克指出厂商为获取并维持垄断地位会投入真实资源（游说、诉讼、超额产能），这部分**寻租成本**可能远大于三角形，是第 11 章反垄断讨论的基础。
@@ -659,9 +651,9 @@ PPF 外凸 ⇔ 机会成本递增 <img class="fml" src="/formulas/7207a2442104d7
 
 ### 6.5 完全竞争福利最大化的数学证明
 
-设社会总剩余 <img class="fml" src="/formulas/8f0bafe6de6358.png" alt="W(Q)= \int_{0}^Q P(x)dx- C(Q)" width="225" height="34">（`P(x)` 为反需求函数）。
-<img class="fml" src="/formulas/3f1ab234879593.png" alt="\frac{dW}{dQ}= P(Q)- MC(Q)= 0 \Rightarrow P= MC" width="312" height="36"> ⇒ 竞争均衡使 W 最大；<img class="fml" src="/formulas/202ed2f7ad6e9e.png" alt="\frac{d^{2}W}{dQ^{2}}= P&#x27;(Q)- MC&#x27;(Q)&lt; 0" width="227" height="36">（需求递减、MC 递增）保证极大。
-因此 `P = MC` 不是"假设"，而是**福利最大化的一阶条件**；任何造成 <img class="fml" src="/formulas/b8fe9ee3c84f46.png" alt="Q= Q*" width="68" height="34"> 的干预都产生 <img class="fml" src="/formulas/c3751897389be1.png" alt="DWL= \int_{Q*}^{Q}[P(x)- MC(x)]dx" width="249" height="36">，线性近似即 <img class="fml" src="/formulas/bb997e29f30d7e.png" alt="\frac{1}{2} \cdot|\Delta Q| \cdot|\Delta P|" width="121" height="34">。
+设社会总剩余 $W(Q)= \int_{0}^Q P(x)dx- C(Q)$（`P(x)` 为反需求函数）。
+$\frac{dW}{dQ}= P(Q)- MC(Q)= 0 \Rightarrow P= MC$ ⇒ 竞争均衡使 W 最大；$\frac{d^{2}W}{dQ^{2}}= P'(Q)- MC'(Q)< 0$（需求递减、MC 递增）保证极大。
+因此 `P = MC` 不是"假设"，而是**福利最大化的一阶条件**；任何造成 $Q= Q*$ 的干预都产生 $DWL= \int_{Q*}^{Q}[P(x)- MC(x)]dx$，线性近似即 $\frac{1}{2} \cdot|\Delta Q| \cdot|\Delta P|$。
 
 ---
 
@@ -679,24 +671,24 @@ PPF 外凸 ⇔ 机会成本递增 <img class="fml" src="/formulas/7207a2442104d7
 | 长期利润 | 0 | 可长期保持正利润（存在进入壁垒） |
 | 效率 | `P = MC`，有效率 | `P > MC`，有 DWL |
 
-**线性需求的 MR**：<img class="fml" src="/formulas/6f99da04c521b8.png" alt="P= a- bQ \Rightarrow TR= aQ- bQ^{2} \Rightarrow MR= a- 2bQ" width="396" height="33">。
+**线性需求的 MR**：$P= a- bQ \Rightarrow TR= aQ- bQ^{2} \Rightarrow MR= a- 2bQ$。
 MR 与需求曲线纵截距相同、斜率是 2 倍、横截距是一半。
 
 **MR、P 与弹性的关系**：
-<img class="fml" src="/formulas/e76ff24ae10bae.png" alt="MR= P(1- \frac{1}{\lvert E_d\rvert})" width="148" height="36"> ⇒ **勒纳指数** <img class="fml" src="/formulas/ae3b58fed84196.png" alt="L= \frac{P- MC}{P}= \frac{1}{\lvert E_d\rvert}" width="140" height="36">。
+$MR= P(1- \frac{1}{\lvert E_d\rvert})$ ⇒ **勒纳指数** $L= \frac{P- MC}{P}= \frac{1}{\lvert E_d\rvert}$。
 
 ::: danger 易错 · 勒纳指数
-- 由 <img class="fml" src="/formulas/9cbe065c537d65.png" alt="L= \frac{1}{\lvert E_d\rvert}" width="69" height="36"> 知垄断者**绝不会在 `|Ed| < 1` 处生产**：此时 `MR < 0` 而 <img class="fml" src="/formulas/dc98f621ebdae0.png" alt="MC \ge 0" width="73" height="33">，减产提价可同时增收降本。
+- 由 $L= \frac{1}{\lvert E_d\rvert}$ 知垄断者**绝不会在 `|Ed| < 1` 处生产**：此时 `MR < 0` 而 $MC \ge 0$，减产提价可同时增收降本。
 - 勒纳指数衡量**市场势力**（0 到 1），不是垄断程度本身：完全竞争 `L = 0`；需求弹性越小，`L` 越大、加成越高。
 - `L` 大不代表利润大（还取决于平均成本与销量），也不必然代表社会福利损失更大（可能有规模经济）。
 :::
 
 ::: tip 工作例题 · 垄断均衡与无谓损失完整计算
-<img class="fml" src="/formulas/6acb9c6224d869.png" alt="P= 100- 2Q" width="116" height="33">，`MC = 20`（常数，TFC = 0）：
-- <img class="fml" src="/formulas/e986b721d75c05.png" alt="MR= 100- 4Q= 20 \Rightarrow Qm= 20" width="277" height="33">，`Pm = 60`，<img class="fml" src="/formulas/49ff582e788670.png" alt="\pi=(60- 20) \times 20= 800" width="203" height="33">。
-- <img class="fml" src="/formulas/98466dc3b039c5.png" alt="CS= \frac{1}{2} \times(100- 60) \times 20= 400" width="260" height="33">；<img class="fml" src="/formulas/2b5c45b12fab6d.png" alt="\lvert E_d\rvert=\left(\frac{1}{2}\right)\left(\frac{P}{Q}\right)=\left(\frac{1}{2}\right) \times 3= 1.5" width="254" height="41">，<img class="fml" src="/formulas/07ad70aa51f758.png" alt="L= \frac{40}{60}= \frac{2}{3}= \frac{1}{1.5}" width="139" height="33"> ✓。
-- 竞争结果：<img class="fml" src="/formulas/1fb144012be7a6.png" alt="P= MC= 20 \Rightarrow Qc= 40" width="211" height="33">；<img class="fml" src="/formulas/05b81857dec3f7.png" alt="DWL= \frac{1}{2} \times(60- 20) \times(40- 20)= 400" width="325" height="33">。
-- 一般式（线性需求 <img class="fml" src="/formulas/d8544f62866071.png" alt="P= a- bQ" width="98" height="33">、`MC = c`）：<img class="fml" src="/formulas/88bb0e63f2187f.png" alt="Qm= \frac{a- c}{2b}" width="86" height="33">，<img class="fml" src="/formulas/8cb27bbce00388.png" alt="Pm= \frac{a+c}{2}" width="87" height="33">，<img class="fml" src="/formulas/32d6b5055f8508.png" alt="\lvert E_d\rvert= \frac{a+c}{a- c}" width="87" height="34">。
+$P= 100- 2Q$，`MC = 20`（常数，TFC = 0）：
+- $MR= 100- 4Q= 20 \Rightarrow Qm= 20$，`Pm = 60`，$\pi=(60- 20) \times 20= 800$。
+- $CS= \frac{1}{2} \times(100- 60) \times 20= 400$；$\lvert E_d\rvert=\left(\frac{1}{2}\right)\left(\frac{P}{Q}\right)=\left(\frac{1}{2}\right) \times 3= 1.5$，$L= \frac{40}{60}= \frac{2}{3}= \frac{1}{1.5}$ ✓。
+- 竞争结果：$P= MC= 20 \Rightarrow Qc= 40$；$DWL= \frac{1}{2} \times(60- 20) \times(40- 20)= 400$。
+- 一般式（线性需求 $P= a- bQ$、`MC = c`）：$Qm= \frac{a- c}{2b}$，$Pm= \frac{a+c}{2}$，$\lvert E_d\rvert= \frac{a+c}{a- c}$。
 :::
 
 **垄断的三个成因**：独家控制关键资源、政府管制/专利与特许、自然垄断（LAC 在相关产量范围内递减）。
@@ -710,24 +702,20 @@ MR 与需求曲线纵截距相同、斜率是 2 倍、横截距是一半。
 | --- | --- | --- | --- |
 | 一级 | 完全价格歧视 | 每单位按消费者保留价格出售 | 产量达竞争水平、**无 DWL**，但 CS 全被厂商占有 |
 | 二级 | 数量歧视 / 菜单定价 | 按消费量分段定价、两部定价、捆绑 | 通过自我选择榨取部分 CS |
-| 三级 | 群体定价 | 按可观察特征分割市场（学生票、地区定价） | <img class="fml" src="/formulas/d7a9a9addce070.png" alt="MR_{1}= MR_{2}= MC" width="168" height="33"> |
+| 三级 | 群体定价 | 按可观察特征分割市场（学生票、地区定价） | $MR_{1}= MR_{2}= MC$ |
 
 **三级价格歧视定价法则**：
-<img class="fml" src="/formulas/ab71b7d88df267.png" alt="P_{1}\left(1-\dfrac{1}{|E_{1}|}\right)=P_{2}\left(1-\dfrac{1}{|E_{2}|}\right)=MC" width="315" height="52"> ⇒ **需求弹性小的市场定价更高**。
+$P_{1}\left(1-\dfrac{1}{|E_{1}|}\right)=P_{2}\left(1-\dfrac{1}{|E_{2}|}\right)=MC$ ⇒ **需求弹性小的市场定价更高**。
 
 ::: tip 工作例题 · 三级价格歧视（含统一定价对比）
-市场1 <img class="fml" src="/formulas/f5f69507f28fcc.png" alt="P_{1}= 100- 2Q_{1}" width="128" height="33">，市场2 <img class="fml" src="/formulas/4bed5eb30daea0.png" alt="P_{2}= 80- Q_{2}" width="110" height="33">，`MC = 20`（常数）：
-- <img class="fml" src="/formulas/4a7f216ab0a270.png" alt="MR_{1}= 100- 4Q_{1}= 20 \Rightarrow Q_{1}= 20, P_{1}= 60" width="350" height="33">；<img class="fml" src="/formulas/28da28eeda0726.png" alt="|E_{1}|= \frac{100+20}{100- 20}= 1.5" width="153" height="34">。
-- <img class="fml" src="/formulas/8f19235b6d7a21.png" alt="MR_{2}= 80- 2Q_{2}= 20 \Rightarrow Q_{2}= 30, P_{2}= 50" width="341" height="34">；<img class="fml" src="/formulas/dc2ae5b541ff04.png" alt="|E_{2}|= \frac{80+20}{80- 20} \approx 1.667" width="164" height="34">。
-- 验算：<img class="fml" src="/formulas/1e510c2cdcf53a.png" alt="60 \times\left(1- \frac{1}{1.5}\right)= 20" width="156" height="34">，<img class="fml" src="/formulas/6b4a755a4def63.png" alt="50 \times\left(1- \frac{1}{1.667}\right)= 20" width="168" height="34"> ✓；弹性较小的市场1 定价更高 ✓。
+市场1 $P_{1}= 100- 2Q_{1}$，市场2 $P_{2}= 80- Q_{2}$，`MC = 20`（常数）：
+- $MR_{1}= 100- 4Q_{1}= 20 \Rightarrow Q_{1}= 20, P_{1}= 60$；$|E_{1}|= \frac{100+20}{100- 20}= 1.5$。
+- $MR_{2}= 80- 2Q_{2}= 20 \Rightarrow Q_{2}= 30, P_{2}= 50$；$|E_{2}|= \frac{80+20}{80- 20} \approx 1.667$。
+- 验算：$60 \times\left(1- \frac{1}{1.5}\right)= 20$，$50 \times\left(1- \frac{1}{1.667}\right)= 20$ ✓；弹性较小的市场1 定价更高 ✓。
 
+$$\pi=(60- 20) \times 20+(50- 20) \times 30= 800+ 900= 1700$$
 
-
-<p class="fml-block"><img class="fml" src="/formulas/9b03e327d1ac4e.png" alt="\pi=(60- 20) \times 20+(50- 20) \times 30= 800+ 900= 1700" width="444" height="34"></p>
-
-
-
-- **统一定价**：总需求 <img class="fml" src="/formulas/d57ebad46eba14.png" alt="Q= \frac{100- P}{2}+(80- P)= 130- 1.5P" width="286" height="34">，<img class="fml" src="/formulas/e69a3b3e6bbb51.png" alt="\pi=(P- 20)(130- 1.5P)" width="208" height="34">，求导 <img class="fml" src="/formulas/afd3801aa32460.png" alt="130- 1.5P- 1.5(P- 20)= 0 \Rightarrow P= 53.33" width="344" height="34">，<img class="fml" src="/formulas/18fd0d2716792c.png" alt="\pi \approx 1666.67" width="100" height="34">。
+- **统一定价**：总需求 $Q= \frac{100- P}{2}+(80- P)= 130- 1.5P$，$\pi=(P- 20)(130- 1.5P)$，求导 $130- 1.5P- 1.5(P- 20)= 0 \Rightarrow P= 53.33$，$\pi \approx 1666.67$。
 - 结论：可分割且弹性不同时，**价格歧视提高利润**（1700 > 1666.67）；但若两市场弹性相同，歧视无收益。
 :::
 
@@ -738,7 +726,7 @@ MR 与需求曲线纵截距相同、斜率是 2 倍、横截距是一半。
 | 条件 | 大量厂商、**产品有差别**（垄断力来源）、进出较容易 |
 | 两条需求曲线 | **主观需求曲线 d**：自己降价而对手不跟随时，弹性大、较平坦；**客观需求曲线 D**：全体同时调整时，市场份额不变、较陡 |
 | 短期均衡 | `MR = MC`，可盈利可亏损（与垄断类似） |
-| 长期均衡 | 自由进入使 d 左移直到与 LAC **相切** ⇒ <img class="fml" src="/formulas/5f873556e397da.png" alt="\pi= 0" width="51" height="34">，且 `MR = LMC` |
+| 长期均衡 | 自由进入使 d 左移直到与 LAC **相切** ⇒ $\pi= 0$，且 `MR = LMC` |
 | 效率 | `P > LMC` 且产量**低于 LAC 最低点** ⇒ 存在**过剩产能**；但换来产品多样化（是权衡而非纯损失） |
 
 **非价格竞争**：产品差异化、品牌、质量、服务、广告。广告的信息性作用（降低搜寻成本）与劝说性作用（制造虚假差别）需区分。
@@ -747,20 +735,20 @@ MR 与需求曲线纵截距相同、斜率是 2 倍、横截距是一半。
 
 ![古诺反应曲线与四种寡头模型比较](/micro/micro-oligopoly.svg)
 
-| 模型 | 决策变量 | 时序 | 均衡（<img class="fml" src="/formulas/9209f3479d8a95.png" alt="P= a- Q" width="90" height="34">、MC = 0） | 结论 |
+| 模型 | 决策变量 | 时序 | 均衡（$P= a- Q$、MC = 0） | 结论 |
 | --- | --- | --- | --- | --- |
-| 卡特尔 / 垄断 | 总产量 | 合谋 | <img class="fml" src="/formulas/e1ef4d02f7e3a6.png" alt="Q= \frac{a}{2}, P= \frac{a}{2}" width="112" height="34"> | 总利润最大，但不稳定（有欺骗动机） |
-| 古诺 | 产量 | 同时 | <img class="fml" src="/formulas/4fc4c60802bc2a.png" alt="Q= \frac{2a}{3}, P= \frac{a}{3}" width="119" height="34"> | 反应函数交点 = 纳什均衡 |
-| 斯塔克尔伯格 | 产量 | 先后 | <img class="fml" src="/formulas/ccdb5973ba4072.png" alt="Q= \frac{3a}{4}, P= \frac{a}{4}" width="119" height="34"> | **先动优势**：领导者产量、利润均大于跟随者 |
+| 卡特尔 / 垄断 | 总产量 | 合谋 | $Q= \frac{a}{2}, P= \frac{a}{2}$ | 总利润最大，但不稳定（有欺骗动机） |
+| 古诺 | 产量 | 同时 | $Q= \frac{2a}{3}, P= \frac{a}{3}$ | 反应函数交点 = 纳什均衡 |
+| 斯塔克尔伯格 | 产量 | 先后 | $Q= \frac{3a}{4}, P= \frac{a}{4}$ | **先动优势**：领导者产量、利润均大于跟随者 |
 | 伯特兰 | 价格 | 同时 | `P = MC = 0, Q = a` | **伯特兰悖论**：两家即达竞争结果 |
 
-::: tip 工作例题 · 古诺模型完整求解（<img class="fml" src="/formulas/b8adcfe197e110.png" alt="P= 18- Q" width="98" height="34">、MC = 0）
-<img class="fml" src="/formulas/15a5c96d006ea5.png" alt="\pi_{1}=[18-(Q_{1}+Q_{2})]Q_{1}" width="197" height="34">，<img class="fml" src="/formulas/4e33e8f883364f.png" alt="\partial \pi_{1} \partial Q_{1}= 18- 2Q_{1}- Q_{2}= 0" width="236" height="34"> ⇒ 反应函数 <img class="fml" src="/formulas/3e411788e1766c.png" alt="Q_{1}= 9- \frac{Q_{2}}{2}" width="103" height="34">；对称 <img class="fml" src="/formulas/48c407fe09c51c.png" alt="Q_{2}= 9- \frac{Q_{1}}{2}" width="102" height="34">。
-联立 ⇒ <img class="fml" src="/formulas/173855c53cdac1.png" alt="Q_{1}= Q_{2}= 6" width="106" height="34">，`Q = 12`，`P = 6`，<img class="fml" src="/formulas/345d4e703a2ccf.png" alt="\pi_{1}= \pi_{2}= 36" width="107" height="34">。
+::: tip 工作例题 · 古诺模型完整求解（$P= 18- Q$、MC = 0）
+$\pi_{1}=[18-(Q_{1}+Q_{2})]Q_{1}$，$\partial \pi_{1} \partial Q_{1}= 18- 2Q_{1}- Q_{2}= 0$ ⇒ 反应函数 $Q_{1}= 9- \frac{Q_{2}}{2}$；对称 $Q_{2}= 9- \frac{Q_{1}}{2}$。
+联立 ⇒ $Q_{1}= Q_{2}= 6$，`Q = 12`，`P = 6`，$\pi_{1}= \pi_{2}= 36$。
 
-- **通式**：<img class="fml" src="/formulas/d8544f62866071.png" alt="P= a- bQ" width="98" height="33">、`MC = c` 时 <img class="fml" src="/formulas/96ff27250dd9f3.png" alt="Qi= \frac{a- c}{3b}" width="77" height="34">，n 家同质寡头 <img class="fml" src="/formulas/8c661b27afbf4e.png" alt="Q= \frac{n(a- c)}{(n+1)b}" width="89" height="36">；<img class="fml" src="/formulas/0d1c47fdbd11b6.png" alt="n \to \infty" width="62" height="33"> 时 <img class="fml" src="/formulas/2584f9c8789f2d.png" alt="\frac{Q \to(a- c)}{b}" width="66" height="34">（竞争结果），`n = 1` 时回到垄断。
-- **斯塔克尔伯格**（1 为领导）：把 <img class="fml" src="/formulas/93092aac6fb42d.png" alt="R_{2}= 9- \frac{Q_{1}}{2}" width="101" height="34"> 代入 ⇒ <img class="fml" src="/formulas/11f9aa585b7f22.png" alt="\pi_{1}=\left(9- \frac{Q_{1}}{2}\right)Q_{1}" width="143" height="42">，求导得 <img class="fml" src="/formulas/434e66cdebe595.png" alt="Q_{1}= 9" width="61" height="34">，<img class="fml" src="/formulas/259679d415c54c.png" alt="Q_{2}= 4.5" width="75" height="34">，`P = 4.5`，<img class="fml" src="/formulas/41b881fd15e1da.png" alt="\pi_{1}= 40.5&gt; \pi_{2}= 20.25" width="186" height="34">（先动优势）。
-- **卡特尔**：`Q = 9, P = 9`，总利润 81，各 40.5 > 古诺的 <img class="fml" src="/formulas/5c7bdc37755cf8.png" alt="36 \Rightarrow" width="47" height="34"> 合谋有吸引力，但单方偷偷增产可获益 ⇒ 卡特尔天然不稳定（第 10 章囚徒困境）。
+- **通式**：$P= a- bQ$、`MC = c` 时 $Qi= \frac{a- c}{3b}$，n 家同质寡头 $Q= \frac{n(a- c)}{(n+1)b}$；$n \to \infty$ 时 $\frac{Q \to(a- c)}{b}$（竞争结果），`n = 1` 时回到垄断。
+- **斯塔克尔伯格**（1 为领导）：把 $R_{2}= 9- \frac{Q_{1}}{2}$ 代入 ⇒ $\pi_{1}=\left(9- \frac{Q_{1}}{2}\right)Q_{1}$，求导得 $Q_{1}= 9$，$Q_{2}= 4.5$，`P = 4.5`，$\pi_{1}= 40.5> \pi_{2}= 20.25$（先动优势）。
+- **卡特尔**：`Q = 9, P = 9`，总利润 81，各 40.5 > 古诺的 $36 \Rightarrow$ 合谋有吸引力，但单方偷偷增产可获益 ⇒ 卡特尔天然不稳定（第 10 章囚徒困境）。
 :::
 
 **伯特兰悖论的破解**：产品差别（差异化的价格竞争不再导致 `P = MC`）、产能约束（埃奇沃斯悖论）、重复博弈（合谋可持续）、信息不完全。
@@ -776,18 +764,18 @@ MR 与需求曲线纵截距相同、斜率是 2 倍、横截距是一半。
 ### 7.5 多工厂垄断与加成定价
 
 - **多工厂垄断**：把总产量分配到各工厂使 `MC1(Q1) = MC2(Q2) = … = MR(Q总)`（不是各厂 MC 相等就完事，还要共同等于总 MR）。
-- **加成定价法则** <img class="fml" src="/formulas/fd9a63d874f6f3.png" alt="P=MC\cdot\dfrac{\lvert E_d\rvert}{\lvert E_d\rvert-1}" width="157" height="52">：由 <img class="fml" src="/formulas/9cbe065c537d65.png" alt="L= \frac{1}{\lvert E_d\rvert}" width="69" height="36"> 整理即得；<img class="fml" src="/formulas/d8e7b51e864bfa.png" alt="\lvert E_d\rvert \to \infty" width="82" height="33"> 时 <img class="fml" src="/formulas/8e3b9e71a2aa6b.png" alt="P \to MC" width="82" height="34">（竞争），<img class="fml" src="/formulas/682a5a4439d24d.png" alt="\lvert E_d\rvert \to 1^{+}" width="85" height="34"> 时加成趋于无穷（受需求约束不可实现）。
-- **两部定价**：入场费 = 全部消费者剩余，使用费 = <img class="fml" src="/formulas/eb6127ad455e1a.png" alt="MC \Rightarrow" width="63" height="34"> 可在无 DWL 的同时榨取全部剩余；是二级价格歧视的极限形式，常见于游乐园、软件订阅、水电基本费。
+- **加成定价法则** $P=MC\cdot\dfrac{\lvert E_d\rvert}{\lvert E_d\rvert-1}$：由 $L= \frac{1}{\lvert E_d\rvert}$ 整理即得；$\lvert E_d\rvert \to \infty$ 时 $P \to MC$（竞争），$\lvert E_d\rvert \to 1^{+}$ 时加成趋于无穷（受需求约束不可实现）。
+- **两部定价**：入场费 = 全部消费者剩余，使用费 = $MC \Rightarrow$ 可在无 DWL 的同时榨取全部剩余；是二级价格歧视的极限形式，常见于游乐园、软件订阅、水电基本费。
 
 ### 7.6 古诺 n 家推广与合谋维持条件
 
-<img class="fml" src="/formulas/d8544f62866071.png" alt="P= a- bQ" width="98" height="33">，n 家同质、`MC = c`：
-对称均衡 <img class="fml" src="/formulas/2e5b1a54ebc562.png" alt="Qi= \frac{a- c}{(n+1)b}" width="94" height="36">，<img class="fml" src="/formulas/8c661b27afbf4e.png" alt="Q= \frac{n(a- c)}{(n+1)b}" width="89" height="36">，<img class="fml" src="/formulas/ecc678a7c10f3c.png" alt="P= \frac{a+ n \cdot c}{n+1}" width="82" height="34">，<img class="fml" src="/formulas/b7b9488105a74e.png" alt="\pi_{i}= \frac{(a- c)^{2}}{(n+1)^{2}b}" width="94" height="38">。
-- `n = 1` ⇒ 垄断；<img class="fml" src="/formulas/0d1c47fdbd11b6.png" alt="n \to \infty" width="62" height="33"> ⇒ <img class="fml" src="/formulas/e8c5db51a17db8.png" alt="P \to c" width="56" height="34">（竞争），说明**厂商数量本身即可逼近竞争结果**（无需假设完全信息的价格接受行为）。
+$P= a- bQ$，n 家同质、`MC = c`：
+对称均衡 $Qi= \frac{a- c}{(n+1)b}$，$Q= \frac{n(a- c)}{(n+1)b}$，$P= \frac{a+ n \cdot c}{n+1}$，$\pi_{i}= \frac{(a- c)^{2}}{(n+1)^{2}b}$。
+- `n = 1` ⇒ 垄断；$n \to \infty$ ⇒ $P \to c$（竞争），说明**厂商数量本身即可逼近竞争结果**（无需假设完全信息的价格接受行为）。
 - **勒纳指数** `(P−c)/P = 1/(n·|Ed|市场)`（古诺情形）：市场集中度越高，加成越大（HHI 指数的理论基础）。
 
-**重复博弈中合谋可持续条件**：设合作单期收益 <img class="fml" src="/formulas/babe7659b9e908.png" alt="\pi C" width="32" height="34">、背叛单期收益 <img class="fml" src="/formulas/74072f6e0b1cd2.png" alt="\pi D" width="33" height="34">、惩罚期收益 <img class="fml" src="/formulas/4fb2129ec357e3.png" alt="\pi N" width="34" height="34">，贴现因子 <img class="fml" src="/formulas/8de607292a6775.png" alt="\delta" width="15" height="34">。
-冷酷战略下合谋可持续 ⇔ <img class="fml" src="/formulas/564737d5024da2.png" alt="\dfrac{\pi_{C}}{1-\delta}\ \ge\ \pi_{D}+\delta\dfrac{\pi_{N}}{1-\delta}" width="179" height="42"> ⇔ <img class="fml" src="/formulas/998e495c8d3c01.png" alt="\delta \ge \dfrac{\pi_{D}-\pi_{C}}{\pi_{D}-\pi_{N}}" width="109" height="46">。
+**重复博弈中合谋可持续条件**：设合作单期收益 $\pi C$、背叛单期收益 $\pi D$、惩罚期收益 $\pi N$，贴现因子 $\delta$。
+冷酷战略下合谋可持续 ⇔ $\dfrac{\pi_{C}}{1-\delta}\ \ge\ \pi_{D}+\delta\dfrac{\pi_{N}}{1-\delta}$ ⇔ $\delta \ge \dfrac{\pi_{D}-\pi_{C}}{\pi_{D}-\pi_{N}}$。
 ⇒ 贴现率越低（越有耐心）、背叛收益越小、惩罚越严厉、市场越透明，卡特尔越稳定。这解释了为什么**频繁小幅、公开报价、需求稳定**的行业更易合谋。
 
 ---
@@ -802,25 +790,25 @@ MR 与需求曲线纵截距相同、斜率是 2 倍、横截距是一半。
 
 | 概念 | 表达式 | 说明 |
 | --- | --- | --- |
-| 边际产品 | <img class="fml" src="/formulas/6159fda90e0782.png" alt="MP= \frac{dQ}{dL}" width="85" height="34"> | 要素的实物边际产量 |
-| 边际产品价值 | <img class="fml" src="/formulas/1499bae0c186e5.png" alt="VMP= P \cdot MP" width="138" height="34"> | 完全竞争产品市场下使用要素的"边际收益" |
-| 边际收益产品 | <img class="fml" src="/formulas/ec16ed7c829481.png" alt="MRP= MR \cdot MP" width="157" height="34"> | 一般式；产品市场完全竞争时 `MR = P` ⇒ `MRP = VMP` |
-| 边际要素成本 | <img class="fml" src="/formulas/dfe81b89c1b56c.png" alt="MFC= \frac{dC}{dL}" width="99" height="34"> | 完全竞争要素市场下 `MFC = w` |
-| **要素使用原则** | `VMP = w`（<img class="fml" src="/formulas/729d2a6ab5953c.png" alt="P \cdot MP= w" width="104" height="34">） | 一般式 `MRP = MFC` |
+| 边际产品 | $MP= \frac{dQ}{dL}$ | 要素的实物边际产量 |
+| 边际产品价值 | $VMP= P \cdot MP$ | 完全竞争产品市场下使用要素的"边际收益" |
+| 边际收益产品 | $MRP= MR \cdot MP$ | 一般式；产品市场完全竞争时 `MR = P` ⇒ `MRP = VMP` |
+| 边际要素成本 | $MFC= \frac{dC}{dL}$ | 完全竞争要素市场下 `MFC = w` |
+| **要素使用原则** | `VMP = w`（$P \cdot MP= w$） | 一般式 `MRP = MFC` |
 
-**推导**：<img class="fml" src="/formulas/23205d0a62c2ec.png" alt="\pi(L)= P \cdot Q(L)- wL" width="182" height="34">，<img class="fml" src="/formulas/e3fa016340e1a1.png" alt="\frac{d\pi}{dL}= P \cdot MP(L)- w= 0 \Rightarrow P \cdot MP= w" width="328" height="34">。与第 6 章 `MR = MC` 完全等价，只是把决策变量从 Q 换成了 L。
+**推导**：$\pi(L)= P \cdot Q(L)- wL$，$\frac{d\pi}{dL}= P \cdot MP(L)- w= 0 \Rightarrow P \cdot MP= w$。与第 6 章 `MR = MC` 完全等价，只是把决策变量从 Q 换成了 L。
 
 ::: danger 易错 · 要素需求曲线
 - 单个厂商的要素需求曲线是 **VMP 曲线的下降段**（MP 递减部分），但**不是全部 VMP 曲线**（上升段不满足二阶条件）。
 - 市场要素需求曲线 **≠ 单个厂商需求曲线简单水平加总**：所有厂商同时增雇劳动会增产 ⇒ 产品价格 P 下降 ⇒ 各厂商 VMP 曲线下移 ⇒ 市场需求曲线比简单加总**更陡**。
-- 卖方垄断产品市场：<img class="fml" src="/formulas/9496f3ccda6fb4.png" alt="MRP= MR \cdot MP&lt; P \cdot MP= VMP" width="312" height="34">，故垄断厂商雇用更少要素（这是对垄断的另一重效率批评）。
+- 卖方垄断产品市场：$MRP= MR \cdot MP< P \cdot MP= VMP$，故垄断厂商雇用更少要素（这是对垄断的另一重效率批评）。
 - 要素市场买方垄断（ monopsony ）：`MFC > w`，均衡 `MRP = MFC` ⇒ 雇用量与工资均低于竞争水平。
 :::
 
 ::: tip 工作例题 · VMP = w
-<img class="fml" src="/formulas/0e1349047e7c8b.png" alt="Q= 10L- L^{2}" width="116" height="33">，产品价格 `P = 5` ⇒ <img class="fml" src="/formulas/3628e122089fcf.png" alt="MP= 10- 2L" width="124" height="33">，<img class="fml" src="/formulas/389a3b896d00d9.png" alt="VMP= 50- 10L" width="148" height="34">。
-- <img class="fml" src="/formulas/01b21f54692a57.png" alt="w= 40 \Rightarrow L= 1" width="135" height="34">；<img class="fml" src="/formulas/c90e89e06b3e97.png" alt="w= 30 \Rightarrow L= 2" width="135" height="34">；<img class="fml" src="/formulas/2441f9c6d1e6fe.png" alt="w= 20 \Rightarrow L= 3" width="134" height="34">。
-- 把 `w` 当作自变量，<img class="fml" src="/formulas/2e55876c20053c.png" alt="L= 5- 0.1w" width="110" height="34"> 即为该厂商的要素需求函数（向下倾斜）。
+$Q= 10L- L^{2}$，产品价格 `P = 5` ⇒ $MP= 10- 2L$，$VMP= 50- 10L$。
+- $w= 40 \Rightarrow L= 1$；$w= 30 \Rightarrow L= 2$；$w= 20 \Rightarrow L= 3$。
+- 把 `w` 当作自变量，$L= 5- 0.1w$ 即为该厂商的要素需求函数（向下倾斜）。
 :::
 
 ### 8.2 劳动供给与工资决定
@@ -849,27 +837,23 @@ MR 与需求曲线纵截距相同、斜率是 2 倍、横截距是一半。
 **准租金**：短期固定要素的报酬，其数量在短期固定，类似地租；长期可调整后消失（与 TFC 概念对应）。
 
 **欧拉定理 / 产品分配净尽**：规模报酬不变（`n = 1` 齐次）+ 完全竞争时
-<img class="fml" src="/formulas/bb4ea3e6707cb0.png" alt="Q= MPL \cdot L+ MPK \cdot K" width="216" height="34">，两边乘 P 得 `TR = wL + rK` ⇒ 总收入恰好按边际生产力分配殆尽，经济利润为零。
-若规模报酬递增，<img class="fml" src="/formulas/024e2f88074d43.png" alt="MPL \cdot L+ MPK \cdot K&gt; Q" width="216" height="34">（不够分）；递减则 `< Q`（有剩余）。这为第 6 章「完全竞争长期零利润」提供了生产函数层面的证明。
+$Q= MPL \cdot L+ MPK \cdot K$，两边乘 P 得 `TR = wL + rK` ⇒ 总收入恰好按边际生产力分配殆尽，经济利润为零。
+若规模报酬递增，$MPL \cdot L+ MPK \cdot K> Q$（不够分）；递减则 `< Q`（有剩余）。这为第 6 章「完全竞争长期零利润」提供了生产函数层面的证明。
 
 ### 8.4 洛伦兹曲线与基尼系数
 
 **洛伦兹曲线**：横轴为人口累计百分比（按收入由低到高排序），纵轴为收入累计百分比；45° 线为绝对平等线，曲线越弯曲越不平等。
 
-**基尼系数** <img class="fml" src="/formulas/c08d2ac8256d26.png" alt="G= \frac{A}{A+B}" width="78" height="34">，A 为 45° 线与洛伦兹曲线之间的面积，B 为洛伦兹曲线以下面积；<img class="fml" src="/formulas/3c85db1d561fe1.png" alt="0 \le G \le 1" width="87" height="34">。
+**基尼系数** $G= \frac{A}{A+B}$，A 为 45° 线与洛伦兹曲线之间的面积，B 为洛伦兹曲线以下面积；$0 \le G \le 1$。
 
 ::: tip 工作例题 · 梯形法算基尼系数
 5 等分组的收入份额依次为 `5%、10%、15%、25%、45%` ⇒ 累计收入份额 `0.05, 0.15, 0.30, 0.55, 1.00`。
 用梯形法求洛伦兹曲线下面积（每组宽 0.2）：
 
+$$B= 0.2 \times[\frac{0+0.05}{2}+ \frac{0.05+0.15}{2}+ \frac{0.15+0.30}{2}+ \frac{0.30+0.55}{2}+ \frac{0.55+1.00}{2}]= 0.2 \times 1.55= 0.31$$
 
-
-<p class="fml-block"><img class="fml" src="/formulas/50bfc5a35dc183.png" alt="B= 0.2 \times[\frac{0+0.05}{2}+ \frac{0.05+0.15}{2}+ \frac{0.15+0.30}{2}+ \frac{0.30+0.55}{2}+ \frac{0.55+1.00}{2}]= 0.2 \times 1.55= 0.31" width="618" height="34"></p>
-
-
-
-<img class="fml" src="/formulas/de08bef068da66.png" alt="A= 0.5- 0.31= 0.19" width="176" height="34"> ⇒ <img class="fml" src="/formulas/69f814bc738fe9.png" alt="G= \frac{0.19}{0.5}= 0.38" width="126" height="34">。
-也可用等价公式 <img class="fml" src="/formulas/f021266e3e3e48.png" alt="G= 1-\left(\frac{1}{n}\right) \cdot \sum\left(2 \cdot \sum ...\right)" width="211" height="34"> 快速验证；注意分组数越多、算出的 G 越精确，同一数据不同分组口径不可直接比较。
+$A= 0.5- 0.31= 0.19$ ⇒ $G= \frac{0.19}{0.5}= 0.38$。
+也可用等价公式 $G= 1-\left(\frac{1}{n}\right) \cdot \sum\left(2 \cdot \sum ...\right)$ 快速验证；注意分组数越多、算出的 G 越精确，同一数据不同分组口径不可直接比较。
 :::
 
 ::: danger 易错 · 分配
@@ -880,9 +864,9 @@ MR 与需求曲线纵截距相同、斜率是 2 倍、横截距是一半。
 
 ### 8.5 边际生产力分配与欧拉定理的深化
 
-规模报酬不变（1 次齐次）时，欧拉定理 <img class="fml" src="/formulas/bb4ea3e6707cb0.png" alt="Q= MPL \cdot L+ MPK \cdot K" width="216" height="34">。完全竞争下 <img class="fml" src="/formulas/28f39e872afe11.png" alt="w= P \cdot MPL" width="116" height="34">、<img class="fml" src="/formulas/2fdff682b25a81.png" alt="r= P \cdot MPK" width="116" height="34"> ⇒ <img class="fml" src="/formulas/68d54deae4594d.png" alt="P \cdot Q= wL+ rK" width="144" height="34"> ⇒ 总收入恰好分尽，<img class="fml" src="/formulas/5f873556e397da.png" alt="\pi= 0" width="51" height="34">。
-- 若 <img class="fml" src="/formulas/fcf83c6a1c8fa3.png" alt="\alpha+\beta&gt; 1" width="84" height="34">（递增），<img class="fml" src="/formulas/024e2f88074d43.png" alt="MPL \cdot L+ MPK \cdot K&gt; Q" width="216" height="34"> ⇒ 按边际产量支付会**超支**（不可能长期维持），需有超额利润以外的解释（如固定要素、外部经济）。
-- 若 <img class="fml" src="/formulas/220914fa072718.png" alt="\alpha+\beta&lt; 1" width="84" height="34">，则有剩余可归固定要素或企业家才能。
+规模报酬不变（1 次齐次）时，欧拉定理 $Q= MPL \cdot L+ MPK \cdot K$。完全竞争下 $w= P \cdot MPL$、$r= P \cdot MPK$ ⇒ $P \cdot Q= wL+ rK$ ⇒ 总收入恰好分尽，$\pi= 0$。
+- 若 $\alpha+\beta> 1$（递增），$MPL \cdot L+ MPK \cdot K> Q$ ⇒ 按边际产量支付会**超支**（不可能长期维持），需有超额利润以外的解释（如固定要素、外部经济）。
+- 若 $\alpha+\beta< 1$，则有剩余可归固定要素或企业家才能。
 - **功能分配 vs 规模分配**：前者是工资/利润/地租在国民收入中的份额（本章），后者是个人/家庭间的收入分布（洛伦兹、基尼）。二者不可混用。
 
 ---
@@ -919,9 +903,9 @@ MR 与需求曲线纵截距相同、斜率是 2 倍、横截距是一半。
 | 生产最优 | `MRTS(C,LK) = MRTS(D,LK)` | 生产的埃奇沃思盒 | 任意两生产者对任意两要素的边际技术替代率相等 |
 | 生产与交换最优 | `MRS(XY) = MRT(XY)` | 生产可能性边界 PPF | 消费端愿意交换的比率 = 生产端能够转换的比率 |
 
-**边际转换率** <img class="fml" src="/formulas/1622fed9f967f3.png" alt="MRT(XY)=|\frac{dY}{dX}|= \frac{MCx}{MCy}" width="212" height="36">，即 PPF 切线斜率（递增因机会成本递增）。
+**边际转换率** $MRT(XY)=|\frac{dY}{dX}|= \frac{MCx}{MCy}$，即 PPF 切线斜率（递增因机会成本递增）。
 
-**完全竞争为何自动满足三条件**：所有消费者面对同一价格比 `Px/Py`，各自最优化使 <img class="fml" src="/formulas/b49c94511d54d1.png" alt="MRS= \frac{Px}{Py}" width="97" height="36"> ⇒ 条件 1；所有厂商面对同一要素价格比 `w/r`，使 <img class="fml" src="/formulas/edf26add241671.png" alt="MRTS= \frac{w}{r}" width="102" height="34"> ⇒ 条件 2；`P = MC` 使 <img class="fml" src="/formulas/191ab751d23a65.png" alt="\frac{Px}{Py}= \frac{MCx}{MCy}= MRT" width="156" height="36"> ⇒ 条件 3。这正是「看不见的手」的严格表述。
+**完全竞争为何自动满足三条件**：所有消费者面对同一价格比 `Px/Py`，各自最优化使 $MRS= \frac{Px}{Py}$ ⇒ 条件 1；所有厂商面对同一要素价格比 `w/r`，使 $MRTS= \frac{w}{r}$ ⇒ 条件 2；`P = MC` 使 $\frac{Px}{Py}= \frac{MCx}{MCy}= MRT$ ⇒ 条件 3。这正是「看不见的手」的严格表述。
 
 ::: danger 易错 · 帕累托
 - 帕累托最优点**有无穷多个**（UU′ 效用可能性边界上每一点都是），"哪一个最好"须引入社会福利函数，属价值判断。
@@ -934,9 +918,9 @@ MR 与需求曲线纵截距相同、斜率是 2 倍、横截距是一半。
 | 社会福利函数 | 形式 | 立场 |
 | --- | --- | --- |
 | 加法型（功利主义） | `W = U_A + U_B` | 最大化总效用之和 |
-| 乘法型（纳什积） | <img class="fml" src="/formulas/b7e188733d9fc1.png" alt="W= U_{A} \cdot U_{B}" width="109" height="34"> | 兼顾总量与分配 |
-| 罗尔斯型（最大最小） | <img class="fml" src="/formulas/271f0e7f6e289a.png" alt="W= \min(U_{A}, U_{B})" width="148" height="34"> | 最大化最差者效用 |
-| 弹性型 / 一般式 | <img class="fml" src="/formulas/9dbfcec280b9e6.png" alt="W=[\sum \alpha_{i} U_{i}^\rho]^{\frac{1}{\rho}}" width="129" height="34"> | <img class="fml" src="/formulas/82feb24cebaa32.png" alt="\rho" width="16" height="33"> 刻画不平等厌恶程度 |
+| 乘法型（纳什积） | $W= U_{A} \cdot U_{B}$ | 兼顾总量与分配 |
+| 罗尔斯型（最大最小） | $W= \min(U_{A}, U_{B})$ | 最大化最差者效用 |
+| 弹性型 / 一般式 | $W=[\sum \alpha_{i} U_{i}^\rho]^{\frac{1}{\rho}}$ | $\rho$ 刻画不平等厌恶程度 |
 
 **福利经济学第一定理**：在完全竞争、无外部性、无公共物品、信息完全、凸性等条件下，竞争均衡是帕累托有效的（效率）。
 **福利经济学第二定理**：任意帕累托有效分配，都可以通过「**一次总付（lump-sum）再分配** + 完全竞争市场」来实现 ⇒ **效率与公平可以分离**。
@@ -949,12 +933,12 @@ MR 与需求曲线纵截距相同、斜率是 2 倍、横截距是一半。
 
 ### 9.4 一般均衡存在性与两定理的证明思路
 
-- **存在性**：把价格向量归一化到单纯形（<img class="fml" src="/formulas/a9b0f1bbca67b4.png" alt="\sum p_{i}= 1" width="76" height="34">），定义超额需求映射 `z(p)`；由瓦尔拉斯法则 <img class="fml" src="/formulas/50053f75b4faaf.png" alt="p \cdot z(p)= 0" width="94" height="34">、连续性、边界条件，用**布劳威尔/角谷不动点定理**证明存在 `p*` 使 <img class="fml" src="/formulas/a46cd9bffeff32.png" alt="z(p*) \le 0" width="80" height="34">（阿罗–德布鲁）。
+- **存在性**：把价格向量归一化到单纯形（$\sum p_{i}= 1$），定义超额需求映射 `z(p)`；由瓦尔拉斯法则 $p \cdot z(p)= 0$、连续性、边界条件，用**布劳威尔/角谷不动点定理**证明存在 `p*` 使 $z(p*) \le 0$（阿罗–德布鲁）。
 - **第一定理**（反证）：若均衡分配非帕累托有效，则存在另一可行分配使所有人更好且至少一人严格更好 ⇒ 该分配对至少一人超预算 ⇒ 与其在预算约束下已最优矛盾。
 - **第二定理**（分离超平面）：帕累托有效分配对应的总需求束与总生产束可用一个超平面分离，该超平面的法向量即**支持价格**；把初始禀赋按该价格作一次总付再分配后，竞争均衡恰好实现该分配。
 - **局限**：非凸性（自然垄断、公共物品）、外部性、递增规模报酬、信息不对称都会使上述证明失效。
 
-::: tip 补充考点 · 次优理论（<img class="fml" src="/formulas/8ad2f067befa45.png" alt="Lipsey- Lancaster" width="164" height="34">）
+::: tip 补充考点 · 次优理论（$Lipsey- Lancaster$）
 若帕累托最优的**某一个条件无法满足**（如某行业存在垄断），则"让其余所有部门都满足最优条件"**未必是次优解**——最优政策可能恰恰要求在别处也引入偏离。政策含义：不能因为某市场已失灵就断言"其他市场越自由越好"；局部改革的效果需要一般均衡视角评估。这是评价"局部市场化改革"类论述题的高分论点。
 :::
 
@@ -987,8 +971,8 @@ MR 与需求曲线纵截距相同、斜率是 2 倍、横截距是一半。
 
 | 甲 \ 乙 | 坦白（不合作） | 抵赖（合作） |
 | --- | --- | --- |
-| **坦白** | <img class="fml" src="/formulas/fbaf0c4a4a40db.png" alt="- 8,- 8" width="60" height="34"> | <img class="fml" src="/formulas/a0c75d4f71799a.png" alt="1,- 20" width="56" height="34"> |
-| **抵赖** | <img class="fml" src="/formulas/5cd6abf79ceedd.png" alt="- 20, 1" width="56" height="34"> | <img class="fml" src="/formulas/7fbf1be7a27cb1.png" alt="- 1,- 1" width="60" height="34"> |
+| **坦白** | $- 8,- 8$ | $1,- 20$ |
+| **抵赖** | $- 20, 1$ | $- 1,- 1$ |
 
 - 无论乙选什么，甲选「坦白」都更好（占优策略）；乙同理 ⇒ 唯一纳什均衡 `(坦白, 坦白) = (−8, −8)`。
 - 但 `(抵赖, 抵赖) = (−1, −1)` 使**双方都更好**（帕累托优于均衡）⇒ **个体理性导致集体非理性**。
@@ -1006,9 +990,9 @@ MR 与需求曲线纵截距相同、斜率是 2 倍、横截距是一半。
 ::: tip 工作例题 · 混合策略纳什均衡（性别战）
 支付矩阵：`(芭蕾, 芭蕾) = (2, 1)`，`(拳击, 拳击) = (1, 2)`，不一致时 `(0, 0)`。
 设甲以概率 `p` 选"芭蕾"。要使乙**无差异**：
-乙选芭蕾的期望 <img class="fml" src="/formulas/10086c794e868a.png" alt="= 1 \cdot p+ 0 \cdot(1- p)= p" width="187" height="34">；乙选拳击的期望 <img class="fml" src="/formulas/c1c791374a45b2.png" alt="= 0 \cdot p+ 2(1- p)= 2- 2p" width="213" height="34">。
-令 <img class="fml" src="/formulas/7a68fb6eca898c.png" alt="p= 2- 2p \Rightarrow p= \frac{2}{3}" width="160" height="34">。
-同理设乙以概率 `q` 选芭蕾，使甲无差异：<img class="fml" src="/formulas/5d0b83443fbf1a.png" alt="2q= 1 \cdot(1- q) \Rightarrow q= \frac{1}{3}" width="194" height="34">。
+乙选芭蕾的期望 $= 1 \cdot p+ 0 \cdot(1- p)= p$；乙选拳击的期望 $= 0 \cdot p+ 2(1- p)= 2- 2p$。
+令 $p= 2- 2p \Rightarrow p= \frac{2}{3}$。
+同理设乙以概率 `q` 选芭蕾，使甲无差异：$2q= 1 \cdot(1- q) \Rightarrow q= \frac{1}{3}$。
 ⇒ 混合策略均衡为「甲 (2/3, 1/3)、乙 (1/3, 2/3)」，各人期望支付 `2/3`。
 **要点**：混合策略均衡中，参与人选择自己的概率是为了**让对方无差异**，而不是让自己期望支付最大。
 :::
@@ -1029,7 +1013,7 @@ MR 与需求曲线纵截距相同、斜率是 2 倍、横截距是一半。
 ### 10.4 混合策略的存在性与机制设计初步
 
 - **混合策略的存在性**：纳什定理（1950）—— 每个有限策略式博弈至少存在一个（纯或混合）纳什均衡；证明同样用不动点定理。
-- **贝叶斯纳什均衡**：不完全信息下，参与人类型 <img class="fml" src="/formulas/3459cfc7433344.png" alt="\theta_{i}" width="20" height="34"> 由"自然"按先验分布抽取，策略是「类型 → 行动」的映射，均衡是给定他人策略与信念时期望支付最优。
+- **贝叶斯纳什均衡**：不完全信息下，参与人类型 $\theta_{i}$ 由"自然"按先验分布抽取，策略是「类型 → 行动」的映射，均衡是给定他人策略与信念时期望支付最优。
 - **机制设计**（反向博弈论）：给定想要的社会结果，设计博弈规则使自利参与人在均衡中自觉实现它。核心约束为**激励相容 IC**（说真话/按规则行动是最优）与**参与约束 IR**（参与不比退出差）。应用：拍卖设计（VCG）、公共物品偏好显示（克拉克税）、最优税制、频谱拍卖。
 - **显示原理**：任何贝叶斯均衡结果都可由一个「代理人如实报告类型」的直接机制实现 ⇒ 只需在直接机制中寻找最优，大幅简化问题。
 
@@ -1064,11 +1048,11 @@ MR 与需求曲线纵截距相同、斜率是 2 倍、横截距是一半。
 | 社会最优 | `MSB = MSC`（而非 `MPB = MPC`） |
 
 ::: tip 工作例题 · 庇古税完整计算
-设 <img class="fml" src="/formulas/f5045fe26079d1.png" alt="MSB= MPB= 100- 2Q" width="219" height="33">，`MPC = 2Q + 10`，每单位负外部性 `ME = 6`（常数）：
-- **私人均衡**：<img class="fml" src="/formulas/9b4384b4266cb3.png" alt="100- 2Q= 2Q+ 10 \Rightarrow Q= 22.5" width="263" height="33">（过量生产）。
-- **社会最优**：<img class="fml" src="/formulas/6f5a35bc07f063.png" alt="100- 2Q= 2Q+ 10+ 6 \Rightarrow 4Q= 84 \Rightarrow Q*= 21" width="381" height="33">。
+设 $MSB= MPB= 100- 2Q$，`MPC = 2Q + 10`，每单位负外部性 `ME = 6`（常数）：
+- **私人均衡**：$100- 2Q= 2Q+ 10 \Rightarrow Q= 22.5$（过量生产）。
+- **社会最优**：$100- 2Q= 2Q+ 10+ 6 \Rightarrow 4Q= 84 \Rightarrow Q*= 21$。
 - **庇古税** `t = ME(Q*) = 6`：厂商面对 `MPC + t`，自行选择 `Q = 21` ⇒ 分散决策实现社会最优。
-- 校验：<img class="fml" src="/formulas/9315eda73fbb74.png" alt="MSB= 100- 42= 58" width="184" height="33">；<img class="fml" src="/formulas/5a45147b645390.png" alt="MSC= 2 \times 21+ 10+ 6= 58" width="237" height="33"> ✓。
+- 校验：$MSB= 100- 42= 58$；$MSC= 2 \times 21+ 10+ 6= 58$ ✓。
 - 若 `ME` 随产量变化（如 `ME = 2Q`），则最优税额应取**最优产量处**的边际外部成本，而非常数。
 :::
 
@@ -1090,12 +1074,12 @@ MR 与需求曲线纵截距相同、斜率是 2 倍、横截距是一半。
 | 公共资源（共同资源） | 难 | 有 | 公海渔场、公共牧场 | 公地悲剧 ⇒ 过度使用 |
 | 俱乐部物品（准公共品） | 有 | 无（未拥挤时） | 收费公路、有线电视 | 拥挤后产生竞争性 |
 
-**公共物品最优条件（萨缪尔森条件）**：<img class="fml" src="/formulas/986030a40e190c.png" alt="\sum_{i} MRS_{i}= MRT" width="153" height="33">
+**公共物品最优条件（萨缪尔森条件）**：$\sum_{i} MRS_{i}= MRT$
 私人物品是「各人 MRS 相等并等于 MRT」，公共物品因**所有人同时消费同一单位**，应把各人的边际评价**纵向相加**。
 
 ::: tip 工作例题 · 是否应增加公共物品
 两人对公共物品 G 相对私人物品 X 的边际替代率分别为 `MRS_A = 3`、`MRS_B = 2`，经济的 `MRT = 4`。
-<img class="fml" src="/formulas/68043b71501a35.png" alt="\sum MRS= 5&gt; MRT= 4" width="208" height="33"> ⇒ 社会愿意放弃 5 单位 X 换取 1 单位 G，而实际只需放弃 4 单位 ⇒ **应增加 G 的供给**，直到 <img class="fml" src="/formulas/688a6bc9e6ef13.png" alt="\sum MRS= MRT" width="144" height="33">。
+$\sum MRS= 5> MRT= 4$ ⇒ 社会愿意放弃 5 单位 X 换取 1 单位 G，而实际只需放弃 4 单位 ⇒ **应增加 G 的供给**，直到 $\sum MRS= MRT$。
 :::
 
 **搭便车与偏好显示**：由于非排他，个人有低估自己真实支付意愿的激励 ⇒ 需投票机制、林达尔均衡（个性化税收价格）、克拉克–格罗夫斯机制等偏好显示设计；多数投票可能出现投票悖论（孔多塞），与阿罗不可能定理相连。
@@ -1147,9 +1131,8 @@ MR 与需求曲线纵截距相同、斜率是 2 倍、横截距是一半。
 
 ### 演 1 · 供求均衡与价格管制（第 2 章）
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/e79823e39afc86.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{已知：} \; Qd= 50- 2P \; \text{，} \; Qs=- 10+ 3P \\
 \text{(1)} \; \text{均衡：} \; 50- 2P=- 10+ 3P \\
 60= 5P \to P*= 12 \\
@@ -1159,15 +1142,13 @@ Q*= 50- 2 \times 12= 26 \\
 \text{(3)} \; \text{限制价} \; \text{P = 8} \; \text{：} \; \text{Qd = 34} \; \text{，} \; Qs= 14 \to \; \text{短缺} \; \text{20} \\
 \text{(4)} \; \text{若需求右移为} \; Qd= 60- 2P \; \text{：} \\
 60- 2P=- 10+ 3P \to P*= 14 \; \text{，} \; \text{Q* = 32} \; \text{（} \; \text{P} \; \text{、} \; \text{Q} \; \text{同升）}
-\end{gathered}" width="493" height="244"></p>
-
-
+\end{gathered}
+$$
 
 ### 演 2 · 弧弹性、点弹性与总收益（第 2 章）
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/0d04c6a5fba30a.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{已知：} \; P_{1}= 5, Q_{1}= 20 \; \text{；} \; P_{2}= 4, Q_{2}= 30 \\
 \text{(1)} \; \text{中点公式：} \; Ed=-\left(\frac{\Delta Q}{\Delta P}\right) \times \frac{\frac{P_{1}+P_{2}}{2}}{\frac{Q_{1}+Q_{2}}{2}} \\
 \Delta Q=+10,\ \Delta P=-1\ \Rightarrow\ -\dfrac{\Delta Q}{\Delta P}=-\dfrac{10}{-1}=10 \\
@@ -1179,15 +1160,13 @@ P= 10 \to Q= 30 \to Ed= \frac{2 \times 10}{30}= 0.667 \\
 P= 12.5 \to Q= 25 \to Ed= 1 \; \text{（} \; \text{TR} \; \text{极大} \; \text{= 312.5} \; \text{）} \\
 P= 20 \to Q= 10 \to Ed= 4 \\
 \text{结论：线性需求上半段富有弹性、下半段缺乏弹性}
-\end{gathered}" width="495" height="387"></p>
-
-
+\end{gathered}
+$$
 
 ### 演 3 · 效用最大化（序数 + 基数两条路）（第 3 章）
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/f15042fa91daed.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{已知：} \; \text{U = XY} \; \text{，} \; \text{I = 100} \; \text{，} \; \text{Px = 2} \; \text{，} \; \text{Py = 5} \\
 \text{【序数法】} \; MRSxy= \frac{MUx}{MUy}= \frac{Y}{X} \\
 \frac{Y}{X}= \frac{Px}{Py}= \frac{2}{5}= 0.4 \to Y= 0.4X \\
@@ -1197,15 +1176,13 @@ Y*= 0.4 \times 25= 10 \; \text{，} \; \text{U* = 250} \\
 \text{【基数法】} \; \frac{MUx}{Px}= \frac{MUy}{Py} \to \frac{Y}{2}= \frac{X}{5} \to 5Y= 2X \to Y= 0.4X \; \text{（同上）} \\
 \text{此时} \; \lambda= \frac{MUx}{Px}= \frac{10}{2}= 5 \\
 \text{【通式】} \; U= X^\alpha Y^\beta \to X*= \frac{[\frac{\alpha}{\alpha+\beta}] \cdot I}{Px}= \frac{0.5 \times 100}{2}= 25 \checkmark
-\end{gathered}" width="592" height="335"></p>
-
-
+\end{gathered}
+$$
 
 ### 演 4 · 希克斯 / 斯勒茨基分解（第 3 章）
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/7d4831be39fbc9.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{已知：} \; \text{U = XY} \; \text{，} \; \text{I = 100} \; \text{，} \; \text{Py = 5} \; \text{，} \; \text{Px} \; \text{：} \; 2 \to 1 \\
 \text{(1)} \; \text{起点} \; \text{A} \; \text{：} \; X_{0}= \frac{100}{2 \times 2}= 25 \; \text{，} \; Y_{0}= \frac{100}{2 \times 5}= 10 \; \text{，} \; U_{0}= 250 \\
 \text{(2)} \; \text{终点} \; \text{C} \; \text{：} \; X_{1}= \frac{100}{2 \times 1}= 50 \; \text{，} \; Y_{1}= 10 \to \; \text{总效应} \; \Delta X=+25 \\
@@ -1216,19 +1193,17 @@ Xh= \sqrt{1250}= 35.355 \\
 \text{收入效应} \; = 50- 35.355=+14.645 \\
 \text{校验：} \; \text{10.355 + 14.645 = 25 }\checkmark \\
 \text{(4)} \; \text{斯勒茨基补偿（买得起原组合）：} \\
-I&#x27;= 1 \times 25+ 5 \times 10= 75 \\
+I'= 1 \times 25+ 5 \times 10= 75 \\
 Xs= \frac{75}{2 \times 1}= 37.5 \\
 \text{替代效应} \; \text{= +12.5} \; \text{，收入效应} \; = 50- 37.5=+12.5 \\
 \text{(5)} \; \text{分解方向：正常品} \; \Rightarrow \; \text{两效应同号，需求曲线向下倾斜}
-\end{gathered}" width="512" height="464"></p>
-
-
+\end{gathered}
+$$
 
 ### 演 5 · 短期成本七条曲线（第 5 章）
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/44a437bb99e73d.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{已知：} \; STC= Q^{3}- 6Q^{2}+ 15Q+ 100 \; \text{（} \; \text{TFC = 100} \; \text{）} \\
 (1) TVC= Q^{3}- 6Q^{2}+ 15Q \\
 (2) AFC= \frac{100}{Q} \; \text{；} \; AVC= Q^{2}- 6Q+ 15 \; \text{；} \; AC= AVC+ \frac{100}{Q} \\
@@ -1243,33 +1218,29 @@ AVCmin= 9- 18+ 15= 6 \; \text{；} \; SMC(3)= 27- 36+ 15= 6 \checkmark \; \text{
 \text{AC   110.00 57.00 39.33 32.00 30.00 31.67} \\
 \text{SMC    6.00  3.00  6.00 15.00 30.00 51.00} \\
 \text{(7)} \; \text{结论：} \; \text{SMC} \; \text{先穿} \; \text{AVCmin(Q=3)} \; \text{，再穿} \; \text{ACmin(Q=5)} \; \text{，} \; \text{ACmin} \; \text{在右上方}
-\end{gathered}" width="628" height="453"></p>
-
-
+\end{gathered}
+$$
 
 ### 演 6 · 完全竞争短期均衡与停业决策（第 6 章）
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/aa68624add2ecd.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{已知：} \; STC= Q^{2}+ 4Q+ 36 \; \text{，} \; \text{P = 20} \; \text{（水平需求线）} \\
 (1) SMC= 2Q+ 4= MR= P= 20 \to Q*= 8 \\
 (2) TR= 20 \times 8= 160 \; \text{；} \; STC= 64+ 32+ 36= 132 \to \pi= 28 \\
 (3) AC= Q+ 4+ \frac{36}{Q} \to \frac{dAC}{dQ}= 1- \frac{36}{Q^{2}}= 0 \to Q= 6 \; \text{，} \; \text{ACmin = 16} \\
 \text{(4) AVC = Q + 4} \; \text{（递增），关门价格取} \; \text{AVC} \; \text{下界} \; \text{4} \\
 \text{(5)} \; \text{若} \; \text{P = 14} \; \text{：} \; \text{Q = 5} \; \text{，} \; \text{TR = 70} \; \text{，} \; STC= 25+20+36= 81 \to \; \text{亏} \; \text{11} \\
-\text{停产亏} \; \text{TFC = 36} \; \text{；继续生产亏} \; 11&lt; 36 \Rightarrow \; \text{继续生产} \\
-\text{验证：} \; P= 14&gt; AVC= 9 \Rightarrow \; \text{能覆盖全部可变成本} \; \checkmark \\
-\text{(6)} \; \text{若} \; P= 3&lt; 4 \Rightarrow \; \text{停产，亏损限于} \; \text{36}
-\end{gathered}" width="581" height="263"></p>
-
-
+\text{停产亏} \; \text{TFC = 36} \; \text{；继续生产亏} \; 11< 36 \Rightarrow \; \text{继续生产} \\
+\text{验证：} \; P= 14> AVC= 9 \Rightarrow \; \text{能覆盖全部可变成本} \; \checkmark \\
+\text{(6)} \; \text{若} \; P= 3< 4 \Rightarrow \; \text{停产，亏损限于} \; \text{36}
+\end{gathered}
+$$
 
 ### 演 7 · 垄断均衡、勒纳指数与 DWL（第 7 章）
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/41f1136f09a669.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{已知：} \; P= 100- 2Q \; \text{，} \; \text{MC = 20} \; \text{（} \; \text{TFC = 0} \; \text{）} \\
 (1) TR= 100Q- 2Q^{2} \to MR= 100- 4Q \\
 \text{(2) MR = MC} \; \text{：} \; 100- 4Q= 20 \to Qm= 20 \; \text{，} \; Pm= 100- 40= 60 \\
@@ -1280,15 +1251,13 @@ L= \frac{P- MC}{P}= \frac{40}{60}= \frac{2}{3}= \frac{1}{1.5} \checkmark \\
 (6) CS= \frac{1}{2} \times(100- 60) \times 20= 400 \\
 DWL= \frac{1}{2} \times(60- 20) \times(40- 20)= 400 \\
 \text{(7)} \; \text{通式校验：} \; Qm= \frac{a- c}{2b}= \frac{80}{4}= 20 \checkmark \; \text{；} \; Pm= \frac{a+c}{2}= 60 \checkmark
-\end{gathered}" width="545" height="366"></p>
-
-
+\end{gathered}
+$$
 
 ### 演 8 · 古诺与斯塔克尔伯格（第 7 章）
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/bd259fa7a7f71a.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{已知：} \; P= 18-(Q_{1}+Q_{2}) \; \text{，} \; MC_{1}= MC_{2}= 0 \\
 \text{【古诺】} \\
 (1) \pi_{1}=[18- Q_{1}- Q_{2}]Q_{1} \\
@@ -1303,15 +1272,13 @@ DWL= \frac{1}{2} \times(60- 20) \times(40- 20)= 400 \\
 d\pi_{1} dQ_{1}= 9- Q_{1}= 0 \to Q_{1}= 9 \; \text{，} \; Q_{2}= 4.5 \; \text{，} \; \text{Q = 13.5} \; \text{，} \; \text{P = 4.5} \\
 \pi_{1}= 40.5 \; \text{，} \; \pi_{2}= 20.25 \; \text{（先动优势）} \\
 \text{【卡特尔】} \; \text{Q = 9} \; \text{，} \; \text{P = 9} \; \text{，总} \; \pi= 81 \; \text{（各} \; \text{40.5} \; \text{，但有背叛动机）}
-\end{gathered}" width="542" height="491"></p>
-
-
+\end{gathered}
+$$
 
 ### 演 9 · 三级价格歧视（第 7 章）
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/357e5a51d32e8a.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{已知：} \; P_{1}= 100- 2Q_{1} \; \text{，} \; P_{2}= 80- Q_{2} \; \text{，} \; \text{MC = 20} \\
 (1) MR_{1}= 100- 4Q_{1}= 20 \to Q_{1}= 20 \; \text{，} \; P_{1}= 60 \\
 (2) MR_{2}= 80- 2Q_{2}= 20 \to Q_{2}= 30 \; \text{，} \; P_{2}= 50 \\
@@ -1319,20 +1286,18 @@ d\pi_{1} dQ_{1}= 9- Q_{1}= 0 \to Q_{1}= 9 \; \text{，} \; Q_{2}= 4.5 \; \text{�
 |E_{2}|= \frac{100}{60}= 1.667 \\
 P_{1}\left(1- \frac{1}{E_{1}}\right)= 60 \times\left(\frac{1}{3}\right)= 20= MC \checkmark \\
 P_{2}\left(1- \frac{1}{E_{2}}\right)= 50 \times 0.4= 20= MC \checkmark \\
-|E_{1}|&lt;|E_{2}| \Rightarrow P_{1}&gt; P_{2} \; \text{（弹性小者价高）} \; \checkmark \\
+|E_{1}|<|E_{2}| \Rightarrow P_{1}> P_{2} \; \text{（弹性小者价高）} \; \checkmark \\
 (4) \pi=(60- 20) \times 20+(50- 20) \times 30= 800+ 900= 1700 \\
 \text{(5)} \; \text{统一价：} \; Q= \frac{100- P}{2}+(80- P)= 130- 1.5P \\
 \pi=(P- 20)(130- 1.5P) \; \text{；} \; \frac{d\pi}{dP}= 160- 3P= 0 \to P= 53.33 \\
-\pi \approx 1666.67&lt; 1700 \Rightarrow \; \text{歧视提高利润} \; \checkmark
-\end{gathered}" width="498" height="429"></p>
-
-
+\pi \approx 1666.67< 1700 \Rightarrow \; \text{歧视提高利润} \; \checkmark
+\end{gathered}
+$$
 
 ### 演 10 · 庇古税与社会最优（第 11 章）
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/b3ac6db8ee7d2c.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{已知：} \; MSB= MPB= 100- 2Q \; \text{，} \; \text{MPC = 2Q + 10} \; \text{，} \; \text{ME = 6} \\
 \text{(1)} \; \text{私人均衡：} \; 100- 2Q= 2Q+ 10 \to 4Q= 90 \to Q= 22.5 \\
 \text{(2)} \; \text{社会最优：} \; 100- 2Q= 2Q+ 10+ 6 \to 4Q= 84 \to Q*= 21 \\
@@ -1341,15 +1306,13 @@ P_{2}\left(1- \frac{1}{E_{2}}\right)= 50 \times 0.4= 20= MC \checkmark \\
 \text{(4)} \; \text{校验社会最优：} \; MSB= 100- 42= 58 \; \text{；} \; \text{MSC = 42 + 10 + 6 = 58 }\checkmark \\
 \text{(5) DWL} \; \text{（私人过量生产）} \; = \frac{1}{2} \times ME \times(22.5- 21)= \frac{1}{2} \times 6 \times 1.5= 4.5 \\
 \text{(6)} \; \text{税收收入} \; = t \times Q*= 6 \times 21= 126
-\end{gathered}" width="588" height="233"></p>
-
-
+\end{gathered}
+$$
 
 ### 演 11 · 基尼系数（第 8 章）
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/1e33872f459e40.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{已知：} \; \text{5} \; \text{等分组收入份额} \; \text{5, 10, 15, 25, 45} \; \text{（单位} \; \text{\%} \; \text{）} \\
 \text{(1)} \; \text{累计收入：} \; \text{0.05, 0.15, 0.30, 0.55, 1.00} \\
 \text{(2)} \; \text{洛伦兹曲线下面积（梯形，组宽} \; \text{0.2} \; \text{）：} \\
@@ -1360,15 +1323,13 @@ P_{2}\left(1- \frac{1}{E_{2}}\right)= 50 \times 0.4= 20= MC \checkmark \\
 (3) A= 0.5- 0.31= 0.19 \\
 (4) G= \frac{A}{A+B}= \frac{0.19}{0.5}= 0.38 \\
 \text{(5)} \; \text{等价算法：} \; G= 1- 2B= 1- 0.62= 0.38 \checkmark
-\end{gathered}" width="448" height="288"></p>
-
-
+\end{gathered}
+$$
 
 ### 演 12 · 混合策略纳什均衡（第 10 章）
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/ab97260d21e33a.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{已知性别战：} \; \text{(} \; \text{芭蕾} \; \text{,} \; \text{芭蕾} \; \text{)=(2,1)} \; \text{，} \; \text{(} \; \text{拳击} \; \text{,} \; \text{拳击} \; \text{)=(1,2)} \; \text{，不一致} \; \text{=(0,0)} \\
 \text{(1)} \; \text{设甲以} \; \text{p} \; \text{选芭蕾，乙以} \; \text{q} \; \text{选芭蕾} \\
 \text{(2)} \; \text{令乙无差异（用【乙】的支付！）：} \\
@@ -1383,9 +1344,8 @@ p= 2- 2p \to 3p= 2 \to p= \frac{2}{3} \\
 \text{甲期望支付} \; = 2 \times\left(\frac{2}{3}\right)\left(\frac{1}{3}\right)+ 1 \times\left(\frac{1}{3}\right)\left(\frac{2}{3}\right)= \frac{2}{3} \\
 \text{错配概率} \; =\left(\frac{2}{3}\right)\left(\frac{2}{3}\right)+\left(\frac{1}{3}\right)\left(\frac{1}{3}\right)= \frac{5}{9} \\
 \text{易错警示：第} \; \text{(2)} \; \text{步必须用乙的支付} \; \text{1} \; \text{和} \; \text{2} \; \text{，不能用甲的} \; \text{2} \; \text{和} \; \text{1}
-\end{gathered}" width="600" height="450"></p>
-
-
+\end{gathered}
+$$
 
 ---
 
@@ -1397,18 +1357,18 @@ p= 2- 2p \to 3p= 2 \to p= \frac{2}{3} \\
 | `micro-supply-demand` | D 向右下、S 向右上、交点与虚线 | 区分「沿曲线移动」与「曲线平移」；同时移动必有一个变量不定 |
 | `micro-elasticity` | 五种弹性的曲线形态（垂直到水平） | 越平坦越富有弹性；同一线性需求上弹性随位置变化 |
 | `micro-policy-price` | 水平价格线在均衡上/下、过剩/短缺线段 | 支持价在上产生过剩；限制价在下产生短缺；税楔子楔在 Pd 与 Ps 之间 |
-| `micro-indifference` | 三条 IC、预算线、切点 E | 切点条件 <img class="fml" src="/formulas/b49c94511d54d1.png" alt="MRS= \frac{Px}{Py}" width="97" height="36">；U3 不可达、U1 非最优 |
+| `micro-indifference` | 三条 IC、预算线、切点 E | 切点条件 $MRS= \frac{Px}{Py}$；U3 不可达、U1 非最优 |
 | `micro-income-price` | 三条预算线 + 切点轨迹 | PCC 绕纵截距转（Px 变），ICC 平行外移（I 变） |
 | `micro-substitution` | 原/新/补偿三条预算线、A/B/C 三点 | 补偿预算线与新线平行；A→B 替代、B→C 收入 |
 | `micro-production` | TP 先凸后凹、AP/MP 交于 AP 最大点 | MP 穿 AP 最高点；MP = 0 时 TP 达峰值；三阶段分界 |
-| `micro-isoquant` | 凸向原点等产量线、直线等成本线 | 切点 <img class="fml" src="/formulas/edf26add241671.png" alt="MRTS= \frac{w}{r}" width="102" height="34">；等成本线平移对应成本变化、旋转对应要素价格比变化 |
-| `micro-cost` | AFC 双曲线、AVC/AC/MC 三条 U 形 | MC 穿 AVC 与 AC 的最低点；<img class="fml" src="/formulas/7f7a65e963184d.png" alt="AC- AVC" width="98" height="34"> 随 Q 缩小 |
+| `micro-isoquant` | 凸向原点等产量线、直线等成本线 | 切点 $MRTS= \frac{w}{r}$；等成本线平移对应成本变化、旋转对应要素价格比变化 |
+| `micro-cost` | AFC 双曲线、AVC/AC/MC 三条 U 形 | MC 穿 AVC 与 AC 的最低点；$AC- AVC$ 随 Q 缩小 |
 | `micro-cost-long` | 三条 SAC 与 U 形 LAC 包络 | LAC 下降段切在 SAC 最低点左侧；LMC 过 LAC 最低点 |
-| `micro-perfect-comp` | 水平 d 线、U 形 AC/AVC、上升 MC | MR=MC 定 Q，P 与 AC 比定盈亏；短期供给曲线 = <img class="fml" src="/formulas/30651064f5a326.png" alt="SMC( \ge AVCmin)" width="159" height="33"> |
-| `micro-longrun` | 需求线切于 LAC 最低点、行业 LS 三型 | 长期零利润 <img class="fml" src="/formulas/7a33da4680bb57.png" alt="\Rightarrow P" width="44" height="33">；成本递增行业 LS 右上 |
+| `micro-perfect-comp` | 水平 d 线、U 形 AC/AVC、上升 MC | MR=MC 定 Q，P 与 AC 比定盈亏；短期供给曲线 = $SMC( \ge AVCmin)$ |
+| `micro-longrun` | 需求线切于 LAC 最低点、行业 LS 三型 | 长期零利润 $\Rightarrow P$；成本递增行业 LS 右上 |
 | `micro-monopoly` | D、MR（2 倍斜率）、MC、DWL 三角 | MR=MC 定 Q，再上溯 D 定 P；DWL = 垄断限产造成的互利交易损失 |
 | `micro-oligopoly` | 两条反应曲线与交点 | 反应函数向下倾斜（产量是战略替代）；交点即古诺—纳什均衡 |
-| `micro-factor` | 向后弯曲劳动供给、VMP 下降段、洛伦兹曲线 | 高工资段收入效应占优；要素需求 = VMP 下降段；<img class="fml" src="/formulas/c08d2ac8256d26.png" alt="G= \frac{A}{A+B}" width="78" height="34"> |
+| `micro-factor` | 向后弯曲劳动供给、VMP 下降段、洛伦兹曲线 | 高工资段收入效应占优；要素需求 = VMP 下降段；$G= \frac{A}{A+B}$ |
 | `micro-welfare` | 埃奇沃思盒、两组 IC、契约曲线 | 切点轨迹即契约曲线；盒内任一点都可找到帕累托改进 |
 | `micro-game` | 2×2 支付矩阵、划线 | 双方都画线的格子是纳什均衡；囚徒困境的均衡帕累托劣于合作 |
 | `micro-failure` | MPC 与 MSC 之间楔子、庇古税 | 社会最优在 MSB = MSC，不在私人均衡；有效率污染量不为零 |
@@ -1423,88 +1383,84 @@ p= 2- 2p \to 3p= 2 \to p= \frac{2}{3} \\
 
 ### 综 1 · 从供求到弹性到税收归宿（第 2 章全链条）
 
-<img class="fml" src="/formulas/9cc3b267fa6aed.png" alt="Qd= 50- 2P" width="117" height="34">，<img class="fml" src="/formulas/bffa4adc4cb08f.png" alt="Qs=- 10+ 3P" width="130" height="34">。
+$Qd= 50- 2P$，$Qs=- 10+ 3P$。
 ① 求均衡：`P* = 12, Q* = 26`。
-② 在均衡点求点弹性：<img class="fml" src="/formulas/35457e7a139ece.png" alt="\lvert E_d\rvert= 2 \times\left(\frac{12}{26}\right)= \frac{12}{13} \approx 0.923" width="230" height="33">，<img class="fml" src="/formulas/05b5909967cb4f.png" alt="eS= 3 \times\left(\frac{12}{26}\right)= \frac{18}{13} \approx 1.385" width="220" height="33">。
+② 在均衡点求点弹性：$\lvert E_d\rvert= 2 \times\left(\frac{12}{26}\right)= \frac{12}{13} \approx 0.923$，$eS= 3 \times\left(\frac{12}{26}\right)= \frac{18}{13} \approx 1.385$。
 ③ 征收单位税 `t = 4`：`Pd = 14.4, Ps = 10.4, Q = 21.2`；消费者负担 `2.4`、生产者负担 `1.6`。
-④ 税收收入 <img class="fml" src="/formulas/db11d690cc5f4b.png" alt="= 4 \times 21.2= 84.8" width="144" height="33">；<img class="fml" src="/formulas/5865915110043a.png" alt="DWL= \frac{1}{2} \times t \times(26- 21.2)= \frac{1}{2} \times 4 \times 4.8= 9.6" width="379" height="33">；`CS + PS` 减少 `84.8 + 9.6 = 94.4`。
+④ 税收收入 $= 4 \times 21.2= 84.8$；$DWL= \frac{1}{2} \times t \times(26- 21.2)= \frac{1}{2} \times 4 \times 4.8= 9.6$；`CS + PS` 减少 `84.8 + 9.6 = 94.4`。
 ⑤ 若改为对买方征税，`Pd、Ps、Q` 不变（仅名义报价口径改变）⇒ 归宿无关性。
-⑥ 若需求变为 <img class="fml" src="/formulas/a636bcab806c31.png" alt="Qd= 60- 2P" width="117" height="33">（需求右移），重复 ①–④ 可验证：**弹性越小的一方始终承担更多**。
+⑥ 若需求变为 $Qd= 60- 2P$（需求右移），重复 ①–④ 可验证：**弹性越小的一方始终承担更多**。
 
 ### 综 2 · 消费者均衡 → 价格变化 → 分解（第 3 章全链条）
 
 `U = XY`，`I = 100`，`Py = 5`。
-① 初始 `Px = 2`：<img class="fml" src="/formulas/7aa7bfbc2d82b7.png" alt="X_{0}= 25, Y_{0}= 10, U_{0}= 250" width="216" height="33">。
-② `Px` 降到 1：<img class="fml" src="/formulas/409236d3c61f1e.png" alt="X_{1}= 50, Y_{1}= 10" width="137" height="33"> ⇒ 总效应 `+25`。
-③ 希克斯分解：<img class="fml" src="/formulas/93afe54a454ac1.png" alt="Xh= \sqrt{1250} \approx 35.36" width="173" height="33"> ⇒ 替代效应 `+10.36`、收入效应 `+14.64`。
+① 初始 `Px = 2`：$X_{0}= 25, Y_{0}= 10, U_{0}= 250$。
+② `Px` 降到 1：$X_{1}= 50, Y_{1}= 10$ ⇒ 总效应 `+25`。
+③ 希克斯分解：$Xh= \sqrt{1250} \approx 35.36$ ⇒ 替代效应 `+10.36`、收入效应 `+14.64`。
 ④ 斯勒茨基分解：补偿收入 `I′ = 75`，`Xs = 37.5` ⇒ 替代效应 `+12.5`、收入效应 `+12.5`。
-⑤ 由 PCC 描出需求曲线：<img class="fml" src="/formulas/0b6c3cccf6ca0b.png" alt="X= \frac{I}{2Px}= \frac{50}{Px}" width="119" height="33">（双曲线），其**点弹性恒为 1**（C-D 效用的性质）。
-⑥ 计算 CV：新价格下达到 U0 的支出 <img class="fml" src="/formulas/3664b3528092d8.png" alt="e(p_{1},U_{0})= 2\sqrt{250 \times 1 \times 5}= 2\sqrt{1250} \approx 70.71" width="356" height="33">；原支出 <img class="fml" src="/formulas/769d1fa6ff7b73.png" alt="100 \Rightarrow" width="57" height="33"> <img class="fml" src="/formulas/685a9e42c70165.png" alt="CV= 100- 70.71= 29.29" width="213" height="33">（价格下降最多可拿走 29.29 而维持原效用）。
+⑤ 由 PCC 描出需求曲线：$X= \frac{I}{2Px}= \frac{50}{Px}$（双曲线），其**点弹性恒为 1**（C-D 效用的性质）。
+⑥ 计算 CV：新价格下达到 U0 的支出 $e(p_{1},U_{0})= 2\sqrt{250 \times 1 \times 5}= 2\sqrt{1250} \approx 70.71$；原支出 $100 \Rightarrow$ $CV= 100- 70.71= 29.29$（价格下降最多可拿走 29.29 而维持原效用）。
 
 ### 综 3 · 生产 → 成本 → 完全竞争均衡（第 4–6 章）
 
-<img class="fml" src="/formulas/0e1349047e7c8b.png" alt="Q= 10L- L^{2}" width="116" height="33">，`w = 2`，`TFC = 36`，产品市场完全竞争 `P = 5`，`K` 固定。
-① 由生产函数反解（取 MP > 0 段）：<img class="fml" src="/formulas/b3d67a5f89f9b7.png" alt="L= 5- \sqrt{25- Q}" width="142" height="33">。
-② <img class="fml" src="/formulas/d667523f427cac.png" alt="TVC= wL= 10- 2\sqrt{25- Q}" width="239" height="33">；<img class="fml" src="/formulas/27356b42870a91.png" alt="STC= 46- 2\sqrt{25- Q}" width="187" height="33">（<img class="fml" src="/formulas/663c12bc6baebf.png" alt="Q \le 25" width="63" height="33">）。
-③ <img class="fml" src="/formulas/4fc1f214d27240.png" alt="SMC= \frac{dSTC}{dQ}= \frac{1}{\sqrt{25- Q}}" width="184" height="36">（递增，验证边际报酬递减 <img class="fml" src="/formulas/f536124bd92910.png" alt="\Rightarrow MC" width="63" height="33"> 递增）。
-④ 均衡 `SMC = P = 5` ⇒ <img class="fml" src="/formulas/a0da53c192d8c3.png" alt="\sqrt{25- Q}= 0.2" width="123" height="33"> ⇒ <img class="fml" src="/formulas/b502ccf6f5f8e0.png" alt="Q* \approx 24.96" width="94" height="33">，<img class="fml" src="/formulas/72f5e6f20b2ed4.png" alt="L* \approx 4.8" width="75" height="33">。
-⑤ 与第 8 章要素原则互相验证：<img class="fml" src="/formulas/56719962e88c5b.png" alt="VMP= P \cdot MP= 5(10- 2L)= w= 2 \Rightarrow L= 4.8" width="402" height="33"> ✓。
+$Q= 10L- L^{2}$，`w = 2`，`TFC = 36`，产品市场完全竞争 `P = 5`，`K` 固定。
+① 由生产函数反解（取 MP > 0 段）：$L= 5- \sqrt{25- Q}$。
+② $TVC= wL= 10- 2\sqrt{25- Q}$；$STC= 46- 2\sqrt{25- Q}$（$Q \le 25$）。
+③ $SMC= \frac{dSTC}{dQ}= \frac{1}{\sqrt{25- Q}}$（递增，验证边际报酬递减 $\Rightarrow MC$ 递增）。
+④ 均衡 `SMC = P = 5` ⇒ $\sqrt{25- Q}= 0.2$ ⇒ $Q* \approx 24.96$，$L* \approx 4.8$。
+⑤ 与第 8 章要素原则互相验证：$VMP= P \cdot MP= 5(10- 2L)= w= 2 \Rightarrow L= 4.8$ ✓。
 ⑥ **结论**：`MR = MC`（产量视角）与 `VMP = w`（要素视角）是同一个利润最大化问题的两种写法，答案必须一致 —— 这是检验计算是否正确的最快方法。
 
 ### 综 4 · 成本函数 → 短期均衡 → 停业决策（第 5–6 章）
 
+$$STC= Q^{3}- 6Q^{2}+ 15Q+ 100$$
 
-
-<p class="fml-block"><img class="fml" src="/formulas/b3144cd2a5f617.png" alt="STC= Q^{3}- 6Q^{2}+ 15Q+ 100" width="245" height="33"></p>
-
-
-
-① <img class="fml" src="/formulas/d89906bdbd129e.png" alt="SMC= 3Q^{2}- 12Q+ 15" width="200" height="33">，<img class="fml" src="/formulas/600f8795f91e57.png" alt="AVC= Q^{2}- 6Q+ 15" width="178" height="33">，<img class="fml" src="/formulas/7845e5c9e08342.png" alt="AC= AVC+ \frac{100}{Q}" width="145" height="35">。
+① $SMC= 3Q^{2}- 12Q+ 15$，$AVC= Q^{2}- 6Q+ 15$，$AC= AVC+ \frac{100}{Q}$。
 ② `AVCmin = 6`（Q=3）⇒ **关门价格 6**；`ACmin = 30`（Q=5）⇒ **收支相抵价格 30**。
-③ `P = 20`（介于二者之间）：<img class="fml" src="/formulas/a94c35de5c2c3a.png" alt="3Q^{2}- 12Q+15= 20 \Rightarrow 3Q^{2}- 12Q- 5= 0 \Rightarrow Q= \frac{12+\sqrt{204}}{6} \approx 4.38" width="524" height="34">；
-   `TR = 87.6`，<img class="fml" src="/formulas/51b58b06ad16e4.png" alt="STC \approx 4.38^{3}- 6 \times 4.38^{2}+ 15 \times 4.38+ 100 \approx 134.7" width="407" height="33"> ⇒ 亏损约 47.1；停产亏 TFC = <img class="fml" src="/formulas/769d1fa6ff7b73.png" alt="100 \Rightarrow" width="57" height="33"> **继续生产**。
+③ `P = 20`（介于二者之间）：$3Q^{2}- 12Q+15= 20 \Rightarrow 3Q^{2}- 12Q- 5= 0 \Rightarrow Q= \frac{12+\sqrt{204}}{6} \approx 4.38$；
+   `TR = 87.6`，$STC \approx 4.38^{3}- 6 \times 4.38^{2}+ 15 \times 4.38+ 100 \approx 134.7$ ⇒ 亏损约 47.1；停产亏 TFC = $100 \Rightarrow$ **继续生产**。
 ④ `P = 5 < 6` ⇒ 停产，亏损限于 100。
 ⑤ 长期若可调整规模使 `LACmin < P`，则厂商继续经营；否则退出行业。
 
 ### 综 5 · 垄断 → 价格歧视 → 福利（第 6、7 章）
 
-<img class="fml" src="/formulas/6acb9c6224d869.png" alt="P= 100- 2Q" width="116" height="33">，`MC = 20`。
-① 垄断：<img class="fml" src="/formulas/a928d9260bbe95.png" alt="Q= 20, P= 60, \pi= 800, CS= 400, DWL= 400" width="385" height="33">。
-② 竞争：<img class="fml" src="/formulas/f1904e33318d1c.png" alt="Q= 40, P= 20, CS= \frac{1}{2} \times 80 \times 40= 1600, DWL= 0" width="421" height="33">。
-③ 完全价格歧视：`Q = 40`，`CS = 0`，<img class="fml" src="/formulas/20780b66a38d60.png" alt="\pi= 1600" width="77" height="33">，`DWL = 0`（有效率但分配极端）。
-④ 三级歧视（分割为 <img class="fml" src="/formulas/3cd928678da877.png" alt="P_{1}=100- 2Q_{1}" width="128" height="33">、<img class="fml" src="/formulas/6c1058ed1ffc49.png" alt="P_{2}=80- Q_{2}" width="111" height="33">）：<img class="fml" src="/formulas/2e8e7b63e8f046.png" alt="\pi= 1700" width="77" height="33"> > 统一定价的 1666.67。
+$P= 100- 2Q$，`MC = 20`。
+① 垄断：$Q= 20, P= 60, \pi= 800, CS= 400, DWL= 400$。
+② 竞争：$Q= 40, P= 20, CS= \frac{1}{2} \times 80 \times 40= 1600, DWL= 0$。
+③ 完全价格歧视：`Q = 40`，`CS = 0`，$\pi= 1600$，`DWL = 0`（有效率但分配极端）。
+④ 三级歧视（分割为 $P_{1}=100- 2Q_{1}$、$P_{2}=80- Q_{2}$）：$\pi= 1700$ > 统一定价的 1666.67。
 ⑤ **政策含义**：反垄断关注的不只是价格高低，而是产量损失（DWL）与寻租；但完全价格歧视说明"厂商拿走全部剩余"与"有效率"可以并存 ⇒ 效率与分配必须分开评判（第 9 章）。
 
 ### 综 6 · 古诺 → 卡特尔 → 重复博弈（第 7、10 章）
 
-<img class="fml" src="/formulas/b8adcfe197e110.png" alt="P= 18- Q" width="98" height="34">，`MC = 0`，两家。
-① 古诺：<img class="fml" src="/formulas/173855c53cdac1.png" alt="Q_{1}= Q_{2}= 6" width="106" height="34">，`P = 6`，<img class="fml" src="/formulas/345d4e703a2ccf.png" alt="\pi_{1}= \pi_{2}= 36" width="107" height="34">。
+$P= 18- Q$，`MC = 0`，两家。
+① 古诺：$Q_{1}= Q_{2}= 6$，`P = 6`，$\pi_{1}= \pi_{2}= 36$。
 ② 卡特尔：`Q = 9`，`P = 9`，总利润 81，各 40.5。
-③ 单方背叛：对方产 4.5 时，己方最优 <img class="fml" src="/formulas/44887c4218ef7b.png" alt="Q= \frac{18- 4.5}{2}= 6.75" width="143" height="33">，`P = 6.75`，<img class="fml" src="/formulas/f45f91322c018e.png" alt="\pi= 45.56&gt; 40.5" width="138" height="33"> ⇒ 有欺骗动机 ⇒ 一次性博弈中卡特尔不可维持。
-④ 无限次重复、冷酷战略：<img class="fml" src="/formulas/a60bd639579b96.png" alt="\delta \ge \frac{\pi D- \pi C}{\pi D- \pi N}= \frac{45.56- 40.5}{45.56- 36} \approx 0.53" width="234" height="34"> ⇒ 当贴现因子足够大（足够看重未来）时合谋可维持。
-⑤ 现实对应：行业协会公开报价、最惠国条款、频繁交易与信息透明都在提高 <img class="fml" src="/formulas/8de607292a6775.png" alt="\delta" width="15" height="34"> 或降低 <img class="fml" src="/formulas/74072f6e0b1cd2.png" alt="\pi D" width="33" height="34">，正是反垄断执法关注的行为。
+③ 单方背叛：对方产 4.5 时，己方最优 $Q= \frac{18- 4.5}{2}= 6.75$，`P = 6.75`，$\pi= 45.56> 40.5$ ⇒ 有欺骗动机 ⇒ 一次性博弈中卡特尔不可维持。
+④ 无限次重复、冷酷战略：$\delta \ge \frac{\pi D- \pi C}{\pi D- \pi N}= \frac{45.56- 40.5}{45.56- 36} \approx 0.53$ ⇒ 当贴现因子足够大（足够看重未来）时合谋可维持。
+⑤ 现实对应：行业协会公开报价、最惠国条款、频繁交易与信息透明都在提高 $\delta$ 或降低 $\pi D$，正是反垄断执法关注的行为。
 
 ### 综 7 · 要素市场 → 分配 → 基尼（第 8 章）
 
 设 5 等分组劳动收入份额 `5%、10%、15%、25%、45%`。
-① 洛伦兹点 <img class="fml" src="/formulas/43d6b5b9017767.png" alt="(0.2,0.05) \cdots(1,1)" width="149" height="33">；梯形面积 `B = 0.31` ⇒ `G = 0.38`。
+① 洛伦兹点 $(0.2,0.05) \cdots(1,1)$；梯形面积 `B = 0.31` ⇒ `G = 0.38`。
 ② 若政府按比例所得税（各组同税率）并**等比例**转移支付 ⇒ 洛伦兹曲线不变、`G` 不变（比例税不改变相对份额）。
 ③ 若改为累进税 + 定向转移，低组份额上升 ⇒ 曲线上移、`G` 下降。
-④ 用第 8 章分配论解释：工资差异来自 <img class="fml" src="/formulas/1499bae0c186e5.png" alt="VMP= P \cdot MP" width="138" height="34"> 与人力资本、补偿性差别、工会与市场势力；用第 11 章解释：信息不对称（教育信号）与歧视会造成同工不同酬。
+④ 用第 8 章分配论解释：工资差异来自 $VMP= P \cdot MP$ 与人力资本、补偿性差别、工会与市场势力；用第 11 章解释：信息不对称（教育信号）与歧视会造成同工不同酬。
 
 ### 综 8 · 外部性 → 庇古税 → 科斯（第 11 章）
 
-<img class="fml" src="/formulas/254b888dfbc42e.png" alt="MSB= 100- 2Q" width="149" height="33">，`MPC = 2Q + 10`，`ME = 6`。
-① 私人 `Q = 22.5`，社会最优 `Q* = 21`，<img class="fml" src="/formulas/e507b975cfb0f1.png" alt="DWL= \frac{1}{2} \times 6 \times(22.5- 21)= 4.5" width="272" height="34">（外部成本造成的过量生产损失）。
-② 庇古税 `t = 6` ⇒ 厂商自选 `Q = 21`；税收收入 <img class="fml" src="/formulas/29f9b479d965c0.png" alt="6 \times 21= 126" width="106" height="34">，其中 `4.5` 对应消除的净损失，其余为转移。
-③ 科斯方案：若产权归居民且交易成本为零，厂商最多愿付 <img class="fml" src="/formulas/255b6ced1a4294.png" alt="ME \times Q" width="77" height="34"> 与居民谈判，最终产量同样是 21；若产权归厂商，居民付费减产亦达 21（**产量与初始产权无关，分配不同**）。
+$MSB= 100- 2Q$，`MPC = 2Q + 10`，`ME = 6`。
+① 私人 `Q = 22.5`，社会最优 `Q* = 21`，$DWL= \frac{1}{2} \times 6 \times(22.5- 21)= 4.5$（外部成本造成的过量生产损失）。
+② 庇古税 `t = 6` ⇒ 厂商自选 `Q = 21`；税收收入 $6 \times 21= 126$，其中 `4.5` 对应消除的净损失，其余为转移。
+③ 科斯方案：若产权归居民且交易成本为零，厂商最多愿付 $ME \times Q$ 与居民谈判，最终产量同样是 21；若产权归厂商，居民付费减产亦达 21（**产量与初始产权无关，分配不同**）。
 ④ 若受影响居民达 10 万人（交易成本高、搭便车）⇒ 科斯谈判失败，需庇古税或可交易许可证。
 
 ### 综 9 · 公共物品 → 投票 → 政府失灵（第 9、11 章）
 
-三人 A/B/C 对某公共项目评价 `MRS = (3, 2, 1)`，`MRT = 4`，项目成本按人头均摊每人 <img class="fml" src="/formulas/21340ca651ee66.png" alt="\frac{4}{3} \approx 1.33" width="73" height="34">。
-① 萨缪尔森条件：<img class="fml" src="/formulas/928cc03105eed2.png" alt="\sum MRS= 6&gt; 4" width="139" height="34"> ⇒ **应建**。
-② 若按多数投票且各自只比较私人收益与分摊：A(3>1.33)、B(2>1.33) 赞成，C(1<1.33) 反对 <img class="fml" src="/formulas/e667a8be113ba1.png" alt="\Rightarrow" width="24" height="34"> 通过（本例恰好一致）。
+三人 A/B/C 对某公共项目评价 `MRS = (3, 2, 1)`，`MRT = 4`，项目成本按人头均摊每人 $\frac{4}{3} \approx 1.33$。
+① 萨缪尔森条件：$\sum MRS= 6> 4$ ⇒ **应建**。
+② 若按多数投票且各自只比较私人收益与分摊：A(3>1.33)、B(2>1.33) 赞成，C(1<1.33) 反对 $\Rightarrow$ 通过（本例恰好一致）。
 ③ 若成本均摊改为每人 2.5：A 赞成、B/C 反对 ⇒ **多数投票否决了有效率的项目**（收益集中、成本分散偏误）。
 ④ 对称地，成本集中而收益分散的项目易被过度否决；收益集中而成本分散（如补贴）易被过度通过 ⇒ 公共选择中的系统性偏差，是政府失灵的重要来源。
 
@@ -1546,12 +1502,12 @@ p= 2- 2p \to 3p= 2 \to p= \frac{2}{3} \\
 | 21 | 正常利润 | 超额利润 | 前者属隐成本；后者 = 经济利润 |
 | 22 | 短期 | 长期 | 至少一种要素固定 vs 全部可变（非日历时间） |
 | 23 | 收支相抵点 | 停止营业点 | `P = ACmin` vs `P = AVCmin`；后者更低 |
-| 24 | 生产者剩余 | 利润 | <img class="fml" src="/formulas/31cc9978104931.png" alt="PS= \pi+ TFC" width="131" height="34">；短期亏损时 PS 仍可为正 |
+| 24 | 生产者剩余 | 利润 | $PS= \pi+ TFC$；短期亏损时 PS 仍可为正 |
 | 25 | 经济租 | 准租金 | 长期要素报酬超出机会成本 vs 短期固定要素报酬 |
 | 26 | 完全竞争厂商需求线 | 垄断厂商需求线 | 水平（`P = AR = MR`）vs 向右下（`MR < P`） |
 | 27 | AR = MR = P | MR = MC | 前者是完全竞争的市场结构结论；后者是一切厂商的均衡条件 |
 | 28 | 有供给曲线 | 无供给曲线 | 完全竞争有；不完全竞争无（P 与 Q 不一一对应） |
-| 29 | 勒纳指数 | 利润率 | 前者 <img class="fml" src="/formulas/9990b879b57796.png" alt="\frac{P- MC}{P}= \frac{1}{\lvert E_d\rvert}" width="104" height="37"> 衡量市场势力；后者还取决于成本与销量 |
+| 29 | 勒纳指数 | 利润率 | 前者 $\frac{P- MC}{P}= \frac{1}{\lvert E_d\rvert}$ 衡量市场势力；后者还取决于成本与销量 |
 | 30 | 一级价格歧视 | 三级价格歧视 | 按单位索取保留价（无 DWL）vs 按群体分割定价 |
 | 31 | 主观需求曲线 d | 客观需求曲线 D | 对手不跟随（平坦）vs 全体同时调整（陡） |
 | 32 | 古诺 | 伯特兰 | 产量竞争（结果介于垄断与竞争之间）vs 价格竞争（同质品 ⇒ `P = MC`） |
@@ -1580,8 +1536,8 @@ p= 2- 2p \to 3p= 2 \to p= \frac{2}{3} \\
 
 | 接口 | 微观提供的 | 后续课程如何使用 |
 | --- | --- | --- |
-| 需求函数 | <img class="fml" src="/formulas/1bab2726012122.png" alt="Q= f(P, I, \cdots)" width="132" height="34">、弹性、C-D 需求 | 计量经济学把需求函数写成待估计方程 <img class="fml" src="/formulas/bde4c2f95b0a4f.png" alt="\ln Q= \alpha+ \beta \ln P+ \gamma \ln I+ u" width="236" height="34">，<img class="fml" src="/formulas/5ed80e3e4d7b8f.png" alt="\beta" width="18" height="34"> 即价格弹性、<img class="fml" src="/formulas/68923f20821012.png" alt="\gamma" width="17" height="34"> 即收入弹性；用工具变量解决价格内生性（供求同时决定） |
-| 生产函数 / 成本函数 | <img class="fml" src="/formulas/487d7baf99d235.png" alt="Q= AL^\alpha K^\beta" width="104" height="34">、C(Q)、对偶性 | 用企业数据估计 α、β 检验规模报酬；超越对数成本函数（Translog）估计替代弹性 |
+| 需求函数 | $Q= f(P, I, \cdots)$、弹性、C-D 需求 | 计量经济学把需求函数写成待估计方程 $\ln Q= \alpha+ \beta \ln P+ \gamma \ln I+ u$，$\beta$ 即价格弹性、$\gamma$ 即收入弹性；用工具变量解决价格内生性（供求同时决定） |
+| 生产函数 / 成本函数 | $Q= AL^\alpha K^\beta$、C(Q)、对偶性 | 用企业数据估计 α、β 检验规模报酬；超越对数成本函数（Translog）估计替代弹性 |
 | 消费者理论 | 斯勒茨基方程、显示偏好 | 用需求系统（AIDS、QUAIDS）估计并检验对称性与齐次性约束 |
 | 市场结构 | 勒纳指数、古诺加成 | 产业组织实证（NEIO 方法）由价格—成本边际推断市场势力；反垄断相关市场界定用 SSNIP 测试（依赖需求弹性） |
 | 福利 | CS/PS/CV/EV/DWL | 成本—收益分析、政策评估；宏观经济学的代表性个体模型把微观最优条件加总 |
@@ -1633,7 +1589,7 @@ p= 2- 2p \to 3p= 2 \to p= \frac{2}{3} \\
 
 ### 三条贯穿全书的主线
 
-1. **同一条一阶条件的不同外衣**：<img class="fml" src="/formulas/1471f628175d40.png" alt="\frac{MUx}{Px}= \frac{MUy}{Py}" width="100" height="36">（消费者）、<img class="fml" src="/formulas/80f3e7a6bce229.png" alt="\frac{MPL}{w}= \frac{MPK}{r}" width="106" height="34">（生产者）、`MR = MC`（厂商）、`VMP = w`（要素）、`MRS = MRT`（社会）—— 本质都是「把一单位资源从 A 挪到 B 已无净收益」。
+1. **同一条一阶条件的不同外衣**：$\frac{MUx}{Px}= \frac{MUy}{Py}$（消费者）、$\frac{MPL}{w}= \frac{MPK}{r}$（生产者）、`MR = MC`（厂商）、`VMP = w`（要素）、`MRS = MRT`（社会）—— 本质都是「把一单位资源从 A 挪到 B 已无净收益」。
 2. **同一套比较静态方法**：外生冲击 → 识别哪条曲线/约束移动 → 求新均衡 → 比较新旧 → 再做福利分解。第 2、6、7、8、11 章全部复用。
 3. **同一对张力：效率 vs 分配**：完全竞争有效率（第 6、9 章）但分配可能不平等（第 8 章），市场势力与外部性损害效率（第 7、11 章），政策同时改变二者。答题时永远先问"效率如何"，再问"谁得谁失"。
 
@@ -1646,93 +1602,93 @@ p= 2- 2p \to 3p= 2 \to p= \frac{2}{3} \\
 | 项目 | 公式 / 结论 |
 | --- | --- |
 | 均衡 | `Qd(P*) = Qs(P*)` |
-| 机会成本 | 放弃的其他用途中的**最大**收益；`PPF` 斜率 = <img class="fml" src="/formulas/29f56dfd2ccf6e.png" alt="MRT=\vert \frac{\Delta Y}{\Delta X}\vert" width="113" height="34"> |
-| 需求点弹性 | <img class="fml" src="/formulas/a5d5cb7f36d878.png" alt="Ed=-\left(\frac{dQ}{dP}\right)\left(\frac{P}{Q}\right)" width="151" height="41">（常取绝对值） |
-| 需求弧弹性（中点） | <img class="fml" src="/formulas/5b4010c8bcae2b.png" alt="Ed=- \frac{\left(\frac{\Delta Q}{\Delta P}\right) \cdot[\frac{P_{1}+P_{2}}{2}]}{\frac{Q_{1}+Q_{2}}{2}}" width="149" height="46"> |
-| 收入 / 交叉 / 供给弹性 | <img class="fml" src="/formulas/678e99805ad2ab.png" alt="eI= \frac{\frac{\Delta Q}{Q}}{\frac{\Delta I}{I}}" width="71" height="44">；<img class="fml" src="/formulas/00d88e7cdbb1df.png" alt="eXY= \frac{\frac{\Delta Qx}{Qx}}{\frac{\Delta Py}{Py}}" width="98" height="47">；<img class="fml" src="/formulas/5053179a7304f8.png" alt="eS= \frac{\frac{\Delta Q}{Q}}{\frac{\Delta P}{P}}" width="74" height="44"> |
-| 弹性与总收益 | <img class="fml" src="/formulas/697dc7a1d0099c.png" alt="\frac{dTR}{dP}= Q(1-\lvert E_d\rvert)" width="149" height="34">；`|Ed| > 1` 降价增收 |
-| 线性需求弹性 | <img class="fml" src="/formulas/882934a3e366d9.png" alt="P= a- bQ \Rightarrow\lvert E_d\rvert=\left(\frac{1}{b}\right)\left(\frac{P}{Q}\right)= \frac{P}{a- P}" width="300" height="41"> |
-| 税负归宿 | <img class="fml" src="/formulas/fc7ef25f495ce2.png" alt="\frac{dPd}{dt}= \frac{eS}{eS+\lvert E_d\rvert}" width="108" height="36">；弹性小者承担多；与向谁征收无关 |
-| 税收 DWL | <img class="fml" src="/formulas/898ae26c5a7a78.png" alt="\frac{1}{2} \cdot t \cdot \Delta Q" width="78" height="34">（线性近似） |
+| 机会成本 | 放弃的其他用途中的**最大**收益；`PPF` 斜率 = $MRT=\vert \frac{\Delta Y}{\Delta X}\vert $ |
+| 需求点弹性 | $Ed=-\left(\frac{dQ}{dP}\right)\left(\frac{P}{Q}\right)$（常取绝对值） |
+| 需求弧弹性（中点） | $Ed=- \frac{\left(\frac{\Delta Q}{\Delta P}\right) \cdot[\frac{P_{1}+P_{2}}{2}]}{\frac{Q_{1}+Q_{2}}{2}}$ |
+| 收入 / 交叉 / 供给弹性 | $eI= \frac{\frac{\Delta Q}{Q}}{\frac{\Delta I}{I}}$；$eXY= \frac{\frac{\Delta Qx}{Qx}}{\frac{\Delta Py}{Py}}$；$eS= \frac{\frac{\Delta Q}{Q}}{\frac{\Delta P}{P}}$ |
+| 弹性与总收益 | $\frac{dTR}{dP}= Q(1-\lvert E_d\rvert)$；`|Ed| > 1` 降价增收 |
+| 线性需求弹性 | $P= a- bQ \Rightarrow\lvert E_d\rvert=\left(\frac{1}{b}\right)\left(\frac{P}{Q}\right)= \frac{P}{a- P}$ |
+| 税负归宿 | $\frac{dPd}{dt}= \frac{eS}{eS+\lvert E_d\rvert}$；弹性小者承担多；与向谁征收无关 |
+| 税收 DWL | $\frac{1}{2} \cdot t \cdot \Delta Q$（线性近似） |
 
 ### A.2 消费者理论（第 3 章）
 
 | 项目 | 公式 |
 | --- | --- |
-| 基数效用均衡 | <img class="fml" src="/formulas/d27226392ef411.png" alt="\frac{MUx}{Px}= \frac{MUy}{Py}= \cdots= \lambda" width="179" height="35">，<img class="fml" src="/formulas/72b3d33e0f74f0.png" alt="\sum PiXi= I" width="105" height="34"> |
-| 序数效用均衡 | <img class="fml" src="/formulas/4d8614c9932c78.png" alt="MRSxy= \frac{MUx}{MUy}= \frac{Px}{Py}" width="175" height="36">，且 `Pxx + Pyy = I` |
-| 预算线 | <img class="fml" src="/formulas/127b1d1816cc2a.png" alt="y= \frac{I}{Py}-\left(\frac{Px}{Py}\right)x" width="138" height="41"> |
-| C-D 需求 | <img class="fml" src="/formulas/c8ee93f8f95b74.png" alt="U= X^\alpha Y^\beta \Rightarrow X*= \frac{[\frac{\alpha}{\alpha+\beta}]I}{Px}" width="210" height="36">，<img class="fml" src="/formulas/aa7fea2cd480ad.png" alt="Y*= \frac{[\frac{\beta}{\alpha+\beta}]I}{Py}" width="94" height="41"> |
-| 斯勒茨基方程 | <img class="fml" src="/formulas/201fd01fe1da50.png" alt="\frac{\partial X}{\partial Px}= \frac{\partial X^{h}}{\partial Px}- X \cdot\left( \frac{\partial X}{\partial I}\right)" width="178" height="34">（总 = 替代 + 收入） |
-| 希克斯补偿 | 保持 <img class="fml" src="/formulas/18639d431c4e19.png" alt="U_{0}" width="27" height="34">；斯勒茨基补偿 <img class="fml" src="/formulas/0f2c95ce7cc268.png" alt="\Delta I=(P_{1}- P_{0})X_{0}" width="150" height="33"> |
-| 罗伊恒等式 | <img class="fml" src="/formulas/e372d2476f6e24.png" alt="x_{i}=- \frac{\frac{\partial v}{\partial p_{i}}}{\frac{\partial v}{\partial I}}" width="82" height="44">；谢泼德引理 <img class="fml" src="/formulas/7a1998f303e45c.png" alt="x_{i}^{h}= \frac{\partial e}{\partial p_{i}}" width="71" height="36"> |
-| 期望效用 | <img class="fml" src="/formulas/c59286b0ecb0eb.png" alt="EU= pU(W_{1})+(1- p)U(W_{2})" width="248" height="34">；`U(CE) = EU`；风险溢价 <img class="fml" src="/formulas/adc4c0e6299849.png" alt="= E(W)- CE" width="123" height="33"> |
+| 基数效用均衡 | $\frac{MUx}{Px}= \frac{MUy}{Py}= \cdots= \lambda$，$\sum PiXi= I$ |
+| 序数效用均衡 | $MRSxy= \frac{MUx}{MUy}= \frac{Px}{Py}$，且 `Pxx + Pyy = I` |
+| 预算线 | $y= \frac{I}{Py}-\left(\frac{Px}{Py}\right)x$ |
+| C-D 需求 | $U= X^\alpha Y^\beta \Rightarrow X*= \frac{[\frac{\alpha}{\alpha+\beta}]I}{Px}$，$Y*= \frac{[\frac{\beta}{\alpha+\beta}]I}{Py}$ |
+| 斯勒茨基方程 | $\frac{\partial X}{\partial Px}= \frac{\partial X^{h}}{\partial Px}- X \cdot\left( \frac{\partial X}{\partial I}\right)$（总 = 替代 + 收入） |
+| 希克斯补偿 | 保持 $U_{0}$；斯勒茨基补偿 $\Delta I=(P_{1}- P_{0})X_{0}$ |
+| 罗伊恒等式 | $x_{i}=- \frac{\frac{\partial v}{\partial p_{i}}}{\frac{\partial v}{\partial I}}$；谢泼德引理 $x_{i}^{h}= \frac{\partial e}{\partial p_{i}}$ |
+| 期望效用 | $EU= pU(W_{1})+(1- p)U(W_{2})$；`U(CE) = EU`；风险溢价 $= E(W)- CE$ |
 | 消费者剩余 | 需求曲线以下、价格线以上 |
 
 ### A.3 生产与成本（第 4–5 章）
 
 | 项目 | 公式 |
 | --- | --- |
-| 产量三量 | <img class="fml" src="/formulas/afb9490d17f6a5.png" alt="AP= \frac{TP}{L}" width="81" height="33">，<img class="fml" src="/formulas/9fc021fe89b668.png" alt="MP= \frac{dTP}{dL}" width="94" height="33">；`MP = AP` 处 AP 最大；`MP = 0` 处 TP 最大 |
-| 最优要素组合 | <img class="fml" src="/formulas/5319fb51d9866e.png" alt="MRTS(LK)= \frac{MPL}{MPK}= \frac{w}{r}" width="207" height="34"> ⇔ <img class="fml" src="/formulas/2ad8e85f0a7625.png" alt="\frac{MPL}{w}= \frac{MPK}{r}= \frac{1}{MC}" width="158" height="34"> |
-| C-D 生产 | <img class="fml" src="/formulas/487d7baf99d235.png" alt="Q= AL^\alpha K^\beta" width="104" height="34">；<img class="fml" src="/formulas/6e679f4fcdc1e8.png" alt="\alpha+\beta&gt;1" width="84" height="33">、<img class="fml" src="/formulas/c4159c0936e677.png" alt="\alpha+\beta=1" width="84" height="33">、<img class="fml" src="/formulas/11db4924f9f99f.png" alt="\alpha+\beta&lt;1" width="84" height="33"> ⇒ 递增 / 不变 / 递减规模报酬 |
-| 欧拉定理 | 1 次齐次：<img class="fml" src="/formulas/bb4ea3e6707cb0.png" alt="Q= MPL \cdot L+ MPK \cdot K" width="216" height="34"> ⇒ `PQ = wL + rK`（产品分配净尽） |
-| 成本 | `STC = TFC + TVC`；`AC = AFC + AVC`；<img class="fml" src="/formulas/12e2ae2abb8987.png" alt="SMC= \frac{dSTC}{dQ}" width="114" height="36"> |
+| 产量三量 | $AP= \frac{TP}{L}$，$MP= \frac{dTP}{dL}$；`MP = AP` 处 AP 最大；`MP = 0` 处 TP 最大 |
+| 最优要素组合 | $MRTS(LK)= \frac{MPL}{MPK}= \frac{w}{r}$ ⇔ $\frac{MPL}{w}= \frac{MPK}{r}= \frac{1}{MC}$ |
+| C-D 生产 | $Q= AL^\alpha K^\beta$；$\alpha+\beta>1$、$\alpha+\beta=1$、$\alpha+\beta<1$ ⇒ 递增 / 不变 / 递减规模报酬 |
+| 欧拉定理 | 1 次齐次：$Q= MPL \cdot L+ MPK \cdot K$ ⇒ `PQ = wL + rK`（产品分配净尽） |
+| 成本 | `STC = TFC + TVC`；`AC = AFC + AVC`；$SMC= \frac{dSTC}{dQ}$ |
 | 三个交点 | `SMC` 过 `AVCmin` 与 `ACmin`，且 `Q(ACmin) > Q(AVCmin)` |
-| 对偶 | <img class="fml" src="/formulas/a5a6a738373836.png" alt="AVC= \frac{w}{AP}" width="96" height="34">、<img class="fml" src="/formulas/279ac514c6a9c1.png" alt="MC= \frac{w}{MP}" width="92" height="34">（单一可变要素） |
-| 长期 | <img class="fml" src="/formulas/a4634629a4958a.png" alt="LAC= \frac{LTC}{Q}" width="102" height="36"> 是 SAC 包络线；`LMC` 过 `LACmin`；长期无 TFC |
-| 成本函数 | <img class="fml" src="/formulas/5486568e77f3a4.png" alt="C= \min{wL+rK : f(L,K) \ge Q}" width="263" height="33">；<img class="fml" src="/formulas/4d809787afcc1d.png" alt="\frac{\partial C}{\partial w}= L*" width="74" height="33"> |
+| 对偶 | $AVC= \frac{w}{AP}$、$MC= \frac{w}{MP}$（单一可变要素） |
+| 长期 | $LAC= \frac{LTC}{Q}$ 是 SAC 包络线；`LMC` 过 `LACmin`；长期无 TFC |
+| 成本函数 | $C= \min{wL+rK : f(L,K) \ge Q}$；$\frac{\partial C}{\partial w}= L*$ |
 
 ### A.4 市场结构与定价（第 6–7 章）
 
 | 项目 | 公式 |
 | --- | --- |
 | 利润最大化 | `MR = MC`，且 MC 处于上升段 |
-| 完全竞争 | `P = AR = MR = d`（水平）；长期 `P = LMC = LACmin`，<img class="fml" src="/formulas/5f873556e397da.png" alt="\pi= 0" width="51" height="34"> |
+| 完全竞争 | `P = AR = MR = d`（水平）；长期 `P = LMC = LACmin`，$\pi= 0$ |
 | 短期供给曲线 | `SMC` 在 `AVCmin` 以上的上升段 |
-| 生产者剩余 | <img class="fml" src="/formulas/4c0c9da4c628d2.png" alt="PS= TR- TVC= \pi+ TFC" width="244" height="33"> |
-| 线性需求 MR | <img class="fml" src="/formulas/08429fd8e23663.png" alt="P= a- bQ \Rightarrow MR= a- 2bQ" width="244" height="33"> |
-| MR 与弹性 | <img class="fml" src="/formulas/e76ff24ae10bae.png" alt="MR= P(1- \frac{1}{\lvert E_d\rvert})" width="148" height="36"> ⇒ 勒纳指数 <img class="fml" src="/formulas/ae3b58fed84196.png" alt="L= \frac{P- MC}{P}= \frac{1}{\lvert E_d\rvert}" width="140" height="36"> |
-| 加成法则 | <img class="fml" src="/formulas/fd9a63d874f6f3.png" alt="P=MC\cdot\dfrac{\lvert E_d\rvert}{\lvert E_d\rvert-1}" width="157" height="52"> |
-| 三级价格歧视 | <img class="fml" src="/formulas/d7a9a9addce070.png" alt="MR_{1}= MR_{2}= MC" width="168" height="33"> ⇔ <img class="fml" src="/formulas/7e52db69944259.png" alt="P_{i}\left(1-\dfrac{1}{|E_{i}|}\right)=MC" width="174" height="52"> |
-| 古诺 | <img class="fml" src="/formulas/4e65ec28af34e2.png" alt="P= a- bQ, MC= c" width="170" height="33">：<img class="fml" src="/formulas/2e5b1a54ebc562.png" alt="Qi= \frac{a- c}{(n+1)b}" width="94" height="36">，<img class="fml" src="/formulas/c732821e13a91e.png" alt="P= \frac{a+nc}{n+1}" width="79" height="34"> |
-| 垄断 DWL | <img class="fml" src="/formulas/6890d747108b47.png" alt="\frac{1}{2}(Pm- MC)(Qc- Qm)" width="203" height="33">（线性情形） |
+| 生产者剩余 | $PS= TR- TVC= \pi+ TFC$ |
+| 线性需求 MR | $P= a- bQ \Rightarrow MR= a- 2bQ$ |
+| MR 与弹性 | $MR= P(1- \frac{1}{\lvert E_d\rvert})$ ⇒ 勒纳指数 $L= \frac{P- MC}{P}= \frac{1}{\lvert E_d\rvert}$ |
+| 加成法则 | $P=MC\cdot\dfrac{\lvert E_d\rvert}{\lvert E_d\rvert-1}$ |
+| 三级价格歧视 | $MR_{1}= MR_{2}= MC$ ⇔ $P_{i}\left(1-\dfrac{1}{|E_{i}|}\right)=MC$ |
+| 古诺 | $P= a- bQ, MC= c$：$Qi= \frac{a- c}{(n+1)b}$，$P= \frac{a+nc}{n+1}$ |
+| 垄断 DWL | $\frac{1}{2}(Pm- MC)(Qc- Qm)$（线性情形） |
 
 ### A.5 要素、福利与失灵（第 8–11 章）
 
 | 项目 | 公式 |
 | --- | --- |
-| 要素使用原则 | <img class="fml" src="/formulas/ee07b4f247af96.png" alt="VMP= P \cdot MP= w" width="176" height="33">（一般式 `MRP = MFC`） |
-| 时间配置 | <img class="fml" src="/formulas/22182452da97aa.png" alt="C= w(16- H)+ V" width="164" height="33">，切点 `MRS(闲暇,消费) = w` |
+| 要素使用原则 | $VMP= P \cdot MP= w$（一般式 `MRP = MFC`） |
+| 时间配置 | $C= w(16- H)+ V$，切点 `MRS(闲暇,消费) = w` |
 | 基尼系数 | `G = A/(A+B) = (0.5 − 洛伦兹曲线下面积)/0.5` |
 | 帕累托三条件 | `MRS(A,XY)=MRS(B,XY)`；`MRTS(C,LK)=MRTS(D,LK)`；`MRS(XY)=MRT(XY)` |
-| 边际转换率 | <img class="fml" src="/formulas/34f1c20523ad5a.png" alt="MRT(XY)=\vert \frac{dY}{dX}\vert = \frac{MCx}{MCy}= \frac{Px}{Py}" width="256" height="35">（完全竞争） |
-| 社会福利函数 | 加法 <img class="fml" src="/formulas/f6e03e90132de3.png" alt="\sum Ui" width="50" height="33">；乘法 <img class="fml" src="/formulas/61b5ab2e2fb353.png" alt="\Pi Ui" width="40" height="33">；罗尔斯 `min(Ui)` |
+| 边际转换率 | $MRT(XY)=\vert \frac{dY}{dX}\vert = \frac{MCx}{MCy}= \frac{Px}{Py}$（完全竞争） |
+| 社会福利函数 | 加法 $\sum Ui$；乘法 $\Pi Ui$；罗尔斯 `min(Ui)` |
 | 混合策略均衡 | 使**对方**在纯策略间无差异求概率 |
-| 合谋可持续 | <img class="fml" src="/formulas/39d2b68cd2cbc0.png" alt="\delta \ge \frac{\pi D- \pi C}{\pi D- \pi N}" width="90" height="34"> |
+| 合谋可持续 | $\delta \ge \frac{\pi D- \pi C}{\pi D- \pi N}$ |
 | 外部性最优 | `MSB = MSC = MPC + ME`；庇古税 `t = ME(Q*)` |
 | 科斯定理 | 产权清晰 + 交易成本为零 ⇒ 谈判达 Q*，与初始产权无关 |
-| 公共物品 | <img class="fml" src="/formulas/3e9ce60489afa7.png" alt="\sum_{i}MRS_{i}= MRT" width="153" height="33">（纵向相加） |
-| 反垄断 / 福利 | <img class="fml" src="/formulas/c3751897389be1.png" alt="DWL= \int_{Q*}^{Q}[P(x)- MC(x)]dx" width="249" height="36"> |
+| 公共物品 | $\sum_{i}MRS_{i}= MRT$（纵向相加） |
+| 反垄断 / 福利 | $DWL= \int_{Q*}^{Q}[P(x)- MC(x)]dx$ |
 
 ### A.6 一页纸解题索引
 
 | 见到 | 立即想到 |
 | --- | --- |
 | "求均衡价格/数量" | `Qd = Qs` 解方程，再代回验算 |
-| "弹性" | 先判断是点还是弧；线性需求用 <img class="fml" src="/formulas/c5331224f0ff4d.png" alt="\lvert E_d\rvert=\left(\frac{1}{b}\right)\left(\frac{P}{Q}\right)" width="127" height="41"> |
-| "总收益/薄利多销/谷贱伤农" | <img class="fml" src="/formulas/697dc7a1d0099c.png" alt="\frac{dTR}{dP}= Q(1-\lvert E_d\rvert)" width="149" height="34"> |
-| "效用最大" | <img class="fml" src="/formulas/b49c94511d54d1.png" alt="MRS= \frac{Px}{Py}" width="97" height="36"> + 预算线；C-D 直接套份额公式 |
+| "弹性" | 先判断是点还是弧；线性需求用 $\lvert E_d\rvert=\left(\frac{1}{b}\right)\left(\frac{P}{Q}\right)$ |
+| "总收益/薄利多销/谷贱伤农" | $\frac{dTR}{dP}= Q(1-\lvert E_d\rvert)$ |
+| "效用最大" | $MRS= \frac{Px}{Py}$ + 预算线；C-D 直接套份额公式 |
 | "价格下降的效应分解" | 先算总效应，再定补偿标准（希克斯/斯勒茨基） |
 | "利润最大" | `MR = MC`，检查 MC 上升段；长期再加 `P = LACmin` |
 | "是否继续生产" | 比 `P` 与 `AVCmin`，不是与 `ACmin` 比 |
-| "垄断加成" | <img class="fml" src="/formulas/9cbe065c537d65.png" alt="L= \frac{1}{\lvert E_d\rvert}" width="69" height="36">；`|Ed| < 1` 处不会生产 |
+| "垄断加成" | $L= \frac{1}{\lvert E_d\rvert}$；`|Ed| < 1` 处不会生产 |
 | "寡头均衡" | 先写反应函数（对对手变量求导），再联立 |
-| "要素需求" | <img class="fml" src="/formulas/729d2a6ab5953c.png" alt="P \cdot MP= w" width="104" height="34">；可与 `MR = MC` 互相验算 |
-| "帕累托最优" | 三条件；竞争下 <img class="fml" src="/formulas/2ed92f32032383.png" alt="\frac{Px}{Py}= MRS= MRT" width="166" height="35"> |
+| "要素需求" | $P \cdot MP= w$；可与 `MR = MC` 互相验算 |
+| "帕累托最优" | 三条件；竞争下 $\frac{Px}{Py}= MRS= MRT$ |
 | "博弈求解" | 划线法找纯策略；无纯策略时令对方无差异求混合概率 |
 | "外部性政策" | `MSB = MPC + ME`；`t = ME(Q*)`；再讨论科斯前提 |
-| "公共物品该不该建" | <img class="fml" src="/formulas/8faec0a36cd03f.png" alt="\sum MRS" width="74" height="33"> 与 `MRT` 比较 |
+| "公共物品该不该建" | $\sum MRS$ 与 `MRT` 比较 |
 
 ---
 
@@ -1754,7 +1710,7 @@ p= 2- 2p \to 3p= 2 \to p= \frac{2}{3} \\
 14. 边际效用递减不等于总效用递减；`MU = 0` 时 TU 最大。
 15. 无差异曲线凸向原点源于 MRS 递减，与边际效用递减不是同一条假设。
 16. 完全替代（直线 IC）与完全互补（L 形 IC）通常取角点解，**不满足相切条件**。
-17. 均衡条件是 <img class="fml" src="/formulas/b49c94511d54d1.png" alt="MRS= \frac{Px}{Py}" width="97" height="36">（主观 = 客观），不是"花光收入"这一条就够。
+17. 均衡条件是 $MRS= \frac{Px}{Py}$（主观 = 客观），不是"花光收入"这一条就够。
 18. C-D 效用下各商品支出份额恒定，与价格、收入无关。
 19. 收入—消费线为过原点直线 ⇔ 所有商品收入弹性为 1，不是 0。
 20. 市场需求曲线是个人需求的**水平**加总（同价格加数量），不是垂直加总。
@@ -1763,68 +1719,68 @@ p= 2- 2p \to 3p= 2 \to p= \frac{2}{3} \\
 23. 希克斯补偿保持效用、斯勒茨基补偿保持购买力；价格下降时补偿收入为负。
 24. 混合策略中概率由**对方的支付**决定（令对方无差异），不是自己的支付。
 25. 期望效用框架下 `U'' < 0` 才是风险厌恶；`EU < U(EW)` 是其等价判据。
-26. 风险溢价 = <img class="fml" src="/formulas/48b72ecb42c89b.png" alt="E(W)- CE" width="105" height="33">，不是 <img class="fml" src="/formulas/03db22dfa8c837.png" alt="E(W)- EU" width="104" height="33">（量纲不同）。
+26. 风险溢价 = $E(W)- CE$，不是 $E(W)- EU$（量纲不同）。
 27. 边际报酬递减的两前提：技术给定 + 其他要素不变；技术进步是曲线平移，不构成反例。
 28. `MP = AP` 处 AP 最大；`MP = 0` 处 TP 最大；`MP < 0` 时 TP 下降。
 29. 第Ⅱ生产阶段是唯一合理生产区间，但最优点还要结合产品价格与要素价格。
 30. 规模报酬是技术/实物概念，规模经济是成本概念，二者不可等同。
 31. 范围经济看**多产品联合生产**，学习效应看**累计产量**，都与单一产品规模扩张不同。
-32. 等产量线斜率是 <img class="fml" src="/formulas/50fddba431c7f6.png" alt="- MRTS" width="79" height="33">，等成本线斜率是 <img class="fml" src="/formulas/7f5640b26979f0.png" alt="- \frac{w}{r}" width="35" height="34">；切点条件 <img class="fml" src="/formulas/edf26add241671.png" alt="MRTS= \frac{w}{r}" width="102" height="34">。
+32. 等产量线斜率是 $- MRTS$，等成本线斜率是 $- \frac{w}{r}$；切点条件 $MRTS= \frac{w}{r}$。
 33. 欧拉定理要求规模报酬不变（1 次齐次）；递增时按边际产量支付会超支。
 34. 经济成本 = 显成本 + 隐成本；正常利润属于隐成本，经济利润为零时企业仍在赚钱。
 35. 会计利润通常**大于**经济利润；决策只看经济利润。
 36. 长期没有固定成本，`LTC(0) = 0`；短期 TFC 与产量无关。
 37. `SMC` 与 TFC 无关（固定成本的导数为零）。
 38. `SMC` 分别穿过 `AVC` 与 `AC` 的最低点，`ACmin` 对应产量更大。
-39. <img class="fml" src="/formulas/34788eb2cc24a6.png" alt="AC- AVC= AFC" width="163" height="33">，随 Q 增大而缩小但永不为零。
+39. $AC- AVC= AFC$，随 Q 增大而缩小但永不为零。
 40. `LAC` 是 SAC 的**包络线**，不是 SAC 最低点的连线（只在 LAC 最低点重合）。
-41. 规模报酬递增 <img class="fml" src="/formulas/e667a8be113ba1.png" alt="\Rightarrow" width="24" height="34"> 递减；但 LAC 递减也可能来自要素价格下降（外在经济）。
+41. 规模报酬递增 $\Rightarrow$ 递减；但 LAC 递减也可能来自要素价格下降（外在经济）。
 42. 完全竞争厂商面对水平需求线，`P = AR = MR`；垄断厂商 `MR < P`。
 43. `MR = MC` 是一切厂商的均衡条件；`P = MC` 只在完全竞争下成立。
 44. 利润最大化还需二阶条件（MC 上升段），否则可能是利润最小点。
-45. 亏损时**不一定停产**：只要 <img class="fml" src="/formulas/539f1b32c0604b.png" alt="P \ge AVCmin" width="119" height="33"> 就应继续生产。
+45. 亏损时**不一定停产**：只要 $P \ge AVCmin$ 就应继续生产。
 46. 收支相抵点 `P = ACmin` 高于停止营业点 `P = AVCmin`，别记反。
 47. 短期供给曲线是 `SMC` 在 `AVCmin` 以上的**上升**段，不是整条 SMC。
-48. <img class="fml" src="/formulas/31cc9978104931.png" alt="PS= \pi+ TFC" width="131" height="34">，亏损时生产者剩余仍可为正。
-49. 完全竞争长期均衡 <img class="fml" src="/formulas/5f873556e397da.png" alt="\pi= 0" width="51" height="34"> 指经济利润；正常利润仍存在。
+48. $PS= \pi+ TFC$，亏损时生产者剩余仍可为正。
+49. 完全竞争长期均衡 $\pi= 0$ 指经济利润；正常利润仍存在。
 50. 成本不变行业的长期供给曲线水平，需求增加只改变厂商数量与总产量。
 51. 不完全竞争厂商**没有供给曲线**（价格与产量不再一一对应）。
 52. 线性需求下 MR 与 D 纵截距相同、横截距为其一半，斜率是 2 倍。
-53. 勒纳指数 <img class="fml" src="/formulas/9cbe065c537d65.png" alt="L= \frac{1}{\lvert E_d\rvert}" width="69" height="36"> 衡量市场势力，不等于利润率，也不等于 DWL 大小。
+53. 勒纳指数 $L= \frac{1}{\lvert E_d\rvert}$ 衡量市场势力，不等于利润率，也不等于 DWL 大小。
 54. 一级价格歧视**无 DWL** 但消费者剩余全被占有 ⇒ 有效率与分配公平是两回事。
 55. 三级价格歧视要求市场可分割、无套利、弹性不同；弹性小的市场价格更高。
 56. 若两个市场需求弹性相同，价格歧视不会带来额外利润。
-57. 垄断竞争长期 <img class="fml" src="/formulas/5f873556e397da.png" alt="\pi= 0" width="51" height="34">，但 `P > LMC`、产量低于 LAC 最低点（过剩产能）。
+57. 垄断竞争长期 $\pi= 0$，但 `P > LMC`、产量低于 LAC 最低点（过剩产能）。
 58. 主观需求曲线 d 比客观需求曲线 D **更平坦**（对手不跟随降价）。
 59. 古诺是产量竞争、伯特兰是价格竞争；同质品伯特兰均衡 `P = MC`（悖论）。
 60. 斯塔克尔伯格有先动优势；其均衡仍是纳什均衡（且是子博弈精炼的）。
-61. 古诺 n 家：n→∞ 时 <img class="fml" src="/formulas/8e3b9e71a2aa6b.png" alt="P \to MC" width="82" height="34">，n=1 时回到垄断；n 越大加成越小。
+61. 古诺 n 家：n→∞ 时 $P \to MC$，n=1 时回到垄断；n 越大加成越小。
 62. 卡特尔不稳定源于单方背叛动机，本质是囚徒困境；重复博弈可缓解。
 63. 斯威齐弯折需求曲线解释价格刚性，但**不解释**现行价格如何形成。
 64. 要素需求是**引致需求**，其强度取决于产品需求与要素边际产量。
 65. 单个厂商要素需求曲线是 VMP 的**下降段**，不是整条 VMP 曲线。
 66. 市场要素需求曲线比单个厂商需求曲线的水平加总**更陡**（因产品价格随总产量下降）。
-67. 产品市场卖方垄断时 <img class="fml" src="/formulas/3cc41ef8476552.png" alt="MRP= MR \cdot MP&lt; VMP" width="228" height="33">，要素雇用量少于竞争情形。
+67. 产品市场卖方垄断时 $MRP= MR \cdot MP< VMP$，要素雇用量少于竞争情形。
 68. 向后弯曲劳动供给：低工资替代效应占优，高工资收入效应占优。
 69. 地租对全社会（土地总量固定）由需求决定；对特定用途，供给仍可向上倾斜。
 70. 经济租是要素报酬超出机会成本的部分；准租金是短期固定要素报酬。
 71. 功能分配（要素份额）≠ 规模分配（人际收入分布），基尼系数属后者。
 72. 基尼系数对同比例收入平移不敏感，也不能反映收入流动性与组内差异。
-73. 洛伦兹曲线越接近 45° 线越平等；<img class="fml" src="/formulas/c08d2ac8256d26.png" alt="G= \frac{A}{A+B}" width="78" height="34">，别把 A、B 弄反。
+73. 洛伦兹曲线越接近 45° 线越平等；$G= \frac{A}{A+B}$，别把 A、B 弄反。
 74. 一般均衡存在 ≠ 唯一 ≠ 稳定；瓦尔拉斯法则使独立方程数比市场数少 1。
 75. 帕累托最优有无穷多个，本身不含分配公平判断。
 76. 帕累托标准要求"无人变坏"；有人受益有人受损的变动须用卡尔多–希克斯标准。
 77. 交换最优 `MRS` 相等；生产最优 `MRTS` 相等；综合最优 `MRS = MRT`。
-78. <img class="fml" src="/formulas/db29aa8280e7d0.png" alt="MRT= \frac{MCx}{MCy}" width="112" height="35"> 是 PPF 斜率；完全竞争下 <img class="fml" src="/formulas/d130bf8ae67b15.png" alt="\frac{Px}{Py}= MRT" width="97" height="35">。
+78. $MRT= \frac{MCx}{MCy}$ 是 PPF 斜率；完全竞争下 $\frac{Px}{Py}= MRT$。
 79. 福利第一定理的前提（无外部性、无公共物品、完全竞争、凸性）缺一不可。
 80. 福利第二定理要求**一次总付**再分配，现实中的扭曲性税收会破坏结论。
 81. 阿罗不可能定理说明不存在满足全部合理公理的社会偏好加总规则。
-82. 功利主义 <img class="fml" src="/formulas/90b10dcf9f74de.png" alt="\sum U" width="43" height="33">、罗尔斯 `min U` 可能给出完全不同的政策建议。
+82. 功利主义 $\sum U$、罗尔斯 `min U` 可能给出完全不同的政策建议。
 83. 纳什均衡是"单方无偏离动机"，占优均衡是"无论对方如何都最优"；后者必是前者。
 84. 纯策略均衡可能不存在或不唯一；有限博弈必存在混合策略均衡（纳什定理）。
 85. 囚徒困境说明纳什均衡**未必帕累托最优**；个体理性可致集体非理性。
 86. 划线法中：甲表按**乙的列**找甲的最大支付，乙表按**甲的行**找乙的最大支付。
-87. 有限次重复囚徒困境由逆向归纳得每期都背叛；无限次且 <img class="fml" src="/formulas/8de607292a6775.png" alt="\delta" width="15" height="34"> 足够大才可能合作。
+87. 有限次重复囚徒困境由逆向归纳得每期都背叛；无限次且 $\delta$ 足够大才可能合作。
 88. 子博弈精炼用逆向归纳剔除**不可置信威胁**；不可用于静态博弈。
 89. 零和博弈 `maximin = minimax`；囚徒困境是变和博弈，不适用。
 90. 市场失灵指偏离帕累托最优，不等于价格高或企业利润多。
@@ -1832,7 +1788,7 @@ p= 2- 2p \to 3p= 2 \to p= \frac{2}{3} \\
 92. 庇古税应等于**最优产量处**的边际外部成本，若 ME 随 Q 变化就不能取常数。
 93. 科斯定理的"产权归属不影响产量"以交易成本为零为前提；人数众多时往往失效。
 94. 有效率的污染量通常不为零；目标是 `MSB = MSC` 而非全面禁止。
-95. 公共物品最优是 <img class="fml" src="/formulas/688a6bc9e6ef13.png" alt="\sum MRS= MRT" width="144" height="33">（**纵向相加**），私人物品是 `MRS` 相等。
+95. 公共物品最优是 $\sum MRS= MRT$（**纵向相加**），私人物品是 `MRS` 相等。
 96. 公共物品非排他 + 非竞争 ⇒ 搭便车；公共资源难排他但有竞争性 ⇒ 公地悲剧。
 97. "公共物品必须由政府生产"错误：提供（融资）与生产可以分离。
 98. 逆向选择在**签约前**（隐藏信息），道德风险在**签约后**（隐藏行动）。
@@ -1842,7 +1798,7 @@ p= 2- 2p \to 3p= 2 \to p= \frac{2}{3} \\
 102. 多数投票可能否决有效率的项目（收益分散、成本集中），也会过度通过利益集中项目。
 103. 克莱姆法则之外的通用检验：政策题的 `CS + PS + 政府收支 + 外部成本` 四项必须逐项列出。
 104. 任何"曲线平移"题都要先画图，再判断哪个变量方向不确定，不能凭直觉。
-105. 所有计算题都应做一次**交叉验算**：`MR = MC` 与 `VMP = w`、<img class="fml" src="/formulas/92646b0aeb23d4.png" alt="TR- TC" width="83" height="33"> 与 <img class="fml" src="/formulas/1622e1460230db.png" alt="PS- TFC" width="95" height="33"> 应一致。
+105. 所有计算题都应做一次**交叉验算**：`MR = MC` 与 `VMP = w`、$TR- TC$ 与 $PS- TFC$ 应一致。
 106. 单位一定要带：弹性无量纲，斜率、MC、CS/PS 有量纲；混淆会直接暴露概念不清。
 107. 边际量是「**再增加一单位**」带来的增量，不是总量除以数量的平均值（AP/AC）。
 108. "其他条件不变"（ceteris paribus）是几乎所有定理的前提，答题时点明可避免失分。

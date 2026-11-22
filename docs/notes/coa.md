@@ -44,7 +44,7 @@ summary: "计算机组成与系统结构 全面详解笔记，共 9 章：计算
 | 第四代 | 1970s 起 | 大规模/超大规模集成电路 | 微处理器、个人计算机、并行与多核 |
 
 - **摩尔定律**：芯片上晶体管数约每 18~24 个月翻一番（经验规律，非物理定律）；近十余年因功耗墙、内存墙与制程成本而明显放缓，性能提升转向**多核、异构加速器、专用领域架构 DSA 与先进封装**。
-- 教材中的 Intel CPU 芯片性能比较表（<img class="fml" src="/formulas/3f977f21c1025b.png" alt="4004 \to 8080 \to \cdots \to Pentium 4" width="263" height="34">）体现的正是集成度、主频、线宽、数据/地址总线宽度的演进。
+- 教材中的 Intel CPU 芯片性能比较表（$4004 \to 8080 \to \cdots \to Pentium 4$）体现的正是集成度、主频、线宽、数据/地址总线宽度的演进。
 
 ### 1.3 计算机系统的组成（★★★）
 
@@ -78,63 +78,53 @@ summary: "计算机组成与系统结构 全面详解笔记，共 9 章：计算
 
 | 指标 | 定义 / 公式 |
 | --- | --- |
-| 时钟周期 T | 主频 f 的倒数，<img class="fml" src="/formulas/7f8312a93b9d86.png" alt="T= \frac{1}{f}" width="55" height="36"> |
+| 时钟周期 T | 主频 f 的倒数，$T= \frac{1}{f}$ |
 | **CPI** | 每条指令平均所需时钟周期数；加权平均 `CPI = Σ(指令 i 的 CPI × 该类指令占比)` |
 | **CPU 时间** | `CPU 时间 = 指令数 IC × CPI × T = IC × CPI / f` |
-| **MIPS** | 每秒百万条指令，<img class="fml" src="/formulas/1c84265ae5a6a1.png" alt="MIPS= \frac{f}{CPI \times 10^{6}}" width="143" height="35"> |
+| **MIPS** | 每秒百万条指令，$MIPS= \frac{f}{CPI \times 10^{6}}$ |
 | MFLOPS | 每秒百万次浮点运算 |
 | 吞吐率 / 响应时间 | 单位时间完成的任务数 / 单个任务从提交到完成的时间 |
 
 **性能三要素**：指令数 IC（编译器与 ISA）、CPI（微体系结构）、时钟周期 T（工艺与流水线深度）。三者相互制约——提高主频可能增大 CPI，减少指令数可能增大 CPI。
 
 ::: tip 工作示例 · CPU 时间（教材习题风格）
-某机器主频 `4 GHz`，程序 P 的指令数 <img class="fml" src="/formulas/bbeec630a6aff7.png" alt="8 \times 10^{9}" width="63" height="34"> 条，平均 `CPI = 1.25`：
-
-
-<p class="fml-block"><img class="fml" src="/formulas/2584de61ba851d.png" alt="\begin{gathered}
+某机器主频 `4 GHz`，程序 P 的指令数 $8 \times 10^{9}$ 条，平均 `CPI = 1.25`：
+$$
+\begin{gathered}
 \text{CPU} \; \text{时间} \; = IC \times \frac{CPI}{f}= 8 \times 10^{9} \times \frac{1.25}{4 \times 10^{9}}= \frac{10 \times 10^{9}}{4 \times 10^{9}}= 2.5 s \\
 \text{若把主频提到} \; \text{5 GHz} \; \text{而} \; \text{CPI} \; \text{不变} \; \to \; \text{时间} \; \text{= 2.0 s} \; \text{（提速} \; \text{1.25} \; \text{倍）} \\
 \text{若改用优化编译使指令数降为} \; 7 \times 10^{9} \; \text{但} \; \text{CPI} \; \text{升到} \; 1.5 \to \; \text{时间} \; = \frac{10.5 \times 10^{9}}{4 \times 10^{9}}= 2.625 s \; \text{（反而变慢）}
-\end{gathered}" width="792" height="123"></p>
-
-
-结论：不能只看主频或单一指标，必须综合 <img class="fml" src="/formulas/7a478c5594d2e1.png" alt="IC \times \frac{CPI}{f}" width="83" height="36">。
+\end{gathered}
+$$
+结论：不能只看主频或单一指标，必须综合 $IC \times \frac{CPI}{f}$。
 :::
 
 ::: tip 工作示例 · 加权 CPI 与两台机器比较
 程序在某机器上 50% ALU 指令（CPI=1）、20% Load（CPI=5）、20% Store（CPI=5）、10% 分支（CPI=3）：
-
-
-<p class="fml-block"><img class="fml" src="/formulas/72e03b8e5f4b0a.png" alt="CPI= 0.5 \times 1+ 0.2 \times 5+ 0.2 \times 5+ 0.1 \times 3= 0.5+ 1+ 1+ 0.3= 2.8" width="547" height="34"></p>
-
-
+$$
+CPI= 0.5 \times 1+ 0.2 \times 5+ 0.2 \times 5+ 0.1 \times 3= 0.5+ 1+ 1+ 0.3= 2.8
+$$
 又设 M1 主频 1 GHz、CPI=4；M2 主频 1.2 GHz、CPI=2，同一程序指令数相同：
-
-
-<p class="fml-block"><img class="fml" src="/formulas/615613b5af624d.png" alt="\text{M1} \; \text{时间} \; = \frac{IC \times 4}{1 \times 10^{9}}= 4IC ns M2 \; \text{时间} \; = \frac{IC \times 2}{1.2 \times 10^{9}} \approx 1.67IC ns \to M2 \; \text{约快} \; \text{2.4} \; \text{倍}" width="605" height="35"></p>
-
-
+$$
+\text{M1} \; \text{时间} \; = \frac{IC \times 4}{1 \times 10^{9}}= 4IC ns M2 \; \text{时间} \; = \frac{IC \times 2}{1.2 \times 10^{9}} \approx 1.67IC ns \to M2 \; \text{约快} \; \text{2.4} \; \text{倍}
+$$
 :::
 
 #### 1.5.2 Amdahl 定律与加速比
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/a26e01a8fc3e9b.png" alt="\text{系统加速比} \; S= \frac{T_{\text{旧}}}{T_{\text{新}}} = \frac{1}{(1- F)+ \dfrac{F}{S_{\text{局部}}}}" width="275" height="62"></p>
-
-
+$$
+\text{系统加速比} \; S= \frac{T_{\text{旧}}}{T_{\text{新}}} = \frac{1}{(1- F)+ \dfrac{F}{S_{\text{局部}}}}
+$$
 其中 `F` 是被改进部分在**原总时间**中所占比例，`S_局部` 是该部分自身的加速倍数。
 
 ::: tip 工作示例 · Amdahl 定律
 某程序中浮点运算占执行时间的 `40%`，若把浮点部件加速 `10` 倍：
+$$
+S= \frac{1}{(1- 0.4)+ \frac{0.4}{10}}= \frac{1}{0.6+ 0.04}= \frac{1}{0.64} \approx 1.5625
+$$
+即使把浮点部件加速到无穷大（$\frac{0.4}{\infty} \to 0$），整体加速比上限也只有 $\frac{1}{0.6} \approx 1.67$。**结论：优化必须针对占比最大的部分**；"只优化一小块代码"收益有限。
 
-
-<p class="fml-block"><img class="fml" src="/formulas/f8006d44b1df53.png" alt="S= \frac{1}{(1- 0.4)+ \frac{0.4}{10}}= \frac{1}{0.6+ 0.04}= \frac{1}{0.64} \approx 1.5625" width="314" height="39"></p>
-
-
-即使把浮点部件加速到无穷大（<img class="fml" src="/formulas/93c6d8d20a540a.png" alt="\frac{0.4}{\infty} \to 0" width="64" height="34">），整体加速比上限也只有 <img class="fml" src="/formulas/e4299408e76d2b.png" alt="\frac{1}{0.6} \approx 1.67" width="83" height="34">。**结论：优化必须针对占比最大的部分**；"只优化一小块代码"收益有限。
-
-对比 **Gustafson 定律**：若问题规模随处理器数增大（保持并行时间不变），可扩展加速比 <img class="fml" src="/formulas/4863d152338471.png" alt="S= p- \alpha(p- 1)" width="138" height="34">，其中 α 为串行占比；它说明扩大问题规模时并行仍有价值。
+对比 **Gustafson 定律**：若问题规模随处理器数增大（保持并行时间不变），可扩展加速比 $S= p- \alpha(p- 1)$，其中 α 为串行占比；它说明扩大问题规模时并行仍有价值。
 :::
 
 #### 1.5.3 基准程序与 MIPS 陷阱
@@ -143,16 +133,14 @@ summary: "计算机组成与系统结构 全面详解笔记，共 9 章：计算
 - **MIPS 不可靠**：MIPS 只反映 `f/CPI`，**不含指令数**。不同 ISA 完成同一任务所需指令数差别巨大；同一程序优化后可能指令数减少而 CPI 上升，MIPS 下降但总时间反而缩短。教材专门以例子说明「从 MIPS 数看，优化后速度反而变慢」。
 
 ::: tip 工作示例 · MIPS 陷阱
-机器 A：主频 `100 MHz`、CPI=2 → <img class="fml" src="/formulas/5ff3edf760d86a.png" alt="MIPS_{A}= \frac{100}{2}= 50" width="160" height="34">；机器 B：主频 `200 MHz`、CPI=5 → <img class="fml" src="/formulas/25a82b17e16f5a.png" alt="MIPS_{B}= \frac{200}{5}= 40" width="159" height="34">。
+机器 A：主频 `100 MHz`、CPI=2 → $MIPS_{A}= \frac{100}{2}= 50$；机器 B：主频 `200 MHz`、CPI=5 → $MIPS_{B}= \frac{200}{5}= 40$。
 若同一任务在 B 上编译出的指令数只有 A 的一半：
-
-
-<p class="fml-block"><img class="fml" src="/formulas/782176af42359c.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{A} \; \text{时间} \; = \frac{IC \times 2}{100MHz}= \frac{2IC}{1e8} B \; \text{时间} \; = \frac{0.5IC \times 5}{200MHz}= \frac{1.25IC}{1e8} \\
 \text{B 更快，但} \; MIPS_{B}(40) \; \text{小于} \; MIPS_{A}(50) \; \text{——说明 MIPS 不能跨 ISA、跨编译器比较性能}
-\end{gathered}" width="715" height="71"></p>
-
-
+\end{gathered}
+$$
 :::
 
 ### 1.6 概念辨析与现代视角
@@ -178,7 +166,7 @@ summary: "计算机组成与系统结构 全面详解笔记，共 9 章：计算
 - 「主频越高机器越快」错误：还需看 CPI 与指令数；不同 ISA 之间尤其不能比主频/MIPS。
 - Amdahl 定律里的 `F` 是**原执行时间占比**，不是代码行数占比。
 - `CPU 时间 = IC × CPI / f` 中的 CPI 必须是**该程序**的加权平均 CPI，不能拿理论理想值 1 直接代入。
-- 提升某一部件速度带来的整体收益恒小于 <img class="fml" src="/formulas/17a8a6e59957d1.png" alt="\frac{1}{1- F}" width="37" height="35">；"局部加速无穷大 → 整体无穷快"是错的。
+- 提升某一部件速度带来的整体收益恒小于 $\frac{1}{1- F}$；"局部加速无穷大 → 整体无穷快"是错的。
 :::
 
 ---
@@ -187,13 +175,13 @@ summary: "计算机组成与系统结构 全面详解笔记，共 9 章：计算
 
 ### 2.1 进位计数制与转换（★★）
 
-- 常用进制：二进制 B / 八进制 O / 十进制 D / 十六进制 H；`R` 进制按权展开 <img class="fml" src="/formulas/8fa8f1d2f53a56.png" alt="\sum d_{i} \times R^{i}" width="84" height="34">。
+- 常用进制：二进制 B / 八进制 O / 十进制 D / 十六进制 H；`R` 进制按权展开 $\sum d_{i} \times R^{i}$。
 - **二 ↔  十六**：每 4 位二进制对应 1 位十六进制（因此十六进制是二进制的紧凑写法）；二 ↔  八 每 3 位一组。
 - **十 → 二**：整数部分"除 2 取余，逆序排列"，小数部分"乘 2 取整，顺序排列"（小数可能无限循环，故 0.1 无法用有限二进制精确表示）。
 
 ::: tip 工作示例 · 进制转换
-`0x3A5F` → <img class="fml" src="/formulas/d8e33478e51d0c.png" alt="0011 1010 0101 1111_{2}" width="157" height="34"> → 十进制 <img class="fml" src="/formulas/e4e40046620823.png" alt="3 \times 4096+ 10 \times 256+ 5 \times 16+ 15= 14943" width="340" height="34">。
-十进制 `0.625` → 二进制 `0.101`（<img class="fml" src="/formulas/a97dbef9fac3f2.png" alt="0.625 \times 2=1.25" width="134" height="34"> 取 1；<img class="fml" src="/formulas/9570256005e5f1.png" alt="0.25 \times 2=0.5" width="116" height="34"> 取 0；<img class="fml" src="/formulas/18cab45309d232.png" alt="0.5 \times 2=1.0" width="107" height="34"> 取 1）。
+`0x3A5F` → $0011 1010 0101 1111_{2}$ → 十进制 $3 \times 4096+ 10 \times 256+ 5 \times 16+ 15= 14943$。
+十进制 `0.625` → 二进制 `0.101`（$0.625 \times 2=1.25$ 取 1；$0.25 \times 2=0.5$ 取 0；$0.5 \times 2=1.0$ 取 1）。
 :::
 
 ### 2.2 定点数与浮点数（★★）
@@ -201,13 +189,13 @@ summary: "计算机组成与系统结构 全面详解笔记，共 9 章：计算
 | 表示 | 小数点位置 | 特点 |
 | --- | --- | --- |
 | **定点数** | 固定（纯整数 / 纯小数） | 硬件简单，但表示范围与精度不可兼得 |
-| **浮点数** | 随阶码浮动 <img class="fml" src="/formulas/174f8a70db69ed.png" alt="N= M \times R^E" width="113" height="34"> | 范围大，精度由尾数位决定；运算需对阶/规格化 |
+| **浮点数** | 随阶码浮动 $N= M \times R^E$ | 范围大，精度由尾数位决定；运算需对阶/规格化 |
 
 ### 2.3 整数的机器级表示（★★★）
 
 ![数据的机器级表示与 IEEE 754](/coa/coa-datarep.svg)
 
-- **无符号整数**：全部位表示数值，n 位范围 <img class="fml" src="/formulas/ff76362d98a33a.png" alt="0 \sim 2^{n}- 1" width="88" height="34">。
+- **无符号整数**：全部位表示数值，n 位范围 $0 \sim 2^{n}- 1$。
 - **带符号整数的四种编码**（以 n=8、真值 −5 为例）：
 
 | 编码 | +5 | −5 | 规则 |
@@ -217,32 +205,32 @@ summary: "计算机组成与系统结构 全面详解笔记，共 9 章：计算
 | **补码** | `0000 0101` | `1111 1011` | 负数：反码 + 1；或"从右向左第一个 1 之后取反" |
 | 移码 | `1000 0101` | `0111 1011` | 补码符号位取反；`[X]移 = 2^(n−1) + X`，便于比较大小 |
 
-- **n 位补码范围** <img class="fml" src="/formulas/98baf1211e5807.png" alt="- 2^{n- 1} \sim 2^{n- 1}- 1" width="142" height="34">（8 位为 <img class="fml" src="/formulas/1295480bb76d11.png" alt="- 128" width="47" height="34">）；**0 的表示唯一**；<img class="fml" src="/formulas/e44aaeff3d7cff.png" alt="- 2^{n- 1}" width="54" height="34"> 的补码是 <img class="fml" src="/formulas/5e77dcbfce9ad9.png" alt="1000 \cdots 0" width="79" height="34">（原码无法表示）。
+- **n 位补码范围** $- 2^{n- 1} \sim 2^{n- 1}- 1$（8 位为 $- 128$）；**0 的表示唯一**；$- 2^{n- 1}$ 的补码是 $1000 \cdots 0$（原码无法表示）。
 - **补码的意义**：`[X+Y]补 = [X]补 + [Y]补`、`[X−Y]补 = [X]补 + [−Y]补`，符号位参与运算、进位丢弃，硬件只需加法器。
 - **符号扩展**：正数补 0、负数补 1（保持值不变）；**零扩展**用于无符号数。
-- **C 语言整数**：`char/short/int/long` 有符号与 `unsigned` 版本；**有符号与无符号混合运算时，有符号数被隐式转换为无符号**，是经典 bug 来源（如 <img class="fml" src="/formulas/ecf99a7da9e194.png" alt="- 1&lt; 1U" width="77" height="34"> 为假）；溢出对无符号数是模 <img class="fml" src="/formulas/1475105e7f5cff.png" alt="2^{n}" width="24" height="34"> 回绕，对有符号数在 C 标准中是**未定义行为**。
+- **C 语言整数**：`char/short/int/long` 有符号与 `unsigned` 版本；**有符号与无符号混合运算时，有符号数被隐式转换为无符号**，是经典 bug 来源（如 $- 1< 1U$ 为假）；溢出对无符号数是模 $2^{n}$ 回绕，对有符号数在 C 标准中是**未定义行为**。
 
 ::: tip 工作示例 · 补码换算
-求 <img class="fml" src="/formulas/86ce001b29de44.png" alt="- 100" width="48" height="34"> 的 8 位补码：`+100 = 0110 0100` → 取反 `1001 1011` → 加 1 = `1001 1100`（`0x9C`）。
-已知 8 位补码 `0x9C`：最高位为 1 是负数 → 取反加 1 得 `0110 0100 = 100` → 真值 <img class="fml" src="/formulas/86ce001b29de44.png" alt="- 100" width="48" height="34">。
+求 $- 100$ 的 8 位补码：`+100 = 0110 0100` → 取反 `1001 1011` → 加 1 = `1001 1100`（`0x9C`）。
+已知 8 位补码 `0x9C`：最高位为 1 是负数 → 取反加 1 得 `0110 0100 = 100` → 真值 $- 100$。
 :::
 
 ### 2.4 实数的表示与 IEEE 754（★★★）
 
-- **一般浮点格式**：<img class="fml" src="/formulas/2ac6422345e156.png" alt="N=(- 1)^S \times M \times R^E" width="180" height="34">；阶码 E 常用**移码**（便于比较大小），尾数 M 常用**原码/补码小数**，基数 R 隐含为 2。
+- **一般浮点格式**：$N=(- 1)^S \times M \times R^E$；阶码 E 常用**移码**（便于比较大小），尾数 M 常用**原码/补码小数**，基数 R 隐含为 2。
 - **规格化**：调整阶码使尾数最高数值位为有效位（二进制即 `1.xxxx`），以最大化有效精度。规格化后 IEEE 754 可**隐藏最高位 1**，尾数字段只存小数部分。
-- **IEEE 754 单精度（32 bit）**：`S(1) | E(8, bias=127) | M(23)`；真值 <img class="fml" src="/formulas/90bc4e9b45b0eb.png" alt="=(- 1)^S \times(1.M) \times 2^{E- 127}" width="211" height="34">；**双精度（64 bit）** `S(1) | E(11, bias=1023) | M(52)`。
+- **IEEE 754 单精度（32 bit）**：`S(1) | E(8, bias=127) | M(23)`；真值 $=(- 1)^S \times(1.M) \times 2^{E- 127}$；**双精度（64 bit）** `S(1) | E(11, bias=1023) | M(52)`。
 
 | E 与 M 取值 | 表示 |
 | --- | --- |
 | `E = 0, M = 0` | ±0（由符号位决定） |
-| <img class="fml" src="/formulas/87b93be965ca91.png" alt="E= 0, M= 0" width="114" height="34"> | **非规格化数** <img class="fml" src="/formulas/0931fdad1e46a7.png" alt="0.M \times 2^{- 126}" width="100" height="34">，用于表示接近 0 的极小值、实现渐进下溢 |
-| <img class="fml" src="/formulas/834764c3ab0a26.png" alt="1 \le E \le 254" width="105" height="34"> | 规格化数 <img class="fml" src="/formulas/0aa7d2db2169e4.png" alt="1.M \times 2^{E- 127}" width="110" height="34"> |
+| $E= 0, M= 0$ | **非规格化数** $0.M \times 2^{- 126}$，用于表示接近 0 的极小值、实现渐进下溢 |
+| $1 \le E \le 254$ | 规格化数 $1.M \times 2^{E- 127}$ |
 | `E = 255, M = 0` | ±∞ |
-| <img class="fml" src="/formulas/d26986c14e17cf.png" alt="E= 255, M= 0" width="131" height="34"> | **NaN**（非数，如 0/0、√−1） |
+| $E= 255, M= 0$ | **NaN**（非数，如 0/0、√−1） |
 
 ::: tip 工作示例 · 十进制转 IEEE 754 单精度
-把 <img class="fml" src="/formulas/c4131fe8281abb.png" alt="- 12.75" width="62" height="34"> 编码为 32 位浮点：
+把 $- 12.75$ 编码为 32 位浮点：
 ```text
 ① 转二进制：$12.75=1100.11_{2}=1.10011_{2}\times 2^{3}$
 ② 符号 S = 1（负数）
@@ -256,21 +244,21 @@ summary: "计算机组成与系统结构 全面详解笔记，共 9 章：计算
 
 ::: danger 易错 · 浮点数
 - **浮点运算不满足结合律**：`(a+b)+c` 与 `a+(b+c)` 可能不同，因为对阶右移会丢失低位。
-- 单精度约 7 位十进制有效数字、双精度约 16 位；<img class="fml" src="/formulas/95b6341cd570ff.png" alt="0.1+ 0.2= 0.3" width="121" height="34">（二进制无限循环），金融计算用 `BigDecimal`/十进制浮点。
+- 单精度约 7 位十进制有效数字、双精度约 16 位；$0.1+ 0.2= 0.3$（二进制无限循环），金融计算用 `BigDecimal`/十进制浮点。
 - 阶码上溢 → ∞、下溢 → 0 或非规格化数；非规格化数的隐藏位是 **0** 而不是 1。
 - IEEE 754 默认舍入为"就近偶数（round to nearest, ties to even）"，不是简单的四舍五入。
 :::
 
 ### 2.5 十进制数与非数值数据（★★）
 
-- **十进制数表示**：① 用 ASCII 字符逐个表示（便于显示，不便运算）；② **BCD 码**（8421 码，4 bit 表示 1 位十进制数，<img class="fml" src="/formulas/c73b7d7239a905.png" alt="12 \to 0001 0010" width="124" height="34">），分压缩（1 B 存 2 位）与非压缩（1 B 存 1 位）。BCD 加法结果大于 9 时需**加 6 修正**。
+- **十进制数表示**：① 用 ASCII 字符逐个表示（便于显示，不便运算）；② **BCD 码**（8421 码，4 bit 表示 1 位十进制数，$12 \to 0001 0010$），分压缩（1 B 存 2 位）与非压缩（1 B 存 1 位）。BCD 加法结果大于 9 时需**加 6 修正**。
 - **逻辑值**：用一位或一字节表示真/假（C 语言中 0 为假、非 0 为真）。
 - **西文字符**：ASCII 7 bit（128 个字符），扩展用 1 字节；控制字符（如 LF=0x0A）不显示。
 - **汉字**：输入码 → 机内码（GB2312/GBK 双字节、Unicode 码点）→ 字形码（点阵/矢量）；UTF-8 是变长 1~4 字节编码，兼容 ASCII。
 
 ### 2.6 数据宽度、存储与校验（★★★）
 
-- **单位**：位 bit、字节 B（`1 B = 8 bit`）、字 word（字长由 CPU 决定）；<img class="fml" src="/formulas/18124d5629929d.png" alt="1 KB= 2^{10} B" width="107" height="34">，注意与网络速率单位 <img class="fml" src="/formulas/6e8780167050dc.png" alt="\frac{1 kbit}{s}= \frac{10^{3} bit}{s}" width="99" height="34"> 的区别。
+- **单位**：位 bit、字节 B（`1 B = 8 bit`）、字 word（字长由 CPU 决定）；$1 KB= 2^{10} B$，注意与网络速率单位 $\frac{1 kbit}{s}= \frac{10^{3} bit}{s}$ 的区别。
 - **字节序**：**大端**（高位字节在低地址，网络字节序、部分 RISC）与**小端**（低位字节在低地址，x86、多数 ARM）。多字节对象跨平台传输必须转换；位域、结构体打包也受字节序影响。
 - **对齐**：数据地址是其长度的整数倍时一次访存即可取到；未对齐可能触发多次访存甚至（在某些架构上）异常。结构体成员顺序会影响 `sizeof`。
 - **数据校验码**：
@@ -278,16 +266,14 @@ summary: "计算机组成与系统结构 全面详解笔记，共 9 章：计算
 | 校验码 | 原理 | 能力 |
 | --- | --- | --- |
 | 奇偶校验 | 使 1 的个数为奇/偶 | 只能检**奇数位**错，无纠错能力 |
-| **海明码** | 多重奇偶校验，校验位放在 <img class="fml" src="/formulas/c72dae4f8013bf.png" alt="2^{i}" width="21" height="34"> 位置 | 可**纠 1 位错 / 检 2 位错**（SEC-DED 加总校验位） |
+| **海明码** | 多重奇偶校验，校验位放在 $2^{i}$ 位置 | 可**纠 1 位错 / 检 2 位错**（SEC-DED 加总校验位） |
 | CRC | 模 2 除法生成冗余码 | 检多位突发错，用于磁盘、网络 |
 
 ::: tip 工作示例 · 海明码校验位数
-数据 `n = 8` 位，需校验位 k 满足 <img class="fml" src="/formulas/f10fa185bf9c8b.png" alt="2^{k} \ge n+ k+ 1" width="121" height="34">：
-
-
-<p class="fml-block"><img class="fml" src="/formulas/3892b223e5740d.png" alt="k=3: 8 \ge 8+3+1=12 \times k=4: 16 \ge 8+4+1=13 \checkmark \to \; \text{需} \; \text{4} \; \text{位校验位，总} \; \text{12} \; \text{位}" width="679" height="33"></p>
-
-
+数据 `n = 8` 位，需校验位 k 满足 $2^{k} \ge n+ k+ 1$：
+$$
+k=3: 8 \ge 8+3+1=12 \times k=4: 16 \ge 8+4+1=13 \checkmark \to \; \text{需} \; \text{4} \; \text{位校验位，总} \; \text{12} \; \text{位}
+$$
 校验位放在第 `1, 2, 4, 8` 位；接收端由各校验组重算得到"指错字"，其值就是出错位的位置（全 0 表示无错）。主存常用 **ECC（SEC-DED）** 内存，能纠 1 位、检 2 位错。
 :::
 
@@ -295,35 +281,33 @@ summary: "计算机组成与系统结构 全面详解笔记，共 9 章：计算
 
 #### 2.7.1 补码、移码与 C 语言陷阱
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/1113d554f87ba3.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{[X]} \; \text{补} \; \text{+ [Y]} \; \text{补} \; \text{= [X+Y]} \; \text{补} \; \text{（模} \; 2^{n} \; \text{）} \\
 [- Y] \; \text{补} \; \text{= [Y]} \; \text{补} \; \text{连同符号位按位取反、末位加} \; \text{1} \\
 \text{移码：同一真值的移码与补码只差符号位；移码全} \; \text{0} \; \text{对应最小真值，便于浮点阶码比较}
-\end{gathered}" width="686" height="84"></p>
-
-
+\end{gathered}
+$$
 
 | 陷阱 | 说明 |
 | --- | --- |
-| 有符号溢出 | C 中未定义行为；硬件用 <img class="fml" src="/formulas/ca2a02ca719c74.png" alt="C_{n} ⊕ C_{n- 1}" width="87" height="33"> 或双符号位检测 |
-| 有符号/无符号混合 | 有符号被隐式转为无符号，<img class="fml" src="/formulas/ecf99a7da9e194.png" alt="- 1&lt; 1U" width="77" height="34"> 结果为假 |
+| 有符号溢出 | C 中未定义行为；硬件用 $C_{n} ⊕ C_{n- 1}$ 或双符号位检测 |
+| 有符号/无符号混合 | 有符号被隐式转为无符号，$- 1< 1U$ 结果为假 |
 | 移位 | 算术右移补符号位、逻辑右移补 0；左移丢高位，右移丢低位 |
 | 类型转换 | 短→长要符号扩展（有符号）或零扩展（无符号）；长→短直接截断 |
 
 #### 2.7.2 IEEE 754 的边界与新型浮点格式
 
-- **表示范围**（单精度）：规格化最小正数 <img class="fml" src="/formulas/84fe44f244dd3f.png" alt="\approx 1.18 \times 10^{-38}" width="121" height="33">（<img class="fml" src="/formulas/68c321bea8e3b8.png" alt="2^{-126}" width="45" height="33">），最大 <img class="fml" src="/formulas/5e35ba5e680dbb.png" alt="\approx 3.40 \times 10^{38}" width="110" height="33">；非规格化最小正数 <img class="fml" src="/formulas/08dc49cfe6ccb9.png" alt="\approx 1.4 \times 10^{-45}" width="112" height="33">（<img class="fml" src="/formulas/709d4fc6e6b298.png" alt="2^{-149}" width="45" height="33">）。
-- **相对误差**：单精度机器精度 <img class="fml" src="/formulas/8ac8c790a8b4b0.png" alt="\epsilon= 2^{-23} \approx 1.19 \times 10^{-7}" width="182" height="33">，双精度 <img class="fml" src="/formulas/319765ae05b788.png" alt="2^{-52} \approx 2.22 \times 10^{-16}" width="158" height="33">。
+- **表示范围**（单精度）：规格化最小正数 $\approx 1.18 \times 10^{-38}$（$2^{-126}$），最大 $\approx 3.40 \times 10^{38}$；非规格化最小正数 $\approx 1.4 \times 10^{-45}$（$2^{-149}$）。
+- **相对误差**：单精度机器精度 $\epsilon= 2^{-23} \approx 1.19 \times 10^{-7}$，双精度 $2^{-52} \approx 2.22 \times 10^{-16}$。
 - **现代补充**（教材只讲单/双精度）：**半精度 FP16**（E5/M10，深度学习推理）、**bfloat16**（E8/M7，保留与 FP32 相同的指数范围，训练常用）、**FP8**、NVIDIA **TF32**、**融合乘加 FMA**（一次舍入，精度更高）；IEEE 754-2008 还定义了十进制浮点与多精度格式。
 - **NaN 传播**：`NaN != NaN` 恒为真；比较运算遇到 NaN 需特殊处理。
 
 ::: danger 易错 · 数据表示
 - 原码/反码的 ±0 有两种表示（`0000 0000` 与 `1000 0000` / `1111 1111`），补码与移码 0 唯一。
-- 8 位补码 `1000 0000` 是 <img class="fml" src="/formulas/1295480bb76d11.png" alt="- 128" width="47" height="34">，**没有对应的 8 位原码/反码**；对它取反加 1 仍是它自己。
+- 8 位补码 `1000 0000` 是 $- 128$，**没有对应的 8 位原码/反码**；对它取反加 1 仍是它自己。
 - 移码用于阶码时偏置值单精度是 **127**（不是 128），双精度 **1023**；`E` 字段存的是 `真指数 + bias`。
-- 海明码的条件是 <img class="fml" src="/formulas/f10fa185bf9c8b.png" alt="2^{k} \ge n+ k+ 1" width="121" height="34">（n 为数据位、k 为校验位），不要写成 <img class="fml" src="/formulas/0fcbe5d667c872.png" alt="2^{k} \ge n+ k" width="90" height="33">。
+- 海明码的条件是 $2^{k} \ge n+ k+ 1$（n 为数据位、k 为校验位），不要写成 $2^{k} \ge n+ k$。
 :::
 
 ---
@@ -334,48 +318,44 @@ summary: "计算机组成与系统结构 全面详解笔记，共 9 章：计算
 
 ![加法器、ALU 与补码加减运算](/coa/coa-alu.svg)
 
-- **一位全加器**：`S = A ⊕ B ⊕ C_in`，<img class="fml" src="/formulas/7035397a08e6db.png" alt="C_{out}= A \cdot B+(A⊕B) \cdot C_{in}" width="226" height="33">；记 <img class="fml" src="/formulas/fab2acfed683d3.png" alt="G= A \cdot B" width="86" height="33">（进位生成）、`P = A⊕B`（进位传递），则 <img class="fml" src="/formulas/91778c39bb3043.png" alt="C_{out}= G+ P \cdot C_{in}" width="150" height="33">。
-- **n 位加法器**：行波进位（RCA）逐级等待，时延 ∝ n；**先行进位（CLA）**把各级进位展开为 G/P 的与或式并行产生，时延 <img class="fml" src="/formulas/f2f182680b4944.png" alt="\propto \log n" width="63" height="33">，代价是门数增加；成组先行进位折中。
+- **一位全加器**：`S = A ⊕ B ⊕ C_in`，$C_{out}= A \cdot B+(A⊕B) \cdot C_{in}$；记 $G= A \cdot B$（进位生成）、`P = A⊕B`（进位传递），则 $C_{out}= G+ P \cdot C_{in}$。
+- **n 位加法器**：行波进位（RCA）逐级等待，时延 ∝ n；**先行进位（CLA）**把各级进位展开为 G/P 的与或式并行产生，时延 $\propto \log n$，代价是门数增加；成组先行进位折中。
 - **ALU**：在加法器基础上加入与/或/非/异或、移位、比较等功能，由操作选择线决定执行哪种运算，并输出 **N（负）/Z（零）/C（进位）/V（溢出）** 标志位供条件分支使用。
 - **移位器**：逻辑左/右移（补 0）、算术右移（补符号位）、循环移位；桶形移位器可在一个周期内移任意位。
 
 ### 3.2 定点数加减运算（★★★）
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/925b9b1138a7e9.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{[X + Y]} \; \text{补} \; \text{= [X]} \; \text{补} \; \text{+ [Y]} \; \text{补} \; \text{（模} \; 2^{n} \; \text{，符号位参与运算，最高进位丢弃）} \\
 [X- Y] \; \text{补} \; \text{= [X]} \; \text{补} \; +[- Y] \; \text{补} \; \text{（} \; [- Y] \; \text{补} \; \text{= [Y]} \; \text{补} \; \text{连同符号位按位取反、末位加} \; \text{1} \; \text{）}
-\end{gathered}" width="681" height="57"></p>
-
-
+\end{gathered}
+$$
 
 **溢出判断**（三种等价方法）：
 
 | 方法 | 判据 |
 | --- | --- |
-| 单符号位进位 | <img class="fml" src="/formulas/2fb7151bbf8933.png" alt="OV= C_{n} ⊕ C_{n- 1}" width="139" height="33">，其中 C_n 是符号位产生的进位、<img class="fml" src="/formulas/8fa17f4decfcf4.png" alt="C_{n- 1}" width="44" height="33"> 是最高数值位向符号位的进位 |
+| 单符号位进位 | $OV= C_{n} ⊕ C_{n- 1}$，其中 C_n 是符号位产生的进位、$C_{n- 1}$ 是最高数值位向符号位的进位 |
 | **双符号位（变形补码）** | `00`/`11` 正常；`01` 正溢出（结果应为正却为负）；`10` 负溢出 |
 | 操作数/结果符号 | 同号相加才可能溢出；若结果符号与两操作数不同则溢出 |
 
 ::: tip 工作示例 · 8 位补码加减与溢出
-
-
-<p class="fml-block"><img class="fml" src="/formulas/70442cffdf69cc.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 (1) 9- 5 \; \text{：} \; \text{0000 1001 + 1111 1011(−5} \; \text{的补码} \; \text{) = 1 0000 0100 →} \; \text{丢弃进位} \; \text{= 0000 0100 = +4 }\checkmark \\
-\text{(2) 120 + 10} \; \text{：} \; 0111 1000+ 0000 1010= 1000 0010=- 126 \; \text{（数学结果} \; \text{+130 &gt; +127} \; \text{）} \\
+\text{(2) 120 + 10} \; \text{：} \; 0111 1000+ 0000 1010= 1000 0010=- 126 \; \text{（数学结果} \; \text{+130 > +127} \; \text{）} \\
 C_{n}= 0 \; \text{（符号位未产生进位）、} \; C_{n- 1}= 1 \to OV= 1 \; \text{，正溢出} \; \checkmark \\
 (3)- 120- 20 \; \text{：} \; 1000 1000+ 1110 1100= 1 0111 0100 \to 0111 0100=+116 \; \text{（应为} \; - 140 \; \text{）} \\
 \text{双符号位将出现} \; 10 \to \; \text{负溢出}
-\end{gathered}" width="746" height="137"></p>
-
-
+\end{gathered}
+$$
 :::
 
 ::: danger 易错 · 补码运算
 - 溢出只可能发生在**同号相加**或**异号相减**；异号相加永远不会溢出。
-- 无符号数的"溢出"判据是最高位**有进位**（`C_n = 1`），与有符号数的 <img class="fml" src="/formulas/ca2a02ca719c74.png" alt="C_{n} ⊕ C_{n- 1}" width="87" height="33"> 不是一回事。
-- `[−Y]补` 的求法是**连同符号位一起取反再加 1**，不能只取反数值位；对 <img class="fml" src="/formulas/e44aaeff3d7cff.png" alt="- 2^{n- 1}" width="54" height="34"> 求补仍是它自己（溢出）。
+- 无符号数的"溢出"判据是最高位**有进位**（`C_n = 1`），与有符号数的 $C_{n} ⊕ C_{n- 1}$ 不是一回事。
+- `[−Y]补` 的求法是**连同符号位一起取反再加 1**，不能只取反数值位；对 $- 2^{n- 1}$ 求补仍是它自己（溢出）。
 :::
 
 ### 3.3 定点数乘法运算（★★★）
@@ -387,32 +367,28 @@ C_{n}= 0 \; \text{（符号位未产生进位）、} \; C_{n- 1}= 1 \to OV= 1 \;
 | 快速乘法器 | 阵列乘法器（并行产生所有部分积）、Wallace 树压缩、Booth 编码 + 进位保留加法器 | 面积大但一周期或数周期出结果 |
 
 ::: tip 工作示例 · 原码一位乘法
-`X = 0.1101`（13/16），`Y = 0.1011`（11/16），求 <img class="fml" src="/formulas/62cede35f6f3f8.png" alt="X \times Y" width="60" height="34">（符号均为 0）。取双符号位部分积 P 初值 `00.0000`：
-
-
-<p class="fml-block"><img class="fml" src="/formulas/20a4a564a5e5f8.png" alt="\begin{gathered}
+`X = 0.1101`（13/16），`Y = 0.1011`（11/16），求 $X \times Y$（符号均为 0）。取双符号位部分积 P 初值 `00.0000`：
+$$
+\begin{gathered}
 \text{y3(} \; \text{最低位} \; \text{)=1 → P += 00.1101 = 00.1101 →} \; \text{右移} \; \text{1} \; \text{位} \; \text{= 00.0110 1} \\
 y_{2}=1 \to P+= 00.1101= 01.0011 1 \to \; \text{右移} \; \text{1} \; \text{位} \; \text{= 00.1001 11} \\
 y_{1}=0 \to \; \text{不加} \; \to \; \text{右移} \; \text{1} \; \text{位} \; \text{= 00.0100 111} \\
 y_{0}=1 \to P+= 00.1101= 01.0001 111 \to \; \text{右移} \; \text{1} \; \text{位} \; \text{= 00.1000 1111} \\
 \text{数值结果} \; = 0.1000 1111_{2}= \frac{143}{256} \; \text{；符号} \; \text{= 0 ⊕ 0 = 0} \\
 \text{验证：} \; \frac{13}{16} \times \frac{11}{16}= \frac{143}{256} \checkmark
-\end{gathered}" width="536" height="193"></p>
-
-
+\end{gathered}
+$$
 :::
 
 ::: tip 工作示例 · Booth 规则速记
-设乘数低位补 <img class="fml" src="/formulas/13cb99c57a9fd4.png" alt="y_{- 1}= 0" width="65" height="34">，逐位比较 <img class="fml" src="/formulas/5228b14fe54943.png" alt="(y_{i}, y_{i- 1})" width="73" height="34">：
-
-
-<p class="fml-block"><img class="fml" src="/formulas/092960951aa640.png" alt="\begin{gathered}
+设乘数低位补 $y_{- 1}= 0$，逐位比较 $(y_{i}, y_{i- 1})$：
+$$
+\begin{gathered}
 \text{00、11} \to \; \text{部分积不变，仅算术右移} \; \text{1} \; \text{位} \\
 01 \to \; \text{部分积} \; \text{+ [X]} \; \text{补，再右移} \\
 10 \to \; \text{部分积} \; +[- X] \; \text{补，再右移}
-\end{gathered}" width="326" height="84"></p>
-
-
+\end{gathered}
+$$
 最后一步只运算不右移；n 位乘数做 n 次判断、n−1 次移位，结果为 2n 位补码。
 :::
 
@@ -429,24 +405,22 @@ y_{0}=1 \to P+= 00.1101= 01.0001 111 \to \; \text{右移} \; \text{1} \; \text{�
 
 ![浮点数加减运算五步流程](/coa/coa-float.svg)
 
-**浮点加减五步**：**① 对阶**（小阶向大阶看齐，尾数右移 <img class="fml" src="/formulas/5f9c1f01cdc53e.png" alt="\Delta E" width="36" height="34"> 位，阶码取大者；右移丢失的低位用 G/R/S 保护位保留）→ **② 尾数加减**（按补码运算）→ **③ 规格化**（左规/右规并同步调整阶码）→ **④ 舍入**（就近偶数/向零/向 ±∞）→ **⑤ 判溢出**（阶码而非尾数溢出，上溢 → ∞、下溢 → 0 或非规格化数）。
+**浮点加减五步**：**① 对阶**（小阶向大阶看齐，尾数右移 $\Delta E$ 位，阶码取大者；右移丢失的低位用 G/R/S 保护位保留）→ **② 尾数加减**（按补码运算）→ **③ 规格化**（左规/右规并同步调整阶码）→ **④ 舍入**（就近偶数/向零/向 ±∞）→ **⑤ 判溢出**（阶码而非尾数溢出，上溢 → ∞、下溢 → 0 或非规格化数）。
 
 **浮点乘除**：阶码相加/相减（并修正 bias）、尾数相乘/相除，之后同样规格化、舍入、判溢出。
 
 ::: tip 工作示例 · 需要右规的浮点加法
-设 <img class="fml" src="/formulas/7635433ca3470f.png" alt="X= 0.1101 \times 2^{2}" width="134" height="34">（= 3.25）、<img class="fml" src="/formulas/7f234fdf1019ea.png" alt="Y= 0.1011 \times 2^{3}" width="133" height="34">（= 5.5），尾数用 4 位小数：
-
-
-<p class="fml-block"><img class="fml" src="/formulas/b4a823d3d5f9ae.png" alt="\begin{gathered}
+设 $X= 0.1101 \times 2^{2}$（= 3.25）、$Y= 0.1011 \times 2^{3}$（= 5.5），尾数用 4 位小数：
+$$
+\begin{gathered}
 \text{(1)} \; \text{对阶：} \; \Delta E= 3- 2= 1 \; \text{，} \; \text{X} \; \text{尾数右移} \; \text{1} \; \text{位} \; \to 0.01101 \times 2^{3} \; \text{（保留保护位）} \\
 \text{(2)} \; \text{尾数相加：} \; \text{0.01101 + 0.10110 = 1.00011} \; \text{（} \; \times 2^{3} \; \text{）} \\
 \text{(3)} \; \text{右规：尾数} \; \ge 1 \; \text{，右移} \; \text{1} \; \text{位} \; \to 0.100011 \; \text{，阶码} \; \text{3 + 1 = 4} \\
 \text{(4)} \; \text{舍入：本例保留} \; \text{4} \; \text{位小数，} \; \text{0.100011} \; \text{超过中点} \; \text{0.10001} \; \text{，向上舍入得} \; 0.1001 \to 0.1001 \times 2^{4}= 9.0 \\
 \text{若保留更多位} \; \to 0.100011 \times 2^{4}= 8.75 \; \text{（与} \; \text{3.25 + 5.5 = 8.75} \; \text{一致，可见舍入误差的来源）} \\
 \text{(5)} \; \text{阶码} \; \text{4} \; \text{未溢出。注意：右规只可能右移} \; \text{1} \; \text{位，左规则可能移多位}
-\end{gathered}" width="790" height="166"></p>
-
-
+\end{gathered}
+$$
 :::
 
 ::: danger 易错 · 浮点运算
@@ -466,16 +440,14 @@ y_{0}=1 \to P+= 00.1101= 01.0001 111 \to \; \text{右移} \; \text{1} \; \text{�
 
 #### 3.7.1 三组综合演算
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/43f33cd8fe8781.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{(1)} \; \text{已知} \; \text{8} \; \text{位补码} \; \text{0xB6 = 1011 0110} \; \text{：符号为} \; 1 \to \; \text{取反} \; \text{0100 1001} \; \text{，加} \; 1 \to 0100 1010= 74 \to \; \text{真值} \; - 74 \\
 \text{(2) 16} \; \text{位补码} \; \text{0xFFB6} \; \text{表示} \; - 74 \; \text{的符号扩展：高位全补} \; \text{1} \; \text{（而非} \; \text{0} \; \text{）} \\
 \text{(3)  Booth} \; \text{判断：} \; X=- 3 \; \text{（} \; \text{1101} \; \text{），} \; \text{Y = +5} \; \text{（} \; \text{0101} \; \text{，末尾补} \; 0 \to 0101 0 \; \text{）} \\
 \text{从低位：} \; 10 \to \; \text{减} \; \text{[X]} \; \text{补（即} \; \text{+3} \; \text{）；} \; 01 \to \; \text{加} \; \text{[X]} \; \text{补（} \; - 3 \; \text{）} \; \cdots \cdots \; \text{最终积} \; - 15 \; \text{（} \; \text{8} \; \text{位补码} \; \text{1111 0001} \; \text{）}
-\end{gathered}" width="854" height="110"></p>
-
-
+\end{gathered}
+$$
 
 #### 3.7.2 运算部件的时序与面积权衡
 
@@ -487,13 +459,13 @@ y_{0}=1 \to P+= 00.1101= 01.0001 111 \to \; \text{右移} \; \text{1} \; \text{�
 | 阵列 / Wallace 树 + Booth | 1~3 周期 | 面积大 | 现代高性能核 |
 | 除法迭代（SRT 等） | 数十周期 | 较小 | 除法频度低，可慢 |
 
-> 现代 CPU 的**融合乘加 FMA**（<img class="fml" src="/formulas/3f2fb0e6c4785e.png" alt="a \times b+c" width="75" height="34"> 一次舍入）既提高性能又提高精度；SIMD 向量单元（SSE/AVX/NEON/SVE）把同一运算并行施加到多个数据通道，是浮点峰值算力（FLOPS）的主要来源。
+> 现代 CPU 的**融合乘加 FMA**（$a \times b+c$ 一次舍入）既提高性能又提高精度；SIMD 向量单元（SSE/AVX/NEON/SVE）把同一运算并行施加到多个数据通道，是浮点峰值算力（FLOPS）的主要来源。
 
 ::: danger 易错 · 运算方法
-- 补码加减的进位要**丢弃**，但溢出判断要看 <img class="fml" src="/formulas/ca2a02ca719c74.png" alt="C_{n} ⊕ C_{n- 1}" width="87" height="33">，两者不矛盾。
+- 补码加减的进位要**丢弃**，但溢出判断要看 $C_{n} ⊕ C_{n- 1}$，两者不矛盾。
 - Booth 乘法最后一步**不移位**；n 位乘数得到 2n 位积。
 - 加减交替除法中余数为负时下一步是**加**除数；恢复余数法则要先"加回"再左移。
-- 浮点对阶只看阶差，尾数右移位数 <img class="fml" src="/formulas/2b13d1b70e8dfe.png" alt="=|E_{X}- E_{Y}|" width="107" height="34">；右移后阶码统一为较大的那个。
+- 浮点对阶只看阶差，尾数右移位数 $=|E_{X}- E_{Y}|$；右移后阶码统一为较大的那个。
 :::
 
 ---
@@ -528,29 +500,25 @@ y_{0}=1 \to P+= 00.1101= 01.0001 111 \to \; \text{右移} \; \text{1} \; \text{�
 
 ::: tip 工作示例 · 存储器芯片扩展（必考）
 用 `1K × 4 位` 的 SRAM 芯片构成 `4K × 8 位` 主存：
-
-
-<p class="fml-block"><img class="fml" src="/formulas/dc25957420e835.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{字扩展：} \; \frac{4K}{1K}= 4 \; \text{组；位扩展：} \; \frac{8}{4}= 2 \; \text{片} \; \text{/} \; \text{组} \; \to \; \text{共} \; 4 \times 2= 8 \; \text{片} \\
 \text{总地址线} \; = \log_{2}(4K)= 12 \; \text{根：低} \; \text{10} \; \text{位接所有芯片的片内地址端，} \\
 \text{高} \; \text{2} \; \text{位经} \; \text{2-4} \; \text{译码器产生} \; \text{4} \; \text{个片选信号；每组} \; \text{2} \; \text{片分别接数据总线高} \; \text{4} \; \text{位} \; \text{/} \; \text{低} \; \text{4} \; \text{位}
-\end{gathered}" width="653" height="99"></p>
-
-
+\end{gathered}
+$$
 一般公式：所需片数 = `(目标容量 / 芯片容量) × (目标字长 / 芯片字长)`。
 :::
 
 ::: tip 工作示例 · DRAM 刷新安排
-设 DRAM 内部 `128 行`、要求 `2 ms` 内全部刷新一遍，存取周期 <img class="fml" src="/formulas/c21b6dbc9e9ada.png" alt="0.5 \mu s" width="49" height="33">：
-
-
-<p class="fml-block"><img class="fml" src="/formulas/a4eac07f04f04a.png" alt="\begin{gathered}
+设 DRAM 内部 `128 行`、要求 `2 ms` 内全部刷新一遍，存取周期 $0.5 \mu s$：
+$$
+\begin{gathered}
 \text{异步刷新：每隔} \; \frac{2 ms}{128}= 15.625 \mu s \; \text{刷新一行（每次占用} \; \text{1} \; \text{个存取周期）} \\
 \text{集中刷新：} \; \text{2 ms} \; \text{末尾连续用} \; 128 \times 0.5 \mu s= 64 \mu s \; \text{刷新} \; \to \; \text{这段时间} \; \text{CPU} \; \text{不能访存（死区）} \\
 \text{分散刷新：每个存取周期都附带一次刷新，存取周期变为} \; 1 \mu s \; \text{，无死区但整体变慢}
-\end{gathered}" width="728" height="99"></p>
-
-
+\end{gathered}
+$$
 :::
 
 ### 4.3 存储层次与程序访问局部性（★★★）
@@ -581,18 +549,16 @@ CPU 给出主存地址 → 由地址中的 index 定位 Cache 行/组 → 比较
 通用关系：`Tag 位数 = 主存地址位数 − 组（行）索引位数 − 块内偏移位数`；`Cache 数据容量 = 行数 × 块大小`。
 
 ::: tip 工作示例 · 教材风格：64 KB Cache、块 128 B、直接映射、32 位主存地址
-
-
-<p class="fml-block"><img class="fml" src="/formulas/916409d8536d9a.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{块内偏移} \; = \log_{2}128= 7 bit \\
 \text{行数} \; = \frac{64 KB}{128 B}= 512= 2^{9} \to \; \text{行号} \; \text{index = 9 bit} \\
 Tag= 32- 9- 7= 16 bit \\
 \text{每行另有} \; \text{1} \; \text{位有效位（写回法还要} \; \text{1} \; \text{位脏位）} \\
 \text{附加硬件（仅标记阵列）} \; = 512 \times(16+ 1) bit= 8704 bit= 1088 B \\
 \text{若改为} \; \text{4} \; \text{路组相联：组数} \; = \frac{512}{4}= 128 \to \; \text{组号} \; \text{7 bit} \; \text{，} \; Tag= 32- 7- 7= 18 bit
-\end{gathered}" width="648" height="193"></p>
-
-
+\end{gathered}
+$$
 :::
 
 ::: tip 工作示例 · 命中判断
@@ -622,34 +588,28 @@ Tag= 32- 9- 7= 16 bit \\
 
 #### 4.4.3 Cache 性能评估（★★★）
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/ea91864ea01bdd.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{AMAT =} \; \text{命中时间} \; \text{+} \; \text{缺失率} \; \times \; \text{缺失代价} \\
 \text{CPU} \; \text{时间} \; \text{= (CPU} \; \text{执行时钟数} \; \text{+} \; \text{访存停顿时钟数} \; \text{) ×} \; \text{时钟周期} \\
 \text{访存停顿} \; \text{=} \; \text{指令数} \; \times \; \text{指令缺失率} \; \times \; \text{缺失代价} \; \text{+} \; \text{指令数} \; \times \; \text{访存指令占比} \; \times \; \text{数据缺失率} \; \times \; \text{缺失代价}
-\end{gathered}" width="820" height="84"></p>
-
-
+\end{gathered}
+$$
 
 ::: tip 工作示例 · AMAT 与 CPI 综合（必考）
 设理想 `CPI = 2`，指令 Cache 缺失率 `2%`，数据 Cache 缺失率 `5%`，访存指令占全部指令 `30%`，缺失代价均为 `100` 个时钟周期：
-
-
-<p class="fml-block"><img class="fml" src="/formulas/a92da78369ae19.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{每条指令的指令缺失停顿} \; = 2\% \times 100= 2 \; \text{周期} \\
 \text{每条指令的数据缺失停顿} \; = 30\% \times 5\% \times 100= 1.5 \; \text{周期} \\
 \text{实际} \; \text{CPI = 2 + 2 + 1.5 = 5.5} \; \text{（性能约为理想情况的} \; \frac{2}{5.5} \approx 36\% \; \text{）} \\
 \text{若把缺失代价降到} \; 50 \to \; \text{实际} \; \text{CPI = 2 + 1 + 0.75 = 3.75}
-\end{gathered}" width="528" height="125"></p>
-
-
+\end{gathered}
+$$
 另：L1 命中 `1 ns`、L1 缺失率 `5%`、L2 命中 `10 ns`、L2 缺失率 `20%`、主存 `100 ns`：
-
-
-<p class="fml-block"><img class="fml" src="/formulas/bbdde9b1bf8ff6.png" alt="AMAT= 1+ 0.05 \times(10+ 0.20 \times 100)= 1+ 0.05 \times 30= 2.5 ns" width="500" height="33"></p>
-
-
+$$
+AMAT= 1+ 0.05 \times(10+ 0.20 \times 100)= 1+ 0.05 \times 30= 2.5 ns
+$$
 :::
 
 ### 4.5 虚拟存储器（★★★）
@@ -667,7 +627,7 @@ Tag= 32- 9- 7= 16 bit \\
 
 - **地址变换**：`VA = VPN | 页内偏移` → 查页表（或先查 TLB）得到 `PFN` → `PA = PFN | 页内偏移`；**页内偏移在变换前后不变**。
 - **页表项 PTE**：PFN、有效位（是否在内存）、脏位、访问/引用位、权限位（读/写/执行、用户/内核）、缓存与写策略控制位。
-- **TLB（快表）**：用相联存储器缓存近期 <img class="fml" src="/formulas/8ea49202bca1ff.png" alt="VPN \to PFN" width="124" height="33"> 映射，命中可省去一次或多次页表访存；未命中要遍历页表（page table walk），并把结果装入 TLB。
+- **TLB（快表）**：用相联存储器缓存近期 $VPN \to PFN$ 映射，命中可省去一次或多次页表访存；未命中要遍历页表（page table walk），并把结果装入 TLB。
 - **缺页处理**：PTE 有效位为 0 → 触发**缺页异常** → OS 选一页换出（脏页需写回磁盘）→ 从外存调入目标页 → 更新 PTE 与 TLB → **重新执行**刚才那条指令。
 - **存储保护**：每进程独立页表（独立虚拟空间）+ PTE 权限位 + 用户/内核态 + 越界检查，防止进程互访或用户程序访问内核。
 
@@ -676,33 +636,29 @@ Tag= 32- 9- 7= 16 bit \\
 - **FIFO**：淘汰最早调入的页，实现最简单，但可能出现 **Belady 异常**（分配页框更多反而缺页更多）；
 - **LRU（最近最久未用）**：淘汰最久未被访问的页，靠引用位/时间戳近似实现，性能接近 OPT，是主流选择；
 - **Clock（NRU）**：把页组织成循环队列，用访问位扫描淘汰，硬件开销小，实际 OS 多用其改进版（双指针、考虑脏位）。
-缺页率 p 与分配给进程的**驻留集**大小强相关；p 过高引发 **抖动（thrashing）**<img class="fml" src="/formulas/1f1cb40865e9d4.png" alt="-- CPU" width="84" height="33"> 大部分时间花在换页上。
+缺页率 p 与分配给进程的**驻留集**大小强相关；p 过高引发 **抖动（thrashing）**$-- CPU$ 大部分时间花在换页上。
 :::
 
 ::: tip 工作示例 · 页表容量与地址变换
 `32 位`虚拟地址、页大小 `4 KB`、物理内存 `256 MB`、PTE `4 B`：
-
-
-<p class="fml-block"><img class="fml" src="/formulas/e7fb3fa6836ec5.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{页内偏移} \; = \log_{2}4096= 12 bit \; \text{；} \; VPN= 32- 12= 20 bit \; \text{；} \; PFN= 28- 12= 16 bit \\
 \text{单级页表} \; = 2^{20} \; \text{项} \; \times 4 B= 4 MB \; \text{（每个进程都要一份，太浪费）} \\
 \text{两级页表：} \; \text{VA =} \; \text{页目录号} \; \text{(10) |} \; \text{页表号} \; \text{(10) | offset(12)} \; \text{，只为用到的二级页表分配内存} \\
 VA= 0x12345678 \to VPN= 0x12345 \; \text{，} \; \text{offset = 0x678} \; \text{；若} \; PFN= 0xABCD \to PA= 0xABCD678
-\end{gathered}" width="818" height="111"></p>
-
-
+\end{gathered}
+$$
 :::
 
 ::: tip 工作示例 · 有效访问时间（含缺页）
 设页表访存 `100 ns`、TLB 命中 `10 ns`（命中率 98%）、缺页率 `p = 0.001`、缺页处理 `10 ms`：
-
-
-<p class="fml-block"><img class="fml" src="/formulas/eb048b27457493.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{无缺页时的平均访存} \; \approx 0.98 \times 10+ 0.02 \times(10+ 100)= 9.8+ 2.2= 12 ns \\
 \text{计入缺页：} \; EAT \approx(1- p) \times 12 ns+ p \times 10 ms \approx 10 \mu s \; \text{（主要由缺页项主导）}
-\end{gathered}" width="616" height="57"></p>
-
-
+\end{gathered}
+$$
 结论：缺页率必须极低，否则磁盘访问会吞掉所有 CPU 性能——这靠程序局部性、合理的页面置换（LRU/Clock）与足够的驻留集保证。
 :::
 
@@ -737,16 +693,14 @@ VA= 0x12345678 \to VPN= 0x12345 \; \text{，} \; \text{offset = 0x678} \; \text{
 
 ::: tip 工作示例 · 多级 Cache 综合
 理想 CPI = 1.5，L1 命中时间 1 周期、L1 缺失率 8%，L2 命中时间 10 周期、L2 缺失率（相对 L1 缺失）25%，主存缺失代价 120 周期，访存指令占 35%：
-
-
-<p class="fml-block"><img class="fml" src="/formulas/459aa566938bcd.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{L1} \; \text{缺失代价} \; = 10+ 0.25 \times 120= 40 \; \text{周期} \\
 \text{每条指令的平均访存停顿（按一次取指} \; \text{+} \; \text{部分数据访问估算）} \\
 \approx 1 \times 0.08 \times 40+ 0.35 \times 0.08 \times 40= 3.2+ 1.12= 4.32 \; \text{周期} \\
 \text{实际} \; CPI \approx 1.5+ 4.32= 5.82 \to \; \text{存储层次是性能瓶颈，优化数据布局} \; \text{/} \; \text{局部性收益最大}
-\end{gathered}" width="702" height="111"></p>
-
-
+\end{gathered}
+$$
 :::
 
 ::: danger 易错 · 存储层次
@@ -770,10 +724,10 @@ VA= 0x12345678 \to VPN= 0x12345 \; \text{，} \; \text{offset = 0x678} \; \text{
 
 | 格式 | 语义 | 特点 |
 | --- | --- | --- |
-| 四地址 | <img class="fml" src="/formulas/8fb664ffdd6ca2.png" alt="A1 OP A2 \to A3" width="130" height="34">，下条指令 `A4` | 指令长、访存多，已淘汰 |
-| 三地址 | <img class="fml" src="/formulas/8fb664ffdd6ca2.png" alt="A1 OP A2 \to A3" width="130" height="34">，下条由 PC 隐含 | 指令长，但程序短；RISC 常用（寄存器型） |
-| 二地址 | <img class="fml" src="/formulas/cbc93241cd5f22.png" alt="A1 OP A2 \to A1" width="130" height="34"> | 破坏一个操作数，最普遍（x86） |
-| 一地址 | <img class="fml" src="/formulas/e10ced2c676186.png" alt="ACC OP A1 \to ACC" width="168" height="34"> | 隐含累加器，指令短但程序长 |
+| 四地址 | $A1 OP A2 \to A3$，下条指令 `A4` | 指令长、访存多，已淘汰 |
+| 三地址 | $A1 OP A2 \to A3$，下条由 PC 隐含 | 指令长，但程序短；RISC 常用（寄存器型） |
+| 二地址 | $A1 OP A2 \to A1$ | 破坏一个操作数，最普遍（x86） |
+| 一地址 | $ACC OP A1 \to ACC$ | 隐含累加器，指令短但程序长 |
 | 零地址 | 操作数隐含在**堆栈栈顶** | 适合表达式求值（逆波兰式），无需地址字段 |
 
 **格式设计原则**：① 指令长度尽量短且与机器字长/存储边界匹配；② 有足够的操作种类与寻址能力；③ 字段规整便于硬件快速译码（RISC 采用**定长**指令，CISC 多为**变长**）；④ 保留扩展空间与兼容。
@@ -791,7 +745,7 @@ VA= 0x12345678 \to VPN= 0x12345 \; \text{，} \; \text{offset = 0x678} \; \text{
 ③ 一地址：1111 1111 | OP''(4) | A1(4)。OP'' 用 15 种，留 1111 1111 1111
 ④ 零地址：1111 1111 1111 | OP'''(4) → 2⁴ = 16 条
 ```
-若一地址只用 14 条，则多留一个扩展前缀，零地址可增至 <img class="fml" src="/formulas/476a78f404e638.png" alt="2 \times 16= 32" width="97" height="34"> 条 —— 每少用一条短格式指令，可多换得 `2^剩余地址码位数` 条长格式指令。
+若一地址只用 14 条，则多留一个扩展前缀，零地址可增至 $2 \times 16= 32$ 条 —— 每少用一条短格式指令，可多换得 `2^剩余地址码位数` 条长格式指令。
 :::
 
 ### 5.2 寻址方式（★★★）
@@ -812,17 +766,15 @@ VA= 0x12345678 \to VPN= 0x12345 \; \text{，} \; \text{offset = 0x678} \; \text{
 | 复合 | 基址+变址+位移、比例变址 | x86 支持"基址 + 变址×比例 + 位移"，便于多维数组 |
 
 ::: tip 工作示例 · EA 演算
-
-
-<p class="fml-block"><img class="fml" src="/formulas/f4f53ddaeb8bfb.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{(1)} \; \text{相对转移：当前指令地址} \; \text{0x1000} \; \text{、指令长} \; \text{4 B} \; \text{、位移量} \; - 3 \; \text{（以「字」为单位，字长} \; \text{4 B} \; \text{）} \\
 \text{取指后} \; PC= 0x1004 \to EA= 0x1004+(- 3 \times 4)= 0x0FF8 \\
 \text{(2)} \; \text{变址寻址：数组首址} \; \text{A = 0x2000} \; \text{、元素} \; \text{4 B} \; \text{、变址寄存器} \; \text{IX = 4} \\
 EA= 0x2000+ 4 \times 4= 0x2010 \; \text{（第} \; \text{4} \; \text{个元素，从} \; \text{0} \; \text{开始计）} \\
 \text{(3)} \; \text{基址寻址：} \; \text{BR = 0x3000} \; \text{（} \; \text{OS} \; \text{分配的段基址）、指令中} \; A= 0x0500 \to EA= 0x3500
-\end{gathered}" width="765" height="138"></p>
-
-
+\end{gathered}
+$$
 :::
 
 ::: danger 易错 · 指令格式与寻址
@@ -895,15 +847,13 @@ MIPS 有 32 个 32 位通用寄存器：`$zero`(恒 0)、`$at`、`$v0~$v1`(返�
 
 #### 5.6.2 工作示例 · 指令数与 CPI 的权衡
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/76a5ed57f348dc.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{编译器生成序列} \; \text{S1} \; \text{：} \; \text{100} \; \text{条指令，} \; \text{CPI = 1.0} \; \text{；序列} \; \text{S2} \; \text{：} \; \text{70} \; \text{条指令，} \; \text{CPI = 1.5} \\
 \text{同一主频下：} \; \text{S1} \; \text{时间} \; = 100 \times 1.0= 100 \; \text{周期；} \; \text{S2} \; \text{时间} \; = 70 \times 1.5= 105 \; \text{周期} \; \to S1 \; \text{更快}
-\end{gathered}" width="729" height="57"></p>
-
-
-说明：减少指令数（IC）未必更快，若因此增大了 CPI（如更多复杂指令、更多 Cache 缺失），总时间可能反而变长 —— 与第 1 章 <img class="fml" src="/formulas/7a478c5594d2e1.png" alt="IC \times \frac{CPI}{f}" width="83" height="36"> 的结论一致。
+\end{gathered}
+$$
+说明：减少指令数（IC）未必更快，若因此增大了 CPI（如更多复杂指令、更多 Cache 缺失），总时间可能反而变长 —— 与第 1 章 $IC \times \frac{CPI}{f}$ 的结论一致。
 
 ::: danger 易错 · 指令系统
 - **ISA 是软硬件界面**：寄存器个数、指令格式、寻址方式属于 ISA；Cache 大小、流水线级数、是否乱序属于**组成/微体系结构**。
@@ -961,28 +911,26 @@ MIPS 有 32 个 32 位通用寄存器：`$zero`(恒 0)、`$at`、`$v0~$v1`(返�
 | `MemRead / MemWrite` | 数据存储器读/写使能 |
 | `MemtoReg` | 写回数据来自 ALU 结果还是数据存储器 |
 | `RegWrite` | 寄存器堆写使能 |
-| `Branch / PCSrc` | `Branch 且 Zero=1` 时 `PC ← 分支目标`，否则 <img class="fml" src="/formulas/0815156e0ea2c2.png" alt="PC \leftarrow PC+4" width="121" height="34"> |
+| `Branch / PCSrc` | `Branch 且 Zero=1` 时 `PC ← 分支目标`，否则 $PC \leftarrow PC+4$ |
 | `Jump` | J 型跳转的目标地址拼接 |
 
 控制器本质是**组合逻辑**：输入 `op`（+ `funct`），输出上述控制信号；因此单周期 CPU 不需要状态机（无"当前处于第几拍"的概念）。
 
 ::: tip 工作示例 · 时钟周期由最慢指令决定
 设各部件延迟：PC 读出 `2 ns`、指令存储器 `8 ns`、译码与控制 `3 ns`、寄存器堆读 `5 ns`、ALU `8 ns`、数据存储器 `10 ns`、寄存器堆写 `5 ns`：
-
-
-<p class="fml-block"><img class="fml" src="/formulas/9e09cefe3bd102.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{lw} \; \text{路径} \; = 2+ 8+ 3+ 5+ 8+ 10+ 5= 41 ns \to \; \text{时钟周期至少} \; \text{41 ns} \; \text{（主频} \; \le \; \text{约} \; \text{24 MHz} \; \text{）} \\
 \text{R} \; \text{型} \; add= 2+ 8+ 3+ 5+ 8+ 5= 31 ns \to \; \text{但仍需等满} \; \text{41 ns} \; \text{，浪费} \; \text{10 ns} \\
 beq \approx 2+ 8+ 3+ 5+ 8= 26 ns \to \; \text{浪费更多}
-\end{gathered}" width="739" height="84"></p>
-
-
+\end{gathered}
+$$
 结论：单周期设计硬件简单、CPI=1，但**所有指令都被最慢者拖慢**；这正是引入多周期与流水线的动机。
 :::
 
 ::: danger 易错 · 单周期
 - 单周期 CPU 必须**分离的指令存储器与数据存储器**（或双端口），否则 IF 与 MEM 在同一周期内争用同一部件，产生结构冒险。
-- `CPI = 1` 不等于"性能最好"：主频被最慢指令拉低，总时间仍是 <img class="fml" src="/formulas/5fb4e134a97457.png" alt="IC \times 1 \times T" width="96" height="34">。
+- `CPI = 1` 不等于"性能最好"：主频被最慢指令拉低，总时间仍是 $IC \times 1 \times T$。
 - 控制信号是**纯组合逻辑**由 OP 译码得到；没有状态寄存器、没有微指令序列。
 :::
 
@@ -1022,14 +970,12 @@ beq \approx 2+ 8+ 3+ 5+ 8= 26 ns \to \; \text{浪费更多}
 
 ::: tip 工作示例 · 微程序条数与控存容量
 某机器有 `64` 条机器指令，每条平均 `4` 条微指令，微指令字长 `32 bit`：
-
-
-<p class="fml-block"><img class="fml" src="/formulas/78666062f6772e.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{微指令总数} \; = 64 \times 4= 256 \; \text{条} \; \to \; \text{需} \; \text{8} \; \text{位微地址} \\
 \text{控存容量} \; = 256 \times 32 bit= 8192 bit= 1 KB
-\end{gathered}" width="393" height="57"></p>
-
-
+\end{gathered}
+$$
 :::
 
 ### 6.6 异常与中断处理（★★★）
@@ -1039,7 +985,7 @@ beq \approx 2+ 8+ 3+ 5+ 8= 26 ns \to \; \text{浪费更多}
 | **异常 Exception** | 由**当前指令**引起、同步发生（除零、溢出、缺页、非法指令、系统调用） |
 | **中断 Interrupt** | 由**外部事件**引起、异步发生（定时器、键盘、磁盘完成、网卡收包） |
 | 响应时机 | 通常在一条指令执行**结束时**检查；缺页等精确异常需在特定流水级处理 |
-| 处理流程 | 保存断点 <img class="fml" src="/formulas/c9566c8cd38541.png" alt="PC \to EPC" width="105" height="34">、记录 Cause、切到内核态、关/屏蔽同级中断、跳到异常向量表入口 → 执行服务程序 → 恢复现场 → 返回 |
+| 处理流程 | 保存断点 $PC \to EPC$、记录 Cause、切到内核态、关/屏蔽同级中断、跳到异常向量表入口 → 执行服务程序 → 恢复现场 → 返回 |
 | 中断向量 | 每个中断类型对应一个入口地址，放在**中断向量表**中；也可为非向量中断（统一入口再软件判优） |
 | 判优与嵌套 | 硬件排队器（菊花链）/ 软件查询；用**中断屏蔽字**动态调整优先级，允许高优先级中断嵌套 |
 | 精确异常 | 异常指令之前的指令必须全部完成、之后的指令不得产生副作用；流水线 CPU 靠 ROB / 重排序缓冲保证 |
@@ -1048,14 +994,12 @@ beq \approx 2+ 8+ 3+ 5+ 8= 26 ns \to \; \text{浪费更多}
 
 #### 6.7.1 设计方法演进
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/bb88715bf972ea.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{IAS} \; \text{简单} \; CPU \to \; \text{总线式} \; CPU \to \; \text{单周期} \; CPU \to \; \text{多周期} \; CPU \to \; \text{基本流水线} \; \text{CPU} \\
 \to \; \text{动态超标量超流水线} \; \text{CPU} \; \text{（} \; \text{Pentium 4} \; \text{为例）}
-\end{gathered}" width="689" height="57"></p>
-
-
+\end{gathered}
+$$
 每前进一步都在解决上一步的瓶颈：单周期被最慢指令拖累 → 多周期复用部件、缩短周期 → 流水线让多条指令重叠 → 多发射/乱序进一步挖掘指令级并行 ILP。
 
 #### 6.7.2 现代微体系结构关键机制
@@ -1071,16 +1015,14 @@ beq \approx 2+ 8+ 3+ 5+ 8= 26 ns \to \; \text{浪费更多}
 
 ::: tip 工作示例 · 多周期 CPI
 某程序指令混合：`40%` ALU（4 周期）、`25%` lw（5 周期）、`15%` sw（4 周期）、`20%` beq（3 周期）：
-
-
-<p class="fml-block"><img class="fml" src="/formulas/4b3d8dc78c7029.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{平均} \; CPI= 0.40 \times 4+ 0.25 \times 5+ 0.15 \times 4+ 0.20 \times 3= 1.6+ 1.25+ 0.6+ 0.6= 4.05 \\
 \text{若时钟周期从单周期的} \; \text{41 ns} \; \text{降到} \; \text{12 ns} \; \text{：} \\
 \text{单周期} \; \text{时间} \; = IC \times 1 \times 41 \; \text{；多周期} \; \text{时间} \; = IC \times 4.05 \times 12= 48.6 IC \to \; \text{反而略慢} \\
 \text{把周期再降到} \; 8 ns \to 32.4 IC \; \text{，才体现出多周期优势}
-\end{gathered}" width="669" height="111"></p>
-
-
+\end{gathered}
+$$
 说明：多周期必须让**时钟周期显著缩短**（各阶段延迟尽量均衡）才有收益。
 :::
 
@@ -1107,39 +1049,33 @@ beq \approx 2+ 8+ 3+ 5+ 8= 26 ns \to \; \text{浪费更多}
 
 设 `k` 个流水段、每段 1 个时钟周期 `t`、共 `n` 条指令（理想无冒险）：
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/ea56942b1085ca.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{非流水时间} \; T_{\text{非}} = n \cdot k \cdot t \\
 \text{流水时间} \; T_{\text{流}} =(k+ n- 1) \cdot t \; \text{（首条填满流水线需} \; k \; \text{拍，之后每拍流出} \; 1 \; \text{条）} \\
 \text{加速比} \; S= \frac{T_{\text{非}}}{T_{\text{流}}} = \frac{n \cdot k}{k+ n- 1} \xrightarrow{n \to \infty} k \\
 \text{吞吐率} \; TP= \frac{n}{(k+n- 1) \cdot t} \; \text{，最大} \; TP_{\max}= \frac{1}{t} \\
 \text{效率} \; E= \frac{S}{k}= \frac{n}{k+n- 1} \; \text{（时空图中被占用的面积占比）}
-\end{gathered}" width="619" height="190"></p>
-
-
+\end{gathered}
+$$
 
 ::: tip 工作示例 · 理想加速比
 `k = 5`、`n = 100` 条指令、每段 `1 ns`：
-
-
-<p class="fml-block"><img class="fml" src="/formulas/b22a7417cc6467.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 T_{\text{非}} = 100 \times 5 \times 1= 500\,\text{ns} \\
 T_{\text{流}} =(5+ 100- 1) \times 1= 104\,\text{ns} \\
 S= \frac{500}{104} \approx 4.81 \; \text{（理论上限} \; \text{5} \; \text{，} \; \text{n} \; \text{越大越接近）}
-\end{gathered}" width="386" height="97"></p>
-
-
+\end{gathered}
+$$
 若各段时间不等：`IF 2 / ID 1 / EX 2 / MEM 2 / WB 1 ns`，锁存器开销 `0.5 ns`：
-
-
-<p class="fml-block"><img class="fml" src="/formulas/def042bc8ff7b8.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{时钟周期} \; \text{= max(} \; \text{各段} \; \text{) +} \; \text{锁存} \; \text{= 2 + 0.5 = 2.5 ns} \\
 \text{非流水单条} \; = 2+1+2+2+1= 8 ns \to 100 \; \text{条} \; \text{= 800 ns} \\
 \text{流水} \; =(5+ 100- 1) \times 2.5= 260 ns \to S \approx 3.08
-\end{gathered}" width="458" height="84"></p>
-
-
+\end{gathered}
+$$
 结论：**各段不均衡 + 寄存器开销 + 冒险停顿**使实际加速比明显低于段数 k；单纯增加段数（超流水线）会因锁存开销与冒险惩罚而收益递减。
 :::
 
@@ -1172,15 +1108,13 @@ I2 的 EX 需要新 `$t0`，而 I1 的结果在 EX 结束时已算出（写回�
 
 ::: tip 工作示例 · 分支预测对 CPI 的影响
 设分支指令占 `20%`、预测准确率 `90%`、预测失败惩罚 `3` 个时钟周期：
-
-
-<p class="fml-block"><img class="fml" src="/formulas/a814824dea49ce.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{平均控制停顿} \; = 0.20 \times(1- 0.90) \times 3= 0.06 \; \text{周期} \; \text{/} \; \text{指令} \\
 \text{若理想} \; \text{CPI = 1} \; \text{且无其它冒险} \; \to \; \text{实际} \; \text{CPI = 1 + 0.06 = 1.06} \\
 \text{若准确率降到} \; 70\% \to \; \text{停顿} \; = 0.20 \times 0.30 \times 3= 0.18 \to CPI= 1.18
-\end{gathered}" width="541" height="84"></p>
-
-
+\end{gathered}
+$$
 在深流水线（如教材提到的 Pentium 4 达 20+ 级）中失败惩罚可达十几~几十周期，**分支预测准确率的权重极大**。
 :::
 
@@ -1194,33 +1128,29 @@ I2 的 EX 需要新 `$t0`，而 I1 的结果在 EX 结束时已算出（写回�
 | **超长指令字 + SIMD** | 一条指令内并行处理多个数据 | 向量寄存器、AVX/SVE |
 | 向量/张量扩展 | 面向数组与矩阵的数据级并行 | GPU、TPU/NPU |
 
-**IPC 与 CPI**：单发射理想 `CPI = 1`（`IPC = 1`）；n 发射超标量理想 <img class="fml" src="/formulas/343013b1f91504.png" alt="CPI= \frac{1}{n}" width="80" height="33">，实际 CPI 受冒险与访存限制，常为 0.3~1 以上。
+**IPC 与 CPI**：单发射理想 `CPI = 1`（`IPC = 1`）；n 发射超标量理想 $CPI= \frac{1}{n}$，实际 CPI 受冒险与访存限制，常为 0.3~1 以上。
 
 ### 7.5 流水线设计约束与性能综合
 
 #### 7.5.1 实际 CPI 的构成
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/e5e152df88bb7a.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{实际} \; \text{CPI =} \; \text{理想} \; \text{CPI +} \; \text{结构冒险停顿} \; \text{+} \; \text{数据冒险停顿} \; \text{+} \; \text{控制冒险停顿} \; \text{+} \; \text{存储缺失停顿} \\
 \text{CPU} \; \text{时间} \; \text{=} \; \text{指令数} \; \times \; \text{实际} \; CPI \times \; \text{时钟周期}
-\end{gathered}" width="697" height="57"></p>
-
-
+\end{gathered}
+$$
 
 ::: tip 工作示例 · 综合 CPI
 某 5 级流水线：理想 CPI = 1；`lw` 占 25%，其中 `Load-Use` 冲突占 `lw` 的 40%（每次停顿 1 拍）；分支占 15%，预测失败率 20%（惩罚 3 拍）；指令 Cache 缺失率 2%（缺失代价 20 拍）：
-
-
-<p class="fml-block"><img class="fml" src="/formulas/42a6f0f9aa1c58.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{Load-Use} \; \text{停顿} \; = 0.25 \times 0.40 \times 1= 0.10 \; \text{周期} \; \text{/} \; \text{指令} \\
 \text{分支停顿} \; = 0.15 \times 0.20 \times 3= 0.09 \; \text{周期} \; \text{/} \; \text{指令} \\
 \text{取指缺失停顿} \; = 0.02 \times 20= 0.40 \; \text{周期} \; \text{/} \; \text{指令} \\
 \text{实际} \; \text{CPI = 1 + 0.10 + 0.09 + 0.40 = 1.59}
-\end{gathered}" width="417" height="111"></p>
-
-
+\end{gathered}
+$$
 可见存储缺失往往比冒险更贵，呼应第 4 章的 AMAT 分析。
 :::
 
@@ -1251,7 +1181,7 @@ I2 的 EX 需要新 `$t0`，而 I1 的结果在 EX 结束时已算出（写回�
 
 | 分类维度 | 类别 |
 | --- | --- |
-| 位置 | **片内总线**（CPU 内部）、**系统总线**（<img class="fml" src="/formulas/bc6543905abc5f.png" alt="CPU \leftrightarrow" width="72" height="33">主存/I/O）、**I/O 总线 / 外部总线**（设备互连） |
+| 位置 | **片内总线**（CPU 内部）、**系统总线**（$CPU \leftrightarrow$主存/I/O）、**I/O 总线 / 外部总线**（设备互连） |
 | 传送方式 | 并行总线（多根数据线同时传，短距）、**串行总线**（差分高速点对点，长距，现代主流） |
 | 定时 | 同步总线（统一时钟）、异步总线（请求-应答握手） |
 | 功能 | 数据总线、地址总线、控制总线 |
@@ -1278,24 +1208,20 @@ I2 的 EX 需要新 `$t0`，而 I1 的结果在 EX 结束时已算出（写回�
 | **总线裁决（仲裁）** | 菊花链（优先级固定、简单）、计数器定时查询（可改优先级）、**独立请求**（最快、线数多）；集中式/分布式 |
 | **定时方式** | 同步（统一时钟，快但受最慢设备限制、时钟偏斜限制长度）；异步（握手，适应不同速度设备，开销大）；半同步 |
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/868542493b69fd.png" alt="\text{总线带宽} \; \left(\frac{B}{s}\right)= \; \text{总线宽度} \; \frac{bit}{8} \times \; \text{总线工作频率} \; (Hz) \times \; \text{每周期传送次数}" width="570" height="33"></p>
-
-
+$$
+\text{总线带宽} \; \left(\frac{B}{s}\right)= \; \text{总线宽度} \; \frac{bit}{8} \times \; \text{总线工作频率} \; (Hz) \times \; \text{每周期传送次数}
+$$
 
 ::: tip 工作示例 · 总线带宽
 同步总线宽 `64 bit`、频率 `100 MHz`、每周期传 1 次：
-
-
-<p class="fml-block"><img class="fml" src="/formulas/d682469aa9f7cd.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{带宽} \; = \frac{64}{8} \times 100 \times 10^{6}= 8 \times \frac{10^{8} B}{s}= \frac{800 MB}{s} \\
 \text{若采用} \; \text{DDR} \; \text{（上升} \; \text{/} \; \text{下降沿各传一次）} \; \to \; \text{每周期} \; \text{2} \; \text{次} \; \to \frac{1.6 GB}{s} \\
 \text{若改为} \; \text{32 bit} \; \text{、} \; \text{200 MHz} \; \text{、每周期} \; \text{2} \; \text{次} \; \to 4 \times 2 \times 200 \times 10^{6}= \frac{1.6 GB}{s} \; \text{（同等带宽的不同组合）}
-\end{gathered}" width="767" height="131"></p>
-
-
-一次总线事务若要传 `128 B` 数据，64 bit 总线需 <img class="fml" src="/formulas/126173a8059b17.png" alt="\frac{128}{8}= 16" width="72" height="34"> 个数据周期；若每个事务还有 1 个地址周期，则**有效带宽** = `128 B / (17 周期 × 10 ns) ≈ 753 MB/s`，低于理论峰值。
+\end{gathered}
+$$
+一次总线事务若要传 `128 B` 数据，64 bit 总线需 $\frac{128}{8}= 16$ 个数据周期；若每个事务还有 1 个地址周期，则**有效带宽** = `128 B / (17 周期 × 10 ns) ≈ 753 MB/s`，低于理论峰值。
 :::
 
 ### 8.4 总线接口单元与总线标准（★★）
@@ -1307,10 +1233,10 @@ I2 的 EX 需要新 `$t0`，而 I1 的结果在 EX 结束时已算出（写回�
 | --- | --- | --- |
 | ISA / EISA | 早期 PC 并行总线，8/16/32 位 | 已淘汰 |
 | PCI / PCI-X | 同步并行、即插即用、支持总线主设备 | 被 PCIe 取代 |
-| **PCIe** | **串行差分、点对点、多 lane（x1/x4/x8/x16）、交换式拓扑、包交换、向后兼容软件模型** | 现代 PC/服务器主流，代际带宽近似翻倍（<img class="fml" src="/formulas/a546886704d177.png" alt="Gen3 \approx \frac{\frac{985 MB}{s}}{lane}" width="112" height="36">，Gen4/5/6 依次翻倍） |
+| **PCIe** | **串行差分、点对点、多 lane（x1/x4/x8/x16）、交换式拓扑、包交换、向后兼容软件模型** | 现代 PC/服务器主流，代际带宽近似翻倍（$Gen3 \approx \frac{\frac{985 MB}{s}}{lane}$，Gen4/5/6 依次翻倍） |
 | USB | 通用串行、热插拔、树形拓扑、主机轮询 | 外设主流；USB4 融合 Thunderbolt，走 PCIe/DisplayPort 隧道，速率达 40~80 Gbps |
 | **AMBA / AXI / AHB** | 片上系统 SoC 内部互连 | 手机/嵌入式芯片内部 |
-| CXL / NVLink / Infinity Fabric | 面向 <img class="fml" src="/formulas/bc6543905abc5f.png" alt="CPU \leftrightarrow" width="72" height="33">加速器/内存池的高速缓存一致互连 | AI/HPC 与异构计算 |
+| CXL / NVLink / Infinity Fabric | 面向 $CPU \leftrightarrow$加速器/内存池的高速缓存一致互连 | AI/HPC 与异构计算 |
 
 ::: tip 补充 · 现代互连（教材未涉及）
 - **从并行总线到串行点对点**：并行总线在高频下受时钟偏斜与串扰限制，PCIe 用高速串行 + 多 lane + 交换芯片获得更高带宽与更强扩展性。
@@ -1322,14 +1248,12 @@ I2 的 EX 需要新 `$t0`，而 I1 的结果在 EX 结束时已算出（写回�
 
 ::: tip 工作示例 · 多主设备争用
 设总线上有 CPU 与一个 DMA 控制器，总线周期 `20 ns`，一次 DMA 传送 `1 KB`（每次占 4 B 数据 + 1 周期地址开销）：
-
-
-<p class="fml-block"><img class="fml" src="/formulas/81c6320e73ea49.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{数据周期数} \; = \frac{1024}{4}= 256 \; \text{；总占用} \; \approx 256 \times 2= 512 \; \text{周期（若每次都含地址期）} \\
 \text{占用时间} \; \approx 512 \times 20 ns= 10.24 \mu s \; \text{；期间} \; \text{CPU} \; \text{若需访存，只能靠周期挪用} \; \text{/} \; \text{等待}
-\end{gathered}" width="652" height="71"></p>
-
-
+\end{gathered}
+$$
 可见 DMA 虽减少 CPU 干预，但仍与 CPU **争用总线与主存带宽**；这是"周期窃取"名称的由来。
 :::
 
@@ -1355,7 +1279,7 @@ I2 的 EX 需要新 `$t0`，而 I1 的结果在 EX 结束时已算出（写回�
 | 通信型 | 网卡、Modem | 速率差异大、协议复杂 |
 | 传感/控制 | ADC/DAC、工业现场设备 | 实时性要求高 |
 
-**显示器（CRT/LCD 光栅扫描）**：图像按**像素点阵**组织，像素值存于**显存（帧缓冲）**，由显示控制器周期性读取并经 DAC 输出；关键参数有**分辨率**（如 <img class="fml" src="/formulas/b57f08267762da.png" alt="1920 \times 1080" width="100" height="34">）、**灰度/色深**（每像素位数）、**刷新率**（如 60 Hz）。显存容量 = 分辨率 × 每像素字节数（<img class="fml" src="/formulas/0e137064529b82.png" alt="1920 \times 1080 \times 3 B \approx 6.2 MB" width="226" height="34">）；刷新率越高闪烁越少，但占用显存带宽越多。打印机按成像方式分击打式（针式）与非击打式（激光、喷墨），DPI 表示打印分辨率。
+**显示器（CRT/LCD 光栅扫描）**：图像按**像素点阵**组织，像素值存于**显存（帧缓冲）**，由显示控制器周期性读取并经 DAC 输出；关键参数有**分辨率**（如 $1920 \times 1080$）、**灰度/色深**（每像素位数）、**刷新率**（如 60 Hz）。显存容量 = 分辨率 × 每像素字节数（$1920 \times 1080 \times 3 B \approx 6.2 MB$）；刷新率越高闪烁越少，但占用显存带宽越多。打印机按成像方式分击打式（针式）与非击打式（激光、喷墨），DPI 表示打印分辨率。
 
 ### 9.2 外部存储设备（★★）
 
@@ -1366,16 +1290,14 @@ I2 的 EX 需要新 `$t0`，而 I1 的结果在 EX 结束时已算出（写回�
 
 ::: tip 工作示例 · 磁盘平均存取时间
 磁盘 `7200 rpm`、平均寻道 `8 ms`、持续传输率 `100 MB/s`、读一个 `4 KB` 块：
-
-
-<p class="fml-block"><img class="fml" src="/formulas/dd30d34f13cfaf.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{平均旋转延迟} \; = \frac{\frac{60 s}{7200}}{2}= 4.167 ms \; \text{（平均转半圈）} \\
 \text{传输时间} \; = \frac{4096 B}{\frac{100 \times 10^{6} B}{s}} \approx 0.041 ms \\
 \text{总存取时间} \; \approx 8+ 4.167+ 0.041+ \; \text{控制器开销} \; \approx 12.2 ms
-\end{gathered}" width="459" height="127"></p>
-
-
-对比主存约 `50~100 ns`、SSD 约 <img class="fml" src="/formulas/505cef3f58d833.png" alt="50 \sim 100 \mu s" width="95" height="34"> —— 机械盘的**毫秒级**延迟主要来自机械运动，因此 OS 要做电梯调度、预读与页缓存来减少寻道次数。
+\end{gathered}
+$$
+对比主存约 `50~100 ns`、SSD 约 $50 \sim 100 \mu s$ —— 机械盘的**毫秒级**延迟主要来自机械运动，因此 OS 要做电梯调度、预读与页缓存来减少寻道次数。
 :::
 
 #### 9.2.2 RAID（廉价磁盘冗余阵列）
@@ -1417,66 +1339,58 @@ I2 的 EX 需要新 `$t0`，而 I1 的结果在 EX 结束时已算出（写回�
 
 | 方式 | CPU 参与度 | 数据通路 | 适用 |
 | --- | --- | --- | --- |
-| **程序直接控制（轮询）** | 全程循环读状态，CPU 被占死 | 外设 <img class="fml" src="/formulas/4401ce3296861e.png" alt="\leftrightarrow" width="24" height="34"> 寄存器 ↔  主存 | 极简单设备，教学示例 |
+| **程序直接控制（轮询）** | 全程循环读状态，CPU 被占死 | 外设 $\leftrightarrow$ 寄存器 ↔  主存 | 极简单设备，教学示例 |
 | **程序中断方式** | 数据就绪时才响应，其余时间可并行执行 | 仍经 CPU 中转到主存 | 键盘、鼠标等低速字符设备 |
-| **DMA 方式** | 只在**传送前配置**与**传送后收尾**参与 | 外设 <img class="fml" src="/formulas/4401ce3296861e.png" alt="\leftrightarrow" width="24" height="34"> 控制器 ↔  **主存**（不经 CPU） | 磁盘、网卡等高速成批传送 |
+| **DMA 方式** | 只在**传送前配置**与**传送后收尾**参与 | 外设 $\leftrightarrow$ 控制器 ↔  **主存**（不经 CPU） | 磁盘、网卡等高速成批传送 |
 | **通道 / I/O 处理器** | CPU 只启动通道程序，通道统一管理多设备 | 通道执行专用 I/O 程序 | 大型机，高吞吐环境 |
 
 ::: tip 工作示例 · 中断方式 vs DMA 的 CPU 开销
-某设备以 `100 KB/s` 输入，每次中断传送 `1 B`、中断服务开销 <img class="fml" src="/formulas/8d94b0d20055ba.png" alt="10 \mu s" width="44" height="34">：
-
-
-<p class="fml-block"><img class="fml" src="/formulas/e7a6e1dc12754a.png" alt="\begin{gathered}
+某设备以 `100 KB/s` 输入，每次中断传送 `1 B`、中断服务开销 $10 \mu s$：
+$$
+\begin{gathered}
 \text{中断频率} \; = 100 \times 10^{3} \; \text{次} \; s \to CPU \; \text{开销} \; = 100 \times 10^{3} \times 10 \mu s= \frac{1 s}{s} \to CPU \; \text{完全被占满！} \\
-\text{改用} \; \text{DMA} \; \text{：每} \; \text{ C235 } \; \text{块中断一次} \; \to \; \text{中断次数} \; \text{= 100} \; \text{次} \; s \to \; \text{开销仅} \; \text{1 ms/s} \; \text{（} \; \text{0.1\%} \; \text{）}
-\end{gathered}" width="2811" height="34"></p>
-
-
+\text{改用} \; \text{DMA} \; \text{：每} \; \text{`1 KB`} \; \text{块中断一次} \; \to \; \text{中断次数} \; \text{= 100} \; \text{次} \; s \to \; \text{开销仅} \; \text{1 ms/s} \; \text{（} \; \text{0.1\%} \; \text{）}
+\end{gathered}
+$$
 这正是高速设备必须用 DMA、且还可在设备侧加缓冲的原因；现代网卡更进一步用**中断合并**与轮询（NAPI/io_uring）减少中断风暴。
 :::
 
 ### 9.5 中断处理的完整过程（★★★）
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/8027fb471896bd.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{(1)} \; \text{中断请求：设备置请求触发器} \; \to(2) \; \text{中断判优：硬件排队器} \; \text{/} \; \text{软件查询选出最高优先级} \\
 \text{(3)} \; \text{中断响应：} \; \text{CPU} \; \text{在指令周期末检测，满足「开中断} \; \text{+} \; \text{未被屏蔽} \; \text{+} \; \text{优先级更高」时响应} \\
 \text{(4)} \; \text{保护断点与现场：} \; \text{PC/PSW} \; \text{压栈（或写入} \; \text{EPC} \; \text{），保存通用寄存器} \\
 \text{(5)} \; \text{取中断向量：由中断类型号查向量表} \; \to \; \text{装入服务程序入口} \\
 \text{(6)} \; \text{执行中断服务程序（可嵌套：用屏蔽字允许更高优先级打断）} \\
 \text{(7)} \; \text{恢复现场} \; \to \; \text{开中断} \; \to \; \text{中断返回（} \; \text{RETI} \; \text{）}
-\end{gathered}" width="721" height="164"></p>
-
-
+\end{gathered}
+$$
 - **向量中断 vs 非向量中断**：前者由硬件直接给出入口，响应快；后者统一入口后由软件查询中断源。
 - **中断屏蔽字**：每个中断源对应一个屏蔽码，可动态改变实际处理优先级（注意"响应优先级"由硬件排队器固定，"处理优先级"可由屏蔽字调整）。
 
 ### 9.6 DMA 方式（★★★）
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/5d0b70d77cfcd5.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{(1)} \; \text{预处理：} \; \text{CPU} \; \text{向} \; \text{DMA} \; \text{控制器写入「主存起始地址、传送字数} \; \text{/} \; \text{计数、传送方向、设备地址」并启动设备} \\
 \text{(2)} \; \text{数据传送：} \; \text{DMAC} \; \text{向总线控制器发总线请求} \; \to \; \text{获授权后接管总线，} \\
 \text{在设备与主存之间直接传送一个字} \; \text{/} \; \text{块，每传一个字自动改地址、减计数} \\
 \text{(3)} \; \text{后处理：计数归零} \; \to DMAC \; \text{发中断通知} \; CPU \to CPU \; \text{校验数据、释放缓冲、关闭设备}
-\end{gathered}" width="869" height="111"></p>
-
-
+\end{gathered}
+$$
 **CPU 与 DMAC 分时使用主存的三种方式**：停止 CPU 访存（成组传送，CPU 暂停）、**周期挪用/周期窃取**（DMA 挪用空闲总线周期，最常用）、交替分时（按固定时隙划分，无需申请）。
 
 ::: tip 工作示例 · DMA 传送时间
 DMA 传 `1 MB`、总线带宽 `100 MB/s`、预处理 `100` 周期、后处理中断 `200` 周期，CPU 主频 `1 GHz`：
-
-
-<p class="fml-block"><img class="fml" src="/formulas/793ebad86c86c8.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{数据传送} \; = \frac{\frac{1 MB}{100 MB}}{s}= 10 ms \\
 \text{CPU} \; \text{开销} \; = \frac{100+ 200}{1 GHz}= 0.3 \mu s \\
 \text{CPU} \; \text{占用率} \; \approx \frac{0.3 \mu s}{10 ms} \approx 0.003\% \; \text{（几乎可忽略，但总线} \; \text{/} \; \text{主存带宽被占用} \; \text{10 ms} \; \text{）}
-\end{gathered}" width="657" height="132"></p>
-
-
+\end{gathered}
+$$
 :::
 
 ::: danger 易错 · I/O 与中断
@@ -1516,45 +1430,40 @@ DMA 传 `1 MB`、总线带宽 `100 MB/s`、预处理 `100` 周期、后处理中
 
 ### 综合题 1 · 性能评价三步
 
-**题目**：程序 P 在机器 M（主频 `2 GHz`）上执行需 `10 s`，共执行 <img class="fml" src="/formulas/6827f5b6f4931a.png" alt="2 \times 10^{10}" width="69" height="33"> 条指令。编译器优化后指令数降为 <img class="fml" src="/formulas/df50a9eebbc2f9.png" alt="1.6 \times 10^{10}" width="83" height="33">，但 CPI 由 `1.0` 升为 `1.2`。① 求优化前后 CPI 与主频验证；② 判断优化是否划算；③ 若其中某模块原占总时间 `30%`、被加速 5 倍，求整体加速比。
+**题目**：程序 P 在机器 M（主频 `2 GHz`）上执行需 `10 s`，共执行 $2 \times 10^{10}$ 条指令。编译器优化后指令数降为 $1.6 \times 10^{10}$，但 CPI 由 `1.0` 升为 `1.2`。① 求优化前后 CPI 与主频验证；② 判断优化是否划算；③ 若其中某模块原占总时间 `30%`、被加速 5 倍，求整体加速比。
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/2801b94fe231dd.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{(1)} \; \text{优化前：} \; \text{CPU} \; \text{时间} \; = IC \times \frac{CPI}{f} \to 2 \times 10^{10} \times \frac{1.0}{2 \times 10^{9}}= 10 s \checkmark \; \text{（与题给一致）} \\
 \text{(2)} \; \text{优化后：时间} \; = 1.6 \times 10^{10} \times \frac{1.2}{2 \times 10^{9}}= 9.6 s \to \; \text{缩短} \; \text{0.4 s} \; \text{（提速约} \; \text{1.04} \; \text{倍），划算} \\
 \text{MIPS} \; \text{前} \; = \frac{f}{CPI \times 10^{6}}= 2000 \; \text{；} \; \text{MIPS} \; \text{后} \; \approx 1667 \to MIPS \; \text{下降但时间更短，再次说明} \; \text{MIPS} \; \text{不可靠} \\
 \text{(3) Amdahl} \; \text{：} \; S= \frac{1}{(1- 0.3)+ \frac{0.3}{5}}= \frac{1}{0.7+0.06} \approx 1.316 \\
 \text{上限} \; = \frac{1}{0.7} \approx 1.43 \; \text{（即使该模块无限快也无法超过）}
-\end{gathered}" width="821" height="225"></p>
-
-
+\end{gathered}
+$$
 
 ### 综合题 2 · 数据表示双向转换
 
-**题目**：① 求 <img class="fml" src="/formulas/bd8d1c44d60f28.png" alt="- 37" width="39" height="33"> 的 8 位原/反/补/移码；② 把 <img class="fml" src="/formulas/e01ce4565883d0.png" alt="- 37.25" width="61" height="33"> 编码为 IEEE 754 单精度并写成十六进制；③ 数据 16 位要配几位海明校验位。
+**题目**：① 求 $- 37$ 的 8 位原/反/补/移码；② 把 $- 37.25$ 编码为 IEEE 754 单精度并写成十六进制；③ 数据 16 位要配几位海明校验位。
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/cdd9e995ad7873.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 (1)+37= 0010 0101 \to \; \text{原码} \; \text{1010 0101} \; \text{；反码} \; \text{1101 1010} \; \text{；补码} \; \text{1101 1011 (0xDB)} \\
 \text{移码} \; \text{=} \; \text{补码符号位取反} \; \text{= 0101 1011 (0x5B)} \\
 (2) 37.25= 100101.01_{2}= 1.0010101_{2} \times 2^{5} \\
 \text{S=1} \; \text{；} \; E= 5+ 127= 132= 1000 0100_{2} \; \text{；} \; \text{M = 0010101} \; \text{后补} \; \text{0} \; \text{到} \; \text{23} \; \text{位} \\
 \text{拼接：} \; \text{1 | 10000100 | 00101010000000000000000} \\
 \text{= 1100 0010 0001 0101 0000 0000 0000 0000 = 0xC2150000} \\
-(3) 2^{k} \ge 16+ k+ 1 \; \text{：} \; k=4 \to 16&lt; 21 \times \; \text{；} \; k=5 \to 32 \ge 22 \checkmark \to \; \text{需} \; \text{5} \; \text{位校验位，总} \; \text{21} \; \text{位}
-\end{gathered}" width="725" height="193"></p>
-
-
+(3) 2^{k} \ge 16+ k+ 1 \; \text{：} \; k=4 \to 16< 21 \times \; \text{；} \; k=5 \to 32 \ge 22 \checkmark \to \; \text{需} \; \text{5} \; \text{位校验位，总} \; \text{21} \; \text{位}
+\end{gathered}
+$$
 
 ### 综合题 3 · 运算与溢出
 
-**题目**：8 位补码下计算 `100 + 40` 与 <img class="fml" src="/formulas/edb6c5f295c23f.png" alt="- 100- 40" width="87" height="33">，判断是否溢出并写出结果；再用 Booth 规则说明 <img class="fml" src="/formulas/1ef8a6ddfd2f79.png" alt="X=- 3, Y=+5" width="138" height="33"> 的乘积符号与数值。
+**题目**：8 位补码下计算 `100 + 40` 与 $- 100- 40$，判断是否溢出并写出结果；再用 Booth 规则说明 $X=- 3, Y=+5$ 的乘积符号与数值。
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/f90b1665abf88e.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{100 = 0110 0100} \; \text{，} \; 40= 0010 1000 \to \; \text{和} \; = 1000 1100=- 116 \; \text{（应为} \; \text{+140} \; \text{）} \\
 C_{n}= 0 \; \text{（符号位无进位）、} \; C_{n- 1}= 1 \to OV=1 \; \text{，正溢出，结果无效} \\
 - 100= 1001 1100 \; \text{，} \; - 40= 1101 1000 \to \; \text{和} \; = 1 0111 0100 \to 0111 0100=+116 \; \text{（应为} \; - 140 \; \text{）} \\
@@ -1562,34 +1471,30 @@ C_{n}= 1 \; \text{、} \; C_{n- 1}= 0 \to OV=1 \; \text{，负溢出} \\
 \text{Booth} \; \text{：} \; X=- 3 \; \text{（} \; \text{4} \; \text{位补码} \; \text{1101} \; \text{），} \; \text{Y=+5} \; \text{（} \; \text{0101} \; \text{，末位补} \; 0 \to 01010 \; \text{）} \\
 \text{相邻位从低到高：} \; 10 \to \; \text{减} \; \text{[X]} \; \text{补；} \; 01 \to \; \text{加} \; \text{[X]} \; \text{补；} \; 10 \to \; \text{减} \; \text{[X]} \; \text{补；} \; 01 \to \; \text{加} \; \text{[X]} \; \text{补；最后不移位} \\
 \text{符号} \; \text{=} \; \text{负} \; \text{⊕} \; \text{正} \; \text{=} \; \text{负；数值} \; 3 \times 5= 15 \to \; \text{积} \; =- 15 \; \text{（} \; \text{8} \; \text{位补码} \; \text{1111 0001} \; \text{）}
-\end{gathered}" width="807" height="190"></p>
-
-
+\end{gathered}
+$$
 
 ### 综合题 4 · 存储系统联合计算
 
 **题目**：主存按字节编址、32 位地址；用 `1M×8 位` 芯片构成 `4M×32 位` 主存；Cache 容量 `64 KB`、块 `128 B`、**4 路组相联**；L1 命中 `1 ns`、缺失率 `5%`、L2 命中 `10 ns`、L2 局部缺失率 `20%`、主存 `100 ns`。求：① 芯片数与地址分配；② Cache 组数、Tag 位数；③ AMAT；④ 若理想 CPI=2、缺失代价折算 100 周期、访存指令占 30%，估算实际 CPI。
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/b675b594d6d6c8.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{(1)} \; \text{片数} \; =\left(\frac{4M}{1M}\right) \times\left(\frac{32}{8}\right)= 4 \times 4= 16 \; \text{片；地址} \; \text{22} \; \text{位，低} \; \text{20} \; \text{位片内寻址，高} \; \text{2} \; \text{位片选} \\
 \text{(2)} \; \text{块内偏移} \; = \log_{2}128= 7 bit \; \text{；行数} \; = \frac{64 KB}{128 B}= 512 \; \text{；} \; \text{4} \; \text{路} \; \to \; \text{组数} \; = \frac{512}{4}= 128 \to \; \text{组号} \; \text{7 bit} \\
 Tag= 32- 7- 7= 18 bit \; \text{（另需有效位、脏位）} \\
 \text{(3) L1} \; \text{缺失代价} \; = 10+ 0.20 \times 100= 30 ns \to AMAT= 1+ 0.05 \times 30= 2.5 ns \\
 \text{(4)} \; \text{取指缺失停顿} \; = 1 \times 0.05 \times 100= 5 \; \text{；数据缺失停顿} \; = 0.30 \times 0.05 \times 100= 1.5 \\
 \text{实际} \; CPI \approx 2+ 5+ 1.5= 8.5 \to \; \text{存储子系统是主要瓶颈}
-\end{gathered}" width="790" height="201"></p>
-
-
+\end{gathered}
+$$
 
 ### 综合题 5 · 指令、寻址与单周期 CPU
 
-**题目**：指令字长 16 位、地址码 4 位、扩展操作码；三地址 12 条、二地址 12 条、一地址 12 条，求零地址最多几条。另：PC=`0x0800`（指令长 4 B）、相对转移位移 <img class="fml" src="/formulas/ecab82b4705540.png" alt="- 5" width="30" height="34">（按字计），求目标地址；最后给出单周期 CPU 的时钟周期估算。
+**题目**：指令字长 16 位、地址码 4 位、扩展操作码；三地址 12 条、二地址 12 条、一地址 12 条，求零地址最多几条。另：PC=`0x0800`（指令长 4 B）、相对转移位移 $- 5$（按字计），求目标地址；最后给出单周期 CPU 的时钟周期估算。
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/8ac2db3e6b0bf4.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{(1)} \; \text{按「剩余扩展槽} \; \times 16 \; \text{」逐层递推：} \\
 \text{三地址层：} \; \text{16} \; \text{个} \; \text{OP} \; \text{编码，用} \; \text{12} \; \text{条} \; \to \; \text{剩} \; \text{4} \; \text{个扩展槽} \\
 \text{二地址层：} \; 4 \times 16= 64 \; \text{个可用编码，用} \; \text{12} \; \text{条} \; \to \; \text{剩} \; 64- 12= 52 \; \text{个扩展槽} \\
@@ -1599,17 +1504,15 @@ Tag= 32- 7- 7= 18 bit \; \text{（另需有效位、脏位）} \\
 \text{(2)} \; \text{取指后} \; \text{PC = 0x0800 + 4 = 0x0804} \; \text{；目标} \; = 0x0804+(- 5 \times 4)= 0x0804- 0x14= 0x07F0 \\
 \text{(3)} \; \text{单周期时钟周期} \; \text{=} \; \text{最慢指令（} \; \text{lw} \; \text{）路径上所有部件延迟之和；} \\
 \text{若} \; \text{PC 2 + IM 8 +} \; \text{译码} \; \text{3 + RF} \; \text{读} \; \text{5 + ALU 8 + DM 10 + RF} \; \text{写} \; 5= 41 ns \to \; \text{主频上限约} \; \text{24 MHz}
-\end{gathered}" width="766" height="245"></p>
-
-
+\end{gathered}
+$$
 
 ### 综合题 6 · 流水线、总线与 I/O 综合
 
 **题目**：5 级流水线执行 `200` 条指令，每段 `2 ns`、锁存器开销 `0.5 ns`；分支占 `20%`、预测失败率 `10%`、惩罚 `3` 拍；另有 64 bit / 100 MHz 总线以 DMA 方式传 `2 MB`（每周期 1 次）。求：① 时钟周期与理想流水时间；② 含分支停顿的实际 CPI 与总时间；③ 总线带宽与 DMA 传送时间。
 
-
-
-<p class="fml-block"><img class="fml" src="/formulas/95533ccc389d01.png" alt="\begin{gathered}
+$$
+\begin{gathered}
 \text{(1)} \; \text{时钟周期} \; \text{= 2 + 0.5 = 2.5 ns} \\
 \text{理想} \; T_{\text{流}} =(5+ 200- 1) \times 2.5= 204 \times 2.5= 510\,\text{ns} \\
 \text{非流水} \; T= 200 \times 5 \times 2= 2000 ns \to \; \text{理想加速比} \; \approx 3.92 \\
@@ -1617,9 +1520,8 @@ Tag= 32- 7- 7= 18 bit \; \text{（另需有效位、脏位）} \\
 \text{总时间} \; \approx 200 \times 1.06 \times 2.5= 530 ns \; \text{（比理想多} \; \text{20 ns} \; \text{）} \\
 \text{(3)} \; \text{带宽} \; = \frac{64}{8} \times 100 \times 10^{6}= \frac{800 MB}{s} \\
 \text{DMA} \; \text{传送} \; 2 MB \to \frac{2}{800 s}= 2.5 ms \; \text{；} \; \text{CPU} \; \text{只在配置与结束中断时介入}
-\end{gathered}" width="651" height="220"></p>
-
-
+\end{gathered}
+$$
 
 ::: tip 解题模板
 遇到计算题先圈出**已知量的单位**（bit / B / 周期 / ns / MHz），再选公式。**凡是"率"都要看清是局部还是全局**；凡涉及地址都要先画出「Tag | 索引 | 偏移」或「VPN | 偏移」的位划分；凡涉及时间都要明确是"单条指令"还是"整段程序"。最后用数量级常识校验结果（磁盘毫秒、主存纳秒、CPU 亚纳秒）。
@@ -1631,14 +1533,14 @@ Tag= 32- 7- 7= 18 bit \; \text{（另需有效位、脏位）} \\
 | --- | --- |
 | CPU 时间 | `T = IC × CPI × 时钟周期 = IC × CPI / f` |
 | 加权 CPI | `Σ(各类指令 CPI × 该类占比)` |
-| MIPS / MFLOPS | <img class="fml" src="/formulas/1c84265ae5a6a1.png" alt="MIPS= \frac{f}{CPI \times 10^{6}}" width="143" height="35">；MFLOPS 为每秒百万次浮点运算 |
-| **Amdahl 定律** | `S = 1 / [(1−F) + F/S_局部]`；上限 <img class="fml" src="/formulas/17a8a6e59957d1.png" alt="\frac{1}{1- F}" width="37" height="35"> |
-| Gustafson | <img class="fml" src="/formulas/4863d152338471.png" alt="S= p- \alpha(p- 1)" width="138" height="34">（问题规模随并行度增大） |
-| 补码范围 | <img class="fml" src="/formulas/98baf1211e5807.png" alt="- 2^{n- 1} \sim 2^{n- 1}- 1" width="142" height="34">；`[−Y]补 = [Y]补 取反加 1` |
+| MIPS / MFLOPS | $MIPS= \frac{f}{CPI \times 10^{6}}$；MFLOPS 为每秒百万次浮点运算 |
+| **Amdahl 定律** | `S = 1 / [(1−F) + F/S_局部]`；上限 $\frac{1}{1- F}$ |
+| Gustafson | $S= p- \alpha(p- 1)$（问题规模随并行度增大） |
+| 补码范围 | $- 2^{n- 1} \sim 2^{n- 1}- 1$；`[−Y]补 = [Y]补 取反加 1` |
 | 移码 | `[X]移 = 2^(n−1) + X`；= 补码符号位取反 |
-| IEEE 754 单精度 | <img class="fml" src="/formulas/b3565484dadb3a.png" alt="(- 1)^S \times(1.M) \times 2^{E- 127}" width="192" height="34">；S1/E8/M23，双精度 S1/E11/M52、bias 1023 |
-| 海明码 | <img class="fml" src="/formulas/f10fa185bf9c8b.png" alt="2^{k} \ge n+ k+ 1" width="121" height="34">；可纠 1 位、加总校验位可检 2 位 |
-| 补码溢出 | <img class="fml" src="/formulas/2fb7151bbf8933.png" alt="OV= C_{n} ⊕ C_{n- 1}" width="139" height="33">；双符号位 01 正溢出、10 负溢出 |
+| IEEE 754 单精度 | $(- 1)^S \times(1.M) \times 2^{E- 127}$；S1/E8/M23，双精度 S1/E11/M52、bias 1023 |
+| 海明码 | $2^{k} \ge n+ k+ 1$；可纠 1 位、加总校验位可检 2 位 |
+| 补码溢出 | $OV= C_{n} ⊕ C_{n- 1}$；双符号位 01 正溢出、10 负溢出 |
 | 浮点加减 | 对阶（小阶向大阶）→ 尾数加减 → 规格化 → 舍入 → 判阶码溢出 |
 | BCD 修正 | 某 4 位组结果大于 9 或产生进位 → 该组加 6（0110） |
 | 芯片扩展 | 片数 = `(目标容量/芯片容量) × (目标字长/芯片字长)` |
@@ -1650,7 +1552,7 @@ Tag= 32- 7- 7= 18 bit \; \text{（另需有效位、脏位）} \\
 | 扩展操作码 | 少用一条短格式指令可多换得 `2^剩余字段位数` 条长格式指令 |
 | 单周期时钟周期 | 由最慢指令（通常 lw）的各部件延迟之和决定 |
 | 微程序控存 | 容量 = 微指令条数 × 微指令字长 |
-| 流水线 | `T_流 = (k+n−1)t`；<img class="fml" src="/formulas/3fb93f02798ce4.png" alt="S= \frac{nk}{k+n- 1} \to k" width="125" height="35">；<img class="fml" src="/formulas/1c98386e34de92.png" alt="TP= \frac{n}{(k+n- 1)t}" width="116" height="37">；<img class="fml" src="/formulas/4f81664adac53b.png" alt="E= \frac{n}{k+n- 1}" width="90" height="35"> |
+| 流水线 | `T_流 = (k+n−1)t`；$S= \frac{nk}{k+n- 1} \to k$；$TP= \frac{n}{(k+n- 1)t}$；$E= \frac{n}{k+n- 1}$ |
 | 实际 CPI | `理想 CPI + 结构/数据/控制停顿 + 存储缺失停顿` |
 | 总线带宽 | `宽度(bit)/8 × 频率 × 每周期传送次数` |
 | 磁盘存取时间 | `寻道 + 旋转延迟 + 传输 + 控制器开销`；平均旋转延迟 = 半圈时间 |
@@ -1662,21 +1564,21 @@ Tag= 32- 7- 7= 18 bit \; \text{（另需有效位、脏位）} \\
 2. **ISA 是软硬件交界面**；流水线级数、Cache 大小、乱序与否属于微体系结构，不属于 ISA。
 3. 计算机组成 ≠ 计算机系统结构：前者是实现，后者是程序员可见的属性。
 4. `CPU 时间 = IC × CPI / f`，主频高不一定快；MIPS 不含指令数，不能跨 ISA 比较。
-5. Amdahl 定律中的 `F` 是**原执行时间占比**，不是代码行数占比；整体加速上限 <img class="fml" src="/formulas/17a8a6e59957d1.png" alt="\frac{1}{1- F}" width="37" height="35">。
+5. Amdahl 定律中的 `F` 是**原执行时间占比**，不是代码行数占比；整体加速上限 $\frac{1}{1- F}$。
 6. 字长、地址位数、数据总线宽度是三个不同概念，不必相等。
-7. 网络速率单位用十进制（<img class="fml" src="/formulas/c500dda905c832.png" alt="k=10^{3}" width="65" height="34">），存储容量用 2 的幂（<img class="fml" src="/formulas/1c06b1599c6678.png" alt="K=2^{10}" width="70" height="34">），别混。
-8. 原码/反码的 ±0 有两种表示；补码 0 唯一且能多表示 <img class="fml" src="/formulas/e44aaeff3d7cff.png" alt="- 2^{n- 1}" width="54" height="34">。
-9. 8 位补码 `1000 0000` 是 <img class="fml" src="/formulas/1295480bb76d11.png" alt="- 128" width="47" height="34">，没有对应的 8 位原码/反码。
+7. 网络速率单位用十进制（$k=10^{3}$），存储容量用 2 的幂（$K=2^{10}$），别混。
+8. 原码/反码的 ±0 有两种表示；补码 0 唯一且能多表示 $- 2^{n- 1}$。
+9. 8 位补码 `1000 0000` 是 $- 128$，没有对应的 8 位原码/反码。
 10. 求 `[−Y]补` 要**连同符号位**一起取反再加 1。
 11. 符号扩展：正数补 0、负数补 1；零扩展只用于无符号数。
 12. IEEE 754 单精度 bias = **127**（不是 128），双精度 1023；隐藏位 1 只在规格化数时存在。
-13. 非规格化数（<img class="fml" src="/formulas/d3ba3af0f933b7.png" alt="E=0, M=0" width="114" height="34">）的隐藏位是 0，用于渐进下溢；`E=全1, M=0` 是 ±∞，<img class="fml" src="/formulas/dea4120ae665cc.png" alt="M=0" width="59" height="34"> 是 NaN。
+13. 非规格化数（$E=0, M=0$）的隐藏位是 0，用于渐进下溢；`E=全1, M=0` 是 ±∞，$M=0$ 是 NaN。
 14. 浮点运算**不满足结合律**；对阶永远是小阶向大阶看齐。
 15. 浮点溢出判的是**阶码**；尾数溢出可通过右规修正。
 16. 大端高位字节在低地址，小端低位字节在低地址；跨平台传输必须统一字节序。
 17. 数据对齐影响访存次数与 `sizeof(结构体)`，成员排列顺序会改变结构大小。
-18. 海明码条件是 <img class="fml" src="/formulas/24e01f81fa0e7f.png" alt="2^{k} \ge n+k+1" width="120" height="34">；奇偶校验只能检奇数位错。
-19. 补码溢出判断用 <img class="fml" src="/formulas/ca2a02ca719c74.png" alt="C_{n} ⊕ C_{n- 1}" width="87" height="33"> 或双符号位；无符号溢出看最高位进位。
+18. 海明码条件是 $2^{k} \ge n+k+1$；奇偶校验只能检奇数位错。
+19. 补码溢出判断用 $C_{n} ⊕ C_{n- 1}$ 或双符号位；无符号溢出看最高位进位。
 20. 同号相加才可能溢出，异号相加永不溢出。
 21. Booth 乘法最后一步**不移位**；n 位乘数得到 2n 位积。
 22. 加减交替除法中余数为负时下一步是**加除数**；恢复余数法要先加回再左移。
@@ -1707,7 +1609,7 @@ Tag= 32- 7- 7= 18 bit \; \text{（另需有效位、脏位）} \\
 47. 异常是同步的、中断是异步的；精确异常要求后续指令不留副作用。
 48. 流水线**不缩短单条指令执行时间**，提高的是吞吐率；加速比上限为段数 k。
 49. 各段不均衡 + 锁存器开销 + 冒险停顿使实际加速比远小于 k。
-50. 转发能消除 <img class="fml" src="/formulas/6e7e9965925f20.png" alt="ALU \to ALU" width="114" height="34"> 的 RAW 停顿，但 **Load-Use 仍需 1 拍**。
+50. 转发能消除 $ALU \to ALU$ 的 RAW 停顿，但 **Load-Use 仍需 1 拍**。
 51. WAR/WAW 是伪相关，只有乱序执行时才需寄存器重命名消除。
 52. 分支预测失败的惩罚随流水线深度增大；超标量理想 `CPI = 1/发射宽度`。
 53. 总线带宽公式用的是**数据线宽度**，不是地址线宽度；复用地址/数据会降低有效带宽。
@@ -1720,7 +1622,7 @@ Tag= 32- 7- 7= 18 bit \; \text{（另需有效位、脏位）} \\
 60. 磁盘平均存取时间 = 寻道 + 平均旋转延迟（半圈）+ 传输 + 控制器开销；随机 I/O 主要受机械延迟限制。
 61. RAID 0 无冗余、RAID 1 镜像、RAID 5 分布校验容 1 盘、RAID 6 容 2 盘；RAID 不是备份。
 62. SSD 写入前需擦除、有写放大与寿命限制；NVMe 用多队列降低延迟。
-63. 现代 x86 把 CISC 指令译码为类 RISC <img class="fml" src="/formulas/5e147d0229697b.png" alt="\mu op" width="36" height="34">；"CISC/RISC 截然对立"已是过时观点。
+63. 现代 x86 把 CISC 指令译码为类 RISC $\mu op$；"CISC/RISC 截然对立"已是过时观点。
 
 
 

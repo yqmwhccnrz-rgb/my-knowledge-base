@@ -222,7 +222,7 @@ print(a)                  # 不受影响，仍是 [0 999 2 3 4 5]
 | `np.percentile(x, q)` | 分位数，`q` 取 0~100 |
 | `np.cumsum` / `np.cumprod` | 累积和 / 累积积 |
 
-**按行 / 列统计**：<img class="fml" src="/formulas/db3e2759ef349c.png" alt="np.\max(arr, axis=0)" width="183" height="34"> 沿「行方向」压缩，返回**每一列**的最值；`axis=1` 沿「列方向」压缩，返回**每一行**的最值——别记反。
+**按行 / 列统计**：$np.\max(arr, axis=0)$ 沿「行方向」压缩，返回**每一列**的最值；`axis=1` 沿「列方向」压缩，返回**每一行**的最值——别记反。
 
 
 ### 3.3 比较与逻辑函数
