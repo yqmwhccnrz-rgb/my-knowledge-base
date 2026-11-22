@@ -1007,14 +1007,22 @@ select:focus-visible {
   font-size: 1.05em;
   line-height: 1.4;
 }
-/* 行内公式：两侧留出呼吸空间，避免与中文/标点紧贴 */
+/* 行内公式：两侧留出呼吸空间，避免与中文/标点紧贴。
+   字号与正文一致（1.0em），line-height 收紧到 1，让公式不额外撑高行；
+   保持 KaTeX 默认 baseline 对齐（数学排版标准）。 */
 .vp-doc p .katex,
 .vp-doc li .katex,
 .vp-doc td .katex,
 .vp-doc th .katex {
-  font-size: 1.08em;
-  line-height: 1.5;
-  margin: 0 0.15em;
+  font-size: 1.0em;
+  line-height: 1;
+  margin: 0 0.14em;
+}
+/* 行内带上下限的积分/求和：上下标是行高不均的主因，
+   让它们在行内更紧凑（大算符的上下标略微收紧） */
+.vp-doc p .katex .mop .msupsub,
+.vp-doc li .katex .mop .msupsub {
+  font-size: 0.82em;
 }
 /* 行内分式：KaTeX textstyle 下 \frac 的分子分母被 mtight(size3) 缩小、
    分数线紧贴分母。这里把分子分母恢复为接近正文的字号，并给分式更多垂直
