@@ -205,9 +205,9 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .hn {
-  max-width: 960px;
+  max-width: 1040px;
   margin: 0 auto;
-  padding: 8px 0 16px;
+  padding: 4px 0 12px;
   box-sizing: border-box;
 }
 
@@ -232,6 +232,9 @@ onBeforeUnmount(() => {
   display: flex;
   align-items: center;
   gap: 8px;
+  /* 箭头紧贴卡片区域：stage 不再铺满 1040px，按内容收窄居中 */
+  max-width: 820px;
+  margin: 0 auto;
 }
 
 .hn-arrow {
@@ -285,9 +288,9 @@ onBeforeUnmount(() => {
 .hn-card {
   display: block;
   width: 100%;
-  max-width: 460px;
+  max-width: 620px;
   box-sizing: border-box;
-  padding: 24px 22px;
+  padding: 28px 28px;
   background: var(--vp-c-bg);
   border: 1px solid var(--vp-c-divider);
   border-radius: 14px;
@@ -356,14 +359,24 @@ onBeforeUnmount(() => {
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--vp-c-brand-1) 22%, transparent);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
+  .hn-stage {
+    max-width: none;
+    gap: 4px;
+  }
   .hn-arrow {
-    width: 34px;
-    height: 34px;
-    font-size: 18px;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+  .hn-slide {
+    padding: 4px 2px;
   }
   .hn-card {
     padding: 20px 18px;
+  }
+  .hn-head {
+    margin-bottom: 12px;
   }
 }
 </style>

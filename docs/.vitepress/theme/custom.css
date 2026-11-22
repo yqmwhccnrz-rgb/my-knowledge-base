@@ -3,24 +3,32 @@
 .logout-btn {
   position: fixed;
   right: 16px;
-  bottom: 16px;
+  bottom: 14px;
   z-index: 60;
-  padding: 6px 12px;
-  font-size: 12px;
-  color: var(--vp-c-text-2);
-  background: var(--vp-c-bg-soft);
+  padding: 5px 11px;
+  font-size: 11px;
+  color: var(--vp-c-text-3);
+  background: color-mix(in srgb, var(--vp-c-bg-soft) 82%, transparent);
   border: 1px solid var(--vp-c-divider);
   border-radius: 20px;
   cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0.65;
+  transition: opacity 0.2s, color 0.2s, border-color 0.2s;
 }
 .logout-btn:hover {
+  opacity: 1;
   color: var(--vp-c-text-1);
   border-color: var(--vp-c-brand-1);
 }
 @media (max-width: 640px) {
   .logout-btn {
-    right: 12px;
-    bottom: 12px;
+    right: 10px;
+    bottom: 8px;
+    padding: 4px 9px;
+    font-size: 10px;
+    opacity: 0.5;
   }
 }
 
@@ -280,6 +288,8 @@ body.kb-resizing .VPDoc.has-aside .main {
   font-variant-numeric: tabular-nums;
   white-space: normal;
   overflow-wrap: anywhere;
+  /* 标题里的「★★★」等标记尽量不单独换行到下一行 */
+  text-wrap: pretty;
 }
 .VPSidebar .VPSidebarItem.level-0 > .item > .text {
   font-size: clamp(11px, calc(7px + var(--kb-side-w) * 0.018), 15px) !important;
@@ -498,6 +508,26 @@ body.kb-resizing .VPDoc.has-aside .main {
   color: var(--vp-c-text-1);
   font-size: 13px;
   font-weight: 500;
+  margin-bottom: 6px;
+}
+/* 概要/提示框内列表：条目间距与行距单独控制，避免文字块过挤 */
+.vp-doc .custom-block ul,
+.vp-doc .custom-block ol {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+.vp-doc .custom-block li {
+  margin: 5px 0;
+  line-height: 1.7;
+}
+@media (max-width: 640px) {
+  .vp-doc .custom-block {
+    padding: 12px 14px;
+    font-size: 13.5px;
+  }
+  .vp-doc .custom-block li {
+    line-height: 1.65;
+  }
 }
 .vp-doc .custom-block.tip { border-left-color: #6f8a78; }
 .vp-doc .custom-block.info { border-left-color: #6f8199; }
@@ -892,37 +922,40 @@ select:focus-visible {
   line-height: 1.6 !important;
   white-space: normal !important;
 }
+/* 收紧 hero 顶部留白：VitePress 默认 144px 过大，首页上半部显得空旷 */
+.VPHomeHero .container {
+  padding-top: 88px !important;
+  padding-bottom: 40px !important;
+}
+/* hero 内品牌与描述之间的节奏 */
+.VPHero .name { margin-bottom: 10px !important; }
+.VPHero .tagline { margin-top: 14px !important; }
+/* 收紧 hero 与首页笔记卡片区之间的空档 */
+.VPHome .VPFeatures { margin-top: -12px !important; padding-top: 0 !important; }
+.VPHome .VPFeatures + div { margin-top: 0 !important; }
 @media (max-width: 640px) {
-  .VPHero .text { font-size: 24px !important; }
+  /* 移动端副标题（.text）：缩到单行可容纳的字号，彻底避免词组被拆断 */
+  .VPHero .text {
+    font-size: 17px !important;
+    line-height: 1.5 !important;
+    white-space: nowrap !important;
+    max-width: none !important;
+  }
   .VPHero .name { white-space: normal !important; }
-}
-
-/* ==========================================================================
-   首页 hero 排版：VitePress 默认把 name 与 text 都设为 56px/700 + pre-wrap，
-   中文长副标题在 576px 宽度下会被挤成「…听 / 练」这种孤字换行。
-   让 text 降一档、拉开层级，并放宽行宽与行高。
-   ========================================================================== */
-.VPHero .name {
-  white-space: nowrap !important;
-}
-.VPHero .text {
-  max-width: 760px !important;
-  font-size: clamp(24px, 3vw, 34px) !important;
-  line-height: 1.4 !important;
-  font-weight: 600 !important;
-  letter-spacing: 0 !important;
-  white-space: normal !important;
-  color: var(--vp-c-text-2, #626463) !important;
-}
-.VPHero .tagline {
-  max-width: 760px !important;
-  font-size: clamp(16px, 1.8vw, 20px) !important;
-  line-height: 1.6 !important;
-  white-space: normal !important;
-}
-@media (max-width: 640px) {
-  .VPHero .text { font-size: 24px !important; }
-  .VPHero .name { white-space: normal !important; }
+  .VPHero .tagline { font-size: 16px !important; line-height: 1.6 !important; }
+  .VPHomeHero .container { padding-top: 64px !important; padding-bottom: 32px !important; }
+  /* 4 个入口按钮 2×2 均匀排列，避免 3+1 换行最后一个孤立 */
+  .VPHero .actions {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    max-width: 340px;
+  }
+  .VPHero .actions .VPButton {
+    width: 100% !important;
+    text-align: center;
+    margin: 0 !important;
+  }
 }
 
 /* ==========================================================================
