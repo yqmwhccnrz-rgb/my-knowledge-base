@@ -386,7 +386,7 @@ $$
 (1) \int_{0}^{\frac{\pi}{2}} \sin^{2}x dx= \int_{0}^{\frac{\pi}{2}} \cos^{2}x dx= \frac{\pi}{4} \approx 0.785398 \\
 \text{（用} \; \cos 2x= 1- 2\sin^{2}x \; \text{，或华里士公式} \; I_{2}=\left(\frac{1}{2}\right) \cdot\left(\frac{\pi}{2}\right) \; \text{）} \\
 (2) \int_{0}^{1} x e^{x} dx=[(x- 1)e^{x}]_{0}^{1}= 0-(- 1)= 1 \\
-(3) \int_{0}\frac{^{1} dx}{1+x^{2}}= \arctan x|_{0}^{1}= \frac{\pi}{4} \\
+(3) \int_{0}^{1}\frac{dx}{1+x^{2}}= \arctan x|_{0}^{1}= \frac{\pi}{4} \\
 (4) \int_{0}^\pi x \sin x dx=[- x \cos x+ \sin x]_{0}^\pi= \pi \\
 (5) \int_{0}^\infty e^{- x^{2}} dx= \frac{\sqrt{\pi}}{2} \approx 0.886227 \; \text{（泊松积分，用二重积分极坐标证明）}
 \end{gathered}
@@ -897,7 +897,7 @@ $$
 \text{两边乘} \; \text{x} \; \text{：} \; \sum_{n=1}^\infty n x^{n}= \frac{x}{(1- x)^{2}} \\
 \text{验算} \; x=\frac{1}{2} \; \text{：右侧} \; = \frac{0.5}{0.25}= 2 \; \text{；前} \; \text{50} \; \text{项部分和} \; \text{= 2.0000 }\checkmark \\
 \sum_{n=1}^\infty \frac{x^{n}}{n}=- \ln(1- x),- 1 \le x<1 \\
-\text{（由} \; \int_{0}\frac{^{x} 1}{(1- t)dt} \; \text{逐项积分得到；端点} \; x=- 1 \; \text{收敛、} \; \text{x=1} \; \text{发散）}
+\text{（由} \; \int_{0}^{x}\frac{1}{1-t}\,dt \; \text{逐项积分得到；端点} \; x=- 1 \; \text{收敛、} \; \text{x=1} \; \text{发散）}
 \end{gathered}
 $$
 :::
