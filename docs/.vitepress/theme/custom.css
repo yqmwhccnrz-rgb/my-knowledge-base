@@ -1263,3 +1263,71 @@ html.dark .vp-doc div.kb-exercise > h3:first-child {
     border: 1px solid #b9c0c9 !important;
   }
 }
+
+/* ==========================================================================
+   多解法分块：<div class="solution-block"> 包裹每一条解法
+   嵌套在 kb-example / kb-exercise 内部，视觉上比外层略深一层：
+   - 浅灰底 + 细边框 + 左侧强调线，块间 margin-bottom: 24px
+   - 首段加粗「解法一 / 解法二」做成描边小圆标（区别于外层实心「例」标签）
+   - 打印时整块不跨页拆开
+   ========================================================================== */
+.vp-doc .solution-block {
+  margin: 0 0 24px;
+  padding: 12px 16px;
+  background: rgba(127, 127, 127, 0.07);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-left: 3px solid var(--vp-c-brand-2, #5d5f5e);
+  border-radius: 8px;
+}
+
+/* 最后一个解法块不再留底部间距，衔接后续正文 */
+.vp-doc .solution-block:last-of-type {
+  margin-bottom: 0;
+}
+
+/* 解法标题标签：描边胶囊样式，与外层「例」的实心深标签区分 */
+.vp-doc .solution-block > p:first-child > strong:first-child {
+  display: inline-block;
+  padding: 1px 10px 2px;
+  margin: 0 5px 2px 0;
+  font-size: 0.94em;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--vp-c-brand-1, #3f403f);
+  background: var(--vp-c-brand-soft, rgba(0, 0, 0, 0.055));
+  border: 1px solid color-mix(in srgb, var(--vp-c-brand-1, #3f403f) 22%, transparent);
+  border-radius: 999px;
+}
+
+html.dark .vp-doc .solution-block {
+  background: rgba(255, 255, 255, 0.045);
+  border-color: rgba(255, 255, 255, 0.1);
+  border-left-color: var(--vp-c-brand-2, #c8c8c6);
+}
+html.dark .vp-doc .solution-block > p:first-child > strong:first-child {
+  color: #e6e6e4;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+@media (max-width: 640px) {
+  .vp-doc .solution-block {
+    margin-bottom: 20px;
+    padding: 10px 12px;
+  }
+}
+
+@media print {
+  .vp-doc .solution-block {
+    background: transparent !important;
+    border-color: #b9c0c9 !important;
+    border-left: 3px solid var(--vp-c-brand-1, #3f403f) !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  .vp-doc .solution-block > p:first-child > strong:first-child {
+    color: #111 !important;
+    background: transparent !important;
+    border: 1px solid #b9c0c9 !important;
+  }
+}
