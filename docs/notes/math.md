@@ -420,14 +420,14 @@ $$\lim\left(\frac{1}{n}\right)\left(\sqrt{1+\frac{1}{n}}+\sqrt{1+\frac{2}{n}}+ \
 
 ::: tip 工作例题 · 五个必记积分
 $$
-\begin{gathered}
-(1) \int_{0}^{\frac{\pi}{2}} \sin^{2}x dx= \int_{0}^{\frac{\pi}{2}} \cos^{2}x dx= \frac{\pi}{4} \approx 0.785398 \\
-\text{（用} \; \cos 2x= 1- 2\sin^{2}x \; \text{，或华里士公式} \; I_{2}=\left(\frac{1}{2}\right) \cdot\left(\frac{\pi}{2}\right) \; \text{）} \\
-(2) \int_{0}^{1} x e^{x} dx=[(x- 1)e^{x}]_{0}^{1}= 0-(- 1)= 1 \\
-(3) \int_{0}^{1}\frac{dx}{1+x^{2}}= \arctan x|_{0}^{1}= \frac{\pi}{4} \\
-(4) \int_{0}^\pi x \sin x dx=[- x \cos x+ \sin x]_{0}^\pi= \pi \\
-(5) \int_{0}^\infty e^{- x^{2}} dx= \frac{\sqrt{\pi}}{2} \approx 0.886227 \; \text{（泊松积分，用二重积分极坐标证明）}
-\end{gathered}
+\begin{aligned}
+&(1) \int_{0}^{\frac{\pi}{2}} \sin^{2}x dx= \int_{0}^{\frac{\pi}{2}} \cos^{2}x dx= \frac{\pi}{4} \approx 0.785398 \\
+&\text{（用} \; \cos 2x= 1- 2\sin^{2}x \; \text{，或华里士公式} \; I_{2}=\left(\frac{1}{2}\right) \cdot\left(\frac{\pi}{2}\right) \; \text{）} \\
+&(2) \int_{0}^{1} x e^{x} dx=[(x- 1)e^{x}]_{0}^{1}= 0-(- 1)= 1 \\
+&(3) \int_{0}^{1}\frac{dx}{1+x^{2}}= \arctan x|_{0}^{1}= \frac{\pi}{4} \\
+&(4) \int_{0}^\pi x \sin x dx=[- x \cos x+ \sin x]_{0}^\pi= \pi \\
+&(5) \int_{0}^\infty e^{- x^{2}} dx= \frac{\sqrt{\pi}}{2} \approx 0.886227 \; \text{（泊松积分，用二重积分极坐标证明）}
+\end{aligned}
 $$
 :::
 
