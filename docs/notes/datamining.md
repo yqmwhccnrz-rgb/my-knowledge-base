@@ -600,7 +600,7 @@ print(fm.predict(pd.DataFrame({'x': [6, 7]})))   # 对新数据预测
 
 ### 3.5 检验功效、效应量与样本量
 
-`功效 = 1 − β = P(拒绝 H0 | H0 为假)`。影响功效的四要素：α 越大、真实效应 θ 越大、标准误越小（n 越大）、单侧检验 → 功效越高。
+$\text{功效}=1-\beta=P(\text{拒绝 }H_0\mid H_0\text{ 为假})$。影响功效的四要素：α 越大、真实效应 θ 越大、标准误越小（n 越大）、单侧检验 → 功效越高。
 
 ```python
 import math
@@ -1800,7 +1800,7 @@ $$
 | 均匀 | $E=\dfrac{a+b}{2}, \operatorname{Var}=\dfrac{(b- a)^{2}}{12}$ |
 | 正态随机数 | $rng.normal(\mu, \sigma, size)$ |
 | 整数随机数 | `rng.integers(low, high, size)` |
-| 蒙特卡罗 | `π ≈ 4×(落入 1/4 圆点数)/N` |
+| 蒙特卡罗 | $\pi\approx 4\times\dfrac{\text{落入 }1/4\text{ 圆点数}}{N}$ |
 
 ### A.3 回归、综合评价与多元方法
 
@@ -1824,7 +1824,7 @@ $$
 | PCA | 相关矩阵特征值 $\lambda_{j}$；贡献率 $\lambda_{j} \sum \lambda_{i}$；累计 ≥80% 定 m |
 | 载荷 | $a_{ji}\sqrt{\lambda}_{j}$ |
 | 欧氏距离 | $d=\sqrt{\sum}(x_{i}- y_{i})^{2}$ |
-| 夹角余弦 | `cosθ = X·Y/(|X||Y|)` |
+| 夹角余弦 | $\cos\theta=\dfrac{X\cdot Y}{|X||Y|}$ |
 | 轮廓系数 | $s=\dfrac{b- a}{\max}(a,b) \in[- 1,1]$ |
 | PCA 代码 | `StandardScaler().fit_transform(X); PCA().fit(Z)` |
 | 层次聚类 | $pdist \to linkage(method='ward') \to fcluster(t=K)$ |
