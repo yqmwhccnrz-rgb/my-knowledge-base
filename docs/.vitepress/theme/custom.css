@@ -1025,6 +1025,59 @@ select:focus-visible {
 .vp-doc p + .katex-display {
   margin-top: 0.6em;
 }
+/* ==========================================================================
+   知识点两列网格（.kb-tile-2col）：把一组并列公式/短知识点均匀分到左右两列，
+   避免长串公式堆在同一行造成拥挤。每个 .kb-tile-item 是独立一项。
+   .kb-tile-wide 表示该项跨满两列（适合特别长的公式串）。
+   窄屏自动回退单列，打印保持两列不拆开。
+   ========================================================================== */
+.vp-doc div.kb-tile-2col {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 18px;
+  margin: 14px 0 18px;
+  align-items: start;
+}
+.vp-doc div.kb-tile-2col > div.kb-tile-item {
+  min-width: 0;
+  padding: 7px 12px;
+  margin: 0;
+  background: rgba(127, 127, 127, 0.045);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+.vp-doc div.kb-tile-2col > div.kb-tile-item > p {
+  margin: 0;
+}
+.vp-doc div.kb-tile-2col > div.kb-tile-wide {
+  grid-column: 1 / -1;
+}
+html.dark .vp-doc div.kb-tile-2col > div.kb-tile-item {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+@media (max-width: 720px) {
+  .vp-doc div.kb-tile-2col {
+    grid-template-columns: 1fr;
+  }
+  .vp-doc div.kb-tile-2col > div.kb-tile-wide {
+    grid-column: auto;
+  }
+}
+@media print {
+  .vp-doc div.kb-tile-2col {
+    gap: 6px 12px;
+  }
+  .vp-doc div.kb-tile-2col > div.kb-tile-item {
+    background: transparent !important;
+    border-color: #d8dee7 !important;
+    break-inside: avoid;
+  }
+}
+
 /* 列表条目间距统一：无序/有序列表条目之间保持一致的呼吸节奏，
    含分式的条目不再因行高不同而显得参差 */
 .vp-doc ul > li,

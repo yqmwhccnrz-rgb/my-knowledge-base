@@ -93,8 +93,46 @@ $\lim_{x \to x_{0}} f(x)= A$ ⇔ 对任意满足 $x_{n} \to x_{0}$（$x_{n}=x_{0
 :::
 
 **常用等价无穷小**（$x \to 0$，**只能在乘除因子中替换**）：
-$\sin x \sim \tan x \sim \arcsin x \sim \arctan x \sim \ln(1+x) \sim e^{x}- 1 \sim x$；
-$1-\cos x \sim \dfrac{x^{2}}{2}$；$(1+x)^\alpha- 1 \sim \alpha x$；$x-\sin x \sim \dfrac{x^{3}}{6}$；$\tan x- x \sim \dfrac{x^{3}}{3}$；$x-\ln(1+x) \sim \dfrac{x^{2}}{2}$。
+
+<div class="kb-tile-2col">
+
+<div class="kb-tile-item kb-tile-wide">
+
+$\sin x \sim \tan x \sim \arcsin x \sim \arctan x \sim \ln(1+x) \sim e^{x}- 1 \sim x$
+
+</div>
+
+<div class="kb-tile-item">
+
+$1-\cos x \sim \dfrac{x^{2}}{2}$
+
+</div>
+
+<div class="kb-tile-item">
+
+$(1+x)^\alpha- 1 \sim \alpha x$
+
+</div>
+
+<div class="kb-tile-item">
+
+$x-\sin x \sim \dfrac{x^{3}}{6}$
+
+</div>
+
+<div class="kb-tile-item">
+
+$\tan x- x \sim \dfrac{x^{3}}{3}$
+
+</div>
+
+<div class="kb-tile-item">
+
+$x-\ln(1+x) \sim \dfrac{x^{2}}{2}$
+
+</div>
+
+</div>
 
 ::: danger 易错 · 等价无穷小
 「加减项中替换」是最高频错误：$\tan x- \sin x$ 若用 $\sin x\sim x$、$\tan x\sim x$ 相减得 0，主阶被抵消，正确答案需展开到三阶（$\dfrac{x^{3}}{2}$）。判定准则：替换后若结果的主阶未被抵消即可用，否则必须上泰勒。
@@ -104,7 +142,7 @@ $1-\cos x \sim \dfrac{x^{2}}{2}$；$(1+x)^\alpha- 1 \sim \alpha x$；$x-\sin x \
 
 ![泰勒公式余项、五个麦克劳林展开与求极限](/math/math-taylor.svg)
 
-$f(x)= \sum_{k=0}\dfrac{^{n} f^{(k)}(x_{0})(x- x_{0})^{k}}{k}!+ R_{n}(x)$：
+$f(x)= \sum_{k=0}^{n}\dfrac{f^{(k)}(x_{0})(x- x_{0})^{k}}{k!}+ R_{n}(x)$：
 - **佩亚诺余项** $R_{n}= o((x- x_{0})^{n})$：局部性质，用于求极限与判极值，只需 `n` 阶可导。
 - **拉格朗日余项** $R_{n}= \dfrac{f^{(n+1)}(\xi)(x- x_{0})^{n+1}}{n+1}!$：整体性质，用于误差估计与不等式证明，需 $n+1$ 阶可导。
 
@@ -844,7 +882,37 @@ $$
 - `n=2`：格林公式（平面区域边界是曲线）；
 - `n=3`：高斯（体边界是闭曲面）、斯托克斯（曲面边界是闭曲线）——取决于取 2-形式还是 1-形式。
 
-**常用场论恒等式**：$\nabla \times( \nabla f)=0$（梯度场无旋）；$\nabla \cdot( \nabla \times A)=0$（旋度场无源）；$\nabla \cdot(f A)= \nabla f \cdot A+f \nabla \cdot A$；$\nabla^{2}f= \nabla \cdot( \nabla f)$（拉普拉斯算子）。这些是电磁学、流体力学方程的语言基础。
+**常用场论恒等式**：
+
+<div class="kb-tile-2col">
+
+<div class="kb-tile-item">
+
+$\nabla \times( \nabla f)=0$（梯度场无旋）
+
+</div>
+
+<div class="kb-tile-item">
+
+$\nabla \cdot( \nabla \times A)=0$（旋度场无源）
+
+</div>
+
+<div class="kb-tile-item">
+
+$\nabla \cdot(f A)= \nabla f \cdot A+f \nabla \cdot A$
+
+</div>
+
+<div class="kb-tile-item">
+
+$\nabla^{2}f= \nabla \cdot( \nabla f)$（拉普拉斯算子）
+
+</div>
+
+</div>
+
+这些是电磁学、流体力学方程的语言基础。
 
 ---
 
@@ -903,7 +971,28 @@ $$
 :::
 
 **五个麦克劳林展开**（见第 1.3 节表），收敛域分别为：
-$e^{x}$、$\sin x$、$\cos x$ 为 $(- \infty,+ \infty)$；$\ln(1+x)$ 为 $(-1,1]$；$(1+x)^\alpha$ 依赖 α，一般 $(- 1,1)$。
+
+<div class="kb-tile-2col">
+
+<div class="kb-tile-item">
+
+$e^{x}$、$\sin x$、$\cos x$ 为 $(- \infty,+ \infty)$
+
+</div>
+
+<div class="kb-tile-item">
+
+$\ln(1+x)$ 为 $(-1,1]$
+
+</div>
+
+<div class="kb-tile-item">
+
+$(1+x)^\alpha$ 依赖 $\alpha$，一般 $(- 1,1)$
+
+</div>
+
+</div>
 
 **补充 · 一致收敛**：函数项级数 $\sum u_{n}(x)$ 的一致收敛性（魏尔斯特拉斯 M 判别法：$|u_{n}(x)| \le M_{n}$ 且 $\sum M_{n}$ 收敛）保证和函数连续、可逐项积分与逐项求导（还需导函数一致收敛）。这解释「为何幂级数能在收敛区间内任意逐项运算」，教材把它列为选学但逻辑上不可缺。
 
