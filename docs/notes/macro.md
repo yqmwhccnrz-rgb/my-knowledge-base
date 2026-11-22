@@ -191,10 +191,10 @@ summary: "宏观经济学 11 章精读笔记：以马工程版知识框架为主
 
 | 概念 | 公式 | 性质 |
 | --- | --- | --- |
-| 边际消费倾向 MPC | $\frac{\Delta C}{\Delta Y}= b$ | 0 < b < 1 |
-| 平均消费倾向 APC | $\frac{C}{Y}= \frac{a}{Y}+ b$ | 随收入上升而**递减**，恒大于 MPC |
+| 边际消费倾向 MPC | $\dfrac{\Delta C}{\Delta Y}= b$ | 0 < b < 1 |
+| 平均消费倾向 APC | $\dfrac{C}{Y}= \dfrac{a}{Y}+ b$ | 随收入上升而**递减**，恒大于 MPC |
 | 储蓄函数 | $S= Y- C=- a+(1- b)Y$ | 由消费函数直接推出 |
-| 边际储蓄倾向 MPS | $\frac{\Delta S}{\Delta Y}= 1- b$ | **$MPC + MPS = 1$** |
+| 边际储蓄倾向 MPS | $\dfrac{\Delta S}{\Delta Y}= 1- b$ | **$MPC + MPS = 1$** |
 | 平均储蓄倾向 APS | S / Y | **$APC + APS = 1$** |
 
 **三大心理规律之一：边际消费倾向递减**——收入越高，新增收入中用于消费的比例越小，这是消费需求不足的根源。
@@ -225,8 +225,8 @@ summary: "宏观经济学 11 章精读笔记：以马工程版知识框架为主
 
 | 部门 | 均衡条件 | 均衡收入（Y） |
 | --- | --- | --- |
-| 两部门 | $Y = C + I$| $Y= \frac{a+ I_{0}}{1- b}$ |
-| 三部门 | $Y = C + I + G$，$T= T_{0}+ tY$ | $Y= \frac{a+ I_{0}+ G_{0}- bT_{0}+ bTR_{0}}{1- b(1- t)}$ |
+| 两部门 | $Y = C + I$| $Y= \dfrac{a+ I_{0}}{1- b}$ |
+| 三部门 | $Y = C + I + G$，$T= T_{0}+ tY$ | $Y= \dfrac{a+ I_{0}+ G_{0}- bT_{0}+ bTR_{0}}{1- b(1- t)}$ |
 | 四部门 | $Y = C + I + G + NX$，$M= M_{0}+ mY$ | 分母再加 m：$Y= \dfrac{a- bT_{0}+ bTR_{0}+ I_{0}+ G_{0}+ X_{0}- M_{0}}{1- b(1- t)+ m}$ |
 
 > 分母里的每一項（储蓄、税收、进口）都是**漏出**，漏出越多，均衡收入越小、乘数越小。
@@ -235,13 +235,13 @@ summary: "宏观经济学 11 章精读笔记：以马工程版知识框架为主
 
 **机制**：自发支出增加 $\Delta A$ 收入增加 $\Delta A$ 其中 $b \cdot \Delta A$ 用于消费 → 又形成他人收入 → 无限递推：
 
-$\Delta Y= \Delta A \times(1+ b+ b^{2}+ \cdots)= \frac{\Delta A}{1- b}$，故 **乘数 k = ΔY/ΔA = 1 / (1 − MPC) = 1 / MPS**。
+$\Delta Y= \Delta A \times(1+ b+ b^{2}+ \cdots)= \dfrac{\Delta A}{1- b}$，故 **乘数 k = ΔY/ΔA = 1 / (1 − MPC) = 1 / MPS**。
 
 | 乘数 | 公式 | 说明 |
 | --- | --- | --- |
 | 投资乘数 k_I | 1 / (1 − b) | 与政府购买乘数相同 |
 | 政府购买乘数 k_G | 1 / (1 − b) | 直接构成总需求 |
-| 税收乘数 k_T | $- \frac{b}{1- b}$ | 负号：增税减少收入；绝对值比 k_G 小 1 |
+| 税收乘数 k_T | $- \dfrac{b}{1- b}$ | 负号：增税减少收入；绝对值比 k_G 小 1 |
 | 转移支付乘数 k_TR | b / (1 − b) | 先影响可支配收入再影响消费 |
 | **平衡预算乘数** | **$k_G + k_T = 1$** | $\Delta G= \Delta T$ 时，收入仍等额增加 |
 | 对外贸易乘数 k_F | 1 / (MPS + MPM) | 开放后进口漏出使乘数变小 |
@@ -274,7 +274,7 @@ $\Delta Y= \Delta A \times(1+ b+ b^{2}+ \cdots)= \frac{\Delta A}{1- b}$，故 **
 
 以两部门、$I= I_{0}- d \cdot r$ 为例：
 
-$Y= \frac{a+ I_{0}- d \cdot r}{1- b}$，即 $r= \frac{a+ I_{0}}{d}-[\frac{1- b}{d}] \cdot Y$
+$Y= \dfrac{a+ I_{0}- d \cdot r}{1- b}$，即 $r= \dfrac{a+ I_{0}}{d}-[\dfrac{1- b}{d}] \cdot Y$
 
 | 性质 | 结论 |
 | --- | --- |
@@ -291,7 +291,7 @@ $Y= \frac{a+ I_{0}- d \cdot r}{1- b}$，即 $r= \frac{a+ I_{0}}{d}-[\frac{1- b}{
 - 交易动机 + 预防动机 → 随收入 Y **正向**变动（系数 k）；
 - 投机动机 → 随利率 r **反向**变动（系数 h，即货币需求的利率弹性）。
 
-货币供给：名义 M 由央行**外生**决定，实际货币供给 = M/P。均衡条件 $\frac{M}{P}= kY- hr$，整理得
+货币供给：名义 M 由央行**外生**决定，实际货币供给 = M/P。均衡条件 $\dfrac{M}{P}= kY- hr$，整理得
 
 **LM 方程：$r=\dfrac{k}{h}Y-\dfrac{1}{h}\cdot\dfrac{M}{P}$**
 
@@ -382,7 +382,7 @@ M ↑ → LM 右移 → r ↓ → I ↑ → Y ↑。**传导链**：M ↑ → r 
 
 ### 5.2 总供给曲线 AS
 
-宏观生产函数：短期 **Y = F(N, K̄)**（资本固定）；劳动需求由 **实际工资 = 劳动边际产品（$\frac{W}{P} = MPN$）** 决定。
+宏观生产函数：短期 **Y = F(N, K̄)**（资本固定）；劳动需求由 **实际工资 = 劳动边际产品（$\dfrac{W}{P} = MPN$）** 决定。
 
 | 形态 | 假设 | 曲线 | 政策含义 |
 | --- | --- | --- | --- |
@@ -509,7 +509,7 @@ M ↑ → LM 右移 → r ↓ → I ↑ → Y ↑。**传导链**：M ↑ → r 
 
 ### 7.2 增长核算
 
-**增长核算方程**：$\frac{\Delta Y}{Y}= \frac{\Delta A}{A}+ \alpha \cdot\left(\frac{\Delta K}{K}\right)+ \beta \cdot\left(\frac{\Delta L}{L}\right)$（α、β 为资本与劳动的产出弹性，规模报酬不变时 $\alpha+ \beta= 1$）
+**增长核算方程**：$\dfrac{\Delta Y}{Y}= \dfrac{\Delta A}{A}+ \alpha \cdot\left(\dfrac{\Delta K}{K}\right)+ \beta \cdot\left(\dfrac{\Delta L}{L}\right)$（α、β 为资本与劳动的产出弹性，规模报酬不变时 $\alpha+ \beta= 1$）
 
 **索洛剩余（全要素生产率 TFP）**：$\dfrac{\Delta A}{A}= \dfrac{\Delta Y}{Y}-\alpha\dfrac{\Delta K}{K}-\beta\dfrac{\Delta L}{L}$，即产出增长中无法由要素投入解释的部分，主要来自技术进步，是**长期人均收入增长最重要的源泉**。
 
@@ -560,7 +560,7 @@ $$\Delta k= s \cdot f(k)-(n+ \delta) \cdot k$$
 
 | 模型 | 核心 |
 | --- | --- |
-| **AK 模型** | $Y = AK$，资本边际产出**不变**（无递减），$\frac{\Delta k}{k}= sA-(n+ \delta)$，**无稳态**，增长可永久持续；政策能永久改变长期增长率 |
+| **AK 模型** | $Y = AK$，资本边际产出**不变**（无递减），$\dfrac{\Delta k}{k}= sA-(n+ \delta)$，**无稳态**，增长可永久持续；政策能永久改变长期增长率 |
 | 罗默（知识外溢 / 研发） | 知识是非竞争性投入，研发有正外部性 → 市场投入不足 → 需专利保护与研发补贴 |
 | 卢卡斯（人力资本） | 人力资本积累是增长核心，具有正外部性 → 政府应补贴教育 |
 
@@ -783,10 +783,10 @@ $$\Delta k= s \cdot f(k)-(n+ \delta) \cdot k$$
 | 三 / 四部门恒等式 | $I + G = S + T$；$I + G + X = S + T + M$|
 | GDP 平减指数 | 名义 GDP ÷ 实际 GDP × 100 |
 | 消费 / 储蓄函数 | $C = a + bY$；$S=- a+(1- b)Y$；$MPC + MPS = 1$|
-| 两部门均衡收入 | $Y= \frac{a+ I_{0}}{1- b}$ |
-| 各类乘数 | $k_{G}= k_{I}= \frac{1}{1- b}$；$k_{T}=- \frac{b}{1- b}$；$k_{TR}= \frac{b}{1- b}$；**平衡预算乘数 = 1** |
-| IS 方程 | $r= \frac{a+ I_{0}}{d}-[\frac{1- b}{d}] \cdot Y$ |
-| LM 方程 | $r=\left(\frac{k}{h}\right) \cdot Y-\left(\frac{1}{h}\right) \cdot\left(\frac{M}{P}\right)$ |
+| 两部门均衡收入 | $Y= \dfrac{a+ I_{0}}{1- b}$ |
+| 各类乘数 | $k_{G}= k_{I}= \dfrac{1}{1- b}$；$k_{T}=- \dfrac{b}{1- b}$；$k_{TR}= \dfrac{b}{1- b}$；**平衡预算乘数 = 1** |
+| IS 方程 | $r= \dfrac{a+ I_{0}}{d}-[\dfrac{1- b}{d}] \cdot Y$ |
+| LM 方程 | $r=\left(\dfrac{k}{h}\right) \cdot Y-\left(\dfrac{1}{h}\right) \cdot\left(\dfrac{M}{P}\right)$ |
 | 货币供给 | M = 基础货币 B × 货币乘数 m |
 | 增长核算 | $\dfrac{\Delta Y}{Y}= \dfrac{\Delta A}{A}+\alpha\dfrac{\Delta K}{K}+\beta\dfrac{\Delta L}{L}$ |
 | 索洛资本积累 | $\Delta k= s \cdot f(k)-(n+ \delta)k$；稳态 s·f(k\*) = (n + δ)k\* |

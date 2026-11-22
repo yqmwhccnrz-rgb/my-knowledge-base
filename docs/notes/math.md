@@ -53,13 +53,13 @@ summary: "高等数学 全面详解笔记，将上下册内容按知识逻辑综
 | 单调 | $x_{1}< x_{2} \Rightarrow f(x_{1}) \le f(x_{2})$ | 严格单调是反函数存在的充分条件 |
 | 奇偶 | $f(- x)=- f(x)$ / $f(- x)= f(x)$ | 前提：定义域关于原点对称；奇函数若在 0 有定义则 `f(0)=0` |
 | 周期 | `f(x+T) = f(x)` | `sin x, cos x` 周期 $2\pi$；`tan x` 周期 $\pi$；常数函数无最小正周期 |
-| 反函数 | 一一对应才有反函数 | $\frac{dy}{dx}= \frac{1}{\frac{dx}{dy}}$；原函数与反函数图像关于 `y=x` 对称 |
+| 反函数 | 一一对应才有反函数 | $\dfrac{dy}{dx}= \dfrac{1}{\dfrac{dx}{dy}}$；原函数与反函数图像关于 `y=x` 对称 |
 | 复合函数 | $f \circ g$ 要求 `R_g ⊆ D_f` | 分层拆解是链式求导的前提 |
 | 初等函数 | 基本初等函数经有限次四则与复合、且能写成一个式子 | 在定义区间内连续；分段函数一般**不是**初等函数 |
 
 ::: danger 易错 · 函数
 - 判定奇偶性**第一步**是检查定义域是否关于原点对称，否则直接判「非奇非偶」。
-- $\arcsin(\sin x)= x$（仅在 $[- \frac{\pi}{2}, \frac{\pi}{2}]$ 成立）；$\sqrt{x^{2}}=|x|$，不是 `x`；$\ln(e^{x})=x$ 但 $e^{\ln x}=x$ 需 `x>0`。
+- $\arcsin(\sin x)= x$（仅在 $[- \dfrac{\pi}{2}, \dfrac{\pi}{2}]$ 成立）；$\sqrt{x^{2}}=|x|$，不是 `x`；$\ln(e^{x})=x$ 但 $e^{\ln x}=x$ 需 `x>0`。
 - 符号函数 `sgn x`、取整函数 `[x]`、狄利克雷函数、积分上限函数 $\Phi(x)= \int_{a}^{x} f(t)dt$ 都不是初等函数，但常考。
 :::
 
@@ -79,52 +79,52 @@ summary: "高等数学 全面详解笔记，将上下册内容按知识逻辑综
 | 左右极限 | $\lim_{x \to x_{0}} f= A \Leftrightarrow f(x_{0}^{-})= f(x_{0}^{+})= A$ |
 | 夹逼准则 | $g \le f \le h$ 且 $\lim g= \lim h= A \Rightarrow \lim f= A$ |
 | 单调有界准则 | 单调有界数列必有极限（用于递推数列 $a_{n+1}= f(a_{n})$） |
-| 两个重要极限 | $\lim_{x \to 0} \dfrac{\sin x}{x}= 1$；$\lim_{x \to \infty}\left(1+\frac{1}{x}\right)^{x}= e$、$\lim_{x \to 0}(1+x)^{\frac{1}{x}}= e$ |
+| 两个重要极限 | $\lim_{x \to 0} \dfrac{\sin x}{x}= 1$；$\lim_{x \to \infty}\left(1+\dfrac{1}{x}\right)^{x}= e$、$\lim_{x \to 0}(1+x)^{\dfrac{1}{x}}= e$ |
 
 ::: tip 补充 · 海涅定理（归结原则）
-$\lim_{x \to x_{0}} f(x)= A$ ⇔ 对任意满足 $x_{n} \to x_{0}$（$x_{n}=x_{0}$）的数列都有 $f(x_{n}) \to A$。它把**函数极限化为数列极限**，两大用途：① 证明极限不存在——找两个收敛到同一点的数列使 $f(x_{n})$ 极限不同（如 $f=\sin\left(\frac{1}{x}\right)$ 在 0 处取 $x_{n}=\frac{1}{2n\pi}$ 与 $x_{n}=\frac{1}{2n\pi+\frac{\pi}{2}}$）；② 把数列极限转为函数极限来算（先求 $\lim_{x \to \infty}f(x)$ 得 $\lim a_{n}$，反之不行）。
+$\lim_{x \to x_{0}} f(x)= A$ ⇔ 对任意满足 $x_{n} \to x_{0}$（$x_{n}=x_{0}$）的数列都有 $f(x_{n}) \to A$。它把**函数极限化为数列极限**，两大用途：① 证明极限不存在——找两个收敛到同一点的数列使 $f(x_{n})$ 极限不同（如 $f=\sin\left(\dfrac{1}{x}\right)$ 在 0 处取 $x_{n}=\dfrac{1}{2n\pi}$ 与 $x_{n}=\dfrac{1}{2n\pi+\dfrac{\pi}{2}}$）；② 把数列极限转为函数极限来算（先求 $\lim_{x \to \infty}f(x)$ 得 $\lim a_{n}$，反之不行）。
 :::
 
 ::: tip 工作例题 · 七类未定式的处理
-- `0/0`：$\lim_{x \to 0} \dfrac{\sin 3x}{5x}= \dfrac{3}{5}$（重要极限），$\lim_{x \to 0}\frac{e^{x}- 1- x}{x^{2}}= \frac{1}{2}$（泰勒或洛必达）。
-- $1^\infty$：先取对数或用速算 $\lim f^g= e^{\lim g(f- 1)}$；$\lim_{n \to \infty}\left(1+\frac{2}{n}\right)^{n}= e^{2} \approx 7.3891$（数值验证：n=10000 时 7.3876）。
-- $\infty- \infty$：$\tan x- \sin x$ 型不能逐项替换，$\lim_{x \to 0}\frac{\tan x- \sin x}{x^{3}}= \frac{1}{2}$（数值验证 0.500000）。
-- $0 \cdot_{\infty}$ 化为 `0/0`；$0^{0}$、$\infty^{0}$ 取对数；$\frac{\infty}{\infty}$ 用洛必达或提最高阶。
+- `0/0`：$\lim_{x \to 0} \dfrac{\sin 3x}{5x}= \dfrac{3}{5}$（重要极限），$\lim_{x \to 0}\dfrac{e^{x}- 1- x}{x^{2}}= \dfrac{1}{2}$（泰勒或洛必达）。
+- $1^\infty$：先取对数或用速算 $\lim f^g= e^{\lim g(f- 1)}$；$\lim_{n \to \infty}\left(1+\dfrac{2}{n}\right)^{n}= e^{2} \approx 7.3891$（数值验证：n=10000 时 7.3876）。
+- $\infty- \infty$：$\tan x- \sin x$ 型不能逐项替换，$\lim_{x \to 0}\dfrac{\tan x- \sin x}{x^{3}}= \dfrac{1}{2}$（数值验证 0.500000）。
+- $0 \cdot_{\infty}$ 化为 `0/0`；$0^{0}$、$\infty^{0}$ 取对数；$\dfrac{\infty}{\infty}$ 用洛必达或提最高阶。
 :::
 
 **常用等价无穷小**（$x \to 0$，**只能在乘除因子中替换**）：
 $\sin x \sim \tan x \sim \arcsin x \sim \arctan x \sim \ln(1+x) \sim e^{x}- 1 \sim x$；
-$1-\cos x \sim \frac{x^{2}}{2}$；$(1+x)^\alpha- 1 \sim \alpha x$；$x-\sin x \sim \frac{x^{3}}{6}$；$\tan x- x \sim \frac{x^{3}}{3}$；$x-\ln(1+x) \sim \frac{x^{2}}{2}$。
+$1-\cos x \sim \dfrac{x^{2}}{2}$；$(1+x)^\alpha- 1 \sim \alpha x$；$x-\sin x \sim \dfrac{x^{3}}{6}$；$\tan x- x \sim \dfrac{x^{3}}{3}$；$x-\ln(1+x) \sim \dfrac{x^{2}}{2}$。
 
 ::: danger 易错 · 等价无穷小
-「加减项中替换」是最高频错误：$\tan x- \sin x$ 若用 `sin x ~ x`、`tan x ~ x` 相减得 0，主阶被抵消，正确答案需展开到三阶（$\frac{x^{3}}{2}$）。判定准则：替换后若结果的主阶未被抵消即可用，否则必须上泰勒。
+「加减项中替换」是最高频错误：$\tan x- \sin x$ 若用 `sin x ~ x`、`tan x ~ x` 相减得 0，主阶被抵消，正确答案需展开到三阶（$\dfrac{x^{3}}{2}$）。判定准则：替换后若结果的主阶未被抵消即可用，否则必须上泰勒。
 :::
 
 ### 1.3 泰勒公式
 
 ![泰勒公式余项、五个麦克劳林展开与求极限](/math/math-taylor.svg)
 
-$f(x)= \sum_{k=0}\frac{^{n} f^{(k)}(x_{0})(x- x_{0})^{k}}{k}!+ R_{n}(x)$：
+$f(x)= \sum_{k=0}\dfrac{^{n} f^{(k)}(x_{0})(x- x_{0})^{k}}{k}!+ R_{n}(x)$：
 - **佩亚诺余项** $R_{n}= o((x- x_{0})^{n})$：局部性质，用于求极限与判极值，只需 `n` 阶可导。
-- **拉格朗日余项** $R_{n}= \frac{f^{(n+1)}(\xi)(x- x_{0})^{n+1}}{n+1}!$：整体性质，用于误差估计与不等式证明，需 `n+1` 阶可导。
+- **拉格朗日余项** $R_{n}= \dfrac{f^{(n+1)}(\xi)(x- x_{0})^{n+1}}{n+1}!$：整体性质，用于误差估计与不等式证明，需 `n+1` 阶可导。
 
 | 函数 | 麦克劳林展开（$x \to 0$） |
 | --- | --- |
-| $e^{x}$ | $1+ x+ \frac{x^{2}}{2}!+ \cdots+ \frac{x^{n}}{n}!+ o(x^{n})$ |
-| `sin x` | $x- \frac{x^{3}}{3}!+ \frac{x^{5}}{5}!- \cdots$ |
-| `cos x` | $1- \frac{x^{2}}{2}!+ \frac{x^{4}}{4}!- \cdots$ |
-| `ln(1+x)` | $x- \frac{x^{2}}{2}+ \frac{x^{3}}{3}- \cdots+ \frac{(- 1)^{n-1}x^{n}}{n}$ |
-| $(1+x)^\alpha$ | $1+ \alpha x+ \frac{\alpha(\alpha- 1)x^{2}}{2}!+ \cdots$ |
-| `arctan x` | $x- \frac{x^{3}}{3}+ \frac{x^{5}}{5}- \cdots$ |
+| $e^{x}$ | $1+ x+ \dfrac{x^{2}}{2}!+ \cdots+ \dfrac{x^{n}}{n}!+ o(x^{n})$ |
+| `sin x` | $x- \dfrac{x^{3}}{3}!+ \dfrac{x^{5}}{5}!- \cdots$ |
+| `cos x` | $1- \dfrac{x^{2}}{2}!+ \dfrac{x^{4}}{4}!- \cdots$ |
+| `ln(1+x)` | $x- \dfrac{x^{2}}{2}+ \dfrac{x^{3}}{3}- \cdots+ \dfrac{(- 1)^{n-1}x^{n}}{n}$ |
+| $(1+x)^\alpha$ | $1+ \alpha x+ \dfrac{\alpha(\alpha- 1)x^{2}}{2}!+ \cdots$ |
+| `arctan x` | $x- \dfrac{x^{3}}{3}+ \dfrac{x^{5}}{5}- \cdots$ |
 
 ::: tip 工作例题 · 展开到几阶
 分母是 $x^{m}$，就把分子展开到「首个非零项恰为 $x^{m}$」：
-- $\frac{e^{x}- 1- x}{x^{2}}$：$e^{x}= 1+x+\frac{x^{2}}{2}+o(x^{2})$ ⇒ 分子 $= \frac{x^{2}}{2}+ o(x^{2})$ ⇒ 极限 `1/2`。
-- $\frac{\tan x- \sin x}{x^{3}}$：$\tan x= x+ \frac{x^{3}}{3}$，$\sin x= x- \frac{x^{3}}{6}$ ⇒ 差 $= \frac{x^{3}}{2}$ ⇒ 极限 `1/2`。
+- $\dfrac{e^{x}- 1- x}{x^{2}}$：$e^{x}= 1+x+\dfrac{x^{2}}{2}+o(x^{2})$ ⇒ 分子 $= \dfrac{x^{2}}{2}+ o(x^{2})$ ⇒ 极限 `1/2`。
+- $\dfrac{\tan x- \sin x}{x^{3}}$：$\tan x= x+ \dfrac{x^{3}}{3}$，$\sin x= x- \dfrac{x^{3}}{6}$ ⇒ 差 $= \dfrac{x^{3}}{2}$ ⇒ 极限 `1/2`。
 由展开式还可直接读出 $f^{(n)}(0)= n! \cdot a_{n}$；判极值时看「首个非零偶数阶导数」。
 :::
 
-**补充 · 严格性说明**：`f` 有任意阶导数并不保证其泰勒级数收敛到 `f`（经典反例 $f(x)=e^{- \frac{1}{x^{2}}}$（x≠0）、`f(0)=0`，在 0 处各阶导数全为 0）。收敛到原函数需拉格朗日余项趋于 0，即函数**解析**。教材多只给展开式，此处补足条件。
+**补充 · 严格性说明**：`f` 有任意阶导数并不保证其泰勒级数收敛到 `f`（经典反例 $f(x)=e^{- \dfrac{1}{x^{2}}}$（x≠0）、`f(0)=0`，在 0 处各阶导数全为 0）。收敛到原函数需拉格朗日余项趋于 0，即函数**解析**。教材多只给展开式，此处补足条件。
 
 ### 1.4 连续与间断点
 
@@ -133,7 +133,7 @@ $f(x)= \sum_{k=0}\frac{^{n} f^{(k)}(x_{0})(x- x_{0})^{k}}{k}!+ R_{n}(x)$：
 | 第一类·可去 | 左右极限存在且相等，但 $= f(x_{0})$ 或无定义 | `sin x / x` 在 0 |
 | 第一类·跳跃 | 左右极限存在但不等 | `sgn x` 在 0 |
 | 第二类·无穷 | 至少一侧极限为 ∞ | `1/x` 在 0 |
-| 第二类·振荡 | 极限不存在且不趋于 ∞ | $\sin\left(\frac{1}{x}\right)$ 在 0 |
+| 第二类·振荡 | 极限不存在且不趋于 ∞ | $\sin\left(\dfrac{1}{x}\right)$ 在 0 |
 
 **闭区间上连续函数的四性质**：有界性、最值定理、介值定理、零点定理（$f(a)f(b)<0 \Rightarrow \exists \xi, f(\xi)=0$）。这四条是第 3 章大量证明题的依据。
 
@@ -152,7 +152,7 @@ $f(x)= \sum_{k=0}\frac{^{n} f^{(k)}(x_{0})(x- x_{0})^{k}}{k}!+ R_{n}(x)$：
 | 拓扑 | 邻域、聚点、完备性、柯西列 | 实数完备性等价于「单调有界必收敛」「柯西列必收敛」 |
 
 **七种等价刻画**：$\lim a_{n}=A$ ⇔ 任意子列收敛到 A（若有子列不收敛或收敛到别的值，则原数列不收敛）。判定发散常用「找两个子列极限不同」，如 $(- 1)^{n}$。
-**Stolz 定理**（考研常用）：$b_{n}$ 严格递增趋于 ∞ 时，$\lim \frac{a_{n}}{b_{n}}= \lim \frac{a_{n+1}- a_{n}}{b_{n+1}- b_{n}}$（离散版洛必达），用于 $\lim \frac{1+\frac{1}{2}+ \cdots+\frac{1}{n}}{\ln} n= 1$ 一类题。
+**Stolz 定理**（考研常用）：$b_{n}$ 严格递增趋于 ∞ 时，$\lim \dfrac{a_{n}}{b_{n}}= \lim \dfrac{a_{n+1}- a_{n}}{b_{n+1}- b_{n}}$（离散版洛必达），用于 $\lim \dfrac{1+\dfrac{1}{2}+ \cdots+\dfrac{1}{n}}{\ln} n= 1$ 一类题。
 
 ---
 
@@ -162,7 +162,7 @@ $f(x)= \sum_{k=0}\frac{^{n} f^{(k)}(x_{0})(x- x_{0})^{k}}{k}!+ R_{n}(x)$：
 
 ![导数定义、几何意义与可导连续关系](/math/math-derivative.svg)
 
-$f'(x_{0})= \lim_{\Delta x \to 0}\frac{f(x_{0}+\Delta x)- f(x_{0})}{\Delta x}$，几何上是切线斜率 $\tan \alpha$，物理上是瞬时速度。
+$f'(x_{0})= \lim_{\Delta x \to 0}\dfrac{f(x_{0}+\Delta x)- f(x_{0})}{\Delta x}$，几何上是切线斜率 $\tan \alpha$，物理上是瞬时速度。
 **微分** `dy = f′(x)dx`，且 $\Delta y= dy+ o(\Delta x)$ ——「以直代曲」是微元法的理论基础。
 
 | 关系（一元） | 结论 |
@@ -176,17 +176,17 @@ $f'(x_{0})= \lim_{\Delta x \to 0}\frac{f(x_{0}+\Delta x)- f(x_{0})}{\Delta x}$�
 
 | 类型 | 公式 |
 | --- | --- |
-| 四则 | `(uv)′ = u′v + uv′`；$\left(\frac{u}{v}\right)'= \frac{u'v- uv'}{v^{2}}$ |
+| 四则 | `(uv)′ = u′v + uv′`；$\left(\dfrac{u}{v}\right)'= \dfrac{u'v- uv'}{v^{2}}$ |
 | 复合（链式） | $y=f(u), u=g(x) \Rightarrow y'= f'(u)g'(x)$，多层复合逐层相乘 |
-| 反函数 | $\frac{dx}{dy}= \frac{1}{y}'$；$\frac{d^{2}x}{dy^{2}}=- y''(y')^{3}$ |
-| 隐函数 | $F(x,y)=0 \Rightarrow \frac{dy}{dx}=- \frac{F_{x}}{F_{y}}$（$F_{y}=0$） |
-| 参数方程 | $\frac{dy}{dx}= \frac{\dot{y}}{\dot{x}}$；$\frac{d^{2}y}{dx^{2}}= \frac{\frac{d}{dt\left(\frac{\dot{y}}{\dot{x}}\right)}}{\dot{x}}= \frac{\dot{x}\ddot{y}- \ddot{y}\ddot{x}}{\dot{x}^{3}}$（先对 t 求导再除 ẋ） |
+| 反函数 | $\dfrac{dx}{dy}= \dfrac{1}{y}'$；$\dfrac{d^{2}x}{dy^{2}}=- y''(y')^{3}$ |
+| 隐函数 | $F(x,y)=0 \Rightarrow \dfrac{dy}{dx}=- \dfrac{F_{x}}{F_{y}}$（$F_{y}=0$） |
+| 参数方程 | $\dfrac{dy}{dx}= \dfrac{\dot{y}}{\dot{x}}$；$\dfrac{d^{2}y}{dx^{2}}= \dfrac{\dfrac{d}{dt\left(\dfrac{\dot{y}}{\dot{x}}\right)}}{\dot{x}}= \dfrac{\dot{x}\ddot{y}- \ddot{y}\ddot{x}}{\dot{x}^{3}}$（先对 t 求导再除 ẋ） |
 | 对数求导 | $y=x^{x} \Rightarrow \ln y= x \ln x \Rightarrow y'= x^{x}(\ln x+ 1)$ |
 | 高阶·莱布尼茨 | $(uv)^{(n)}= \sum_{k} C(n,k) u^{(k)} v^{(n-k)}$ |
-| 常用 n 阶 | $(\sin x)^{(n)}= \sin\left(x+\frac{n\pi}{2}\right)$；$\left(\dfrac{1}{x+a}\right)^{(n)}=\dfrac{(-1)^{n}\,n!}{(x+a)^{n+1}}$ |
+| 常用 n 阶 | $(\sin x)^{(n)}= \sin\left(x+\dfrac{n\pi}{2}\right)$；$\left(\dfrac{1}{x+a}\right)^{(n)}=\dfrac{(-1)^{n}\,n!}{(x+a)^{n+1}}$ |
 
 ::: tip 工作例题 · 分段点与含绝对值因子
-$f(x)= x^{2} \sin\left(\frac{1}{x}\right)$（x≠0）、`f(0)=0`：在 0 处 $f'(0)= \lim x \sin\left(\frac{1}{x}\right)= 0$（可导），但 $f'(x)=2x \sin\left(\frac{1}{x}\right)- \cos\left(\frac{1}{x}\right)$ 在 0 处极限不存在 ⇒ **导函数不连续**。这是「可导但导函数不连续」的标准反例。
+$f(x)= x^{2} \sin\left(\dfrac{1}{x}\right)$（x≠0）、`f(0)=0`：在 0 处 $f'(0)= \lim x \sin\left(\dfrac{1}{x}\right)= 0$（可导），但 $f'(x)=2x \sin\left(\dfrac{1}{x}\right)- \cos\left(\dfrac{1}{x}\right)$ 在 0 处极限不存在 ⇒ **导函数不连续**。这是「可导但导函数不连续」的标准反例。
 经典结论：$g(x)|x- a|$ 在 `a` 处可导 ⇔ `g(a)=0`（此时导数为 0）。
 :::
 
@@ -209,7 +209,7 @@ $f(x)= x^{2} \sin\left(\frac{1}{x}\right)$（x≠0）、`f(0)=0`：在 0 处 $f'
 | 费马引理 | `f` 在 $x_{0}$ 可导且取极值 | $f'(x_{0})=0$ |
 | 罗尔 | `[a,b]` 连续、`(a,b)` 可导、`f(a)=f(b)` | $\exists \xi \in(a,b)$, $f'(\xi)=0$ |
 | 拉格朗日 | `[a,b]` 连续、`(a,b)` 可导 | $f(b)- f(a)= f'(\xi)(b- a)$ |
-| 柯西 | `f,g` 满足上述条件且 $g'=0$ | $\frac{f(b)- f(a)}{g(b)- g(a)}= f'\frac{\xi}{g}'(\xi)$ |
+| 柯西 | `f,g` 满足上述条件且 $g'=0$ | $\dfrac{f(b)- f(a)}{g(b)- g(a)}= f'\dfrac{\xi}{g}'(\xi)$ |
 | 泰勒 | `n+1` 阶可导 | 带拉格朗日余项的 `n` 阶展开（`n=0` 退化为拉格朗日） |
 
 **逻辑链**：罗尔（特殊）→ 拉格朗日（罗尔 + 辅助函数）→ 柯西（参数形式）→ 泰勒（高阶），而**柯西是洛必达法则的证明基础**。
@@ -217,11 +217,11 @@ $f(x)= x^{2} \sin\left(\frac{1}{x}\right)$（x≠0）、`f(0)=0`：在 0 处 $f'
 ::: tip 工作例题 · 辅助函数构造三步
 证 $\exists \xi : f'(\xi)+ f(\xi)g'(\xi)= 0$：
 ① 把待证式看成某函数 `F` 的导数等于 0；② 乘积分因子 `e^{g(x)}` 得 `F(x)=e^{g(x)}f(x)`；③ 对 `F` 用罗尔定理。
-常见模板：证 $f'(\xi)=k$ ⇒ $F=f- kx$；证 $f'\frac{\xi}{g}'(\xi)=k$ ⇒ 柯西；含 `f″` ⇒ 两次罗尔或对 `f′` 用拉格朗日；含积分 ⇒ 积分中值定理。
+常见模板：证 $f'(\xi)=k$ ⇒ $F=f- kx$；证 $f'\dfrac{\xi}{g}'(\xi)=k$ ⇒ 柯西；含 `f″` ⇒ 两次罗尔或对 `f′` 用拉格朗日；含积分 ⇒ 积分中值定理。
 :::
 
-**洛必达法则的四个前提**（常被忽略）：① 属 `0/0` 或 $\frac{\infty}{\infty}$；② 去心邻域内 `f′、g′` 存在且 $g'=0$；③ `lim f′/g′` 存在或为 ∞；④ 若 `lim f′/g′` 振荡不存在则**法则失效**，须改用定义或泰勒。
-反例：$\lim_{x \to \infty}\frac{x+\sin x}{x}= 1$，但 $f'/g'= 1+\cos x$ 极限不存在，洛必达给不出结论。
+**洛必达法则的四个前提**（常被忽略）：① 属 `0/0` 或 $\dfrac{\infty}{\infty}$；② 去心邻域内 `f′、g′` 存在且 $g'=0$；③ `lim f′/g′` 存在或为 ∞；④ 若 `lim f′/g′` 振荡不存在则**法则失效**，须改用定义或泰勒。
+反例：$\lim_{x \to \infty}\dfrac{x+\sin x}{x}= 1$，但 $f'/g'= 1+\cos x$ 极限不存在，洛必达给不出结论。
 
 ### 3.2 单调性、凹凸性、极值与渐近线
 
@@ -238,13 +238,13 @@ $f(x)= x^{2} \sin\left(\frac{1}{x}\right)$（x≠0）、`f(0)=0`：在 0 处 $f'
 **三类渐近线**：
 - 水平 `y = A`，若 $\lim_{x \to ± \infty} f(x)= A$；
 - 铅直 $x= x_{0}$，若 $\lim_{x \to x_{0}} f(x)= \infty$（在无定义点、分段点找）；
-- 斜 `y = ax+b`，$a= \lim \frac{f(x)}{x}$，$b= \lim[f(x)- ax]$（只需在水平不存在时求），且 $x \to+ \infty$ 与 $x \to- \infty$ 要分别计算。
+- 斜 `y = ax+b`，$a= \lim \dfrac{f(x)}{x}$，$b= \lim[f(x)- ax]$（只需在水平不存在时求），且 $x \to+ \infty$ 与 $x \to- \infty$ 要分别计算。
 
-**曲率** $\kappa=\dfrac{|y''|}{(1+y'^{2})^{\frac{3}{2}}}$，曲率半径 $\rho= \frac{1}{\kappa}$（直线 $\kappa=0$）。
+**曲率** $\kappa=\dfrac{|y''|}{(1+y'^{2})^{\dfrac{3}{2}}}$，曲率半径 $\rho= \dfrac{1}{\kappa}$（直线 $\kappa=0$）。
 
 ::: danger 易错 · 导数应用
 - 极值是**局部**概念、最值是**全局**概念；闭区间最值必须比较「驻点 + 不可导点 + 端点」。
-- $f''(x_{0})=0$ 既非拐点的充分条件也非必要条件：$f=x^{4}$ 在 0 有 `f″=0` 但不是拐点；$f=x^{\frac{1}{3}}$ 在 0 是拐点但二阶导不存在。
+- $f''(x_{0})=0$ 既非拐点的充分条件也非必要条件：$f=x^{4}$ 在 0 有 `f″=0` 但不是拐点；$f=x^{\dfrac{1}{3}}$ 在 0 是拐点但二阶导不存在。
 - 拐点是曲线上的**点**（要写坐标），极值点是 **x 值**；两者概念维度不同。
 - 同一方向水平与斜渐近线至多各一条；若 `a` 不存在（且非 ∞）则无斜渐近线。
 :::
@@ -254,9 +254,9 @@ $f(x)= x^{2} \sin\left(\frac{1}{x}\right)$（x≠0）、`f(0)=0`：在 0 处 $f'
 ::: tip 补充 · 由单调性得到的常用不等式
 构造函数 + 单调性是证明不等式的标准武器，几条「母不等式」值得记住（都可由 `F(x)` 求导证出）：
 - $e^{x} \ge 1+x$（等号仅 `x=0`）；
-- $\frac{x}{1+x} \le \ln(1+x) \le x$（$x>- 1$）；
-- `sin x < x < tan x`（$0<x<\frac{\pi}{2}$）；
-- $1- \frac{x^{2}}{2} \le \cos x$。
+- $\dfrac{x}{1+x} \le \ln(1+x) \le x$（$x>- 1$）；
+- `sin x < x < tan x`（$0<x<\dfrac{\pi}{2}$）；
+- $1- \dfrac{x^{2}}{2} \le \cos x$。
 琴生不等式（凸函数 $f\left(\sum \lambda_{i}x_{i}\right) \le \sum \lambda_{i}f(x_{i})$）则是凹凸性的直接推论，处理「和式/均值型」不等式时优先想到。
 :::
 
@@ -288,12 +288,12 @@ $\int f(x)dx= F(x)+ C \Leftrightarrow F'(x)=f(x)$。**连续函数必有原函�
 | 基本积分 | 结果 |
 | --- | --- |
 | $\int x^a dx$ | `x^{a+1}/(a+1)+C` ($a=- 1$)；$a=- 1$ 时 `ln|x|+C` |
-| $\int e^{x}dx$, $\int a^{x}dx$ | $e^{x}+C$, $\frac{a^{x}}{\ln} a+C$ |
+| $\int e^{x}dx$, $\int a^{x}dx$ | $e^{x}+C$, $\dfrac{a^{x}}{\ln} a+C$ |
 | $\int \sin x dx$, $\int \cos x dx$ | $- \cos x+C$, `sin x+C` |
-| $\frac{\int dx}{1+x^{2}}$, $\frac{\int dx}{\sqrt{1- x^{2}}}$ | `arctan x+C`, `arcsin x+C` |
+| $\dfrac{\int dx}{1+x^{2}}$, $\dfrac{\int dx}{\sqrt{1- x^{2}}}$ | `arctan x+C`, `arcsin x+C` |
 | $\int \sec x dx$ | `ln|sec x + tan x|+C` |
-| $\frac{\int dx}{a^{2}+x^{2}}$, $\frac{\int dx}{\sqrt{a^{2}- x^{2}}}$ | $\left(\frac{1}{a}\right)\arctan\left(\frac{x}{a}\right)+C$, `arcsin(x/a)+C` |
-| $\int f'\frac{x}{f(x)dx}$ | `ln|f(x)|+C`（最高频凑微分） |
+| $\dfrac{\int dx}{a^{2}+x^{2}}$, $\dfrac{\int dx}{\sqrt{a^{2}- x^{2}}}$ | $\left(\dfrac{1}{a}\right)\arctan\left(\dfrac{x}{a}\right)+C$, `arcsin(x/a)+C` |
+| $\int f'\dfrac{x}{f(x)dx}$ | `ln|f(x)|+C`（最高频凑微分） |
 
 ### 4.2 三种主要积分法
 
@@ -314,13 +314,13 @@ $\int f(x)dx= F(x)+ C \Leftrightarrow F'(x)=f(x)$。**连续函数必有原函�
 | 类型 | 方法 |
 | --- | --- |
 | 有理函数 `P(x)/Q(x)` | 先化为真分式（多项式除法）→ 分母因式分解 → 部分分式（含重根、二次不可约）→ 逐项积分 |
-| 三角有理式 `R(sin x, cos x)` | 万能代换 $t=\tan\left(\frac{x}{2}\right)$：$\sin x= \frac{2t}{1+t^{2}}$，$\cos x= \frac{1- t^{2}}{1+t^{2}}$，$dx= \frac{2dt}{1+t^{2}}$；有更简对称式时优先用 |
-| 简单无理函数 | 根式整体代换：$\int R\left(x,^{n}\sqrt{ax+b}\right)dx$ 令 $t=^{n}\sqrt{ax+b}$；倒代换 $x=\frac{1}{t}$ 处理高次分母 |
+| 三角有理式 `R(sin x, cos x)` | 万能代换 $t=\tan\left(\dfrac{x}{2}\right)$：$\sin x= \dfrac{2t}{1+t^{2}}$，$\cos x= \dfrac{1- t^{2}}{1+t^{2}}$，$dx= \dfrac{2dt}{1+t^{2}}$；有更简对称式时优先用 |
+| 简单无理函数 | 根式整体代换：$\int R\left(x,^{n}\sqrt{ax+b}\right)dx$ 令 $t=^{n}\sqrt{ax+b}$；倒代换 $x=\dfrac{1}{t}$ 处理高次分母 |
 
 ::: danger 易错 · 不定积分
 - **不要漏 `+C`**；分段积分时各段常数须由连续性统一（否则原函数不连续）。
 - 三角代换回代时用辅助直角三角形，别把 `t` 直接留在答案里。
-- $e^{- x^{2}}$、`sin x / x`、$\frac{1}{\ln} x$、$\sqrt{1+k^{2}\sin^{2}x}$ 等**原函数不是初等函数**（刘维尔定理），不要硬算；它们靠级数、变限积分或数值方法处理（见第 5、12 章）。
+- $e^{- x^{2}}$、`sin x / x`、$\dfrac{1}{\ln} x$、$\sqrt{1+k^{2}\sin^{2}x}$ 等**原函数不是初等函数**（刘维尔定理），不要硬算；它们靠级数、变限积分或数值方法处理（见第 5、12 章）。
 - $\int\dfrac{dx}{x}=\ln\lvert x\rvert+C$，绝对值不能省。
 :::
 
@@ -346,10 +346,10 @@ $$
 | 有理分式 | 部分分式分解 |
 | 三角函数有理式 | 万能代换（有对称性时优先用倍角/降幂） |
 | 对称区间 | 先查奇偶性；三角积分可用区间再现 |
-| $\int_{0}^{\frac{\pi}{2}} \sin^{n}x dx$ | 华里士公式 |
+| $\int_{0}^{\dfrac{\pi}{2}} \sin^{n}x dx$ | 华里士公式 |
 | 变限积分求导 | 通式 + 先换元把参数提出 |
 
-**不可积但要会处理的函数**：$\int e^{- x^{2}}dx$ 用级数展开或误差函数 `erf(x)`；$\int_{0}^{+\infty}\frac{\sin x}{x}\,dx=\frac{\pi}{2}$（狄利克雷积分，用含参积分或拉普拉斯变换）；$\int_{0}^{\frac{\pi}{2}} \ln \sin x dx=-\left(\frac{\pi}{2}\right)\ln 2$（用区间再现与倍角）。
+**不可积但要会处理的函数**：$\int e^{- x^{2}}dx$ 用级数展开或误差函数 `erf(x)`；$\int_{0}^{+\infty}\dfrac{\sin x}{x}\,dx=\dfrac{\pi}{2}$（狄利克雷积分，用含参积分或拉普拉斯变换）；$\int_{0}^{\dfrac{\pi}{2}} \ln \sin x dx=-\left(\dfrac{\pi}{2}\right)\ln 2$（用区间再现与倍角）。
 
 ---
 
@@ -366,16 +366,16 @@ $\int_{a}^{b} f(x)dx= \lim_{\lambda \to 0} \sum f(\xi_{i})\Delta x_{i}$（$\lamb
 | --- | --- |
 | 积分中值定理 | `f` 连续 ⇒ $\int_{a}^{b} f dx= f(\xi)(b- a)$ |
 | 积分上限函数 | $\Phi(x)= \int_{a}^{x} f(t)dt$；`f` 连续 ⇒ $\Phi '(x)=f(x)$；`f` 可积 ⇒ $\Phi$ 连续（未必可导） |
-| 变限求导通式 | $\frac{d}{dx} \int_{\alpha(x)}^{\beta(x)} f(t)dt= f(\beta)\beta '- f(\alpha)\alpha '$ |
+| 变限求导通式 | $\dfrac{d}{dx} \int_{\alpha(x)}^{\beta(x)} f(t)dt= f(\beta)\beta '- f(\alpha)\alpha '$ |
 | **牛顿–莱布尼茨** | $\int_{a}^{b} f dx= F(b)- F(a)$，把求和极限化为原函数增量 |
 | 含参变量 | 被积函数含 `x` 时须先换元把 `x` 提到积分号外，再求导 |
 
 ::: tip 补充 · 用定积分定义求 n 项和极限
-形如 $\lim_{n \to \infty}\frac{1}{n}\sum_{k=1}^{n} f\left(\frac{k}{n}\right)$ 的极限，正是取 $x_{k}=\frac{k}{n}$、$\Delta x=\frac{1}{n}$、$\xi_{i}=x_{i}$ 的黎曼和，故等于 $\int_{0}^{1} f(x)dx$。
+形如 $\lim_{n \to \infty}\dfrac{1}{n}\sum_{k=1}^{n} f\left(\dfrac{k}{n}\right)$ 的极限，正是取 $x_{k}=\dfrac{k}{n}$、$\Delta x=\dfrac{1}{n}$、$\xi_{i}=x_{i}$ 的黎曼和，故等于 $\int_{0}^{1} f(x)dx$。
 例：
 
 $$\lim\left(\frac{1}{n}\right)\left(\sqrt{1+\frac{1}{n}}+\sqrt{1+\frac{2}{n}}+ \cdots+\sqrt{1+\frac{n}{n}}\right)= \int_{0}^{1}\sqrt{1+x}dx=\left[ \frac{2}{3}(1+x)^{\frac{3}{2}}\right]_{0}^{1}= \frac{2}{3}\left(2\sqrt{2}- 1\right) \approx 1.2189$$
-若和式不是标准 $\left(\frac{1}{n}\right)\sum f\left(\frac{k}{n}\right)$ 形状，先提出 `1/n` 凑形；凑不出的用夹逼放缩。
+若和式不是标准 $\left(\dfrac{1}{n}\right)\sum f\left(\dfrac{k}{n}\right)$ 形状，先提出 `1/n` 凑形；凑不出的用夹逼放缩。
 :::
 
 ### 5.2 计算简化四技巧
@@ -397,14 +397,14 @@ $$
 | --- | --- |
 | 奇偶性 | 对称区间：`f` 奇 ⇒ 积分为 0；`f` 偶 ⇒ $2 \int_{0}^{a} f dx$ |
 | 周期性 | $\int_{a}^{a+T} f dx= \int_{0}^{T} f dx$；$\int_{0}^{nT} f dx= n \int_{0}^{T} f dx$ |
-| 区间再现（King） | $\int_{a}^{b} f(x)dx= \int_{a}^{b} f(a+b- x)dx$；用于 $\int_{0}^{\frac{\pi}{2}} f(\sin x, \cos x)dx$ 与 $\int_{0}^\pi x f(\sin x)dx=\left(\frac{\pi}{2}\right) \int_{0}^\pi f(\sin x)dx$ |
-| 华里士公式 | $I_{n}= \int_{0}^{\frac{\pi}{2}}\sin^{n}x dx= \int_{0}^{\frac{\pi}{2}}\cos^{n}x dx$；`n` 偶 ⇒ $\dfrac{(n-1)!!}{n!!}\cdot\dfrac{\pi}{2}$；`n` 奇 ⇒ $\dfrac{(n-1)!!}{n!!}$；$I_{n}= \frac{n- 1}{n} \cdot I_{n-2}$ |
+| 区间再现（King） | $\int_{a}^{b} f(x)dx= \int_{a}^{b} f(a+b- x)dx$；用于 $\int_{0}^{\dfrac{\pi}{2}} f(\sin x, \cos x)dx$ 与 $\int_{0}^\pi x f(\sin x)dx=\left(\dfrac{\pi}{2}\right) \int_{0}^\pi f(\sin x)dx$ |
+| 华里士公式 | $I_{n}= \int_{0}^{\dfrac{\pi}{2}}\sin^{n}x dx= \int_{0}^{\dfrac{\pi}{2}}\cos^{n}x dx$；`n` 偶 ⇒ $\dfrac{(n-1)!!}{n!!}\cdot\dfrac{\pi}{2}$；`n` 奇 ⇒ $\dfrac{(n-1)!!}{n!!}$；$I_{n}= \dfrac{n- 1}{n} \cdot I_{n-2}$ |
 
 ### 5.3 反常积分（广义积分）
 
 | 类型 | 定义 | 收敛判据 |
 | --- | --- | --- |
-| 无穷区间 | $\int_{a}^\infty f dx= \lim_{b \to \infty} \int_{a}^{b} f dx$ | $\int_{1}^\infty \frac{dx}{x^{p}}$ 收敛 ⇔ `p > 1` |
+| 无穷区间 | $\int_{a}^\infty f dx= \lim_{b \to \infty} \int_{a}^{b} f dx$ | $\int_{1}^\infty \dfrac{dx}{x^{p}}$ 收敛 ⇔ `p > 1` |
 | 无界函数（瑕积分） | 瑕点在端点/内部，须分段取极限 | $\int_{0}^{1}\dfrac{dx}{x^{p}}$ 收敛 ⇔ `p < 1` |
 
 ::: danger 易错 · 反常积分
@@ -414,17 +414,17 @@ $$
 - 计算反常积分仍可用牛顿–莱布尼茨，但要在无穷/瑕点处取极限，不能把 ∞ 直接代入。
 :::
 
-**Γ 函数**（补充）：$\Gamma(s)= \int_{0}^\infty x^{s- 1}e^{- x}dx(s>0)$，满足 $\Gamma(s+1)=s\Gamma(s)$、$\Gamma(n+1)=n!$、$\Gamma\left(\frac{1}{2}\right)=\sqrt{\pi}$。它是阶乘的连续延拓，也是 $\int_{0}^\infty e^{- x^{2}}dx= \frac{\sqrt{\pi}}{2}$ 的推导工具。
+**Γ 函数**（补充）：$\Gamma(s)= \int_{0}^\infty x^{s- 1}e^{- x}dx(s>0)$，满足 $\Gamma(s+1)=s\Gamma(s)$、$\Gamma(n+1)=n!$、$\Gamma\left(\dfrac{1}{2}\right)=\sqrt{\pi}$。它是阶乘的连续延拓，也是 $\int_{0}^\infty e^{- x^{2}}dx= \dfrac{\sqrt{\pi}}{2}$ 的推导工具。
 
 ### 5.4 反常积分判敛的完整工具箱
 
 | 判别法 | 陈述 |
 | --- | --- |
 | 比较判别 | $0 \le f \le g$，$\int g$ 收敛 ⇒ $\int f$ 收敛；$\int f$ 发散 ⇒ $\int g$ 发散 |
-| 极限比较 | $\lim \frac{f}{g}= c \in(0, \infty)$ ⇒ 同敛散；`c=0` 且 $\int g$ 收敛 ⇒ $\int f$ 收敛；$c= \infty$ 且 $\int g$ 发散 ⇒ $\int f$ 发散 |
+| 极限比较 | $\lim \dfrac{f}{g}= c \in(0, \infty)$ ⇒ 同敛散；`c=0` 且 $\int g$ 收敛 ⇒ $\int f$ 收敛；$c= \infty$ 且 $\int g$ 发散 ⇒ $\int f$ 发散 |
 | 柯西判别（p 判别） | $\int_{1}^\infty f(x)dx$：若 $\lim x^{p} f(x)= c$ 且 `p>1` ⇒ 收敛；$p \le 1$ 且 `c>0` ⇒ 发散。瑕积分换用 $\lim(x- a)^{p} f(x)$，`p<1` 收敛 |
-| 绝对/条件收敛 | $\int\vert f\vert $ 收敛 ⇒ $\int f$ 收敛；反之称条件收敛（如 $\int_{1}^\infty \sin \frac{x}{x dx}$） |
-| Γ / B 函数 | $\Gamma(s)$、$B(p,q)=\frac{\Gamma(p)\Gamma(q)}{\Gamma}(p+q)$，把许多反常积分化为特殊函数值 |
+| 绝对/条件收敛 | $\int\vert f\vert $ 收敛 ⇒ $\int f$ 收敛；反之称条件收敛（如 $\int_{1}^\infty \sin \dfrac{x}{x dx}$） |
+| Γ / B 函数 | $\Gamma(s)$、$B(p,q)=\dfrac{\Gamma(p)\Gamma(q)}{\Gamma}(p+q)$，把许多反常积分化为特殊函数值 |
 
 ---
 
@@ -439,13 +439,13 @@ $$
 
 | 几何量 | 直角坐标 | 极坐标 / 参数式 |
 | --- | --- | --- |
-| 平面面积 | $A= \int_{a}^{b}\vert f- g\vert dx$ | $A= \frac{1}{2} \int_{a}ᵝ r^{2}(\theta)d\theta$ |
+| 平面面积 | $A= \int_{a}^{b}\vert f- g\vert dx$ | $A= \dfrac{1}{2} \int_{a}ᵝ r^{2}(\theta)d\theta$ |
 | 旋转体体积（绕 x） | $V=\pi \int_{a}^{b} f^{2}(x)dx$ | 绕 y 轴柱壳 $V=2\pi \int_{a}^{b} x f(x)dx$ |
 | 已知截面 | $V= \int_{a}^{b} A(x)dx$ | — |
 | 弧长 | $s= \int_{a}^{b}\sqrt{1+y'^{2}}dx$ | $s= \int \sqrt{\dot{x}^{2}+\dot{y}^{2}}dt$；$s= \int \sqrt{r^{2}+r'^{2}}d\theta$ |
 | 旋转曲面面积 | $S=2\pi \int_{a}^{b} f(x)\sqrt{1+y'^{2}}dx$ | — |
 
-**物理应用**：变力做功 $W= \int F(x)dx$；液体侧压力 $P= \int \rho g h(x)w(x)dx$；质心 $\bar{x}= \frac{\int x dm}{\int dm}$；函数平均值 $\bar{f}=\left(\frac{1}{b- a}\right) \int_{a}^{b} f dx$；均方根 $\sqrt{\left(\frac{1}{b- a}\right) \int f^{2}dx}$（交流电有效值）。
+**物理应用**：变力做功 $W= \int F(x)dx$；液体侧压力 $P= \int \rho g h(x)w(x)dx$；质心 $\bar{x}= \dfrac{\int x dm}{\int dm}$；函数平均值 $\bar{f}=\left(\dfrac{1}{b- a}\right) \int_{a}^{b} f dx$；均方根 $\sqrt{\left(\dfrac{1}{b- a}\right) \int f^{2}dx}$（交流电有效值）。
 
 ::: tip 工作例题 · 三道几何题（已核算）
 $$
@@ -475,17 +475,17 @@ $$
 
 | 类型 | 标准形式 | 解法 |
 | --- | --- | --- |
-| 可分离变量 | `y′=f(x)g(y)` | $\frac{\int dy}{g(y)}= \int f(x)dx+ C$ |
-| 齐次方程 | $y'=\phi\left(\frac{y}{x}\right)$ | 令 $u=\frac{y}{x} \Rightarrow y'=u+xu'$，化为可分离 |
+| 可分离变量 | `y′=f(x)g(y)` | $\dfrac{\int dy}{g(y)}= \int f(x)dx+ C$ |
+| 齐次方程 | $y'=\phi\left(\dfrac{y}{x}\right)$ | 令 $u=\dfrac{y}{x} \Rightarrow y'=u+xu'$，化为可分离 |
 | 一阶线性 | `y′+P(x)y=Q(x)` | 积分因子 $e^{\int P dx}$；$y= e^{- \int P}[ \int Q e^{\int P}dx+ C]$ |
 | 伯努利 | $y'+Py=Qy^{n}(n=0,1)$ | 令 $z=y^{1- n}$ 化为线性 |
-| 全微分方程 | `M dx+N dy=0` 且 $\frac{\partial M}{\partial y}= \frac{\partial N}{\partial x}$ | 求原函数 `u(x,y)=C`（偏积分法 / 曲线积分） |
-| 可降阶 | `y″=f(x)` / `f(x,y′)` / `f(y,y′)` | 积两次 / 令 `p=y′` / 令 `p=y′`, $y''=\frac{p dp}{dy}$ |
+| 全微分方程 | `M dx+N dy=0` 且 $\dfrac{\partial M}{\partial y}= \dfrac{\partial N}{\partial x}$ | 求原函数 `u(x,y)=C`（偏积分法 / 曲线积分） |
+| 可降阶 | `y″=f(x)` / `f(x,y′)` / `f(y,y′)` | 积两次 / 令 `p=y′` / 令 `p=y′`, $y''=\dfrac{p dp}{dy}$ |
 
 ::: tip 工作例题 · 一阶线性
 $y'+2y=e^{x}$：积分因子 `e^{2x}`，两边乘后 `(e^{2x}y)′=e^{3x}`，
-⇒ `e^{2x}y = ⅓e^{3x}+C` ⇒ $y= \frac{1}{3} e^{x}+ Ce^{- 2x}$。
-验算：$y'+2y= \frac{1}{3} e^{x}- 2Ce^{- 2x}+ \frac{2}{3} e^{x}+ 2Ce^{- 2x}= e^{x}$ ✓
+⇒ `e^{2x}y = ⅓e^{3x}+C` ⇒ $y= \dfrac{1}{3} e^{x}+ Ce^{- 2x}$。
+验算：$y'+2y= \dfrac{1}{3} e^{x}- 2Ce^{- 2x}+ \dfrac{2}{3} e^{x}+ 2Ce^{- 2x}= e^{x}$ ✓
 :::
 
 ### 7.2 高阶线性方程与常系数
@@ -519,7 +519,7 @@ $$
 **欧拉方程** $x^{2}y''+pxy'+qy=f(x)$：令 $x=e^{t}$（即 $t=\ln x$）化为常系数；齐次情形也可直接设 $y=x^{k}$ 解指标方程。
 
 ::: danger 易错 · 微分方程
-- 「齐次」一词有两义：$y'=\phi\left(\frac{y}{x}\right)$ 的齐次方程 ≠ 线性方程的齐次（`Q=0`），看上下文。
+- 「齐次」一词有两义：$y'=\phi\left(\dfrac{y}{x}\right)$ 的齐次方程 ≠ 线性方程的齐次（`Q=0`），看上下文。
 - 待定系数法漏乘 $x^{k}$ 是最高频失分点：只要 $\lambda$ 是特征根就必须乘。
 - 可分离变量时除以 `g(y)` 会丢失 `g(y)=0` 对应的常数解，需单独补回。
 - 初值问题要把常数用初始条件定出；通解中的常数个数必须等于方程阶数。
@@ -557,7 +557,7 @@ $$a \cdot b= 3+ 0- 2= 1$$
 
 $$a \times b=(2 \cdot 2-(- 1) \cdot 0,(- 1) \cdot 3- 1 \cdot 2, 1 \cdot 0- 2 \cdot 3)=(4,- 5,- 6)$$
 
-$|a|= \sqrt{1+4+1}= \sqrt{6} \approx 2.449$；$\cos \theta= \frac{1}{\sqrt{6} \cdot \sqrt{13}} \approx 0.1132$。
+$|a|= \sqrt{1+4+1}= \sqrt{6} \approx 2.449$；$\cos \theta= \dfrac{1}{\sqrt{6} \cdot \sqrt{13}} \approx 0.1132$。
 校验：$(a \times b) \cdot a= 4- 10+6= 0$ 且 $(a \times b) \cdot b= 12+0- 12= 0$ ✓（垂直于两者）。
 :::
 
@@ -567,7 +567,7 @@ $|a|= \sqrt{1+4+1}= \sqrt{6} \approx 2.449$；$\cos \theta= \frac{1}{\sqrt{6} \c
 | --- | --- | --- |
 | 平面点法式 | $A(x- x_{0})+B(y- y_{0})+C(z- z_{0})=0$ | 法向量 `n=(A,B,C)` |
 | 平面一般式 | `Ax+By+Cz+D=0` | `D=0` 过原点；缺某变量 ⇒ 平行于对应轴 |
-| 直线对称式 | $\frac{x- x_{0}}{m}=\frac{y- y_{0}}{n}=\frac{z- z_{0}}{p}$ | 方向向量 `s=(m,n,p)` |
+| 直线对称式 | $\dfrac{x- x_{0}}{m}=\dfrac{y- y_{0}}{n}=\dfrac{z- z_{0}}{p}$ | 方向向量 `s=(m,n,p)` |
 | 直线参数式 | $x=x_{0}+mt, y=y_{0}+nt, z=z_{0}+pt$ | 代入平面求交点最方便 |
 | 直线一般式 | 两平面交线 | $s= n_{1} \times n_{2}$（别把法向量当方向向量） |
 
@@ -591,12 +591,12 @@ $|a|= \sqrt{1+4+1}= \sqrt{6} \approx 2.449$；$\cos \theta= \frac{1}{\sqrt{6} \c
 
 | 曲面 | 标准方程（`a,b,c>0`） | 截痕特征 |
 | --- | --- | --- |
-| 椭球面 | $\frac{x^{2}}{a^{2}}+\frac{y^{2}}{b^{2}}+\frac{z^{2}}{c^{2}}=1$ | 各方向截痕为椭圆 |
-| 单叶双曲面 | $\frac{x^{2}}{a^{2}}+\frac{y^{2}}{b^{2}}- \frac{z^{2}}{c^{2}}=1$ | 水平截椭圆，含直线 |
-| 双叶双曲面 | $\frac{x^{2}}{a^{2}}- \frac{y^{2}}{b^{2}}- \frac{z^{2}}{c^{2}}=1$ | 沿 x 轴分两叶 |
-| 椭圆锥面 | $\frac{x^{2}}{a^{2}}+\frac{y^{2}}{b^{2}}- \frac{z^{2}}{c^{2}}=0$ | 过原点的直线族 |
-| 椭圆抛物面 | $z= \frac{x^{2}}{a^{2}}+\frac{y^{2}}{b^{2}}$ | 水平截椭圆 |
-| 双曲抛物面（马鞍面） | $z= \frac{x^{2}}{a^{2}}- \frac{y^{2}}{b^{2}}$ | 水平截双曲线 |
+| 椭球面 | $\dfrac{x^{2}}{a^{2}}+\dfrac{y^{2}}{b^{2}}+\dfrac{z^{2}}{c^{2}}=1$ | 各方向截痕为椭圆 |
+| 单叶双曲面 | $\dfrac{x^{2}}{a^{2}}+\dfrac{y^{2}}{b^{2}}- \dfrac{z^{2}}{c^{2}}=1$ | 水平截椭圆，含直线 |
+| 双叶双曲面 | $\dfrac{x^{2}}{a^{2}}- \dfrac{y^{2}}{b^{2}}- \dfrac{z^{2}}{c^{2}}=1$ | 沿 x 轴分两叶 |
+| 椭圆锥面 | $\dfrac{x^{2}}{a^{2}}+\dfrac{y^{2}}{b^{2}}- \dfrac{z^{2}}{c^{2}}=0$ | 过原点的直线族 |
+| 椭圆抛物面 | $z= \dfrac{x^{2}}{a^{2}}+\dfrac{y^{2}}{b^{2}}$ | 水平截椭圆 |
+| 双曲抛物面（马鞍面） | $z= \dfrac{x^{2}}{a^{2}}- \dfrac{y^{2}}{b^{2}}$ | 水平截双曲线 |
 | 柱面 | 方程缺一个变量（如 $x^{2}+y^{2}=R^{2}$） | 母线平行缺失变量的轴 |
 | 球面 | $(x- x_{0})^{2}+(y- y_{0})^{2}+(z- z_{0})^{2}=R^{2}$ | — |
 
@@ -622,7 +622,7 @@ $|a|= \sqrt{1+4+1}= \sqrt{6} \approx 2.449$；$\cos \theta= \frac{1}{\sqrt{6} \c
 | --- | --- |
 | 二重极限 | $\forall \epsilon>0 \exists \delta>0, 0<\sqrt{(x- x_{0})^{2}+(y- y_{0})^{2}}<\delta \Rightarrow\vert f- A\vert <\epsilon$；要求**沿任意路径**趋于同一值 |
 | 累次极限 | `lim_x lim_y f` 与 `lim_y lim_x f`；二者存在且不等 ⇒ 二重极限不存在（反之不成立） |
-| 偏导数 | $f_{x}(x_{0},y_{0})=\lim \frac{f(x_{0}+h,y_{0})- f(x_{0},y_{0})}{h}$（固定其余变量） |
+| 偏导数 | $f_{x}(x_{0},y_{0})=\lim \dfrac{f(x_{0}+h,y_{0})- f(x_{0},y_{0})}{h}$（固定其余变量） |
 | 全微分 | $\Delta z= A\Delta x+B\Delta y+o(\rho)$，$\rho=\sqrt{\Delta x^{2}+\Delta y^{2}}$ ⇒ $dz=f_{x}dx+f_{y}dy$ |
 
 **关系图（二元，与一元差别很大）**：
@@ -645,23 +645,23 @@ $$
 ### 9.2 复合、隐函数与几何应用
 
 **链式法则**（先画变量关系图，"一分多合"）：
-`z=f(u,v)`, `u=u(x,y)`, `v=v(x,y)` ⇒ $\frac{\partial z}{\partial x}= f_{u}u_{x}+f_{v}v_{x}$，$\frac{\partial z}{\partial y}$ 同理。
+`z=f(u,v)`, `u=u(x,y)`, `v=v(x,y)` ⇒ $\dfrac{\partial z}{\partial x}= f_{u}u_{x}+f_{v}v_{x}$，$\dfrac{\partial z}{\partial y}$ 同理。
 **一阶全微分形式不变性**：无论 `u,v` 是自变量还是中间变量，$dz= f_{u}du+f_{vdv}$ 形式不变（求全微分与验算都靠它）。
 
-**隐函数求导**：`F(x,y,z)=0` ⇒ $\frac{\partial z}{\partial x}=- \frac{F_{x}}{F_{z}}$、$\frac{\partial z}{\partial y}=- \frac{F_{y}}{F_{z}}$（$F_{z}=0$）；方程组 `F=G=0` 用雅可比行列式 $J= \frac{\partial(F,G)}{\partial}(u,v)= 0$，解线性方程组求各偏导。
+**隐函数求导**：`F(x,y,z)=0` ⇒ $\dfrac{\partial z}{\partial x}=- \dfrac{F_{x}}{F_{z}}$、$\dfrac{\partial z}{\partial y}=- \dfrac{F_{y}}{F_{z}}$（$F_{z}=0$）；方程组 `F=G=0` 用雅可比行列式 $J= \dfrac{\partial(F,G)}{\partial}(u,v)= 0$，解线性方程组求各偏导。
 
 **几何应用**：
-- 曲面 `F(x,y,z)=0` 在点 $P_{0}$ 的法向量 $\nabla F(P_{0})$，切平面 $F_{x}(x- x_{0})+F_{y}(y- y_{0})+F_{z}(z- z_{0})=0$，法线 $\frac{x- x_{0}}{F_{x}}= \frac{y- y_{0}}{F_{y}}= \frac{z- z_{0}}{F_{z}}$；
-- 空间曲线 `r(t)=(x(t),y(t),z(t))` 的切向量 $r'(t_{0})$，切线 $\frac{x-x_{0}}{x'}=\frac{y-y_{0}}{y'}=\frac{z-z_{0}}{z'}$，法平面 $x'(x- x_{0})+y'(y- y_{0})+z'(z- z_{0})=0$。
+- 曲面 `F(x,y,z)=0` 在点 $P_{0}$ 的法向量 $\nabla F(P_{0})$，切平面 $F_{x}(x- x_{0})+F_{y}(y- y_{0})+F_{z}(z- z_{0})=0$，法线 $\dfrac{x- x_{0}}{F_{x}}= \dfrac{y- y_{0}}{F_{y}}= \dfrac{z- z_{0}}{F_{z}}$；
+- 空间曲线 `r(t)=(x(t),y(t),z(t))` 的切向量 $r'(t_{0})$，切线 $\dfrac{x-x_{0}}{x'}=\dfrac{y-y_{0}}{y'}=\dfrac{z-z_{0}}{z'}$，法平面 $x'(x- x_{0})+y'(y- y_{0})+z'(z- z_{0})=0$。
 
 ### 9.3 方向导数、梯度与极值
 
-**方向导数**（`f` 可微时）：$\frac{\partial f}{\partial l}= f_{x}\cos \alpha+f_{y}\cos \beta+f_{z} \cos \gamma= \nabla f \cdot e_{l}$。
+**方向导数**（`f` 可微时）：$\dfrac{\partial f}{\partial l}= f_{x}\cos \alpha+f_{y}\cos \beta+f_{z} \cos \gamma= \nabla f \cdot e_{l}$。
 **梯度** $\nabla f=(f_{x},f_{y},f_{z})$：指向函数增长最快方向，$| \nabla f|$ 是最大方向导数；负梯度是下降最快方向（梯度下降算法的数学来源）；梯度与等值面正交。
 
 ::: tip 工作例题 · 方向导数
 $f=x^{2}y+\sin(xy)$ ⇒ $f_{x}=2xy+y \cos(xy)$，$f_{y}=x^{2}+x \cos(xy)$。
-在 `(0,1)`：$\nabla f=(1, 0)$。沿 $e=\left(\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}\right)$ 的方向导数 $= 1 \cdot\left(\frac{1}{\sqrt{2}}\right)+0= \frac{1}{\sqrt{2}} \approx 0.7071$；
+在 `(0,1)`：$\nabla f=(1, 0)$。沿 $e=\left(\dfrac{1}{\sqrt{2}}, \dfrac{1}{\sqrt{2}}\right)$ 的方向导数 $= 1 \cdot\left(\dfrac{1}{\sqrt{2}}\right)+0= \dfrac{1}{\sqrt{2}} \approx 0.7071$；
 最大方向导数 $=| \nabla f|=1$（沿 x 轴正向），最小 $=- 1$（沿 x 轴负向）。
 :::
 
@@ -695,18 +695,18 @@ $$
 - 拉格朗日乘数法给出的是**候选点**，$\lambda$ 本身不是所求；含不等式约束时需另查边界与 KKT 条件。
 :::
 
-**补充 · 二元泰勒与最小二乘**：二元泰勒 $f(x_{0}+h,y_{0}+k)= f+(h \partial_{x}+k \partial_{y})f+ \frac{1}{2}(h \partial_{x}+k \partial_{y})^{2}f+ \cdots$，是极值充分条件的证明基础；教材「最小二乘法」一节即令残差平方和对参数偏导为零，本质是本章的无条件极值。
+**补充 · 二元泰勒与最小二乘**：二元泰勒 $f(x_{0}+h,y_{0}+k)= f+(h \partial_{x}+k \partial_{y})f+ \dfrac{1}{2}(h \partial_{x}+k \partial_{y})^{2}f+ \cdots$，是极值充分条件的证明基础；教材「最小二乘法」一节即令残差平方和对参数偏导为零，本质是本章的无条件极值。
 
 ### 9.4 多元微分「四个概念」的反例库
 
 | 命题 | 真伪 | 反例 / 理由 |
 | --- | --- | --- |
-| 偏导存在 ⇒ 连续 | 假 | $f=\frac{xy}{x^{2}+y^{2}}$（(0,0) 补 0）：偏导存在但不连续 |
+| 偏导存在 ⇒ 连续 | 假 | $f=\dfrac{xy}{x^{2}+y^{2}}$（(0,0) 补 0）：偏导存在但不连续 |
 | 连续 ⇒ 偏导存在 | 假 | `f=|x|+|y|` |
 | 各方向方向导数存在 ⇒ 可微 | 假 | 方向导数只沿直线，可微要求全增量线性逼近 |
 | 偏导连续 ⇒ 可微 | 真 | 充分条件（教材标准定理） |
-| 可微 ⇒ 偏导连续 | 假 | 见第 2 章 $x^{2} \sin\left(\frac{1}{x}\right)$ 的一元类比，二元可构造类似例子 |
-| 混合偏导恒相等 | 假 | 需连续条件；经典反例 $f=\frac{xy(x^{2}- y^{2})}{x^{2}+y^{2}}$ 在原点 $f_{xy}=f_{gammax}$ |
+| 可微 ⇒ 偏导连续 | 假 | 见第 2 章 $x^{2} \sin\left(\dfrac{1}{x}\right)$ 的一元类比，二元可构造类似例子 |
+| 混合偏导恒相等 | 假 | 需连续条件；经典反例 $f=\dfrac{xy(x^{2}- y^{2})}{x^{2}+y^{2}}$ 在原点 $f_{xy}=f_{gammax}$ |
 
 ---
 
@@ -742,7 +742,7 @@ $$
 $$
 :::
 
-**对称性**（先于计算使用）：若 D 关于 y 轴对称且 `f` 对 x 为奇 ⇒ 积分为 0、为偶 ⇒ 两倍；若 D 关于 `y=x` 对称，则 $\iint _{D} f(x,y)d\sigma= \iint _{D} f(y,x)d\sigma$（轮换对称性，可把 $\iint  \frac{f(x)}{f(x)+f(y)}$ 化为面积的一半）。
+**对称性**（先于计算使用）：若 D 关于 y 轴对称且 `f` 对 x 为奇 ⇒ 积分为 0、为偶 ⇒ 两倍；若 D 关于 `y=x` 对称，则 $\iint _{D} f(x,y)d\sigma= \iint _{D} f(y,x)d\sigma$（轮换对称性，可把 $\iint  \dfrac{f(x)}{f(x)+f(y)}$ 化为面积的一半）。
 
 ### 10.2 三重积分
 
@@ -751,7 +751,7 @@ $$
 | 直角 | — | `dx dy dz` | 一般；投影法（先 z）/ 截面法（先 xy） |
 | 柱 | $x=r \cos \theta, y=r \sin \theta, z=z$ | $r dr d\theta dz$ | 旋转体、含 $x^{2}+y^{2}$ |
 | 球 | $x=\rho \sin \phi \cos \theta, y=\rho \sin \phi \sin \theta, z=\rho \cos \phi$ | $\rho^{2} \sin \phi d\rho d\phi d\theta$ | 球体、锥体、含 $x^{2}+y^{2}+z^{2}$ |
-| 一般换元 | `x=x(u,v,w)` 等 | `|J| du dv dw` | $J= \frac{\partial(x,y,z)}{\partial}(u,v,w)$ |
+| 一般换元 | `x=x(u,v,w)` 等 | `|J| du dv dw` | $J= \dfrac{\partial(x,y,z)}{\partial}(u,v,w)$ |
 
 **φ 是与 z 轴正向的夹角**（$0 \le \phi \le \pi$），$\theta \in[0,2\pi]$；常见错误是把 $\sin \phi$ 写成 $\cos \phi$、或把 $\phi$ 当成与 `xOy` 面的夹角。
 
@@ -768,7 +768,7 @@ $$
 $$
 :::
 
-**应用**：曲面面积 $A= \iint _{D_{xy}} \sqrt{1+z_{x}^{2}+z_{y}^{2}} dxdy$（`z=z(x,y)`）；平面薄片质量 $M=\iint \rho d\sigma$、质心 $\bar{x}=\iint x\rho \frac{d\sigma}{M}$、转动惯量 $I_{z}=\iint (x^{2}+y^{2})\rho d\sigma$；万有引力按分量积分。
+**应用**：曲面面积 $A= \iint _{D_{xy}} \sqrt{1+z_{x}^{2}+z_{y}^{2}} dxdy$（`z=z(x,y)`）；平面薄片质量 $M=\iint \rho d\sigma$、质心 $\bar{x}=\iint x\rho \dfrac{d\sigma}{M}$、转动惯量 $I_{z}=\iint (x^{2}+y^{2})\rho d\sigma$；万有引力按分量积分。
 
 ::: danger 易错 · 重积分
 - 换序/换元后**上下限与雅可比必须同步改**；极坐标漏 `r`、球坐标漏 $\rho^{2}\sin \phi$ 最常见。
@@ -802,16 +802,16 @@ $$
 
 | 公式 | 表达式 | 条件 |
 | --- | --- | --- |
-| **格林** | $\oint _{L} Pdx+Qdy= \iint _{D}\left( \frac{\partial Q}{\partial x}- \frac{\partial P}{\partial y}\right)dxdy$ | `L` 为正向（逆时针）分段光滑闭曲线，`P,Q` 在 `D` 上有一阶连续偏导 |
-| **高斯** | $\oiint _{\Sigma} P dydz+Q dzdx+R dxdy= \iiint _\Omega\left( \frac{\partial P}{\partial x}+ \frac{\partial Q}{\partial y}+ \frac{\partial R}{\partial z}\right)dV$ | $\sum$ 取**外侧**闭曲面 |
+| **格林** | $\oint _{L} Pdx+Qdy= \iint _{D}\left( \dfrac{\partial Q}{\partial x}- \dfrac{\partial P}{\partial y}\right)dxdy$ | `L` 为正向（逆时针）分段光滑闭曲线，`P,Q` 在 `D` 上有一阶连续偏导 |
+| **高斯** | $\oiint _{\Sigma} P dydz+Q dzdx+R dxdy= \iiint _\Omega\left( \dfrac{\partial P}{\partial x}+ \dfrac{\partial Q}{\partial y}+ \dfrac{\partial R}{\partial z}\right)dV$ | $\sum$ 取**外侧**闭曲面 |
 | **斯托克斯** | $\oint _\Gamma Pdx+Qdy+Rdz= \iint _{\Sigma}(rot A) \cdot n dS$ | $\Gamma$ 与 $\sum$ 的侧符合右手规则 |
 
 **统一视角**：三者都是「**边界上的积分 = 内部某种导数的积分**」，即广义斯托克斯定理 $\int_{\partial M} \omega= \int_{M} d\omega$；牛顿–莱布尼茨是它在区间 `[a,b]` 上的 1 维特例。
 
 **路径无关与全微分求积**（单连通域内等价）：
-$\frac{\partial P}{\partial y}= \frac{\partial Q}{\partial x}$ ⇔ $\oint _{L} Pdx+Qdy= 0$（任意闭路）⇔ 积分与路径无关 ⇔ `Pdx+Qdy` 是某 `u(x,y)` 的全微分，且 $u(x,y)= \int_{(x_{0},y_{0})}^{(x,y)} Pdx+Qdy$（沿折线计算）。
+$\dfrac{\partial P}{\partial y}= \dfrac{\partial Q}{\partial x}$ ⇔ $\oint _{L} Pdx+Qdy= 0$（任意闭路）⇔ 积分与路径无关 ⇔ `Pdx+Qdy` 是某 `u(x,y)` 的全微分，且 $u(x,y)= \int_{(x_{0},y_{0})}^{(x,y)} Pdx+Qdy$（沿折线计算）。
 
-**散度与旋度**：$div A= \frac{\partial P}{\partial x}+ \frac{\partial Q}{\partial y}+ \frac{\partial R}{\partial z}$（标量，通量源强度）；$rot A= \nabla \times A$（向量，环流强度）；$\nabla\left(\frac{1}{r}\right)$、$\nabla \cdot\left(\frac{r}{r^{3}}\right)$ 等恒等式在场论中常用。
+**散度与旋度**：$div A= \dfrac{\partial P}{\partial x}+ \dfrac{\partial Q}{\partial y}+ \dfrac{\partial R}{\partial z}$（标量，通量源强度）；$rot A= \nabla \times A$（向量，环流强度）；$\nabla\left(\dfrac{1}{r}\right)$、$\nabla \cdot\left(\dfrac{r}{r^{3}}\right)$ 等恒等式在场论中常用。
 
 ::: tip 工作例题 · 三大公式
 $$
@@ -858,8 +858,8 @@ $\sum u_{n}$ 收敛 ⇔ 部分和序列 $S_{n}= \sum_{k=1}^{n} u_{k}$ 收敛。*
 
 | 类型 | 审敛法 | 判据 |
 | --- | --- | --- |
-| 正项 | 比较 / 极限比较 | 与 $\sum\frac{1}{n^{p}}$（`p>1` 收敛）、几何级数 $\sum q^{n}$（`|q|<1` 收敛）比 |
-| 正项 | 比值（达朗贝尔） | $\rho=\lim \frac{u_{n+1}}{u_{n}}$：$\rho<1$ 收敛、$\rho>1$ 发散、`=1` 失效 |
+| 正项 | 比较 / 极限比较 | 与 $\sum\dfrac{1}{n^{p}}$（`p>1` 收敛）、几何级数 $\sum q^{n}$（`|q|<1` 收敛）比 |
+| 正项 | 比值（达朗贝尔） | $\rho=\lim \dfrac{u_{n+1}}{u_{n}}$：$\rho<1$ 收敛、$\rho>1$ 发散、`=1` 失效 |
 | 正项 | 根值（柯西） | $\rho=\lim_{n\to\infty}\sqrt[n]{u_{n}}$，同上 |
 | 正项 | 积分判别 | $u_{n}=f(n)$，`f` 正递减 ⇒ $\sum u_{n}$ 与 $\int_{1}^\infty f(x)dx$ 同敛散 |
 | 交错 | 莱布尼茨 | $u_{n}$ 单调递减且趋于 0 ⇒ 收敛，余项 $\vert r_{n}\vert  \le u_{n+1}$ |
@@ -881,7 +881,7 @@ $$
 
 ### 12.2 幂级数与函数展开
 
-$\sum a_{n}(x- x_{0})^{n}$ 的**收敛半径** $R= \lim|\frac{a_{n}}{a_{n+1}}|$ 或 $R=\frac{1}{\limsup_{n\to\infty}\sqrt[n]{|a_{n}|}}$；收敛区间 $(x_{0}- R, x_{0}+R)$，**端点必须单独判断**才得收敛域。
+$\sum a_{n}(x- x_{0})^{n}$ 的**收敛半径** $R= \lim|\dfrac{a_{n}}{a_{n+1}}|$ 或 $R=\dfrac{1}{\limsup_{n\to\infty}\sqrt[n]{|a_{n}|}}$；收敛区间 $(x_{0}- R, x_{0}+R)$，**端点必须单独判断**才得收敛域。
 
 | 性质 | 内容 |
 | --- | --- |
@@ -913,19 +913,19 @@ $e^{x}$、`sin x`、`cos x` 为 $(- \infty,+ \infty)$；`ln(1+x)` 为 `(−1,1]`
 
 $$\frac{f(x) \sim a_{0}}{2}+ \sum_{n=1}^\infty(a_{n} \cos nx+ b_{n} \sin nx)$$
 
-$a_{n}=\left(\frac{1}{\pi}\right) \int_{- \pi}^{\pi} f(x)\cos nx dx$，$b_{n}=\left(\frac{1}{\pi}\right) \int_{- \pi}^{\pi} f(x)\sin nx dx$。
+$a_{n}=\left(\dfrac{1}{\pi}\right) \int_{- \pi}^{\pi} f(x)\cos nx dx$，$b_{n}=\left(\dfrac{1}{\pi}\right) \int_{- \pi}^{\pi} f(x)\sin nx dx$。
 
 **狄利克雷收敛定理**（教材核心）：若 `f` 在一个周期上连续或只有有限个第一类间断点，且只有有限个极值点，则级数收敛，且
 - 在连续点收敛于 `f(x)`；
-- 在间断点收敛于 $\frac{f(x^{-})+f(x^{+})}{2}$；
-- 在端点 $±\pi$ 收敛于 $\frac{f(- \pi^{+})+f(\pi^{-})}{2}$。
+- 在间断点收敛于 $\dfrac{f(x^{-})+f(x^{+})}{2}$；
+- 在端点 $±\pi$ 收敛于 $\dfrac{f(- \pi^{+})+f(\pi^{-})}{2}$。
 
 | 情形 | 展开形式 |
 | --- | --- |
-| `f` 奇（$- \pi,\pi$） | 正弦级数，只含 $b_{n}$（$f(x)=x \Rightarrow x= 2\sum(- 1)^{n+1} \sin \frac{nx}{n}$） |
-| `f` 偶（$- \pi,\pi$） | 余弦级数，只含 $a_{n}$（$f(x)=\vert x\vert  \Rightarrow\vert x\vert = \frac{\pi}{2}-\left(\frac{4}{\pi}\right)\sum \frac{\cos(2k- 1)x}{(2k- 1)^{2}}$） |
+| `f` 奇（$- \pi,\pi$） | 正弦级数，只含 $b_{n}$（$f(x)=x \Rightarrow x= 2\sum(- 1)^{n+1} \sin \dfrac{nx}{n}$） |
+| `f` 偶（$- \pi,\pi$） | 余弦级数，只含 $a_{n}$（$f(x)=\vert x\vert  \Rightarrow\vert x\vert = \dfrac{\pi}{2}-\left(\dfrac{4}{\pi}\right)\sum \dfrac{\cos(2k- 1)x}{(2k- 1)^{2}}$） |
 | $[0,\pi]$ 上给定 | 作奇延拓得正弦级数、偶延拓得余弦级数 |
-| 周期 `2l` | 把 `nx` 换成 $\frac{n\pi x}{l}$，系数中 $\frac{1}{\pi}$ 换 `1/l` |
+| 周期 `2l` | 把 `nx` 换成 $\dfrac{n\pi x}{l}$，系数中 $\dfrac{1}{\pi}$ 换 `1/l` |
 
 ::: tip 工作例题 · 用傅里叶级数求数项级数的和
 $$
@@ -941,9 +941,9 @@ $$
 
 ::: danger 易错 · 级数
 - $\lim u_{n}= 0$ 只是**必要**条件；调和级数是最经典反例。
-- 比值/根值法 $\rho=1$ 时**失效**，必须换比较、积分或拉比/高斯判别法（如 $\sum\frac{1}{n}$、$\sum\frac{1}{n^{2}}$ 都是 $\rho=1$ 但敛散不同）。
+- 比值/根值法 $\rho=1$ 时**失效**，必须换比较、积分或拉比/高斯判别法（如 $\sum\dfrac{1}{n}$、$\sum\dfrac{1}{n^{2}}$ 都是 $\rho=1$ 但敛散不同）。
 - 交错级数用莱布尼茨判收敛，但**绝对收敛性要另判** $\sum|u_{n}|$；「收敛」与「绝对收敛」不可混。
-- 逐项求导/积分后收敛半径不变，但**端点**可能从收敛变发散（如 $\sum\frac{x^{n}}{n}$ 与 $\sum x^{n-1}$），必须重新检验。
+- 逐项求导/积分后收敛半径不变，但**端点**可能从收敛变发散（如 $\sum\dfrac{x^{n}}{n}$ 与 $\sum x^{n-1}$），必须重新检验。
 - 傅里叶级数在间断点收敛到左右极限的平均值，**不是** `f(x)`；端点同理。
 :::
 
@@ -957,13 +957,13 @@ $$
 \text{交错：莱布尼茨（收敛）} \; \to \; \text{再看} \; \sum|u_{n}| \; \text{（绝对} \; \text{or} \; \text{条件）}
 \end{gathered}
 $$
-**根值强于比值**：由 $\lim \frac{u_{n+1}}{u_{n}}= \rho \Rightarrow \lim_{n\to\infty}\sqrt[n]{u_{n}}= \rho$，反之不然；故含 `n` 次幂的项优先用根值。
+**根值强于比值**：由 $\lim \dfrac{u_{n+1}}{u_{n}}= \rho \Rightarrow \lim_{n\to\infty}\sqrt[n]{u_{n}}= \rho$，反之不然；故含 `n` 次幂的项优先用根值。
 **阿贝尔 / 狄利克雷判别法**：处理 $\sum a_{n}b_{n}$ 型，若 $\sum a_{n}$ 部分和有界且 $b_{n}$ 单调趋于 0 ⇒ 收敛（狄利克雷）；这解释了交错级数判别的一般原理。
 
 ::: tip 补充 · 积分判别的两个经典临界例
-$\sum \frac{1}{n \ln n}$ 与 $\sum \frac{1}{n(\ln n)^{2}}$ 都是比值/根值 $\rho=1$ 失效、比较判别也难处理的临界级数，用积分判别（换元 $u=\ln x$）：
-$\int_{2}^\infty \frac{dx}{x \ln x}=[\ln \ln x]_{2}^\infty= \infty$ ⇒ **发散**；
-$\int_{2}^\infty \frac{dx}{x(\ln x)^{2}}=[- \frac{1}{\ln} x]_{2}^\infty= \frac{1}{\ln} 2$ ⇒ **收敛**。
+$\sum \dfrac{1}{n \ln n}$ 与 $\sum \dfrac{1}{n(\ln n)^{2}}$ 都是比值/根值 $\rho=1$ 失效、比较判别也难处理的临界级数，用积分判别（换元 $u=\ln x$）：
+$\int_{2}^\infty \dfrac{dx}{x \ln x}=[\ln \ln x]_{2}^\infty= \infty$ ⇒ **发散**；
+$\int_{2}^\infty \dfrac{dx}{x(\ln x)^{2}}=[- \dfrac{1}{\ln} x]_{2}^\infty= \dfrac{1}{\ln} 2$ ⇒ **收敛**。
 记忆规律：分母每多套一层「收敛得更快」的因子（`ln n` → $(\ln n)^{2}$），敛散性就可能翻转——这是判断题最爱考的边界情形。
 :::
 
@@ -972,12 +972,12 @@ $\int_{2}^\infty \frac{dx}{x(\ln x)^{2}}=[- \frac{1}{\ln} x]_{2}^\infty= \frac{1
 | 维度 | 幂级数 | 傅里叶级数 |
 | --- | --- | --- |
 | 基函数 | $1, x, x^{2}, \cdots$（幂函数） | `1, cos nx, sin nx`（三角函数，正交系） |
-| 系数来源 | 泰勒系数 $\frac{f^{(n)}(0)}{n}!$（局部信息） | 积分 $a_{n}, b_{n}$（**整体**信息，用正交性） |
+| 系数来源 | 泰勒系数 $\dfrac{f^{(n)}(0)}{n}!$（局部信息） | 积分 $a_{n}, b_{n}$（**整体**信息，用正交性） |
 | 收敛要求 | 函数解析 + 余项→0 | 狄利克雷条件（分段光滑，允许间断） |
 | 适用范围 | 只能展开光滑解析函数 | 可展开有跳跃间断的周期函数 |
 | 端点 | 收敛域端点单独判 | 间断点收敛到左右极限平均 |
 
-**帕塞瓦尔等式**：$\left(\frac{1}{\pi}\right) \int_{- \pi}^{\pi} f^{2} dx= \frac{a_{0}^{2}}{2}+ \sum(a_{n}^{2}+b_{n}^{2})$，是「能量守恒」在频域的表述，也是求 $\sum\frac{1}{n^{4}}=\frac{\pi^{4}}{90}$ 一类级数和的工具。
+**帕塞瓦尔等式**：$\left(\dfrac{1}{\pi}\right) \int_{- \pi}^{\pi} f^{2} dx= \dfrac{a_{0}^{2}}{2}+ \sum(a_{n}^{2}+b_{n}^{2})$，是「能量守恒」在频域的表述，也是求 $\sum\dfrac{1}{n^{4}}=\dfrac{\pi^{4}}{90}$ 一类级数和的工具。
 
 ### 12.6 高数与后续课程的接口
 
@@ -1219,10 +1219,10 @@ $$
 | 题型 | 标准动作 |
 | --- | --- |
 | 求 `0/0` 极限 | 先试等价无穷小（仅乘除）→ 加减结构或主阶抵消直接上泰勒 → 最后才洛必达 |
-| 求 $1^\infty$ 极限 | 凑 $(1+\alpha)^{\frac{1}{\alpha}}$ 或取对数；速算 $e^{\lim g(f- 1)}$ |
+| 求 $1^\infty$ 极限 | 凑 $(1+\alpha)^{\dfrac{1}{\alpha}}$ 或取对数；速算 $e^{\lim g(f- 1)}$ |
 | 递推数列极限 | 证有界（归纳）+ 证单调（作差/作商）⇒ 设极限 A 解 `A=f(A)`，注意验证 A 的合理性 |
-| n 项和极限 | 夹逼准则（放缩）或定积分定义 $\lim\left(\frac{1}{n}\right)\sum f\left(\frac{k}{n}\right)= \int_{0}^{1}f dx$ |
-| 无穷小阶的比较 | 求 $\lim \frac{\alpha}{\beta}$：为 0 则 α 高阶、∞ 则低阶、常数 c≠0 则同阶、1 则等价 |
+| n 项和极限 | 夹逼准则（放缩）或定积分定义 $\lim\left(\dfrac{1}{n}\right)\sum f\left(\dfrac{k}{n}\right)= \int_{0}^{1}f dx$ |
+| 无穷小阶的比较 | 求 $\lim \dfrac{\alpha}{\beta}$：为 0 则 α 高阶、∞ 则低阶、常数 c≠0 则同阶、1 则等价 |
 | 间断点分类 | 找所有可疑点（分母为 0、分段点、无定义点）→ 逐点算左右极限 → 归类 |
 | 含参数的分段函数 | 由连续/可导条件列方程（连续：左右极限 = 函数值；可导：左右导数相等）求参数 |
 | 证明方程有根 | 构造 $F(x)=f(x)- x$ 或原函数，用零点定理；唯一性再用单调性 |
@@ -1235,7 +1235,7 @@ $$
 | 复合/隐函数/参数求导 | 画变量关系图；隐函数两边对 x 求导把 y 视为 x 的函数；参数方程二阶导先对 t |
 | 幂指函数 `u(x)^{v(x)}` | 取对数或化为 $e^{v \ln u}$ |
 | 高阶导数 / 求 $f^{(n)}(0)$ | 莱布尼茨公式、已知展开式系数、或递推 |
-| 导数几何应用 | 切线 $y- f(x_{0})=f'(x_{0})(x- x_{0})$，法线斜率 $- \frac{1}{f}'$；注意 `f′=0` 时法线竖直 |
+| 导数几何应用 | 切线 $y- f(x_{0})=f'(x_{0})(x- x_{0})$，法线斜率 $- \dfrac{1}{f}'$；注意 `f′=0` 时法线竖直 |
 | 含绝对值的可导性 | $g(x)\vert x- a\vert $ 在 a 可导 ⇔ `g(a)=0` |
 
 ### 第 3 章 · 中值定理与导数应用
@@ -1268,13 +1268,13 @@ $$
 | 积分等式证明 | 换元 $t=a+b- x$、分部、或构造辅助函数用罗尔 |
 | 积分不等式 | 保号性、比较性、估值定理、柯西–施瓦茨 `（∫fg)² ≤ ∫f²∫g²` |
 | 反常积分计算与判敛 | 分段取极限；判敛用 p 判别 / 极限比较；瑕点在内部必须拆 |
-| 定积分定义求极限 | 凑成 $\lim\left(\frac{1}{n}\right)\sum f\left(\frac{k}{n}\right)$ 识别为 $\int_{0}^{1} f(x)dx$ |
+| 定积分定义求极限 | 凑成 $\lim\left(\dfrac{1}{n}\right)\sum f\left(\dfrac{k}{n}\right)$ 识别为 $\int_{0}^{1} f(x)dx$ |
 
 ### 第 6 章 · 定积分应用
 
 | 题型 | 标准动作 |
 | --- | --- |
-| 面积 | 画图求交点 → 判断上下曲线 → 分段加绝对值 → 积分；极坐标用 $\frac{1}{2} \int r^{2}d\theta$ |
+| 面积 | 画图求交点 → 判断上下曲线 → 分段加绝对值 → 积分；极坐标用 $\dfrac{1}{2} \int r^{2}d\theta$ |
 | 旋转体体积 | 绕 x 用圆盘 $\pi \int f^{2}dx$；绕 y 用柱壳 $2\pi \int x f dx$ 或反函数圆盘 |
 | 弧长 | 三种形式按已知选（直角 / 参数 / 极坐标） |
 | 物理应用 | 建坐标系 → 写微元（注意深度、力臂）→ 定限 → 积分 |
@@ -1306,7 +1306,7 @@ $$
 | --- | --- |
 | 判二重极限不存在 | 沿 `y=kx`（得依赖 k 的值）或沿 `y=x` 与 $y=x^{2}$ 得不同值 |
 | 求偏导 / 全微分 | 固定其余变量；抽象复合函数先画变量图再写链式 |
-| 判可微性 | 偏导连续 ⇒ 可微（最常用）；否则回定义算 $\frac{\lim[\Delta z- f_{x}\Delta x- f_{y}\Delta y]}{\rho}$ |
+| 判可微性 | 偏导连续 ⇒ 可微（最常用）；否则回定义算 $\dfrac{\lim[\Delta z- f_{x}\Delta x- f_{y}\Delta y]}{\rho}$ |
 | 方向导数 / 梯度 | 可微时用 $\nabla f \cdot e_{l}$；单位化方向向量别忘 |
 | 切平面 / 法线 | $\nabla F$ 作法向量；参数曲线用 `r′(t)` |
 | 极值 / 最值 | 驻点 → $\Delta=AC- B^{2}$ 判别 → 闭区域再查边界；条件极值用拉格朗日 |
@@ -1321,7 +1321,7 @@ $$
 | 三重积分 | 含 $x^{2}+y^{2}$ 用柱；含 $x^{2}+y^{2}+z^{2}$ 用球；先一后二 / 先二后一按截面选 |
 | 对称性 | 奇偶性 → 轮换对称 → 区域可加，先化简 |
 | 含绝对值 / max,min | 按分界线把区域切开分别积分 |
-| 曲面面积 / 质心 | 用 $\sqrt{1+z_{x}^{2}+z_{y}^{2}}$ 与 $\iint x\rho \frac{d\sigma}{M}$ 等公式 |
+| 曲面面积 / 质心 | 用 $\sqrt{1+z_{x}^{2}+z_{y}^{2}}$ 与 $\iint x\rho \dfrac{d\sigma}{M}$ 等公式 |
 
 ### 第 11 章 · 线面积分与场论
 
@@ -1338,7 +1338,7 @@ $$
 
 | 题型 | 标准动作 |
 | --- | --- |
-| 判正项级数敛散 | 等价无穷小找主阶 → 与 $\frac{1}{n^{p}}$ 极限比较；阶乘/指数用比值；`n` 次幂用根值 |
+| 判正项级数敛散 | 等价无穷小找主阶 → 与 $\dfrac{1}{n^{p}}$ 极限比较；阶乘/指数用比值；`n` 次幂用根值 |
 | 判交错 / 一般项 | 莱布尼茨判收敛；再判 $\sum\vert u_{n}\vert $ 得绝对或条件收敛 |
 | 求收敛半径 / 域 | 比值或根值求 R，$x=x_{0}±R$ 两端点单独判 |
 | 求和函数 | 逐项求导/积分化为几何级数 → 求和 → 逆运算还原 → 定常数 → 讨论端点 |
@@ -1354,20 +1354,20 @@ $$
 
 ### 推 1 · 华里士公式的递推
 
-设 $I_{n}= \int_{0}^{\frac{\pi}{2}} \sin^{n}x dx$。分部取 $u=\sin^{n- 1}x, dv=\sin x dx$：
+设 $I_{n}= \int_{0}^{\dfrac{\pi}{2}} \sin^{n}x dx$。分部取 $u=\sin^{n- 1}x, dv=\sin x dx$：
 
 $$I_{n}=[- \sin^{n- 1}x \cos x]_{0}^{\frac{\pi}{2}}+(n- 1) \int_{0}^{\frac{\pi}{2}} \sin^{n- 2}x \cos^{2}x dx$$
 
 $$=(n- 1) \int \sin^{n- 2}x(1- \sin^{2}x)dx=(n- 1)(I_{n-2}- I_{n})$$
 
-⇒ $n I_{n}=(n- 1)I_{n-2}$ ⇒ $I_{n}= \frac{n- 1}{n} \cdot I_{n-2}$。
-由 $I_{0}=\frac{\pi}{2}$、$I_{1}=1$ 递推得偶/奇两套结果；令 `n=2` 得 $I_{2}= \dfrac{1}{2}\cdot\dfrac{\pi}{2}= \dfrac{\pi}{4}$ ✓。
+⇒ $n I_{n}=(n- 1)I_{n-2}$ ⇒ $I_{n}= \dfrac{n- 1}{n} \cdot I_{n-2}$。
+由 $I_{0}=\dfrac{\pi}{2}$、$I_{1}=1$ 递推得偶/奇两套结果；令 `n=2` 得 $I_{2}= \dfrac{1}{2}\cdot\dfrac{\pi}{2}= \dfrac{\pi}{4}$ ✓。
 
-### 推 2 · 泊松积分与 $\Gamma\left(\frac{1}{2}\right)$
+### 推 2 · 泊松积分与 $\Gamma\left(\dfrac{1}{2}\right)$
 
-由综 3：`I² = ∬_{第一象限}e^{−(x²+y²)}dxdy = (π/2)∫0^∞ e^{−r²}2r·(1/2)dr … = π/4` ⇒ $I=\frac{\sqrt{\pi}}{2}$。
-换元 $t=x^{2}$：$\Gamma\left(\frac{1}{2}\right)= \int_{0}^\infty t^{- \frac{1}{2}}e^{- t}dt= 2 \int_{0}^\infty e^{- x^{2}}dx= \sqrt{\pi}$；
-由 $\Gamma(s+1)=s\Gamma(s)$ 得 $\Gamma(n+1)=n!$、$\Gamma\left(\frac{3}{2}\right)=\frac{\sqrt{\pi}}{2}$，故 Γ 是阶乘的连续延拓。
+由综 3：`I² = ∬_{第一象限}e^{−(x²+y²)}dxdy = (π/2)∫0^∞ e^{−r²}2r·(1/2)dr … = π/4` ⇒ $I=\dfrac{\sqrt{\pi}}{2}$。
+换元 $t=x^{2}$：$\Gamma\left(\dfrac{1}{2}\right)= \int_{0}^\infty t^{- \dfrac{1}{2}}e^{- t}dt= 2 \int_{0}^\infty e^{- x^{2}}dx= \sqrt{\pi}$；
+由 $\Gamma(s+1)=s\Gamma(s)$ 得 $\Gamma(n+1)=n!$、$\Gamma\left(\dfrac{3}{2}\right)=\dfrac{\sqrt{\pi}}{2}$，故 Γ 是阶乘的连续延拓。
 
 ### 推 3 · 牛顿–莱布尼茨 ⇒ 格林 ⇒ 高斯（同一思想）
 
@@ -1380,7 +1380,7 @@ $$
 \text{分割区域后，相邻小区域的公共边界上方向相反、积分抵消。}
 \end{gathered}
 $$
-**推论**：取 $P=- \frac{y}{2}, Q=\frac{x}{2}$ ⇒ $Q_{x}- P_{y}=1$ ⇒ $Area(D)= \frac{1}{2} \oint (x dy- y dx)$（格林求面积公式）。
+**推论**：取 $P=- \dfrac{y}{2}, Q=\dfrac{x}{2}$ ⇒ $Q_{x}- P_{y}=1$ ⇒ $Area(D)= \dfrac{1}{2} \oint (x dy- y dx)$（格林求面积公式）。
 
 ### 推 4 · 一阶线性方程的积分因子
 
@@ -1404,17 +1404,17 @@ $$
 
 三角函数系 `{1, cos nx, sin nx}` 在 $[- \pi,\pi]$ 上正交：
 $\int_{- \pi}^{\pi} \cos mx \cos nx dx= \pi \delta_{mn}$（$m,n \ge 1$），$\int \sin mx \sin nx dx= \pi \delta_{mn}$，$\int \sin mx \cos nx dx= 0$，$\int_{- \pi}^{\pi}1 dx= 2\pi$。
-两边同乘 `cos nx` 并在 $[- \pi,\pi]$ 上逐项积分，除第 n 项外全为 0 ⇒ $a_{n}=\left(\frac{1}{\pi}\right) \int f \cos nx dx$；常数为 $\frac{a_{0}}{2}$ 正是为统一系数形式。
+两边同乘 `cos nx` 并在 $[- \pi,\pi]$ 上逐项积分，除第 n 项外全为 0 ⇒ $a_{n}=\left(\dfrac{1}{\pi}\right) \int f \cos nx dx$；常数为 $\dfrac{a_{0}}{2}$ 正是为统一系数形式。
 
 ### 推 7 · 二元极值充分条件来自泰勒
 
 在驻点 $(x_{0},y_{0})$ 处 $f_{x}=f_{y}=0$，二阶泰勒：
-$\Delta f \approx \frac{1}{2}(A h^{2}+ 2B hk+ C k^{2})$，这是关于 `(h,k)` 的二次型。
+$\Delta f \approx \dfrac{1}{2}(A h^{2}+ 2B hk+ C k^{2})$，这是关于 `(h,k)` 的二次型。
 其正定 ⇔ `A>0` 且 $AC- B^{2}>0$ ⇒ $\Delta f>0$ 恒成立 ⇒ 极小；负定 ⇔ `A<0` 且 $\Delta>0$ ⇒ 极大；$\Delta<0$ 时二次型不定 ⇒ 沿不同方向符号相反 ⇒ 鞍点。$\Delta=0$ 时二次项不足以判定，需更高阶。
 
 ### 推 8 · 欧拉公式 $e^{ix}= \cos x+ i \sin x$
 
-把 $e^z= \sum \frac{z^{n}}{n}!$ 中令 `z=ix`，按偶次/奇次分组：
+把 $e^z= \sum \dfrac{z^{n}}{n}!$ 中令 `z=ix`，按偶次/奇次分组：
 
 $$e^{ix}=[1- \frac{x^{2}}{2}!+ \frac{x^{4}}{4}!- \cdots]+ i[x- \frac{x^{3}}{3}!+ \frac{x^{5}}{5}!- \cdots]= \cos x+ i \sin x$$
 
@@ -1426,7 +1426,7 @@ $$e^{ix}=[1- \frac{x^{2}}{2}!+ \frac{x^{4}}{4}!- \cdots]+ i[x- \frac{x^{3}}{3}!+
 
 ### 综 1 · 极限 → 导数 → 泰勒（第 1–3 章）
 
-题：设 `f(x)` 在 `x=0` 二阶可导，$\lim_{x \to 0}[\frac{f(x)}{x}+ \sin \frac{x}{x^{2}}]= 1$，求 `f(0)`、`f′(0)`，并讨论 `f″(0)` 能否确定。
+题：设 `f(x)` 在 `x=0` 二阶可导，$\lim_{x \to 0}[\dfrac{f(x)}{x}+ \sin \dfrac{x}{x^{2}}]= 1$，求 `f(0)`、`f′(0)`，并讨论 `f″(0)` 能否确定。
 
 $$
 \begin{gathered}
@@ -1476,11 +1476,11 @@ $$
 (4) I= \frac{\sqrt{\pi}}{2} \approx 0.886227 \; \text{（取正根）}
 \end{gathered}
 $$
-**推广**：$\int_{- \infty}^\infty e^{- x^{2}}dx= \sqrt{\pi}$（高斯积分，概率论正态分布归一化常数的来源）；$\Gamma\left(\frac{1}{2}\right)=\sqrt{\pi}$ 由此得。
+**推广**：$\int_{- \infty}^\infty e^{- x^{2}}dx= \sqrt{\pi}$（高斯积分，概率论正态分布归一化常数的来源）；$\Gamma\left(\dfrac{1}{2}\right)=\sqrt{\pi}$ 由此得。
 
 ### 综 4 · 曲线积分 → 级数（第 11、12 章）
 
-题：由 $x=2\sum\frac{(-1)^{n+1}\sin(nx)}{n}$（$x \in(- \pi, \pi)$）导出 $\sum\frac{1}{(2k-1)^{2}}=\frac{\pi^{2}}{8}$，并说明为何取 $x=\frac{\pi}{2}$ 得 $\frac{\pi}{4}$。
+题：由 $x=2\sum\dfrac{(-1)^{n+1}\sin(nx)}{n}$（$x \in(- \pi, \pi)$）导出 $\sum\dfrac{1}{(2k-1)^{2}}=\dfrac{\pi^{2}}{8}$，并说明为何取 $x=\dfrac{\pi}{2}$ 得 $\dfrac{\pi}{4}$。
 
 $$
 \begin{gathered}
@@ -1557,7 +1557,7 @@ $$
 
 | # | 概念 A | 概念 B | 关键区别 |
 | --- | --- | --- | --- |
-| 1 | 函数相同 | 表达式相同 | 需定义域与对应规则都相同；`x` 与 $\frac{x^{2}}{x}$ 定义域不同 |
+| 1 | 函数相同 | 表达式相同 | 需定义域与对应规则都相同；`x` 与 $\dfrac{x^{2}}{x}$ 定义域不同 |
 | 2 | 极限存在 | 函数在该点有定义 | 极限是「去心」邻域行为，与该点函数值无关 |
 | 3 | 无穷小 | 很小的数 | 无穷小是以 0 为极限的**变量**；0 是唯一为常数的无穷小 |
 | 4 | 等价无穷小替换 | 泰勒展开 | 前者只能用于乘除因子；后者可处理加减与主阶抵消 |
@@ -1579,7 +1579,7 @@ $$
 | 20 | 绝对收敛（积分） | 条件收敛 | $\int\vert f\vert $ 收敛 ⇒ $\int f$ 收敛；反之不然 |
 | 21 | 微元 `dU` | 增量 $\Delta U$ | 要求 $\Delta U- dU=o(dx)$，即「以直代曲」的误差为高阶 |
 | 22 | 弧长公式 | 旋转曲面面积 | $\int \sqrt{1+y'^{2}}dx$ vs $2\pi \int y\sqrt{1+y'^{2}}dx$ |
-| 23 | 齐次方程（一阶） | 齐次线性方程 | $y'=\phi\left(\frac{y}{x}\right)$ vs `y′+P(x)y=0`；同名不同义 |
+| 23 | 齐次方程（一阶） | 齐次线性方程 | $y'=\phi\left(\dfrac{y}{x}\right)$ vs `y′+P(x)y=0`；同名不同义 |
 | 24 | 线性方程齐次解 | 非齐次特解 | 通解 = 齐次通解 + 一个特解；特解不含任意常数 |
 | 25 | 特征根重数 k | 待定系数 $x^{k}$ | λ 是特征方程的 k 重根 ⇒ 特解乘 $x^{k}$（共振） |
 | 26 | 欧拉方程 | 欧拉公式 | $x^{2}y''+pxy'+qy=f$ vs $e^{ix}=\cos x+i \sin x$ |
@@ -1599,7 +1599,7 @@ $$
 | 40 | 格林 | 高斯 | 平面闭曲线→二重积分 vs 空间闭曲面→三重积分 |
 | 41 | 斯托克斯 | 高斯 | 曲面边界曲线 vs 体积边界曲面；分别对应旋度与散度 |
 | 42 | 散度 | 旋度 | 标量（通量源）vs 向量（环流强度）；$\nabla \cdot( \nabla \times A)=0$ |
-| 43 | 路径无关 | 全微分求积 | 单连通域内二者等价；判据 $\frac{\partial P}{\partial y}= \frac{\partial Q}{\partial x}$ |
+| 43 | 路径无关 | 全微分求积 | 单连通域内二者等价；判据 $\dfrac{\partial P}{\partial y}= \dfrac{\partial Q}{\partial x}$ |
 | 44 | 级数收敛 | 通项趋于 0 | 后者是必要条件非充分（调和级数） |
 | 45 | 绝对收敛 | 条件收敛 | 前者可任意重排且和不变；后者重排可改变和 |
 | 46 | 比值判别 | 根值判别 | 根值更强；$\rho=1$ 二者都失效 |
@@ -1616,7 +1616,7 @@ $$
 | --- | --- | --- |
 | $\forall, \exists, \Rightarrow, \Leftrightarrow$ | 任意 / 存在 / 推出 / 等价 | 逻辑量词，ε–δ 定义的基础 |
 | $\epsilon, \delta, N, M$ | 艾普西龙 / 德尔塔 | 极限定义中的任意小量与相应阈值 |
-| $o( \cdot), O( \cdot), \sim$ | 高阶无穷小 / 同阶 / 等价 | $\alpha=o(\beta)$ 表示 $\lim \frac{\alpha}{\beta}= 0$ |
+| $o( \cdot), O( \cdot), \sim$ | 高阶无穷小 / 同阶 / 等价 | $\alpha=o(\beta)$ 表示 $\lim \dfrac{\alpha}{\beta}= 0$ |
 | `lim, sup, inf` | 极限 / 上确界 / 下确界 | 数列也常用上下极限 `limsup/liminf` |
 | $f', f'', f^{(n)}$ | 一阶 / 二阶 / n 阶导数 | 偏导用 $f_{x}, f_{xy}$ |
 | $dy, \Delta y, dx$ | 微分 / 增量 / 自变量微分 | $\Delta y= dy+ o(\Delta x)$ |
@@ -1624,11 +1624,11 @@ $$
 | $\int_{a}^{x}, \int_{\alpha(x)}^{\beta(x)}$ | 积分上限函数 / 变限积分 | 求导用莱布尼茨通式 |
 | $\sum, \Pi$ | 求和 / 求积 | $S_{n}$ 为部分和 |
 | $\nabla, \nabla \cdot, \nabla \times, \nabla^{2}$ | 梯度 / 散度 / 旋度 / 拉普拉斯算子 | Nabla 算子 |
-| $\partial, \frac{\partial(F,G)}{\partial}(u,v)$ | 偏导 / 雅可比行列式 | 隐函数方程组与重积分换元 |
+| $\partial, \dfrac{\partial(F,G)}{\partial}(u,v)$ | 偏导 / 雅可比行列式 | 隐函数方程组与重积分换元 |
 | $\rho, \phi, \theta, r$ | 球径 / 天顶角 / 方位角 / 极径 | 球坐标 $\phi$ 是与 z 轴夹角 |
 | $\vert a\vert , a \cdot b, a \times b,[a b c]$ | 模 / 数量积 / 向量积 / 混合积 | 三种积结果类型不同 |
 | $\Delta=AC- B^{2}$ | 判别式 | 二元极值判别；`H` 为海森矩阵 |
-| $\kappa, \rho=\frac{1}{\kappa}$ | 曲率 / 曲率半径 | 注意 ρ 与球坐标 ρ 同名不同义 |
+| $\kappa, \rho=\dfrac{1}{\kappa}$ | 曲率 / 曲率半径 | 注意 ρ 与球坐标 ρ 同名不同义 |
 | `R` | 收敛半径 | 收敛域需另判端点 |
 | $a_{n}, b_{n}$ | 傅里叶系数 | 由三角函数系正交性得到 |
 
@@ -1672,11 +1672,11 @@ $$
 
 | 项目 | 公式 |
 | --- | --- |
-| 两个重要极限 | $\lim_{x \to 0} \dfrac{\sin x}{x}= 1$；$\lim_{x \to \infty}\left(1+\frac{1}{x}\right)^{x}= e$ |
+| 两个重要极限 | $\lim_{x \to 0} \dfrac{\sin x}{x}= 1$；$\lim_{x \to \infty}\left(1+\dfrac{1}{x}\right)^{x}= e$ |
 | $1^\infty$ 速算 | $\lim f^g= e^{\lim g(f- 1)}$（$f \to 1, g \to \infty$） |
-| 等价无穷小 | $\sin x \sim \tan x \sim \arcsin x \sim \ln(1+x) \sim e^{x}- 1 \sim x$；$1-\cos x \sim \frac{x^{2}}{2}$；$(1+x)^\alpha- 1 \sim \alpha x$；$x-\sin x \sim \frac{x^{3}}{6}$ |
-| 五个麦克劳林 | $e^{x}=\sum\frac{x^{n}}{n!}$；$\sin x=\sum\frac{(-1)^{n}x^{2n+1}}{(2n+1)!}$；$\cos x=\sum\frac{(-1)^{n}x^{2n}}{(2n)!}$；$\ln(1+x)=\sum\frac{(-1)^{n-1}x^{n}}{n}$；$(1+x)^\alpha=1+\alpha x+\frac{\alpha(\alpha- 1)x^{2}}{2}+ \cdots$ |
-| 泰勒余项 | 佩亚诺 $o((x- x_{0})^{n})$；拉格朗日 $\frac{f^{(n+1)}(\xi)(x- x_{0})^{n+1}}{n+1}!$ |
+| 等价无穷小 | $\sin x \sim \tan x \sim \arcsin x \sim \ln(1+x) \sim e^{x}- 1 \sim x$；$1-\cos x \sim \dfrac{x^{2}}{2}$；$(1+x)^\alpha- 1 \sim \alpha x$；$x-\sin x \sim \dfrac{x^{3}}{6}$ |
+| 五个麦克劳林 | $e^{x}=\sum\dfrac{x^{n}}{n!}$；$\sin x=\sum\dfrac{(-1)^{n}x^{2n+1}}{(2n+1)!}$；$\cos x=\sum\dfrac{(-1)^{n}x^{2n}}{(2n)!}$；$\ln(1+x)=\sum\dfrac{(-1)^{n-1}x^{n}}{n}$；$(1+x)^\alpha=1+\alpha x+\dfrac{\alpha(\alpha- 1)x^{2}}{2}+ \cdots$ |
+| 泰勒余项 | 佩亚诺 $o((x- x_{0})^{n})$；拉格朗日 $\dfrac{f^{(n+1)}(\xi)(x- x_{0})^{n+1}}{n+1}!$ |
 | 间断点 | 第一类（可去/跳跃，左右极限存在）；第二类（无穷/振荡） |
 | 闭区间连续四性质 | 有界、最值、介值、零点定理 |
 
@@ -1684,13 +1684,13 @@ $$
 
 | 项目 | 公式 |
 | --- | --- |
-| 定义 | $f'(x_{0})=\lim \frac{f(x_{0}+\Delta x)- f(x_{0})}{\Delta x}$；`dy=f′(x)dx` |
-| 四则 | `(uv)′=u′v+uv′`；$\left(\frac{u}{v}\right)'=\frac{u'v- uv'}{v^{2}}$ |
-| 链式 / 反函数 | $\frac{dy}{dx}=f'(u)g'(x)$；$\dfrac{dx}{dy}=\dfrac{1}{y'}$ |
-| 隐函数 / 参数 | $\frac{dy}{dx}=- \frac{F_{x}}{F_{y}}$；$\frac{dy}{dx}=\frac{\dot{y}}{\dot{x}}$，$\frac{d^{2}y}{dx^{2}}=\frac{\frac{d}{dt\left(\frac{dy}{dx}\right)}}{\dot{x}}$ |
+| 定义 | $f'(x_{0})=\lim \dfrac{f(x_{0}+\Delta x)- f(x_{0})}{\Delta x}$；`dy=f′(x)dx` |
+| 四则 | `(uv)′=u′v+uv′`；$\left(\dfrac{u}{v}\right)'=\dfrac{u'v- uv'}{v^{2}}$ |
+| 链式 / 反函数 | $\dfrac{dy}{dx}=f'(u)g'(x)$；$\dfrac{dx}{dy}=\dfrac{1}{y'}$ |
+| 隐函数 / 参数 | $\dfrac{dy}{dx}=- \dfrac{F_{x}}{F_{y}}$；$\dfrac{dy}{dx}=\dfrac{\dot{y}}{\dot{x}}$，$\dfrac{d^{2}y}{dx^{2}}=\dfrac{\dfrac{d}{dt\left(\dfrac{dy}{dx}\right)}}{\dot{x}}$ |
 | 对数求导 | $y=x^{x} \Rightarrow y'=x^{x}(\ln x+1)$ |
 | 莱布尼茨 | $(uv)^{(n)}=\sum C(n,k)u^{(k)}v^{(n-k)}$ |
-| 常用 n 阶 | $(\sin x)^{(n)}=\sin\left(x+\frac{n\pi}{2}\right)$；$\left(\dfrac{1}{x+a}\right)^{(n)}=\dfrac{(-1)^{n}\,n!}{(x+a)^{n+1}}$ |
+| 常用 n 阶 | $(\sin x)^{(n)}=\sin\left(x+\dfrac{n\pi}{2}\right)$；$\left(\dfrac{1}{x+a}\right)^{(n)}=\dfrac{(-1)^{n}\,n!}{(x+a)^{n+1}}$ |
 
 ### A.3 中值定理与导数应用（第 3 章）
 
@@ -1700,27 +1700,27 @@ $$
 | 洛必达 | $\lim \dfrac{f}{g}=\lim \dfrac{f'}{g'}$（须验证四前提） |
 | 单调 / 凹凸 | `f′>0` 增；`f″>0` 凹（∪） |
 | 极值充分 | $f'(x_{0})=0, f''(x_{0})<0$ 极大、`>0` 极小 |
-| 渐近线 | 水平 `y=A`；铅直 $x=x_{0}$；斜 $a=\lim \frac{f}{x}, b=\lim(f- ax)$ |
-| 曲率 | $\kappa=\dfrac{\vert y''\vert}{(1+y'^{2})^{\frac{3}{2}}}$，$\rho=\frac{1}{\kappa}$ |
+| 渐近线 | 水平 `y=A`；铅直 $x=x_{0}$；斜 $a=\lim \dfrac{f}{x}, b=\lim(f- ax)$ |
+| 曲率 | $\kappa=\dfrac{\vert y''\vert}{(1+y'^{2})^{\dfrac{3}{2}}}$，$\rho=\dfrac{1}{\kappa}$ |
 
 ### A.4 积分（第 4–6 章）
 
 | 项目 | 公式 |
 | --- | --- |
-| 基本 | $\int x^{a}\,dx=\dfrac{x^{a+1}}{a+1}+C\ (a\ne -1)$；$\int\dfrac{dx}{x}=\ln\lvert x\rvert+C$；$\frac{\int dx}{a^{2}+x^{2}}=\left(\frac{1}{a}\right)\arctan\left(\frac{x}{a}\right)+C$ |
+| 基本 | $\int x^{a}\,dx=\dfrac{x^{a+1}}{a+1}+C\ (a\ne -1)$；$\int\dfrac{dx}{x}=\ln\lvert x\rvert+C$；$\dfrac{\int dx}{a^{2}+x^{2}}=\left(\dfrac{1}{a}\right)\arctan\left(\dfrac{x}{a}\right)+C$ |
 | 三类方法 | 第一换元 $\int f(\phi)\phi 'dx= \int f(u)du$；第二换元 $x=\psi(t)$；分部 $\int u dv=uv- \int v du$ |
 | 微积分基本定理 | $\Phi(x)= \int_{a}^{x}f(t)dt \Rightarrow \Phi '=f$；$\int_{a}^{b}f dx=F(b)- F(a)$ |
-| 变限求导 | $\frac{d}{dx} \int_{\alpha(x)}^{\beta(x)}f= f(\beta)\beta '- f(\alpha)\alpha '$ |
-| 区间再现 | $\int_{a}^{b}f(x)dx= \int_{a}^{b}f(a+b- x)dx$；$\int_{0}^\pi x f(\sin x)dx=\left(\frac{\pi}{2}\right) \int_{0}^\pi f(\sin x)dx$ |
-| 华里士 | $I_{n}= \int_{0}^{\frac{\pi}{2}}\sin^{n}x dx$，$I_{n}=\dfrac{n-1}{n}\,I_{n-2}$；偶 $\dfrac{(n-1)!!}{n!!}\cdot\dfrac{\pi}{2}$，奇 $\dfrac{(n-1)!!}{n!!}$ |
-| 反常积分 | $\int_{1}^\infty x^{- p}$ 收敛 ⇔ `p>1`；$\int_{0}^{1}x^{- p}$ 收敛 ⇔ `p<1`；$\int_{0}^\infty e^{- x^{2}}dx=\frac{\sqrt{\pi}}{2}$ |
-| 微元法应用 | 面积 $\int\vert f- g\vert dx$；极坐标 $\frac{1}{2} \int r^{2}d\theta$；体积 $\pi \int f^{2}dx$（绕 x）、$2\pi \int x f dx$（绕 y）；弧长 $\int \sqrt{1+y'^{2}}dx$；功 $\int F dx$ |
+| 变限求导 | $\dfrac{d}{dx} \int_{\alpha(x)}^{\beta(x)}f= f(\beta)\beta '- f(\alpha)\alpha '$ |
+| 区间再现 | $\int_{a}^{b}f(x)dx= \int_{a}^{b}f(a+b- x)dx$；$\int_{0}^\pi x f(\sin x)dx=\left(\dfrac{\pi}{2}\right) \int_{0}^\pi f(\sin x)dx$ |
+| 华里士 | $I_{n}= \int_{0}^{\dfrac{\pi}{2}}\sin^{n}x dx$，$I_{n}=\dfrac{n-1}{n}\,I_{n-2}$；偶 $\dfrac{(n-1)!!}{n!!}\cdot\dfrac{\pi}{2}$，奇 $\dfrac{(n-1)!!}{n!!}$ |
+| 反常积分 | $\int_{1}^\infty x^{- p}$ 收敛 ⇔ `p>1`；$\int_{0}^{1}x^{- p}$ 收敛 ⇔ `p<1`；$\int_{0}^\infty e^{- x^{2}}dx=\dfrac{\sqrt{\pi}}{2}$ |
+| 微元法应用 | 面积 $\int\vert f- g\vert dx$；极坐标 $\dfrac{1}{2} \int r^{2}d\theta$；体积 $\pi \int f^{2}dx$（绕 x）、$2\pi \int x f dx$（绕 y）；弧长 $\int \sqrt{1+y'^{2}}dx$；功 $\int F dx$ |
 
 ### A.5 微分方程（第 7 章）
 
 | 类型 | 通解 / 解法 |
 | --- | --- |
-| 可分离 | $\frac{\int dy}{g(y)}= \int f(x)dx+C$ |
+| 可分离 | $\dfrac{\int dy}{g(y)}= \int f(x)dx+C$ |
 | 一阶线性 | $y=e^{- \int P}[ \int Q e^{\int P}dx+C]$ |
 | 伯努利 | $z=y^{1- n}$ 化线性 |
 | 二阶常系数齐次 | $r^{2}+pr+q=0$：不等实根 $C_{1}e^{r_{1}x}+C_{2}e^{r_{2}x}$；重根 $(C_{1}+C_{2}x)e^{rx}$；复根 $e^{\alpha x}(C_{1}\cos \beta x+C_{2}\sin \beta x)$ |
@@ -1733,7 +1733,7 @@ $$
 | --- | --- |
 | 三种积 | $a\cdot b=a_{x}b_{x}+a_{y}b_{y}+a_{z}b_{z}$；$a \times b$ 为叉积分量；$[a b c]=(a \times b) \cdot c$ |
 | 平面 | `Ax+By+Cz+D=0`，`n=(A,B,C)`；点面距 $d=\vert Ax_{0}+By_{0}+Cz_{0}+D\vert  \sqrt{A^{2}+B^{2}+C^{2}}$ |
-| 直线 | $\frac{x- x_{0}}{m}=\frac{y- y_{0}}{n}=\frac{z- z_{0}}{p}$，`s=(m,n,p)`；一般式 $s=n_{1} \times n_{2}$ |
+| 直线 | $\dfrac{x- x_{0}}{m}=\dfrac{y- y_{0}}{n}=\dfrac{z- z_{0}}{p}$，`s=(m,n,p)`；一般式 $s=n_{1} \times n_{2}$ |
 | 夹角 | 面面 `cosθ=|n1·n2|/(|n1||n2|)`；线面 `sinθ=|s·n|/(|s||n|)` |
 | 异面直线距离 | $d=\vert [s_{1} s_{2} P_{1}P_{2}]\vert \vert s_{1} \times s_{2}\vert $ |
 | 旋转曲面 | 绕 z 轴：$f(y,z)=0 \Rightarrow f\left(\pm\sqrt{x^{2}+y^{2}}, z\right)=0$ |
@@ -1744,8 +1744,8 @@ $$
 | --- | --- |
 | 全微分 | $dz=f_{x}dx+f_{y}dy$；可微要求 $\Delta z- dz=o(\rho)$ |
 | 链式 | $z=f(u,v), u=u(x,y), v=v(x,y) \Rightarrow z_{x}=f_{u}u_{x}+f_{v}v_{x}$ |
-| 隐函数 | $z_{x}=- \frac{F_{x}}{F_{z}}$；方程组用雅可比 $J=0$ |
-| 方向导数 / 梯度 | $\frac{\partial f}{\partial l}= \nabla f \cdot e_{l}$（可微时）；$\nabla f=(f_{x},f_{y},f_{z})$；最大值 $\vert  \nabla f\vert $ |
+| 隐函数 | $z_{x}=- \dfrac{F_{x}}{F_{z}}$；方程组用雅可比 $J=0$ |
+| 方向导数 / 梯度 | $\dfrac{\partial f}{\partial l}= \nabla f \cdot e_{l}$（可微时）；$\nabla f=(f_{x},f_{y},f_{z})$；最大值 $\vert  \nabla f\vert $ |
 | 切平面 / 法线 | $F_{x}(x- x_{0})+F_{y}(y- y_{0})+F_{z}(z- z_{0})=0$；法线方向 $\nabla F$ |
 | 极值判别 | $A=f_{xx},B=f_{xy},C=f_{yy},\Delta=AC- B^{2}$；$\Delta>0$ 且 `A<0` 极大、`A>0` 极小；$\Delta<0$ 鞍点 |
 | 条件极值 | $L=f+\sum \lambda_{i}\phi_{i}$，解 $\nabla L=0$ |
@@ -1770,14 +1770,14 @@ $$
 | 项目 | 公式 |
 | --- | --- |
 | 必要条件 | $\sum u_{n}$ 收敛 ⇒ $\lim u_{n}=0$ |
-| 基准级数 | $\sum q^{n}$ 收敛 ⇔ `|q|<1`；$\sum\frac{1}{n^{p}}$ 收敛 ⇔ `p>1`；$\sum\frac{1}{n(n+1)}=1$ |
-| 比值 / 根值 | $\rho=\lim \frac{u_{n+1}}{u_{n}}$ 或 $\lim_{n\to\infty}\sqrt[n]{u_{n}}$；$\rho<1$ 收敛、`>1` 发散、`=1` 失效 |
+| 基准级数 | $\sum q^{n}$ 收敛 ⇔ `|q|<1`；$\sum\dfrac{1}{n^{p}}$ 收敛 ⇔ `p>1`；$\sum\dfrac{1}{n(n+1)}=1$ |
+| 比值 / 根值 | $\rho=\lim \dfrac{u_{n+1}}{u_{n}}$ 或 $\lim_{n\to\infty}\sqrt[n]{u_{n}}$；$\rho<1$ 收敛、`>1` 发散、`=1` 失效 |
 | 交错 | 莱布尼茨：$u_{n}↓0$ ⇒ 收敛，$\vert r_{n}\vert  \le u_{n+1}$ |
-| 幂级数 | $R=\lim\vert \frac{a_{n}}{a_{n+1}}\vert $；逐项求导/积分 R 不变 |
-| 常用和函数 | $\sum x^{n}=\frac{1}{1- x}$；$\sum n x^{n}=\frac{x}{(1- x)^{2}}$；$\sum\frac{x^{n}}{n}=- \ln(1- x)$；$\sum\frac{(-1)^{n+1}}{n}=\ln 2$ |
-| 傅里叶系数 | $a_{n}=\left(\frac{1}{\pi}\right) \int_{- \pi}^{\pi}f \cos nx dx$，$b_{n}=\left(\frac{1}{\pi}\right) \int_{- \pi}^{\pi}f \sin nx dx$ |
-| 狄利克雷 | 间断点收敛于 $\frac{f(x^{-})+f(x^{+})}{2}$ |
-| 帕塞瓦尔 | $\left(\frac{1}{\pi}\right) \int_{- \pi}^{\pi}f^{2}dx= \frac{a_{0}^{2}}{2}+\sum(a_{n}^{2}+b_{n}^{2})$ |
+| 幂级数 | $R=\lim\vert \dfrac{a_{n}}{a_{n+1}}\vert $；逐项求导/积分 R 不变 |
+| 常用和函数 | $\sum x^{n}=\dfrac{1}{1- x}$；$\sum n x^{n}=\dfrac{x}{(1- x)^{2}}$；$\sum\dfrac{x^{n}}{n}=- \ln(1- x)$；$\sum\dfrac{(-1)^{n+1}}{n}=\ln 2$ |
+| 傅里叶系数 | $a_{n}=\left(\dfrac{1}{\pi}\right) \int_{- \pi}^{\pi}f \cos nx dx$，$b_{n}=\left(\dfrac{1}{\pi}\right) \int_{- \pi}^{\pi}f \sin nx dx$ |
+| 狄利克雷 | 间断点收敛于 $\dfrac{f(x^{-})+f(x^{+})}{2}$ |
+| 帕塞瓦尔 | $\left(\dfrac{1}{\pi}\right) \int_{- \pi}^{\pi}f^{2}dx= \dfrac{a_{0}^{2}}{2}+\sum(a_{n}^{2}+b_{n}^{2})$ |
 
 ### A.10 一页纸解题索引
 
@@ -1809,7 +1809,7 @@ $$
 
 ## 附录 B 易错点速查
 
-1. 函数相同要求定义域与对应规则都相同，仅表达式化简相同不够（`x` 与 $\frac{x^{2}}{x}$）。
+1. 函数相同要求定义域与对应规则都相同，仅表达式化简相同不够（`x` 与 $\dfrac{x^{2}}{x}$）。
 2. 奇偶性判定的第一步是检查定义域是否关于原点对称。
 3. $\sqrt{x^{2}}=|x|$，`arcsin(sin x)` 只在主值区间等于 `x`。
 4. 极限定义是「去心」邻域，$f(x_{0})$ 无定义或不等于极限都不影响极限存在。
@@ -1817,11 +1817,11 @@ $$
 6. 极限四则运算要求各极限存在且分母极限非零；$\infty- \infty$、$0 \cdot_{\infty}$ 不能拆。
 7. 无穷小是**变量**不是「很小的数」；0 是唯一为常数的无穷小。
 8. 等价无穷小只能在**乘除因子**中替换；加减项替换前须确认主阶不抵消。
-9. $\tan x- \sin \frac{x \sim x^{3}}{2}$，不是 `0`；$x-\sin x \sim \frac{x^{3}}{6}$。
-10. 洛必达只适用于 `0/0`、$\frac{\infty}{\infty}$，且 `lim f′/g′` 必须存在；`(x+sin x)/x` 是失效反例。
+9. $\tan x- \sin \dfrac{x \sim x^{3}}{2}$，不是 `0`；$x-\sin x \sim \dfrac{x^{3}}{6}$。
+10. 洛必达只适用于 `0/0`、$\dfrac{\infty}{\infty}$，且 `lim f′/g′` 必须存在；`(x+sin x)/x` 是失效反例。
 11. $1^\infty$ 未定式须取对数或用 $e^{\lim g(f- 1)}$，不能把底数与指数分别取极限。
 12. 佩亚诺余项用于局部求极限，拉格朗日余项用于整体误差估计，二者不可混用。
-13. 有任意阶导数 ≠ 泰勒级数收敛到原函数（$e^{- \frac{1}{x^{2}}}$ 是反例）。
+13. 有任意阶导数 ≠ 泰勒级数收敛到原函数（$e^{- \dfrac{1}{x^{2}}}$ 是反例）。
 14. 可去间断与跳跃间断同属第一类；无穷与振荡属第二类。
 15. 介值定理与零点定理要求**闭区间上连续**，开区间结论可能失效。
 16. 可导 ⇒ 连续、连续 ⇒ 极限存在；反向均不成立（`|x|` 是最简反例）。
@@ -1840,13 +1840,13 @@ $$
 29. 同一方向水平与斜渐近线至多各一条；有水平线时不必再求斜线。
 30. 第一换元不换变量、第二换元必须**回代**；三角代换别把 `t` 留在答案里。
 31. 分部积分取 `u` 按「反、对、幂、指、三」；循环型需两次分部后解方程。
-32. $e^{- x^{2}}$、`sin x/x`、$\frac{1}{\ln} x$ 没有初等原函数，不要硬凑。
+32. $e^{- x^{2}}$、`sin x/x`、$\dfrac{1}{\ln} x$ 没有初等原函数，不要硬凑。
 33. 有第一类间断点的函数没有原函数，但可能有定积分（可积 ≠ 有原函数）。
 34. 积分上限函数 $\Phi$ 在 `f` 可积时连续，仅在 `f` 连续时可导。
 35. 变限求导通式中下限项要带负号并乘 $\alpha '(x)$。
 36. 被积函数含积分上限变量 `x` 时，须先换元把 `x` 提到积分号外。
 37. 对称区间上奇函数积分为 0、偶函数为两倍——前提是区间关于原点对称。
-38. $\int_{0}^{\frac{\pi}{2}}\sin^{2}x dx= \frac{\pi}{4}$，不是 $\frac{\pi}{2}$；华里士公式奇偶情形系数不同。
+38. $\int_{0}^{\dfrac{\pi}{2}}\sin^{2}x dx= \dfrac{\pi}{4}$，不是 $\dfrac{\pi}{2}$；华里士公式奇偶情形系数不同。
 39. $\int_{1}^\infty x^{- p}dx$ 收敛 `p>1`，$\int_{0}^{1}x^{- p}dx$ 收敛 `p<1`，方向相反最易记反。
 40. 瑕点在积分区间**内部**必须拆成两段，一段发散即整体发散。
 41. 反常积分不能用「柯西主值」冒充收敛。
@@ -1854,7 +1854,7 @@ $$
 43. 弧长是 $\int \sqrt{1+y'^{2}}dx$，不是 $\int(1+y')dx$。
 44. 绕 y 轴的柱壳法与圆盘法积分变量不同，上下限不可混用。
 45. 微元法要求 $\Delta U- dU=o(dx)$，即「以直代曲」的误差是高阶无穷小。
-46. 「齐次方程 $y'=\phi\left(\frac{y}{x}\right)$」与「线性齐次方程 `Q=0`」同名不同义。
+46. 「齐次方程 $y'=\phi\left(\dfrac{y}{x}\right)$」与「线性齐次方程 `Q=0`」同名不同义。
 47. 可分离变量时除以 `g(y)` 会丢失 `g(y)=0` 的常数解。
 48. 一阶线性通解中积分因子是 $e^{\int P dx}$，符号写反会导致全题错误。
 49. 特征根为重根时齐次解必须多乘 `x`；复根时别漏 $e^{\alpha x}$。
@@ -1890,13 +1890,13 @@ $$
 79. 第一类面积分无侧向；第二类面积分必须先定侧再投影。
 80. 格林公式要求闭曲线**正向**（逆时针）且区域内偏导连续。
 81. 高斯公式要求闭曲面取**外侧**；取内侧整体变号。
-82. 区域内有奇点必须挖洞，$\frac{x dy- y dx}{x^{2}+y^{2}}$ 是经典反例（结果 2π 不是 0）。
+82. 区域内有奇点必须挖洞，$\dfrac{x dy- y dx}{x^{2}+y^{2}}$ 是经典反例（结果 2π 不是 0）。
 83. 非闭曲线/曲面用公式前要补线/补面，并减去补上部分的贡献。
 84. 路径无关四等价只在**单连通域**内成立，含洞区域须另外检验。
 85. `div A=0` 称无源场、`rot A=0` 称无旋场；$\nabla \cdot( \nabla \times A)=0$、$\nabla \times( \nabla f)=0$。
 86. 级数收敛的必要条件是通项趋于 0；调和级数说明它不充分。
 87. `p` 级数 `p>1` 收敛、几何级数 `|q|<1` 收敛，是两个最常用比较基准。
-88. 比值/根值法 $\rho=1$ 时失效（$\sum\frac{1}{n}$ 与 $\sum\frac{1}{n^{2}}$ 都是 $\rho=1$）。
+88. 比值/根值法 $\rho=1$ 时失效（$\sum\dfrac{1}{n}$ 与 $\sum\dfrac{1}{n^{2}}$ 都是 $\rho=1$）。
 89. 根值判别强于比值判别；阶乘型用比值、`n` 次幂型用根值。
 90. 交错级数莱布尼茨判收敛，但**绝对收敛性要另判**。
 91. 绝对收敛可任意重排；条件收敛重排可改变和（黎曼定理）。
@@ -1905,11 +1905,11 @@ $$
 94. 求和函数时别忘了由 `S(0)` 或极限确定积分常数。
 95. 傅里叶级数在间断点收敛到左右极限的**平均值**，不是 `f(x)`。
 96. 奇函数展开为正弦级数、偶函数为余弦级数；$[0,\pi]$ 上需先作奇/偶延拓。
-97. 周期 `2l` 时把 `nx` 换成 $\frac{n\pi x}{l}$，系数中 $\frac{1}{\pi}$ 换成 `1/l`。
+97. 周期 `2l` 时把 `nx` 换成 $\dfrac{n\pi x}{l}$，系数中 $\dfrac{1}{\pi}$ 换成 `1/l`。
 98. 一致收敛才保证和函数连续、可逐项积分与求导；逐点收敛不保证。
 99. 所有计算题都应做一次交叉验算：积分结果求导、微分方程解代入原方程、级数和代入特值。
 100. 中值定理证明题的 $\xi$ 必须落在**开区间**；用零点定理时先验证端点异号。
-101. 遇到「不存在 / 不成立」类命题，先想反例库（`|x|`、$x^{2} \sin\left(\frac{1}{x}\right)$、$\sin\left(\frac{1}{x}\right)$、调和级数、鞍点）。
+101. 遇到「不存在 / 不成立」类命题，先想反例库（`|x|`、$x^{2} \sin\left(\dfrac{1}{x}\right)$、$\sin\left(\dfrac{1}{x}\right)$、调和级数、鞍点）。
 102. 单位与量纲要一致：物理应用题的面积、体积、功、压力不能混用变量。
 103. 分段函数、含绝对值函数、含参数函数，一律先分情况讨论再计算。
 104. 任何「等价」「充分必要」的表述都要检查逆命题；教材中大量定理只是充分条件。

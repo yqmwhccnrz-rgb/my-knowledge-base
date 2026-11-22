@@ -279,7 +279,7 @@ $$
 | 特性 | 说明 |
 | --- | --- |
 | **CTE 与递归 CTE** | `WITH cte AS (…) SELECT …`；`WITH RECURSIVE` 处理树形/层级数据 |
-| **窗口函数** | $\frac{\frac{\frac{\frac{\frac{ROW_{NUMBER}}{RANK}}{DENSE_{RANK}}}{LAG}}{LEAD}}{SUM() OVER(PARTITION BY \cdots)}$，不折叠行 |
+| **窗口函数** | $\dfrac{\dfrac{\dfrac{\dfrac{\dfrac{ROW_{NUMBER}}{RANK}}{DENSE_{RANK}}}{LAG}}{LEAD}}{SUM() OVER(PARTITION BY \cdots)}$，不折叠行 |
 | JSON 增强 | JSON 类型、JSON 函数、函数索引（Generated Column） |
 | 角色、原子 DDL、降序索引、不可见索引 | 权限批量管理、DDL 崩溃安全、排序优化、索引灰度下线 |
 | `utf8mb4_0900_ai_ci` 默认校对 | 真正 UTF-8、性能更好 |
@@ -1688,13 +1688,13 @@ finally:
 | --- | --- | --- |
 | 1 | 三级模式 | 外模式（多个）— 外模式/模式映像 → 逻辑独立性；模式（唯一）— 模式/内模式映像 → 物理独立性；内模式（唯一） |
 | 2 | 关系模式 | `R(U, D, DOM, F)`，简写 $R(A_{1}, \cdots,A_{n})$；关系 = 元组的有限集合 |
-| 3 | 关系代数 | $\sigma_{F}(R)$ 选择、$\pi_{A}(R)$ 投影、`R⋈S` 连接、`R÷S` 除、$\frac{R \cup S}{R}- \frac{\frac{S}{R \cap S}}{R \times S}$ |
+| 3 | 关系代数 | $\sigma_{F}(R)$ 选择、$\pi_{A}(R)$ 投影、`R⋈S` 连接、`R÷S` 除、$\dfrac{R \cup S}{R}- \dfrac{\dfrac{S}{R \cap S}}{R \times S}$ |
 | 4 | 除运算 | $\pi_{Sno,Cno}(SC) \div  \pi_{Cno}(Course)$ = 选修全部课程的学生 |
 | 5 | 建库 | $CREATE DATABASE[IF NOT EXISTS] db DEFAULT CHARACTER SET utf8mb4[COLLATE \cdots];$ |
 | 6 | 建表 | `CREATE TABLE t (col type [约束], …, [表级约束]) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;` |
-| 7 | 六类约束 | $\frac{PRIMARY KEY}{FOREIGN KEY} \cdots \frac{\frac{\frac{\frac{REFERENCES}{UNIQUE}}{NOT NULL}}{DEFAULT}}{CHECK}$ |
+| 7 | 六类约束 | $\dfrac{PRIMARY KEY}{FOREIGN KEY} \cdots \dfrac{\dfrac{\dfrac{\dfrac{REFERENCES}{UNIQUE}}{NOT NULL}}{DEFAULT}}{CHECK}$ |
 | 8 | 外键动作 | `ON DELETE {RESTRICT\|CASCADE\|SET NULL\|NO ACTION}`（UPDATE 同理） |
-| 9 | 改表 | $\frac{\frac{\frac{ALTER TABLE t ADD}{MODIFY}}{CHANGE}}{DROP COLUMN} \cdots; RENAME TO \cdots$ |
+| 9 | 改表 | $\dfrac{\dfrac{\dfrac{ALTER TABLE t ADD}{MODIFY}}{CHANGE}}{DROP COLUMN} \cdots; RENAME TO \cdots$ |
 | 10 | 插入 | $INSERT INTO t[(cols)] VALUES( \cdots),( \cdots);$ / `INSERT INTO t SELECT …` |
 | 11 | 更新删除 | `UPDATE t SET c=… WHERE …;` / `DELETE FROM t WHERE …;` / `TRUNCATE TABLE t;` |
 | 12 | SELECT 书写 | `SELECT [DISTINCT] … FROM … [JOIN … ON …] [WHERE …] [GROUP BY … [HAVING …]] [ORDER BY …] [LIMIT …]` |
@@ -1712,7 +1712,7 @@ finally:
 | 24 | 最左前缀 | 联合索引 `(a,b,c)` 可用 `a`、`a,b`、`a,b,c`；范围列之后不再用于定位 |
 | 25 | 用户权限 | $CREATE USER 'u'@'h' IDENTIFIED BY ' \cdots ';$ / $GRANT privileges ON db.t TO \cdots;$ / `REVOKE` / `SHOW GRANTS` |
 | 26 | 角色 | $CREATE ROLE r; GRANT \cdots TO r; GRANT r TO 'u'@'h'; SET DEFAULT ROLE r TO 'u'@'h';$ |
-| 27 | 事务 | $START TRANSACTION; \cdots SAVEPOINT sp; \cdots \frac{COMMIT}{ROLLBACK}[TO sp];$ |
+| 27 | 事务 | $START TRANSACTION; \cdots SAVEPOINT sp; \cdots \dfrac{COMMIT}{ROLLBACK}[TO sp];$ |
 | 28 | ACID | $A \leftrightarrow undo \log$；C↔ 完整性约束 + A/I/D；I↔ 锁 + MVCC；$D \leftrightarrow redo \log$ |
 | 29 | 隔离级别 | `READ UNCOMMITTED / READ COMMITTED / REPEATABLE READ(MySQL 默认) / SERIALIZABLE` |
 | 30 | 查看隔离级别 | `SELECT @@transaction_isolation;`（MySQL 8.0；旧版 `@@tx_isolation`） |
@@ -1731,13 +1731,13 @@ finally:
 | 43 | 二元分解无损 | $R \to R1,R2$ 无损 ⟺ $(R1 \cap R2) \to(R1- R2)$ 或 $(R1 \cap R2) \to(R2- R1)$ 在 $F^{+}$ 中 |
 | 44 | ER 转换 | 实体→关系；1:1 任一方加外码；1:n 在 n 端加 1 端码；m:n 独立建表（组合主码 + 联系属性） |
 | 45 | 六阶段 | 需求分析 → 概念结构 → 逻辑结构 → 物理结构 → 实施 → 运行维护 |
-| 46 | 存储过程 | $\frac{DELIMITER}{CREATE PROCEDURE p(IN a INT, OUT b INT) BEGIN} \cdots \frac{END}{DELIMITER};$ |
+| 46 | 存储过程 | $\dfrac{DELIMITER}{CREATE PROCEDURE p(IN a INT, OUT b INT) BEGIN} \cdots \dfrac{END}{DELIMITER};$ |
 | 47 | 函数 | $CREATE FUNCTION f(x INT) RETURNS type DETERMINISTIC BEGIN RETURN \cdots; END$ |
-| 48 | 游标 | $DECLARE cur CURSOR FOR \cdots; DECLARE CONTINUE HANDLER FOR NOT FOUND SET done=1; \frac{\frac{OPEN}{FETCH}}{CLOSE}$ |
-| 49 | 触发器 | $CREATE TRIGGER trg BEFORE\|AFTER INSERT\|UPDATE\|DELETE ON t FOR EACH ROW BEGIN \cdots \frac{NEW}{OLD} \cdots END$ |
+| 48 | 游标 | $DECLARE cur CURSOR FOR \cdots; DECLARE CONTINUE HANDLER FOR NOT FOUND SET done=1; \dfrac{\dfrac{OPEN}{FETCH}}{CLOSE}$ |
+| 49 | 触发器 | $CREATE TRIGGER trg BEFORE\|AFTER INSERT\|UPDATE\|DELETE ON t FOR EACH ROW BEGIN \cdots \dfrac{NEW}{OLD} \cdots END$ |
 | 50 | 事件 | $SET GLOBAL event_{scheduler}=ON; CREATE EVENT e ON SCHEDULE EVERY 1 DAY DO \cdots;$ |
 | 51 | 参数化 | Python `cur.execute("… WHERE a=%s AND b=%s",(x,y))`；Java `PreparedStatement` + `setString/setInt` |
-| 52 | 例题结果 | 教学库：CS|2|19.5；李勇|92；选课数 3/2/1/1；$COUNT(*)=\frac{7}{COUNT(Grade)}=6$；无人选修=操作系统 |
+| 52 | 例题结果 | 教学库：CS|2|19.5；李勇|92；选课数 3/2/1/1；$COUNT(*)=\dfrac{7}{COUNT(Grade)}=6$；无人选修=操作系统 |
 
 ## 附录 B 易错点速查
 

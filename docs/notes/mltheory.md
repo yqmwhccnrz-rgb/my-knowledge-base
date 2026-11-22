@@ -122,7 +122,7 @@ $$
 
 ::: tip 工作例题 · 数值验证
 设 `f=2`、$\sigma^{2}=1$，两个训练集给出 `f̂=1.5` 与 `2.5`：
-`E f̂=2` → `Bias=0`、$\operatorname{Var}=\frac{(- 0.5)^{2}+(0.5)^{2}}{2}=0.25$；
+`E f̂=2` → `Bias=0`、$\operatorname{Var}=\dfrac{(- 0.5)^{2}+(0.5)^{2}}{2}=0.25$；
 总误差 `= 0 + 0.25 + 1 = 1.25`。
 若改用恒预测 $\hat{f} \equiv 1$：$Bias^{2}=1$、Var=0 → 总误差 `2`，反而更差——说明**适当增加方差能换取偏差下降**。
 :::
@@ -183,12 +183,12 @@ $$
 | 最大后验 MAP | $\hat{\theta}= \operatorname*{argmax}_\theta[\sum_{i} \log p(x_{i}\vert \theta)+ \log p(\theta)]$ | 加先验；等价于带正则的 MLE |
 
 ::: tip 工作例题 · MLE 与 MAP
-抛硬币 N 次出现 m 次正面，Bernoulli 的 MLE 为 $\hat{p}= \frac{m}{N}$（如 N=10、$m=7 \to 0.7$）。
+抛硬币 N 次出现 m 次正面，Bernoulli 的 MLE 为 $\hat{p}= \dfrac{m}{N}$（如 N=10、$m=7 \to 0.7$）。
 若加 Beta 先验，MAP 会给平滑估计 `(m+a)/(N+a+b)`，避免小样本下 `p̂=0` 或 `1` 的极端结论。这正是朴素贝叶斯需要**拉普拉斯平滑**的原因。
 :::
 
 ::: danger 易错 · MLE
-- 高斯分布的 MLE 方差是 $\left(\frac{1}{N}\right)\sum(x_{i}- \hat{\mu})^{2}$，**除以 N 而非 N−1**，因此是有偏估计；无偏样本方差才除以 N−1。
+- 高斯分布的 MLE 方差是 $\left(\dfrac{1}{N}\right)\sum(x_{i}- \hat{\mu})^{2}$，**除以 N 而非 N−1**，因此是有偏估计；无偏样本方差才除以 N−1。
 - MLE 给点估计，贝叶斯给整个后验分布；「贝叶斯方法 = MLE 加先验」只在 MAP 意义下近似成立，完全贝叶斯需对后验积分做预测。
 - 似然 $p(D\mid\theta)$ 是 θ 的函数，**不是** θ 的概率密度。
 :::
@@ -335,7 +335,7 @@ for step in range(6):
 $$L= \frac{1}{2}[(0- 2)^{2}+(0- 3)^{2}]= 6.5$$
 
 $\nabla L=(0- 2) \cdot 1+(0- 3) \cdot 2=- 8$ → $w_{1}= 0- 0.1 \times(- 8)= 0.8$。
-闭式解 $w*= \frac{1 \times 2+2 \times 3}{1^{2}+2^{2}}= \frac{8}{5}= 1.6$，迭代会逐步逼近 1.6。
+闭式解 $w*= \dfrac{1 \times 2+2 \times 3}{1^{2}+2^{2}}= \dfrac{8}{5}= 1.6$，迭代会逐步逼近 1.6。
 （若 $\eta$ 取 0.3，一步即 `w=2.4` 越过最优并开始震荡，说明学习率必须调。）
 :::
 
@@ -343,8 +343,8 @@ $\nabla L=(0- 2) \cdot 1+(0- 3) \cdot 2=- 8$ → $w_{1}= 0- 0.1 \times(- 8)= 0.8
 
 | 方法 | 目标函数 | 解 / 效果 |
 | --- | --- | --- |
-| 岭回归 L2 | $\frac{1}{2} \sum e^{2}+\left(\frac{\lambda}{2}\right) \| w \|^{2}$ | $w*=(X^{T}X+\lambda I)^{-1}X^{T}y$；系数整体缩小、解稳定，**不为 0** |
-| Lasso L1 | $\frac{1}{2} \sum e^{2}+ \lambda \| w \|_{1}$ | 产生**稀疏解**（部分系数恰为 0），可做特征选择 |
+| 岭回归 L2 | $\dfrac{1}{2} \sum e^{2}+\left(\dfrac{\lambda}{2}\right) \| w \|^{2}$ | $w*=(X^{T}X+\lambda I)^{-1}X^{T}y$；系数整体缩小、解稳定，**不为 0** |
+| Lasso L1 | $\dfrac{1}{2} \sum e^{2}+ \lambda \| w \|_{1}$ | 产生**稀疏解**（部分系数恰为 0），可做特征选择 |
 | 弹性网 | `L1 + L2` 折中 | 兼具稀疏与稳定，适合高度相关特征组 |
 | 多项式回归 | 先升维 $(x, x^{2}, \cdots)$ 再线性回归 | 提高表达能力，但更易过拟合，须配正则 |
 
@@ -363,7 +363,7 @@ L2 正则等价于给参数加**高斯先验** $w \sim N(0, \sigma^{2}I)$，L1 �
 :::
 
 ::: tip 补充 · 决定系数 R² 与多重共线性
-$R^{2}= 1- \frac{SS_{res}}{SS_{tot}}$（残差平方和 / 总平方和）度量模型解释的方差比例；**增加特征 R² 只增不减**，比较不同复杂度模型应使用调整 R²：$R^{2}_{adj}= 1- \frac{(1- R^{2})(N- 1)}{N- d- 1}$。特征间高度相关（多重共线性）时 $X^{T}X$ 接近奇异，系数估计方差急剧放大、符号可能反常，可用方差膨胀因子 $VIF_{j}= \frac{1}{1- R^{2}_{j}}$（对第 j 列回归其余列）诊断，`VIF>10` 提示严重共线，对策是岭回归或删并特征。
+$R^{2}= 1- \dfrac{SS_{res}}{SS_{tot}}$（残差平方和 / 总平方和）度量模型解释的方差比例；**增加特征 R² 只增不减**，比较不同复杂度模型应使用调整 R²：$R^{2}_{adj}= 1- \dfrac{(1- R^{2})(N- 1)}{N- d- 1}$。特征间高度相关（多重共线性）时 $X^{T}X$ 接近奇异，系数估计方差急剧放大、符号可能反常，可用方差膨胀因子 $VIF_{j}= \dfrac{1}{1- R^{2}_{j}}$（对第 j 列回归其余列）诊断，`VIF>10` 提示严重共线，对策是岭回归或删并特征。
 :::
 
 ---
@@ -435,15 +435,15 @@ $w^{T}x=0$ → $\sigma(0)=0.5$，正是决策边界；$w^{T}x=2$ → $\sigma(2)=
 
 ### 4.4 损失函数的统一视角
 
-把各类监督学习写成 $\min\left(\frac{1}{N}\right)\sum_{i} L(y_{i}, f(x_{i}))+ \lambda \Omega(w)$：
+把各类监督学习写成 $\min\left(\dfrac{1}{N}\right)\sum_{i} L(y_{i}, f(x_{i}))+ \lambda \Omega(w)$：
 
 | 模型 | 损失 L | 特点 |
 | --- | --- | --- |
-| 线性回归 | $\frac{1}{2}(y- f)^{2}$ | 对异常值敏感（平方放大） |
+| 线性回归 | $\dfrac{1}{2}(y- f)^{2}$ | 对异常值敏感（平方放大） |
 | 逻辑回归 | $-[y \log \sigma(f)+(1- y)\log(1- \sigma(f))]$ | 概率输出、凸、对误分类线性惩罚 |
 | SVM | $hinge: \max(0, 1- yf)$ | 间隔内点零梯度 → 稀疏解 |
 | AdaBoost | $\exp(- yf)$ | 对错分样本指数加权，故对噪声敏感 |
-| 平方损失分类 | $\frac{1}{2}(y- f)^{2}$ | 非凸/易饱和，逻辑回归不用它 |
+| 平方损失分类 | $\dfrac{1}{2}(y- f)^{2}$ | 非凸/易饱和，逻辑回归不用它 |
 
 ::: tip 工作例题 · 交叉熵数值
 真实类别为第 1 类，模型给该类的概率 `0.9` → 损失 $- \log 0.9 \approx 0.1054$；若只给 `0.8` → $- \log 0.8 \approx 0.2231$（损失翻倍）。交叉熵对「 confident but wrong 」的样本惩罚极重，这解释了为什么它比均方误差更适合分类。
@@ -483,7 +483,7 @@ $w^{T}x=0$ → $\sigma(0)=0.5$，正是决策边界；$w^{T}x=2$ → $\sigma(2)=
 | 步 | 内容 | 易错点 |
 | --- | --- | --- |
 | ① 数据清洗 | 缺失填补、异常值处理、去重 | 不可用**全体数据**的均值填补后再切分（泄露） |
-| ② 归一化 | 范围归一化 $\frac{x- \min}{\max- \min}$；概率/分布归一化（标准化 $z=\frac{x- \mu}{\sigma}$） | 缩放参数只能在训练集拟合 |
+| ② 归一化 | 范围归一化 $\dfrac{x- \min}{\max- \min}$；概率/分布归一化（标准化 $z=\dfrac{x- \mu}{\sigma}$） | 缩放参数只能在训练集拟合 |
 | ③ 特征工程 | 编码、选择、构造、降维 | 特征选择也须在训练折内做 |
 | ④ 划分数据集 | 训练 / 验证 / 测试三分 | 测试集只用于最终一次性评估 |
 | ⑤ 训练与调参 | 交叉验证选超参、早停 | 反复看测试集调参 = 泄露 |
@@ -500,14 +500,14 @@ $w^{T}x=0$ → $\sigma(0)=0.5$，正是决策边界；$w^{T}x=2$ → $\sigma(2)=
 | 准确率 Accuracy | `(TP+TN)/N` | 类别平衡时有效 |
 | 精确率 Precision | `TP/(TP+FP)` | 「报出来的有多少是真的」 |
 | 召回率 Recall / TPR | `TP/(TP+FN)` | 「真的有多少被报出来」 |
-| F1 | $\frac{2PR}{P+R}= \frac{2TP}{2TP+FP+FN}$ | P 与 R 的调和平均 |
+| F1 | $\dfrac{2PR}{P+R}= \dfrac{2TP}{2TP+FP+FN}$ | P 与 R 的调和平均 |
 | FPR | `FP/(FP+TN)` | ROC 横轴 |
 | ROC / AUC | $TPR- FPR$ 曲线下面积 | 与阈值无关；0.5 为随机 |
 
 ::: tip 工作例题 · 手算全套指标
 `TP=80, FP=20, FN=10, TN=90`（N=200）：
 准确率 $=\dfrac{170}{200}=0.85$；精确率 $=\dfrac{80}{100}=0.80$；召回率 $=\dfrac{80}{90}\approx 0.8889$；
-$F1= \frac{2 \times 80}{2 \times 80+20+10}= \frac{160}{190}=0.8421$；FPR = 20/110 ≈ **0.1818**。
+$F1= \dfrac{2 \times 80}{2 \times 80+20+10}= \dfrac{160}{190}=0.8421$；FPR = 20/110 ≈ **0.1818**。
 若改变决策阈值，P 与 R 沿相反方向变化，F1 折中；AUC 不受单一阈值影响。
 :::
 
@@ -531,14 +531,14 @@ print(scores.mean().round(4), scores.std().round(4))
 
 ::: tip 补充 · 泛化上界（课件第 5 讲定理）
 在假设空间有限、样本独立同分布的条件下，以概率不小于 $1- \delta$ 有
-$R(h)- \hat{R}(h) \le \sqrt{\frac{\log|H|+ \log\left(\frac{2}{\delta}\right)}{2N}}$（Hoeffding 型界）。
+$R(h)- \hat{R}(h) \le \sqrt{\dfrac{\log|H|+ \log\left(\dfrac{2}{\delta}\right)}{2N}}$（Hoeffding 型界）。
 结论：**假设空间越大、样本越少，经验风险与期望风险的差距上界越大**；这为「控制模型复杂度 / 正则化」提供了理论依据。对无限假设空间需用 VC 维或 Rademacher 复杂度替代 `log|H|`。
 :::
 
 | 验证方式 | 做法 | 适用 |
 | --- | --- | --- |
 | 留出法 | 一次性按比例切分 | 数据量大、快速 |
-| K 折交叉验证 | 轮流用 1 折验证、K−1 折训练，取平均 | 标准做法，$K=\frac{5}{10}$ |
+| K 折交叉验证 | 轮流用 1 折验证、K−1 折训练，取平均 | 标准做法，$K=\dfrac{5}{10}$ |
 | 分层 K 折 | 保持每折类别比例 | 分类且类别不平衡 |
 | 留一法 LOOCV | K=N | 小样本，计算代价高 |
 | 时间序列切分 | 按时间前向滚动 | 时序/金融数据（防泄露） |
@@ -558,12 +558,12 @@ R(h)- \hat{R}(h) \le \sqrt{\frac{\ln|H|+ \ln\left(\frac{2}{\delta}\right)}{2N}}
 $$
 
 ::: tip 工作例题
-`|H|=1000`、`N=100`、$\delta=0.05$ → 上界 $= \sqrt{\frac{6.9078+3.6889}{200}} \approx 0.2302$。
+`|H|=1000`、`N=100`、$\delta=0.05$ → 上界 $= \sqrt{\dfrac{6.9078+3.6889}{200}} \approx 0.2302$。
 即训练误差 0.05 的模型，真实误差可能高达约 0.28。把假设空间扩大 10 倍（ln|H| 增大）或样本减半，上界都会变大——这正是「**模型越复杂、数据越少，越要正则化/早停**」的定量依据。
 :::
 
 ::: tip 补充 · 无限假设空间
-`|H|` 无限时上式失效，需用 **VC 维** `d_VC`（能否打散的最大点数）或 Rademacher 复杂度，上界变为 $O\left(\sqrt{\frac{d_{VC} \log\left(\frac{N}{d_{VC}}\right)+\log\left(\frac{1}{\delta}\right)}{N}}\right)$。深度网络参数量远大于 VC 上界却仍泛化良好，说明传统容量度量不足，需要「隐式正则化」（SGD 偏好平坦极小、架构先验）来解释——这是当代研究课题。
+`|H|` 无限时上式失效，需用 **VC 维** `d_VC`（能否打散的最大点数）或 Rademacher 复杂度，上界变为 $O\left(\sqrt{\dfrac{d_{VC} \log\left(\dfrac{N}{d_{VC}}\right)+\log\left(\dfrac{1}{\delta}\right)}{N}}\right)$。深度网络参数量远大于 VC 上界却仍泛化良好，说明传统容量度量不足，需要「隐式正则化」（SGD 偏好平坦极小、架构先验）来解释——这是当代研究课题。
 :::
 
 ### 5.5 分布漂移、公平性与上线监控
@@ -668,7 +668,7 @@ $$
 
 ::: tip 工作例题 · 间隔计算
 `w=(1,1)`、$b=- 3$ 给出决策面 $x_{1}+x_{2}=3$，两条间隔边界为 $x_{1}+x_{2}=2$ 与 `=4`。
-$\| w \|=\sqrt{2}$ → 几何间隔 $\gamma= \frac{2}{\sqrt{2}}= \sqrt{2} \approx 1.4142$；$\| w \|$ 越小间隔越宽、泛化通常越好。
+$\| w \|=\sqrt{2}$ → 几何间隔 $\gamma= \dfrac{2}{\sqrt{2}}= \sqrt{2} \approx 1.4142$；$\| w \|$ 越小间隔越宽、泛化通常越好。
 :::
 
 ### 6.3 软间隔与常用核
@@ -686,7 +686,7 @@ $$
 | --- | --- | --- |
 | 线性 | $k=x^{T}z$ | 特征多/样本大，不易过拟合、可解释 |
 | 多项式 | $k=(\gamma x^{T}z+c)^d$ | 显式控制交互阶数，d 大易过拟合 |
-| 高斯 RBF | $\exp\left(-\dfrac{\|x-z\|^{2}}{2\sigma^{2}}\right)$ | 无穷维、默认首选；$\gamma=\frac{1}{2\sigma^{2}}$ 越大边界越曲折 |
+| 高斯 RBF | $\exp\left(-\dfrac{\|x-z\|^{2}}{2\sigma^{2}}\right)$ | 无穷维、默认首选；$\gamma=\dfrac{1}{2\sigma^{2}}$ 越大边界越曲折 |
 | Sigmoid | $\tanh(\gamma x^{T}z+c)$ | 部分参数下非半正定，慎用 |
 
 ::: danger 易错 · 超参数与输出
@@ -763,7 +763,7 @@ $$
 | 算法 | 准则 | 树结构 | 特点 |
 | --- | --- | --- | --- |
 | ID3 | 信息增益 $G(D,A)=H(D)- \sum_{v}(\|D_{v}\| \|D\|)H(D_{v})$ | 多叉 | 偏袒取值多的特征（如「编号」） |
-| C4.5 | 增益率 $GR= \frac{G(D,A)}{SplitInfo_{A}}$ | 多叉 | 惩罚多值特征；支持连续值与缺失 |
+| C4.5 | 增益率 $GR= \dfrac{G(D,A)}{SplitInfo_{A}}$ | 多叉 | 惩罚多值特征；支持连续值与缺失 |
 | CART | 基尼指数 $Gini(D)=1- \sum p_{k}^{2}$ | **二叉** | 分类用基尼、回归用平方误差 |
 
 $$
@@ -781,10 +781,10 @@ $$
 
 $$H(D)=-\left(\frac{9}{14}\right)\log_{2}\left(\frac{9}{14}\right)-\left(\frac{5}{14}\right)\log_{2}\left(\frac{5}{14}\right)= 0.9403$$
 
-- $H(D_{1})=0.5436$、$H(D_{2})=0.9183$ → 条件熵 $= \frac{8}{14 \times 0.5436}+ \frac{6}{14 \times 0.9183}= 0.7042$；
+- $H(D_{1})=0.5436$、$H(D_{2})=0.9183$ → 条件熵 $= \dfrac{8}{14 \times 0.5436}+ \dfrac{6}{14 \times 0.9183}= 0.7042$；
 - **信息增益 $G= 0.9403- 0.7042= 0.2361$**；
 - `Gini(D)=0.4592`、$Gini(D_{1})=0.2188$、$Gini(D_{2})=0.4444$ → **基尼指数 `= 0.3155`**；
-- `SplitInfo = 0.9852` → **增益率 $GR= \frac{0.2361}{0.9852} \approx 0.2397$**。
+- `SplitInfo = 0.9852` → **增益率 $GR= \dfrac{0.2361}{0.9852} \approx 0.2397$**。
 :::
 
 ::: danger 易错 · 划分准则方向
@@ -827,7 +827,7 @@ w_{i} \leftarrow w_{i} \cdot \exp(- \alpha_{t} y_{i} h_{t}(x_{i})) \; \text{，�
 $$
 
 ::: tip 工作例题 · AdaBoost 权重更新
-$\epsilon_{t}=0.3$ → $\alpha_{t}= \frac{1}{2} \ln\left(\frac{0.7}{0.3}\right)= \frac{1}{2} \ln(2.3333) \approx 0.4236$；
+$\epsilon_{t}=0.3$ → $\alpha_{t}= \dfrac{1}{2} \ln\left(\dfrac{0.7}{0.3}\right)= \dfrac{1}{2} \ln(2.3333) \approx 0.4236$；
 错分样本权重乘 $e^{0.4236} \approx 1.5275$，正确样本乘 $e^{- 0.4236} \approx 0.6547$（错分样本被放大约 2.3 倍相对权重）。
 若 $\epsilon_{t}=0.5$（等同随机猜测）→ $\alpha_{t}=0$，该分类器对最终模型无贡献；若 $\epsilon_{t}>0.5$ 应停止或取反。
 :::
@@ -839,7 +839,7 @@ $\epsilon_{t}=0.3$ → $\alpha_{t}= \frac{1}{2} \ln\left(\frac{0.7}{0.3}\right)=
 :::
 
 ::: tip 补充 · 算法谱系（课件只点到 XGBoost）
-`Bagging → 随机森林 → ExtraTrees`；$AdaBoost \to GBDT \to \frac{\frac{XGBoost}{LightGBM}}{CatBoost}$（二阶泰勒展开 + 正则项 + 列采样 + 直方图加速）；`Stacking` 用元学习器组合异构基模型。工程上表格数据首选梯度提升树，图像/文本首选深度网络。
+`Bagging → 随机森林 → ExtraTrees`；$AdaBoost \to GBDT \to \dfrac{\dfrac{XGBoost}{LightGBM}}{CatBoost}$（二阶泰勒展开 + 正则项 + 列采样 + 直方图加速）；`Stacking` 用元学习器组合异构基模型。工程上表格数据首选梯度提升树，图像/文本首选深度网络。
 :::
 
 ### 7.4 AdaBoost 的推导：前向分步加法模型 + 指数损失
@@ -862,7 +862,7 @@ $$
 **结论**：AdaBoost 等价于在指数损失上做**梯度下降式的前向分步优化**；GBDT 则把指数损失换成任意可微损失并拟合其**负梯度**（伪残差），二者是同一框架的不同损失选择。
 
 ::: tip 工作例题 · 权重公式自检
-$\epsilon_{t}=0.3$ → $\alpha_{t}= \frac{1}{2} \ln\left(\frac{0.7}{0.3}\right) \approx 0.4236$；
+$\epsilon_{t}=0.3$ → $\alpha_{t}= \dfrac{1}{2} \ln\left(\dfrac{0.7}{0.3}\right) \approx 0.4236$；
 错分样本 $y_{i}h_{t}=- 1$ → 乘 $e^{+0.4236} \approx 1.5275$；正确样本乘 $e^{- 0.4236} \approx 0.6547$。
 当 $\epsilon_{t} \to 0$ 时 $\alpha_{t} \to \infty$（完美分类器权重极大）；$\epsilon_{t}=0.5$ 时 $\alpha_{t}=0$（等同随机）；$\epsilon_{t}>0.5$ 时 $\alpha_{t}<0$ 应停止训练或取反。
 :::
@@ -888,8 +888,8 @@ $$
 
 ::: tip 工作例题 · 一次分裂增益
 $G_{L}=- 2,H_{L}=2$、`G_R=3,H_R=2`、$\lambda=1$、$\gamma=0$ → `G=1,H=4`：
-$Gain= \frac{1}{2}[\frac{4}{3}+ \frac{9}{3}- \frac{1}{5}]= \frac{1}{2}[1.3333+3- 0.2] \approx 2.0667> 0$ → 值得分裂；
-最优叶权重 $w*_{L}=- \frac{- 2}{3}= 0.6667$、$w*_{R}=- \frac{3}{3}=- 1.0$。
+$Gain= \dfrac{1}{2}[\dfrac{4}{3}+ \dfrac{9}{3}- \dfrac{1}{5}]= \dfrac{1}{2}[1.3333+3- 0.2] \approx 2.0667> 0$ → 值得分裂；
+最优叶权重 $w*_{L}=- \dfrac{- 2}{3}= 0.6667$、$w*_{R}=- \dfrac{3}{3}=- 1.0$。
 $\gamma$ 是「分裂最小收益门槛」，起预剪枝作用。
 :::
 
@@ -920,11 +920,11 @@ $$
 
 | 函数 | 表达式 | 值域 | 优点 | 缺点 |
 | --- | --- | --- | --- | --- |
-| Sigmoid | $\frac{1}{1+e^{-z}}$ | (0,1) | 概率解释、门控 | 饱和区梯度趋 0、非零均值、指数运算 |
-| Tanh | $\frac{e^{z}- e^{-z}}{e^{z}+e^{-z}}$ | $(- 1,1)$ | 零均值 | 仍有梯度消失 |
+| Sigmoid | $\dfrac{1}{1+e^{-z}}$ | (0,1) | 概率解释、门控 | 饱和区梯度趋 0、非零均值、指数运算 |
+| Tanh | $\dfrac{e^{z}- e^{-z}}{e^{z}+e^{-z}}$ | $(- 1,1)$ | 零均值 | 仍有梯度消失 |
 | **ReLU** | `max(0,z)` | [0,∞) | 计算极简、正半轴梯度恒 1 | z&lt;0 神经元「死亡」 |
 | LeakyReLU / ELU / GELU | ReLU 变体 | — | 缓解死亡、更平滑 | 需额外超参/计算 |
-| Softmax | $\frac{\exp(a_{k})}{\sum}_{j}\exp(a_{j})$ | (0,1) 和为 1 | 多分类输出 | 须减 max 防溢出 |
+| Softmax | $\dfrac{\exp(a_{k})}{\sum}_{j}\exp(a_{j})$ | (0,1) 和为 1 | 多分类输出 | 须减 max 防溢出 |
 
 ::: tip 工作例题 · 一层前向计算
 `x=(1,2)`、$w=(0.5,- 1)$、`b=0.3` → $z= 0.5 \times 1- 1 \times 2+ 0.3=- 1.2$；
@@ -974,7 +974,7 @@ Sigmoid 导数最大仅 0.25，是深网络梯度消失的历史主因。对策�
 | 权重衰减 | L2 惩罚等价于参数乘 $(1- \eta \lambda)$ | AdamW 把权重衰减与梯度解耦，效果更好 |
 | 早停 | 验证误差回升即停 | 验证集不能与测试集混用 |
 | 残差连接 | `y = F(x) + x` 提供梯度高速路 | 使上百层网络可训练 |
-| 初始化 | Xavier $\frac{\operatorname{Var} \approx 1}{d_{in}}$、He $\frac{\operatorname{Var} \approx 2}{d_{in}}$（配 ReLU） | 全零初始化会导致对称性问题 |
+| 初始化 | Xavier $\dfrac{\operatorname{Var} \approx 1}{d_{in}}$、He $\dfrac{\operatorname{Var} \approx 2}{d_{in}}$（配 ReLU） | 全零初始化会导致对称性问题 |
 
 ::: tip 补充 · 损失函数与输出层配对
 回归 → 线性输出 + MSE；二分类 → sigmoid + 二元交叉熵；多分类 → softmax + 多元交叉熵。配对错误会导致梯度形式复杂或数值不稳（如 softmax 与 MSE 组合在饱和时梯度极小）。
@@ -982,7 +982,7 @@ Sigmoid 导数最大仅 0.25，是深网络梯度消失的历史主因。对策�
 
 ### 8.5 反向传播的矩阵形式与梯度检验
 
-$\delta^{(l)}=(W^{(l+1)})^{T}\delta^{(l+1)} ⊙ \phi '(z^{(l)})$ 中所有量都是矩阵/向量，`⊙` 为逐元素乘。工程上必须做**梯度检验**：用数值梯度 $\frac{J(\theta+\epsilon)- J(\theta- \epsilon)}{2\epsilon}$（$\epsilon \approx 1e- 5$）与解析梯度比对，相对误差应小于 $1e- 7$。这是排查反向传播实现 bug 的标准手段。
+$\delta^{(l)}=(W^{(l+1)})^{T}\delta^{(l+1)} ⊙ \phi '(z^{(l)})$ 中所有量都是矩阵/向量，`⊙` 为逐元素乘。工程上必须做**梯度检验**：用数值梯度 $\dfrac{J(\theta+\epsilon)- J(\theta- \epsilon)}{2\epsilon}$（$\epsilon \approx 1e- 5$）与解析梯度比对，相对误差应小于 $1e- 7$。这是排查反向传播实现 bug 的标准手段。
 
 ::: danger 易错 · 实现层面
 数值梯度只能用于**调试**（计算量 O(参数数)），不能用于训练；检测时须关闭 Dropout 与 BN 的随机性，否则两次前向不一致。
@@ -995,14 +995,14 @@ $\delta^{(l)}=(W^{(l+1)})^{T}\delta^{(l+1)} ⊙ \phi '(z^{(l)})$ 中所有量都
 | 策略 | 公式 / 做法 | 适用 |
 | --- | --- | --- |
 | Step decay | 每 k 轮乘 γ（如 0.1） | 经典 CNN |
-| 余弦退火 | $\eta_{t}= \eta_{\min}+ \frac{1}{2}(\eta_{0}- \eta_{\min})\left(1+\cos\left(\frac{\pi t}{T}\right)\right)$ | 预训练/微调常用 |
+| 余弦退火 | $\eta_{t}= \eta_{\min}+ \dfrac{1}{2}(\eta_{0}- \eta_{\min})\left(1+\cos\left(\dfrac{\pi t}{T}\right)\right)$ | 预训练/微调常用 |
 | Warmup | 前若干步线性从 0 升到 η0 | 大 batch、Transformer 必备（防初期梯度爆炸） |
 | ReduceLROnPlateau | 验证指标停滞则降 η | 小数据、需自适应 |
 | 周期性 / OneCycle | η 先升后降 | 快速收敛 + 正则效果 |
 
 ::: tip 工作例题 · 余弦退火
 $\eta_{0}=0.1$、$\eta_{\min}=0.001$、`T=100`，在 `t=50` 时
-$\eta= 0.001+ \frac{1}{2} \times 0.099 \times\left(1+\cos\left(\frac{\pi}{2}\right)\right)= 0.001+0.0495= 0.0505$，恰好约为初值的一半。
+$\eta= 0.001+ \dfrac{1}{2} \times 0.099 \times\left(1+\cos\left(\dfrac{\pi}{2}\right)\right)= 0.001+0.0495= 0.0505$，恰好约为初值的一半。
 :::
 
 ::: danger 易错 · 训练稳定性
@@ -1032,8 +1032,8 @@ $$
 
 ::: tip 工作例题 · LeNet 风格尺寸演算（课件 $\max pool 2 \times 2$）
 输入 $32 \times 32 \times 1$，6 个 $5 \times 5$ 卷积核、`S=1`、`P=0`：
-$⌊\frac{32- 5}{1}⌋+1= 28$ → $28 \times 28 \times 6$，参数量 $5 \times 5 \times 1 \times 6+6= 156$；
-接 $2 \times 2$ max pooling、`S=2`：$⌊\frac{28- 2}{2}⌋+1= 14$ → $14 \times 14 \times 6$；
+$⌊\dfrac{32- 5}{1}⌋+1= 28$ → $28 \times 28 \times 6$，参数量 $5 \times 5 \times 1 \times 6+6= 156$；
+接 $2 \times 2$ max pooling、`S=2`：$⌊\dfrac{28- 2}{2}⌋+1= 14$ → $14 \times 14 \times 6$；
 后续再卷积+池化得 $5 \times 5 \times 16$，展平 400 维接全连接，最后 softmax 输出 10 类。
 :::
 
@@ -1136,7 +1136,7 @@ $$
 
 ::: tip 工作例题 · 3 个 token、d=2
 `Q=K=[[1,0],[0,1],[1,1]]`，`V=[[1,2],[3,4],[5,6]]`：
-分数 $\frac{QK^{T}}{\sqrt{2}}$ = `[[0.707,0,0.707],[0,0.707,0.707],[0.707,0.707,1.414]]`；
+分数 $\dfrac{QK^{T}}{\sqrt{2}}$ = `[[0.707,0,0.707],[0,0.707,0.707],[0.707,0.707,1.414]]`；
 逐行 softmax 得权重 `[[0.4011,0.1978,0.4011],[0.1978,0.4011,0.4011],[0.2483,0.2483,0.5035]]`（每行和为 1）；
 输出 `A@V` = `[[3.0,4.0],[3.4067,4.4067],[3.5105,4.5105]]`——每个位置都是 V 各行的加权平均。
 :::
@@ -1178,7 +1178,7 @@ $$
 $$
 
 ::: tip 工作例题 · 位置编码的一个分量
-`pos=5`、`i=0`、`d_model=512` → $PE(5,0)=\sin\left(\frac{5}{10000^{0}}\right)=\sin(5) \approx- 0.9589$，$PE(5,1)=\cos(5) \approx 0.2837$。
+`pos=5`、`i=0`、`d_model=512` → $PE(5,0)=\sin\left(\dfrac{5}{10000^{0}}\right)=\sin(5) \approx- 0.9589$，$PE(5,1)=\cos(5) \approx 0.2837$。
 不同 i 对应不同频率（低 i 高频、高 i 低频），从而给模型提供多尺度的位置信息。
 :::
 
@@ -1192,7 +1192,7 @@ $$
 
 | 技术 | 做法 | 代价 |
 | --- | --- | --- |
-| 量化 | $FP32 \to \frac{INT8}{FP16}$（体积与带宽降为 1/4 / 1/2） | 需校准，可能有精度损失 |
+| 量化 | $FP32 \to \dfrac{INT8}{FP16}$（体积与带宽降为 1/4 / 1/2） | 需校准，可能有精度损失 |
 | 剪枝 | 移除小权重/通道（结构化剪枝才真正加速） | 非结构化剪枝需稀疏计算库 |
 | 知识蒸馏 | 用大模型（教师）的软标签训练小模型（学生） | 需额外训练成本 |
 | 低秩分解 / LoRA | 用低秩矩阵近似大权重增量 | 只微调少量参数 |
@@ -1317,7 +1317,7 @@ PCA **无监督**（不用标签，最大化总方差），LDA **有监督**（�
 
 课件 Part-2 从「用低维向量逼近样本」出发讲 PCA，另一常见讲法是「找方差最大的投影方向」。二者数学上完全等价：
 
-**推法 A · 最大化投影方差**（设数据已中心化，协方差 $S=\left(\frac{1}{N}\right)X^{T}X$）
+**推法 A · 最大化投影方差**（设数据已中心化，协方差 $S=\left(\dfrac{1}{N}\right)X^{T}X$）
 
 $$
 \begin{gathered}
@@ -1342,11 +1342,11 @@ $$
 
 ::: tip 工作例题 · 贡献率与重构误差
 协方差特征值 $\lambda=(2.4, 0.9, 0.5, 0.2)$、$\sum \lambda=4$：
-前 2 个累计贡献率 $= \frac{3.3}{4}= 82.5\%$；丢弃部分 `= 0.5+0.2 = 0.7`，占总量 `17.5%`，正是保留 2 个主成分的最小重构误差。
+前 2 个累计贡献率 $= \dfrac{3.3}{4}= 82.5\%$；丢弃部分 `= 0.5+0.2 = 0.7`，占总量 `17.5%`，正是保留 2 个主成分的最小重构误差。
 :::
 
 ::: danger 易错 · PCA 推导
-- 数据必须**中心化**（减均值）后协方差矩阵才等于 $S=\left(\frac{1}{N}\right)X^{T}X$；若还要消除量纲影响，需先标准化（此时 `S` 实为相关矩阵）。
+- 数据必须**中心化**（减均值）后协方差矩阵才等于 $S=\left(\dfrac{1}{N}\right)X^{T}X$；若还要消除量纲影响，需先标准化（此时 `S` 实为相关矩阵）。
 - `S` 半正定保证特征值非负；特征向量符号可整体翻转，不影响子空间与重构结果。
 - 核 PCA 用 Gram 矩阵的特征分解替代 `S`，对应高维特征空间中的 PCA；与第 6 章核技巧同源。
 - PCA 是**线性**降维；流形结构需 ISOMAP/LLE/t-SNE/UMAP（补充，课件未涉及）。
@@ -1487,7 +1487,7 @@ $$
 递推式为 $V(s_{1})=1+0.9V(s_{2})$、$V(s_{2})=0.9 \times 0.5 \times V(s_{1})=0.45V(s_{1})$。
 从 $V_{0}=(0,0)$ 迭代：
 `k=1: (1.00000, 0)` → `k=2: (1.00000, 0.45000)` → `k=3: (1.40500, 0.45000)` → `k=4: (1.40500, 0.63225)` → `k=5: (1.56902, 0.63225)` → `k=6: (1.56902, 0.70606)` …
-解析解：把 $V(s_{2})=0.45V(s_{1})$ 代入第一式 → $V(s_{1})=\frac{1}{1- 0.9 \times 0.45}=\frac{1}{0.595 \approx 1.6807}$，$V(s_{2}) \approx 0.7563$，与迭代极限一致。
+解析解：把 $V(s_{2})=0.45V(s_{1})$ 代入第一式 → $V(s_{1})=\dfrac{1}{1- 0.9 \times 0.45}=\dfrac{1}{0.595 \approx 1.6807}$，$V(s_{2}) \approx 0.7563$，与迭代极限一致。
 :::
 
 ```python
@@ -1700,7 +1700,7 @@ $$
 课件示例 `M=100, L=1` 即每批次 100 个样本、每样本 1 次蒙特卡罗采样估计该期望。
 
 ::: tip 工作例题 · KL 项的方向
-取 `q=(0.5,0.5)`、`p=(0.9,0.1)`：$D_{KL}(q \| p)=\sum q \log\left(\frac{q}{p}\right)=0.5108$；
+取 `q=(0.5,0.5)`、`p=(0.9,0.1)`：$D_{KL}(q \| p)=\sum q \log\left(\dfrac{q}{p}\right)=0.5108$；
 反向 $D_{KL}(p \| q)=0.3681$。二者不相等，说明 ELBO 中 KL 的**方向不可随意交换**：
 $q \| p$（反向 KL，VAE 用）倾向「模式寻找」，会低估方差；$p \| q$（前向 KL）倾向「质量覆盖」。这解释了 VAE 生成偏模糊的统计根源之一。
 :::
@@ -1820,7 +1820,7 @@ $$
 | 模型 | 优化目标 | 似然 | 采样 | 主要失败模式 |
 | --- | --- | --- | --- | --- |
 | VAE | ELBO（重构 − KL） | 下界 | 1 次 | 后验坍缩、样本模糊 |
-| GAN | `min_G max_D V` $\leftrightarrow \frac{JS}{Wasserstein}$ | 无 | 1 次 | 模式崩塌、训练不稳 |
+| GAN | `min_G max_D V` $\leftrightarrow \dfrac{JS}{Wasserstein}$ | 无 | 1 次 | 模式崩塌、训练不稳 |
 | 扩散 | 噪声预测 / 变分下界 | 下界 | 多步 | 采样慢 |
 | 归一化流 | 精确 `log p` | **精确** | 1 次 | 可逆约束限制表达力 |
 :::
@@ -1847,10 +1847,10 @@ $$
 **题**：样本 `(1,2)`、`(2,3)`，无截距模型 `ŷ=wx`，$w_{0}=0$、$\eta=0.1$。求①初始损失与梯度；②一步更新后的 w；③闭式解；④若改加 L2 正则 $\lambda=2$，闭式解变为多少？
 
 **解**：
-① $L= \frac{1}{2}[(0- 2)^{2}+(0- 3)^{2}]=6.5$；$\nabla L=\sum(wx_{i}- y_{i})x_{i}=- 2- 6=- 8$；
+① $L= \dfrac{1}{2}[(0- 2)^{2}+(0- 3)^{2}]=6.5$；$\nabla L=\sum(wx_{i}- y_{i})x_{i}=- 2- 6=- 8$；
 ② $w_{1}= 0- 0.1 \times(- 8)= 0.8$；
-③ $w*= \frac{\sum x_{i}y_{i}}{\sum x_{i}^{2}}= \frac{2+6}{1+4}= \frac{8}{5}= 1.6$；
-④ 岭回归 $w*= \frac{\sum x_{i}y_{i}}{\sum x_{i}^{2}+\lambda}= \frac{8}{5+2} \approx 1.1429< 1.6$，系数被缩小，正是 L2 的作用。
+③ $w*= \dfrac{\sum x_{i}y_{i}}{\sum x_{i}^{2}}= \dfrac{2+6}{1+4}= \dfrac{8}{5}= 1.6$；
+④ 岭回归 $w*= \dfrac{\sum x_{i}y_{i}}{\sum x_{i}^{2}+\lambda}= \dfrac{8}{5+2} \approx 1.1429< 1.6$，系数被缩小，正是 L2 的作用。
 
 ::: tip 解题要点
 正则化后分母多了 $\lambda$；$\lambda$ 越大越向 0 收缩，偏差上升、方差下降。
@@ -1861,7 +1861,7 @@ $$
 **题**：①$w^{T}x=2$ 时二分类正类概率？②三分类 logits `(2,1,0.1)` 的 softmax？③真实为第 1 类、模型给 `0.9` 与 `0.8` 时的交叉熵？
 
 **解**：
-① $\sigma(2)=\frac{1}{(1+e^{-2}) \approx 0.8808}$ → 判正类；$w^{T}x=0$ 时恰为 0.5（决策边界）。
+① $\sigma(2)=\dfrac{1}{(1+e^{-2}) \approx 0.8808}$ → 判正类；$w^{T}x=0$ 时恰为 0.5（决策边界）。
 ② `softmax = (0.6590, 0.2424, 0.0986)`，和为 1，预测第 1 类。
 ③ $- \log 0.9 \approx 0.1054$、$- \log 0.8 \approx 0.2231$：概率降低 0.1，损失约翻倍，体现交叉熵对置信度的强惩罚。
 
@@ -1869,7 +1869,7 @@ $$
 
 **题**：`TP=80, FP=20, FN=10, TN=90`，求 Acc / P / R / F1 / FPR，并说明「提高召回率」通常如何操作及其代价。
 
-**解**：$Acc=\frac{170}{200}=0.85$；$P=\frac{80}{100}=0.80$；$R=\frac{80}{90 \approx 0.8889}$；$F1=\frac{2 \times 80}{160+20+10}=\frac{160}{190 \approx 0.8421}$；$FPR=\frac{20}{110 \approx 0.1818}$。
+**解**：$Acc=\dfrac{170}{200}=0.85$；$P=\dfrac{80}{100}=0.80$；$R=\dfrac{80}{90 \approx 0.8889}$；$F1=\dfrac{2 \times 80}{160+20+10}=\dfrac{160}{190 \approx 0.8421}$；$FPR=\dfrac{20}{110 \approx 0.1818}$。
 降低分类阈值会把更多样本判为正 → TP、FP 同增 → **R 升、P 降**；F1 折中，AUC 不随单一阈值改变。类别不平衡时应看 PR-AUC 而非 accuracy。
 
 ### 综 4 核映射与 SVM 间隔（第 6 章）
@@ -1878,7 +1878,7 @@ $$
 
 **解**：
 ① 展开得 $\phi(x)=\left(1, \sqrt{2x}_{1}, \sqrt{2x}_{2}, x_{1}^{2}, x_{2}^{2}, \sqrt{2x}_{1}x_{2}\right)$，六维；核技巧让我们无需显式计算 φ。
-② $\gamma= \frac{2}{\|w\|}= \frac{2}{\sqrt{2}}= \sqrt{2} \approx 1.4142$；间隔边界 $w^{T}x+b=\pm 1$ 即 $x_{1}+x_{2}=2$ 与 `=4`。
+② $\gamma= \dfrac{2}{\|w\|}= \dfrac{2}{\sqrt{2}}= \sqrt{2} \approx 1.4142$；间隔边界 $w^{T}x+b=\pm 1$ 即 $x_{1}+x_{2}=2$ 与 `=4`。
 ③ C 增大 → 更不容忍错分 → 间隔变窄、边界更复杂 → **更易过拟合**；C 减小则相反。
 
 ### 综 5 决策树准则与 AdaBoost 权重（第 7 章）
@@ -1889,7 +1889,7 @@ $$
 ① `H(D)=0.9403`；$H(D_{1})=0.5436$、$H(D_{2})=0.9183$ → 条件熵 `0.7042` → **Gain=0.2361**；
 $Gini(D_{1})=0.2188$、$Gini(D_{2})=0.4444$ → **Gini_index=0.3155**；
 `SplitInfo=0.9852` → $GR \approx 0.2397$。
-② $\alpha= \frac{1}{2} \ln\left(\frac{0.7}{0.3}\right) \approx 0.4236$；错分样本权重乘 $e^\alpha \approx 1.5275$、正确样本乘 $e^{- \alpha} \approx 0.6547$。
+② $\alpha= \dfrac{1}{2} \ln\left(\dfrac{0.7}{0.3}\right) \approx 0.4236$；错分样本权重乘 $e^\alpha \approx 1.5275$、正确样本乘 $e^{- \alpha} \approx 0.6547$。
 
 ::: danger 答题要点
 信息增益/增益率取**最大**、基尼指数取**最小**；AdaBoost 的 $\epsilon$ 必须 `<0.5`，否则 α≤0 该轮无意义。
@@ -1906,10 +1906,10 @@ $Gini(D_{1})=0.2188$、$Gini(D_{2})=0.4444$ → **Gini_index=0.3155**；
 
 ### 综 7 CNN 尺寸与注意力计算（第 9 章）
 
-**题**：①输入 $32 \times 32 \times 1$，6 个 $5 \times 5$ 卷积核 `S=1,P=0` 后的尺寸与参数量？再接 $\frac{2 \times 2}{S}=2$ 池化？②3 个 token、`d=2` 的自注意力权重为何每行和为 1？
+**题**：①输入 $32 \times 32 \times 1$，6 个 $5 \times 5$ 卷积核 `S=1,P=0` 后的尺寸与参数量？再接 $\dfrac{2 \times 2}{S}=2$ 池化？②3 个 token、`d=2` 的自注意力权重为何每行和为 1？
 
 **解**：
-① 卷积 $⌊\frac{32- 5}{1}⌋+1=28$ → $28 \times 28 \times 6$，参数 $5 \times 5 \times 1 \times 6+6=156$；池化 $⌊\frac{28- 2}{2}⌋+1=14$ → $14 \times 14 \times 6$（无可训练参数）。
+① 卷积 $⌊\dfrac{32- 5}{1}⌋+1=28$ → $28 \times 28 \times 6$，参数 $5 \times 5 \times 1 \times 6+6=156$；池化 $⌊\dfrac{28- 2}{2}⌋+1=14$ → $14 \times 14 \times 6$（无可训练参数）。
 ② 因对分数矩阵逐行做 softmax，权重非负且归一；输出是 V 各行的加权平均（例题结果 `[[3.0,4.0],[3.4067,4.4067],[3.5105,4.5105]]`）。除以 $\sqrt{d_{k}}$ 是为防止高维点积把 softmax 推入饱和区。
 
 ### 综 8 强化学习与生成模型辨析（第 11–12 章）
@@ -1941,8 +1941,8 @@ $Gini(D_{1})=0.2188$、$Gini(D_{2})=0.4444$ → **Gini_index=0.3155**；
 **题**：沿用综 1 的样本 `(1,2)`、`(2,3)`，模型 `ŷ=wx`。①无正则闭式解？②加 L2 $\lambda=2$ 后的解？③解释「λ 增大时偏差/方差如何变化」；④说明何种迹象表明应该增大还是减小 λ。
 
 **解**：
-① $w*=\frac{8}{5}=1.6$；
-② 岭回归 $w^{*}=\frac{\sum xy}{\sum x^{2}+\lambda}=\frac{8}{5+2}\approx 1.1429$；
+① $w*=\dfrac{8}{5}=1.6$；
+② 岭回归 $w^{*}=\dfrac{\sum xy}{\sum x^{2}+\lambda}=\dfrac{8}{5+2}\approx 1.1429$；
 ③ $\lambda ↑$ → 系数向 0 收缩 → 模型变简单 → **偏差上升、方差下降**；$\lambda ↓$ 反之。总误差是 U 形，最优 λ 由验证集/交叉验证选取。
 ④ 若训练误差与验证误差**都高**（欠拟合）→ 应减小 λ / 加特征；若训练误差很低但验证误差高（过拟合）→ 应增大 λ / 增数据 / 早停。
 
@@ -2054,7 +2054,7 @@ print(classification_report(y_te, best.predict(X_te)))
 **解**：
 ① $V(s_{1})=1+0.9V(s_{2})$，$V(s_{2})=0.9 \times 0.5 \times V(s_{1})=0.45V(s_{1})$；
 ② `k=1: (1.00000, 0)` → `k=2: (1.00000, 0.45000)` → `k=3: (1.40500, 0.45000)`（依次代入前一轮 V）；继续 `k=4: (1.40500, 0.63225)`、`k=5: (1.56902, 0.63225)`；
-③ 代入消元：$V(s_{1})=1+0.9 \times 0.45V(s_{1})$ → $V(s_{1})=\frac{1}{0.595 \approx 1.6807}$，$V(s_{2}) \approx 0.7563$。
+③ 代入消元：$V(s_{1})=1+0.9 \times 0.45V(s_{1})$ → $V(s_{1})=\dfrac{1}{0.595 \approx 1.6807}$，$V(s_{2}) \approx 0.7563$。
 收敛依据：γ<1 使贝尔曼最优算子为压缩映射，误差按 $\gamma^{k}$ 衰减，且不动点唯一。
 
 ### 综 16 VAE 与 GAN 的两个经典推导（第 12 章证明题）
@@ -2062,10 +2062,10 @@ print(classification_report(y_te, best.predict(X_te)))
 **题**：①从 $\log p_\theta(x)$ 出发用 Jensen 不等式推导 ELBO，并说明何时取等；②固定 G 求 GAN 的最优判别器 `D*`，代入后说明目标等价于什么散度、最小值是多少。
 
 **解**：
-① $\log p(x)=\log E_{q}[\frac{p(x|z)p(z)}{q(z)}] \ge E_{q}[\log p(x|z)]- D_{KL}(q(z|x) \| p(z))= ELBO$。
+① $\log p(x)=\log E_{q}[\dfrac{p(x|z)p(z)}{q(z)}] \ge E_{q}[\log p(x|z)]- D_{KL}(q(z|x) \| p(z))= ELBO$。
 等价形式 $\log p(x)=ELBO+ D_{KL}(q \| p(z|x))$，故当 $q(z|x)=p_\theta(z|x)$（真实后验）时 KL=0、界取等。
 ② $V(D,G)= \int p_{data} \log D+ \int p_{g} \log(1- D)$，对 `D` 逐点求导令零：
-$\frac{p_{data}}{D}- \frac{p_{g}}{1- D}=0$ → $D*(x)=\frac{p_{data}}{p_{data}+p_{g}}$。
+$\dfrac{p_{data}}{D}- \dfrac{p_{g}}{1- D}=0$ → $D*(x)=\dfrac{p_{data}}{p_{data}+p_{g}}$。
 代回得 $V(D*,G)=2 \cdot JS(p_{data} \| p_{g})- 2\log 2$，故最优时 `p_g=p_data`、`D*=0.5`、目标值 $- 2\log 2 \approx- 1.3863$。
 若两分布支撑集不重叠，JS 恒为 `log2`、梯度为零 → 需 WGAN 等提供有效梯度。
 
@@ -2086,12 +2086,12 @@ $$x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 
 
 **题**：分别写出下列三条结论的推导要点：
 ① 逻辑回归的交叉熵来自哪里？牛顿法一步如何算？
-② AdaBoost 的 $\alpha_{t}= \frac{1}{2} \ln\left(\dfrac{1-\epsilon_{t}}{\epsilon_{t}}\right)$ 从何而来？
+② AdaBoost 的 $\alpha_{t}= \dfrac{1}{2} \ln\left(\dfrac{1-\epsilon_{t}}{\epsilon_{t}}\right)$ 从何而来？
 ③ 为什么说「PCA 最大化投影方差」与「PCA 最小化重构误差」是同一问题？
 
 **解**：
 ① 交叉熵是 Bernoulli 似然的负对数：$- \log[\hat{y}^y(1- \hat{y})^{1- y}]$。$\nabla L=X^{T}(\hat{y}- y)$、$H=X^{T}RX$（$R=diag(\hat{y}(1- \hat{y}))$），牛顿步 $w \leftarrow w- H^{-1} \nabla L$。单样本 $x=1,y=1,w_{0}=0$：`ŷ=0.5`、$\nabla L=- 0.5$、`H=0.25` → $w_{1}=2.0$。
-② AdaBoost 是**指数损失 $\exp(- yf)$ 上的前向分步加法模型**：固定 $f_{t- 1}$ 后，样本权重 $w_{i}=\exp(- y_{i}f_{t- 1})$；先解出使加权误差最小的 $h_{t}$，再对 $\alpha$ 求导令零得 $-(1- \epsilon)e^{- \alpha}+\epsilon e^{\alpha}=0$ → $\alpha_{t}= \frac{1}{2} \ln\left(\dfrac{1-\epsilon_{t}}{\epsilon_{t}}\right)$。指数损失对错分样本惩罚随 `e^{|f|}` 增长，故 AdaBoost 对噪声敏感。
+② AdaBoost 是**指数损失 $\exp(- yf)$ 上的前向分步加法模型**：固定 $f_{t- 1}$ 后，样本权重 $w_{i}=\exp(- y_{i}f_{t- 1})$；先解出使加权误差最小的 $h_{t}$，再对 $\alpha$ 求导令零得 $-(1- \epsilon)e^{- \alpha}+\epsilon e^{\alpha}=0$ → $\alpha_{t}= \dfrac{1}{2} \ln\left(\dfrac{1-\epsilon_{t}}{\epsilon_{t}}\right)$。指数损失对错分样本惩罚随 `e^{|f|}` 增长，故 AdaBoost 对噪声敏感。
 ③ 最大化 $w^{T}Sw$（$\| w \|=1$）由拉格朗日条件得 $Sw=\lambda w$，取最大特征值；最小化 $\| X- Xww^{T} \|^{2}_{F}= tr(S)- w^{T}Sw$ 也是最大化 $w^{T}Sw$。二者都归结为协方差矩阵的前 m 个特征向量，最小重构误差为 $\sum_{j>m}\lambda_{j}$。
 
 ::: tip 答题要点
@@ -2125,7 +2125,7 @@ $$x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 
 | 19 | F1 | 准确率 | P/R 调和平均 vs 整体正确率（不平衡会失真） |
 | 20 | ROC-AUC | PR-AUC | 阈值无关、负样本多时乐观 vs 不平衡时更敏感 |
 | 21 | 验证集 | 测试集 | 调超参/早停 vs 最终一次性评估 |
-| 22 | K 折交叉验证 | 留一法 | $K=\frac{5}{10 vs K}=N$（小样本、代价高） |
+| 22 | K 折交叉验证 | 留一法 | $K=\dfrac{5}{10 vs K}=N$（小样本、代价高） |
 | 23 | 分层 K 折 | 时序切分 | 保持类别比例 vs 按时间前向（防泄露） |
 | 24 | 归一化 min-max | 标准化 z-score | 压到 [0,1] vs 0 均值 1 方差（受异常值影响不同） |
 | 25 | 硬间隔 SVM | 软间隔 SVM | 要求完全可分 vs 引入 ξ 与 C 容许错分 |
@@ -2165,12 +2165,12 @@ $$x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 
 
 | 项目 | 公式 |
 | --- | --- |
-| 经验风险 | $\hat{R}(f)=\left(\frac{1}{N}\right)\sum L(f(x_{i}),y_{i})$；结构风险 $\hat{R}+\lambda \Omega(f)$ |
+| 经验风险 | $\hat{R}(f)=\left(\dfrac{1}{N}\right)\sum L(f(x_{i}),y_{i})$；结构风险 $\hat{R}+\lambda \Omega(f)$ |
 | 偏差方差 | $Err= Bias^{2}+ \operatorname{Var}+ \sigma^{2}$ |
-| 泛化界 | $R- \hat{R} \le \sqrt{\frac{\ln\lvert H\rvert+\ln\left(\frac{2}{\delta}\right)}{2N}}$（有限 H） |
+| 泛化界 | $R- \hat{R} \le \sqrt{\dfrac{\ln\lvert H\rvert+\ln\left(\dfrac{2}{\delta}\right)}{2N}}$（有限 H） |
 | 贝叶斯 | $p(\theta\mid D)=\dfrac{p(D\mid\theta)\,p(\theta)}{p(D)}$ |
 | MLE / MAP | $\operatorname*{argmax} \sum \log p(x_{i}\vert \theta)$ / 加 $\log p(\theta)$ |
-| 熵 / 交叉熵 / KL | $H=- \sum p \log p$；$H(p,q)=- \sum p \log q$；$D_{KL}=\sum p \log\left(\frac{p}{q}\right) \ge 0$ |
+| 熵 / 交叉熵 / KL | $H=- \sum p \log p$；$H(p,q)=- \sum p \log q$；$D_{KL}=\sum p \log\left(\dfrac{p}{q}\right) \ge 0$ |
 | 梯度下降 | $w \leftarrow w- \eta \nabla_{w} L$；动量 $v \leftarrow \alpha v- \eta g$ |
 | Adam 参数 | $\eta=0.001, \beta_{1}=0.9, \beta_{2}=0.999, \epsilon=1e- 8$ |
 
@@ -2178,11 +2178,11 @@ $$x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 
 
 | 项目 | 公式 |
 | --- | --- |
-| 线性回归 | $y=w^{T}x+b$；$L= \frac{1}{2} \| Xw- y \|^{2}$ |
+| 线性回归 | $y=w^{T}x+b$；$L= \dfrac{1}{2} \| Xw- y \|^{2}$ |
 | 闭式解 | $w*=(X^{T}X)^{-1}X^{T}y$；岭 $+\lambda I$ |
-| 正则 | L2 $+\left(\frac{\lambda}{2}\right) \| w \|^{2}$；L1 $+\lambda \| w \|_{1}$ |
-| sigmoid | $\sigma(z)=\frac{1}{1+e^{-z}}$，$\sigma '=\sigma(1- \sigma)$，最大值 0.25 |
-| softmax | $p_{k}=\frac{\exp(a_{k})}{\sum}_{j}\exp(a_{j})$ |
+| 正则 | L2 $+\left(\dfrac{\lambda}{2}\right) \| w \|^{2}$；L1 $+\lambda \| w \|_{1}$ |
+| sigmoid | $\sigma(z)=\dfrac{1}{1+e^{-z}}$，$\sigma '=\sigma(1- \sigma)$，最大值 0.25 |
+| softmax | $p_{k}=\dfrac{\exp(a_{k})}{\sum}_{j}\exp(a_{j})$ |
 | 交叉熵 | $- \sum[y \log \hat{y}+(1- y)\log(1- \hat{y})]$；$\nabla L=X^{T}(\hat{y}- y)$ |
 | 朴素贝叶斯 | $p(C\mid x)\propto p(C)\prod_{j}p(x_{j}\mid C)$ |
 | LDA | 最大化类间散度/类内散度比 |
@@ -2192,10 +2192,10 @@ $$x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 
 | 项目 | 公式 |
 | --- | --- |
 | Acc / P / R | `(TP+TN)/N`；`TP/(TP+FP)`；`TP/(TP+FN)` |
-| F1 | $\frac{2PR}{P+R}=\frac{2TP}{2TP+FP+FN}$ |
+| F1 | $\dfrac{2PR}{P+R}=\dfrac{2TP}{2TP+FP+FN}$ |
 | FPR / TPR | `FP/(FP+TN)`；`TP/(TP+FN)` |
 | K 折 CV | 轮流 1 折验证、K−1 折训练取平均 |
-| 归一化 | min-max $\frac{x- \min}{\max- \min}$；z-score $\frac{x- \mu}{\sigma}$ |
+| 归一化 | min-max $\dfrac{x- \min}{\max- \min}$；z-score $\dfrac{x- \mu}{\sigma}$ |
 
 ### A.4 核、树与集成
 
@@ -2204,12 +2204,12 @@ $$x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 
 | 核条件 | Gram 矩阵对称半正定（Mercer） |
 | 多项式核 | $(1+x^{T}z)^{2} \to \phi(x)$ 六维展开；一般 $(\gamma x^{T}z+c)^d$ |
 | RBF 核 | $\exp\left(-\dfrac{\|x-z\|^{2}}{2\sigma^{2}}\right)$ |
-| SVM 原/对偶 | $\min \frac{1}{2} \| w \|^{2}+C\sum \xi$；$\max \sum \alpha_{i}- \frac{1}{2} \sum \alpha_{i}\alpha_{j}y_{i}y_{j}k(x_{i},x_{j})$ |
-| 间隔 | $\gamma=\frac{2}{\|w\|}$ |
+| SVM 原/对偶 | $\min \dfrac{1}{2} \| w \|^{2}+C\sum \xi$；$\max \sum \alpha_{i}- \dfrac{1}{2} \sum \alpha_{i}\alpha_{j}y_{i}y_{j}k(x_{i},x_{j})$ |
+| 间隔 | $\gamma=\dfrac{2}{\|w\|}$ |
 | 熵 / 增益 | $H=- \sum p \log_{2}p$；$G=H(D)- H(D\vert A)$（取最大） |
-| 增益率 / 基尼 | $GR=\frac{G}{SplitInfo}$；$Gini=1- \sum p^{2}$（取最小） |
-| AdaBoost | $\alpha_{t}= \frac{1}{2} \ln\left(\dfrac{1-\epsilon_{t}}{\epsilon_{t}}\right)$；$w_{i} \leftarrow w_{i}e^{- \alpha_{t}y_{i}h_{t}}$ |
-| XGBoost | $w*=- \frac{G}{H+\lambda}$；$Gain= \frac{1}{2}[\frac{G_{L}^{2}}{H_{L}+\lambda}+\frac{G_{R}^{2}}{H_{R}+\lambda}- \frac{G^{2}}{H+\lambda}]- \gamma$ |
+| 增益率 / 基尼 | $GR=\dfrac{G}{SplitInfo}$；$Gini=1- \sum p^{2}$（取最小） |
+| AdaBoost | $\alpha_{t}= \dfrac{1}{2} \ln\left(\dfrac{1-\epsilon_{t}}{\epsilon_{t}}\right)$；$w_{i} \leftarrow w_{i}e^{- \alpha_{t}y_{i}h_{t}}$ |
+| XGBoost | $w*=- \dfrac{G}{H+\lambda}$；$Gain= \dfrac{1}{2}[\dfrac{G_{L}^{2}}{H_{L}+\lambda}+\dfrac{G_{R}^{2}}{H_{R}+\lambda}- \dfrac{G^{2}}{H+\lambda}]- \gamma$ |
 
 ### A.5 神经网络与深度学习
 
@@ -2217,11 +2217,11 @@ $$x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 
 | --- | --- |
 | 前向 | $z^{(l)}=W^{(l)}a^{(l- 1)}+b^{(l)}$，$a^{(l)}=\phi(z^{(l)})$ |
 | 反向 | $\delta^{(L)}= \nabla_{a} L⊙\phi '(z^{(L)})$；$\delta^{(l)}=(W^{(l+1)})^{T}\delta^{(l+1)}⊙\phi '(z^{(l)})$ |
-| 梯度 | $\frac{\partial L}{\partial W^{(l)}}=\delta^{(l)}(a^{(l- 1)})^{T}$ |
-| ReLU / softmax | `max(0,z)` / $\frac{\exp(a_{k})}{\sum \exp}(a_{j})$ |
-| CNN 尺寸 | $⌊\frac{H- K+2P}{S}⌋+1$；参数 $K^{2}C_{in}C_{out}+C_{out}$ |
+| 梯度 | $\dfrac{\partial L}{\partial W^{(l)}}=\delta^{(l)}(a^{(l- 1)})^{T}$ |
+| ReLU / softmax | `max(0,z)` / $\dfrac{\exp(a_{k})}{\sum \exp}(a_{j})$ |
+| CNN 尺寸 | $⌊\dfrac{H- K+2P}{S}⌋+1$；参数 $K^{2}C_{in}C_{out}+C_{out}$ |
 | RNN / LSTM | $h_{t}=\phi(W_{xh} x_{t}+W_{hh} h_{t-1}+b)$；$c_{t}=f⊙c_{t-1}+i⊙g$ |
-| 注意力 | $softmax\left(\frac{QK^{T}}{\sqrt{d_{k}}}\right)V$，复杂度 $O(n^{2}d)$ |
+| 注意力 | $softmax\left(\dfrac{QK^{T}}{\sqrt{d_{k}}}\right)V$，复杂度 $O(n^{2}d)$ |
 | BN / Dropout | 标准化 + γ、β；训练按 p 置零、推理全开 |
 
 ### A.6 无监督、强化与生成
@@ -2240,14 +2240,14 @@ $$x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 
 | 重参数 | $z=\mu+\sigma ⊙\epsilon, \epsilon \sim N(0,I)$ |
 | GAN | $\min_{G} \max_{D} E[\log D(x)]+E[\log(1- D(G(z)))]$ |
 | 扩散 | $x_{t}=\sqrt{\alpha_{t}}\,x_{t-1}+\sqrt{1-\alpha_{t}}\,\epsilon$；$\bar{\alpha}_{t}=\Pi \alpha_{s}$ |
-| 归一化流 | $\log p(x)=\log p(z)+\sum \log\vert \det \frac{\partial f}{\partial x}\vert $ |
+| 归一化流 | $\log p(x)=\log p(z)+\sum \log\vert \det \dfrac{\partial f}{\partial x}\vert $ |
 
 ### A.7 常用超参数与复杂度速查
 
 | 模型 | 关键超参数 | 作用方向 | 训练/预测复杂度 |
 | --- | --- | --- | --- |
 | 岭 / Lasso | $\lambda$ | 越大系数越小、偏差升方差降 | $O(Nd^{2})$ / `O(d)` |
-| 逻辑回归 | $C=\frac{1}{\lambda}$、类别权重 | C 越大越拟合训练数据 | $O(Nd \cdot iter)$ / `O(d)` |
+| 逻辑回归 | $C=\dfrac{1}{\lambda}$、类别权重 | C 越大越拟合训练数据 | $O(Nd \cdot iter)$ / `O(d)` |
 | KNN | `K`、距离度量 | K 小方差大、K 大偏差大 | 训练 `O(1)` / 预测 `O(Nd)` |
 | SVM-RBF | `C`、$\gamma$ | 两者越大边界越复杂 | $O(N^{2})- O(N^{3})$ / $O(\#SV\cdot d)$ |
 | 决策树 | `max_depth`、`min_samples_leaf`、剪枝 α | 深/叶少 → 易过拟合 | `O(Nd log N)` / `O(depth)` |
@@ -2271,7 +2271,7 @@ $$x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 
 | 交叉验证 | `cross_val_score(pipe, X, y, cv=StratifiedKFold(5), scoring='f1')` |
 | 网格调参 | `GridSearchCV(pipe, param_grid, cv=5)` → `best_params_` |
 | 评估 | `classification_report`, `confusion_matrix`, `roc_auc_score`, `average_precision_score` |
-| 线性模型 | $\frac{\frac{\frac{LinearRegression}{Ridge(alpha=)}}{Lasso(alpha=)}}{LogisticRegression(C=)}$ |
+| 线性模型 | $\dfrac{\dfrac{\dfrac{LinearRegression}{Ridge(alpha=)}}{Lasso(alpha=)}}{LogisticRegression(C=)}$ |
 | SVM | `SVC(C=, gamma=, kernel='rbf')`, `SVR` |
 | 树与集成 | `DecisionTreeClassifier(max_depth=)`, `RandomForestClassifier(n_estimators=)`, `GradientBoostingClassifier` |
 | 降维聚类 | `PCA(n_components=0.95)`, `KMeans(n_clusters=, n_init=10)`, `GaussianMixture` |
@@ -2279,7 +2279,7 @@ $$x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 
 | 神经网络 | `torch.nn` / `tensorflow.keras`（课件以公式为主，未涉及框架） |
 
 ::: danger 易错 · API 语义
-sklearn 的 `C` 是**正则系数的倒数**（$C=\frac{1}{\lambda}$），C 越大正则越弱——与 SVM 原问题里「C 为惩罚系数」的表述看起来方向相反，实为同一件事的不同写法；$Ridge(alpha=\lambda)$ 则是 α 越大正则越强。
+sklearn 的 `C` 是**正则系数的倒数**（$C=\dfrac{1}{\lambda}$），C 越大正则越弱——与 SVM 原问题里「C 为惩罚系数」的表述看起来方向相反，实为同一件事的不同写法；$Ridge(alpha=\lambda)$ 则是 α 越大正则越强。
 :::
 
 ### A.9 典型数值与结论速查
@@ -2314,10 +2314,10 @@ sklearn 的 `C` 是**正则系数的倒数**（$C=\frac{1}{\lambda}$），C 越�
 | 3 | 闭式解 $(X^{T}X)^{-1}X^{T}y$；L1 稀疏 L2 收缩；正则等价于加先验 |
 | 4 | 三种建模路线；sigmoid/softmax + 交叉熵；判别式不建 p(x|C) |
 | 5 | 三分数据集；P/R/F1 与 PR-AUC；预处理必须放进 Pipeline |
-| 6 | 最大间隔 $\frac{2}{\|w\|}$；对偶才能用核；Gram 半正定 + KKT 互补松弛 |
+| 6 | 最大间隔 $\dfrac{2}{\|w\|}$；对偶才能用核；Gram 半正定 + KKT 互补松弛 |
 | 7 | 熵→增益→增益率→基尼；预/后剪枝；Bagging 降方差、Boosting 降偏差 |
 | 8 | 非线性激活不可省；δ 递推是链式法则；ReLU/BN/残差/初始化治梯度问题 |
-| 9 | 卷积局部+共享；尺寸公式 $⌊\frac{H- K+2P}{S}⌋+1$；注意力 $softmax\left(\frac{QK^{T}}{\sqrt{d}}\right)V$ |
+| 9 | 卷积局部+共享；尺寸公式 $⌊\dfrac{H- K+2P}{S}⌋+1$；注意力 $softmax\left(\dfrac{QK^{T}}{\sqrt{d}}\right)V$ |
 | 10 | K-means 交替 E/M 且局部最优；EM 似然单调不降；PCA 二阶、ICA 高阶 |
 | 11 | $G_{t}=\sum \gamma^{k}R$；贝尔曼期望/最优；Q-learning off-policy、策略梯度 on-policy |
 | 12 | ELBO = 重构 − KL；GAN 极小极大；扩散前向固定、反向学习 |
@@ -2327,24 +2327,24 @@ sklearn 的 `C` 是**正则系数的倒数**（$C=\frac{1}{\lambda}$），C 越�
 | 推导 | 起点 | 关键一步 | 结论 |
 | --- | --- | --- | --- |
 | 偏差-方差分解 | $E[(y- \hat{f})^{2}]$ | 插入 `±E f̂` 展开，交叉项为 0 | $Bias^{2}+\operatorname{Var}+\sigma^{2}$（仅平方损失） |
-| 泛化界 | Hoeffding + 有限 `\|H\|` | 一致收敛并集界 | $\sqrt{\frac{\ln\lVert H\rVert+\ln\left(\frac{2}{\delta}\right)}{2N}}$ |
+| 泛化界 | Hoeffding + 有限 `\|H\|` | 一致收敛并集界 | $\sqrt{\dfrac{\ln\lVert H\rVert+\ln\left(\dfrac{2}{\delta}\right)}{2N}}$ |
 | 交叉熵 | Bernoulli 似然 | 取负对数 | $-[y \log \hat{y}+(1- y)\log(1- \hat{y})]$ |
 | 牛顿/IRLS | $\nabla L=X^{T}(\hat{y}- y)$、$H=X^{T}RX$ | $w \leftarrow w- H^{-1} \nabla L$ | 加权最小二乘迭代 |
-| 正规方程 | $\nabla_{w} \frac{1}{2} \| Xw- y \|^{2}=0$ | $X^{T}(Xw- y)=0$ | $w*=(X^{T}X)^{-1}X^{T}y$ |
-| SVM 对偶 | 拉格朗日 $L= \frac{1}{2} \| w \|^{2}- \sum \alpha[yf- 1]$ | $\frac{\partial L}{\partial w}=0 \Rightarrow w=\sum \alpha yx$ | $\max \sum \alpha- \frac{1}{2} \sum \alpha \alpha yy k$ |
+| 正规方程 | $\nabla_{w} \dfrac{1}{2} \| Xw- y \|^{2}=0$ | $X^{T}(Xw- y)=0$ | $w*=(X^{T}X)^{-1}X^{T}y$ |
+| SVM 对偶 | 拉格朗日 $L= \dfrac{1}{2} \| w \|^{2}- \sum \alpha[yf- 1]$ | $\dfrac{\partial L}{\partial w}=0 \Rightarrow w=\sum \alpha yx$ | $\max \sum \alpha- \dfrac{1}{2} \sum \alpha \alpha yy k$ |
 | KKT 互补 | $\alpha_{i}(y_{i}f_{i}- 1)=0$ | 约束取等才 $\alpha>0$ | 支持向量稀疏性 |
-| hinge $\leftrightarrow$ 软间隔 | $\frac{1}{2} \| w \|^{2}+C\sum \max(0,1- yf)$ | 间隔外梯度恒 0 | 稀疏解的来源 |
-| AdaBoost | 指数损失 + 前向分步 | 对 α 求导 $-(1- \epsilon)e^{- \alpha}+\epsilon e^{\alpha}=0$ | $\alpha= \frac{1}{2} \ln\left(\frac{1- \epsilon}{\epsilon}\right)$ |
-| XGBoost | 二阶泰勒 + $\Omega=\gamma T+ \frac{1}{2} \lambda \| w \|^{2}$ | 对叶权重求极值 | $w*=- \frac{G}{H+\lambda}$ |
-| 反向传播 | 链式法则 | $\delta^{(l)}=(W^{(l+1)})^{T}\delta^{(l+1)}⊙\phi '$ | $\frac{\partial L}{\partial W}=\delta(a)^{T}$ |
-| 卷积反向 | `y=Cx`（Toeplitz） | $\frac{\partial L}{\partial x}=\frac{C^{T} \partial L}{\partial y}$ | 转置卷积 / 尺寸 $(H- 1)S- 2P+K$ |
-| 注意力 | $\frac{QK^{T}}{\sqrt{d_{k}}}$ | 逐行 softmax | `A V`，$O(n^{2}d)$ |
+| hinge $\leftrightarrow$ 软间隔 | $\dfrac{1}{2} \| w \|^{2}+C\sum \max(0,1- yf)$ | 间隔外梯度恒 0 | 稀疏解的来源 |
+| AdaBoost | 指数损失 + 前向分步 | 对 α 求导 $-(1- \epsilon)e^{- \alpha}+\epsilon e^{\alpha}=0$ | $\alpha= \dfrac{1}{2} \ln\left(\dfrac{1- \epsilon}{\epsilon}\right)$ |
+| XGBoost | 二阶泰勒 + $\Omega=\gamma T+ \dfrac{1}{2} \lambda \| w \|^{2}$ | 对叶权重求极值 | $w*=- \dfrac{G}{H+\lambda}$ |
+| 反向传播 | 链式法则 | $\delta^{(l)}=(W^{(l+1)})^{T}\delta^{(l+1)}⊙\phi '$ | $\dfrac{\partial L}{\partial W}=\delta(a)^{T}$ |
+| 卷积反向 | `y=Cx`（Toeplitz） | $\dfrac{\partial L}{\partial x}=\dfrac{C^{T} \partial L}{\partial y}$ | 转置卷积 / 尺寸 $(H- 1)S- 2P+K$ |
+| 注意力 | $\dfrac{QK^{T}}{\sqrt{d_{k}}}$ | 逐行 softmax | `A V`，$O(n^{2}d)$ |
 | PCA 等价性 | $\max w^{T}Sw$ ↔  $\min \| X- Xww^{T} \|^{2}$ | 拉格朗日 $Sw=\lambda w$ | 前 m 个特征向量 |
 | EM / ELBO | Jensen 不等式 | `q=p(z\|x)` 时界取等 | 似然单调不降 |
 | 值迭代 | 贝尔曼最优算子 | γ-压缩映射 | 唯一不动点 `V*` |
 | 策略梯度 | log-derivative trick | 减只依赖 s 的基线 | $\nabla J=E[ \nabla \log \pi \cdot A]$ |
-| VAE ELBO | $\log E_{q}[\frac{p(x\|z)p(z)}{q}]$ | Jensen | 重构项 − KL |
-| GAN 最优 D | 对 `D(x)` 逐点求导 | $\frac{p_{data}}{D}=\frac{p_{g}}{1- D}$ | $D*=\frac{p_{data}}{p_{data}+p_{g}}$，$2JS- 2\log 2$ |
+| VAE ELBO | $\log E_{q}[\dfrac{p(x\|z)p(z)}{q}]$ | Jensen | 重构项 − KL |
+| GAN 最优 D | 对 `D(x)` 逐点求导 | $\dfrac{p_{data}}{D}=\dfrac{p_{g}}{1- D}$ | $D*=\dfrac{p_{data}}{p_{data}+p_{g}}$，$2JS- 2\log 2$ |
 | 扩散前向 | 高斯可加性 | $\bar{\alpha}_{t}=\Pi \alpha_{s}$ | $x_{t}=\sqrt{\bar{\alpha}_{t}}x_{0}+\sqrt{1- \bar{\alpha}_{t}}\epsilon$ |
 | 归一化流 | 变量变换 | 三角 Jacobian | $\log p_{X}=\log p_{Z}+\sum s$ |
 
@@ -2428,7 +2428,7 @@ sklearn 的 `C` 是**正则系数的倒数**（$C=\frac{1}{\lambda}$），C 越�
 36. 时序数据必须按时间前向切分，随机 K 折会用未来信息预测过去。
 37. 归一化（改特征尺度）与正则化（目标函数加惩罚）是完全不同的两件事。
 38. 参数由训练得到（w、b），超参数由人设或交叉验证选（λ、K、η）。
-39. SVM 最大化间隔等价于最小化 $\frac{1}{2} \| w \|^{2}$，几何间隔 $\gamma=\frac{2}{\|w\|}$。
+39. SVM 最大化间隔等价于最小化 $\dfrac{1}{2} \| w \|^{2}$，几何间隔 $\gamma=\dfrac{2}{\|w\|}$。
 40. 只有 $\alpha_{i}>0$ 的支持向量决定解；软间隔中 $\alpha_{i}=C$ 的错分点也算支持向量。
 41. 对偶问题才能把 $x_{i}^{T}x_{j}$ 换成核函数；核必须使 Gram 矩阵半正定。
 42. Sigmoid 型核在部分参数下不满足 Mercer 条件，不是合法核。
@@ -2493,7 +2493,7 @@ sklearn 的 `C` 是**正则系数的倒数**（$C=\frac{1}{\lambda}$），C 越�
 101. DQN 无法直接处理连续动作（无法对连续 a 取 max），这正是 DDPG/TD3/SAC 存在的原因。
 102. VAE 的 ELBO 中 KL 方向固定为 $q_\phi(z|x) \| p(z)$；交换成 $p \| q$ 会变成另一类目标（前向 KL 偏质量覆盖）。
 103. 后验坍缩时 $q_\phi(z|x)=p(z)$（KL=0），解码器完全忽略隐变量；可用 KL 退火、$\beta-VAE$、free-bits 缓解。
-104. GAN 的最优判别器为 $D*=\frac{p_{data}}{p_{data}+p_{g}}$，代回目标得 $2JS- 2\log 2$，最优值约 $- 1.3863$。
+104. GAN 的最优判别器为 $D*=\dfrac{p_{data}}{p_{data}+p_{g}}$，代回目标得 $2JS- 2\log 2$，最优值约 $- 1.3863$。
 105. 当两分布支撑集不重叠时 JS 恒为 log2、生成器梯度消失；WGAN 用 Wasserstein 距离提供平滑梯度。
 106. 扩散的前向加噪固定无参数、反向去噪才需学习；DDPM 采样需多步迭代，DDIM 可跳步加速。
 107. 归一化流要求变换双射，故隐变量 z 与 x **维度相同**，不能像 VAE 那样任意降维。

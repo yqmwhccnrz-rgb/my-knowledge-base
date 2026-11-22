@@ -971,37 +971,46 @@ select:focus-visible {
    - 加大行距与左右间距，长公式在窄屏可横向滚动而不裁切
    ========================================================================== */
 .vp-doc .katex {
-  font-size: 1.06em;
-  line-height: 1.25;
+  font-size: 1.05em;
+  line-height: 1.4;
 }
-/* 行内公式：与中文混排时略放大，保证分子分母可读 */
+/* 行内公式：两侧留出呼吸空间，避免与中文/标点紧贴 */
 .vp-doc p .katex,
 .vp-doc li .katex,
 .vp-doc td .katex,
 .vp-doc th .katex {
-  font-size: 1.1em;
-  line-height: 1.35;
+  font-size: 1.08em;
+  line-height: 1.5;
+  margin: 0 0.15em;
 }
-/* 行内分式：KaTeX 在 textstyle 下会把 \frac 压得很小、分子分母贴在一起，
-   这里放大分式并把分数线上下撑开，避免挤成一团 */
+/* 行内分式：KaTeX textstyle 下 \frac 的分子分母被 mtight(size3) 缩小、
+   分数线紧贴分母。这里把分子分母恢复为接近正文的字号，并给分式更多垂直
+   空间，让分式在行内也清晰可辨，不再挤成一团。 */
 .vp-doc p .katex .mfrac,
 .vp-doc li .katex .mfrac,
 .vp-doc td .katex .mfrac,
 .vp-doc th .katex .mfrac {
-  font-size: 1.2em !important;
+  display: inline-block;
+  margin: 0 0.15em;
+  vertical-align: middle;
 }
-.vp-doc p .katex .mfrac .frac-line,
-.vp-doc li .katex .mfrac .frac-line,
-.vp-doc td .katex .mfrac .frac-line,
-.vp-doc th .katex .mfrac .frac-line {
-  margin-top: -0.18em !important;
-  border-bottom-width: 0.07em !important;
+/* 分子/分母取消 mtight 缩小，恢复接近正文的字号 */
+.vp-doc .katex .mfrac .mtight {
+  font-size: 0.95em !important;
+}
+.vp-doc .katex .mfrac .frac-line {
+  border-bottom-width: 0.055em !important;
+}
+/* 上标/下标（如 (1-d)^{-t} 的负指数）在行内过小，略放大并拉开与基线的距离 */
+.vp-doc p .katex .supsub,
+.vp-doc li .katex .supsub {
+  font-size: 0.9em;
 }
 /* 块级公式：居中 + 上下呼吸空间 + 窄屏可滚动 */
 .vp-doc .katex-display {
   display: block;
-  margin: 1.15em 0;
-  padding: 2px 4px;
+  margin: 1.3em 0;
+  padding: 4px 6px;
   overflow-x: auto;
   overflow-y: hidden;
   text-align: center;
@@ -1015,6 +1024,21 @@ select:focus-visible {
 .vp-doc .katex-display + p,
 .vp-doc p + .katex-display {
   margin-top: 0.6em;
+}
+/* 列表条目间距统一：无序/有序列表条目之间保持一致的呼吸节奏，
+   含分式的条目不再因行高不同而显得参差 */
+.vp-doc ul > li,
+.vp-doc ol > li {
+  margin: 0.45em 0;
+  line-height: 1.75;
+}
+.vp-doc ul > li:first-child,
+.vp-doc ol > li:first-child {
+  margin-top: 0;
+}
+.vp-doc ul > li:last-child,
+.vp-doc ol > li:last-child {
+  margin-bottom: 0;
 }
 
 /* ==========================================================================
