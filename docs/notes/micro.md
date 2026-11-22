@@ -1132,219 +1132,219 @@ $\sum MRS= 5> MRT= 4$ ⇒ 社会愿意放弃 5 单位 X 换取 1 单位 G，而�
 ### 演 1 · 供求均衡与价格管制（第 2 章）
 
 $$
-\begin{gathered}
-\text{已知：} \; Qd= 50- 2P \; \text{，} \; Qs=- 10+ 3P \\
-\text{(1)} \; \text{均衡：} \; 50- 2P=- 10+ 3P \\
-60= 5P \to P*= 12 \\
-Q*= 50- 2 \times 12= 26 \\
-\text{验算：} \; Qs=- 10+ 3 \times 12= 26= Qd \checkmark \\
-\text{(2)} \; \text{支持价} \; \text{P = 15} \; \text{：} \; \text{Qd = 20} \; \text{，} \; Qs= 35 \to \; \text{过剩} \; \text{15} \\
-\text{(3)} \; \text{限制价} \; \text{P = 8} \; \text{：} \; \text{Qd = 34} \; \text{，} \; Qs= 14 \to \; \text{短缺} \; \text{20} \\
-\text{(4)} \; \text{若需求右移为} \; Qd= 60- 2P \; \text{：} \\
-60- 2P=- 10+ 3P \to P*= 14 \; \text{，} \; \text{Q* = 32} \; \text{（} \; \text{P} \; \text{、} \; \text{Q} \; \text{同升）}
-\end{gathered}
+\begin{aligned}
+&\text{已知：} \; Qd= 50- 2P \; \text{，} \; Qs=- 10+ 3P \\
+&\text{(1)} \; \text{均衡：} \; 50- 2P=- 10+ 3P \\
+&60= 5P \to P*= 12 \\
+&Q*= 50- 2 \times 12= 26 \\
+&\text{验算：} \; Qs=- 10+ 3 \times 12= 26= Qd \checkmark \\
+&\text{(2)} \; \text{支持价} \; \text{P = 15} \; \text{：} \; \text{Qd = 20} \; \text{，} \; Qs= 35 \to \; \text{过剩} \; \text{15} \\
+&\text{(3)} \; \text{限制价} \; \text{P = 8} \; \text{：} \; \text{Qd = 34} \; \text{，} \; Qs= 14 \to \; \text{短缺} \; \text{20} \\
+&\text{(4)} \; \text{若需求右移为} \; Qd= 60- 2P \; \text{：} \\
+&60- 2P=- 10+ 3P \to P*= 14 \; \text{，} \; \text{Q* = 32} \; \text{（} \; \text{P} \; \text{、} \; \text{Q} \; \text{同升）}
+\end{aligned}
 $$
 
 ### 演 2 · 弧弹性、点弹性与总收益（第 2 章）
 
 $$
-\begin{gathered}
-\text{已知：} \; P_{1}= 5, Q_{1}= 20 \; \text{；} \; P_{2}= 4, Q_{2}= 30 \\
-\text{(1)} \; \text{中点公式：} \; Ed=-\left(\frac{\Delta Q}{\Delta P}\right) \times \frac{\frac{P_{1}+P_{2}}{2}}{\frac{Q_{1}+Q_{2}}{2}} \\
-\Delta Q=+10,\ \Delta P=-1\ \Rightarrow\ -\dfrac{\Delta Q}{\Delta P}=-\dfrac{10}{-1}=10 \\
-\text{Pm = 4.5, Qm = 25} \\
-Ed= 10 \times \frac{4.5}{25}= 1.8 \; \text{（富有弹性）} \\
-(2) TR_{1}= 5 \times 20= 100 \; \text{，} \; TR_{2}= 4 \times 30= 120 \to \; \text{降价增收} \; \checkmark \\
-\text{(3)} \; \text{点弹性（} \; Q= 50- 2P \; \text{，} \; \frac{dQ}{dP}=- 2 \; \text{）：} \\
-P= 10 \to Q= 30 \to Ed= \frac{2 \times 10}{30}= 0.667 \\
-P= 12.5 \to Q= 25 \to Ed= 1 \; \text{（} \; \text{TR} \; \text{极大} \; \text{= 312.5} \; \text{）} \\
-P= 20 \to Q= 10 \to Ed= 4 \\
-\text{结论：线性需求上半段富有弹性、下半段缺乏弹性}
-\end{gathered}
+\begin{aligned}
+&\text{已知：} \; P_{1}= 5, Q_{1}= 20 \; \text{；} \; P_{2}= 4, Q_{2}= 30 \\
+&\text{(1)} \; \text{中点公式：} \; Ed=-\left(\frac{\Delta Q}{\Delta P}\right) \times \frac{\frac{P_{1}+P_{2}}{2}}{\frac{Q_{1}+Q_{2}}{2}} \\
+&\Delta Q=+10,\ \Delta P=-1\ \Rightarrow\ -\dfrac{\Delta Q}{\Delta P}=-\dfrac{10}{-1}=10 \\
+&\text{Pm = 4.5, Qm = 25} \\
+&Ed= 10 \times \frac{4.5}{25}= 1.8 \; \text{（富有弹性）} \\
+&(2) TR_{1}= 5 \times 20= 100 \; \text{，} \; TR_{2}= 4 \times 30= 120 \to \; \text{降价增收} \; \checkmark \\
+&\text{(3)} \; \text{点弹性（} \; Q= 50- 2P \; \text{，} \; \frac{dQ}{dP}=- 2 \; \text{）：} \\
+&P= 10 \to Q= 30 \to Ed= \frac{2 \times 10}{30}= 0.667 \\
+&P= 12.5 \to Q= 25 \to Ed= 1 \; \text{（} \; \text{TR} \; \text{极大} \; \text{= 312.5} \; \text{）} \\
+&P= 20 \to Q= 10 \to Ed= 4 \\
+&\text{结论：线性需求上半段富有弹性、下半段缺乏弹性}
+\end{aligned}
 $$
 
 ### 演 3 · 效用最大化（序数 + 基数两条路）（第 3 章）
 
 $$
-\begin{gathered}
-\text{已知：} \; \text{U = XY} \; \text{，} \; \text{I = 100} \; \text{，} \; \text{Px = 2} \; \text{，} \; \text{Py = 5} \\
-\text{【序数法】} \; MRSxy= \frac{MUx}{MUy}= \frac{Y}{X} \\
-\frac{Y}{X}= \frac{Px}{Py}= \frac{2}{5}= 0.4 \to Y= 0.4X \\
-\text{代入预算：} \; 2X+ 5(0.4X)= 4X= 100 \to X*= 25 \\
-Y*= 0.4 \times 25= 10 \; \text{，} \; \text{U* = 250} \\
-\text{验算支出：} \; 2 \times 25+ 5 \times 10= 100 \checkmark \\
-\text{【基数法】} \; \frac{MUx}{Px}= \frac{MUy}{Py} \to \frac{Y}{2}= \frac{X}{5} \to 5Y= 2X \to Y= 0.4X \; \text{（同上）} \\
-\text{此时} \; \lambda= \frac{MUx}{Px}= \frac{10}{2}= 5 \\
-\text{【通式】} \; U= X^\alpha Y^\beta \to X*= \frac{[\frac{\alpha}{\alpha+\beta}] \cdot I}{Px}= \frac{0.5 \times 100}{2}= 25 \checkmark
-\end{gathered}
+\begin{aligned}
+&\text{已知：} \; \text{U = XY} \; \text{，} \; \text{I = 100} \; \text{，} \; \text{Px = 2} \; \text{，} \; \text{Py = 5} \\
+&\text{【序数法】} \; MRSxy= \frac{MUx}{MUy}= \frac{Y}{X} \\
+&\frac{Y}{X}= \frac{Px}{Py}= \frac{2}{5}= 0.4 \to Y= 0.4X \\
+&\text{代入预算：} \; 2X+ 5(0.4X)= 4X= 100 \to X*= 25 \\
+&Y*= 0.4 \times 25= 10 \; \text{，} \; \text{U* = 250} \\
+&\text{验算支出：} \; 2 \times 25+ 5 \times 10= 100 \checkmark \\
+&\text{【基数法】} \; \frac{MUx}{Px}= \frac{MUy}{Py} \to \frac{Y}{2}= \frac{X}{5} \to 5Y= 2X \to Y= 0.4X \; \text{（同上）} \\
+&\text{此时} \; \lambda= \frac{MUx}{Px}= \frac{10}{2}= 5 \\
+&\text{【通式】} \; U= X^\alpha Y^\beta \to X*= \frac{[\frac{\alpha}{\alpha+\beta}] \cdot I}{Px}= \frac{0.5 \times 100}{2}= 25 \checkmark
+\end{aligned}
 $$
 
 ### 演 4 · 希克斯 / 斯勒茨基分解（第 3 章）
 
 $$
-\begin{gathered}
-\text{已知：} \; \text{U = XY} \; \text{，} \; \text{I = 100} \; \text{，} \; \text{Py = 5} \; \text{，} \; \text{Px} \; \text{：} \; 2 \to 1 \\
-\text{(1)} \; \text{起点} \; \text{A} \; \text{：} \; X_{0}= \frac{100}{2 \times 2}= 25 \; \text{，} \; Y_{0}= \frac{100}{2 \times 5}= 10 \; \text{，} \; U_{0}= 250 \\
-\text{(2)} \; \text{终点} \; \text{C} \; \text{：} \; X_{1}= \frac{100}{2 \times 1}= 50 \; \text{，} \; Y_{1}= 10 \to \; \text{总效应} \; \Delta X=+25 \\
-\text{(3)} \; \text{希克斯补偿（保持} \; U_{0}= 250 \; \text{，新价格比} \; \frac{Px}{Py}= \frac{1}{5} \; \text{）：} \\
-\frac{Y}{X}= \frac{1}{5} \to Y= \frac{X}{5} \; \text{；} \; XY= \frac{X^{2}}{5}= 250 \\
-Xh= \sqrt{1250}= 35.355 \\
-\text{替代效应} \; = 35.355- 25=+10.355 \\
-\text{收入效应} \; = 50- 35.355=+14.645 \\
-\text{校验：} \; \text{10.355 + 14.645 = 25 }\checkmark \\
-\text{(4)} \; \text{斯勒茨基补偿（买得起原组合）：} \\
-I'= 1 \times 25+ 5 \times 10= 75 \\
-Xs= \frac{75}{2 \times 1}= 37.5 \\
-\text{替代效应} \; \text{= +12.5} \; \text{，收入效应} \; = 50- 37.5=+12.5 \\
-\text{(5)} \; \text{分解方向：正常品} \; \Rightarrow \; \text{两效应同号，需求曲线向下倾斜}
-\end{gathered}
+\begin{aligned}
+&\text{已知：} \; \text{U = XY} \; \text{，} \; \text{I = 100} \; \text{，} \; \text{Py = 5} \; \text{，} \; \text{Px} \; \text{：} \; 2 \to 1 \\
+&\text{(1)} \; \text{起点} \; \text{A} \; \text{：} \; X_{0}= \frac{100}{2 \times 2}= 25 \; \text{，} \; Y_{0}= \frac{100}{2 \times 5}= 10 \; \text{，} \; U_{0}= 250 \\
+&\text{(2)} \; \text{终点} \; \text{C} \; \text{：} \; X_{1}= \frac{100}{2 \times 1}= 50 \; \text{，} \; Y_{1}= 10 \to \; \text{总效应} \; \Delta X=+25 \\
+&\text{(3)} \; \text{希克斯补偿（保持} \; U_{0}= 250 \; \text{，新价格比} \; \frac{Px}{Py}= \frac{1}{5} \; \text{）：} \\
+&\frac{Y}{X}= \frac{1}{5} \to Y= \frac{X}{5} \; \text{；} \; XY= \frac{X^{2}}{5}= 250 \\
+&Xh= \sqrt{1250}= 35.355 \\
+&\text{替代效应} \; = 35.355- 25=+10.355 \\
+&\text{收入效应} \; = 50- 35.355=+14.645 \\
+&\text{校验：} \; \text{10.355 + 14.645 = 25 }\checkmark \\
+&\text{(4)} \; \text{斯勒茨基补偿（买得起原组合）：} \\
+&I'= 1 \times 25+ 5 \times 10= 75 \\
+&Xs= \frac{75}{2 \times 1}= 37.5 \\
+&\text{替代效应} \; \text{= +12.5} \; \text{，收入效应} \; = 50- 37.5=+12.5 \\
+&\text{(5)} \; \text{分解方向：正常品} \; \Rightarrow \; \text{两效应同号，需求曲线向下倾斜}
+\end{aligned}
 $$
 
 ### 演 5 · 短期成本七条曲线（第 5 章）
 
 $$
-\begin{gathered}
-\text{已知：} \; STC= Q^{3}- 6Q^{2}+ 15Q+ 100 \; \text{（} \; \text{TFC = 100} \; \text{）} \\
-(1) TVC= Q^{3}- 6Q^{2}+ 15Q \\
-(2) AFC= \frac{100}{Q} \; \text{；} \; AVC= Q^{2}- 6Q+ 15 \; \text{；} \; AC= AVC+ \frac{100}{Q} \\
-(3) SMC= \frac{dSTC}{dQ}= 3Q^{2}- 12Q+ 15 \\
-\text{(4) AVC} \; \text{最小：} \; \frac{dAVC}{dQ}= 2Q- 6= 0 \to Q= 3 \\
-AVCmin= 9- 18+ 15= 6 \; \text{；} \; SMC(3)= 27- 36+ 15= 6 \checkmark \; \text{（相等）} \\
-\text{(5) AC} \; \text{最小：} \; AC= Q^{2}- 6Q+ 15+ \frac{100}{Q} \\
-\text{试} \; \text{Q = 5} \; \text{：} \; AC= 25- 30+ 15+ 20= 30 \; \text{；} \; SMC(5)= 75- 60+ 15= 30 \checkmark \\
-\text{(6)} \; \text{数值表（} \; \text{Q=1..6} \; \text{）：} \\
-\text{AFC  100.00 50.00 33.33 25.00 20.00 16.67} \\
-\text{AVC   10.00  7.00  6.00  7.00 10.00 15.00} \\
-\text{AC   110.00 57.00 39.33 32.00 30.00 31.67} \\
-\text{SMC    6.00  3.00  6.00 15.00 30.00 51.00} \\
-\text{(7)} \; \text{结论：} \; \text{SMC} \; \text{先穿} \; \text{AVCmin(Q=3)} \; \text{，再穿} \; \text{ACmin(Q=5)} \; \text{，} \; \text{ACmin} \; \text{在右上方}
-\end{gathered}
+\begin{aligned}
+&\text{已知：} \; STC= Q^{3}- 6Q^{2}+ 15Q+ 100 \; \text{（} \; \text{TFC = 100} \; \text{）} \\
+&(1) TVC= Q^{3}- 6Q^{2}+ 15Q \\
+&(2) AFC= \frac{100}{Q} \; \text{；} \; AVC= Q^{2}- 6Q+ 15 \; \text{；} \; AC= AVC+ \frac{100}{Q} \\
+&(3) SMC= \frac{dSTC}{dQ}= 3Q^{2}- 12Q+ 15 \\
+&\text{(4) AVC} \; \text{最小：} \; \frac{dAVC}{dQ}= 2Q- 6= 0 \to Q= 3 \\
+&AVCmin= 9- 18+ 15= 6 \; \text{；} \; SMC(3)= 27- 36+ 15= 6 \checkmark \; \text{（相等）} \\
+&\text{(5) AC} \; \text{最小：} \; AC= Q^{2}- 6Q+ 15+ \frac{100}{Q} \\
+&\text{试} \; \text{Q = 5} \; \text{：} \; AC= 25- 30+ 15+ 20= 30 \; \text{；} \; SMC(5)= 75- 60+ 15= 30 \checkmark \\
+&\text{(6)} \; \text{数值表（} \; \text{Q=1..6} \; \text{）：} \\
+&\text{AFC  100.00 50.00 33.33 25.00 20.00 16.67} \\
+&\text{AVC   10.00  7.00  6.00  7.00 10.00 15.00} \\
+&\text{AC   110.00 57.00 39.33 32.00 30.00 31.67} \\
+&\text{SMC    6.00  3.00  6.00 15.00 30.00 51.00} \\
+&\text{(7)} \; \text{结论：} \; \text{SMC} \; \text{先穿} \; \text{AVCmin(Q=3)} \; \text{，再穿} \; \text{ACmin(Q=5)} \; \text{，} \; \text{ACmin} \; \text{在右上方}
+\end{aligned}
 $$
 
 ### 演 6 · 完全竞争短期均衡与停业决策（第 6 章）
 
 $$
-\begin{gathered}
-\text{已知：} \; STC= Q^{2}+ 4Q+ 36 \; \text{，} \; \text{P = 20} \; \text{（水平需求线）} \\
-(1) SMC= 2Q+ 4= MR= P= 20 \to Q*= 8 \\
-(2) TR= 20 \times 8= 160 \; \text{；} \; STC= 64+ 32+ 36= 132 \to \pi= 28 \\
-(3) AC= Q+ 4+ \frac{36}{Q} \to \frac{dAC}{dQ}= 1- \frac{36}{Q^{2}}= 0 \to Q= 6 \; \text{，} \; \text{ACmin = 16} \\
-\text{(4) AVC = Q + 4} \; \text{（递增），关门价格取} \; \text{AVC} \; \text{下界} \; \text{4} \\
-\text{(5)} \; \text{若} \; \text{P = 14} \; \text{：} \; \text{Q = 5} \; \text{，} \; \text{TR = 70} \; \text{，} \; STC= 25+20+36= 81 \to \; \text{亏} \; \text{11} \\
-\text{停产亏} \; \text{TFC = 36} \; \text{；继续生产亏} \; 11< 36 \Rightarrow \; \text{继续生产} \\
-\text{验证：} \; P= 14> AVC= 9 \Rightarrow \; \text{能覆盖全部可变成本} \; \checkmark \\
-\text{(6)} \; \text{若} \; P= 3< 4 \Rightarrow \; \text{停产，亏损限于} \; \text{36}
-\end{gathered}
+\begin{aligned}
+&\text{已知：} \; STC= Q^{2}+ 4Q+ 36 \; \text{，} \; \text{P = 20} \; \text{（水平需求线）} \\
+&(1) SMC= 2Q+ 4= MR= P= 20 \to Q*= 8 \\
+&(2) TR= 20 \times 8= 160 \; \text{；} \; STC= 64+ 32+ 36= 132 \to \pi= 28 \\
+&(3) AC= Q+ 4+ \frac{36}{Q} \to \frac{dAC}{dQ}= 1- \frac{36}{Q^{2}}= 0 \to Q= 6 \; \text{，} \; \text{ACmin = 16} \\
+&\text{(4) AVC = Q + 4} \; \text{（递增），关门价格取} \; \text{AVC} \; \text{下界} \; \text{4} \\
+&\text{(5)} \; \text{若} \; \text{P = 14} \; \text{：} \; \text{Q = 5} \; \text{，} \; \text{TR = 70} \; \text{，} \; STC= 25+20+36= 81 \to \; \text{亏} \; \text{11} \\
+&\text{停产亏} \; \text{TFC = 36} \; \text{；继续生产亏} \; 11< 36 \Rightarrow \; \text{继续生产} \\
+&\text{验证：} \; P= 14> AVC= 9 \Rightarrow \; \text{能覆盖全部可变成本} \; \checkmark \\
+&\text{(6)} \; \text{若} \; P= 3< 4 \Rightarrow \; \text{停产，亏损限于} \; \text{36}
+\end{aligned}
 $$
 
 ### 演 7 · 垄断均衡、勒纳指数与 DWL（第 7 章）
 
 $$
-\begin{gathered}
-\text{已知：} \; P= 100- 2Q \; \text{，} \; \text{MC = 20} \; \text{（} \; \text{TFC = 0} \; \text{）} \\
-(1) TR= 100Q- 2Q^{2} \to MR= 100- 4Q \\
-\text{(2) MR = MC} \; \text{：} \; 100- 4Q= 20 \to Qm= 20 \; \text{，} \; Pm= 100- 40= 60 \\
-(3) \pi=(60- 20) \times 20= 800 \\
-(4)|Ed|=\left(\frac{1}{b}\right)\left(\frac{P}{Q}\right)=\left(\frac{1}{2}\right)\left(\frac{60}{20}\right)= 1.5 \\
-L= \frac{P- MC}{P}= \frac{40}{60}= \frac{2}{3}= \frac{1}{1.5} \checkmark \\
-\text{(5)} \; \text{竞争基准：} \; P= MC= 20 \to Qc= \frac{100- 20}{2}= 40 \\
-(6) CS= \frac{1}{2} \times(100- 60) \times 20= 400 \\
-DWL= \frac{1}{2} \times(60- 20) \times(40- 20)= 400 \\
-\text{(7)} \; \text{通式校验：} \; Qm= \frac{a- c}{2b}= \frac{80}{4}= 20 \checkmark \; \text{；} \; Pm= \frac{a+c}{2}= 60 \checkmark
-\end{gathered}
+\begin{aligned}
+&\text{已知：} \; P= 100- 2Q \; \text{，} \; \text{MC = 20} \; \text{（} \; \text{TFC = 0} \; \text{）} \\
+&(1) TR= 100Q- 2Q^{2} \to MR= 100- 4Q \\
+&\text{(2) MR = MC} \; \text{：} \; 100- 4Q= 20 \to Qm= 20 \; \text{，} \; Pm= 100- 40= 60 \\
+&(3) \pi=(60- 20) \times 20= 800 \\
+&(4)|Ed|=\left(\frac{1}{b}\right)\left(\frac{P}{Q}\right)=\left(\frac{1}{2}\right)\left(\frac{60}{20}\right)= 1.5 \\
+&L= \frac{P- MC}{P}= \frac{40}{60}= \frac{2}{3}= \frac{1}{1.5} \checkmark \\
+&\text{(5)} \; \text{竞争基准：} \; P= MC= 20 \to Qc= \frac{100- 20}{2}= 40 \\
+&(6) CS= \frac{1}{2} \times(100- 60) \times 20= 400 \\
+&DWL= \frac{1}{2} \times(60- 20) \times(40- 20)= 400 \\
+&\text{(7)} \; \text{通式校验：} \; Qm= \frac{a- c}{2b}= \frac{80}{4}= 20 \checkmark \; \text{；} \; Pm= \frac{a+c}{2}= 60 \checkmark
+\end{aligned}
 $$
 
 ### 演 8 · 古诺与斯塔克尔伯格（第 7 章）
 
 $$
-\begin{gathered}
-\text{已知：} \; P= 18-(Q_{1}+Q_{2}) \; \text{，} \; MC_{1}= MC_{2}= 0 \\
-\text{【古诺】} \\
-(1) \pi_{1}=[18- Q_{1}- Q_{2}]Q_{1} \\
-\partial \pi_{1} \partial Q_{1}= 18- 2Q_{1}- Q_{2}= 0 \to R_{1} \; \text{：} \; Q_{1}= 9- \frac{Q_{2}}{2} \\
-\text{(2)} \; \text{对称} \; R_{2} \; \text{：} \; Q_{2}= 9- \frac{Q_{1}}{2} \\
-\text{(3)} \; \text{联立：} \; Q_{1}= 9- \frac{9- \frac{Q_{1}}{2}}{2}= 4.5+ \frac{Q_{1}}{4} \\
-\left(\frac{3}{4}\right)Q_{1}= 4.5 \to Q_{1}= Q_{2}= 6 \\
-\text{(4) Q = 12} \; \text{，} \; \text{P = 6} \; \text{，} \; \pi_{1}= \pi_{2}= 6 \times 6= 36 \\
-\text{(5)} \; \text{通式} \; Qi= \frac{a- c}{(n+1)b}= \frac{18}{3 \times 1}= 6 \checkmark \\
-\text{【斯塔克尔伯格（} \; \text{1} \; \text{领导）】} \\
-\text{(6)} \; \text{把} \; R_{2} \; \text{代入：} \; \pi_{1}=[18- Q_{1}-\left(9- \frac{Q_{1}}{2}\right)]Q_{1}=\left(9- \frac{Q_{1}}{2}\right)Q_{1} \\
-d\pi_{1} dQ_{1}= 9- Q_{1}= 0 \to Q_{1}= 9 \; \text{，} \; Q_{2}= 4.5 \; \text{，} \; \text{Q = 13.5} \; \text{，} \; \text{P = 4.5} \\
-\pi_{1}= 40.5 \; \text{，} \; \pi_{2}= 20.25 \; \text{（先动优势）} \\
-\text{【卡特尔】} \; \text{Q = 9} \; \text{，} \; \text{P = 9} \; \text{，总} \; \pi= 81 \; \text{（各} \; \text{40.5} \; \text{，但有背叛动机）}
-\end{gathered}
+\begin{aligned}
+&\text{已知：} \; P= 18-(Q_{1}+Q_{2}) \; \text{，} \; MC_{1}= MC_{2}= 0 \\
+&\text{【古诺】} \\
+&(1) \pi_{1}=[18- Q_{1}- Q_{2}]Q_{1} \\
+&\partial \pi_{1} \partial Q_{1}= 18- 2Q_{1}- Q_{2}= 0 \to R_{1} \; \text{：} \; Q_{1}= 9- \frac{Q_{2}}{2} \\
+&\text{(2)} \; \text{对称} \; R_{2} \; \text{：} \; Q_{2}= 9- \frac{Q_{1}}{2} \\
+&\text{(3)} \; \text{联立：} \; Q_{1}= 9- \frac{9- \frac{Q_{1}}{2}}{2}= 4.5+ \frac{Q_{1}}{4} \\
+&\left(\frac{3}{4}\right)Q_{1}= 4.5 \to Q_{1}= Q_{2}= 6 \\
+&\text{(4) Q = 12} \; \text{，} \; \text{P = 6} \; \text{，} \; \pi_{1}= \pi_{2}= 6 \times 6= 36 \\
+&\text{(5)} \; \text{通式} \; Qi= \frac{a- c}{(n+1)b}= \frac{18}{3 \times 1}= 6 \checkmark \\
+&\text{【斯塔克尔伯格（} \; \text{1} \; \text{领导）】} \\
+&\text{(6)} \; \text{把} \; R_{2} \; \text{代入：} \; \pi_{1}=[18- Q_{1}-\left(9- \frac{Q_{1}}{2}\right)]Q_{1}=\left(9- \frac{Q_{1}}{2}\right)Q_{1} \\
+&d\pi_{1} dQ_{1}= 9- Q_{1}= 0 \to Q_{1}= 9 \; \text{，} \; Q_{2}= 4.5 \; \text{，} \; \text{Q = 13.5} \; \text{，} \; \text{P = 4.5} \\
+&\pi_{1}= 40.5 \; \text{，} \; \pi_{2}= 20.25 \; \text{（先动优势）} \\
+&\text{【卡特尔】} \; \text{Q = 9} \; \text{，} \; \text{P = 9} \; \text{，总} \; \pi= 81 \; \text{（各} \; \text{40.5} \; \text{，但有背叛动机）}
+\end{aligned}
 $$
 
 ### 演 9 · 三级价格歧视（第 7 章）
 
 $$
-\begin{gathered}
-\text{已知：} \; P_{1}= 100- 2Q_{1} \; \text{，} \; P_{2}= 80- Q_{2} \; \text{，} \; \text{MC = 20} \\
-(1) MR_{1}= 100- 4Q_{1}= 20 \to Q_{1}= 20 \; \text{，} \; P_{1}= 60 \\
-(2) MR_{2}= 80- 2Q_{2}= 20 \to Q_{2}= 30 \; \text{，} \; P_{2}= 50 \\
-(3)|E_{1}|= \frac{a+c}{a- c}= \frac{120}{80}= 1.5 \\
-|E_{2}|= \frac{100}{60}= 1.667 \\
-P_{1}\left(1- \frac{1}{E_{1}}\right)= 60 \times\left(\frac{1}{3}\right)= 20= MC \checkmark \\
-P_{2}\left(1- \frac{1}{E_{2}}\right)= 50 \times 0.4= 20= MC \checkmark \\
-|E_{1}|<|E_{2}| \Rightarrow P_{1}> P_{2} \; \text{（弹性小者价高）} \; \checkmark \\
-(4) \pi=(60- 20) \times 20+(50- 20) \times 30= 800+ 900= 1700 \\
-\text{(5)} \; \text{统一价：} \; Q= \frac{100- P}{2}+(80- P)= 130- 1.5P \\
-\pi=(P- 20)(130- 1.5P) \; \text{；} \; \frac{d\pi}{dP}= 160- 3P= 0 \to P= 53.33 \\
-\pi \approx 1666.67< 1700 \Rightarrow \; \text{歧视提高利润} \; \checkmark
-\end{gathered}
+\begin{aligned}
+&\text{已知：} \; P_{1}= 100- 2Q_{1} \; \text{，} \; P_{2}= 80- Q_{2} \; \text{，} \; \text{MC = 20} \\
+&(1) MR_{1}= 100- 4Q_{1}= 20 \to Q_{1}= 20 \; \text{，} \; P_{1}= 60 \\
+&(2) MR_{2}= 80- 2Q_{2}= 20 \to Q_{2}= 30 \; \text{，} \; P_{2}= 50 \\
+&(3)|E_{1}|= \frac{a+c}{a- c}= \frac{120}{80}= 1.5 \\
+&|E_{2}|= \frac{100}{60}= 1.667 \\
+&P_{1}\left(1- \frac{1}{E_{1}}\right)= 60 \times\left(\frac{1}{3}\right)= 20= MC \checkmark \\
+&P_{2}\left(1- \frac{1}{E_{2}}\right)= 50 \times 0.4= 20= MC \checkmark \\
+&|E_{1}|<|E_{2}| \Rightarrow P_{1}> P_{2} \; \text{（弹性小者价高）} \; \checkmark \\
+&(4) \pi=(60- 20) \times 20+(50- 20) \times 30= 800+ 900= 1700 \\
+&\text{(5)} \; \text{统一价：} \; Q= \frac{100- P}{2}+(80- P)= 130- 1.5P \\
+&\pi=(P- 20)(130- 1.5P) \; \text{；} \; \frac{d\pi}{dP}= 160- 3P= 0 \to P= 53.33 \\
+&\pi \approx 1666.67< 1700 \Rightarrow \; \text{歧视提高利润} \; \checkmark
+\end{aligned}
 $$
 
 ### 演 10 · 庇古税与社会最优（第 11 章）
 
 $$
-\begin{gathered}
-\text{已知：} \; MSB= MPB= 100- 2Q \; \text{，} \; \text{MPC = 2Q + 10} \; \text{，} \; \text{ME = 6} \\
-\text{(1)} \; \text{私人均衡：} \; 100- 2Q= 2Q+ 10 \to 4Q= 90 \to Q= 22.5 \\
-\text{(2)} \; \text{社会最优：} \; 100- 2Q= 2Q+ 10+ 6 \to 4Q= 84 \to Q*= 21 \\
-\text{(3)} \; \text{庇古税} \; \text{t = ME(Q*) = 6} \\
-\text{厂商面对} \; \text{MPC + 6} \; \text{：} \; 100- 2Q= 2Q+ 16 \to Q= 21 \checkmark \\
-\text{(4)} \; \text{校验社会最优：} \; MSB= 100- 42= 58 \; \text{；} \; \text{MSC = 42 + 10 + 6 = 58 }\checkmark \\
-\text{(5) DWL} \; \text{（私人过量生产）} \; = \frac{1}{2} \times ME \times(22.5- 21)= \frac{1}{2} \times 6 \times 1.5= 4.5 \\
-\text{(6)} \; \text{税收收入} \; = t \times Q*= 6 \times 21= 126
-\end{gathered}
+\begin{aligned}
+&\text{已知：} \; MSB= MPB= 100- 2Q \; \text{，} \; \text{MPC = 2Q + 10} \; \text{，} \; \text{ME = 6} \\
+&\text{(1)} \; \text{私人均衡：} \; 100- 2Q= 2Q+ 10 \to 4Q= 90 \to Q= 22.5 \\
+&\text{(2)} \; \text{社会最优：} \; 100- 2Q= 2Q+ 10+ 6 \to 4Q= 84 \to Q*= 21 \\
+&\text{(3)} \; \text{庇古税} \; \text{t = ME(Q*) = 6} \\
+&\text{厂商面对} \; \text{MPC + 6} \; \text{：} \; 100- 2Q= 2Q+ 16 \to Q= 21 \checkmark \\
+&\text{(4)} \; \text{校验社会最优：} \; MSB= 100- 42= 58 \; \text{；} \; \text{MSC = 42 + 10 + 6 = 58 }\checkmark \\
+&\text{(5) DWL} \; \text{（私人过量生产）} \; = \frac{1}{2} \times ME \times(22.5- 21)= \frac{1}{2} \times 6 \times 1.5= 4.5 \\
+&\text{(6)} \; \text{税收收入} \; = t \times Q*= 6 \times 21= 126
+\end{aligned}
 $$
 
 ### 演 11 · 基尼系数（第 8 章）
 
 $$
-\begin{gathered}
-\text{已知：} \; \text{5} \; \text{等分组收入份额} \; \text{5, 10, 15, 25, 45} \; \text{（单位} \; \text{\%} \; \text{）} \\
-\text{(1)} \; \text{累计收入：} \; \text{0.05, 0.15, 0.30, 0.55, 1.00} \\
-\text{(2)} \; \text{洛伦兹曲线下面积（梯形，组宽} \; \text{0.2} \; \text{）：} \\
-\text{B = 0.2 × [ (0+0.05)/2 + (0.05+0.15)/2 + (0.15+0.30)/2} \\
-\text{+ (0.30+0.55)/2 + (0.55+1.00)/2 ]} \\
-= 0.2 \times[0.025+ 0.100+ 0.225+ 0.425+ 0.775] \\
-= 0.2 \times 1.55= 0.31 \\
-(3) A= 0.5- 0.31= 0.19 \\
-(4) G= \frac{A}{A+B}= \frac{0.19}{0.5}= 0.38 \\
-\text{(5)} \; \text{等价算法：} \; G= 1- 2B= 1- 0.62= 0.38 \checkmark
-\end{gathered}
+\begin{aligned}
+&\text{已知：} \; \text{5} \; \text{等分组收入份额} \; \text{5, 10, 15, 25, 45} \; \text{（单位} \; \text{\%} \; \text{）} \\
+&\text{(1)} \; \text{累计收入：} \; \text{0.05, 0.15, 0.30, 0.55, 1.00} \\
+&\text{(2)} \; \text{洛伦兹曲线下面积（梯形，组宽} \; \text{0.2} \; \text{）：} \\
+&\text{B = 0.2 × [ (0+0.05)/2 + (0.05+0.15)/2 + (0.15+0.30)/2} \\
+&\text{+ (0.30+0.55)/2 + (0.55+1.00)/2 ]} \\
+&= 0.2 \times[0.025+ 0.100+ 0.225+ 0.425+ 0.775] \\
+&= 0.2 \times 1.55= 0.31 \\
+&(3) A= 0.5- 0.31= 0.19 \\
+&(4) G= \frac{A}{A+B}= \frac{0.19}{0.5}= 0.38 \\
+&\text{(5)} \; \text{等价算法：} \; G= 1- 2B= 1- 0.62= 0.38 \checkmark
+\end{aligned}
 $$
 
 ### 演 12 · 混合策略纳什均衡（第 10 章）
 
 $$
-\begin{gathered}
-\text{已知性别战：} \; \text{(} \; \text{芭蕾} \; \text{,} \; \text{芭蕾} \; \text{)=(2,1)} \; \text{，} \; \text{(} \; \text{拳击} \; \text{,} \; \text{拳击} \; \text{)=(1,2)} \; \text{，不一致} \; \text{=(0,0)} \\
-\text{(1)} \; \text{设甲以} \; \text{p} \; \text{选芭蕾，乙以} \; \text{q} \; \text{选芭蕾} \\
-\text{(2)} \; \text{令乙无差异（用【乙】的支付！）：} \\
-\text{乙选芭蕾} \; = 1 \times p+ 0 \times(1- p)= p \\
-\text{乙选拳击} \; = 0 \times p+ 2 \times(1- p)= 2- 2p \\
-p= 2- 2p \to 3p= 2 \to p= \frac{2}{3} \\
-\text{(3)} \; \text{令甲无差异（用【甲】的支付）：} \\
-\text{甲选芭蕾} \; = 2 \times q+ 0 \times(1- q)= 2q \\
-\text{甲选拳击} \; = 0 \times q+ 1 \times(1- q)= 1- q \\
-2q= 1- q \to q= \frac{1}{3} \\
-\text{(4)} \; \text{均衡：甲} \; \text{(2/3, 1/3)} \; \text{，乙} \; \text{(1/3, 2/3)} \\
-\text{甲期望支付} \; = 2 \times\left(\frac{2}{3}\right)\left(\frac{1}{3}\right)+ 1 \times\left(\frac{1}{3}\right)\left(\frac{2}{3}\right)= \frac{2}{3} \\
-\text{错配概率} \; =\left(\frac{2}{3}\right)\left(\frac{2}{3}\right)+\left(\frac{1}{3}\right)\left(\frac{1}{3}\right)= \frac{5}{9} \\
-\text{易错警示：第} \; \text{(2)} \; \text{步必须用乙的支付} \; \text{1} \; \text{和} \; \text{2} \; \text{，不能用甲的} \; \text{2} \; \text{和} \; \text{1}
-\end{gathered}
+\begin{aligned}
+&\text{已知性别战：} \; \text{(} \; \text{芭蕾} \; \text{,} \; \text{芭蕾} \; \text{)=(2,1)} \; \text{，} \; \text{(} \; \text{拳击} \; \text{,} \; \text{拳击} \; \text{)=(1,2)} \; \text{，不一致} \; \text{=(0,0)} \\
+&\text{(1)} \; \text{设甲以} \; \text{p} \; \text{选芭蕾，乙以} \; \text{q} \; \text{选芭蕾} \\
+&\text{(2)} \; \text{令乙无差异（用【乙】的支付！）：} \\
+&\text{乙选芭蕾} \; = 1 \times p+ 0 \times(1- p)= p \\
+&\text{乙选拳击} \; = 0 \times p+ 2 \times(1- p)= 2- 2p \\
+&p= 2- 2p \to 3p= 2 \to p= \frac{2}{3} \\
+&\text{(3)} \; \text{令甲无差异（用【甲】的支付）：} \\
+&\text{甲选芭蕾} \; = 2 \times q+ 0 \times(1- q)= 2q \\
+&\text{甲选拳击} \; = 0 \times q+ 1 \times(1- q)= 1- q \\
+&2q= 1- q \to q= \frac{1}{3} \\
+&\text{(4)} \; \text{均衡：甲} \; \text{(2/3, 1/3)} \; \text{，乙} \; \text{(1/3, 2/3)} \\
+&\text{甲期望支付} \; = 2 \times\left(\frac{2}{3}\right)\left(\frac{1}{3}\right)+ 1 \times\left(\frac{1}{3}\right)\left(\frac{2}{3}\right)= \frac{2}{3} \\
+&\text{错配概率} \; =\left(\frac{2}{3}\right)\left(\frac{2}{3}\right)+\left(\frac{1}{3}\right)\left(\frac{1}{3}\right)= \frac{5}{9} \\
+&\text{易错警示：第} \; \text{(2)} \; \text{步必须用乙的支付} \; \text{1} \; \text{和} \; \text{2} \; \text{，不能用甲的} \; \text{2} \; \text{和} \; \text{1}
+\end{aligned}
 $$
 
 ---

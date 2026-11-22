@@ -90,11 +90,11 @@ summary: "计算机组成与系统结构 全面详解笔记，共 9 章：计算
 ::: tip 工作示例 · CPU 时间（教材习题风格）
 某机器主频 `4 GHz`，程序 P 的指令数 $8 \times 10^{9}$ 条，平均 `CPI = 1.25`：
 $$
-\begin{gathered}
-\text{CPU} \; \text{时间} \; = IC \times \frac{CPI}{f}= 8 \times 10^{9} \times \frac{1.25}{4 \times 10^{9}}= \frac{10 \times 10^{9}}{4 \times 10^{9}}= 2.5 s \\
-\text{若把主频提到} \; \text{5 GHz} \; \text{而} \; \text{CPI} \; \text{不变} \; \to \; \text{时间} \; \text{= 2.0 s} \; \text{（提速} \; \text{1.25} \; \text{倍）} \\
-\text{若改用优化编译使指令数降为} \; 7 \times 10^{9} \; \text{但} \; \text{CPI} \; \text{升到} \; 1.5 \to \; \text{时间} \; = \frac{10.5 \times 10^{9}}{4 \times 10^{9}}= 2.625 s \; \text{（反而变慢）}
-\end{gathered}
+\begin{aligned}
+&\text{CPU} \; \text{时间} \; = IC \times \frac{CPI}{f}= 8 \times 10^{9} \times \frac{1.25}{4 \times 10^{9}}= \frac{10 \times 10^{9}}{4 \times 10^{9}}= 2.5 s \\
+&\text{若把主频提到} \; \text{5 GHz} \; \text{而} \; \text{CPI} \; \text{不变} \; \to \; \text{时间} \; \text{= 2.0 s} \; \text{（提速} \; \text{1.25} \; \text{倍）} \\
+&\text{若改用优化编译使指令数降为} \; 7 \times 10^{9} \; \text{但} \; \text{CPI} \; \text{升到} \; 1.5 \to \; \text{时间} \; = \frac{10.5 \times 10^{9}}{4 \times 10^{9}}= 2.625 s \; \text{（反而变慢）}
+\end{aligned}
 $$
 结论：不能只看主频或单一指标，必须综合 $IC \times \dfrac{CPI}{f}$。
 :::
@@ -136,10 +136,10 @@ $$
 机器 A：主频 `100 MHz`、CPI=2 → $MIPS_{A}= \dfrac{100}{2}= 50$；机器 B：主频 `200 MHz`、CPI=5 → $MIPS_{B}= \dfrac{200}{5}= 40$。
 若同一任务在 B 上编译出的指令数只有 A 的一半：
 $$
-\begin{gathered}
-\text{A} \; \text{时间} \; = \frac{IC \times 2}{100MHz}= \frac{2IC}{1e8} B \; \text{时间} \; = \frac{0.5IC \times 5}{200MHz}= \frac{1.25IC}{1e8} \\
-\text{B 更快，但} \; MIPS_{B}(40) \; \text{小于} \; MIPS_{A}(50) \; \text{——说明 MIPS 不能跨 ISA、跨编译器比较性能}
-\end{gathered}
+\begin{aligned}
+&\text{A} \; \text{时间} \; = \frac{IC \times 2}{100MHz}= \frac{2IC}{1e8} B \; \text{时间} \; = \frac{0.5IC \times 5}{200MHz}= \frac{1.25IC}{1e8} \\
+&\text{B 更快，但} \; MIPS_{B}(40) \; \text{小于} \; MIPS_{A}(50) \; \text{——说明 MIPS 不能跨 ISA、跨编译器比较性能}
+\end{aligned}
 $$
 :::
 
@@ -282,11 +282,11 @@ $$
 #### 2.7.1 补码、移码与 C 语言陷阱
 
 $$
-\begin{gathered}
-\text{[X]} \; \text{补} \; \text{+ [Y]} \; \text{补} \; \text{= [X+Y]} \; \text{补} \; \text{（模} \; 2^{n} \; \text{）} \\
-[- Y] \; \text{补} \; \text{= [Y]} \; \text{补} \; \text{连同符号位按位取反、末位加} \; \text{1} \\
-\text{移码：同一真值的移码与补码只差符号位；移码全} \; \text{0} \; \text{对应最小真值，便于浮点阶码比较}
-\end{gathered}
+\begin{aligned}
+&\text{[X]} \; \text{补} \; \text{+ [Y]} \; \text{补} \; \text{= [X+Y]} \; \text{补} \; \text{（模} \; 2^{n} \; \text{）} \\
+&[- Y] \; \text{补} \; \text{= [Y]} \; \text{补} \; \text{连同符号位按位取反、末位加} \; \text{1} \\
+&\text{移码：同一真值的移码与补码只差符号位；移码全} \; \text{0} \; \text{对应最小真值，便于浮点阶码比较}
+\end{aligned}
 $$
 
 | 陷阱 | 说明 |
@@ -326,10 +326,10 @@ $$
 ### 3.2 定点数加减运算（★★★）
 
 $$
-\begin{gathered}
-\text{[X + Y]} \; \text{补} \; \text{= [X]} \; \text{补} \; \text{+ [Y]} \; \text{补} \; \text{（模} \; 2^{n} \; \text{，符号位参与运算，最高进位丢弃）} \\
-[X- Y] \; \text{补} \; \text{= [X]} \; \text{补} \; +[- Y] \; \text{补} \; \text{（} \; [- Y] \; \text{补} \; \text{= [Y]} \; \text{补} \; \text{连同符号位按位取反、末位加} \; \text{1} \; \text{）}
-\end{gathered}
+\begin{aligned}
+&\text{[X + Y]} \; \text{补} \; \text{= [X]} \; \text{补} \; \text{+ [Y]} \; \text{补} \; \text{（模} \; 2^{n} \; \text{，符号位参与运算，最高进位丢弃）} \\
+&[X- Y] \; \text{补} \; \text{= [X]} \; \text{补} \; +[- Y] \; \text{补} \; \text{（} \; [- Y] \; \text{补} \; \text{= [Y]} \; \text{补} \; \text{连同符号位按位取反、末位加} \; \text{1} \; \text{）}
+\end{aligned}
 $$
 
 **溢出判断**（三种等价方法）：
@@ -342,13 +342,13 @@ $$
 
 ::: tip 工作示例 · 8 位补码加减与溢出
 $$
-\begin{gathered}
-(1) 9- 5 \; \text{：} \; \text{0000 1001 + 1111 1011(−5} \; \text{的补码} \; \text{) = 1 0000 0100 →} \; \text{丢弃进位} \; \text{= 0000 0100 = +4 }\checkmark \\
-\text{(2) 120 + 10} \; \text{：} \; 0111 1000+ 0000 1010= 1000 0010=- 126 \; \text{（数学结果} \; \text{+130 > +127} \; \text{）} \\
-C_{n}= 0 \; \text{（符号位未产生进位）、} \; C_{n- 1}= 1 \to OV= 1 \; \text{，正溢出} \; \checkmark \\
-(3)- 120- 20 \; \text{：} \; 1000 1000+ 1110 1100= 1 0111 0100 \to 0111 0100=+116 \; \text{（应为} \; - 140 \; \text{）} \\
-\text{双符号位将出现} \; 10 \to \; \text{负溢出}
-\end{gathered}
+\begin{aligned}
+&(1) 9- 5 \; \text{：} \; \text{0000 1001 + 1111 1011(−5} \; \text{的补码} \; \text{) = 1 0000 0100 →} \; \text{丢弃进位} \; \text{= 0000 0100 = +4 }\checkmark \\
+&\text{(2) 120 + 10} \; \text{：} \; 0111 1000+ 0000 1010= 1000 0010=- 126 \; \text{（数学结果} \; \text{+130 > +127} \; \text{）} \\
+&C_{n}= 0 \; \text{（符号位未产生进位）、} \; C_{n- 1}= 1 \to OV= 1 \; \text{，正溢出} \; \checkmark \\
+&(3)- 120- 20 \; \text{：} \; 1000 1000+ 1110 1100= 1 0111 0100 \to 0111 0100=+116 \; \text{（应为} \; - 140 \; \text{）} \\
+&\text{双符号位将出现} \; 10 \to \; \text{负溢出}
+\end{aligned}
 $$
 :::
 
@@ -369,25 +369,25 @@ $$
 ::: tip 工作示例 · 原码一位乘法
 `X = 0.1101`（13/16），`Y = 0.1011`（11/16），求 $X \times Y$（符号均为 0）。取双符号位部分积 P 初值 `00.0000`：
 $$
-\begin{gathered}
-\text{y3(} \; \text{最低位} \; \text{)=1 → P += 00.1101 = 00.1101 →} \; \text{右移} \; \text{1} \; \text{位} \; \text{= 00.0110 1} \\
-y_{2}=1 \to P+= 00.1101= 01.0011 1 \to \; \text{右移} \; \text{1} \; \text{位} \; \text{= 00.1001 11} \\
-y_{1}=0 \to \; \text{不加} \; \to \; \text{右移} \; \text{1} \; \text{位} \; \text{= 00.0100 111} \\
-y_{0}=1 \to P+= 00.1101= 01.0001 111 \to \; \text{右移} \; \text{1} \; \text{位} \; \text{= 00.1000 1111} \\
-\text{数值结果} \; = 0.1000 1111_{2}= \frac{143}{256} \; \text{；符号} \; \text{= 0 ⊕ 0 = 0} \\
-\text{验证：} \; \frac{13}{16} \times \frac{11}{16}= \frac{143}{256} \checkmark
-\end{gathered}
+\begin{aligned}
+&\text{y3(} \; \text{最低位} \; \text{)=1 → P += 00.1101 = 00.1101 →} \; \text{右移} \; \text{1} \; \text{位} \; \text{= 00.0110 1} \\
+&y_{2}=1 \to P+= 00.1101= 01.0011 1 \to \; \text{右移} \; \text{1} \; \text{位} \; \text{= 00.1001 11} \\
+&y_{1}=0 \to \; \text{不加} \; \to \; \text{右移} \; \text{1} \; \text{位} \; \text{= 00.0100 111} \\
+&y_{0}=1 \to P+= 00.1101= 01.0001 111 \to \; \text{右移} \; \text{1} \; \text{位} \; \text{= 00.1000 1111} \\
+&\text{数值结果} \; = 0.1000 1111_{2}= \frac{143}{256} \; \text{；符号} \; \text{= 0 ⊕ 0 = 0} \\
+&\text{验证：} \; \frac{13}{16} \times \frac{11}{16}= \frac{143}{256} \checkmark
+\end{aligned}
 $$
 :::
 
 ::: tip 工作示例 · Booth 规则速记
 设乘数低位补 $y_{- 1}= 0$，逐位比较 $(y_{i}, y_{i- 1})$：
 $$
-\begin{gathered}
-\text{00、11} \to \; \text{部分积不变，仅算术右移} \; \text{1} \; \text{位} \\
-01 \to \; \text{部分积} \; \text{+ [X]} \; \text{补，再右移} \\
-10 \to \; \text{部分积} \; +[- X] \; \text{补，再右移}
-\end{gathered}
+\begin{aligned}
+&\text{00、11} \to \; \text{部分积不变，仅算术右移} \; \text{1} \; \text{位} \\
+&01 \to \; \text{部分积} \; \text{+ [X]} \; \text{补，再右移} \\
+&10 \to \; \text{部分积} \; +[- X] \; \text{补，再右移}
+\end{aligned}
 $$
 最后一步只运算不右移；n 位乘数做 n 次判断、n−1 次移位，结果为 2n 位补码。
 :::
@@ -412,14 +412,14 @@ $$
 ::: tip 工作示例 · 需要右规的浮点加法
 设 $X= 0.1101 \times 2^{2}$（= 3.25）、$Y= 0.1011 \times 2^{3}$（= 5.5），尾数用 4 位小数：
 $$
-\begin{gathered}
-\text{(1)} \; \text{对阶：} \; \Delta E= 3- 2= 1 \; \text{，} \; \text{X} \; \text{尾数右移} \; \text{1} \; \text{位} \; \to 0.01101 \times 2^{3} \; \text{（保留保护位）} \\
-\text{(2)} \; \text{尾数相加：} \; \text{0.01101 + 0.10110 = 1.00011} \; \text{（} \; \times 2^{3} \; \text{）} \\
-\text{(3)} \; \text{右规：尾数} \; \ge 1 \; \text{，右移} \; \text{1} \; \text{位} \; \to 0.100011 \; \text{，阶码} \; \text{3 + 1 = 4} \\
-\text{(4)} \; \text{舍入：本例保留} \; \text{4} \; \text{位小数，} \; \text{0.100011} \; \text{超过中点} \; \text{0.10001} \; \text{，向上舍入得} \; 0.1001 \to 0.1001 \times 2^{4}= 9.0 \\
-\text{若保留更多位} \; \to 0.100011 \times 2^{4}= 8.75 \; \text{（与} \; \text{3.25 + 5.5 = 8.75} \; \text{一致，可见舍入误差的来源）} \\
-\text{(5)} \; \text{阶码} \; \text{4} \; \text{未溢出。注意：右规只可能右移} \; \text{1} \; \text{位，左规则可能移多位}
-\end{gathered}
+\begin{aligned}
+&\text{(1)} \; \text{对阶：} \; \Delta E= 3- 2= 1 \; \text{，} \; \text{X} \; \text{尾数右移} \; \text{1} \; \text{位} \; \to 0.01101 \times 2^{3} \; \text{（保留保护位）} \\
+&\text{(2)} \; \text{尾数相加：} \; \text{0.01101 + 0.10110 = 1.00011} \; \text{（} \; \times 2^{3} \; \text{）} \\
+&\text{(3)} \; \text{右规：尾数} \; \ge 1 \; \text{，右移} \; \text{1} \; \text{位} \; \to 0.100011 \; \text{，阶码} \; \text{3 + 1 = 4} \\
+&\text{(4)} \; \text{舍入：本例保留} \; \text{4} \; \text{位小数，} \; \text{0.100011} \; \text{超过中点} \; \text{0.10001} \; \text{，向上舍入得} \; 0.1001 \to 0.1001 \times 2^{4}= 9.0 \\
+&\text{若保留更多位} \; \to 0.100011 \times 2^{4}= 8.75 \; \text{（与} \; \text{3.25 + 5.5 = 8.75} \; \text{一致，可见舍入误差的来源）} \\
+&\text{(5)} \; \text{阶码} \; \text{4} \; \text{未溢出。注意：右规只可能右移} \; \text{1} \; \text{位，左规则可能移多位}
+\end{aligned}
 $$
 :::
 
@@ -441,12 +441,12 @@ $$
 #### 3.7.1 三组综合演算
 
 $$
-\begin{gathered}
-\text{(1)} \; \text{已知} \; \text{8} \; \text{位补码} \; \text{0xB6 = 1011 0110} \; \text{：符号为} \; 1 \to \; \text{取反} \; \text{0100 1001} \; \text{，加} \; 1 \to 0100 1010= 74 \to \; \text{真值} \; - 74 \\
-\text{(2) 16} \; \text{位补码} \; \text{0xFFB6} \; \text{表示} \; - 74 \; \text{的符号扩展：高位全补} \; \text{1} \; \text{（而非} \; \text{0} \; \text{）} \\
-\text{(3)  Booth} \; \text{判断：} \; X=- 3 \; \text{（} \; \text{1101} \; \text{），} \; \text{Y = +5} \; \text{（} \; \text{0101} \; \text{，末尾补} \; 0 \to 0101 0 \; \text{）} \\
-\text{从低位：} \; 10 \to \; \text{减} \; \text{[X]} \; \text{补（即} \; \text{+3} \; \text{）；} \; 01 \to \; \text{加} \; \text{[X]} \; \text{补（} \; - 3 \; \text{）} \; \cdots \cdots \; \text{最终积} \; - 15 \; \text{（} \; \text{8} \; \text{位补码} \; \text{1111 0001} \; \text{）}
-\end{gathered}
+\begin{aligned}
+&\text{(1)} \; \text{已知} \; \text{8} \; \text{位补码} \; \text{0xB6 = 1011 0110} \; \text{：符号为} \; 1 \to \; \text{取反} \; \text{0100 1001} \; \text{，加} \; 1 \to 0100 1010= 74 \to \; \text{真值} \; - 74 \\
+&\text{(2) 16} \; \text{位补码} \; \text{0xFFB6} \; \text{表示} \; - 74 \; \text{的符号扩展：高位全补} \; \text{1} \; \text{（而非} \; \text{0} \; \text{）} \\
+&\text{(3)  Booth} \; \text{判断：} \; X=- 3 \; \text{（} \; \text{1101} \; \text{），} \; \text{Y = +5} \; \text{（} \; \text{0101} \; \text{，末尾补} \; 0 \to 0101 0 \; \text{）} \\
+&\text{从低位：} \; 10 \to \; \text{减} \; \text{[X]} \; \text{补（即} \; \text{+3} \; \text{）；} \; 01 \to \; \text{加} \; \text{[X]} \; \text{补（} \; - 3 \; \text{）} \; \cdots \cdots \; \text{最终积} \; - 15 \; \text{（} \; \text{8} \; \text{位补码} \; \text{1111 0001} \; \text{）}
+\end{aligned}
 $$
 
 #### 3.7.2 运算部件的时序与面积权衡
@@ -501,11 +501,11 @@ $$
 ::: tip 工作示例 · 存储器芯片扩展（必考）
 用 `1K × 4 位` 的 SRAM 芯片构成 `4K × 8 位` 主存：
 $$
-\begin{gathered}
-\text{字扩展：} \; \frac{4K}{1K}= 4 \; \text{组；位扩展：} \; \frac{8}{4}= 2 \; \text{片} \; \text{/} \; \text{组} \; \to \; \text{共} \; 4 \times 2= 8 \; \text{片} \\
-\text{总地址线} \; = \log_{2}(4K)= 12 \; \text{根：低} \; \text{10} \; \text{位接所有芯片的片内地址端，} \\
-\text{高} \; \text{2} \; \text{位经} \; \text{2-4} \; \text{译码器产生} \; \text{4} \; \text{个片选信号；每组} \; \text{2} \; \text{片分别接数据总线高} \; \text{4} \; \text{位} \; \text{/} \; \text{低} \; \text{4} \; \text{位}
-\end{gathered}
+\begin{aligned}
+&\text{字扩展：} \; \frac{4K}{1K}= 4 \; \text{组；位扩展：} \; \frac{8}{4}= 2 \; \text{片} \; \text{/} \; \text{组} \; \to \; \text{共} \; 4 \times 2= 8 \; \text{片} \\
+&\text{总地址线} \; = \log_{2}(4K)= 12 \; \text{根：低} \; \text{10} \; \text{位接所有芯片的片内地址端，} \\
+&\text{高} \; \text{2} \; \text{位经} \; \text{2-4} \; \text{译码器产生} \; \text{4} \; \text{个片选信号；每组} \; \text{2} \; \text{片分别接数据总线高} \; \text{4} \; \text{位} \; \text{/} \; \text{低} \; \text{4} \; \text{位}
+\end{aligned}
 $$
 一般公式：所需片数 = `(目标容量 / 芯片容量) × (目标字长 / 芯片字长)`。
 :::
@@ -513,11 +513,11 @@ $$
 ::: tip 工作示例 · DRAM 刷新安排
 设 DRAM 内部 `128 行`、要求 `2 ms` 内全部刷新一遍，存取周期 $0.5 \mu s$：
 $$
-\begin{gathered}
-\text{异步刷新：每隔} \; \frac{2 ms}{128}= 15.625 \mu s \; \text{刷新一行（每次占用} \; \text{1} \; \text{个存取周期）} \\
-\text{集中刷新：} \; \text{2 ms} \; \text{末尾连续用} \; 128 \times 0.5 \mu s= 64 \mu s \; \text{刷新} \; \to \; \text{这段时间} \; \text{CPU} \; \text{不能访存（死区）} \\
-\text{分散刷新：每个存取周期都附带一次刷新，存取周期变为} \; 1 \mu s \; \text{，无死区但整体变慢}
-\end{gathered}
+\begin{aligned}
+&\text{异步刷新：每隔} \; \frac{2 ms}{128}= 15.625 \mu s \; \text{刷新一行（每次占用} \; \text{1} \; \text{个存取周期）} \\
+&\text{集中刷新：} \; \text{2 ms} \; \text{末尾连续用} \; 128 \times 0.5 \mu s= 64 \mu s \; \text{刷新} \; \to \; \text{这段时间} \; \text{CPU} \; \text{不能访存（死区）} \\
+&\text{分散刷新：每个存取周期都附带一次刷新，存取周期变为} \; 1 \mu s \; \text{，无死区但整体变慢}
+\end{aligned}
 $$
 :::
 
@@ -550,14 +550,14 @@ CPU 给出主存地址 → 由地址中的 index 定位 Cache 行/组 → 比较
 
 ::: tip 工作示例 · 教材风格：64 KB Cache、块 128 B、直接映射、32 位主存地址
 $$
-\begin{gathered}
-\text{块内偏移} \; = \log_{2}128= 7 bit \\
-\text{行数} \; = \frac{64 KB}{128 B}= 512= 2^{9} \to \; \text{行号} \; \text{index = 9 bit} \\
-Tag= 32- 9- 7= 16 bit \\
-\text{每行另有} \; \text{1} \; \text{位有效位（写回法还要} \; \text{1} \; \text{位脏位）} \\
-\text{附加硬件（仅标记阵列）} \; = 512 \times(16+ 1) bit= 8704 bit= 1088 B \\
-\text{若改为} \; \text{4} \; \text{路组相联：组数} \; = \frac{512}{4}= 128 \to \; \text{组号} \; \text{7 bit} \; \text{，} \; Tag= 32- 7- 7= 18 bit
-\end{gathered}
+\begin{aligned}
+&\text{块内偏移} \; = \log_{2}128= 7 bit \\
+&\text{行数} \; = \frac{64 KB}{128 B}= 512= 2^{9} \to \; \text{行号} \; \text{index = 9 bit} \\
+&Tag= 32- 9- 7= 16 bit \\
+&\text{每行另有} \; \text{1} \; \text{位有效位（写回法还要} \; \text{1} \; \text{位脏位）} \\
+&\text{附加硬件（仅标记阵列）} \; = 512 \times(16+ 1) bit= 8704 bit= 1088 B \\
+&\text{若改为} \; \text{4} \; \text{路组相联：组数} \; = \frac{512}{4}= 128 \to \; \text{组号} \; \text{7 bit} \; \text{，} \; Tag= 32- 7- 7= 18 bit
+\end{aligned}
 $$
 :::
 
@@ -589,22 +589,22 @@ $$
 #### 4.4.3 Cache 性能评估（★★★）
 
 $$
-\begin{gathered}
-\text{AMAT =} \; \text{命中时间} \; \text{+} \; \text{缺失率} \; \times \; \text{缺失代价} \\
-\text{CPU} \; \text{时间} \; \text{= (CPU} \; \text{执行时钟数} \; \text{+} \; \text{访存停顿时钟数} \; \text{) ×} \; \text{时钟周期} \\
-\text{访存停顿} \; \text{=} \; \text{指令数} \; \times \; \text{指令缺失率} \; \times \; \text{缺失代价} \; \text{+} \; \text{指令数} \; \times \; \text{访存指令占比} \; \times \; \text{数据缺失率} \; \times \; \text{缺失代价}
-\end{gathered}
+\begin{aligned}
+&\text{AMAT =} \; \text{命中时间} \; \text{+} \; \text{缺失率} \; \times \; \text{缺失代价} \\
+&\text{CPU} \; \text{时间} \; \text{= (CPU} \; \text{执行时钟数} \; \text{+} \; \text{访存停顿时钟数} \; \text{) ×} \; \text{时钟周期} \\
+&\text{访存停顿} \; \text{=} \; \text{指令数} \; \times \; \text{指令缺失率} \; \times \; \text{缺失代价} \; \text{+} \; \text{指令数} \; \times \; \text{访存指令占比} \; \times \; \text{数据缺失率} \; \times \; \text{缺失代价}
+\end{aligned}
 $$
 
 ::: tip 工作示例 · AMAT 与 CPI 综合（必考）
 设理想 `CPI = 2`，指令 Cache 缺失率 `2%`，数据 Cache 缺失率 `5%`，访存指令占全部指令 `30%`，缺失代价均为 `100` 个时钟周期：
 $$
-\begin{gathered}
-\text{每条指令的指令缺失停顿} \; = 2\% \times 100= 2 \; \text{周期} \\
-\text{每条指令的数据缺失停顿} \; = 30\% \times 5\% \times 100= 1.5 \; \text{周期} \\
-\text{实际} \; \text{CPI = 2 + 2 + 1.5 = 5.5} \; \text{（性能约为理想情况的} \; \frac{2}{5.5} \approx 36\% \; \text{）} \\
-\text{若把缺失代价降到} \; 50 \to \; \text{实际} \; \text{CPI = 2 + 1 + 0.75 = 3.75}
-\end{gathered}
+\begin{aligned}
+&\text{每条指令的指令缺失停顿} \; = 2\% \times 100= 2 \; \text{周期} \\
+&\text{每条指令的数据缺失停顿} \; = 30\% \times 5\% \times 100= 1.5 \; \text{周期} \\
+&\text{实际} \; \text{CPI = 2 + 2 + 1.5 = 5.5} \; \text{（性能约为理想情况的} \; \frac{2}{5.5} \approx 36\% \; \text{）} \\
+&\text{若把缺失代价降到} \; 50 \to \; \text{实际} \; \text{CPI = 2 + 1 + 0.75 = 3.75}
+\end{aligned}
 $$
 另：L1 命中 `1 ns`、L1 缺失率 `5%`、L2 命中 `10 ns`、L2 缺失率 `20%`、主存 `100 ns`：
 $$
@@ -642,22 +642,22 @@ $$
 ::: tip 工作示例 · 页表容量与地址变换
 `32 位`虚拟地址、页大小 `4 KB`、物理内存 `256 MB`、PTE `4 B`：
 $$
-\begin{gathered}
-\text{页内偏移} \; = \log_{2}4096= 12 bit \; \text{；} \; VPN= 32- 12= 20 bit \; \text{；} \; PFN= 28- 12= 16 bit \\
-\text{单级页表} \; = 2^{20} \; \text{项} \; \times 4 B= 4 MB \; \text{（每个进程都要一份，太浪费）} \\
-\text{两级页表：} \; \text{VA =} \; \text{页目录号} \; \text{(10) |} \; \text{页表号} \; \text{(10) | offset(12)} \; \text{，只为用到的二级页表分配内存} \\
-VA= 0x12345678 \to VPN= 0x12345 \; \text{，} \; \text{offset = 0x678} \; \text{；若} \; PFN= 0xABCD \to PA= 0xABCD678
-\end{gathered}
+\begin{aligned}
+&\text{页内偏移} \; = \log_{2}4096= 12 bit \; \text{；} \; VPN= 32- 12= 20 bit \; \text{；} \; PFN= 28- 12= 16 bit \\
+&\text{单级页表} \; = 2^{20} \; \text{项} \; \times 4 B= 4 MB \; \text{（每个进程都要一份，太浪费）} \\
+&\text{两级页表：} \; \text{VA =} \; \text{页目录号} \; \text{(10) |} \; \text{页表号} \; \text{(10) | offset(12)} \; \text{，只为用到的二级页表分配内存} \\
+&VA= 0x12345678 \to VPN= 0x12345 \; \text{，} \; \text{offset = 0x678} \; \text{；若} \; PFN= 0xABCD \to PA= 0xABCD678
+\end{aligned}
 $$
 :::
 
 ::: tip 工作示例 · 有效访问时间（含缺页）
 设页表访存 `100 ns`、TLB 命中 `10 ns`（命中率 98%）、缺页率 `p = 0.001`、缺页处理 `10 ms`：
 $$
-\begin{gathered}
-\text{无缺页时的平均访存} \; \approx 0.98 \times 10+ 0.02 \times(10+ 100)= 9.8+ 2.2= 12 ns \\
-\text{计入缺页：} \; EAT \approx(1- p) \times 12 ns+ p \times 10 ms \approx 10 \mu s \; \text{（主要由缺页项主导）}
-\end{gathered}
+\begin{aligned}
+&\text{无缺页时的平均访存} \; \approx 0.98 \times 10+ 0.02 \times(10+ 100)= 9.8+ 2.2= 12 ns \\
+&\text{计入缺页：} \; EAT \approx(1- p) \times 12 ns+ p \times 10 ms \approx 10 \mu s \; \text{（主要由缺页项主导）}
+\end{aligned}
 $$
 结论：缺页率必须极低，否则磁盘访问会吞掉所有 CPU 性能——这靠程序局部性、合理的页面置换（LRU/Clock）与足够的驻留集保证。
 :::
@@ -694,12 +694,12 @@ $$
 ::: tip 工作示例 · 多级 Cache 综合
 理想 CPI = 1.5，L1 命中时间 1 周期、L1 缺失率 8%，L2 命中时间 10 周期、L2 缺失率（相对 L1 缺失）25%，主存缺失代价 120 周期，访存指令占 35%：
 $$
-\begin{gathered}
-\text{L1} \; \text{缺失代价} \; = 10+ 0.25 \times 120= 40 \; \text{周期} \\
-\text{每条指令的平均访存停顿（按一次取指} \; \text{+} \; \text{部分数据访问估算）} \\
-\approx 1 \times 0.08 \times 40+ 0.35 \times 0.08 \times 40= 3.2+ 1.12= 4.32 \; \text{周期} \\
-\text{实际} \; CPI \approx 1.5+ 4.32= 5.82 \to \; \text{存储层次是性能瓶颈，优化数据布局} \; \text{/} \; \text{局部性收益最大}
-\end{gathered}
+\begin{aligned}
+&\text{L1} \; \text{缺失代价} \; = 10+ 0.25 \times 120= 40 \; \text{周期} \\
+&\text{每条指令的平均访存停顿（按一次取指} \; \text{+} \; \text{部分数据访问估算）} \\
+&\approx 1 \times 0.08 \times 40+ 0.35 \times 0.08 \times 40= 3.2+ 1.12= 4.32 \; \text{周期} \\
+&\text{实际} \; CPI \approx 1.5+ 4.32= 5.82 \to \; \text{存储层次是性能瓶颈，优化数据布局} \; \text{/} \; \text{局部性收益最大}
+\end{aligned}
 $$
 :::
 
@@ -767,13 +767,13 @@ $$
 
 ::: tip 工作示例 · EA 演算
 $$
-\begin{gathered}
-\text{(1)} \; \text{相对转移：当前指令地址} \; \text{0x1000} \; \text{、指令长} \; \text{4 B} \; \text{、位移量} \; - 3 \; \text{（以「字」为单位，字长} \; \text{4 B} \; \text{）} \\
-\text{取指后} \; PC= 0x1004 \to EA= 0x1004+(- 3 \times 4)= 0x0FF8 \\
-\text{(2)} \; \text{变址寻址：数组首址} \; \text{A = 0x2000} \; \text{、元素} \; \text{4 B} \; \text{、变址寄存器} \; \text{IX = 4} \\
-EA= 0x2000+ 4 \times 4= 0x2010 \; \text{（第} \; \text{4} \; \text{个元素，从} \; \text{0} \; \text{开始计）} \\
-\text{(3)} \; \text{基址寻址：} \; \text{BR = 0x3000} \; \text{（} \; \text{OS} \; \text{分配的段基址）、指令中} \; A= 0x0500 \to EA= 0x3500
-\end{gathered}
+\begin{aligned}
+&\text{(1)} \; \text{相对转移：当前指令地址} \; \text{0x1000} \; \text{、指令长} \; \text{4 B} \; \text{、位移量} \; - 3 \; \text{（以「字」为单位，字长} \; \text{4 B} \; \text{）} \\
+&\text{取指后} \; PC= 0x1004 \to EA= 0x1004+(- 3 \times 4)= 0x0FF8 \\
+&\text{(2)} \; \text{变址寻址：数组首址} \; \text{A = 0x2000} \; \text{、元素} \; \text{4 B} \; \text{、变址寄存器} \; \text{IX = 4} \\
+&EA= 0x2000+ 4 \times 4= 0x2010 \; \text{（第} \; \text{4} \; \text{个元素，从} \; \text{0} \; \text{开始计）} \\
+&\text{(3)} \; \text{基址寻址：} \; \text{BR = 0x3000} \; \text{（} \; \text{OS} \; \text{分配的段基址）、指令中} \; A= 0x0500 \to EA= 0x3500
+\end{aligned}
 $$
 :::
 
@@ -848,10 +848,10 @@ MIPS 有 32 个 32 位通用寄存器：`$zero`(恒 0)、`$at`、`$v0~$v1`(返�
 #### 5.6.2 工作示例 · 指令数与 CPI 的权衡
 
 $$
-\begin{gathered}
-\text{编译器生成序列} \; \text{S1} \; \text{：} \; \text{100} \; \text{条指令，} \; \text{CPI = 1.0} \; \text{；序列} \; \text{S2} \; \text{：} \; \text{70} \; \text{条指令，} \; \text{CPI = 1.5} \\
-\text{同一主频下：} \; \text{S1} \; \text{时间} \; = 100 \times 1.0= 100 \; \text{周期；} \; \text{S2} \; \text{时间} \; = 70 \times 1.5= 105 \; \text{周期} \; \to S1 \; \text{更快}
-\end{gathered}
+\begin{aligned}
+&\text{编译器生成序列} \; \text{S1} \; \text{：} \; \text{100} \; \text{条指令，} \; \text{CPI = 1.0} \; \text{；序列} \; \text{S2} \; \text{：} \; \text{70} \; \text{条指令，} \; \text{CPI = 1.5} \\
+&\text{同一主频下：} \; \text{S1} \; \text{时间} \; = 100 \times 1.0= 100 \; \text{周期；} \; \text{S2} \; \text{时间} \; = 70 \times 1.5= 105 \; \text{周期} \; \to S1 \; \text{更快}
+\end{aligned}
 $$
 说明：减少指令数（IC）未必更快，若因此增大了 CPI（如更多复杂指令、更多 Cache 缺失），总时间可能反而变长 —— 与第 1 章 $IC \times \dfrac{CPI}{f}$ 的结论一致。
 
@@ -919,11 +919,11 @@ $$
 ::: tip 工作示例 · 时钟周期由最慢指令决定
 设各部件延迟：PC 读出 `2 ns`、指令存储器 `8 ns`、译码与控制 `3 ns`、寄存器堆读 `5 ns`、ALU `8 ns`、数据存储器 `10 ns`、寄存器堆写 `5 ns`：
 $$
-\begin{gathered}
-\text{lw} \; \text{路径} \; = 2+ 8+ 3+ 5+ 8+ 10+ 5= 41 ns \to \; \text{时钟周期至少} \; \text{41 ns} \; \text{（主频} \; \le \; \text{约} \; \text{24 MHz} \; \text{）} \\
-\text{R} \; \text{型} \; add= 2+ 8+ 3+ 5+ 8+ 5= 31 ns \to \; \text{但仍需等满} \; \text{41 ns} \; \text{，浪费} \; \text{10 ns} \\
-beq \approx 2+ 8+ 3+ 5+ 8= 26 ns \to \; \text{浪费更多}
-\end{gathered}
+\begin{aligned}
+&\text{lw} \; \text{路径} \; = 2+ 8+ 3+ 5+ 8+ 10+ 5= 41 ns \to \; \text{时钟周期至少} \; \text{41 ns} \; \text{（主频} \; \le \; \text{约} \; \text{24 MHz} \; \text{）} \\
+&\text{R} \; \text{型} \; add= 2+ 8+ 3+ 5+ 8+ 5= 31 ns \to \; \text{但仍需等满} \; \text{41 ns} \; \text{，浪费} \; \text{10 ns} \\
+&beq \approx 2+ 8+ 3+ 5+ 8= 26 ns \to \; \text{浪费更多}
+\end{aligned}
 $$
 结论：单周期设计硬件简单、CPI=1，但**所有指令都被最慢者拖慢**；这正是引入多周期与流水线的动机。
 :::
@@ -971,10 +971,10 @@ $$
 ::: tip 工作示例 · 微程序条数与控存容量
 某机器有 `64` 条机器指令，每条平均 `4` 条微指令，微指令字长 `32 bit`：
 $$
-\begin{gathered}
-\text{微指令总数} \; = 64 \times 4= 256 \; \text{条} \; \to \; \text{需} \; \text{8} \; \text{位微地址} \\
-\text{控存容量} \; = 256 \times 32 bit= 8192 bit= 1 KB
-\end{gathered}
+\begin{aligned}
+&\text{微指令总数} \; = 64 \times 4= 256 \; \text{条} \; \to \; \text{需} \; \text{8} \; \text{位微地址} \\
+&\text{控存容量} \; = 256 \times 32 bit= 8192 bit= 1 KB
+\end{aligned}
 $$
 :::
 
@@ -995,10 +995,10 @@ $$
 #### 6.7.1 设计方法演进
 
 $$
-\begin{gathered}
-\text{IAS} \; \text{简单} \; CPU \to \; \text{总线式} \; CPU \to \; \text{单周期} \; CPU \to \; \text{多周期} \; CPU \to \; \text{基本流水线} \; \text{CPU} \\
-\to \; \text{动态超标量超流水线} \; \text{CPU} \; \text{（} \; \text{Pentium 4} \; \text{为例）}
-\end{gathered}
+\begin{aligned}
+&\text{IAS} \; \text{简单} \; CPU \to \; \text{总线式} \; CPU \to \; \text{单周期} \; CPU \to \; \text{多周期} \; CPU \to \; \text{基本流水线} \; \text{CPU} \\
+&\to \; \text{动态超标量超流水线} \; \text{CPU} \; \text{（} \; \text{Pentium 4} \; \text{为例）}
+\end{aligned}
 $$
 每前进一步都在解决上一步的瓶颈：单周期被最慢指令拖累 → 多周期复用部件、缩短周期 → 流水线让多条指令重叠 → 多发射/乱序进一步挖掘指令级并行 ILP。
 
@@ -1016,12 +1016,12 @@ $$
 ::: tip 工作示例 · 多周期 CPI
 某程序指令混合：`40%` ALU（4 周期）、`25%` lw（5 周期）、`15%` sw（4 周期）、`20%` beq（3 周期）：
 $$
-\begin{gathered}
-\text{平均} \; CPI= 0.40 \times 4+ 0.25 \times 5+ 0.15 \times 4+ 0.20 \times 3= 1.6+ 1.25+ 0.6+ 0.6= 4.05 \\
-\text{若时钟周期从单周期的} \; \text{41 ns} \; \text{降到} \; \text{12 ns} \; \text{：} \\
-\text{单周期} \; \text{时间} \; = IC \times 1 \times 41 \; \text{；多周期} \; \text{时间} \; = IC \times 4.05 \times 12= 48.6 IC \to \; \text{反而略慢} \\
-\text{把周期再降到} \; 8 ns \to 32.4 IC \; \text{，才体现出多周期优势}
-\end{gathered}
+\begin{aligned}
+&\text{平均} \; CPI= 0.40 \times 4+ 0.25 \times 5+ 0.15 \times 4+ 0.20 \times 3= 1.6+ 1.25+ 0.6+ 0.6= 4.05 \\
+&\text{若时钟周期从单周期的} \; \text{41 ns} \; \text{降到} \; \text{12 ns} \; \text{：} \\
+&\text{单周期} \; \text{时间} \; = IC \times 1 \times 41 \; \text{；多周期} \; \text{时间} \; = IC \times 4.05 \times 12= 48.6 IC \to \; \text{反而略慢} \\
+&\text{把周期再降到} \; 8 ns \to 32.4 IC \; \text{，才体现出多周期优势}
+\end{aligned}
 $$
 说明：多周期必须让**时钟周期显著缩短**（各阶段延迟尽量均衡）才有收益。
 :::
@@ -1050,31 +1050,31 @@ $$
 设 `k` 个流水段、每段 1 个时钟周期 `t`、共 `n` 条指令（理想无冒险）：
 
 $$
-\begin{gathered}
-\text{非流水时间} \; T_{\text{非}} = n \cdot k \cdot t \\
-\text{流水时间} \; T_{\text{流}} =(k+ n- 1) \cdot t \; \text{（首条填满流水线需} \; k \; \text{拍，之后每拍流出} \; 1 \; \text{条）} \\
-\text{加速比} \; S= \frac{T_{\text{非}}}{T_{\text{流}}} = \frac{n \cdot k}{k+ n- 1} \xrightarrow{n \to \infty} k \\
-\text{吞吐率} \; TP= \frac{n}{(k+n- 1) \cdot t} \; \text{，最大} \; TP_{\max}= \frac{1}{t} \\
-\text{效率} \; E= \frac{S}{k}= \frac{n}{k+n- 1} \; \text{（时空图中被占用的面积占比）}
-\end{gathered}
+\begin{aligned}
+&\text{非流水时间} \; T_{\text{非}} = n \cdot k \cdot t \\
+&\text{流水时间} \; T_{\text{流}} =(k+ n- 1) \cdot t \; \text{（首条填满流水线需} \; k \; \text{拍，之后每拍流出} \; 1 \; \text{条）} \\
+&\text{加速比} \; S= \frac{T_{\text{非}}}{T_{\text{流}}} = \frac{n \cdot k}{k+ n- 1} \xrightarrow{n \to \infty} k \\
+&\text{吞吐率} \; TP= \frac{n}{(k+n- 1) \cdot t} \; \text{，最大} \; TP_{\max}= \frac{1}{t} \\
+&\text{效率} \; E= \frac{S}{k}= \frac{n}{k+n- 1} \; \text{（时空图中被占用的面积占比）}
+\end{aligned}
 $$
 
 ::: tip 工作示例 · 理想加速比
 `k = 5`、`n = 100` 条指令、每段 `1 ns`：
 $$
-\begin{gathered}
-T_{\text{非}} = 100 \times 5 \times 1= 500\,\text{ns} \\
-T_{\text{流}} =(5+ 100- 1) \times 1= 104\,\text{ns} \\
-S= \frac{500}{104} \approx 4.81 \; \text{（理论上限} \; \text{5} \; \text{，} \; \text{n} \; \text{越大越接近）}
-\end{gathered}
+\begin{aligned}
+&T_{\text{非}} = 100 \times 5 \times 1= 500\,\text{ns} \\
+&T_{\text{流}} =(5+ 100- 1) \times 1= 104\,\text{ns} \\
+&S= \frac{500}{104} \approx 4.81 \; \text{（理论上限} \; \text{5} \; \text{，} \; \text{n} \; \text{越大越接近）}
+\end{aligned}
 $$
 若各段时间不等：`IF 2 / ID 1 / EX 2 / MEM 2 / WB 1 ns`，锁存器开销 `0.5 ns`：
 $$
-\begin{gathered}
-\text{时钟周期} \; \text{= max(} \; \text{各段} \; \text{) +} \; \text{锁存} \; \text{= 2 + 0.5 = 2.5 ns} \\
-\text{非流水单条} \; = 2+1+2+2+1= 8 ns \to 100 \; \text{条} \; \text{= 800 ns} \\
-\text{流水} \; =(5+ 100- 1) \times 2.5= 260 ns \to S \approx 3.08
-\end{gathered}
+\begin{aligned}
+&\text{时钟周期} \; \text{= max(} \; \text{各段} \; \text{) +} \; \text{锁存} \; \text{= 2 + 0.5 = 2.5 ns} \\
+&\text{非流水单条} \; = 2+1+2+2+1= 8 ns \to 100 \; \text{条} \; \text{= 800 ns} \\
+&\text{流水} \; =(5+ 100- 1) \times 2.5= 260 ns \to S \approx 3.08
+\end{aligned}
 $$
 结论：**各段不均衡 + 寄存器开销 + 冒险停顿**使实际加速比明显低于段数 k；单纯增加段数（超流水线）会因锁存开销与冒险惩罚而收益递减。
 :::
@@ -1109,11 +1109,11 @@ I2 的 EX 需要新 `$t0`，而 I1 的结果在 EX 结束时已算出（写回�
 ::: tip 工作示例 · 分支预测对 CPI 的影响
 设分支指令占 `20%`、预测准确率 `90%`、预测失败惩罚 `3` 个时钟周期：
 $$
-\begin{gathered}
-\text{平均控制停顿} \; = 0.20 \times(1- 0.90) \times 3= 0.06 \; \text{周期} \; \text{/} \; \text{指令} \\
-\text{若理想} \; \text{CPI = 1} \; \text{且无其它冒险} \; \to \; \text{实际} \; \text{CPI = 1 + 0.06 = 1.06} \\
-\text{若准确率降到} \; 70\% \to \; \text{停顿} \; = 0.20 \times 0.30 \times 3= 0.18 \to CPI= 1.18
-\end{gathered}
+\begin{aligned}
+&\text{平均控制停顿} \; = 0.20 \times(1- 0.90) \times 3= 0.06 \; \text{周期} \; \text{/} \; \text{指令} \\
+&\text{若理想} \; \text{CPI = 1} \; \text{且无其它冒险} \; \to \; \text{实际} \; \text{CPI = 1 + 0.06 = 1.06} \\
+&\text{若准确率降到} \; 70\% \to \; \text{停顿} \; = 0.20 \times 0.30 \times 3= 0.18 \to CPI= 1.18
+\end{aligned}
 $$
 在深流水线（如教材提到的 Pentium 4 达 20+ 级）中失败惩罚可达十几~几十周期，**分支预测准确率的权重极大**。
 :::
@@ -1135,21 +1135,21 @@ $$
 #### 7.5.1 实际 CPI 的构成
 
 $$
-\begin{gathered}
-\text{实际} \; \text{CPI =} \; \text{理想} \; \text{CPI +} \; \text{结构冒险停顿} \; \text{+} \; \text{数据冒险停顿} \; \text{+} \; \text{控制冒险停顿} \; \text{+} \; \text{存储缺失停顿} \\
-\text{CPU} \; \text{时间} \; \text{=} \; \text{指令数} \; \times \; \text{实际} \; CPI \times \; \text{时钟周期}
-\end{gathered}
+\begin{aligned}
+&\text{实际} \; \text{CPI =} \; \text{理想} \; \text{CPI +} \; \text{结构冒险停顿} \; \text{+} \; \text{数据冒险停顿} \; \text{+} \; \text{控制冒险停顿} \; \text{+} \; \text{存储缺失停顿} \\
+&\text{CPU} \; \text{时间} \; \text{=} \; \text{指令数} \; \times \; \text{实际} \; CPI \times \; \text{时钟周期}
+\end{aligned}
 $$
 
 ::: tip 工作示例 · 综合 CPI
 某 5 级流水线：理想 CPI = 1；`lw` 占 25%，其中 `Load-Use` 冲突占 `lw` 的 40%（每次停顿 1 拍）；分支占 15%，预测失败率 20%（惩罚 3 拍）；指令 Cache 缺失率 2%（缺失代价 20 拍）：
 $$
-\begin{gathered}
-\text{Load-Use} \; \text{停顿} \; = 0.25 \times 0.40 \times 1= 0.10 \; \text{周期} \; \text{/} \; \text{指令} \\
-\text{分支停顿} \; = 0.15 \times 0.20 \times 3= 0.09 \; \text{周期} \; \text{/} \; \text{指令} \\
-\text{取指缺失停顿} \; = 0.02 \times 20= 0.40 \; \text{周期} \; \text{/} \; \text{指令} \\
-\text{实际} \; \text{CPI = 1 + 0.10 + 0.09 + 0.40 = 1.59}
-\end{gathered}
+\begin{aligned}
+&\text{Load-Use} \; \text{停顿} \; = 0.25 \times 0.40 \times 1= 0.10 \; \text{周期} \; \text{/} \; \text{指令} \\
+&\text{分支停顿} \; = 0.15 \times 0.20 \times 3= 0.09 \; \text{周期} \; \text{/} \; \text{指令} \\
+&\text{取指缺失停顿} \; = 0.02 \times 20= 0.40 \; \text{周期} \; \text{/} \; \text{指令} \\
+&\text{实际} \; \text{CPI = 1 + 0.10 + 0.09 + 0.40 = 1.59}
+\end{aligned}
 $$
 可见存储缺失往往比冒险更贵，呼应第 4 章的 AMAT 分析。
 :::
@@ -1215,11 +1215,11 @@ $$
 ::: tip 工作示例 · 总线带宽
 同步总线宽 `64 bit`、频率 `100 MHz`、每周期传 1 次：
 $$
-\begin{gathered}
-\text{带宽} \; = \frac{64}{8} \times 100 \times 10^{6}= 8 \times \frac{10^{8} B}{s}= \frac{800 MB}{s} \\
-\text{若采用} \; \text{DDR} \; \text{（上升} \; \text{/} \; \text{下降沿各传一次）} \; \to \; \text{每周期} \; \text{2} \; \text{次} \; \to \frac{1.6 GB}{s} \\
-\text{若改为} \; \text{32 bit} \; \text{、} \; \text{200 MHz} \; \text{、每周期} \; \text{2} \; \text{次} \; \to 4 \times 2 \times 200 \times 10^{6}= \frac{1.6 GB}{s} \; \text{（同等带宽的不同组合）}
-\end{gathered}
+\begin{aligned}
+&\text{带宽} \; = \frac{64}{8} \times 100 \times 10^{6}= 8 \times \frac{10^{8} B}{s}= \frac{800 MB}{s} \\
+&\text{若采用} \; \text{DDR} \; \text{（上升} \; \text{/} \; \text{下降沿各传一次）} \; \to \; \text{每周期} \; \text{2} \; \text{次} \; \to \frac{1.6 GB}{s} \\
+&\text{若改为} \; \text{32 bit} \; \text{、} \; \text{200 MHz} \; \text{、每周期} \; \text{2} \; \text{次} \; \to 4 \times 2 \times 200 \times 10^{6}= \frac{1.6 GB}{s} \; \text{（同等带宽的不同组合）}
+\end{aligned}
 $$
 一次总线事务若要传 `128 B` 数据，64 bit 总线需 $\dfrac{128}{8}= 16$ 个数据周期；若每个事务还有 1 个地址周期，则**有效带宽** = `128 B / (17 周期 × 10 ns) ≈ 753 MB/s`，低于理论峰值。
 :::
@@ -1249,10 +1249,10 @@ $$
 ::: tip 工作示例 · 多主设备争用
 设总线上有 CPU 与一个 DMA 控制器，总线周期 `20 ns`，一次 DMA 传送 `1 KB`（每次占 4 B 数据 + 1 周期地址开销）：
 $$
-\begin{gathered}
-\text{数据周期数} \; = \frac{1024}{4}= 256 \; \text{；总占用} \; \approx 256 \times 2= 512 \; \text{周期（若每次都含地址期）} \\
-\text{占用时间} \; \approx 512 \times 20 ns= 10.24 \mu s \; \text{；期间} \; \text{CPU} \; \text{若需访存，只能靠周期挪用} \; \text{/} \; \text{等待}
-\end{gathered}
+\begin{aligned}
+&\text{数据周期数} \; = \frac{1024}{4}= 256 \; \text{；总占用} \; \approx 256 \times 2= 512 \; \text{周期（若每次都含地址期）} \\
+&\text{占用时间} \; \approx 512 \times 20 ns= 10.24 \mu s \; \text{；期间} \; \text{CPU} \; \text{若需访存，只能靠周期挪用} \; \text{/} \; \text{等待}
+\end{aligned}
 $$
 可见 DMA 虽减少 CPU 干预，但仍与 CPU **争用总线与主存带宽**；这是"周期窃取"名称的由来。
 :::
@@ -1291,11 +1291,11 @@ $$
 ::: tip 工作示例 · 磁盘平均存取时间
 磁盘 `7200 rpm`、平均寻道 `8 ms`、持续传输率 `100 MB/s`、读一个 `4 KB` 块：
 $$
-\begin{gathered}
-\text{平均旋转延迟} \; = \frac{\frac{60 s}{7200}}{2}= 4.167 ms \; \text{（平均转半圈）} \\
-\text{传输时间} \; = \frac{4096 B}{\frac{100 \times 10^{6} B}{s}} \approx 0.041 ms \\
-\text{总存取时间} \; \approx 8+ 4.167+ 0.041+ \; \text{控制器开销} \; \approx 12.2 ms
-\end{gathered}
+\begin{aligned}
+&\text{平均旋转延迟} \; = \frac{\frac{60 s}{7200}}{2}= 4.167 ms \; \text{（平均转半圈）} \\
+&\text{传输时间} \; = \frac{4096 B}{\frac{100 \times 10^{6} B}{s}} \approx 0.041 ms \\
+&\text{总存取时间} \; \approx 8+ 4.167+ 0.041+ \; \text{控制器开销} \; \approx 12.2 ms
+\end{aligned}
 $$
 对比主存约 `50~100 ns`、SSD 约 $50 \sim 100 \mu s$ —— 机械盘的**毫秒级**延迟主要来自机械运动，因此 OS 要做电梯调度、预读与页缓存来减少寻道次数。
 :::
@@ -1347,10 +1347,10 @@ $$
 ::: tip 工作示例 · 中断方式 vs DMA 的 CPU 开销
 某设备以 `100 KB/s` 输入，每次中断传送 `1 B`、中断服务开销 $10 \mu s$：
 $$
-\begin{gathered}
-\text{中断频率} \; = 100 \times 10^{3} \; \text{次} \; s \to CPU \; \text{开销} \; = 100 \times 10^{3} \times 10 \mu s= \frac{1 s}{s} \to CPU \; \text{完全被占满！} \\
-\text{改用} \; \text{DMA} \; \text{：每} \; \text{`1 KB`} \; \text{块中断一次} \; \to \; \text{中断次数} \; \text{= 100} \; \text{次} \; s \to \; \text{开销仅} \; \text{1 ms/s} \; \text{（} \; \text{0.1\%} \; \text{）}
-\end{gathered}
+\begin{aligned}
+&\text{中断频率} \; = 100 \times 10^{3} \; \text{次} \; s \to CPU \; \text{开销} \; = 100 \times 10^{3} \times 10 \mu s= \frac{1 s}{s} \to CPU \; \text{完全被占满！} \\
+&\text{改用} \; \text{DMA} \; \text{：每} \; \text{`1 KB`} \; \text{块中断一次} \; \to \; \text{中断次数} \; \text{= 100} \; \text{次} \; s \to \; \text{开销仅} \; \text{1 ms/s} \; \text{（} \; \text{0.1\%} \; \text{）}
+\end{aligned}
 $$
 这正是高速设备必须用 DMA、且还可在设备侧加缓冲的原因；现代网卡更进一步用**中断合并**与轮询（NAPI/io_uring）减少中断风暴。
 :::
@@ -1358,14 +1358,14 @@ $$
 ### 9.5 中断处理的完整过程（★★★）
 
 $$
-\begin{gathered}
-\text{(1)} \; \text{中断请求：设备置请求触发器} \; \to(2) \; \text{中断判优：硬件排队器} \; \text{/} \; \text{软件查询选出最高优先级} \\
-\text{(3)} \; \text{中断响应：} \; \text{CPU} \; \text{在指令周期末检测，满足「开中断} \; \text{+} \; \text{未被屏蔽} \; \text{+} \; \text{优先级更高」时响应} \\
-\text{(4)} \; \text{保护断点与现场：} \; \text{PC/PSW} \; \text{压栈（或写入} \; \text{EPC} \; \text{），保存通用寄存器} \\
-\text{(5)} \; \text{取中断向量：由中断类型号查向量表} \; \to \; \text{装入服务程序入口} \\
-\text{(6)} \; \text{执行中断服务程序（可嵌套：用屏蔽字允许更高优先级打断）} \\
-\text{(7)} \; \text{恢复现场} \; \to \; \text{开中断} \; \to \; \text{中断返回（} \; \text{RETI} \; \text{）}
-\end{gathered}
+\begin{aligned}
+&\text{(1)} \; \text{中断请求：设备置请求触发器} \; \to(2) \; \text{中断判优：硬件排队器} \; \text{/} \; \text{软件查询选出最高优先级} \\
+&\text{(3)} \; \text{中断响应：} \; \text{CPU} \; \text{在指令周期末检测，满足「开中断} \; \text{+} \; \text{未被屏蔽} \; \text{+} \; \text{优先级更高」时响应} \\
+&\text{(4)} \; \text{保护断点与现场：} \; \text{PC/PSW} \; \text{压栈（或写入} \; \text{EPC} \; \text{），保存通用寄存器} \\
+&\text{(5)} \; \text{取中断向量：由中断类型号查向量表} \; \to \; \text{装入服务程序入口} \\
+&\text{(6)} \; \text{执行中断服务程序（可嵌套：用屏蔽字允许更高优先级打断）} \\
+&\text{(7)} \; \text{恢复现场} \; \to \; \text{开中断} \; \to \; \text{中断返回（} \; \text{RETI} \; \text{）}
+\end{aligned}
 $$
 - **向量中断 vs 非向量中断**：前者由硬件直接给出入口，响应快；后者统一入口后由软件查询中断源。
 - **中断屏蔽字**：每个中断源对应一个屏蔽码，可动态改变实际处理优先级（注意"响应优先级"由硬件排队器固定，"处理优先级"可由屏蔽字调整）。
@@ -1373,23 +1373,23 @@ $$
 ### 9.6 DMA 方式（★★★）
 
 $$
-\begin{gathered}
-\text{(1)} \; \text{预处理：} \; \text{CPU} \; \text{向} \; \text{DMA} \; \text{控制器写入「主存起始地址、传送字数} \; \text{/} \; \text{计数、传送方向、设备地址」并启动设备} \\
-\text{(2)} \; \text{数据传送：} \; \text{DMAC} \; \text{向总线控制器发总线请求} \; \to \; \text{获授权后接管总线，} \\
-\text{在设备与主存之间直接传送一个字} \; \text{/} \; \text{块，每传一个字自动改地址、减计数} \\
-\text{(3)} \; \text{后处理：计数归零} \; \to DMAC \; \text{发中断通知} \; CPU \to CPU \; \text{校验数据、释放缓冲、关闭设备}
-\end{gathered}
+\begin{aligned}
+&\text{(1)} \; \text{预处理：} \; \text{CPU} \; \text{向} \; \text{DMA} \; \text{控制器写入「主存起始地址、传送字数} \; \text{/} \; \text{计数、传送方向、设备地址」并启动设备} \\
+&\text{(2)} \; \text{数据传送：} \; \text{DMAC} \; \text{向总线控制器发总线请求} \; \to \; \text{获授权后接管总线，} \\
+&\text{在设备与主存之间直接传送一个字} \; \text{/} \; \text{块，每传一个字自动改地址、减计数} \\
+&\text{(3)} \; \text{后处理：计数归零} \; \to DMAC \; \text{发中断通知} \; CPU \to CPU \; \text{校验数据、释放缓冲、关闭设备}
+\end{aligned}
 $$
 **CPU 与 DMAC 分时使用主存的三种方式**：停止 CPU 访存（成组传送，CPU 暂停）、**周期挪用/周期窃取**（DMA 挪用空闲总线周期，最常用）、交替分时（按固定时隙划分，无需申请）。
 
 ::: tip 工作示例 · DMA 传送时间
 DMA 传 `1 MB`、总线带宽 `100 MB/s`、预处理 `100` 周期、后处理中断 `200` 周期，CPU 主频 `1 GHz`：
 $$
-\begin{gathered}
-\text{数据传送} \; = \frac{\frac{1 MB}{100 MB}}{s}= 10 ms \\
-\text{CPU} \; \text{开销} \; = \frac{100+ 200}{1 GHz}= 0.3 \mu s \\
-\text{CPU} \; \text{占用率} \; \approx \frac{0.3 \mu s}{10 ms} \approx 0.003\% \; \text{（几乎可忽略，但总线} \; \text{/} \; \text{主存带宽被占用} \; \text{10 ms} \; \text{）}
-\end{gathered}
+\begin{aligned}
+&\text{数据传送} \; = \frac{\frac{1 MB}{100 MB}}{s}= 10 ms \\
+&\text{CPU} \; \text{开销} \; = \frac{100+ 200}{1 GHz}= 0.3 \mu s \\
+&\text{CPU} \; \text{占用率} \; \approx \frac{0.3 \mu s}{10 ms} \approx 0.003\% \; \text{（几乎可忽略，但总线} \; \text{/} \; \text{主存带宽被占用} \; \text{10 ms} \; \text{）}
+\end{aligned}
 $$
 :::
 
@@ -1433,13 +1433,13 @@ $$
 **题目**：程序 P 在机器 M（主频 `2 GHz`）上执行需 `10 s`，共执行 $2 \times 10^{10}$ 条指令。编译器优化后指令数降为 $1.6 \times 10^{10}$，但 CPI 由 `1.0` 升为 `1.2`。① 求优化前后 CPI 与主频验证；② 判断优化是否划算；③ 若其中某模块原占总时间 `30%`、被加速 5 倍，求整体加速比。
 
 $$
-\begin{gathered}
-\text{(1)} \; \text{优化前：} \; \text{CPU} \; \text{时间} \; = IC \times \frac{CPI}{f} \to 2 \times 10^{10} \times \frac{1.0}{2 \times 10^{9}}= 10 s \checkmark \; \text{（与题给一致）} \\
-\text{(2)} \; \text{优化后：时间} \; = 1.6 \times 10^{10} \times \frac{1.2}{2 \times 10^{9}}= 9.6 s \to \; \text{缩短} \; \text{0.4 s} \; \text{（提速约} \; \text{1.04} \; \text{倍），划算} \\
-\text{MIPS} \; \text{前} \; = \frac{f}{CPI \times 10^{6}}= 2000 \; \text{；} \; \text{MIPS} \; \text{后} \; \approx 1667 \to MIPS \; \text{下降但时间更短，再次说明} \; \text{MIPS} \; \text{不可靠} \\
-\text{(3) Amdahl} \; \text{：} \; S= \frac{1}{(1- 0.3)+ \frac{0.3}{5}}= \frac{1}{0.7+0.06} \approx 1.316 \\
-\text{上限} \; = \frac{1}{0.7} \approx 1.43 \; \text{（即使该模块无限快也无法超过）}
-\end{gathered}
+\begin{aligned}
+&\text{(1)} \; \text{优化前：} \; \text{CPU} \; \text{时间} \; = IC \times \frac{CPI}{f} \to 2 \times 10^{10} \times \frac{1.0}{2 \times 10^{9}}= 10 s \checkmark \; \text{（与题给一致）} \\
+&\text{(2)} \; \text{优化后：时间} \; = 1.6 \times 10^{10} \times \frac{1.2}{2 \times 10^{9}}= 9.6 s \to \; \text{缩短} \; \text{0.4 s} \; \text{（提速约} \; \text{1.04} \; \text{倍），划算} \\
+&\text{MIPS} \; \text{前} \; = \frac{f}{CPI \times 10^{6}}= 2000 \; \text{；} \; \text{MIPS} \; \text{后} \; \approx 1667 \to MIPS \; \text{下降但时间更短，再次说明} \; \text{MIPS} \; \text{不可靠} \\
+&\text{(3) Amdahl} \; \text{：} \; S= \frac{1}{(1- 0.3)+ \frac{0.3}{5}}= \frac{1}{0.7+0.06} \approx 1.316 \\
+&\text{上限} \; = \frac{1}{0.7} \approx 1.43 \; \text{（即使该模块无限快也无法超过）}
+\end{aligned}
 $$
 
 ### 综合题 2 · 数据表示双向转换
@@ -1447,15 +1447,15 @@ $$
 **题目**：① 求 $- 37$ 的 8 位原/反/补/移码；② 把 $- 37.25$ 编码为 IEEE 754 单精度并写成十六进制；③ 数据 16 位要配几位海明校验位。
 
 $$
-\begin{gathered}
-(1)+37= 0010 0101 \to \; \text{原码} \; \text{1010 0101} \; \text{；反码} \; \text{1101 1010} \; \text{；补码} \; \text{1101 1011 (0xDB)} \\
-\text{移码} \; \text{=} \; \text{补码符号位取反} \; \text{= 0101 1011 (0x5B)} \\
-(2) 37.25= 100101.01_{2}= 1.0010101_{2} \times 2^{5} \\
-\text{S=1} \; \text{；} \; E= 5+ 127= 132= 1000 0100_{2} \; \text{；} \; \text{M = 0010101} \; \text{后补} \; \text{0} \; \text{到} \; \text{23} \; \text{位} \\
-\text{拼接：} \; \text{1 | 10000100 | 00101010000000000000000} \\
-\text{= 1100 0010 0001 0101 0000 0000 0000 0000 = 0xC2150000} \\
-(3) 2^{k} \ge 16+ k+ 1 \; \text{：} \; k=4 \to 16< 21 \times \; \text{；} \; k=5 \to 32 \ge 22 \checkmark \to \; \text{需} \; \text{5} \; \text{位校验位，总} \; \text{21} \; \text{位}
-\end{gathered}
+\begin{aligned}
+&(1)+37= 0010 0101 \to \; \text{原码} \; \text{1010 0101} \; \text{；反码} \; \text{1101 1010} \; \text{；补码} \; \text{1101 1011 (0xDB)} \\
+&\text{移码} \; \text{=} \; \text{补码符号位取反} \; \text{= 0101 1011 (0x5B)} \\
+&(2) 37.25= 100101.01_{2}= 1.0010101_{2} \times 2^{5} \\
+&\text{S=1} \; \text{；} \; E= 5+ 127= 132= 1000 0100_{2} \; \text{；} \; \text{M = 0010101} \; \text{后补} \; \text{0} \; \text{到} \; \text{23} \; \text{位} \\
+&\text{拼接：} \; \text{1 | 10000100 | 00101010000000000000000} \\
+&\text{= 1100 0010 0001 0101 0000 0000 0000 0000 = 0xC2150000} \\
+&(3) 2^{k} \ge 16+ k+ 1 \; \text{：} \; k=4 \to 16< 21 \times \; \text{；} \; k=5 \to 32 \ge 22 \checkmark \to \; \text{需} \; \text{5} \; \text{位校验位，总} \; \text{21} \; \text{位}
+\end{aligned}
 $$
 
 ### 综合题 3 · 运算与溢出
@@ -1463,15 +1463,15 @@ $$
 **题目**：8 位补码下计算 `100 + 40` 与 $- 100- 40$，判断是否溢出并写出结果；再用 Booth 规则说明 $X=- 3, Y=+5$ 的乘积符号与数值。
 
 $$
-\begin{gathered}
-\text{100 = 0110 0100} \; \text{，} \; 40= 0010 1000 \to \; \text{和} \; = 1000 1100=- 116 \; \text{（应为} \; \text{+140} \; \text{）} \\
-C_{n}= 0 \; \text{（符号位无进位）、} \; C_{n- 1}= 1 \to OV=1 \; \text{，正溢出，结果无效} \\
-- 100= 1001 1100 \; \text{，} \; - 40= 1101 1000 \to \; \text{和} \; = 1 0111 0100 \to 0111 0100=+116 \; \text{（应为} \; - 140 \; \text{）} \\
-C_{n}= 1 \; \text{、} \; C_{n- 1}= 0 \to OV=1 \; \text{，负溢出} \\
-\text{Booth} \; \text{：} \; X=- 3 \; \text{（} \; \text{4} \; \text{位补码} \; \text{1101} \; \text{），} \; \text{Y=+5} \; \text{（} \; \text{0101} \; \text{，末位补} \; 0 \to 01010 \; \text{）} \\
-\text{相邻位从低到高：} \; 10 \to \; \text{减} \; \text{[X]} \; \text{补；} \; 01 \to \; \text{加} \; \text{[X]} \; \text{补；} \; 10 \to \; \text{减} \; \text{[X]} \; \text{补；} \; 01 \to \; \text{加} \; \text{[X]} \; \text{补；最后不移位} \\
-\text{符号} \; \text{=} \; \text{负} \; \text{⊕} \; \text{正} \; \text{=} \; \text{负；数值} \; 3 \times 5= 15 \to \; \text{积} \; =- 15 \; \text{（} \; \text{8} \; \text{位补码} \; \text{1111 0001} \; \text{）}
-\end{gathered}
+\begin{aligned}
+&\text{100 = 0110 0100} \; \text{，} \; 40= 0010 1000 \to \; \text{和} \; = 1000 1100=- 116 \; \text{（应为} \; \text{+140} \; \text{）} \\
+&C_{n}= 0 \; \text{（符号位无进位）、} \; C_{n- 1}= 1 \to OV=1 \; \text{，正溢出，结果无效} \\
+&- 100= 1001 1100 \; \text{，} \; - 40= 1101 1000 \to \; \text{和} \; = 1 0111 0100 \to 0111 0100=+116 \; \text{（应为} \; - 140 \; \text{）} \\
+&C_{n}= 1 \; \text{、} \; C_{n- 1}= 0 \to OV=1 \; \text{，负溢出} \\
+&\text{Booth} \; \text{：} \; X=- 3 \; \text{（} \; \text{4} \; \text{位补码} \; \text{1101} \; \text{），} \; \text{Y=+5} \; \text{（} \; \text{0101} \; \text{，末位补} \; 0 \to 01010 \; \text{）} \\
+&\text{相邻位从低到高：} \; 10 \to \; \text{减} \; \text{[X]} \; \text{补；} \; 01 \to \; \text{加} \; \text{[X]} \; \text{补；} \; 10 \to \; \text{减} \; \text{[X]} \; \text{补；} \; 01 \to \; \text{加} \; \text{[X]} \; \text{补；最后不移位} \\
+&\text{符号} \; \text{=} \; \text{负} \; \text{⊕} \; \text{正} \; \text{=} \; \text{负；数值} \; 3 \times 5= 15 \to \; \text{积} \; =- 15 \; \text{（} \; \text{8} \; \text{位补码} \; \text{1111 0001} \; \text{）}
+\end{aligned}
 $$
 
 ### 综合题 4 · 存储系统联合计算
@@ -1479,14 +1479,14 @@ $$
 **题目**：主存按字节编址、32 位地址；用 `1M×8 位` 芯片构成 `4M×32 位` 主存；Cache 容量 `64 KB`、块 `128 B`、**4 路组相联**；L1 命中 `1 ns`、缺失率 `5%`、L2 命中 `10 ns`、L2 局部缺失率 `20%`、主存 `100 ns`。求：① 芯片数与地址分配；② Cache 组数、Tag 位数；③ AMAT；④ 若理想 CPI=2、缺失代价折算 100 周期、访存指令占 30%，估算实际 CPI。
 
 $$
-\begin{gathered}
-\text{(1)} \; \text{片数} \; =\left(\frac{4M}{1M}\right) \times\left(\frac{32}{8}\right)= 4 \times 4= 16 \; \text{片；地址} \; \text{22} \; \text{位，低} \; \text{20} \; \text{位片内寻址，高} \; \text{2} \; \text{位片选} \\
-\text{(2)} \; \text{块内偏移} \; = \log_{2}128= 7 bit \; \text{；行数} \; = \frac{64 KB}{128 B}= 512 \; \text{；} \; \text{4} \; \text{路} \; \to \; \text{组数} \; = \frac{512}{4}= 128 \to \; \text{组号} \; \text{7 bit} \\
-Tag= 32- 7- 7= 18 bit \; \text{（另需有效位、脏位）} \\
-\text{(3) L1} \; \text{缺失代价} \; = 10+ 0.20 \times 100= 30 ns \to AMAT= 1+ 0.05 \times 30= 2.5 ns \\
-\text{(4)} \; \text{取指缺失停顿} \; = 1 \times 0.05 \times 100= 5 \; \text{；数据缺失停顿} \; = 0.30 \times 0.05 \times 100= 1.5 \\
-\text{实际} \; CPI \approx 2+ 5+ 1.5= 8.5 \to \; \text{存储子系统是主要瓶颈}
-\end{gathered}
+\begin{aligned}
+&\text{(1)} \; \text{片数} \; =\left(\frac{4M}{1M}\right) \times\left(\frac{32}{8}\right)= 4 \times 4= 16 \; \text{片；地址} \; \text{22} \; \text{位，低} \; \text{20} \; \text{位片内寻址，高} \; \text{2} \; \text{位片选} \\
+&\text{(2)} \; \text{块内偏移} \; = \log_{2}128= 7 bit \; \text{；行数} \; = \frac{64 KB}{128 B}= 512 \; \text{；} \; \text{4} \; \text{路} \; \to \; \text{组数} \; = \frac{512}{4}= 128 \to \; \text{组号} \; \text{7 bit} \\
+&Tag= 32- 7- 7= 18 bit \; \text{（另需有效位、脏位）} \\
+&\text{(3) L1} \; \text{缺失代价} \; = 10+ 0.20 \times 100= 30 ns \to AMAT= 1+ 0.05 \times 30= 2.5 ns \\
+&\text{(4)} \; \text{取指缺失停顿} \; = 1 \times 0.05 \times 100= 5 \; \text{；数据缺失停顿} \; = 0.30 \times 0.05 \times 100= 1.5 \\
+&\text{实际} \; CPI \approx 2+ 5+ 1.5= 8.5 \to \; \text{存储子系统是主要瓶颈}
+\end{aligned}
 $$
 
 ### 综合题 5 · 指令、寻址与单周期 CPU
@@ -1494,17 +1494,17 @@ $$
 **题目**：指令字长 16 位、地址码 4 位、扩展操作码；三地址 12 条、二地址 12 条、一地址 12 条，求零地址最多几条。另：PC=`0x0800`（指令长 4 B）、相对转移位移 $- 5$（按字计），求目标地址；最后给出单周期 CPU 的时钟周期估算。
 
 $$
-\begin{gathered}
-\text{(1)} \; \text{按「剩余扩展槽} \; \times 16 \; \text{」逐层递推：} \\
-\text{三地址层：} \; \text{16} \; \text{个} \; \text{OP} \; \text{编码，用} \; \text{12} \; \text{条} \; \to \; \text{剩} \; \text{4} \; \text{个扩展槽} \\
-\text{二地址层：} \; 4 \times 16= 64 \; \text{个可用编码，用} \; \text{12} \; \text{条} \; \to \; \text{剩} \; 64- 12= 52 \; \text{个扩展槽} \\
-\text{一地址层：} \; 52 \times 16= 832 \; \text{个可用编码，用} \; \text{12} \; \text{条} \; \to \; \text{剩} \; 832- 12= 820 \; \text{个扩展槽} \\
-\text{零地址层：} \; 820 \times 16= 13120 \; \text{条（最多）} \\
-\text{对照} \; \text{5.1.2} \; \text{的经典题} \; \text{15/15/15} \; \text{：剩} \; 1 \to 16- 15=1 \to 16- 15=1 \to 1 \times 16= 16 \; \text{条} \; \checkmark \\
-\text{(2)} \; \text{取指后} \; \text{PC = 0x0800 + 4 = 0x0804} \; \text{；目标} \; = 0x0804+(- 5 \times 4)= 0x0804- 0x14= 0x07F0 \\
-\text{(3)} \; \text{单周期时钟周期} \; \text{=} \; \text{最慢指令（} \; \text{lw} \; \text{）路径上所有部件延迟之和；} \\
-\text{若} \; \text{PC 2 + IM 8 +} \; \text{译码} \; \text{3 + RF} \; \text{读} \; \text{5 + ALU 8 + DM 10 + RF} \; \text{写} \; 5= 41 ns \to \; \text{主频上限约} \; \text{24 MHz}
-\end{gathered}
+\begin{aligned}
+&\text{(1)} \; \text{按「剩余扩展槽} \; \times 16 \; \text{」逐层递推：} \\
+&\text{三地址层：} \; \text{16} \; \text{个} \; \text{OP} \; \text{编码，用} \; \text{12} \; \text{条} \; \to \; \text{剩} \; \text{4} \; \text{个扩展槽} \\
+&\text{二地址层：} \; 4 \times 16= 64 \; \text{个可用编码，用} \; \text{12} \; \text{条} \; \to \; \text{剩} \; 64- 12= 52 \; \text{个扩展槽} \\
+&\text{一地址层：} \; 52 \times 16= 832 \; \text{个可用编码，用} \; \text{12} \; \text{条} \; \to \; \text{剩} \; 832- 12= 820 \; \text{个扩展槽} \\
+&\text{零地址层：} \; 820 \times 16= 13120 \; \text{条（最多）} \\
+&\text{对照} \; \text{5.1.2} \; \text{的经典题} \; \text{15/15/15} \; \text{：剩} \; 1 \to 16- 15=1 \to 16- 15=1 \to 1 \times 16= 16 \; \text{条} \; \checkmark \\
+&\text{(2)} \; \text{取指后} \; \text{PC = 0x0800 + 4 = 0x0804} \; \text{；目标} \; = 0x0804+(- 5 \times 4)= 0x0804- 0x14= 0x07F0 \\
+&\text{(3)} \; \text{单周期时钟周期} \; \text{=} \; \text{最慢指令（} \; \text{lw} \; \text{）路径上所有部件延迟之和；} \\
+&\text{若} \; \text{PC 2 + IM 8 +} \; \text{译码} \; \text{3 + RF} \; \text{读} \; \text{5 + ALU 8 + DM 10 + RF} \; \text{写} \; 5= 41 ns \to \; \text{主频上限约} \; \text{24 MHz}
+\end{aligned}
 $$
 
 ### 综合题 6 · 流水线、总线与 I/O 综合
@@ -1512,15 +1512,15 @@ $$
 **题目**：5 级流水线执行 `200` 条指令，每段 `2 ns`、锁存器开销 `0.5 ns`；分支占 `20%`、预测失败率 `10%`、惩罚 `3` 拍；另有 64 bit / 100 MHz 总线以 DMA 方式传 `2 MB`（每周期 1 次）。求：① 时钟周期与理想流水时间；② 含分支停顿的实际 CPI 与总时间；③ 总线带宽与 DMA 传送时间。
 
 $$
-\begin{gathered}
-\text{(1)} \; \text{时钟周期} \; \text{= 2 + 0.5 = 2.5 ns} \\
-\text{理想} \; T_{\text{流}} =(5+ 200- 1) \times 2.5= 204 \times 2.5= 510\,\text{ns} \\
-\text{非流水} \; T= 200 \times 5 \times 2= 2000 ns \to \; \text{理想加速比} \; \approx 3.92 \\
-\text{(2)} \; \text{分支停顿} \; = 0.20 \times 0.10 \times 3= 0.06 \; \text{周期} \; \text{/} \; \text{指令} \; \to \; \text{实际} \; \text{CPI = 1 + 0.06 = 1.06} \\
-\text{总时间} \; \approx 200 \times 1.06 \times 2.5= 530 ns \; \text{（比理想多} \; \text{20 ns} \; \text{）} \\
-\text{(3)} \; \text{带宽} \; = \frac{64}{8} \times 100 \times 10^{6}= \frac{800 MB}{s} \\
-\text{DMA} \; \text{传送} \; 2 MB \to \frac{2}{800 s}= 2.5 ms \; \text{；} \; \text{CPU} \; \text{只在配置与结束中断时介入}
-\end{gathered}
+\begin{aligned}
+&\text{(1)} \; \text{时钟周期} \; \text{= 2 + 0.5 = 2.5 ns} \\
+&\text{理想} \; T_{\text{流}} =(5+ 200- 1) \times 2.5= 204 \times 2.5= 510\,\text{ns} \\
+&\text{非流水} \; T= 200 \times 5 \times 2= 2000 ns \to \; \text{理想加速比} \; \approx 3.92 \\
+&\text{(2)} \; \text{分支停顿} \; = 0.20 \times 0.10 \times 3= 0.06 \; \text{周期} \; \text{/} \; \text{指令} \; \to \; \text{实际} \; \text{CPI = 1 + 0.06 = 1.06} \\
+&\text{总时间} \; \approx 200 \times 1.06 \times 2.5= 530 ns \; \text{（比理想多} \; \text{20 ns} \; \text{）} \\
+&\text{(3)} \; \text{带宽} \; = \frac{64}{8} \times 100 \times 10^{6}= \frac{800 MB}{s} \\
+&\text{DMA} \; \text{传送} \; 2 MB \to \frac{2}{800 s}= 2.5 ms \; \text{；} \; \text{CPU} \; \text{只在配置与结束中断时介入}
+\end{aligned}
 $$
 
 ::: tip 解题模板

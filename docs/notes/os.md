@@ -370,27 +370,27 @@ $R_{C}= \dfrac{5+4}{4}= 2.25$，$R_{D}= \dfrac{3+5}{5}= 1.60$，$R_{E}= \dfrac{1
 **④ RR**：另取 `P1(0,4) P2(1,3) P3(2,2)`，时间片 `q=2`（新到达者先入队，用完时间片者再排到队尾）：
 
 $$
-\begin{gathered}
-\text{q=2:  P1[0-2] P2[2-4] P3[4-6] P1[6-8] P2[8-9]} \\
-\text{完成} \; \text{: P3=6  P1=8  P2=9} \\
-\text{周转} \; \text{: P1=8  P2=8  P3=4} \; \text{平均} \; \text{6.67} \; \text{平均带权} \; \frac{2+2.67+2}{3}= 2.22 \\
-q=1: P1 P2 P1 P3 P2 P1 P3 P2 P1 \to \; \text{完成} \; \text{P3=7 P2=8 P1=9} \; \text{，平均周转} \; \text{7.00} \\
-q=4: P1[0-4] P2[4-7] P3[7-9] \to \; \text{完成} \; \text{P1=4 P2=7 P3=9} \; \text{，平均周转} \; \text{5.67} \; \text{（已退化为} \; \text{FCFS} \; \text{）}
-\end{gathered}
+\begin{aligned}
+&\text{q=2:  P1[0-2] P2[2-4] P3[4-6] P1[6-8] P2[8-9]} \\
+&\text{完成} \; \text{: P3=6  P1=8  P2=9} \\
+&\text{周转} \; \text{: P1=8  P2=8  P3=4} \; \text{平均} \; \text{6.67} \; \text{平均带权} \; \frac{2+2.67+2}{3}= 2.22 \\
+&q=1: P1 P2 P1 P3 P2 P1 P3 P2 P1 \to \; \text{完成} \; \text{P3=7 P2=8 P1=9} \; \text{，平均周转} \; \text{7.00} \\
+&q=4: P1[0-4] P2[4-7] P3[7-9] \to \; \text{完成} \; \text{P1=4 P2=7 P3=9} \; \text{，平均周转} \; \text{5.67} \; \text{（已退化为} \; \text{FCFS} \; \text{）}
+\end{aligned}
 $$
 
 ::: tip 工作示例 · 抢占式 SJF（SRTF）手算
 仍用 `A(0,3) B(2,6) C(4,4) D(6,5) E(8,2)`，规则：**新进程到达时比较"剩余服务时间"，更短者抢占**。
 $$
-\begin{gathered}
-\text{t=0  A(3)} \; \text{运行} \\
-\text{t=2  B} \; \text{到达} \; \text{(6)} \; \text{，} \; \text{A} \; \text{剩} \; 1< 6 \to A \; \text{继续} \\
-\text{t=3  A} \; \text{完成；只剩} \; B \to B \; \text{运行} \\
-\text{t=4  C} \; \text{到达} \; \text{(4) < B} \; \text{剩} \; 5 \to C \; \text{抢占} \\
-\text{t=6  D} \; \text{到达} \; \text{(5)} \; \text{，} \; \text{C} \; \text{剩} \; \text{2} \; \text{最短} \; \to C \; \text{继续} \\
-\text{t=8  E} \; \text{到达} \; \text{(2) < C? C} \; \text{已完成于} \; \text{t=8} \; \text{；比较} \; \text{E(2)} \; \text{、} \; \text{B(5)} \; \text{、} \; D(5) \to E \; \text{运行} \\
-\text{t=10 E} \; \text{完成；} \; \text{B(5)=D(5)} \; \text{平局，先到者优先} \; \to B(10-15) \to D(15-20)
-\end{gathered}
+\begin{aligned}
+&\text{t=0  A(3)} \; \text{运行} \\
+&\text{t=2  B} \; \text{到达} \; \text{(6)} \; \text{，} \; \text{A} \; \text{剩} \; 1< 6 \to A \; \text{继续} \\
+&\text{t=3  A} \; \text{完成；只剩} \; B \to B \; \text{运行} \\
+&\text{t=4  C} \; \text{到达} \; \text{(4) < B} \; \text{剩} \; 5 \to C \; \text{抢占} \\
+&\text{t=6  D} \; \text{到达} \; \text{(5)} \; \text{，} \; \text{C} \; \text{剩} \; \text{2} \; \text{最短} \; \to C \; \text{继续} \\
+&\text{t=8  E} \; \text{到达} \; \text{(2) < C? C} \; \text{已完成于} \; \text{t=8} \; \text{；比较} \; \text{E(2)} \; \text{、} \; \text{B(5)} \; \text{、} \; D(5) \to E \; \text{运行} \\
+&\text{t=10 E} \; \text{完成；} \; \text{B(5)=D(5)} \; \text{平局，先到者优先} \; \to B(10-15) \to D(15-20)
+\end{aligned}
 $$
 | 进程 | 完成 | 周转 T | 带权 W |
 | --- | --- | --- | --- |
@@ -714,12 +714,12 @@ void philosopher(int i) {
 设页大小 `L = 1 KB = 1024 B`，页表：$0 \to 2, 1 \to 3, 2 \to 8$，求逻辑地址 `A = 2500` 的物理地址。
 
 $$
-\begin{gathered}
-p= \frac{2500}{1024}= 2 \; \text{（整除）} \\
-\text{d = 2500 mod 1024 = 452} \\
-\text{查页表：第} \; \text{2} \; \text{页} \; \to \; \text{第} \; \text{8} \; \text{块} \\
-\text{物理地址} \; = 8 \times 1024+ 452= 8192+ 452= 8644
-\end{gathered}
+\begin{aligned}
+&p= \frac{2500}{1024}= 2 \; \text{（整除）} \\
+&\text{d = 2500 mod 1024 = 452} \\
+&\text{查页表：第} \; \text{2} \; \text{页} \; \to \; \text{第} \; \text{8} \; \text{块} \\
+&\text{物理地址} \; = 8 \times 1024+ 452= 8192+ 452= 8644
+\end{aligned}
 $$
 **二进制快算法**（页大小 2^10，故低 10 位就是页内地址）：
 $2500= 10 0111000100_{2}$ → 高 2 位 $10_{2}= 2$ 为页号，低 10 位 $0111000100_{2}= 452$ 为偏移；块号 $8= 1000_{2}$，拼接得 $1000 0111000100_{2}= 8644$。**只要把页号替换成块号，低位原样保留**——这是分页与分段最大的区别（分段要「段基址 + 段内偏移」做加法）。
@@ -736,12 +736,12 @@ $2500= 10 0111000100_{2}$ → 高 2 位 $10_{2}= 2$ 为页号，低 10 位 $0111
 **快表 TLB 与有效访问时间 EAT**（设查 TLB `t = 20 ns`，一次访存 `ma = 100 ns`，命中率 $\lambda= 90\%$）：
 
 $$
-\begin{gathered}
-\text{命中} \; \text{: t + ma = 20 + 100 = 120 ns} \; \text{（查} \; \text{TLB} \; \text{得块号} \; \to \; \text{直接访存取数据）} \\
-\text{未命中} \; \text{: t + ma(} \; \text{查页表} \; \text{) + ma(} \; \text{取数据} \; \text{) = 20 + 200 = 220 ns} \\
-EAT= 0.9 \times 120+ 0.1 \times 220= 108+ 22= 130 ns \\
-\text{对照} \; \text{:} \; \text{无} \; \text{TLB} \; \text{的分页} \; \text{= 2ma = 200 ns} \; \text{；两级页表无} \; \text{TLB = 3ma = 300 ns}
-\end{gathered}
+\begin{aligned}
+&\text{命中} \; \text{: t + ma = 20 + 100 = 120 ns} \; \text{（查} \; \text{TLB} \; \text{得块号} \; \to \; \text{直接访存取数据）} \\
+&\text{未命中} \; \text{: t + ma(} \; \text{查页表} \; \text{) + ma(} \; \text{取数据} \; \text{) = 20 + 200 = 220 ns} \\
+&EAT= 0.9 \times 120+ 0.1 \times 220= 108+ 22= 130 ns \\
+&\text{对照} \; \text{:} \; \text{无} \; \text{TLB} \; \text{的分页} \; \text{= 2ma = 200 ns} \; \text{；两级页表无} \; \text{TLB = 3ma = 300 ns}
+\end{aligned}
 $$
 若 $\lambda= 98\%$，$EAT= 0.98 \times 120+ 0.02 \times 220= 122 ns$——**命中率几个百分点就决定性能**，这是 TLB 与 ASID（地址空间标识，切换进程时避免整体刷新 TLB）如此重要的原因。
 
@@ -869,12 +869,12 @@ $$
 **缺页率与有效访问时间 EAT**（设 `ma = 100 ns`，缺页处理含磁盘 I/O 约 $10 ms= 10^{7} ns$）：
 
 $$
-\begin{gathered}
-EAT=(1- p) \times ma+ p \times \; \text{缺页处理时间} \\
-p= 0 \to 100 ns \\
-p= 0.001 \to 0.999 \times 100+ 0.001 \times 10^{7} \approx 10 100 ns \; \text{（约} \; \text{100} \; \text{倍）} \\
-p= 0.01 \to 0.99 \times 100+ 0.01 \times 10^{7} \approx 100 099 ns \; \text{（约} \; \text{1000} \; \text{倍）}
-\end{gathered}
+\begin{aligned}
+&EAT=(1- p) \times ma+ p \times \; \text{缺页处理时间} \\
+&p= 0 \to 100 ns \\
+&p= 0.001 \to 0.999 \times 100+ 0.001 \times 10^{7} \approx 10 100 ns \; \text{（约} \; \text{100} \; \text{倍）} \\
+&p= 0.01 \to 0.99 \times 100+ 0.01 \times 10^{7} \approx 100 099 ns \; \text{（约} \; \text{1000} \; \text{倍）}
+\end{aligned}
 $$
 结论：**缺页率哪怕只有 1%，性能也会塌方式下降**——所以虚存可行的前提是程序具有良好的局部性。
 
@@ -994,10 +994,10 @@ Linux 把中断处理分为**上半部（top half，硬中断，关中断、极�
 一次磁盘读写的总时间：
 
 $$
-\begin{gathered}
-\text{Ta = Ts(} \; \text{寻道} \; )+ T\tau( \; \text{平均旋转延迟} \; \text{) + Tt(} \; \text{传输} \; \text{) +} \; \text{控制器} \; \text{/} \; \text{排队开销} \\
-\text{T}\tau \text{ = 1/(2 ×} \; \text{转速} \; \text{)         Tt =} \; \text{传输字节数} \; \text{/} \; \text{传输速率}
-\end{gathered}
+\begin{aligned}
+&\text{Ta = Ts(} \; \text{寻道} \; )+ T\tau( \; \text{平均旋转延迟} \; \text{) + Tt(} \; \text{传输} \; \text{) +} \; \text{控制器} \; \text{/} \; \text{排队开销} \\
+&\text{T}\tau \text{ = 1/(2 ×} \; \text{转速} \; \text{)         Tt =} \; \text{传输字节数} \; \text{/} \; \text{传输速率}
+\end{aligned}
 $$
 
 ::: tip 工作示例 · 单次磁盘访问时间
@@ -1124,13 +1124,13 @@ SSTF 逐段：`10+32+3+16+1+20+132+10+24 = 248`（在 18 处跳到最近的 150�
 盘块 `1 KB`，盘块号占 `4 B` → 一个索引块可存 $\dfrac{1024}{4}= 256$ 个盘块号。
 
 $$
-\begin{gathered}
-\text{直接地址（} \; \text{10} \; \text{项）} \; : 10 \times 1 KB= 10 KB \\
-\text{一级间接} \; : 256 \times 1 KB= 256 KB \\
-\text{二级间接} \; : 256^{2} \times 1 KB= 65 536 KB= 64 MB \\
-\text{三级间接} \; : 256^{3} \times 1 KB= 16 777 216 KB= 16 GB \\
-\text{混合索引总计} \; :(10+ 256+ 65 536+ 16 777 216) \times 1 KB \approx 16 GB
-\end{gathered}
+\begin{aligned}
+&\text{直接地址（} \; \text{10} \; \text{项）} \; : 10 \times 1 KB= 10 KB \\
+&\text{一级间接} \; : 256 \times 1 KB= 256 KB \\
+&\text{二级间接} \; : 256^{2} \times 1 KB= 65 536 KB= 64 MB \\
+&\text{三级间接} \; : 256^{3} \times 1 KB= 16 777 216 KB= 16 GB \\
+&\text{混合索引总计} \; :(10+ 256+ 65 536+ 16 777 216) \times 1 KB \approx 16 GB
+\end{aligned}
 $$
 同理：访问「二级间接中的某块」需 `1(读二级索引) + 1(读一级索引) + 1(读数据) = 3` 次磁盘 I/O；直接地址只需 1 次。**小文件走直接地址**正是性能关键。注意文件最大长度还受**盘块号位数**限制（如 32 位块号 × 1 KB = 4 TB 上限）。
 :::
@@ -1138,10 +1138,10 @@ $$
 ::: tip 工作示例 · FAT 表大小与访问开销
 磁盘 `1 GB`、盘块 `4 KB`、盘块号 `4 B`：
 $$
-\begin{gathered}
-\text{盘块总数} \; = \frac{1 GB}{4 KB}= 2^18= 262 144 \\
-\text{FAT} \; \text{表大小} \; = 2^18 \times 4 B= 1 MB
-\end{gathered}
+\begin{aligned}
+&\text{盘块总数} \; = \frac{1 GB}{4 KB}= 2^18= 262 144 \\
+&\text{FAT} \; \text{表大小} \; = 2^18 \times 4 B= 1 MB
+\end{aligned}
 $$
 FAT **每个盘块对应一个表项**（记录该块所在链的下一块号，末块为结束标志）。FAT 常驻内存时，查链不需读盘，但**文件数据块仍是隐式链接的物理离散块**，随机访问要沿链逐块推算；若 FAT 不驻内存，则每查一次链就多一次读盘。这与索引分配的「一次读索引块即得全部块号」形成对比，是三种组织方式取舍的关键。
 :::
@@ -1160,10 +1160,10 @@ FAT **每个盘块对应一个表项**（记录该块所在链的下一块号，
 设位示图每行 `n = 16` 位、字号 `i` 与位号 `j` 均**从 0 起**：
 
 $$
-\begin{gathered}
-\text{盘块号} \; b= n \times i+ j \; \text{反算} \; \text{i = b / n (} \; \text{整除} \; \text{),  j = b mod n} \\
-\text{例：} \; b= 1025 \to i= 64, j= 1 \; \text{；} \; b= 3000 \to i= 187, j= 8
-\end{gathered}
+\begin{aligned}
+&\text{盘块号} \; b= n \times i+ j \; \text{反算} \; \text{i = b / n (} \; \text{整除} \; \text{),  j = b mod n} \\
+&\text{例：} \; b= 1025 \to i= 64, j= 1 \; \text{；} \; b= 3000 \to i= 187, j= 8
+\end{aligned}
 $$
 若题目约定**从 1 起编号**（字号、位号、盘块号均从 1 开始），公式改为 $b= n(i- 1)+ j$，反算 $i= \dfrac{b- 1}{n}+ 1$、$j=(b- 1) mod n+ 1$。**答题前先确认编号约定**，这是最常见的计算失分点。
 :::
@@ -1414,13 +1414,13 @@ $R1 \to P1$、$R1 \to P2$（分配边），$P1 \to R2$、$P2 \to R1$（请求边
 
 **解**：
 $$
-\begin{gathered}
-(1) 4 KB= 2^12 \to \; \text{页内偏移} \; \text{12} \; \text{位，页号} \; 32- 12= 20 \; \text{位} \\
-\text{(2)} \; \text{页表项数} \; \text{= } 2^{20} \text{ = 1 048 576} \; \text{，大小} \; = 2^20 \times 4 B= 4 MB \; \text{（每进程一份、需连续）} \\
-(3) EAT= 0.95 \times(10+80)+ 0.05 \times(10+80+80)= 85.5+ 8.5= 94 ns \\
-\text{(4)} \; \text{两级页表无快表} \; \text{= 3} \; \text{次访存} \; = 3 \times 80= 240 ns \\
-(5) 0x00001234 \to \; \text{低} \; \text{12} \; \text{位} \; \text{0x234} \; \text{为偏移，高} \; \text{20} \; \text{位} \; \text{0x1} \; \text{为页号（即第} \; \text{1} \; \text{页，偏移} \; \text{564 B} \; \text{）}
-\end{gathered}
+\begin{aligned}
+&(1) 4 KB= 2^12 \to \; \text{页内偏移} \; \text{12} \; \text{位，页号} \; 32- 12= 20 \; \text{位} \\
+&\text{(2)} \; \text{页表项数} \; \text{= } 2^{20} \text{ = 1 048 576} \; \text{，大小} \; = 2^20 \times 4 B= 4 MB \; \text{（每进程一份、需连续）} \\
+&(3) EAT= 0.95 \times(10+80)+ 0.05 \times(10+80+80)= 85.5+ 8.5= 94 ns \\
+&\text{(4)} \; \text{两级页表无快表} \; \text{= 3} \; \text{次访存} \; = 3 \times 80= 240 ns \\
+&(5) 0x00001234 \to \; \text{低} \; \text{12} \; \text{位} \; \text{0x234} \; \text{为偏移，高} \; \text{20} \; \text{位} \; \text{0x1} \; \text{为页号（即第} \; \text{1} \; \text{页，偏移} \; \text{564 B} \; \text{）}
+\end{aligned}
 $$
 **权衡结论**：多级页表把「连续 4 MB」降为「4 KB 外层 + 若干 4 KB 二级」，代价是每次访存多 1 次；**只有配合高命中率 TLB 才划算**（94 ns vs 240 ns）。
 
@@ -1447,11 +1447,11 @@ $$
 | **合计** | **9 次** | **10 次** | **10 次** | **8 次** |
 
 $$
-\begin{gathered}
-\text{Belady} \; \text{异常：} \; \text{FIFO 3} \; \text{块} \; \text{9} \; \text{次} \; \to 4 \; \text{块反而} \; \text{10} \; \text{次} \; \checkmark \; \text{出现；} \; LRU 10 \to 8 \checkmark \; \text{正常} \\
-\text{4} \; \text{块} \; \text{LRU} \; \text{缺页率} \; p= \frac{8}{12} \approx 0.667 \\
-EAT=(1- p) \times 100 ns+ p \times 8 \times 10^6 ns \approx 5.33 \times 10^6 ns \approx 5.33 ms
-\end{gathered}
+\begin{aligned}
+&\text{Belady} \; \text{异常：} \; \text{FIFO 3} \; \text{块} \; \text{9} \; \text{次} \; \to 4 \; \text{块反而} \; \text{10} \; \text{次} \; \checkmark \; \text{出现；} \; LRU 10 \to 8 \checkmark \; \text{正常} \\
+&\text{4} \; \text{块} \; \text{LRU} \; \text{缺页率} \; p= \frac{8}{12} \approx 0.667 \\
+&EAT=(1- p) \times 100 ns+ p \times 8 \times 10^6 ns \approx 5.33 \times 10^6 ns \approx 5.33 ms
+\end{aligned}
 $$
 **结论**：缺页率高达 66.7% 时系统实际已接近**抖动**状态，EAT 比无缺页慢约 5 万倍——此时增加物理块数（或降低多道程序度）比换置换算法更有效。
 
@@ -1469,11 +1469,11 @@ $$
 | C-SCAN | $143 \to 147 \to 150 \to 175 \to 177 \to 199 \to(0) \to 86 \to 91 \to 94 \to 102 \to 130$ | 186 | 20.67 |
 
 $$
-\begin{gathered}
-\text{平均旋转延迟} \; = \frac{\frac{60}{10000}}{2}= 3 ms \\
-\text{传输时间} \; = \frac{\frac{8 KB}{100 MB}}{s} \approx 0.08 ms \\
-\text{单次访问} \; \text{≈ 5 (} \; \text{寻道} \; \text{) + 3 (} \; \text{旋转} \; \text{) + 0.08 (} \; \text{传输} \; \text{) ≈ 8.08 ms}
-\end{gathered}
+\begin{aligned}
+&\text{平均旋转延迟} \; = \frac{\frac{60}{10000}}{2}= 3 ms \\
+&\text{传输时间} \; = \frac{\frac{8 KB}{100 MB}}{s} \approx 0.08 ms \\
+&\text{单次访问} \; \text{≈ 5 (} \; \text{寻道} \; \text{) + 3 (} \; \text{旋转} \; \text{) + 0.08 (} \; \text{传输} \; \text{) ≈ 8.08 ms}
+\end{aligned}
 $$
 **易错**：SSTF 虽总距离最小，但可能在中部磁道"粘着"造成远端饥饿；SCAN/C-SCAN 牺牲总距离换**等待时间上界**。SSD 上无寻道/旋转，本题的调度收益几乎消失。
 
@@ -1483,14 +1483,14 @@ $$
 
 **解**：
 $$
-\begin{gathered}
-(1) k= \frac{4096}{4}= 1024 \; \text{个块号} \\
-(2)(12+ 1024+ 1024^{2}+ 1024^{3}) \times 4 KB \approx 12 \times 4KB+ 4MB+ 4GB+ 4TB \approx 4 TB \\
-\text{(3) inode(} \; \text{常驻} \; \text{/} \; \text{缓存} \; \text{) →} \; \text{三级索引块} \; \to \; \text{二级} \; \to \; \text{一级} \; \to \; \text{数据块：最多} \; \text{4} \; \text{次盘} \; \text{I/O} \\
-\text{(4)} \; \text{盘块数} \; = \frac{512 GB}{4 KB}= 2^27= 134 217 728 \\
-\text{位示图} \; \text{= } 2^{27} \; \text{位} \; \text{= 16 MB} \; \text{，占} \; \frac{16 MB}{4 KB}= 4096 \; \text{个盘块} \\
-\text{(5)} \; \text{每块可放} \; \frac{4096}{32}= 128 \; \text{个目录项} \; \to 4096 \; \text{项需} \; \text{32} \; \text{块} \; \to \; \text{顺序查找平均} \; \frac{32+1}{2}= 16.5 \; \text{块}
-\end{gathered}
+\begin{aligned}
+&(1) k= \frac{4096}{4}= 1024 \; \text{个块号} \\
+&(2)(12+ 1024+ 1024^{2}+ 1024^{3}) \times 4 KB \approx 12 \times 4KB+ 4MB+ 4GB+ 4TB \approx 4 TB \\
+&\text{(3) inode(} \; \text{常驻} \; \text{/} \; \text{缓存} \; \text{) →} \; \text{三级索引块} \; \to \; \text{二级} \; \to \; \text{一级} \; \to \; \text{数据块：最多} \; \text{4} \; \text{次盘} \; \text{I/O} \\
+&\text{(4)} \; \text{盘块数} \; = \frac{512 GB}{4 KB}= 2^27= 134 217 728 \\
+&\text{位示图} \; \text{= } 2^{27} \; \text{位} \; \text{= 16 MB} \; \text{，占} \; \frac{16 MB}{4 KB}= 4096 \; \text{个盘块} \\
+&\text{(5)} \; \text{每块可放} \; \frac{4096}{32}= 128 \; \text{个目录项} \; \to 4096 \; \text{项需} \; \text{32} \; \text{块} \; \to \; \text{顺序查找平均} \; \frac{32+1}{2}= 16.5 \; \text{块}
+\end{aligned}
 $$
 **结论**：`inode 分离 + dentry 缓存 + 目录索引（如 ext4 的 htree / XFS 的 B+ 树）` 正是为了压低 ⑤ 的读盘次数；三级间接让大文件可达 TB 级，但代价是 4 次 I/O，所以现代文件系统用 **extent（连续区段）** 记录大文件以减少间接层数。
 
@@ -1500,12 +1500,12 @@ $$
 
 **解**：
 $$
-\begin{gathered}
-Amdahl: S(N)= \frac{1}{(1- f)+ \frac{f}{N}}= \frac{1}{0.2+ \frac{0.8}{8}}= \frac{1}{0.3} \approx 3.33 \\
-N \to \infty : S \le \frac{1}{1- f}= \frac{1}{0.2}= 5 \; \text{（串行部分} \; \text{20\%} \; \text{决定天花板）} \\
-\text{含} \; \text{10\%} \; \text{并行开销：并行段时间变为} \; \left(\frac{0.8}{8}\right) \times 1.1= 0.11 \\
-S= \frac{1}{0.2+ 0.11} \approx 3.23
-\end{gathered}
+\begin{aligned}
+&Amdahl: S(N)= \frac{1}{(1- f)+ \frac{f}{N}}= \frac{1}{0.2+ \frac{0.8}{8}}= \frac{1}{0.3} \approx 3.33 \\
+&N \to \infty : S \le \frac{1}{1- f}= \frac{1}{0.2}= 5 \; \text{（串行部分} \; \text{20\%} \; \text{决定天花板）} \\
+&\text{含} \; \text{10\%} \; \text{并行开销：并行段时间变为} \; \left(\frac{0.8}{8}\right) \times 1.1= 0.11 \\
+&S= \frac{1}{0.2+ 0.11} \approx 3.23
+\end{aligned}
 $$
 **结论**：加核收益**迅速递减**，且伪共享、锁竞争、NUMA 远端访存都会把 `f/N` 项抬高；工程上要先**减少串行段与共享写**，再考虑加核（Gustafson 定律则从"固定时间、放大问题规模"角度看扩展性）。
 

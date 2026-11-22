@@ -364,12 +364,12 @@ $\int f(x)dx= F(x)+ C \Leftrightarrow F'(x)=f(x)$。**连续函数必有原函�
 
 ::: tip 工作例题 · 三个分部积分
 $$
-\begin{gathered}
-(1) \int x e^{x} dx \; \text{：取} \; u=x, dv=e^{x}dx \Rightarrow x e^{x}- \int e^{x}dx=(x- 1)e^{x}+ C \\
-\text{验算：} \; [(x- 1)e^{x}]'= e^{x}+(x- 1)e^{x}= x e^{x} \checkmark \\
-(2) \int \ln x dx= x \ln x- \int x \cdot\left(\frac{1}{x}\right)dx= x \ln x- x+ C \\
-(3) \int x \cos x dx= x \sin x- \int \sin x dx= x \sin x+ \cos x+ C
-\end{gathered}
+\begin{aligned}
+&(1) \int x e^{x} dx \; \text{：取} \; u=x, dv=e^{x}dx \Rightarrow x e^{x}- \int e^{x}dx=(x- 1)e^{x}+ C \\
+&\text{验算：} \; [(x- 1)e^{x}]'= e^{x}+(x- 1)e^{x}= x e^{x} \checkmark \\
+&(2) \int \ln x dx= x \ln x- \int x \cdot\left(\frac{1}{x}\right)dx= x \ln x- x+ C \\
+&(3) \int x \cos x dx= x \sin x- \int \sin x dx= x \sin x+ \cos x+ C
+\end{aligned}
 $$
 **验算习惯**：对结果求导，看是否回到被积函数（比重新积分快得多）。
 :::
@@ -487,13 +487,13 @@ $$
 
 ::: tip 工作例题 · 三道几何题（已核算）
 $$
-\begin{gathered}
-(1) y=x^{2}(0 \le x \le 1) \; \text{绕} \; \text{x} \; \text{轴：} \; V= \pi \int_{0}^{1}(x^{2})^{2}dx= \pi \int_{0}^{1}x^{4}dx= \frac{\pi}{5} \approx 0.628319 \\
-(2) y=\sin x(0 \le x \le \pi) \; \text{与} \; \text{x} \; \text{轴围成面积：} \; A= \int_{0}^\pi \sin x dx=[- \cos x]_{0}^\pi= 2 \\
-\text{(3)} \; \text{星形线} \; x=a \cos^{3}t, y=a \sin^{3}t \; \text{全长} \; \text{= 6a} \; \text{（} \; \text{a=1} \; \text{时为} \; \text{6} \; \text{）；} \\
-\text{第一象限弧长} \; = \int_{0}^{\frac{\pi}{2}}3a \sin t \cos t dt= \frac{3a}{2} \; \text{，乘} \; \text{4} \; \text{得} \; \text{6a} \\
-\text{(4)} \; \text{抛物线} \; y=x^{2} \; \text{在} \; \text{[0,1]} \; \text{的弧长} \; = \frac{1}{2}[\sqrt{5}+ \frac{1}{2} \ln\left(2+\sqrt{5}\right)]
-\end{gathered}
+\begin{aligned}
+&(1) y=x^{2}(0 \le x \le 1) \; \text{绕} \; \text{x} \; \text{轴：} \; V= \pi \int_{0}^{1}(x^{2})^{2}dx= \pi \int_{0}^{1}x^{4}dx= \frac{\pi}{5} \approx 0.628319 \\
+&(2) y=\sin x(0 \le x \le \pi) \; \text{与} \; \text{x} \; \text{轴围成面积：} \; A= \int_{0}^\pi \sin x dx=[- \cos x]_{0}^\pi= 2 \\
+&\text{(3)} \; \text{星形线} \; x=a \cos^{3}t, y=a \sin^{3}t \; \text{全长} \; \text{= 6a} \; \text{（} \; \text{a=1} \; \text{时为} \; \text{6} \; \text{）；} \\
+&\text{第一象限弧长} \; = \int_{0}^{\frac{\pi}{2}}3a \sin t \cos t dt= \frac{3a}{2} \; \text{，乘} \; \text{4} \; \text{得} \; \text{6a} \\
+&\text{(4)} \; \text{抛物线} \; y=x^{2} \; \text{在} \; \text{[0,1]} \; \text{的弧长} \; = \frac{1}{2}[\sqrt{5}+ \frac{1}{2} \ln\left(2+\sqrt{5}\right)]
+\end{aligned}
 $$
 :::
 
@@ -544,13 +544,13 @@ $y'+2y=e^{x}$：积分因子 $e^{2x}$，两边乘后 $(e^{2x}y)'=e^{3x}$，
 
 ::: tip 工作例题 · 三组方程
 $$
-\begin{gathered}
-(1) y''- 3y'+2y=0 \Rightarrow r^{2}- 3r+2=0 \Rightarrow r=1,2 \Rightarrow y=C_{1}e^{x}+C_{2}e^{2x} \\
-(2) y''+4y=0 \Rightarrow r=±2i \Rightarrow y=C_{1}\cos 2x+C_{2}\sin 2x \\
-(3) y''+4y=\sin x \; \text{：设} \; y*=A \sin x \Rightarrow- A \sin x+4A \sin x= 3A \sin x= \sin x \\
-\Rightarrow A=\frac{1}{3} \Rightarrow y*=\left(\frac{1}{3}\right)\sin x \; \text{，通解} \; y=C_{1}\cos 2x+C_{2}\sin 2x+\left(\frac{1}{3}\right)\sin x \\
-\text{(4)} \; \text{若右端改为} \; \sin 2x \; \text{，则与齐次解共振，须设} \; \text{y*=x(A cos2x+B sin2x)}
-\end{gathered}
+\begin{aligned}
+&(1) y''- 3y'+2y=0 \Rightarrow r^{2}- 3r+2=0 \Rightarrow r=1,2 \Rightarrow y=C_{1}e^{x}+C_{2}e^{2x} \\
+&(2) y''+4y=0 \Rightarrow r=±2i \Rightarrow y=C_{1}\cos 2x+C_{2}\sin 2x \\
+&(3) y''+4y=\sin x \; \text{：设} \; y*=A \sin x \Rightarrow- A \sin x+4A \sin x= 3A \sin x= \sin x \\
+&\Rightarrow A=\frac{1}{3} \Rightarrow y*=\left(\frac{1}{3}\right)\sin x \; \text{，通解} \; y=C_{1}\cos 2x+C_{2}\sin 2x+\left(\frac{1}{3}\right)\sin x \\
+&\text{(4)} \; \text{若右端改为} \; \sin 2x \; \text{，则与齐次解共振，须设} \; \text{y*=x(A cos2x+B sin2x)}
+\end{aligned}
 $$
 :::
 
@@ -666,12 +666,12 @@ $|a|= \sqrt{1+4+1}= \sqrt{6} \approx 2.449$；$\cos \theta= \dfrac{1}{\sqrt{6} \
 **关系图（二元，与一元差别很大）**：
 
 $$
-\begin{gathered}
-\text{偏导数连续} \; \Rightarrow \; \text{可微} \; \Rightarrow \; \text{连续} \; \Rightarrow \; \text{二重极限存在} \\
-\text{⇓ } \\
-\text{偏导数存在（且各方向导数存在）} \\
-\text{反例：偏导数存在但「不连续」「不可微」都成立} \; -- \; \text{与一元「可导} \; \Rightarrow \; \text{连续」截然不同}
-\end{gathered}
+\begin{aligned}
+&\text{偏导数连续} \; \Rightarrow \; \text{可微} \; \Rightarrow \; \text{连续} \; \Rightarrow \; \text{二重极限存在} \\
+&\text{⇓ } \\
+&\text{偏导数存在（且各方向导数存在）} \\
+&\text{反例：偏导数存在但「不连续」「不可微」都成立} \; -- \; \text{与一元「可导} \; \Rightarrow \; \text{连续」截然不同}
+\end{aligned}
 $$
 
 ::: danger 易错 · 多元微分
@@ -714,14 +714,14 @@ $f=x^{2}y+\sin(xy)$ ⇒ $f_{x}=2xy+y \cos(xy)$，$f_{y}=x^{2}+x \cos(xy)$。
 
 ::: tip 工作例题 · 两组极值
 $$
-\begin{gathered}
-(1) f=x^{2}+y^{2} \; \text{在} \; \text{(0,0)} \; \text{：} \; A=C=2, B=0 \Rightarrow \Delta=4>0 \; \text{且} \; A>0 \Rightarrow \; \text{极小值} \; \text{0} \\
-\text{f=xy} \; \text{在} \; \text{(0,0)} \; \text{：} \; A=C=0, B=1 \Rightarrow \Delta=- 1<0 \Rightarrow \; \text{鞍点（不是极值点）} \\
-\text{(2)} \; \text{条件极值：} \; \min x^{2}+y^{2} s.t. x+y=1 \\
-L=x^{2}+y^{2}- \lambda(x+y- 1) \; \text{，} \; \frac{\partial L}{\partial x}=2x- \lambda=0, \frac{\partial L}{\partial y}=2y- \lambda=0 \Rightarrow x=y \\
-\text{代入约束} \; \Rightarrow x=y=\frac{1}{2} \Rightarrow f_{\min}= \frac{1}{4}+\frac{1}{4}= \frac{1}{2} \\
-(3) f=xy s.t. x^{2}+y^{2}=1 \Rightarrow \; \text{极大} \; \text{1/2} \; \text{（} \; x=y=±\frac{1}{\sqrt{2}} \; \text{）、极小} \; - \frac{1}{2}
-\end{gathered}
+\begin{aligned}
+&(1) f=x^{2}+y^{2} \; \text{在} \; \text{(0,0)} \; \text{：} \; A=C=2, B=0 \Rightarrow \Delta=4>0 \; \text{且} \; A>0 \Rightarrow \; \text{极小值} \; \text{0} \\
+&\text{f=xy} \; \text{在} \; \text{(0,0)} \; \text{：} \; A=C=0, B=1 \Rightarrow \Delta=- 1<0 \Rightarrow \; \text{鞍点（不是极值点）} \\
+&\text{(2)} \; \text{条件极值：} \; \min x^{2}+y^{2} s.t. x+y=1 \\
+&L=x^{2}+y^{2}- \lambda(x+y- 1) \; \text{，} \; \frac{\partial L}{\partial x}=2x- \lambda=0, \frac{\partial L}{\partial y}=2y- \lambda=0 \Rightarrow x=y \\
+&\text{代入约束} \; \Rightarrow x=y=\frac{1}{2} \Rightarrow f_{\min}= \frac{1}{4}+\frac{1}{4}= \frac{1}{2} \\
+&(3) f=xy s.t. x^{2}+y^{2}=1 \Rightarrow \; \text{极大} \; \text{1/2} \; \text{（} \; x=y=±\frac{1}{\sqrt{2}} \; \text{）、极小} \; - \frac{1}{2}
+\end{aligned}
 $$
 :::
 
@@ -766,17 +766,17 @@ $\iint _{D} f(x,y)d\sigma= \lim \sum f(\xi_{i},\eta_{i})\Delta \sigma_{i}$；几
 
 ::: tip 工作例题 · 换序与极坐标
 $$
-\begin{gathered}
-(1) \int_{0}^{1}dx \int_{x}^{1} f(x,y)dy= \int_{0}^{1}dy \int_{0}^{y} f(x,y)dx \\
-\text{（区域为} \; 0 \le x \le y \le 1 \; \text{的三角形，换序后先} \; \text{x} \; \text{后} \; \text{y} \; \text{）} \\
-(2) \iint _{x^{2}+y^{2} \le a^{2}} e^{-(x^{2}+y^{2})}dxdy= \int_{0}^{2\pi}d\theta \int_{0}^{a} e^{- r^{2}} r dr \\
-= 2\pi \cdot[- \frac{1}{2} e^{- r^{2}}]_{0}^{a}= \pi(1- e^{- a^{2}}) \; \text{；} \; a=1 \Rightarrow \pi(1- e^{-1}) \approx 1.9859 \\
-\text{(3)} \; \text{教材经典：} \; \iint _{D} e^{- y^{2}}dxdy \; \text{（} \; \text{D} \; \text{由} \; \text{y=x, y=1, x=0} \; \text{围成）} \\
-\text{先对} \; \text{y} \; \text{积分不可行（} \; e^{- y^{2}} \; \text{无初等原函数），必须换序先对} \; \text{x} \; \text{：} \\
-\int_{0}^{1}dy \int_{0}^{y} e^{- y^{2}}dx= \int_{0}^{1} y e^{- y^{2}}dy= \frac{1}{2}(1- e^{-1}) \\
-\text{(4)} \; \text{可分离：} \; \iint _{[a,b] \times[c,d]} g(x)h(y)dxdy=\left( \int_{a}^{b} g dx\right)\left( \int_{c}^d h dy\right) \\
-\Rightarrow \iint _{[0,1]^{2}}(x+y)dxdy= \frac{1}{2}+ \frac{1}{2}= 1
-\end{gathered}
+\begin{aligned}
+&(1) \int_{0}^{1}dx \int_{x}^{1} f(x,y)dy= \int_{0}^{1}dy \int_{0}^{y} f(x,y)dx \\
+&\text{（区域为} \; 0 \le x \le y \le 1 \; \text{的三角形，换序后先} \; \text{x} \; \text{后} \; \text{y} \; \text{）} \\
+&(2) \iint _{x^{2}+y^{2} \le a^{2}} e^{-(x^{2}+y^{2})}dxdy= \int_{0}^{2\pi}d\theta \int_{0}^{a} e^{- r^{2}} r dr \\
+&= 2\pi \cdot[- \frac{1}{2} e^{- r^{2}}]_{0}^{a}= \pi(1- e^{- a^{2}}) \; \text{；} \; a=1 \Rightarrow \pi(1- e^{-1}) \approx 1.9859 \\
+&\text{(3)} \; \text{教材经典：} \; \iint _{D} e^{- y^{2}}dxdy \; \text{（} \; \text{D} \; \text{由} \; \text{y=x, y=1, x=0} \; \text{围成）} \\
+&\text{先对} \; \text{y} \; \text{积分不可行（} \; e^{- y^{2}} \; \text{无初等原函数），必须换序先对} \; \text{x} \; \text{：} \\
+&\int_{0}^{1}dy \int_{0}^{y} e^{- y^{2}}dx= \int_{0}^{1} y e^{- y^{2}}dy= \frac{1}{2}(1- e^{-1}) \\
+&\text{(4)} \; \text{可分离：} \; \iint _{[a,b] \times[c,d]} g(x)h(y)dxdy=\left( \int_{a}^{b} g dx\right)\left( \int_{c}^d h dy\right) \\
+&\Rightarrow \iint _{[0,1]^{2}}(x+y)dxdy= \frac{1}{2}+ \frac{1}{2}= 1
+\end{aligned}
 $$
 :::
 
@@ -795,14 +795,14 @@ $$
 
 ::: tip 工作例题 · 三重积分
 $$
-\begin{gathered}
-(1) \iiint _{x^{2}+y^{2}+z^{2} \le R^{2}} 1 dV= \frac{4\pi R^{3}}{3} \; \text{（} \; R=1 \Rightarrow \frac{4\pi}{3} \approx 4.18879 \; \text{）} \\
-\text{(2) 上半球} \; \iiint_{\Omega} z\,dV \; (\Omega: x^{2}+y^{2}+z^{2}\le 1,\, z\ge 0) \\
-= \int_{0}^{2\pi}d\theta \int_{0}^{\frac{\pi}{2}}\sin \phi \cos \phi d\phi \int_{0}^{1} \rho^{3} d\rho \\
-= 2\pi \cdot\left(\frac{1}{2}\right) \cdot\left(\frac{1}{4}\right)= \frac{\pi}{4} \approx 0.785398 \\
-(3) \iiint _\Omega(x^{2}+y^{2}) dV \; \text{（} \; \Omega \; \text{为圆柱} \; x^{2}+y^{2} \le 1, 0 \le z \le 1 \; \text{），柱坐标：} \\
-\int_{0}^{2\pi}d\theta \int_{0}^{1} r^{3} dr \int_{0}^{1} dz= 2\pi \cdot \frac{1}{4}= \frac{\pi}{2}
-\end{gathered}
+\begin{aligned}
+&(1) \iiint _{x^{2}+y^{2}+z^{2} \le R^{2}} 1 dV= \frac{4\pi R^{3}}{3} \; \text{（} \; R=1 \Rightarrow \frac{4\pi}{3} \approx 4.18879 \; \text{）} \\
+&\text{(2) 上半球} \; \iiint_{\Omega} z\,dV \; (\Omega: x^{2}+y^{2}+z^{2}\le 1,\, z\ge 0) \\
+&= \int_{0}^{2\pi}d\theta \int_{0}^{\frac{\pi}{2}}\sin \phi \cos \phi d\phi \int_{0}^{1} \rho^{3} d\rho \\
+&= 2\pi \cdot\left(\frac{1}{2}\right) \cdot\left(\frac{1}{4}\right)= \frac{\pi}{4} \approx 0.785398 \\
+&(3) \iiint _\Omega(x^{2}+y^{2}) dV \; \text{（} \; \Omega \; \text{为圆柱} \; x^{2}+y^{2} \le 1, 0 \le z \le 1 \; \text{），柱坐标：} \\
+&\int_{0}^{2\pi}d\theta \int_{0}^{1} r^{3} dr \int_{0}^{1} dz= 2\pi \cdot \frac{1}{4}= \frac{\pi}{2}
+\end{aligned}
 $$
 :::
 
@@ -853,16 +853,16 @@ $\dfrac{\partial P}{\partial y}= \dfrac{\partial Q}{\partial x}$ ⇔ $\oint _{L}
 
 ::: tip 工作例题 · 三大公式
 $$
-\begin{gathered}
-\text{(1)} \; \text{格林求面积：取} \; P=- \frac{y}{2}, Q=\frac{x}{2} \Rightarrow \oint_{L}\dfrac{x\,dy-y\,dx}{2}= Area(D) \\
-\Rightarrow \; \text{单位圆上} \; \oint  x dy- y dx= 2\pi \approx 6.28319 \\
-\text{(2)} \; \text{奇点陷阱：} \; \oint_{L}\dfrac{x\,dy-y\,dx}{x^{2}+y^{2}} = 2\pi \\
-\text{此处} \; \text{P,Q} \; \text{在原点无定义，不能直接套格林（会错得} \; \text{0} \; \text{）；} \\
-\text{须挖去以原点为心的小圆} \; \epsilon \; \text{，在环形域用格林（旋度为} \; \text{0} \; \text{）} \; \Rightarrow \; \text{等于小圆上的积分} \; 2\pi \\
-\text{(3)} \; \text{高斯：} \; \oiint _{S} x dydz+y dzdx+z dxdy= \iiint _\Omega 3 dV= 3V \\
-\text{单位球} \; V=\frac{4\pi}{3} \Rightarrow 4\pi \approx 12.56637 \\
-\text{(4) div(x,y,z)=3} \; \text{；} \; rot(- y,x,0)=(0,0,2) \; \text{；} \; \nabla(x^{2}+y^{2}+z^{2})=(2x,2y,2z)
-\end{gathered}
+\begin{aligned}
+&\text{(1)} \; \text{格林求面积：取} \; P=- \frac{y}{2}, Q=\frac{x}{2} \Rightarrow \oint_{L}\dfrac{x\,dy-y\,dx}{2}= Area(D) \\
+&\Rightarrow \; \text{单位圆上} \; \oint  x dy- y dx= 2\pi \approx 6.28319 \\
+&\text{(2)} \; \text{奇点陷阱：} \; \oint_{L}\dfrac{x\,dy-y\,dx}{x^{2}+y^{2}} = 2\pi \\
+&\text{此处} \; \text{P,Q} \; \text{在原点无定义，不能直接套格林（会错得} \; \text{0} \; \text{）；} \\
+&\text{须挖去以原点为心的小圆} \; \epsilon \; \text{，在环形域用格林（旋度为} \; \text{0} \; \text{）} \; \Rightarrow \; \text{等于小圆上的积分} \; 2\pi \\
+&\text{(3)} \; \text{高斯：} \; \oiint _{S} x dydz+y dzdx+z dxdy= \iiint _\Omega 3 dV= 3V \\
+&\text{单位球} \; V=\frac{4\pi}{3} \Rightarrow 4\pi \approx 12.56637 \\
+&\text{(4) div(x,y,z)=3} \; \text{；} \; rot(- y,x,0)=(0,0,2) \; \text{；} \; \nabla(x^{2}+y^{2}+z^{2})=(2x,2y,2z)
+\end{aligned}
 $$
 :::
 
@@ -937,13 +937,13 @@ $\sum u_{n}$ 收敛 ⇔ 部分和序列 $S_{n}= \sum_{k=1}^{n} u_{k}$ 收敛。*
 
 ::: tip 工作例题 · 五个经典级数
 $$
-\begin{gathered}
-\text{(1)} \; \text{几何级数} \; \sum_{n=0}^\infty q^{n}= \frac{1}{1- q} \; \text{（} \; \text{|q|<1} \; \text{）；} \; |q| \ge 1 \; \text{发散} \\
-\text{(2) p} \; \text{级数} \; \sum\frac{1}{n^{p}} \; \text{：} \; \text{p>1} \; \text{收敛、} \; p \le 1 \; \text{发散；} \; \sum\frac{1}{n} \; \text{发散（调和级数）} \\
-\text{(3)} \; \text{裂项} \; \sum_{n=1}^\infty \frac{1}{n(n+1)}= \sum\left(\frac{1}{n}- \frac{1}{n+1}\right)= 1 \\
-\text{(4)} \; \text{交错调和} \; \sum\frac{(-1)^{n+1}}{n}= \ln 2 \approx 0.693147 \; \text{（条件收敛）} \\
-(5) \sum\frac{(-1)^{n+1}}{n^{2}}= \frac{\pi^{2}}{12} \approx 0.822467 \; \text{（绝对收敛）}
-\end{gathered}
+\begin{aligned}
+&\text{(1)} \; \text{几何级数} \; \sum_{n=0}^\infty q^{n}= \frac{1}{1- q} \; \text{（} \; \text{|q|<1} \; \text{）；} \; |q| \ge 1 \; \text{发散} \\
+&\text{(2) p} \; \text{级数} \; \sum\frac{1}{n^{p}} \; \text{：} \; \text{p>1} \; \text{收敛、} \; p \le 1 \; \text{发散；} \; \sum\frac{1}{n} \; \text{发散（调和级数）} \\
+&\text{(3)} \; \text{裂项} \; \sum_{n=1}^\infty \frac{1}{n(n+1)}= \sum\left(\frac{1}{n}- \frac{1}{n+1}\right)= 1 \\
+&\text{(4)} \; \text{交错调和} \; \sum\frac{(-1)^{n+1}}{n}= \ln 2 \approx 0.693147 \; \text{（条件收敛）} \\
+&(5) \sum\frac{(-1)^{n+1}}{n^{2}}= \frac{\pi^{2}}{12} \approx 0.822467 \; \text{（绝对收敛）}
+\end{aligned}
 $$
 :::
 
@@ -959,14 +959,14 @@ $\sum a_{n}(x- x_{0})^{n}$ 的**收敛半径** $R= \lim|\dfrac{a_{n}}{a_{n+1}}|$
 
 ::: tip 工作例题 · 和函数
 $$
-\begin{gathered}
-\sum_{n=0}^\infty x^{n}= \frac{1}{1- x},|x|<1 \\
-\text{逐项求导：} \; \sum_{n=1}^\infty n x^{n- 1}= \frac{1}{(1- x)^{2}} \\
-\text{两边乘} \; \text{x} \; \text{：} \; \sum_{n=1}^\infty n x^{n}= \frac{x}{(1- x)^{2}} \\
-\text{验算} \; x=\frac{1}{2} \; \text{：右侧} \; = \frac{0.5}{0.25}= 2 \; \text{；前} \; \text{50} \; \text{项部分和} \; \text{= 2.0000 }\checkmark \\
-\sum_{n=1}^\infty \frac{x^{n}}{n}=- \ln(1- x),- 1 \le x<1 \\
-\text{（由} \; \int_{0}^{x}\frac{1}{1-t}\,dt \; \text{逐项积分得到；端点} \; x=- 1 \; \text{收敛、} \; \text{x=1} \; \text{发散）}
-\end{gathered}
+\begin{aligned}
+&\sum_{n=0}^\infty x^{n}= \frac{1}{1- x},|x|<1 \\
+&\text{逐项求导：} \; \sum_{n=1}^\infty n x^{n- 1}= \frac{1}{(1- x)^{2}} \\
+&\text{两边乘} \; \text{x} \; \text{：} \; \sum_{n=1}^\infty n x^{n}= \frac{x}{(1- x)^{2}} \\
+&\text{验算} \; x=\frac{1}{2} \; \text{：右侧} \; = \frac{0.5}{0.25}= 2 \; \text{；前} \; \text{50} \; \text{项部分和} \; \text{= 2.0000 }\checkmark \\
+&\sum_{n=1}^\infty \frac{x^{n}}{n}=- \ln(1- x),- 1 \le x<1 \\
+&\text{（由} \; \int_{0}^{x}\frac{1}{1-t}\,dt \; \text{逐项积分得到；端点} \; x=- 1 \; \text{收敛、} \; \text{x=1} \; \text{发散）}
+\end{aligned}
 $$
 :::
 
@@ -1018,13 +1018,13 @@ $a_{n}=\left(\dfrac{1}{\pi}\right) \int_{- \pi}^{\pi} f(x)\cos nx dx$，$b_{n}=\
 
 ::: tip 工作例题 · 用傅里叶级数求数项级数的和
 $$
-\begin{gathered}
-x= 2\sum_{n=1}^\infty \frac{(- 1)^{n+1} \sin(nx)}{n}, x \in(- \pi,\pi) \\
-\text{取} \; x=\frac{\pi}{2} \; \text{：} \; \frac{\pi}{2}= 2\left(1- \frac{1}{3}+ \frac{1}{5}- \frac{1}{7}+ \cdots\right) \\
-\Rightarrow 1- \frac{1}{3}+ \frac{1}{5}- \cdots= \frac{\pi}{4} \approx 0.785398 \; \text{（莱布尼茨级数）} \\
-|x|= \frac{\pi}{2}-\left(\frac{4}{\pi}\right)\sum_{k=1}^\infty \frac{\cos((2k- 1)x)}{(2k- 1)^{2}}, x \in[- \pi,\pi] \\
-\text{取} \; \text{x=0} \; \text{：} \; 0= \frac{\pi}{2}- \frac{\left(\frac{4}{\pi}\right)\sum 1}{(2k- 1)^{2}} \Rightarrow \sum\frac{1}{(2k-1)^{2}}=\frac{\pi^{2}}{8}
-\end{gathered}
+\begin{aligned}
+&x= 2\sum_{n=1}^\infty \frac{(- 1)^{n+1} \sin(nx)}{n}, x \in(- \pi,\pi) \\
+&\text{取} \; x=\frac{\pi}{2} \; \text{：} \; \frac{\pi}{2}= 2\left(1- \frac{1}{3}+ \frac{1}{5}- \frac{1}{7}+ \cdots\right) \\
+&\Rightarrow 1- \frac{1}{3}+ \frac{1}{5}- \cdots= \frac{\pi}{4} \approx 0.785398 \; \text{（莱布尼茨级数）} \\
+&|x|= \frac{\pi}{2}-\left(\frac{4}{\pi}\right)\sum_{k=1}^\infty \frac{\cos((2k- 1)x)}{(2k- 1)^{2}}, x \in[- \pi,\pi] \\
+&\text{取} \; \text{x=0} \; \text{：} \; 0= \frac{\pi}{2}- \frac{\left(\frac{4}{\pi}\right)\sum 1}{(2k- 1)^{2}} \Rightarrow \sum\frac{1}{(2k-1)^{2}}=\frac{\pi^{2}}{8}
+\end{aligned}
 $$
 :::
 
@@ -1039,12 +1039,12 @@ $$
 ### 12.4 级数判敛法的强弱排序
 
 $$
-\begin{gathered}
-\text{必要条件（通项} \; \to 0 \; \text{）} \; \to \; \text{正项：比较} \; \text{/} \; \text{极限比较（最基础）} \\
-\to \; \text{比值} \; \text{/} \; \text{根值（对阶乘、指数型最有效；} \; \rho=1 \; \text{失效）} \\
-\to \; \text{积分判别、拉比判别、高斯判别（对} \; \rho=1 \; \text{的临界情形）} \\
-\text{交错：莱布尼茨（收敛）} \; \to \; \text{再看} \; \sum|u_{n}| \; \text{（绝对} \; \text{or} \; \text{条件）}
-\end{gathered}
+\begin{aligned}
+&\text{必要条件（通项} \; \to 0 \; \text{）} \; \to \; \text{正项：比较} \; \text{/} \; \text{极限比较（最基础）} \\
+&\to \; \text{比值} \; \text{/} \; \text{根值（对阶乘、指数型最有效；} \; \rho=1 \; \text{失效）} \\
+&\to \; \text{积分判别、拉比判别、高斯判别（对} \; \rho=1 \; \text{的临界情形）} \\
+&\text{交错：莱布尼茨（收敛）} \; \to \; \text{再看} \; \sum|u_{n}| \; \text{（绝对} \; \text{or} \; \text{条件）}
+\end{aligned}
 $$
 **根值强于比值**：由 $\lim \dfrac{u_{n+1}}{u_{n}}= \rho \Rightarrow \lim_{n\to\infty}\sqrt[n]{u_{n}}= \rho$，反之不然；故含 `n` 次幂的项优先用根值。
 **阿贝尔 / 狄利克雷判别法**：处理 $\sum a_{n}b_{n}$ 型，若 $\sum a_{n}$ 部分和有界且 $b_{n}$ 单调趋于 0 ⇒ 收敛（狄利克雷）；这解释了交错级数判别的一般原理。
@@ -1094,104 +1094,104 @@ $\int_{2}^\infty \dfrac{dx}{x(\ln x)^{2}}=[- \dfrac{1}{\ln} x]_{2}^\infty= \dfra
 ### 演 1 · 极限（七类未定式）· 第 1 章
 
 $$
-\begin{gathered}
-(1) \lim_{x \to 0}\frac{\sin(3x)}{5x} \\
-\text{重要极限} \; \sin \frac{u}{u} \to 1 \; \text{：} \; = \lim \frac{\left(\frac{3}{5}\right) \cdot \sin(3x)}{3x}= \frac{3}{5}= 0.6 \\
-(2) \lim_{x \to 0}\frac{e^{x}- 1- x}{x^{2}} \; \text{（} \; \text{0/0} \; \text{）} \\
-\text{泰勒：} \; e^{x}= 1+ x+ \frac{x^{2}}{2}+ o(x^{2}) \Rightarrow \; \text{分子} \; = \frac{x^{2}}{2}+ o(x^{2}) \Rightarrow \; \text{极限} \; = \frac{1}{2} \\
-(3) \lim_{x \to 0}\frac{\tan x- \sin x}{x^{3}} \; \text{（} \; \text{0/0} \; \text{，加减型不可用等价无穷小直接替换）} \\
-\text{泰勒：} \; \tan x= x+ \frac{x^{3}}{3}+ o(x^{3}) \; \text{，} \; \sin x= x- \frac{x^{3}}{6}+ o(x^{3}) \\
-\text{差} \; = \frac{x^{3}}{2} \Rightarrow \; \text{极限} \; = \frac{1}{2} \; \text{（数值验证} \; x=1e- 4 \; \text{得} \; \text{0.50000000} \; \text{）} \\
-(4) \lim_{n \to \infty}\left(1+ \frac{2}{n}\right)^{n} \; \text{（} \; 1^\infty \; \text{）} \\
-\text{取对数：} \; n \ln\left(1+\frac{2}{n}\right) \sim n \cdot\left(\frac{2}{n}\right)= 2 \Rightarrow \; \text{极限} \; = e^{2} \approx 7.389056 \\
-(5) \lim_{x \to \infty}\frac{x+ \sin x}{x} \\
-= 1+ \sin \frac{x}{x} \to 1 \; \text{；洛必达会得} \; 1+\cos x \; \text{（极限不存在）} \; \Rightarrow \; \text{此处洛必达失效}
-\end{gathered}
+\begin{aligned}
+&(1) \lim_{x \to 0}\frac{\sin(3x)}{5x} \\
+&\text{重要极限} \; \sin \frac{u}{u} \to 1 \; \text{：} \; = \lim \frac{\left(\frac{3}{5}\right) \cdot \sin(3x)}{3x}= \frac{3}{5}= 0.6 \\
+&(2) \lim_{x \to 0}\frac{e^{x}- 1- x}{x^{2}} \; \text{（} \; \text{0/0} \; \text{）} \\
+&\text{泰勒：} \; e^{x}= 1+ x+ \frac{x^{2}}{2}+ o(x^{2}) \Rightarrow \; \text{分子} \; = \frac{x^{2}}{2}+ o(x^{2}) \Rightarrow \; \text{极限} \; = \frac{1}{2} \\
+&(3) \lim_{x \to 0}\frac{\tan x- \sin x}{x^{3}} \; \text{（} \; \text{0/0} \; \text{，加减型不可用等价无穷小直接替换）} \\
+&\text{泰勒：} \; \tan x= x+ \frac{x^{3}}{3}+ o(x^{3}) \; \text{，} \; \sin x= x- \frac{x^{3}}{6}+ o(x^{3}) \\
+&\text{差} \; = \frac{x^{3}}{2} \Rightarrow \; \text{极限} \; = \frac{1}{2} \; \text{（数值验证} \; x=1e- 4 \; \text{得} \; \text{0.50000000} \; \text{）} \\
+&(4) \lim_{n \to \infty}\left(1+ \frac{2}{n}\right)^{n} \; \text{（} \; 1^\infty \; \text{）} \\
+&\text{取对数：} \; n \ln\left(1+\frac{2}{n}\right) \sim n \cdot\left(\frac{2}{n}\right)= 2 \Rightarrow \; \text{极限} \; = e^{2} \approx 7.389056 \\
+&(5) \lim_{x \to \infty}\frac{x+ \sin x}{x} \\
+&= 1+ \sin \frac{x}{x} \to 1 \; \text{；洛必达会得} \; 1+\cos x \; \text{（极限不存在）} \; \Rightarrow \; \text{此处洛必达失效}
+\end{aligned}
 $$
 
 ### 演 2 · 导数（分段点与隐函数）· 第 2 章
 
 $$
-\begin{gathered}
-(1) f(x)=x^{2} \sin\left(\frac{1}{x}\right)(x=0), f(0)=0 \; \text{，求} \; \text{f′(0)} \\
-\text{定义：} \; f'(0)=\lim_{x \to 0}\frac{x^{2} \sin\left(\frac{1}{x}\right)- 0}{x}= \lim x \sin\left(\frac{1}{x}\right)= 0 \; \text{（有界} \; \times \; \text{无穷小）} \\
-\text{但} \; x=0 \; \text{时} \; f'(x)=2x \sin\left(\frac{1}{x}\right)- \cos\left(\frac{1}{x}\right) \; \text{，} \; x \to 0 \; \text{无极限} \; \Rightarrow f' \; \text{在} \; \text{0} \; \text{不连续} \\
-(2) x^{2}+ y^{2}= 1 \; \text{求} \; \text{dy/dx} \; \text{与} \; \frac{d^{2}y}{dx^{2}} \\
-\text{隐函数：} \; 2x+ 2y y'= 0 \Rightarrow y'=- \frac{x}{y} \\
-\text{再求导：} \; y''=- \frac{y- x y'}{y^{2}}=- \frac{y+ \frac{x^{2}}{y}}{y^{2}}=- \frac{x^{2}+y^{2}}{y^{3}}=- \frac{1}{y^{3}} \\
-(3) y= x^{x} \Rightarrow \ln y= x \ln x \Rightarrow y'= y(\ln x+ 1)= x^{x}(\ln x+ 1)
-\end{gathered}
+\begin{aligned}
+&(1) f(x)=x^{2} \sin\left(\frac{1}{x}\right)(x=0), f(0)=0 \; \text{，求} \; \text{f′(0)} \\
+&\text{定义：} \; f'(0)=\lim_{x \to 0}\frac{x^{2} \sin\left(\frac{1}{x}\right)- 0}{x}= \lim x \sin\left(\frac{1}{x}\right)= 0 \; \text{（有界} \; \times \; \text{无穷小）} \\
+&\text{但} \; x=0 \; \text{时} \; f'(x)=2x \sin\left(\frac{1}{x}\right)- \cos\left(\frac{1}{x}\right) \; \text{，} \; x \to 0 \; \text{无极限} \; \Rightarrow f' \; \text{在} \; \text{0} \; \text{不连续} \\
+&(2) x^{2}+ y^{2}= 1 \; \text{求} \; \text{dy/dx} \; \text{与} \; \frac{d^{2}y}{dx^{2}} \\
+&\text{隐函数：} \; 2x+ 2y y'= 0 \Rightarrow y'=- \frac{x}{y} \\
+&\text{再求导：} \; y''=- \frac{y- x y'}{y^{2}}=- \frac{y+ \frac{x^{2}}{y}}{y^{2}}=- \frac{x^{2}+y^{2}}{y^{3}}=- \frac{1}{y^{3}} \\
+&(3) y= x^{x} \Rightarrow \ln y= x \ln x \Rightarrow y'= y(\ln x+ 1)= x^{x}(\ln x+ 1)
+\end{aligned}
 $$
 
 ### 演 3 · 中值定理与极值 · 第 3 章
 
 $$
-\begin{gathered}
-\text{题：证明} \; f(x)=x^{3}- 3x \; \text{在} \; \text{[0,1]} \; \text{上满足拉格朗日定理，并求} \; \xi \; \text{。} \\
-\text{(1)} \; \text{验证：多项式在} \; \text{[0,1]} \; \text{连续、} \; \text{(0,1)} \; \text{可导} \; \checkmark \\
-(2) f(1)=- 2, f(0)=0 \Rightarrow \frac{f(1)- f(0)}{1- 0}=- 2 \\
-(3) f'(x)=3x^{2}- 3=- 2 \Rightarrow 3x^{2}=1 \Rightarrow x=\frac{1}{\sqrt{3}} \in(0,1) \checkmark \Rightarrow \xi=\frac{1}{\sqrt{3}} \\
-\text{题：求} \; f(x)=x^{3}- 3x^{2}+1 \; \text{的单调区间、极值与拐点。} \\
-(1) f'=3x^{2}- 6x=3x(x- 2) \; \text{，驻点} \; \text{x=0,2} \\
-\text{(2)} \; \text{区间：} \; (- \infty,0) f'>0 \; \text{增；} \; \text{(0,2) f′<0} \; \text{减；} \; (2,+ \infty) f'>0 \; \text{增} \\
-\text{(3)} \; \text{极大} \; \text{f(0)=1} \; \text{，极小} \; f(2)=8- 12+1=- 3 \\
-(4) f''=6x- 6=0 \Rightarrow x=1 \; \text{；两侧} \; \text{f''} \; \text{变号} \; \Rightarrow \; \text{拐点} \; (1, 1- 3+1)=(1,- 1)
-\end{gathered}
+\begin{aligned}
+&\text{题：证明} \; f(x)=x^{3}- 3x \; \text{在} \; \text{[0,1]} \; \text{上满足拉格朗日定理，并求} \; \xi \; \text{。} \\
+&\text{(1)} \; \text{验证：多项式在} \; \text{[0,1]} \; \text{连续、} \; \text{(0,1)} \; \text{可导} \; \checkmark \\
+&(2) f(1)=- 2, f(0)=0 \Rightarrow \frac{f(1)- f(0)}{1- 0}=- 2 \\
+&(3) f'(x)=3x^{2}- 3=- 2 \Rightarrow 3x^{2}=1 \Rightarrow x=\frac{1}{\sqrt{3}} \in(0,1) \checkmark \Rightarrow \xi=\frac{1}{\sqrt{3}} \\
+&\text{题：求} \; f(x)=x^{3}- 3x^{2}+1 \; \text{的单调区间、极值与拐点。} \\
+&(1) f'=3x^{2}- 6x=3x(x- 2) \; \text{，驻点} \; \text{x=0,2} \\
+&\text{(2)} \; \text{区间：} \; (- \infty,0) f'>0 \; \text{增；} \; \text{(0,2) f′<0} \; \text{减；} \; (2,+ \infty) f'>0 \; \text{增} \\
+&\text{(3)} \; \text{极大} \; \text{f(0)=1} \; \text{，极小} \; f(2)=8- 12+1=- 3 \\
+&(4) f''=6x- 6=0 \Rightarrow x=1 \; \text{；两侧} \; \text{f''} \; \text{变号} \; \Rightarrow \; \text{拐点} \; (1, 1- 3+1)=(1,- 1)
+\end{aligned}
 $$
 
 ### 演 4 · 不定积分（分部与换元）· 第 4 章
 
 $$
-\begin{gathered}
-(1) \int x e^{x} dx \; \text{：} \; u=x \Rightarrow \int x e^{x}dx= x e^{x}- \int e^{x}dx=(x- 1)e^{x}+ C \\
-\text{验算：} \; [(x- 1)e^{x}]'= e^{x}+(x- 1)e^{x}= x e^{x} \checkmark \\
-(2) \int \ln x dx= x \ln x- \int x \cdot\left(\frac{1}{x}\right)dx= x \ln x- x+ C \\
-(3) \int \frac{dx}{x^{2}+4}=\left(\frac{1}{2}\right)\arctan\left(\frac{x}{2}\right)+ C \\
-(4) \int \sqrt{1- x^{2}} dx \; \text{：令} \; x=\sin t \Rightarrow \int \cos^{2}t dt= \frac{t}{2}+ \frac{\sin 2t}{4}+ C \\
-\text{回代：} \; = \frac{1}{2} \arcsin x+ \frac{1}{2} x\sqrt{1- x^{2}}+ C
-\end{gathered}
+\begin{aligned}
+&(1) \int x e^{x} dx \; \text{：} \; u=x \Rightarrow \int x e^{x}dx= x e^{x}- \int e^{x}dx=(x- 1)e^{x}+ C \\
+&\text{验算：} \; [(x- 1)e^{x}]'= e^{x}+(x- 1)e^{x}= x e^{x} \checkmark \\
+&(2) \int \ln x dx= x \ln x- \int x \cdot\left(\frac{1}{x}\right)dx= x \ln x- x+ C \\
+&(3) \int \frac{dx}{x^{2}+4}=\left(\frac{1}{2}\right)\arctan\left(\frac{x}{2}\right)+ C \\
+&(4) \int \sqrt{1- x^{2}} dx \; \text{：令} \; x=\sin t \Rightarrow \int \cos^{2}t dt= \frac{t}{2}+ \frac{\sin 2t}{4}+ C \\
+&\text{回代：} \; = \frac{1}{2} \arcsin x+ \frac{1}{2} x\sqrt{1- x^{2}}+ C
+\end{aligned}
 $$
 
 ### 演 5 · 定积分与反常积分 · 第 5 章
 
 $$
-\begin{gathered}
-(1)\; \int_{0}^{\frac{\pi}{2}}\sin^{2}x\,dx=\int_{0}^{\frac{\pi}{2}}\dfrac{1-\cos 2x}{2}\,dx \\
-=[\frac{x}{2}- \frac{\sin 2x}{4}]_{0}^{\frac{\pi}{2}}= \frac{\pi}{4} \approx 0.785398 \\
-(2) \int_{0}^{1} x e^{x} dx=[(x- 1)e^{x}]_{0}^{1}= 0-(- 1)= 1 \\
-(3) \int_{0}^\pi x \sin x dx \; \text{：区间再现} \; \Rightarrow I=\left(\frac{\pi}{2}\right) \int_{0}^\pi \sin x dx=\left(\frac{\pi}{2}\right) \cdot 2= \pi \\
-\text{(4)} \; \text{判敛：} \; \int_{1}^\infty \frac{dx}{x^{p}} \; \text{收敛} \; \Leftrightarrow p>1 \; \text{；} \; \int_{0}^{1}\dfrac{dx}{x^{p}} \; \text{收敛} \; \Leftrightarrow p<1 \\
-(5) \int_{0}^\infty e^{- x^{2}}dx= \frac{\sqrt{\pi}}{2} \; \text{：设} \; \text{I} \; \text{，} \; I^{2}= \int \int e^{-(x^{2}+y^{2})}dxdy \; \text{（第一象限）} \\
-= \int_{0}^{\frac{\pi}{2}}d\theta \int_{0}^\infty e^{- r^{2}}r dr=\left(\frac{\pi}{2}\right) \cdot\left(\frac{1}{2}\right)= \frac{\pi}{4} \Rightarrow I=\frac{\sqrt{\pi}}{2}
-\end{gathered}
+\begin{aligned}
+&(1)\; \int_{0}^{\frac{\pi}{2}}\sin^{2}x\,dx=\int_{0}^{\frac{\pi}{2}}\dfrac{1-\cos 2x}{2}\,dx \\
+&=[\frac{x}{2}- \frac{\sin 2x}{4}]_{0}^{\frac{\pi}{2}}= \frac{\pi}{4} \approx 0.785398 \\
+&(2) \int_{0}^{1} x e^{x} dx=[(x- 1)e^{x}]_{0}^{1}= 0-(- 1)= 1 \\
+&(3) \int_{0}^\pi x \sin x dx \; \text{：区间再现} \; \Rightarrow I=\left(\frac{\pi}{2}\right) \int_{0}^\pi \sin x dx=\left(\frac{\pi}{2}\right) \cdot 2= \pi \\
+&\text{(4)} \; \text{判敛：} \; \int_{1}^\infty \frac{dx}{x^{p}} \; \text{收敛} \; \Leftrightarrow p>1 \; \text{；} \; \int_{0}^{1}\dfrac{dx}{x^{p}} \; \text{收敛} \; \Leftrightarrow p<1 \\
+&(5) \int_{0}^\infty e^{- x^{2}}dx= \frac{\sqrt{\pi}}{2} \; \text{：设} \; \text{I} \; \text{，} \; I^{2}= \int \int e^{-(x^{2}+y^{2})}dxdy \; \text{（第一象限）} \\
+&= \int_{0}^{\frac{\pi}{2}}d\theta \int_{0}^\infty e^{- r^{2}}r dr=\left(\frac{\pi}{2}\right) \cdot\left(\frac{1}{2}\right)= \frac{\pi}{4} \Rightarrow I=\frac{\sqrt{\pi}}{2}
+\end{aligned}
 $$
 
 ### 演 6 · 定积分应用（微元法）· 第 6 章
 
 $$
-\begin{gathered}
-\text{题：} \; y=x^{2}(0 \le x \le 1) \; \text{绕} \; \text{x} \; \text{轴旋转体体积与旋转曲面面积。} \\
-\text{(1)} \; \text{体积微元} \; dV= \pi y^{2} dx= \pi x^{4} dx \Rightarrow V= \pi \int_{0}^{1}x^{4}dx= \frac{\pi}{5} \approx 0.628319 \\
-\text{(2)} \; \text{曲面面积} \; S= 2\pi \int_{0}^{1} y\sqrt{1+y'^{2}}dx= 2\pi \int_{0}^{1} x^{2}\sqrt{1+4x^{2}}dx \\
-\text{(3)} \; \text{题：} \; y=\sin x(0 \le x \le \pi) \; \text{与} \; \text{x} \; \text{轴面积} \; A= \int_{0}^\pi \sin x dx=[- \cos x]_{0}^\pi= 2 \\
-\text{(4)} \; \text{题：星形线} \; x=a \cos^{3}t, y=a \sin^{3}t \; \text{全长} \\
-ds= \sqrt{\dot{x}^{2}+\dot{y}^{2}}dt= 3a|\sin t \cos t|dt \\
-\text{第一象限} \; \int_{0}^{\frac{\pi}{2}}3a \sin t \cos t dt= \frac{3a}{2} \Rightarrow \; \text{全长} \; 4 \times\left(\frac{3a}{2}\right)=6a
-\end{gathered}
+\begin{aligned}
+&\text{题：} \; y=x^{2}(0 \le x \le 1) \; \text{绕} \; \text{x} \; \text{轴旋转体体积与旋转曲面面积。} \\
+&\text{(1)} \; \text{体积微元} \; dV= \pi y^{2} dx= \pi x^{4} dx \Rightarrow V= \pi \int_{0}^{1}x^{4}dx= \frac{\pi}{5} \approx 0.628319 \\
+&\text{(2)} \; \text{曲面面积} \; S= 2\pi \int_{0}^{1} y\sqrt{1+y'^{2}}dx= 2\pi \int_{0}^{1} x^{2}\sqrt{1+4x^{2}}dx \\
+&\text{(3)} \; \text{题：} \; y=\sin x(0 \le x \le \pi) \; \text{与} \; \text{x} \; \text{轴面积} \; A= \int_{0}^\pi \sin x dx=[- \cos x]_{0}^\pi= 2 \\
+&\text{(4)} \; \text{题：星形线} \; x=a \cos^{3}t, y=a \sin^{3}t \; \text{全长} \\
+&ds= \sqrt{\dot{x}^{2}+\dot{y}^{2}}dt= 3a|\sin t \cos t|dt \\
+&\text{第一象限} \; \int_{0}^{\frac{\pi}{2}}3a \sin t \cos t dt= \frac{3a}{2} \Rightarrow \; \text{全长} \; 4 \times\left(\frac{3a}{2}\right)=6a
+\end{aligned}
 $$
 
 ### 演 7 · 微分方程 · 第 7 章
 
 $$
-\begin{gathered}
-(1) y'+2y=e^{x} \Rightarrow(e^{2x}y)'=e^{3x} \Rightarrow e^{2x}y= \frac{1}{3} e^{3x}+C \Rightarrow y= \frac{1}{3} e^{x}+Ce^{- 2x} \\
-(2) y''- 3y'+2y=0 \Rightarrow r^{2}- 3r+2=0 \Rightarrow r=1,2 \Rightarrow y=C_{1}e^{x}+C_{2}e^{2x} \\
-(3) y''+4y=\sin x \; \text{：齐次解} \; C_{1}\cos 2x+C_{2}\sin 2x \; \text{；设} \; y*=A \sin x \\
-\Rightarrow- A+4A=1 \Rightarrow A=\frac{1}{3} \Rightarrow y=C_{1}\cos 2x+C_{2}\sin 2x+\left(\frac{1}{3}\right)\sin x \\
-\text{(4)} \; \text{共振情形} \; y''+4y=\sin 2x \; \text{须设} \; \text{y*=x(A cos2x+B sin2x)} \; \text{（不可漏} \; \text{x} \; \text{）} \\
-\text{(5)} \; \text{欧拉方程} \; x^{2}y''+xy'- y=0 \; \text{：设} \; y=x^{k} \Rightarrow k(k- 1)+k- 1=k^{2}- 1=0 \Rightarrow k=±1 \\
-\Rightarrow y=C_{1}x+\frac{C_{2}}{x}
-\end{gathered}
+\begin{aligned}
+&(1) y'+2y=e^{x} \Rightarrow(e^{2x}y)'=e^{3x} \Rightarrow e^{2x}y= \frac{1}{3} e^{3x}+C \Rightarrow y= \frac{1}{3} e^{x}+Ce^{- 2x} \\
+&(2) y''- 3y'+2y=0 \Rightarrow r^{2}- 3r+2=0 \Rightarrow r=1,2 \Rightarrow y=C_{1}e^{x}+C_{2}e^{2x} \\
+&(3) y''+4y=\sin x \; \text{：齐次解} \; C_{1}\cos 2x+C_{2}\sin 2x \; \text{；设} \; y*=A \sin x \\
+&\Rightarrow- A+4A=1 \Rightarrow A=\frac{1}{3} \Rightarrow y=C_{1}\cos 2x+C_{2}\sin 2x+\left(\frac{1}{3}\right)\sin x \\
+&\text{(4)} \; \text{共振情形} \; y''+4y=\sin 2x \; \text{须设} \; \text{y*=x(A cos2x+B sin2x)} \; \text{（不可漏} \; \text{x} \; \text{）} \\
+&\text{(5)} \; \text{欧拉方程} \; x^{2}y''+xy'- y=0 \; \text{：设} \; y=x^{k} \Rightarrow k(k- 1)+k- 1=k^{2}- 1=0 \Rightarrow k=±1 \\
+&\Rightarrow y=C_{1}x+\frac{C_{2}}{x}
+\end{aligned}
 $$
 
 ### 演 8 · 空间解析几何 · 第 8 章
@@ -1209,63 +1209,63 @@ $$
 ### 演 9 · 多元微分与极值 · 第 9 章
 
 $$
-\begin{gathered}
-(1) f=x^{2}y+\sin(xy) \; \text{：} \; f_{x}=2xy+y \cos(xy) \; \text{，} \; f_{y}=x^{2}+x \cos(xy) \\
-\text{在} \; \text{(0,1)} \; \text{：} \; \nabla f=(1,0) \; \text{；沿} \; e=\left(\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}}\right) \; \text{的方向导数} \; = \frac{1}{\sqrt{2}} \approx 0.707107 \\
-\text{(2)} \; \text{曲面} \; z=x^{2}+y^{2} \; \text{在} \; \text{(1,1,2)} \; \text{：令} \; F=x^{2}+y^{2}- z \; \text{，} \; \nabla F=(2x,2y,- 1)=(2,2,- 1) \\
-\text{切平面} \; 2(x- 1)+2(y- 1)-(z- 2)=0 \Rightarrow 2x+2y- z- 2=0 \\
-\text{(3)} \; \text{无条件极值} \; f=x^{2}+y^{2} \; \text{：} \; A=C=2,B=0 \Rightarrow \Delta=4>0 \; \text{且} \; A>0 \Rightarrow(0,0) \; \text{极小} \; \text{0} \\
-\text{f=xy} \; \text{：} \; \Delta=- 1<0 \Rightarrow(0,0) \; \text{是鞍点} \\
-\text{(4)} \; \text{条件极值} \; \min x^{2}+y^{2} s.t. x+y=1 \; \text{：} \\
-L=x^{2}+y^{2}- \lambda(x+y- 1) \; \text{，} \; 2x=\lambda, 2y=\lambda \Rightarrow x=y=\frac{1}{2} \Rightarrow f_{\min}=\frac{1}{2}
-\end{gathered}
+\begin{aligned}
+&(1) f=x^{2}y+\sin(xy) \; \text{：} \; f_{x}=2xy+y \cos(xy) \; \text{，} \; f_{y}=x^{2}+x \cos(xy) \\
+&\text{在} \; \text{(0,1)} \; \text{：} \; \nabla f=(1,0) \; \text{；沿} \; e=\left(\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}}\right) \; \text{的方向导数} \; = \frac{1}{\sqrt{2}} \approx 0.707107 \\
+&\text{(2)} \; \text{曲面} \; z=x^{2}+y^{2} \; \text{在} \; \text{(1,1,2)} \; \text{：令} \; F=x^{2}+y^{2}- z \; \text{，} \; \nabla F=(2x,2y,- 1)=(2,2,- 1) \\
+&\text{切平面} \; 2(x- 1)+2(y- 1)-(z- 2)=0 \Rightarrow 2x+2y- z- 2=0 \\
+&\text{(3)} \; \text{无条件极值} \; f=x^{2}+y^{2} \; \text{：} \; A=C=2,B=0 \Rightarrow \Delta=4>0 \; \text{且} \; A>0 \Rightarrow(0,0) \; \text{极小} \; \text{0} \\
+&\text{f=xy} \; \text{：} \; \Delta=- 1<0 \Rightarrow(0,0) \; \text{是鞍点} \\
+&\text{(4)} \; \text{条件极值} \; \min x^{2}+y^{2} s.t. x+y=1 \; \text{：} \\
+&L=x^{2}+y^{2}- \lambda(x+y- 1) \; \text{，} \; 2x=\lambda, 2y=\lambda \Rightarrow x=y=\frac{1}{2} \Rightarrow f_{\min}=\frac{1}{2}
+\end{aligned}
 $$
 
 ### 演 10 · 重积分 · 第 10 章
 
 $$
-\begin{gathered}
-\text{(1)} \; \text{换序：} \; \int_{0}^{1}dx \int_{x}^{1} f dy \; \text{（区域} \; 0 \le x \le y \le 1 \; \text{）} \; \Rightarrow \int_{0}^{1}dy \int_{0}^{y} f dx \\
-(2) \iint _{D} e^{- y^{2}}dxdy \; \text{，} \; D: 0 \le x \le y \le 1 \\
-= \int_{0}^{1}dy \int_{0}^{y} e^{- y^{2}}dx= \int_{0}^{1} y e^{- y^{2}}dy= \frac{1}{2}(1- e^{-1}) \approx 0.31606 \\
-(3) \iint _{x^{2}+y^{2} \le a^{2}} e^{-(x^{2}+y^{2})}dxdy= 2\pi \int_{0}^{a} r e^{- r^{2}}dr= \pi(1- e^{- a^{2}}) \\
-a=1 \Rightarrow \approx 1.985865 \\
-\text{(4)} \; \iiint_{\text{上半球}} z\,dV=\int_{0}^{2\pi}\!d\theta\int_{0}^{\pi/2}\!\sin\phi\cos\phi\,d\phi\int_{0}^{1}\!\rho^{3}d\rho \\
-= 2\pi \cdot\left(\frac{1}{2}\right) \cdot\left(\frac{1}{4}\right)= \frac{\pi}{4} \approx 0.785398 \\
-\text{(5) 单位球} \; \iiint_{\Omega} 1\,dV=\dfrac{4\pi}{3}\approx 4.188790
-\end{gathered}
+\begin{aligned}
+&\text{(1)} \; \text{换序：} \; \int_{0}^{1}dx \int_{x}^{1} f dy \; \text{（区域} \; 0 \le x \le y \le 1 \; \text{）} \; \Rightarrow \int_{0}^{1}dy \int_{0}^{y} f dx \\
+&(2) \iint _{D} e^{- y^{2}}dxdy \; \text{，} \; D: 0 \le x \le y \le 1 \\
+&= \int_{0}^{1}dy \int_{0}^{y} e^{- y^{2}}dx= \int_{0}^{1} y e^{- y^{2}}dy= \frac{1}{2}(1- e^{-1}) \approx 0.31606 \\
+&(3) \iint _{x^{2}+y^{2} \le a^{2}} e^{-(x^{2}+y^{2})}dxdy= 2\pi \int_{0}^{a} r e^{- r^{2}}dr= \pi(1- e^{- a^{2}}) \\
+&a=1 \Rightarrow \approx 1.985865 \\
+&\text{(4)} \; \iiint_{\text{上半球}} z\,dV=\int_{0}^{2\pi}\!d\theta\int_{0}^{\pi/2}\!\sin\phi\cos\phi\,d\phi\int_{0}^{1}\!\rho^{3}d\rho \\
+&= 2\pi \cdot\left(\frac{1}{2}\right) \cdot\left(\frac{1}{4}\right)= \frac{\pi}{4} \approx 0.785398 \\
+&\text{(5) 单位球} \; \iiint_{\Omega} 1\,dV=\dfrac{4\pi}{3}\approx 4.188790
+\end{aligned}
 $$
 
 ### 演 11 · 曲线曲面积分与三大公式 · 第 11 章
 
 $$
-\begin{gathered}
-\text{(1)} \; \text{单位圆} \; \text{L} \; \text{（逆时针）：} \; \oint _{L} x dy- y dx \\
-\text{参数} \; x=\cos t, y=\sin t \Rightarrow x dy- y dx= \cos^{2}t dt+ \sin^{2}t dt= dt \\
-\Rightarrow \; \text{积分} \; = \int_{0}^{2\pi}dt= 2\pi \; \text{（} \; = 2 \cdot Area \; \text{，格林公式验证：} \; \iint _{D} 2 dxdy= 2\pi \; \text{）} \\
-\text{(2)} \; \text{奇点陷阱：} \; \oint_{L}\dfrac{x\,dy-y\,dx}{x^{2}+y^{2}} \\
-\frac{\partial Q}{\partial x}- \frac{\partial P}{\partial y}= 0 \; \text{但原点为奇点} \; \Rightarrow \; \text{不能直接得} \; \text{0} \\
-\text{挖去半径} \; \epsilon \; \text{小圆后由格林} \; \Rightarrow \; \text{等于小圆积分} \; = 2\pi \\
-\text{(3)} \; \text{高斯：} \; \oiint _{S} x dydz+y dzdx+z dxdy= \iiint _\Omega 3 dV \; \text{，单位球} \; \Rightarrow 3 \cdot\left(\frac{4\pi}{3}\right)=4\pi \\
-\text{(4) div(x,y,z)=3} \; \text{；} \; rot(- y,x,0)=(0,0,2) \\
-\text{(5)} \; \text{判路径无关：} \; P=2xy, Q=x^{2} \Rightarrow \frac{\partial P}{\partial y}=2x= \frac{\partial Q}{\partial x} \Rightarrow \; \text{与路径无关} \\
-\text{原函数} \; u= \int Pdx= x^{2}y+\phi(y) \; \text{，由} \; u_{y}=x^{2}+\phi '=Q \Rightarrow \phi '=0 \Rightarrow u=x^{2}y+C
-\end{gathered}
+\begin{aligned}
+&\text{(1)} \; \text{单位圆} \; \text{L} \; \text{（逆时针）：} \; \oint _{L} x dy- y dx \\
+&\text{参数} \; x=\cos t, y=\sin t \Rightarrow x dy- y dx= \cos^{2}t dt+ \sin^{2}t dt= dt \\
+&\Rightarrow \; \text{积分} \; = \int_{0}^{2\pi}dt= 2\pi \; \text{（} \; = 2 \cdot Area \; \text{，格林公式验证：} \; \iint _{D} 2 dxdy= 2\pi \; \text{）} \\
+&\text{(2)} \; \text{奇点陷阱：} \; \oint_{L}\dfrac{x\,dy-y\,dx}{x^{2}+y^{2}} \\
+&\frac{\partial Q}{\partial x}- \frac{\partial P}{\partial y}= 0 \; \text{但原点为奇点} \; \Rightarrow \; \text{不能直接得} \; \text{0} \\
+&\text{挖去半径} \; \epsilon \; \text{小圆后由格林} \; \Rightarrow \; \text{等于小圆积分} \; = 2\pi \\
+&\text{(3)} \; \text{高斯：} \; \oiint _{S} x dydz+y dzdx+z dxdy= \iiint _\Omega 3 dV \; \text{，单位球} \; \Rightarrow 3 \cdot\left(\frac{4\pi}{3}\right)=4\pi \\
+&\text{(4) div(x,y,z)=3} \; \text{；} \; rot(- y,x,0)=(0,0,2) \\
+&\text{(5)} \; \text{判路径无关：} \; P=2xy, Q=x^{2} \Rightarrow \frac{\partial P}{\partial y}=2x= \frac{\partial Q}{\partial x} \Rightarrow \; \text{与路径无关} \\
+&\text{原函数} \; u= \int Pdx= x^{2}y+\phi(y) \; \text{，由} \; u_{y}=x^{2}+\phi '=Q \Rightarrow \phi '=0 \Rightarrow u=x^{2}y+C
+\end{aligned}
 $$
 
 ### 演 12 · 级数 · 第 12 章
 
 $$
-\begin{gathered}
-\text{(1)} \; \text{判敛} \; \sum \frac{n}{2^{n}} \; \text{：比值} \; \rho=\lim \frac{\frac{n+1}{2^{n+1}}}{\frac{n}{2^{n}}}= \frac{1}{2}< 1 \Rightarrow \; \text{收敛} \\
-\text{(2)} \; \text{判敛} \; \sum \frac{1}{n^{2}} \; \text{：} \; p=2>1 \Rightarrow \; \text{收敛；} \; \sum\frac{1}{n} \; \text{：} \; p=1 \Rightarrow \; \text{发散} \\
-\text{(3)} \; \text{收敛半径} \; \sum \frac{x^{n}}{n} \; \text{：} \; R=\lim|\frac{a_{n}}{a_{n+1}}|= \lim \frac{n+1}{n}= 1 \\
-\text{端点} \; x=1 \Rightarrow \sum\frac{1}{n} \; \text{发散；} \; x=- 1 \Rightarrow \sum\frac{(-1)^{n}}{n} \; \text{收敛} \; \Rightarrow \; \text{收敛域} \; \text{[−1,1)} \\
-\text{(4)} \; \text{和函数} \; \sum_{n=1}^\infty n x^{n} \; \text{：由} \; \sum x^{n}=\frac{1}{1- x} \; \text{逐项求导乘} \; \text{x} \\
-\Rightarrow \frac{x}{(1- x)^{2}} \; \text{（} \; \text{|x|<1} \; \text{）；验算} \; x=\frac{1}{2} \Rightarrow 2 \\
-(5) \sum\frac{1}{n(n+1)}= \sum\left(\frac{1}{n}- \frac{1}{n+1}\right)= 1- \lim \frac{1}{N+1}= 1 \\
-(6) \sum\frac{(-1)^{n+1}}{n}= \ln 2 \; \text{（条件收敛）；} \; \sum\frac{(-1)^{n+1}}{n^{2}}= \frac{\pi^{2}}{12} \; \text{（绝对收敛）}
-\end{gathered}
+\begin{aligned}
+&\text{(1)} \; \text{判敛} \; \sum \frac{n}{2^{n}} \; \text{：比值} \; \rho=\lim \frac{\frac{n+1}{2^{n+1}}}{\frac{n}{2^{n}}}= \frac{1}{2}< 1 \Rightarrow \; \text{收敛} \\
+&\text{(2)} \; \text{判敛} \; \sum \frac{1}{n^{2}} \; \text{：} \; p=2>1 \Rightarrow \; \text{收敛；} \; \sum\frac{1}{n} \; \text{：} \; p=1 \Rightarrow \; \text{发散} \\
+&\text{(3)} \; \text{收敛半径} \; \sum \frac{x^{n}}{n} \; \text{：} \; R=\lim|\frac{a_{n}}{a_{n+1}}|= \lim \frac{n+1}{n}= 1 \\
+&\text{端点} \; x=1 \Rightarrow \sum\frac{1}{n} \; \text{发散；} \; x=- 1 \Rightarrow \sum\frac{(-1)^{n}}{n} \; \text{收敛} \; \Rightarrow \; \text{收敛域} \; \text{[−1,1)} \\
+&\text{(4)} \; \text{和函数} \; \sum_{n=1}^\infty n x^{n} \; \text{：由} \; \sum x^{n}=\frac{1}{1- x} \; \text{逐项求导乘} \; \text{x} \\
+&\Rightarrow \frac{x}{(1- x)^{2}} \; \text{（} \; \text{|x|<1} \; \text{）；验算} \; x=\frac{1}{2} \Rightarrow 2 \\
+&(5) \sum\frac{1}{n(n+1)}= \sum\left(\frac{1}{n}- \frac{1}{n+1}\right)= 1- \lim \frac{1}{N+1}= 1 \\
+&(6) \sum\frac{(-1)^{n+1}}{n}= \ln 2 \; \text{（条件收敛）；} \; \sum\frac{(-1)^{n+1}}{n^{2}}= \frac{\pi^{2}}{12} \; \text{（绝对收敛）}
+\end{aligned}
 $$
 
 ---
@@ -1461,13 +1461,13 @@ $$=(n- 1) \int \sin^{n- 2}x(1- \sin^{2}x)dx=(n- 1)(I_{n-2}- I_{n})$$
 ### 推 3 · 牛顿–莱布尼茨 ⇒ 格林 ⇒ 高斯（同一思想）
 
 $$
-\begin{gathered}
-\text{一维：} \; \int_{a}^{b} F'(x)dx= F(b)- F(a) \; \text{（区间内部导数的积分} \; \text{=} \; \text{边界上的值）} \\
-\text{二维：} \; \iint _{D}(Q_{x}- P_{y})dxdy= \oint _{\partial D} Pdx+Qdy \; \text{（内部旋度} \; \text{=} \; \text{边界环流）} \\
-\text{三维：} \; \iiint _\Omega div A dV= \oiint _{\partial \Omega} A \cdot n dS \; \text{（内部散度} \; \text{=} \; \text{边界通量）} \\
-\text{三者都是「把内部相邻微元的贡献相互抵消，只剩边界」：} \\
-\text{分割区域后，相邻小区域的公共边界上方向相反、积分抵消。}
-\end{gathered}
+\begin{aligned}
+&\text{一维：} \; \int_{a}^{b} F'(x)dx= F(b)- F(a) \; \text{（区间内部导数的积分} \; \text{=} \; \text{边界上的值）} \\
+&\text{二维：} \; \iint _{D}(Q_{x}- P_{y})dxdy= \oint _{\partial D} Pdx+Qdy \; \text{（内部旋度} \; \text{=} \; \text{边界环流）} \\
+&\text{三维：} \; \iiint _\Omega div A dV= \oiint _{\partial \Omega} A \cdot n dS \; \text{（内部散度} \; \text{=} \; \text{边界通量）} \\
+&\text{三者都是「把内部相邻微元的贡献相互抵消，只剩边界」：} \\
+&\text{分割区域后，相邻小区域的公共边界上方向相反、积分抵消。}
+\end{aligned}
 $$
 **推论**：取 $P=- \dfrac{y}{2}, Q=\dfrac{x}{2}$ ⇒ $Q_{x}- P_{y}=1$ ⇒ $Area(D)= \dfrac{1}{2} \oint (x dy- y dx)$（格林求面积公式）。
 
@@ -1479,13 +1479,13 @@ $y'+P(x)y=Q(x)$。设存在 $\mu(x)$ 使 $(\mu y)'=\mu Q$，展开 $\mu y'+\mu '
 ### 推 5 · 幂级数求和函数的通法
 
 $$
-\begin{gathered}
-\text{求} \; S(x)=\sum_{n=1}^\infty n x^{n} \; \text{：} \\
-\frac{S(x)}{x}= \sum n x^{n- 1}=\left(\sum x^{n}\right)'=[\frac{1}{1- x}- 1]'= \frac{1}{(1- x)^{2}} \\
-\Rightarrow S(x)= \frac{x}{(1- x)^{2}} \; \text{，} \; \text{|x|<1} \\
-\text{求} \; S(x)=\sum \frac{x^{n}}{n} \; \text{：} \\
-S'(x)=\sum x^{n- 1}=\frac{1}{1- x} \Rightarrow S(x)=- \ln(1- x)+C \; \text{；由} \; S(0)=0 \Rightarrow C=0
-\end{gathered}
+\begin{aligned}
+&\text{求} \; S(x)=\sum_{n=1}^\infty n x^{n} \; \text{：} \\
+&\frac{S(x)}{x}= \sum n x^{n- 1}=\left(\sum x^{n}\right)'=[\frac{1}{1- x}- 1]'= \frac{1}{(1- x)^{2}} \\
+&\Rightarrow S(x)= \frac{x}{(1- x)^{2}} \; \text{，} \; \text{|x|<1} \\
+&\text{求} \; S(x)=\sum \frac{x^{n}}{n} \; \text{：} \\
+&S'(x)=\sum x^{n- 1}=\frac{1}{1- x} \Rightarrow S(x)=- \ln(1- x)+C \; \text{；由} \; S(0)=0 \Rightarrow C=0
+\end{aligned}
 $$
 关键：**逐项求导把系数 `n` 消掉、逐项积分把分母 `n` 补上**，最后务必用 `S(0)` 定常数并单独检验端点。
 
@@ -1518,17 +1518,17 @@ $$e^{ix}=[1- \frac{x^{2}}{2}!+ \frac{x^{4}}{4}!- \cdots]+ i[x- \frac{x^{3}}{3}!+
 题：设 $f(x)$ 在 $x=0$ 二阶可导，$\lim_{x \to 0}[\dfrac{f(x)}{x}+ \sin \dfrac{x}{x^{2}}]= 1$，求 $f(0)$、$f'(0)$，并讨论 $f''(0)$ 能否确定。
 
 $$
-\begin{gathered}
-\text{(1)} \; \text{通分：} \; \lim \frac{x f(x)+ \sin x}{x^{2}}= 1 \; \text{（有限）} \; \Rightarrow \; \text{分子必须为} \; O(x^{2}) \\
-\text{(2)} \; \text{若} \; f(0)=0 \; \text{，则} \; \text{x f(x) ~ f(0)x} \; \text{而} \; \sin x \sim x \Rightarrow \; \text{分子} \; \text{~ (f(0)+1)x} \\
-\text{要使其为} \; O(x^{2}) \; \text{必须} \; f(0)=- 1 \\
-\text{(3)} \; \text{泰勒：} \; f(x)=- 1+ f'(0)x+ \frac{1}{2} f''(0)x^{2}+ o(x^{2}) \; \text{，} \; \sin x= x- \frac{x^{3}}{6}+ o(x^{3}) \\
-\text{分子} \; = x[- 1+ f'(0)x+ \frac{1}{2} f''(0)x^{2}+ o(x^{2})]+ x- \frac{x^{3}}{6}+ o(x^{3}) \\
-= f'(0)x^{2}+[ \frac{1}{2} f''(0)- \frac{1}{6}]x^{3}+ o(x^{3}) \\
-\text{(4)} \; \text{分子} \; x^{2}= f'(0)+[ \frac{1}{2} f''(0)- \frac{1}{6}]x+ o(x) \to f'(0)= 1 \\
-x^{3} \; \text{项除以} \; x^{2} \; \text{后随} \; x \to 0 \; \text{消失，对极限无约束} \; \Rightarrow f''(0) \; \text{不能由该条件确定} \\
-\text{结论：} \; f(0)=- 1 \; \text{，} \; \text{f′(0)=1} \; \text{，} \; \text{f''(0)} \; \text{任意（如} \; f=- 1+x \; \text{与} \; f=- 1+x+x^{2} \; \text{都满足条件）}
-\end{gathered}
+\begin{aligned}
+&\text{(1)} \; \text{通分：} \; \lim \frac{x f(x)+ \sin x}{x^{2}}= 1 \; \text{（有限）} \; \Rightarrow \; \text{分子必须为} \; O(x^{2}) \\
+&\text{(2)} \; \text{若} \; f(0)=0 \; \text{，则} \; \text{x f(x) ~ f(0)x} \; \text{而} \; \sin x \sim x \Rightarrow \; \text{分子} \; \text{~ (f(0)+1)x} \\
+&\text{要使其为} \; O(x^{2}) \; \text{必须} \; f(0)=- 1 \\
+&\text{(3)} \; \text{泰勒：} \; f(x)=- 1+ f'(0)x+ \frac{1}{2} f''(0)x^{2}+ o(x^{2}) \; \text{，} \; \sin x= x- \frac{x^{3}}{6}+ o(x^{3}) \\
+&\text{分子} \; = x[- 1+ f'(0)x+ \frac{1}{2} f''(0)x^{2}+ o(x^{2})]+ x- \frac{x^{3}}{6}+ o(x^{3}) \\
+&= f'(0)x^{2}+[ \frac{1}{2} f''(0)- \frac{1}{6}]x^{3}+ o(x^{3}) \\
+&\text{(4)} \; \text{分子} \; x^{2}= f'(0)+[ \frac{1}{2} f''(0)- \frac{1}{6}]x+ o(x) \to f'(0)= 1 \\
+&x^{3} \; \text{项除以} \; x^{2} \; \text{后随} \; x \to 0 \; \text{消失，对极限无约束} \; \Rightarrow f''(0) \; \text{不能由该条件确定} \\
+&\text{结论：} \; f(0)=- 1 \; \text{，} \; \text{f′(0)=1} \; \text{，} \; \text{f''(0)} \; \text{任意（如} \; f=- 1+x \; \text{与} \; f=- 1+x+x^{2} \; \text{都满足条件）}
+\end{aligned}
 $$
 **方法要点**：分式极限存在且分母为 $x^{m}$ ⇒ 分子低于 $x^{m}$ 阶的系数必须全为 0，$x^{m}$ 阶系数等于极限值；**高于** $x^{m}$ 阶的系数不受该极限约束。本题只「探到」二阶系数 $f'(0)$，探不到 $f''(0)$——判断条件究竟能确定几阶信息，是这类题的真正考点。
 
@@ -1537,19 +1537,19 @@ $$
 题：设 `f(x)` 连续且 $f(x)= e^{x}+ \int_{0}^{x}(x- t)f(t)dt$，求 `f(x)`。
 
 $$
-\begin{gathered}
-\text{(1)} \; \text{拆开：} \; f(x)= e^{x}+ x \int_{0}^{x} f(t)dt- \int_{0}^{x} t f(t)dt \\
-\text{(2)} \; \text{求导：} \; f'(x)= e^{x}+ \int_{0}^{x} f(t)dt+ x f(x)- x f(x)= e^{x}+ \int_{0}^{x} f(t)dt \\
-\text{(3)} \; \text{再求导：} \; f''(x)= e^{x}+ f(x) \Rightarrow f''- f= e^{x} \\
-\text{(4)} \; \text{特征方程} \; r^{2}- 1=0 \Rightarrow \; \text{齐次解} \; C_{1}e^{x}+C_{2}e^{- x} \\
-\lambda=1 \; \text{是单特征根} \; \Rightarrow \; \text{设特解} \; y*=A x e^{x} \; \text{，代入方程} \; y*''- y*= e^{x} \; \text{计算：} \\
-y*'=A(1+x)e^{x}, y*''=A(2+x)e^{x} \Rightarrow y*''- y*= 2A e^{x}= e^{x} \Rightarrow A=\frac{1}{2} \\
-(5) f(x)= C_{1}e^{x}+ C_{2}e^{- x}+ \frac{1}{2} x e^{x} \\
-\text{(6)} \; \text{由原式} \; f(0)=e^{0}=1 \; \text{；由} \; (2) f'(0)=e^{0}+0=1 \\
-f(0)=C_{1}+C_{2}=1 \; \text{；} \; f'=C_{1}e^{x}- C_{2}e^{- x}+ \frac{1}{2}(1+x)e^{x} \Rightarrow f'(0)=C_{1}- C_{2}+ \frac{1}{2}=1 \\
-\Rightarrow C_{1}=\frac{3}{4}, C_{2}=\frac{1}{4} \\
-\text{结论：} \; f(x)= \frac{3}{4} e^{x}+ \frac{1}{4} e^{- x}+ \frac{1}{2} x e^{x}
-\end{gathered}
+\begin{aligned}
+&\text{(1)} \; \text{拆开：} \; f(x)= e^{x}+ x \int_{0}^{x} f(t)dt- \int_{0}^{x} t f(t)dt \\
+&\text{(2)} \; \text{求导：} \; f'(x)= e^{x}+ \int_{0}^{x} f(t)dt+ x f(x)- x f(x)= e^{x}+ \int_{0}^{x} f(t)dt \\
+&\text{(3)} \; \text{再求导：} \; f''(x)= e^{x}+ f(x) \Rightarrow f''- f= e^{x} \\
+&\text{(4)} \; \text{特征方程} \; r^{2}- 1=0 \Rightarrow \; \text{齐次解} \; C_{1}e^{x}+C_{2}e^{- x} \\
+&\lambda=1 \; \text{是单特征根} \; \Rightarrow \; \text{设特解} \; y*=A x e^{x} \; \text{，代入方程} \; y*''- y*= e^{x} \; \text{计算：} \\
+&y*'=A(1+x)e^{x}, y*''=A(2+x)e^{x} \Rightarrow y*''- y*= 2A e^{x}= e^{x} \Rightarrow A=\frac{1}{2} \\
+&(5) f(x)= C_{1}e^{x}+ C_{2}e^{- x}+ \frac{1}{2} x e^{x} \\
+&\text{(6)} \; \text{由原式} \; f(0)=e^{0}=1 \; \text{；由} \; (2) f'(0)=e^{0}+0=1 \\
+&f(0)=C_{1}+C_{2}=1 \; \text{；} \; f'=C_{1}e^{x}- C_{2}e^{- x}+ \frac{1}{2}(1+x)e^{x} \Rightarrow f'(0)=C_{1}- C_{2}+ \frac{1}{2}=1 \\
+&\Rightarrow C_{1}=\frac{3}{4}, C_{2}=\frac{1}{4} \\
+&\text{结论：} \; f(x)= \frac{3}{4} e^{x}+ \frac{1}{4} e^{- x}+ \frac{1}{2} x e^{x}
+\end{aligned}
 $$
 **方法要点**：变限积分方程 → 求导化为微分方程 → 从原方程提取初始条件（这一步最易漏）。
 
@@ -1558,12 +1558,12 @@ $$
 题：用二重积分计算泊松积分 $I= \int_{0}^\infty e^{- x^{2}}dx$。
 
 $$
-\begin{gathered}
-\text{(1)} \; I^{2}=\left(\int_{0}^{\infty}e^{-x^{2}}dx\right)\left(\int_{0}^{\infty}e^{-y^{2}}dy\right)=\iint_{\text{第一象限}}e^{-(x^{2}+y^{2})}\,dxdy \\
-\text{(2)} \; \text{化极坐标：} \; x=r \cos \theta, y=r \sin \theta, dxdy= r dr d\theta \; \text{，} \; \theta \text{∈[0,}\pi \text{/2], r∈[0,∞)} \\
-(3) I^{2}= \int_{0}^{\frac{\pi}{2}}d\theta \int_{0}^\infty e^{- r^{2}} r dr=\left(\frac{\pi}{2}\right) \cdot[- \frac{1}{2} e^{- r^{2}}]_{0}^\infty=\left(\frac{\pi}{2}\right)\left(\frac{1}{2}\right)= \frac{\pi}{4} \\
-(4) I= \frac{\sqrt{\pi}}{2} \approx 0.886227 \; \text{（取正根）}
-\end{gathered}
+\begin{aligned}
+&\text{(1)} \; I^{2}=\left(\int_{0}^{\infty}e^{-x^{2}}dx\right)\left(\int_{0}^{\infty}e^{-y^{2}}dy\right)=\iint_{\text{第一象限}}e^{-(x^{2}+y^{2})}\,dxdy \\
+&\text{(2)} \; \text{化极坐标：} \; x=r \cos \theta, y=r \sin \theta, dxdy= r dr d\theta \; \text{，} \; \theta \text{∈[0,}\pi \text{/2], r∈[0,∞)} \\
+&(3) I^{2}= \int_{0}^{\frac{\pi}{2}}d\theta \int_{0}^\infty e^{- r^{2}} r dr=\left(\frac{\pi}{2}\right) \cdot[- \frac{1}{2} e^{- r^{2}}]_{0}^\infty=\left(\frac{\pi}{2}\right)\left(\frac{1}{2}\right)= \frac{\pi}{4} \\
+&(4) I= \frac{\sqrt{\pi}}{2} \approx 0.886227 \; \text{（取正根）}
+\end{aligned}
 $$
 **推广**：$\int_{- \infty}^\infty e^{- x^{2}}dx= \sqrt{\pi}$（高斯积分，概率论正态分布归一化常数的来源）；$\Gamma\left(\dfrac{1}{2}\right)=\sqrt{\pi}$ 由此得。
 
@@ -1572,15 +1572,15 @@ $$
 题：由 $x=2\sum\dfrac{(-1)^{n+1}\sin(nx)}{n}$（$x \in(- \pi, \pi)$）导出 $\sum\dfrac{1}{(2k-1)^{2}}=\dfrac{\pi^{2}}{8}$，并说明为何取 $x=\dfrac{\pi}{2}$ 得 $\dfrac{\pi}{4}$。
 
 $$
-\begin{gathered}
-\text{(1)} \; \text{傅里叶级数逐项积分（在收敛区间内合法）：} \\
-\int_{0}^{x} t dt= \frac{2\sum(- 1)^{n+1}}{n} \int_{0}^{x} \sin nt dt \\
-\frac{x^{2}}{2}= \frac{2\sum(- 1)^{n+1}(1- \cos nx)}{n^{2}} \\
-\text{(2)} \; \text{取} \; x=\pi \; \text{：} \; \frac{\pi^{2}}{2}= 2\sum\frac{(-1)^{n+1}\left(1-(-1)^{n}\right)}{n^{2}}= 4\sum_{k \ge 1}\frac{1}{(2k- 1)^{2}} \\
-\Rightarrow \sum_{k \ge 1}\frac{1}{(2k- 1)^{2}}= \frac{\pi^{2}}{8} \checkmark \\
-\text{(3)} \; \text{原展开式取} \; x=\frac{\pi}{2} \; \text{：} \; \frac{\pi}{2}= 2\left(1- \frac{1}{3}+ \frac{1}{5}- \cdots\right) \Rightarrow \; \text{交错奇倒数和} \; = \frac{\pi}{4} \\
-\text{(4)} \; \text{帕塞瓦尔：由} \; \text{|x|} \; \text{的余弦级数也可得} \; \sum\frac{1}{n^{2}}= \frac{\pi^{2}}{6}
-\end{gathered}
+\begin{aligned}
+&\text{(1)} \; \text{傅里叶级数逐项积分（在收敛区间内合法）：} \\
+&\int_{0}^{x} t dt= \frac{2\sum(- 1)^{n+1}}{n} \int_{0}^{x} \sin nt dt \\
+&\frac{x^{2}}{2}= \frac{2\sum(- 1)^{n+1}(1- \cos nx)}{n^{2}} \\
+&\text{(2)} \; \text{取} \; x=\pi \; \text{：} \; \frac{\pi^{2}}{2}= 2\sum\frac{(-1)^{n+1}\left(1-(-1)^{n}\right)}{n^{2}}= 4\sum_{k \ge 1}\frac{1}{(2k- 1)^{2}} \\
+&\Rightarrow \sum_{k \ge 1}\frac{1}{(2k- 1)^{2}}= \frac{\pi^{2}}{8} \checkmark \\
+&\text{(3)} \; \text{原展开式取} \; x=\frac{\pi}{2} \; \text{：} \; \frac{\pi}{2}= 2\left(1- \frac{1}{3}+ \frac{1}{5}- \cdots\right) \Rightarrow \; \text{交错奇倒数和} \; = \frac{\pi}{4} \\
+&\text{(4)} \; \text{帕塞瓦尔：由} \; \text{|x|} \; \text{的余弦级数也可得} \; \sum\frac{1}{n^{2}}= \frac{\pi^{2}}{6}
+\end{aligned}
 $$
 **方法要点**：傅里叶级数既能「求和函数」也能「求数项和」；逐项积分后收敛性变好（系数多除一个 n）。
 
@@ -1589,15 +1589,15 @@ $$
 题：在 $x^{2}+y^{2}+z^{2}=1$ 下求 `f=xyz` 的最大值，并说明与微观经济学条件极值的关系。
 
 $$
-\begin{gathered}
-(1) L= xyz+ \lambda(x^{2}+y^{2}+z^{2}- 1) \\
-(2) \frac{\partial L}{\partial x}= yz+2\lambda x= 0 \; \text{；同理} \; xz+2\lambda y=0 \; \text{、} \; xy+2\lambda z=0 \\
-\text{(3)} \; \text{若} \; xyz=0 \; \text{，三式乘} \; \text{x,y,z} \; \text{后相等} \; \Rightarrow 2\lambda x^{2}=2\lambda y^{2}=2\lambda z^{2} \Rightarrow x^{2}=y^{2}=z^{2}=\frac{1}{3} \\
-(4) f_{\max}=\left(\frac{1}{\sqrt{3}}\right)^{3}= \frac{1}{3\sqrt{3}} \approx 0.19245 \; \text{（取全正或两负一正）} \\
-\text{(5)} \; \text{若} \; \text{xyz=0} \; \text{则} \; \text{f=0} \; \text{，非最大} \\
-\text{(6)} \; \text{经济学对应：效用} \; \text{U(X,Y)} \; \text{在预算约束} \; \text{PxX+PyY=I} \; \text{下最大化，} \\
-\text{拉格朗日条件即} \; MRS= \frac{Px}{Py} \; \text{；} \; \lambda \; \text{的边际解释为「收入的边际效用」}
-\end{gathered}
+\begin{aligned}
+&(1) L= xyz+ \lambda(x^{2}+y^{2}+z^{2}- 1) \\
+&(2) \frac{\partial L}{\partial x}= yz+2\lambda x= 0 \; \text{；同理} \; xz+2\lambda y=0 \; \text{、} \; xy+2\lambda z=0 \\
+&\text{(3)} \; \text{若} \; xyz=0 \; \text{，三式乘} \; \text{x,y,z} \; \text{后相等} \; \Rightarrow 2\lambda x^{2}=2\lambda y^{2}=2\lambda z^{2} \Rightarrow x^{2}=y^{2}=z^{2}=\frac{1}{3} \\
+&(4) f_{\max}=\left(\frac{1}{\sqrt{3}}\right)^{3}= \frac{1}{3\sqrt{3}} \approx 0.19245 \; \text{（取全正或两负一正）} \\
+&\text{(5)} \; \text{若} \; \text{xyz=0} \; \text{则} \; \text{f=0} \; \text{，非最大} \\
+&\text{(6)} \; \text{经济学对应：效用} \; \text{U(X,Y)} \; \text{在预算约束} \; \text{PxX+PyY=I} \; \text{下最大化，} \\
+&\text{拉格朗日条件即} \; MRS= \frac{Px}{Py} \; \text{；} \; \lambda \; \text{的边际解释为「收入的边际效用」}
+\end{aligned}
 $$
 **方法要点**：条件极值求出的只是候选点，还要比较边界/退化情形（本题 `xyz=0`）。
 
@@ -1606,13 +1606,13 @@ $$
 题：计算 $\oiint _{\Sigma} x^{3} dydz+ y^{3} dzdx+ z^{3} dxdy$，$\sum$ 为球面 $x^{2}+y^{2}+z^{2}=R^{2}$ 外侧。
 
 $$
-\begin{gathered}
-\text{(1)} \; \text{高斯公式：} \; div A= 3x^{2}+3y^{2}+3z^{2}= 3r^{2} \\
-\text{(2)} \; \text{原式} \; = \iiint _\Omega 3(x^{2}+y^{2}+z^{2})dV \; \text{，用球坐标：} \\
-= 3 \int_{0}^{2\pi}d\theta \int_{0}^\pi \sin \phi d\phi \int_{0}^R \rho^{2} \cdot \rho^{2} d\rho \\
-= 3 \cdot 2\pi \cdot 2 \cdot \frac{R^{5}}{5}= \frac{12\pi R^{5}}{5} \\
-\text{(3)} \; \text{校验} \; \text{R=1} \; \text{、取} \; \text{A=(x,y,z)} \; \text{时原式} \; = 3V= 4\pi \; \text{（与前面例题一致）} \; \checkmark
-\end{gathered}
+\begin{aligned}
+&\text{(1)} \; \text{高斯公式：} \; div A= 3x^{2}+3y^{2}+3z^{2}= 3r^{2} \\
+&\text{(2)} \; \text{原式} \; = \iiint _\Omega 3(x^{2}+y^{2}+z^{2})dV \; \text{，用球坐标：} \\
+&= 3 \int_{0}^{2\pi}d\theta \int_{0}^\pi \sin \phi d\phi \int_{0}^R \rho^{2} \cdot \rho^{2} d\rho \\
+&= 3 \cdot 2\pi \cdot 2 \cdot \frac{R^{5}}{5}= \frac{12\pi R^{5}}{5} \\
+&\text{(3)} \; \text{校验} \; \text{R=1} \; \text{、取} \; \text{A=(x,y,z)} \; \text{时原式} \; = 3V= 4\pi \; \text{（与前面例题一致）} \; \checkmark
+\end{aligned}
 $$
 **选择规则**：闭曲面且偏导连续 ⇒ 高斯；闭曲线平面 ⇒ 格林；空间闭曲线 ⇒ 斯托克斯；非闭 ⇒ 先补面/补线；有奇点 ⇒ 挖洞。
 
@@ -1621,13 +1621,13 @@ $$
 题：用幂级数求 `y′=y, y(0)=1` 的解。
 
 $$
-\begin{gathered}
-\text{(1)} \; \text{设} \; y= \sum_{n=0}^\infty a_{n} x^{n} \Rightarrow y'= \sum_{n=1}^\infty n a_{n} x^{n- 1} \\
-\text{(2)} \; \text{代入：} \; \sum_{n=1}^\infty n a_{n} x^{n- 1}= \sum_{n=0}^\infty a_{n} x^{n} \\
-\text{比较} \; x^{k} \; \text{系数：} \; (k+1)a_{k+1}= a_{k} \Rightarrow a_{k+1}= \frac{a_{k}}{k+1} \\
-\text{(3)} \; \text{由} \; a_{0}= y(0)=1 \Rightarrow a_{n}= \frac{1}{n}! \\
-(4) y= \sum \frac{x^{n}}{n}!= e^{x} \; \text{，收敛半径} \; R= \infty \; \text{（比值} \; |\frac{a_{n}}{a_{n+1}}|= n+1 \to \infty \; \text{）}
-\end{gathered}
+\begin{aligned}
+&\text{(1)} \; \text{设} \; y= \sum_{n=0}^\infty a_{n} x^{n} \Rightarrow y'= \sum_{n=1}^\infty n a_{n} x^{n- 1} \\
+&\text{(2)} \; \text{代入：} \; \sum_{n=1}^\infty n a_{n} x^{n- 1}= \sum_{n=0}^\infty a_{n} x^{n} \\
+&\text{比较} \; x^{k} \; \text{系数：} \; (k+1)a_{k+1}= a_{k} \Rightarrow a_{k+1}= \frac{a_{k}}{k+1} \\
+&\text{(3)} \; \text{由} \; a_{0}= y(0)=1 \Rightarrow a_{n}= \frac{1}{n}! \\
+&(4) y= \sum \frac{x^{n}}{n}!= e^{x} \; \text{，收敛半径} \; R= \infty \; \text{（比值} \; |\frac{a_{n}}{a_{n+1}}|= n+1 \to \infty \; \text{）}
+\end{aligned}
 $$
 **意义**：把微分方程化为系数的递推关系；教材第十二章「微分方程的幂级数解法」即此，也是非初等函数（贝塞尔、勒让德）的定义方式。
 
