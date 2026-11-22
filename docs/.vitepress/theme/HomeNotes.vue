@@ -336,24 +336,36 @@ onBeforeUnmount(() => {
 .hn-dots {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  /* 圆点按钮本体 24×24（WCAG 2.5.8 / Lighthouse target-size），gap 0 使间距恰为 24px；
+     9px 视觉圆点由 ::before 绘制；窄屏行宽超出时对称裁剪，避免横向撑开文档 */
+  gap: 0;
   margin-top: 18px;
+  overflow: hidden;
 }
 .hn-dot {
-  width: 9px;
-  height: 9px;
+  flex: none;
+  width: 24px;
+  height: 24px;
   padding: 0;
   border: none;
+  background: transparent;
+  cursor: pointer;
+}
+.hn-dot::before {
+  content: '';
+  display: block;
+  width: 9px;
+  height: 9px;
+  margin: 0 auto;
   border-radius: 50%;
   background: var(--vp-c-divider);
-  cursor: pointer;
   transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
 }
-.hn-dot:hover {
+.hn-dot:hover::before {
   background: var(--vp-c-brand-1);
   opacity: 0.7;
 }
-.hn-dot.active {
+.hn-dot.active::before {
   background: var(--vp-c-brand-1);
   transform: scale(1.5);
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--vp-c-brand-1) 22%, transparent);

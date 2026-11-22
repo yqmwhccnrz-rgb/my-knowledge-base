@@ -7,18 +7,17 @@
   z-index: 60;
   padding: 5px 11px;
   font-size: 11px;
-  color: var(--vp-c-text-3);
+  /* text-2 深灰 5.8:1；弱化靠半透明底与毛玻璃，文字不再用 opacity 压淡（合成后仅 1.9:1） */
+  color: var(--vp-c-text-2);
   background: color-mix(in srgb, var(--vp-c-bg-soft) 82%, transparent);
   border: 1px solid var(--vp-c-divider);
   border-radius: 20px;
   cursor: pointer;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  opacity: 0.65;
-  transition: opacity 0.2s, color 0.2s, border-color 0.2s;
+  transition: color 0.2s, border-color 0.2s;
 }
 .logout-btn:hover {
-  opacity: 1;
   color: var(--vp-c-text-1);
   border-color: var(--vp-c-brand-1);
 }
@@ -28,7 +27,6 @@
     bottom: 8px;
     padding: 4px 9px;
     font-size: 10px;
-    opacity: 0.5;
   }
 }
 
@@ -64,11 +62,21 @@
 
   --vp-c-text-1: #2e2f2e;
   --vp-c-text-2: #626463;
-  --vp-c-text-3: #8d8f8d;
+  /* 次要文字灰加深至白底 ≥4.5:1（原 #8d8f8d 仅 3.1:1，Lighthouse 对比度缺陷） */
+  --vp-c-text-3: #6c6e6c;
 
   --vp-c-divider: rgba(0, 0, 0, 0.085);
   --vp-c-gutter: rgba(0, 0, 0, 0.06);
   --vp-c-border: rgba(0, 0, 0, 0.12);
+
+  /* 品牌按钮底色改用 brand-2：白字对比 6.6:1（brand-3 仅 3.8:1，不达 WCAG AA），
+     悬停/按下加深到 brand-1 保持状态差异 */
+  --vp-button-brand-bg: var(--vp-c-brand-2);
+  --vp-button-brand-border: var(--vp-c-brand-2);
+  --vp-button-brand-hover-bg: var(--vp-c-brand-1);
+  --vp-button-brand-hover-border: var(--vp-c-brand-1);
+  --vp-button-brand-active-bg: var(--vp-c-brand-1);
+  --vp-button-brand-active-border: var(--vp-c-brand-1);
 
   --vp-nav-bg-color: rgba(250, 250, 249, 0.78);
   --vp-sidebar-bg-color: rgba(127, 127, 127, 0.055);
@@ -959,7 +967,7 @@ select:focus-visible {
     display: grid !important;
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 10px !important;
-    max-width: 340px;
+    max-width: 100%;
   }
   .VPHero .actions .VPButton {
     width: 100% !important;
