@@ -126,6 +126,7 @@ JVM 运行时数据区（方法区存类元数据、堆存对象、栈存栈帧�
 ```
 
 - **双亲委派模型**：自定义加载器 → $Application \to Platform$，收到加载请求先委托父加载器，父加载不了才自己尝试。作用是**保证 `java.lang.*` 等核心类不被用户同名类冒名替换**。`Class.forName`、`ClassLoader.loadClass` 会触发加载（是否初始化取决于参数）。
+- **打破双亲委派的场景**（高频）：① JDBC/JNDI 等 SPI 用**线程上下文类加载器**让父加载器"借用"子加载器加载厂商驱动实现；② Tomcat 每个应用独立 `WebAppClassLoader`、**优先自己加载**以隔离不同版本的同名类；③ OSGi 热插拔的网状加载。打破一般通过重写 `loadClass` 实现。
 - 常用命令：`javac -encoding UTF-8 -d out src/*.java`（编译到 out）、`java -cp out com.example.Main`（按类路径运行）、`javap -c -p Main`（反汇编字节码，理解 `i++`/装箱/桥方法时极有用）、`jar tf app.jar`（列出归档内容）。
 
 ### 2.6 常见环境错误对照表（★★）
@@ -487,7 +488,7 @@ public class Manager extends Employee {      // is-a 关系（Employee 见 4.2�
 - `hashCode()`：默认返回对象地址派生值；相等对象必须有相等哈希码。
 - `toString()`：默认 `类名@哈希`，建议覆盖为可读信息；`+` 拼接字符串时对象自动调 `toString`。
 - `getClass()`：返回运行时 `Class` 对象，用于反射与类型判断（`obj.getClass() == other.getClass()`）。
-- `clone()`：默认浅拷贝，需实现 `Cloneable`；更推荐用拷贝构造器。
+- `clone()`：默认**浅拷贝**（嵌套引用字段仍指向同一对象），需实现 `Cloneable`；**深拷贝**须递归克隆引用字段（或序列化实现），工程上更推荐拷贝构造器；数组的 `clone()` 同样是浅拷贝。
 
 ### 5.3 自动装箱与包装类（★★★）
 $int \leftrightarrow Integer$ 自动转换（autoboxing / unboxing）：
@@ -1247,6 +1248,10 @@ Runnable r2 = () -> { synchronized (lockB) { synchronized (lockA) { } } };
 无竞争时 JVM 并不会直接让线程陷入操作系统级互斥量，而是按「**无锁 → 偏向锁 → 轻量级锁（CAS 自旋）→  heavyweight 重量级锁**」逐级升级：只有一个线程访问时偏向锁把线程 ID 记在对象头里，几乎零开销；出现第二个线程竞争时升级为轻量级锁，用 CAS + 短暂自旋避免线程挂起；竞争激烈时才膨胀为重量级锁（真正阻塞线程）。锁只能升级不能降级（偏向锁在新版 JDK 中已默认废弃）。这解释了为什么"低竞争的 synchronized 并不慢"。
 :::
 
+::: tip 补充 · AQS（AbstractQueuedSynchronizer）
+`ReentrantLock`、`Semaphore`、`CountDownLatch` 的底层都是 AQS：内部一个 `volatile int state`（锁=重入次数、信号量=剩余许可、latch=计数）+ **CLH 变体的 FIFO 双向等待队列**。抢不到 `state` 的线程被封装成 Node 入队并 `park`，释放时按序 `unpark` 后继。分**独占模式**（ReentrantLock）与**共享模式**（Semaphore/CountDownLatch）；`Condition` 靠"每个条件一个条件队列，signal 时把节点转回同步队列"实现。公平锁与非公平锁只差一步：抢锁前是否先检查队列中有没有前驱在排队。
+:::
+
 ```java
 // 双重检查锁定（DCL）单例：instance 必须 volatile，防止「分配内存→初始化→赋引用」重排序
 class Singleton {
@@ -1312,11 +1317,37 @@ synchronized (queue) {
 
 执行顺序：**核心线程未满 → 建核心线程；否则入队；队列满且线程数 < maximum → 建临时线程；再满 → 触发拒绝策略**。
 
+四种拒绝策略：`AbortPolicy`（**默认**，抛 `RejectedExecutionException`）、`CallerRunsPolicy`（由提交任务的调用线程自己执行，天然反压限流）、`DiscardPolicy`（静默丢弃新任务）、`DiscardOldestPolicy`（丢弃队首等待最久的任务后重试提交）。
+
 ::: danger 易错 · 线程池
 - `Executors.newFixedThreadPool` / `newSingleThreadExecutor` 用**无界** `LinkedBlockingQueue`，`newCachedThreadPool` 的 maximum 近乎无限，高并发下都可能 OOM。生产环境应显式 `new ThreadPoolExecutor(...)`，配有界队列和有意义的拒绝策略。
 - `execute()` 抛出的异常会直接到未捕获异常处理器；`submit()` 会把异常**封装进 Future**，只有调用 `get()` 时才抛 `ExecutionException` —— 不 get 就等于吞了异常。
 - `Future.get()` 会阻塞；`CompletableFuture` 支持 `thenApply` / `thenCompose` / `allOf` / `exceptionally` 组合异步，并可指定自定义线程池避免共用 `ForkJoinPool.commonPool()`。
 :::
+
+### 12.9 并发工具类（★★★）
+
+| 工具 | 语义 | 要点 / 场景 |
+| --- | --- | --- |
+| `CountDownLatch` | 一个或多个线程 `await()`，其他线程 `countDown()` 到 0 后放行 | **一次性**、不可重置；主线程等 N 个子任务全部完成 |
+| `CyclicBarrier` | 所有参与方都 `await()` 到齐后一起放行，可循环复用 | **线程间互相等待**的屏障；可传 `barrierAction` 在到齐时执行汇总 |
+| `Semaphore` | `acquire()` 取许可、`release()` 还许可 | 控制**并发访问数量**（限流、连接池）；许可为 1 时才退化为互斥 |
+
+```java
+CountDownLatch latch = new CountDownLatch(3);
+for (int i = 0; i < 3; i++) {
+    pool.execute(() -> {
+        try { /* 子任务 */ } finally { latch.countDown(); }
+    });
+}
+latch.await();                            // 主线程等全部完成
+
+Semaphore sem = new Semaphore(2);         // 最多允许 2 个线程同时进入
+sem.acquire();
+try { /* 访问受限资源 */ } finally { sem.release(); }
+```
+
+> 区分口诀：CountDownLatch 是"**计数减到 0 才放行，别人等我**"；CyclicBarrier 是"**人齐了一起走，我等别人**"；Semaphore 是"**限流许可证**"。
 
 ---
 
@@ -1326,7 +1357,8 @@ synchronized (queue) {
 - **线程私有**：程序计数器、虚拟机栈（栈帧=方法调用）、本地方法栈。
 - **线程共享**：**堆（对象实例，GC 主战场）**、**方法区/元空间（类信息、常量、静态变量）**、**Code Cache（JIT 编译后的本地代码，位于堆外）**。
 - **垃圾回收**：判断对象是否存活用**可达性分析**（从 GC Roots 出发不可达即回收），而非引用计数。常见算法：标记-清除、复制（新生代）、标记-整理（老年代）；分代收集（Young/Old）是主流。
-- `OutOfMemoryError`：堆/元空间不足；`StackOverflowError`：栈深度超限（如无限递归）。
+- `OutOfMemoryError`：堆/元空间不足；`StackOverflowError`：栈深度超限（如无限递归）。**直接内存**（`DirectByteBuffer`，NIO 大量使用）不在堆内，由 `-XX:MaxDirectMemorySize` 控制，溢出表现为 native 内存不足。
+- **OOM / CPU 排查流程**：`jps` 定位 PID → `jstat -gcutil PID 1000` 看 GC 频率与各代占用 → `jmap -dump:live,format=b,file=heap.hprof PID` 导出堆 → MAT/VisualVM 按支配树找大对象；CPU 飙高则 `top -Hp PID` 找热线程 + `jstack PID` 对照线程栈。
 
 ![JVM 运行时数据区、GC 分代与可达性分析](/java/java-jvm.svg)
 
@@ -1600,6 +1632,28 @@ try (ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(Path.
 - 序列化要显式声明 `serialVersionUID`；`transient`/`static` 字段不参与；Java 原生序列化有安全与兼容问题，跨语言/长期存储优先用 JSON（Jackson/Gson）。
 :::
 
+#### 13.5.4 传统 NIO：Buffer / Channel / Selector（★★★）
+
+| 组件 | 作用 |
+| --- | --- |
+| `Buffer`（`ByteBuffer` 等） | 数据容器；`position/limit/capacity` 三指针，`flip()` 写模式切读模式，`clear()` 复位再写 |
+| `Channel`（`FileChannel`/`SocketChannel`/`ServerSocketChannel`） | **双向**通道，读写都必须经过 Buffer |
+| `Selector` | **单线程轮询多个 Channel 的就绪事件**（可连接/可读/可写），Linux 底层为 `epoll` |
+
+- 与传统 IO 对比：IO **面向流、阻塞、一连接一线程**；NIO **面向缓冲区、非阻塞、一线程管多连接**。
+- **Reactor 模型**：`Selector.select()` 返回就绪 Channel 集合，按事件类型（ACCEPT/READ/WRITE）分派给 handler；Netty、Redis、Nginx 均基于此。
+
+```java
+try (FileChannel ch = FileChannel.open(Path.of("a.txt"), StandardOpenOption.READ)) {
+    ByteBuffer buf = ByteBuffer.allocate(1024);
+    while (ch.read(buf) != -1) {   // Channel 读入 Buffer
+        buf.flip();                // 切到读模式
+        // ... 消费 buf.remaining() 个字节
+        buf.clear();               // 复位，准备下一轮写入
+    }
+}
+```
+
 ### 13.6 equals 与 hashCode 契约精解（★★★）
 
 ![equals/hashCode 契约与 HashSet 查找过程](/java/java-equals.svg)
@@ -1665,9 +1719,9 @@ System.out.println(set.size());               // 2      —— 两个「相等�
 | **11（LTS）** | 标准化 HTTP Client、`String.strip/isBlank/lines/repeat`、`Files.readString/writeString`、单文件源码直接 `java Hello.java`、ZGC（实验） |
 | 14 | `switch` 表达式正式（`->` + `yield`）、`instanceof` 模式匹配预览、`record` 预览、有用的 NPE 详细提示、移除 CMS（JDK 9 废弃，JEP 363） |
 | 15 | 文本块 `"""` 正式、密封类预览 |
-| 16 | `record` 正式、`instanceof` 模式匹配正式、Stream `toList()` 前置 |
+| 16 | `record` 预览转正、`instanceof` 模式匹配正式、Stream `toList()`（JDK 16 新增） |
 | **17（LTS）** | 密封类 `sealed` 正式、switch 模式匹配预览、强封装 JDK 内部 API |
-| 18–20 | 默认 UTF-8、虚拟线程 / 结构化并发（预览）、记录模式匹配、`SequencedCollection` 前置 |
+| 18–20 | 默认 UTF-8（18）、虚拟线程 / 结构化并发（19/20 预览）、记录模式匹配（19/20 预览） |
 | **21（LTS）** | **虚拟线程**（`Executors.newVirtualThreadPerTaskExecutor()`）正式、序列集合 `SequencedCollection`、switch 模式匹配与记录模式正式、分代 ZGC |
 
 ```java

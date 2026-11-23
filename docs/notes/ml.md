@@ -43,6 +43,8 @@ summary: "《Python 机器学习基础教程》8 章精读笔记：以 scikit-le
 | --- | --- | --- | --- |
 | **监督学习** | 输入 + 预期输出（有标签） | 对新输入预测输出 | 手写邮编识别、肿瘤良恶性判断、信用卡欺诈检测 |
 | **无监督学习** | 只有输入，无输出 | 发现结构、表示或分组 | 博客主题归纳、客户分群、异常访问检测 |
+| **半监督 / 自监督**（补充） | 少量有标注 + 大量无标注 / 自造监督信号 | 降低标注成本、学习通用表示 | 伪标签、BERT 掩码语言模型 |
+| **强化学习**（补充） | 与环境交互的状态-动作-奖励序列 | 最大化长期累计回报 | 游戏 AI、机器人控制、推荐策略 |
 
 **术语**：表格中的每一行是一个**样本（sample）/ 数据点**，每一列是一个**特征（feature）**；把数据整理成合适表示的过程叫**特征提取 / 特征工程**。书中反复强调：如果数据里根本不含某信息（例如只有姓氏想预测性别），任何算法都无能为力；**理解数据与任务的关系，比随机挑一个算法重要得多**。
 
@@ -216,6 +218,13 @@ print(tree.feature_importances_)   # 特征重要性，总和为 1
 
 **梯度提升要点**：对参数更敏感，`learning_rate` 越小通常需要越多的树；大规模问题可参考 `xgboost`（书中提到其速度常优于 scikit-learn 实现）。
 
+::: tip 补充 · 其他集成方法与现代实现
+- **Bagging**（仅自助采样聚合、不做特征随机选择）：`BaggingClassifier`；**ExtraTrees**（极端随机树）：分裂点随机选，训练更快、方差更低。
+- **AdaBoost**：`AdaBoostClassifier(n_estimators=..., learning_rate=...)`，每轮提高被错分样本的权重，基学习器常用决策树桩。
+- **Stacking（堆叠）**：`StackingClassifier(estimators=[...], final_estimator=...)`，用各基模型的**折外预测**作为新特征训练元学习器；折外预测可避免元学习器过拟合基模型的训练集输出。
+- **XGBoost / LightGBM / CatBoost**：梯度提升的工程化实现（直方图加速、二阶泰勒展开等），表格数据竞赛首选；sklearn 内置的 `HistGradientBoostingClassifier` 也是直方图实现，大样本时比 `RandomForestClassifier` 更快。
+:::
+
 #### 2.3.6 核支持向量机（SVM）
 
 ```python
@@ -318,6 +327,7 @@ X_test_scaled  = scaler.transform(X_test)  # 用同一变换，绝不重新 fit
 | `MinMaxScaler` | 每特征缩放到 [0, 1] | 需要固定边界、图像像素等 |
 | `RobustScaler` | 用中位数与四分位数，忽略离群点 | 数据含明显异常值 |
 | `Normalizer` | 按**样本**（行）缩放到单位范数 | 文本 / 方向型数据 |
+| `SimpleImputer`（补充） | 填补缺失值：`strategy='mean'/'median'/'most_frequent'/'constant'` | 统计量只能在训练折上 `fit`，同样要放进 Pipeline 防泄露 |
 
 **铁律（书中用一整节强调）**：`fit` 只在训练集上做，训练与测试应用**完全相同的变换**。`transform` 总是减去**训练集**的最小值、除以**训练集**的范围，因此测试集缩放后**可能超出 [0, 1]**——这是正常现象，不是 bug。
 
@@ -435,7 +445,7 @@ y = data_dummies['income_>50K'].values
 | 必须分离目标 | 把输出变量或其派生列留在特征里，是监督建模**非常常见的错误** |
 | 检查取值 | 先用 `Series.value_counts()` 看唯一值，人工输入常有拼写/大小写差异（male / man） |
 | 类别是数字时 | 数字不代表连续！若语义无顺序关系（如 workclass 的 0~8）**必须**当作离散变量做 one-hot；五星评分则视任务而定 |
-| 指定分类列 | `OneHotEncoder(categorical_features=...)` 或 `ColumnTransformer` 可明确标记哪些列是分类变量 |
+| 指定分类列 | 用 `ColumnTransformer` 明确标记哪些列是分类变量（旧版的 `OneHotEncoder(categorical_features=...)` 参数已在新版 sklearn 中移除） |
 
 **get_dummies 的经典陷阱**：若训练集与测试集**分开**调用 `get_dummies`，某取值只在训练集出现时，两边生成的列数与列名不同 → 模型无法应用到测试集；更糟的是列的位置对应了不同的语义。解决：在合并后的数据框上统一编码，或显式对齐列名。
 
@@ -445,7 +455,7 @@ y = data_dummies['income_>50K'].values
 from sklearn.preprocessing import OneHotEncoder, PolynomialFeatures
 bins = np.linspace(-3, 3, 11)
 which_bin = np.digitize(X, bins=bins)
-X_binned = OneHotEncoder(sparse=False).fit_transform(which_bin)
+X_binned = OneHotEncoder(sparse_output=False).fit_transform(which_bin)   # sklearn>=1.2 参数名（旧版为 sparse=False）
 ```
 
 把连续特征划入若干**箱子（bin）**并 one-hot 化后：
@@ -461,7 +471,7 @@ X_binned = OneHotEncoder(sparse=False).fit_transform(which_bin)
 from sklearn.preprocessing import PolynomialFeatures
 poly = PolynomialFeatures(degree=2, include_bias=False)
 X_poly = poly.fit_transform(X)
-print(poly.get_feature_names())   # 查看每个新特征的来源
+print(poly.get_feature_names_out())   # 查看每个新特征的来源（旧版为 get_feature_names()）
 ```
 
 - **交互特征** = 特征之间的乘积；**多项式特征** = 特征的平方、立方等。
@@ -493,7 +503,7 @@ print(poly.get_feature_names())   # 查看每个新特征的来源
 ### 4.6 利用专家知识（Citi Bike 案例，★）
 
 - 任务：用「日期 + 时刻」预测某站点未来 3 小时的租车数量。
-- **失败做法**：直接把时间戳（整数）喂给随机森林 → 训练集很好，测试集 $R^{2}$ $- 0.04$（什么都没学到）。原因：树模型**无法外推**到训练时间范围之外，只能输出训练集中最近点的目标值。
+- **失败做法**：直接把时间戳（整数）喂给随机森林 → 训练集很好，测试集 $R^{2}=- 0.04$（什么都没学到）。原因：树模型**无法外推**到训练时间范围之外，只能输出训练集中最近点的目标值。
 - **改进一**：把时间拆成「一周的星期几 + 一天中的时刻」两个特征 → 捕捉周期性，随机森林 $R^{2}=0.84$。
 - **改进二**：改用 LinearRegression 直接吃整数编码 → 效果很差，因为它把星期几/时刻当成**连续线性变量**（时间越晚租得越多）。
 - **改进三**：用 `OneHotEncoder` 把星期几与时刻当作**分类变量** → 性能与随机森林相当，且**系数可解释**（每个「星期几 × 时刻」组合一个系数）。
@@ -561,6 +571,20 @@ print(grid.score(X_test, y_test))     # 这才是泛化性能
 
 > 热图若呈「垂直条形」，说明只有 gamma 影响精度、C 不重要；网格每加一个参数，需训练的模型数**指数增长**。
 
+**补充 · 随机搜索与贝叶斯优化**（网格搜索的两种升级）：
+
+```python
+from sklearn.model_selection import RandomizedSearchCV
+from scipy.stats import loguniform
+rs = RandomizedSearchCV(SVC(), param_distributions={'C': loguniform(1e-3, 1e3),
+                                                    'gamma': loguniform(1e-3, 1e3)},
+                        n_iter=20, cv=5, random_state=0)
+```
+
+- `RandomizedSearchCV` 从**参数分布中随机采样** `n_iter` 组组合；同样预算下通常优于网格——多数超参对精度不敏感，随机采样能覆盖每个参数的更多取值。
+- **贝叶斯优化**（Optuna、`skopt.BayesSearchCV`）：用代理模型拟合「参数 → 验证分数」，按采集函数选下一个试点，样本效率最高，适合单次训练很贵的模型。
+- 诊断工具：`validation_curve`（看单一参数对训练/验证分数的影响）、`learning_curve`（看样本量的影响，判断该加数据还是加模型容量）。
+
 ### 5.3 评估指标与评分（★）
 
 #### 混淆矩阵与二分类指标
@@ -602,6 +626,13 @@ print(classification_report(y_test, y_pred))
 #### 在模型选择中使用指标
 
 `GridSearchCV(..., scoring='roc_auc')` 可指定评分；分类默认 accuracy、回归默认 R²。选哪个指标必须回到**最终目标**：商业指标（增加利润、减少损失）最理想，难以直接度量时再退而求其次用代理指标。
+
+::: tip 补充 · 类别不平衡的处理
+- **算法侧**：`class_weight='balanced'`（LogisticRegression、RandomForestClassifier、SVC 等支持），按类别频率倒数加大少数类的错分代价。
+- **数据侧**：随机过采样/欠采样；**SMOTE**（`imblearn.over_sampling.SMOTE`，在少数类近邻间插值合成新样本）——重采样只能作用于**训练折内部**，否则造成泄露。
+- **决策侧**：移动分类阈值（默认 0.5）换取更高召回，沿 PR/ROC 曲线选业务可接受的工作点。
+- **评估侧**：划分用 `train_test_split(..., stratify=y)` 与分层 K 折；看 F1 / PR-AUC 而非 accuracy。
+:::
 
 ### 5.4 本章两个必须记住的要点（原书强调）
 

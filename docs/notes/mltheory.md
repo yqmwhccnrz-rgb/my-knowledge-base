@@ -352,6 +352,10 @@ $\nabla L=(0- 2) \cdot 1+(0- 3) \cdot 2=- 8$ → $w_{1}= 0- 0.1 \times(- 8)= 0.8
 L2 正则等价于给参数加**高斯先验** $w \sim N(0, \sigma^{2}I)$，L1 等价于**拉普拉斯先验**；此时求解的是 MAP 估计，正则项就是负 log 先验。这一视角把「防过拟合」与「先验知识」统一起来。
 :::
 
+::: tip 补充 · 正则化的求解算法：坐标下降
+Lasso/弹性网没有闭式解，常用**坐标下降**：固定其余坐标，轮流对单个坐标求解一维子问题（有软阈值解析解），对凸目标保证收敛到全局最优；sklearn 的 `Lasso` 即默认用它。岭回归有闭式解无需迭代；LARS（最小角回归）是能同时求出整条 L1 正则路径的另一类算法。
+:::
+
 ::: danger 易错 · 正则化
 - 正则项**不含偏置项** `b`；自变量须先标准化，否则惩罚对不同量纲不公平。
 - $\lambda$ 越大 → 系数越小 → 偏差上升、方差下降；$\lambda=0$ 退化为 OLS。
@@ -382,6 +386,14 @@ $R^{2}= 1- \dfrac{SS_{res}}{SS_{tot}}$（残差平方和 / 总平方和）度量
 
 ::: danger 易错 · 判别式 vs 生成式
 区别在**是否对 `p(x)` 或 `p(x|C)` 建模**，而不是「能不能输出概率」。逻辑回归与朴素贝叶斯都能给后验概率，但前者直接拟合决策边界、后者假设类条件分布；生成式模型收敛更快（所需样本更少）但假设更强，判别式模型在大样本下渐近误差更低。
+:::
+
+::: tip 补充 · 概率图模型（简述）
+- **贝叶斯网络**：有向无环图（DAG）表达条件依赖，联合分布按父节点分解 $p(x)= \prod_{i} p(x_{i} \mid \operatorname{pa}(x_{i}))$，大幅减少参数。
+- **马尔可夫随机场（MRF）**：无向图，联合分布为各团上势函数之积再除以配分函数 $Z$ 归一化；满足局部马尔可夫性。
+- **HMM**：隐状态构成马尔可夫链 + 各状态发射观测；三大问题——评估（前向算法）、解码（Viterbi）、学习（Baum-Welch，即 EM）。
+- **CRF**：判别式无向图模型，直接建模 $p(y \mid x)$，序列标注（分词、命名实体识别）经典方法。
+- 推断分**精确推断**（变量消除）与**近似推断**（MCMC 采样、变分推断——与第 12 章 ELBO 同源）。
 :::
 
 ### 4.2 逻辑回归与 softmax
@@ -444,6 +456,9 @@ $w^{T}x=0$ → $\sigma(0)=0.5$，正是决策边界；$w^{T}x=2$ → $\sigma(2)=
 | SVM | $hinge: \max(0, 1- yf)$ | 间隔内点零梯度 → 稀疏解 |
 | AdaBoost | $\exp(- yf)$ | 对错分样本指数加权，故对噪声敏感 |
 | 平方损失分类 | $\dfrac{1}{2}(y- f)^{2}$ | 非凸/易饱和，逻辑回归不用它 |
+| 0-1 损失（分类真实目标） | 错分为 1、正确为 0（指示函数） | 非凸不可导，直接优化 NP 难 → 必须用凸代理损失 |
+
+hinge、指数、logistic 损失都是 0-1 损失的**凸代理上界**：最小化它们即最小化 0-1 错误的上界，这统一解释了「各模型为何用各自的损失」。
 
 ::: tip 工作例题 · 交叉熵数值
 真实类别为第 1 类，模型给该类的概率 `0.9` → 损失 $- \log 0.9 \approx 0.1054$；若只给 `0.8` → $- \log 0.8 \approx 0.2231$（损失翻倍）。交叉熵对「 confident but wrong 」的样本惩罚极重，这解释了为什么它比均方误差更适合分类。
@@ -564,6 +579,12 @@ $|H|=1000$、$N=100$、$\delta=0.05$ → 上界 $= \sqrt{\dfrac{6.9078+3.6889}{2
 
 ::: tip 补充 · 无限假设空间
 `|H|` 无限时上式失效，需用 **VC 维** `d_VC`（能否打散的最大点数）或 Rademacher 复杂度，上界变为 $O\left(\sqrt{\dfrac{d_{VC} \log\left(\dfrac{N}{d_{VC}}\right)+\log\left(\dfrac{1}{\delta}\right)}{N}}\right)$。深度网络参数量远大于 VC 上界却仍泛化良好，说明传统容量度量不足，需要「隐式正则化」（SGD 偏好平坦极小、架构先验）来解释——这是当代研究课题。
+:::
+
+::: tip 补充 · PAC 学习框架与 Rademacher 复杂度
+- **PAC（Probably Approximately Correct，概率近似正确）**：若算法能用 $\operatorname{poly}\left(1/\epsilon, \, 1/\delta, \, d, \, \log|H|\right)$ 规模的样本与计算量，以概率至少 $1- \delta$ 输出误差 $\le \epsilon$ 的假设，则称该概念类 PAC 可学习；上节的泛化界正是有限假设空间的 PAC 保证。
+- **弱可学习 = 强可学习**：只要存在比随机猜测略好的弱学习器，就能把它提升（boost）到任意高精度——这是 AdaBoost/GBDT 有效性的理论依据。
+- **Rademacher 复杂度**：$\hat{\mathfrak{R}}_{N}(H)= E_{\sigma}\left[\sup_{h \in H} \dfrac{1}{N} \sum_{i=1}^{N} \sigma_{i} h(x_{i})\right]$，其中 $\sigma_{i}$ 为独立的 ±1 随机符号；它度量假设集拟合随机噪声的能力，是**依赖数据分布**的容量度量，给出的泛化界通常比 VC 维更紧。
 :::
 
 ### 5.5 分布漂移、公平性与上线监控
@@ -839,7 +860,7 @@ $\epsilon_{t}=0.3$ → $\alpha_{t}= \dfrac{1}{2} \ln\left(\dfrac{0.7}{0.3}\right
 :::
 
 ::: tip 补充 · 算法谱系（课件只点到 XGBoost）
-`Bagging → 随机森林 → ExtraTrees`；$AdaBoost \to GBDT \to \dfrac{\dfrac{XGBoost}{LightGBM}}{CatBoost}$（二阶泰勒展开 + 正则项 + 列采样 + 直方图加速）；`Stacking` 用元学习器组合异构基模型。工程上表格数据首选梯度提升树，图像/文本首选深度网络。
+`Bagging → 随机森林 → ExtraTrees`；`AdaBoost → GBDT → XGBoost / LightGBM / CatBoost`（二阶泰勒展开 + 正则项 + 列采样 + 直方图加速）；`Stacking` 用元学习器组合异构基模型。工程上表格数据首选梯度提升树，图像/文本首选深度网络。
 :::
 
 ### 7.4 AdaBoost 的推导：前向分步加法模型 + 指数损失
@@ -906,7 +927,7 @@ $\gamma$ 是「分裂最小收益门槛」，起预剪枝作用。
 $$
 \begin{aligned}
 &z^{(l)}= W^{(l)} a^{(l- 1)}+ b^{(l)} \\
-&a^{(l)}= \phi(z^{(l)}) \; \text{（} \; \text{a((0)) = x} \; \text{）}
+&a^{(l)}= \phi(z^{(l)}) \; \text{（} \; a^{(0)}= x \; \text{）}
 \end{aligned}
 $$
 
@@ -938,7 +959,7 @@ $$
 
 $$
 \begin{aligned}
-&\text{前向：逐层缓存} \; \text{z((l))} \; \text{、} \; \text{a((l))} \; \text{，最后计算损失} \; \text{L} \\
+&\text{前向：逐层缓存} \; z^{(l)} \; \text{、} \; a^{(l)} \; \text{，最后计算损失} \; \text{L} \\
 &\text{输出层误差：} \; \delta^{(L)}= \nabla_{a}L ⊙ \phi '(z^{(L)}) \\
 &\text{逐层回传：} \; \delta^{(l)}=(W^{(l+1)})^{T} \delta^{(l+1)} ⊙ \phi '(z^{(l)}) \\
 &\text{梯度：} \; \frac{\partial L}{\partial W^{(l)}}= \delta^{(l)}(a^{(l- 1)})^{T} \; \text{，} \; \frac{\partial L}{\partial b^{(l)}}= \delta^{(l)}
@@ -1192,7 +1213,7 @@ $$
 
 | 技术 | 做法 | 代价 |
 | --- | --- | --- |
-| 量化 | $FP32 \to \dfrac{INT8}{FP16}$（体积与带宽降为 1/4 / 1/2） | 需校准，可能有精度损失 |
+| 量化 | $FP32 \to INT8 \,/\, FP16$（体积与带宽降为 1/4 / 1/2） | 需校准，可能有精度损失 |
 | 剪枝 | 移除小权重/通道（结构化剪枝才真正加速） | 非结构化剪枝需稀疏计算库 |
 | 知识蒸馏 | 用大模型（教师）的软标签训练小模型（学生） | 需额外训练成本 |
 | 低秩分解 / LoRA | 用低秩矩阵近似大权重增量 | 只微调少量参数 |
@@ -2271,7 +2292,7 @@ $$x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 
 | 交叉验证 | `cross_val_score(pipe, X, y, cv=StratifiedKFold(5), scoring='f1')` |
 | 网格调参 | `GridSearchCV(pipe, param_grid, cv=5)` → `best_params_` |
 | 评估 | `classification_report`, `confusion_matrix`, `roc_auc_score`, `average_precision_score` |
-| 线性模型 | $\dfrac{\dfrac{\dfrac{LinearRegression}{Ridge(alpha=)}}{Lasso(alpha=)}}{LogisticRegression(C=)}$ |
+| 线性模型 | `LinearRegression / Ridge(alpha=) / Lasso(alpha=) / LogisticRegression(C=)` |
 | SVM | `SVC(C=, gamma=, kernel='rbf')`, `SVR` |
 | 树与集成 | `DecisionTreeClassifier(max_depth=)`, `RandomForestClassifier(n_estimators=)`, `GradientBoostingClassifier` |
 | 降维聚类 | `PCA(n_components=0.95)`, `KMeans(n_clusters=, n_init=10)`, `GaussianMixture` |
