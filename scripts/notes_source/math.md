@@ -196,6 +196,23 @@ $f(x)= \sum_{k=0}^{n}\dfrac{f^{(k)}(x_{0})(x- x_{0})^{k}}{k!}+ R_{n}(x)$：
 **七种等价刻画**：$\lim a_{n}=A$ ⇔ 任意子列收敛到 A（若有子列不收敛或收敛到别的值，则原数列不收敛）。判定发散常用「找两个子列极限不同」，如 $(- 1)^{n}$。
 **Stolz 定理**（考研常用）：$b_{n}$ 严格递增趋于 ∞ 时，$\lim \dfrac{a_{n}}{b_{n}}= \lim \dfrac{a_{n+1}- a_{n}}{b_{n+1}- b_{n}}$（离散版洛必达），用于 $\lim \dfrac{1+\dfrac{1}{2}+ \cdots+\dfrac{1}{n}}{\ln n}= 1$ 一类题。
 
+<div class="kb-example">
+
+<div class="kb-q">
+
+**例：** 求 $\displaystyle\lim_{n\to\infty}\dfrac{1+\dfrac{1}{2}+\cdots+\dfrac{1}{n}}{\ln n}$。
+
+</div>
+<div class="kb-sol">
+
+取 $a_{n}=\sum_{k=1}^{n}\dfrac{1}{k}$、$b_{n}=\ln n$，则 $a_{n+1}-a_{n}=\dfrac{1}{n+1}$。由拉格朗日中值定理，
+$$\ln(n+1)-\ln n=\dfrac{\xi_{n}}{n},\qquad \xi_{n}\in(n,n+1).$$
+故由 Stolz 定理，原式 $=\lim\dfrac{\dfrac{1}{n+1}}{\dfrac{\xi_{n}}{n}}=\lim\dfrac{n}{(n+1)\xi_{n}}=1$。由于 $\xi_{n}/n\to1$ 且 $(n+1)/n\to1$，极限确为 $1$。
+
+</div>
+
+</div>
+
 ---
 
 ## 第 2 章 导数与微分（★★★）
@@ -210,7 +227,7 @@ $f'(x_{0})= \lim_{\Delta x \to 0}\dfrac{f(x_{0}+\Delta x)- f(x_{0})}{\Delta x}$�
 | 关系（一元） | 结论 |
 | --- | --- |
 | 可导 ⇔ 可微 | 等价（多元不再等价） |
-| 可导 ⇒ 连续 ⇒ 极限存在 | 反向均不成立：$|x|$ 在 0 连续不可导 |
+| 可导 ⇒ 连续 ⇒ 极限存在 | 反向均不成立：$\vert x\vert$ 在 0 连续不可导 |
 | 可导 ⇔ 左导数 = 右导数（有限） | 分段点必须用定义算 |
 | $f'$ 未必连续 | 但由达布定理，$f'$ 无跳跃间断 |
 
@@ -219,7 +236,7 @@ $f'(x_{0})= \lim_{\Delta x \to 0}\dfrac{f(x_{0}+\Delta x)- f(x_{0})}{\Delta x}$�
 | 类型 | 公式 |
 | --- | --- |
 | 基本导数（三角） | $(\sin x)'=\cos x$、$(\cos x)'=-\sin x$、$(\tan x)'=\sec^{2}x$、$(\cot x)'=-\csc^{2}x$、$(\sec x)'=\sec x \tan x$、$(\csc x)'=-\csc x \cot x$ |
-| 基本导数（反三角/指对） | $(\arcsin x)'=\dfrac{1}{\sqrt{1- x^{2}}}$、$(\arctan x)'=\dfrac{1}{1+x^{2}}$；$(a^{x})'=a^{x}\ln a$、$(\log_{a}x)'=\dfrac{1}{x \ln a}$、$(\ln|x|)'=\dfrac{1}{x}$ |
+| 基本导数（反三角/指对） | $(\arcsin x)'=\dfrac{1}{\sqrt{1- x^{2}}}$、$(\arctan x)'=\dfrac{1}{1+x^{2}}$；$(a^{x})'=a^{x}\ln a$、$(\log_{a}x)'=\dfrac{1}{x \ln a}$、$(\ln\lvert x\rvert)'=\dfrac{1}{x}$ |
 | 四则 | $(uv)'=u'v+uv'$；$\left(\dfrac{u}{v}\right)'= \dfrac{u'v- uv'}{v^{2}}$ |
 | 复合（链式） | $y=f(u), u=g(x) \Rightarrow y'= f'(u)g'(x)$，多层复合逐层相乘 |
 | 反函数 | $\dfrac{dx}{dy}= \dfrac{1}{y'}$；$\dfrac{d^{2}x}{dy^{2}}=- \dfrac{y''}{(y')^{3}}$ |
@@ -284,6 +301,14 @@ $f(x)= x^{2} \sin\left(\dfrac{1}{x}\right)$（$x\ne0$）、$f(0)=0$：在 0 处 
 - 铅直 $x= x_{0}$，若 $\lim_{x \to x_{0}} f(x)= \infty$（在无定义点、分段点找）；
 - 斜 $y=ax+b$，$a= \lim \dfrac{f(x)}{x}$，$b= \lim[f(x)- ax]$（只需在水平不存在时求），且 $x \to+ \infty$ 与 $x \to- \infty$ 要分别计算。
 
+**有理分式「抓大头」速查**：设 $P(x)=a_{m}x^{m}+\cdots$、$Q(x)=b_{n}x^{n}+\cdots$，$a_{m}b_{n}\ne0$，记 $c=\dfrac{a_{m}}{b_{n}}$。
+
+| 次数 | $x\to+\infty$ | $x\to-\infty$ |
+| --- | --- | --- |
+| $m=n$ | $c$ | $c$ |
+| $m<n$ | $0$ | $0$ |
+| $m>n$ | $c>0$ 得 $+\infty$，$c<0$ 得 $-\infty$ | 正负由 $c(-1)^{m-n}$ 决定，取相应无穷大 |
+
 **曲率** $\kappa=\dfrac{|y''|}{(1+y'^{2})^{\dfrac{3}{2}}}$，曲率半径 $\rho= \dfrac{1}{\kappa}$（直线 $\kappa=0$）。
 
 ::: danger 易错 · 导数应用
@@ -331,15 +356,15 @@ $\int f(x)dx= F(x)+ C \Leftrightarrow F'(x)=f(x)$。**连续函数必有原函�
 
 | 基本积分 | 结果 |
 | --- | --- |
-| $\int x^a dx$ | $\dfrac{x^{a+1}}{a+1}+C$（$a\ne-1$）；$a=-1$ 时 $\ln|x|+C$ |
+| $\int x^a dx$ | $\dfrac{x^{a+1}}{a+1}+C$（$a\ne-1$）；$a=-1$ 时 $\ln\lvert x\rvert+C$ |
 | $\int e^{x}dx$, $\int a^{x}dx$ | $e^{x}+C$, $\dfrac{a^{x}}{\ln a}+C$ |
 | $\int \sin x dx$, $\int \cos x dx$ | $-\cos x+C$，$\sin x+C$ |
 | $\int\dfrac{dx}{1+x^{2}}$, $\int\dfrac{dx}{\sqrt{1- x^{2}}}$ | $\arctan x+C$，$\arcsin x+C$ |
-| $\int \sec x dx$ | $\ln|\sec x+\tan x|+C$ |
-| $\int \tan x dx$, $\int \cot x dx$, $\int \csc x dx$ | $-\ln|\cos x|+C$、$\ln|\sin x|+C$、$\ln|\csc x- \cot x|+C$ |
-| $\int\dfrac{dx}{x^{2}- a^{2}}$, $\int\dfrac{dx}{\sqrt{x^{2}\pm a^{2}}}$ | $\dfrac{1}{2a}\ln\left|\dfrac{x- a}{x+a}\right|+C$；$\ln\left|x+\sqrt{x^{2}\pm a^{2}}\right|+C$（三角代换回代的最终形式） |
+| $\int \sec x dx$ | $\ln\lvert\sec x+\tan x\rvert+C$ |
+| $\int \tan x dx$, $\int \cot x dx$, $\int \csc x dx$ | $-\ln\lvert\cos x\rvert+C$、$\ln\lvert\sin x\rvert+C$、$\ln\lvert\csc x- \cot x\rvert+C$ |
+| $\int\dfrac{dx}{x^{2}- a^{2}}$, $\int\dfrac{dx}{\sqrt{x^{2}\pm a^{2}}}$ | $\dfrac{1}{2a}\ln\left\lvert\dfrac{x- a}{x+a}\right\rvert+C$；$\ln\left\lvert x+\sqrt{x^{2}\pm a^{2}}\right\rvert+C$（三角代换回代的最终形式） |
 | $\int\dfrac{dx}{a^{2}+x^{2}}$, $\int\dfrac{dx}{\sqrt{a^{2}- x^{2}}}$ | $\left(\dfrac{1}{a}\right)\arctan\left(\dfrac{x}{a}\right)+C$, $\arcsin\left(\dfrac{x}{a}\right)+C$ |
-| $\int\dfrac{f'(x)}{f(x)}dx$ | $\ln|f(x)|+C$（最高频凑微分） |
+| $\int\dfrac{f'(x)}{f(x)}dx$ | $\ln\lvert f(x)\rvert+C$（最高频凑微分） |
 
 ### 4.2 三种主要积分法
 
@@ -361,7 +386,7 @@ $\int f(x)dx= F(x)+ C \Leftrightarrow F'(x)=f(x)$。**连续函数必有原函�
 | --- | --- |
 | 有理函数 $P(x)/Q(x)$ | 先化为真分式（多项式除法）→ 分母因式分解 → 部分分式（含重根、二次不可约）→ 逐项积分 |
 | 三角有理式 $R(sin x, cos x)$ | 万能代换 $t=\tan\left(\dfrac{x}{2}\right)$：$\sin x= \dfrac{2t}{1+t^{2}}$，$\cos x= \dfrac{1- t^{2}}{1+t^{2}}$，$dx= \dfrac{2dt}{1+t^{2}}$；有更简对称式时优先用 |
-| 简单无理函数 | 根式整体代换：$\int R\left(x,^{n}\sqrt{ax+b}\right)dx$ 令 $t=^{n}\sqrt{ax+b}$；倒代换 $x=\dfrac{1}{t}$ 处理高次分母 |
+| 简单无理函数 | 根式整体代换：$\int R\left(x,\sqrt[n]{ax+b}\right)dx$ 令 $t=\sqrt[n]{ax+b}$；倒代换 $x=\dfrac{1}{t}$ 处理高次分母 |
 
 ::: danger 易错 · 不定积分
 - **不要漏 `+C`**；分段积分时各段常数须由连续性统一（否则原函数不连续）。
@@ -439,6 +464,23 @@ $$
 \end{aligned}
 $$
 :::
+
+<div class="kb-example">
+
+<div class="kb-q">
+
+**例：** 计算 $I(x)=\displaystyle\int_{0}^{x}(x-t)e^{t}\,dt$，并求 $I'(x)$。
+
+</div>
+<div class="kb-sol">
+
+令 $u=x-t$，则
+$$I(x)=e^{x}\int_{0}^{x}u e^{-u}du=e^{x}\left[1-(x+1)e^{-x}\right]=e^{x}-x-1.$$
+验算：$I(0)=0$；由变限求导，$I'(x)=\int_{0}^{x}e^{t}dt+(x-x)e^{x}=e^{x}-1$，与 $e^{x}-x-1$ 的导数一致。
+
+</div>
+
+</div>
 
 | 技巧 | 公式 / 说明 |
 | --- | --- |
@@ -535,6 +577,30 @@ $y'+2y=e^{x}$：积分因子 $e^{2x}$，两边乘后 $(e^{2x}y)'=e^{3x}$，
 验算：$y'+2y= \dfrac{1}{3} e^{x}- 2Ce^{- 2x}+ \dfrac{2}{3} e^{x}+ 2Ce^{- 2x}= e^{x}$ ✓
 :::
 
+<div class="kb-example">
+
+<div class="kb-q">
+
+**例：** 求 $y'+y=x e^{x}$ 的通解。
+
+</div>
+<div class="kb-sol">
+
+积分因子 $\mu=e^{x}$，故 $(e^{x}y)'=x e^{2x}$。
+$$e^{x}y=\int x e^{2x}dx=\left(\dfrac{x}{2}-\dfrac{1}{4}\right)e^{2x}+C
+\quad\Rightarrow\quad y=\left(\dfrac{x}{2}-\dfrac{1}{4}\right)e^{x}+Ce^{-x}.$$
+验算：$y'+y=\left(\dfrac{x}{2}+\dfrac{1}{4}\right)e^x+\left(\dfrac{x}{2}-\dfrac{1}{4}\right)e^x=x e^x$，任意常数项相消。
+
+</div>
+
+</div>
+
+**一阶线性差分方程（简述）**：$y_{n+1}=a y_n+b$。
+
+- $a\ne1$：不动点 $y_*=\dfrac{b}{1-a}$，故 $y_n=y_*+Ca^n$；若给定 $y_0$，则 $C=y_0-y_*$。
+- $a=1$：逐项累加得 $y_n=y_0+nb$。
+- 推导与类比：$y_{n+1}-y_*=a(y_n-y_*)$；$a^n$ 是微分方程齐次解 $e^{ax}$ 的离散类比，通解结构都是「齐次解 + 一个特解」。
+
 ### 7.2 高阶线性方程与常系数
 
 **解的结构**：`n` 阶线性方程通解含 `n` 个独立任意常数；齐次解的线性组合仍是齐次解；**非齐次通解 = 齐次通解 + 一个特解**；两非齐次解之差是齐次解。
@@ -593,7 +659,7 @@ $L[y]=y^{(n)}+a_{1}(x)y^{(n-1)}+ \cdots+a_{n}(x)y$ 是**线性算子**，故：
 
 | 运算 | 定义 | 性质与用途 |
 | --- | --- | --- |
-| 数量积 | $a\cdot b=|a||b|\cos\theta=a_x b_x+a_y b_y+a_z b_z$ | 结果是**标量**；夹角 $\cos\theta=\dfrac{a\cdot b}{|a||b|}$；投影 $Prj_{b} a= \dfrac{a \cdot b}{\vert b\vert}$；垂直 ⇔ $a \cdot b=0$ |
+| 数量积 | $a\cdot b=\vert a\vert\vert b\vert\cos\theta=a_x b_x+a_y b_y+a_z b_z$ | 结果是**标量**；夹角 $\cos\theta=\dfrac{a\cdot b}{\vert a\vert\vert b\vert}$；投影 $Prj_{b} a= \dfrac{a \cdot b}{\vert b\vert}$；垂直 ⇔ $a \cdot b=0$ |
 | 向量积 | $a\times b=(a_{y}b_{z}-a_{z}b_{y},\;a_{z}b_{x}-a_{x}b_{z},\;a_{x}b_{y}-a_{y}b_{x})$ | 结果是**向量**，$\bot a$ 且 $\bot b$（右手系）；$\vert a \times b\vert $ = 平行四边形面积；平行 ⇔ $a \times b=0$；**反交换** $a \times b=- b \times a$ |
 | 混合积 | $[a b c]=(a \times b) \cdot c$（三阶行列式） | 绝对值 = 平行六面体体积；三向量共面 ⇔ 混合积 = 0；轮换不变、对换变号 |
 | 方向余弦 | $\cos \alpha=\dfrac{a_{x}}{\vert a\vert}$ 等 | $\cos^{2}\alpha+\cos^{2}\beta+\cos^{2}\gamma=1$ |
@@ -751,7 +817,7 @@ $$
 | 命题 | 真伪 | 反例 / 理由 |
 | --- | --- | --- |
 | 偏导存在 ⇒ 连续 | 假 | $f=\dfrac{xy}{x^{2}+y^{2}}$（(0,0) 补 0）：偏导存在但不连续 |
-| 连续 ⇒ 偏导存在 | 假 | $f=|x|+|y|$ |
+| 连续 ⇒ 偏导存在 | 假 | $f=\vert x\vert+\vert y\vert$ |
 | 各方向方向导数存在 ⇒ 可微 | 假 | 方向导数只沿直线，可微要求全增量线性逼近 |
 | 偏导连续 ⇒ 可微 | 真 | 充分条件（教材标准定理） |
 | 可微 ⇒ 偏导连续 | 假 | 见第 2 章 $x^{2} \sin\left(\dfrac{1}{x}\right)$ 的一元类比，二元可构造类似例子 |
@@ -800,7 +866,7 @@ $$
 | 直角 | — | $dx\,dy\,dz$ | 一般；投影法（先 z）/ 截面法（先 xy） |
 | 柱 | $x=r \cos \theta, y=r \sin \theta, z=z$ | $r dr d\theta dz$ | 旋转体、含 $x^{2}+y^{2}$ |
 | 球 | $x=\rho \sin \phi \cos \theta, y=\rho \sin \phi \sin \theta, z=\rho \cos \phi$ | $\rho^{2} \sin \phi d\rho d\phi d\theta$ | 球体、锥体、含 $x^{2}+y^{2}+z^{2}$ |
-| 一般换元 | $x=x(u,v,w)$ 等 | $|J| du dv dw$ | $J= \dfrac{\partial(x,y,z)}{\partial}(u,v,w)$ |
+| 一般换元 | $x=x(u,v,w)$ 等 | $\vert J\vert du dv dw$ | $J= \dfrac{\partial(x,y,z)}{\partial(u,v,w)}$ |
 
 **φ 是与 z 轴正向的夹角**（$0 \le \phi \le \pi$），$\theta \in[0,2\pi]$；常见错误是把 $\sin \phi$ 写成 $\cos \phi$、或把 $\phi$ 当成与 `xOy` 面的夹角。
 
@@ -877,6 +943,22 @@ $$
 $$
 :::
 
+::: tip 工作例题 · 格林、高斯、斯托克斯各一例
+$$
+\begin{aligned}
+&\text{格林：设 }L\text{ 沿 }(0,0)\to(1,0)\to(0,1)\to(0,0)\text{，方向为逆时针。}\\
+&\oint_{L}x^{2}dx+xy\,dy=\iint_{D}(Q_{x}-P_{y})dxdy=\iint_{D}y\,dxdy=\int_{0}^{1}dx\int_{0}^{1-x}y\,dy=\dfrac{1}{6}.\\
+&\text{分段验算（第二段令 }x=1-t,y=t\text{）：}\int_{0}^{1}x^{2}dx+\int_{0}^{1}[-(1-t)^{2}+t(1-t)]dt+0=\dfrac{1}{3}-\dfrac{1}{6}=\dfrac{1}{6}.\\
+&\text{高斯：}\Sigma\text{ 为 }[0,1]^3\text{ 的边界，取外侧，}A=(x,y^{2},z^{3}).\\
+&\operatorname{div}A=1+2y+3z^{2},\quad\oiint_{\Sigma}A\cdot n\,dS=\iiint_{[0,1]^3}(1+2y+3z^{2})dV=1+1+1=3.\\
+&\text{逐面验算：}x=1,y=1,z=1\text{ 三面各贡献 }1\text{，另三面均为 }0\text{，合计 }3.\\
+&\text{斯托克斯：}\Sigma:z=0,\ x^{2}+y^{2}\le1,\ n=(0,0,1)\text{；取 }A=(y,z,x)\text{，}\Gamma\text{ 从 }+z\text{ 侧看为逆时针。}\\
+&\operatorname{rot}A=(-1,-1,-1),\quad\oint_{\Gamma}y\,dx+z\,dy+x\,dz=\iint_{\Sigma}(\operatorname{rot}A)\cdot n\,dS=-\pi.\\
+&\text{直接验算：}x=\cos t,y=\sin t,z=0\Rightarrow\oint_{\Gamma}y\,dx=-\int_{0}^{2\pi}\sin^{2}t\,dt=-\pi.
+\end{aligned}
+$$
+:::
+
 ::: danger 易错 · 三大公式
 - 非闭曲线要**补线**成闭、非闭曲面要**补面**成闭，补上的部分最后要减掉。
 - 区域含奇点（分母为零、偏导不连续）必须**挖洞**，否则格林/高斯结论错误。
@@ -937,12 +1019,19 @@ $\sum u_{n}$ 收敛 ⇔ 部分和序列 $S_{n}= \sum_{k=1}^{n} u_{k}$ 收敛。*
 
 | 类型 | 审敛法 | 判据 |
 | --- | --- | --- |
-| 正项 | 比较 / 极限比较 | 与 $\sum\dfrac{1}{n^{p}}$（$p>1$ 收敛）、几何级数 $\sum q^{n}$（$|q|<1$ 收敛）比 |
+| 正项 | 比较 / 极限比较 | 与 $\sum\dfrac{1}{n^{p}}$（$p>1$ 收敛）、几何级数 $\sum q^{n}$（$\lvert q\rvert<1$ 收敛）比 |
 | 正项 | 比值（达朗贝尔） | $\rho=\lim \dfrac{u_{n+1}}{u_{n}}$：$\rho<1$ 收敛、$\rho>1$ 发散、$=1$ 失效 |
 | 正项 | 根值（柯西） | $\rho=\lim_{n\to\infty}\sqrt[n]{u_{n}}$，同上 |
+| 正项 | 拉比（Raabe） | 若 $L=\lim n\left(\dfrac{u_{n}}{u_{n+1}}-1\right)$ 存在：$L>1$ 收敛、$L<1$ 发散、$L=1$ 不定 |
 | 正项 | 积分判别 | $u_{n}=f(n)$，$f$ 正递减 ⇒ $\sum u_{n}$ 与 $\int_{1}^\infty f(x)dx$ 同敛散 |
 | 交错 | 莱布尼茨 | $u_{n}$ 单调递减且趋于 0 ⇒ 收敛，余项 $\vert r_{n}\vert  \le u_{n+1}$ |
 | 一般 | 绝对收敛 | $\sum\vert u_{n}\vert $ 收敛 ⇒ $\sum u_{n}$ 收敛；反之称条件收敛 |
+
+::: tip 补充 · 拉比法补上比值法的临界盲区
+$\sum\dfrac{1}{n^{2}}$ 的比值极限为 $1$，比值法失效；但取 $u_{n}=n^{-2}$，
+$$n\left(\dfrac{u_{n}}{u_{n+1}}-1\right)=n\left[\left(1+\dfrac{1}{n}\right)^{2}-1\right]=2+\dfrac{1}{n}\to2>1,$$
+故收敛。这类「比值为 $1$、但 $u_{n}\sim n^{-p}$」的临界级数，拉比法常能由 $L=p$ 直接判敛。
+:::
 
 **收敛级数的性质**：可逐项加减、乘常数、任意加括号；**绝对收敛可任意重排且和不变**，条件收敛重排可改变和甚至发散（黎曼重排定理）。
 
@@ -1360,7 +1449,7 @@ $$
 | 有理函数积分 | 多项式除法 → 分母因式分解 → 待定系数拆部分分式 → 逐项积分 |
 | 三角有理式 | 先看能否用倍角/降幂/凑微分；否则万能代换 |
 | 分部积分循环型 | 两次分部后出现原积分 ⇒ 移项解方程，`+C` 最后补 |
-| 含 $|x|$ / 分段被积函数 | 分段积分，再由原函数连续性统一各段常数 |
+| 含 $\vert x\vert$ / 分段被积函数 | 分段积分，再由原函数连续性统一各段常数 |
 | 抽象函数积分 | 用凑微分与分部把 $\int f'(x)g(x)dx$ 转化为已知条件 |
 
 ### 第 5 章 · 定积分与反常积分
@@ -1665,7 +1754,7 @@ $$
 | 2 | 极限存在 | 函数在该点有定义 | 极限是「去心」邻域行为，与该点函数值无关 |
 | 3 | 无穷小 | 很小的数 | 无穷小是以 0 为极限的**变量**；0 是唯一为常数的无穷小 |
 | 4 | 等价无穷小替换 | 泰勒展开 | 前者只能用于乘除因子；后者可处理加减与主阶抵消 |
-| 5 | 连续 | 可导 | 可导必连续；连续未必可导（$|x|$） |
+| 5 | 连续 | 可导 | 可导必连续；连续未必可导（$\vert x\vert$） |
 | 6 | 可导 | 可微 | 一元等价；多元可微强于偏导存在 |
 | 7 | 驻点 | 极值点 | 驻点是 $f'=0$；极值点也可在不可导点，驻点也可能是鞍点 |
 | 8 | 极值 | 最值 | 局部 vs 全局；闭区间最值还要比较端点 |
@@ -1694,7 +1783,7 @@ $$
 | 31 | 二重极限 | 累次极限 | 二重极限沿任意路径；累次极限是先后两次一元极限 |
 | 32 | 偏导数存在 | 可微 | 多元中偏导存在 ⇏  连续、⇏  可微；偏导连续 ⇒ 可微 |
 | 33 | 方向导数 | 梯度 | 方向导数是标量（沿某方向变化率）；梯度是向量（最大增长方向） |
-| 34 | 全微分形式不变性 | 链式法则 | 前者说 $dz=f_{u}du+f_{vdv}$ 形式不变，后者给出偏导的具体组合 |
+| 34 | 全微分形式不变性 | 链式法则 | 前者说 $dz=f_{u}du+f_{v}dv$ 形式不变，后者给出偏导的具体组合 |
 | 35 | 无条件极值 $\Delta=AC- B^{2}$ | 条件极值拉格朗日 | 前者判驻点性质，后者处理带约束；λ 不是所求 |
 | 36 | X 型 / Y 型区域 | 换序 | 前者是先 y 后 x / 先 x 后 y；换序要重画区域、必要时分块 |
 | 37 | 极坐标 $r dr d\theta$ | 球坐标 $\rho^{2}\sin \phi$ | 二维雅可比 vs 三维雅可比；φ 是与 z 轴夹角 |
@@ -1839,7 +1928,7 @@ $$
 | 三种积 | $a\cdot b=a_{x}b_{x}+a_{y}b_{y}+a_{z}b_{z}$；$a \times b$ 为叉积分量；$[a b c]=(a \times b) \cdot c$ |
 | 平面 | $Ax+By+Cz+D=0$，$n=(A,B,C)$；点面距 $d=\dfrac{\vert Ax_{0}+By_{0}+Cz_{0}+D\vert}{\sqrt{A^{2}+B^{2}+C^{2}}}$ |
 | 直线 | $\dfrac{x- x_{0}}{m}=\dfrac{y- y_{0}}{n}=\dfrac{z- z_{0}}{p}$，$s=(m,n,p)$；一般式 $s=n_{1} \times n_{2}$ |
-| 夹角 | 面面 $\cos\theta=\dfrac{|n_1\cdot n_2|}{|n_1||n_2|}$；线面 $\sin\theta=\dfrac{|s\cdot n|}{|s||n|}$ |
+| 夹角 | 面面 $\cos\theta=\dfrac{\vert n_1\cdot n_2\vert}{\vert n_1\vert\vert n_2\vert}$；线面 $\sin\theta=\dfrac{\vert s\cdot n\vert}{\vert s\vert\vert n\vert}$ |
 | 异面直线距离 | $d=\dfrac{\vert [s_{1} s_{2} P_{1}P_{2}]\vert}{\vert s_{1} \times s_{2}\vert}$ |
 | 旋转曲面 | 绕 z 轴：$f(y,z)=0 \Rightarrow f\left(\pm\sqrt{x^{2}+y^{2}}, z\right)=0$ |
 
@@ -1860,7 +1949,7 @@ $$
 | 项目 | 公式 |
 | --- | --- |
 | 二重积分 | X 型 $\int_{a}^{b}dx \int_{\phi_{1}}^{\phi_{2}}f dy$；极坐标 $\iint f(r \cos \theta,r \sin \theta) r dr d\theta$ |
-| 三重积分 | 柱 $dV=r dr d\theta dz$；球 $dV=\rho^{2}\sin \phi d\rho d\phi d\theta$；一般 $dV=|J|du dv dw$ |
+| 三重积分 | 柱 $dV=r dr d\theta dz$；球 $dV=\rho^{2}\sin \phi d\rho d\phi d\theta$；一般 $dV=\vert J\vert du dv dw$ |
 | 曲面面积 | $A=\iint \sqrt{1+z_{x}^{2}+z_{y}^{2}}dxdy$ |
 | 两类线积分 | $\int_{L} f ds$；$\int_{L} Pdx+Qdy= \int(P \cos \alpha+Q \cos \beta)ds$ |
 | 两类面积分 | $\iint _{\Sigma} f dS$；$\iint _{\Sigma} P dydz+Q dzdx+R dxdy=\iint (P \cos \alpha+Q \cos \beta+R \cos \gamma)dS$ |
@@ -1875,7 +1964,7 @@ $$
 | 项目 | 公式 |
 | --- | --- |
 | 必要条件 | $\sum u_{n}$ 收敛 ⇒ $\lim u_{n}=0$ |
-| 基准级数 | $\sum q^{n}$ 收敛 ⇔ $|q|<1$；$\sum\dfrac{1}{n^{p}}$ 收敛 ⇔ $p>1$；$\sum\dfrac{1}{n(n+1)}=1$ |
+| 基准级数 | $\sum q^{n}$ 收敛 ⇔ $\lvert q\rvert<1$；$\sum\dfrac{1}{n^{p}}$ 收敛 ⇔ $p>1$；$\sum\dfrac{1}{n(n+1)}=1$ |
 | 比值 / 根值 | $\rho=\lim \dfrac{u_{n+1}}{u_{n}}$ 或 $\lim_{n\to\infty}\sqrt[n]{u_{n}}$；$\rho<1$ 收敛、$>1$ 发散、$=1$ 失效 |
 | 交错 | 莱布尼茨：$u_{n}↓0$ ⇒ 收敛，$\vert r_{n}\vert  \le u_{n+1}$ |
 | 幂级数 | $R=\lim\vert \dfrac{a_{n}}{a_{n+1}}\vert $；逐项求导/积分 R 不变 |

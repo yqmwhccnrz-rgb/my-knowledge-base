@@ -168,6 +168,29 @@ a + b
 #  [14, 25, 36]]
 ```
 
+**广播 + reshape 小例**：先按行减去均值，再把 `(3,4)` 重排为 `(2,6)`；`keepdims=True` 保留 `(3,1)`，才能按行广播。
+
+```python
+import numpy as np
+x = np.arange(1, 13).reshape(3, 4)
+centered = x - x.mean(axis=1, keepdims=True)
+y = centered.reshape(2, 6)
+print(x)
+print(y)
+print(y.mean(axis=1))
+```
+
+输出：
+
+```text
+[[ 1  2  3  4]
+ [ 5  6  7  8]
+ [ 9 10 11 12]]
+[[-1.5 -0.5  0.5  1.5 -1.5 -0.5]
+ [ 0.5  1.5 -1.5 -0.5  0.5  1.5]]
+[-0.33333333  0.33333333]
+```
+
 - **矩阵乘法**：用 `@` 符号（不是 `*`，`*` 是逐元素乘）：`a @ b`。
 
 ### 2.4 视图与拷贝（极易踩坑）
@@ -465,6 +488,37 @@ df.groupby('类别')['销售额'].agg(['sum', 'mean', 'count'])
 ```
 
 > `pd.to_numeric()` 是把字符串转数值，`pd.to_datetime()` 才是转时间，两者别混。
+
+**综合小例：分组汇总 → 合并目标 → 透视表**。同一门店同一月份可能有多笔销售，因此先按月求和；`validate='many_to_one'` 检查目标表没有重复门店。
+
+```python
+import pandas as pd
+sales = pd.DataFrame({
+    '门店': ['A', 'A', 'A', 'B', 'B', 'B'],
+    '月份': [1, 1, 2, 1, 2, 2],
+    '销售额': [100, 150, 200, 80, 120, 220],
+})
+targets = pd.DataFrame({'门店': ['A', 'B'], '月目标': [300, 400]})
+monthly = sales.groupby(['门店', '月份'], as_index=False)['销售额'].sum()
+joined = monthly.merge(targets, on='门店', how='left', validate='many_to_one')
+summary = joined.groupby('门店', as_index=False).agg(
+    总销售额=('销售额', 'sum'), 月目标=('月目标', 'first')
+)
+pivot = joined.pivot_table(
+    index='门店', columns='月份', values='销售额', aggfunc='sum'
+).reset_index()
+report = summary.merge(pivot, on='门店')
+report['完成率'] = report['总销售额'] / report['月目标']
+print(report.to_csv(index=False, float_format='%.2f'), end='')
+```
+
+输出：
+
+```text
+门店,总销售额,月目标,1,2,完成率
+A,450,300,250,200,1.50
+B,420,400,80,340,1.05
+```
 
 ---
 

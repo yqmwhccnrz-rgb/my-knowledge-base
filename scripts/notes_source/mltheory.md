@@ -176,7 +176,7 @@ $$
 | 关系 | 公式 | 说明 |
 | --- | --- | --- |
 | 和规则（边际） | $p(x)= \sum_{y} p(x,y)$ | 离散求和、连续积分 |
-| 积规则 | `p(x,y) = p(y|x)p(x)` | 链式法则的基础 |
+| 积规则 | $p(x,y)=p(y\mid x)p(x)$ | 链式法则的基础 |
 | 全概率 | $p(x)= \sum_{k} p(x\vert C_{k})p(C_{k})$ | 生成式分类的基础 |
 | 贝叶斯 | $p(\theta\mid D)=\dfrac{p(D\mid\theta)\,p(\theta)}{p(D)}$ | 先验 → 似然 → 后验 |
 | 最大似然 MLE | $\hat{\theta}= \operatorname*{argmax}_\theta \sum_{i} \log p(x_{i}\vert \theta)$ | 点估计，视 θ 为未知常数 |
@@ -356,6 +356,30 @@ L2 正则等价于给参数加**高斯先验** $w \sim N(0, \sigma^{2}I)$，L1 �
 Lasso/弹性网没有闭式解，常用**坐标下降**：固定其余坐标，轮流对单个坐标求解一维子问题（有软阈值解析解），对凸目标保证收敛到全局最优；sklearn 的 `Lasso` 即默认用它。岭回归有闭式解无需迭代；LARS（最小角回归）是能同时求出整条 L1 正则路径的另一类算法。
 :::
 
+::: tip 工作例题 · L1 软阈值与 L2 收缩
+取无截距模型 $\hat{y}=wx$，数据 $x=(1,-1)$、$y=(2,1)$、$\lambda=1$，于是 $z=\sum_{i=1}^{2}x_{i}y_{i}=1$、$\sum_{i=1}^{2}x_{i}^{2}=2$；无正则时 $w=\dfrac{z}{\sum_{i=1}^{2}x_{i}^{2}}=\dfrac{1}{2}$。
+
+L1 目标为
+
+$$
+L_{\mathrm{L1}}(w)=\dfrac{1}{2}\sum_{i=1}^{2}(wx_{i}-y_{i})^{2}+\lambda|w|,
+$$
+
+由软阈值解 $w_{\mathrm{L1}}^{*}=\dfrac{\operatorname{sign}(z)\max(|z|-\lambda,0)}{\sum_{i=1}^{2}x_{i}^{2}}$，得
+
+$$
+w_{\mathrm{L1}}^{*}=\dfrac{\operatorname{sign}(1)\max(1-1,0)}{2}=0.
+$$
+
+L2 目标为
+
+$$
+L_{\mathrm{L2}}(w)=\dfrac{1}{2}\sum_{i=1}^{2}(wx_{i}-y_{i})^{2}+\dfrac{\lambda}{2}w^{2},
+$$
+
+故 $w_{\mathrm{L2}}^{*}=\dfrac{z}{\sum_{i=1}^{2}x_{i}^{2}+\lambda}=\dfrac{1}{3}$。同一数据下，L1 把系数压到 0，L2 只收缩而不置零。
+:::
+
 ::: danger 易错 · 正则化
 - 正则项**不含偏置项** `b`；自变量须先标准化，否则惩罚对不同量纲不公平。
 - $\lambda$ 越大 → 系数越小 → 偏差上升、方差下降；$\lambda=0$ 退化为 OLS。
@@ -381,8 +405,8 @@ $R^{2}= 1- \dfrac{SS_{res}}{SS_{tot}}$（残差平方和 / 总平方和）度量
 | 路线 | 学什么 | 代表 | 是否输出概率 |
 | --- | --- | --- | --- |
 | 判决函数模型 | 直接学 $f(x)\to\text{类别}$ | 感知机、SVM、KNN、决策树 | 否（ SVM 需校准） |
-| 判别式概率模型 | 直接建模 $p(C_k|x)$ | 逻辑回归、softmax 回归 | 是 |
-| 生成式模型 | 先建 `p(x|C_k)`、`p(C_k)` 再用贝叶斯反推 | 朴素贝叶斯、LDA、GMM | 是（可生成样本） |
+| 判别式概率模型 | 直接建模 $p(C_{k}\mid x)$ | 逻辑回归、softmax 回归 | 是 |
+| 生成式模型 | 先建 $p(x\mid C_{k})$、$p(C_{k})$ 再用贝叶斯反推 | 朴素贝叶斯、LDA、GMM | 是（可生成样本） |
 
 ::: danger 易错 · 判别式 vs 生成式
 区别在**是否对 `p(x)` 或 `p(x|C)` 建模**，而不是「能不能输出概率」。逻辑回归与朴素贝叶斯都能给后验概率，但前者直接拟合决策边界、后者假设类条件分布；生成式模型收敛更快（所需样本更少）但假设更强，判别式模型在大样本下渐近误差更低。
@@ -591,9 +615,9 @@ $|H|=1000$、$N=100$、$\delta=0.05$ → 上界 $= \sqrt{\dfrac{6.9078+3.6889}{2
 
 | 漂移类型 | 变化的是什么 | 检测 |
 | --- | --- | --- |
-| 协变量漂移 | `p(x)` 变、`p(y|x)` 不变 | PSI、KS 检验、特征分布对比 |
-| 标签漂移 | `p(y)` 变（类别比例） | 预测分布与历史基线对比 |
-| 概念漂移 | `p(y|x)` 变（规律本身变） | 只能用**延迟到达的真实标签**监控性能衰减 |
+| 协变量漂移 | $p(x)$ 变、$p(y\mid x)$ 不变 | PSI、KS 检验、特征分布对比 |
+| 标签漂移 | $p(y)$ 变（类别比例） | 预测分布与历史基线对比 |
+| 概念漂移 | $p(y\mid x)$ 变（规律本身变） | 只能用**延迟到达的真实标签**监控性能衰减 |
 
 $$
 \begin{aligned}
@@ -1667,12 +1691,16 @@ min_G max_D V(D,G) = E_{x~p_data}[log D(x)] + E_{z~p_z}[log(1 − D(G(z)))]
 
 $$
 \begin{aligned}
-&\text{前向加噪（固定} \; \text{Markov} \; \text{链）：} \; x_{t}= \sqrt{\alpha}_{t} \cdot x_{t-1}+ \sqrt{1- \alpha_{t}} \cdot \epsilon \; \text{，} \; \epsilon \sim N(0,I) \\
-&\text{一步到位：} \; q(x_{t}|x_{0})= N\left(\sqrt{\bar{\alpha}_{t}} x_{0},(1- \bar{\alpha}_{t})I\right) \; \text{，} \; \bar{\alpha}_{t}= \Pi_{s \le t} \alpha_{s} \\
+&\text{前向加噪（固定} \; \text{Markov} \; \text{链）：} \; x_{t}= \sqrt{\alpha_{t}} \cdot x_{t-1}+ \sqrt{1-\alpha_{t}} \cdot \epsilon \; \text{，} \; \epsilon \sim N(0,I) \\
+&\text{一步到位：} \; q(x_{t}|x_{0})= N\left(\sqrt{\bar{\alpha}_{t}} x_{0},(1-\bar{\alpha}_{t})I\right) \; \text{，} \; \bar{\alpha}_{t}= \prod_{s=1}^{t} \alpha_{s} \\
 &\text{反向去噪（需学习）：} \; p_\theta(x_{t-1}|x_{t})= N\left(\mu_\theta(x_{t},t), \sum_\theta\right) \; \text{，从纯噪声逐步还原样本} \\
 &\text{训练目标：预测所加噪声} \; \epsilon \; \text{（简化后等价于变分下界的一项）}
 \end{aligned}
 $$
+
+::: tip 记号辨析 · 单步系数与累计系数
+$\alpha_{t}$ 是第 $t$ 步的调度系数，单步转移及反向均值中的 $\dfrac{1}{\sqrt{\alpha_{t}}}$ 都使用它；累计系数 $\bar{\alpha}_{t}=\prod_{s=1}^{t}\alpha_{s}$，从 $x_{0}$ 一步到 $x_{t}$ 的闭式使用 $\sqrt{\bar{\alpha}_{t}}$。$\sqrt{\alpha_{t}}$ 与 $\sqrt{\bar{\alpha}_{t}}$ 不可混用。
+:::
 
 | 模型 | 似然 | 采样 | 主要特点 |
 | --- | --- | --- | --- |
@@ -1759,11 +1787,11 @@ JS 散度非负、在两分布完全相同时取 0，故全局最优为 `p_g=p_d
 
 ### 12.6 扩散模型的完整推导
 
-**前向（固定、无参数）**：$q(x_{t}|x_{t-1})=N\left(\sqrt{\alpha}_{t} \cdot x_{t-1},(1- \alpha_{t})I\right)$，即 $x_{t}=\sqrt{\alpha}_{t} x_{t-1}+\sqrt{1- \alpha_{t}}\epsilon$。反复代入并利用高斯可加性得**一步闭式**：
+**前向（固定、无参数）**：$q(x_{t}|x_{t-1})=N\left(\sqrt{\alpha_{t}} \cdot x_{t-1},(1-\alpha_{t})I\right)$，即 $x_{t}=\sqrt{\alpha_{t}} x_{t-1}+\sqrt{1-\alpha_{t}}\epsilon$。反复代入并利用高斯可加性得**一步闭式**：
 
 $$
 \begin{aligned}
-&\bar{\alpha}_{t}= \Pi_{s=1}^{t} \alpha_{s} \\
+&\bar{\alpha}_{t}= \prod_{s=1}^{t} \alpha_{s} \\
 &q(x_{t}|x_{0})= N\left( \sqrt{\bar{\alpha}_{t}} \cdot x_{0},(1- \bar{\alpha}_{t})I\right) \\
 &x_{t}= \sqrt{\bar{\alpha}_{t}} \cdot x_{0}+ \sqrt{1- \bar{\alpha}_{t}} \cdot \epsilon, \epsilon \sim N(0,I)
 \end{aligned}
@@ -1773,7 +1801,7 @@ $$
 
 $$
 \begin{aligned}
-&\mu_\theta(x_{t},t)=\left(\frac{1}{\sqrt{\alpha}}_{t}\right) \cdot[ x_{t}- \frac{1- \alpha_{t}}{\sqrt{1- \bar{\alpha}_{t}}} \cdot \epsilon_\theta(x_{t},t)] \\
+&\mu_\theta(x_{t},t)=\left(\dfrac{1}{\sqrt{\alpha_{t}}}\right) \cdot[ x_{t}- \dfrac{1-\alpha_{t}}{\sqrt{1-\bar{\alpha}_{t}}} \cdot \epsilon_\theta(x_{t},t)] \\
 &p_\theta(x_{t-1}|x_{t})= N( \mu_\theta(x_{t},t), \sigma_{t}^{2} I) \\
 &\text{简化训练目标：} \; L_{simple}= E_{t,x_{0},\epsilon} \| \epsilon- \epsilon_\theta\left(\sqrt{\bar{\alpha}_{t}}x_{0}+\sqrt{1- \bar{\alpha}_{t}}\epsilon, t\right) \|^{2}
 \end{aligned}
@@ -1787,7 +1815,7 @@ $$
 
 $$x_{3}= \sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+ 0.2603 \approx 1.9679$$
 
-ᾱt 单调下降 → 信号系数趋于 0、噪声系数趋于 1，最终分布收敛到 `N(0,I)`，这正是「加噪到纯噪声」的定量说明。
+$\bar{\alpha}_{t}$ 单调下降 → 信号系数趋于 0、噪声系数趋于 1，最终分布收敛到 `N(0,I)`，这正是「加噪到纯噪声」的定量说明。
 :::
 
 ::: tip 补充 · 采样加速与条件生成
@@ -2095,11 +2123,11 @@ $\dfrac{p_{data}}{D}- \dfrac{p_{g}}{1- D}=0$ → $D*(x)=\dfrac{p_{data}}{p_{data
 **题**：①设 $\alpha_{t} \equiv 0.9$，求 $\bar{\alpha}_{1} \cdots \bar{\alpha}_{5}$；取 $x_{0}=2, \epsilon=0.5, t=3$ 求 $x_{3}$。②某归一化流耦合层输出 $s=(0.2,- 0.3,0.5)$，求 `log|det J|` 与 `|det J|`，并说明为何耦合层高效。
 
 **解**：
-① $\bar{\alpha}_{t}=\Pi \alpha_{s}$ → `(0.9, 0.81, 0.729, 0.6561, 0.5905)`；
+① $\bar{\alpha}_{t}=\prod_{s=1}^{t}\alpha_{s}$ → `(0.9, 0.81, 0.729, 0.6561, 0.5905)`；
 
 $$x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 \approx 1.9679$$
 
-ᾱt 递减说明信号逐渐被噪声淹没，$t \to \infty$ 时分布趋于 `N(0,I)`。
+$\bar{\alpha}_{t}$ 递减说明信号逐渐被噪声淹没，$t \to \infty$ 时分布趋于 `N(0,I)`。
 ② $\log|\det J|=\sum s=0.4$，$|\det J|=e^{0.4} \approx 1.4918$。
 因 Jacobian 是三角阵，行列式等于对角元素之积，**无需 O(d³) 的一般行列式计算**；逆变换也是解析的（$x_{2}=(y_{2}- t(y_{1}))⊙\exp(- s(y_{1}))$），故采样与密度估计都高效。
 
@@ -2133,7 +2161,7 @@ $$x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 
 | 6 | 欠拟合 | 过拟合 | 训练/验证都差 vs 训练好验证差（差距大） |
 | 7 | L1 正则 | L2 正则 | 稀疏解（可做特征选择） vs 系数均匀缩小 |
 | 8 | MLE | MAP | 点估计 vs 加先验（等价带正则的 MLE） |
-| 9 | 似然 p(D|θ) | 后验 p(θ|D) | θ 的函数（不是密度） $vs \theta$ 的概率分布 |
+| 9 | 似然 $p(D\mid\theta)$ | 后验 $p(\theta\mid D)$ | $\theta$ 的函数（不是密度） vs $\theta$ 的概率分布 |
 | 10 | 熵 | 交叉熵 | 自身不确定性 vs 用 q 编码 p 的代价 |
 | 11 | KL 散度 | 距离度量 | 非对称、不满足三角不等式 vs 真正度量 |
 | 12 | 批量 GD | 小批量 SGD | 全量梯度稳但慢 vs 噪声大但高效、主流 |
@@ -2141,7 +2169,7 @@ $$x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 
 | 14 | 闭式解 | 梯度下降 | 一步 $O(d^{3}) vs$ 迭代、可大规模/在线 |
 | 15 | 线性回归 | 逻辑回归 | 连续输出+MSE vs 分类+sigmoid/交叉熵 |
 | 16 | sigmoid | softmax | 二分类独立概率 vs 多分类互斥（和为 1） |
-| 17 | 判别式模型 | 生成式模型 | 直接建 p(C|x)/判界 vs 先建 p(x|C) 再反推 |
+| 17 | 判别式模型 | 生成式模型 | 直接建 $p(C\mid x)$ / 判界 vs 先建 $p(x\mid C)$ 再反推 |
 | 18 | 精确率 | 召回率 | 报出的准不准 vs 真的找全没找全 |
 | 19 | F1 | 准确率 | P/R 调和平均 vs 整体正确率（不平衡会失真） |
 | 20 | ROC-AUC | PR-AUC | 阈值无关、负样本多时乐观 vs 不平衡时更敏感 |
@@ -2260,7 +2288,7 @@ $$x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 
 | ELBO | $\log p(x) \ge E_{q}[\log p(x\vert z)]- D_{KL}(q(z\vert x) \| p(z))$ |
 | 重参数 | $z=\mu+\sigma ⊙\epsilon, \epsilon \sim N(0,I)$ |
 | GAN | $\min_{G} \max_{D} E[\log D(x)]+E[\log(1- D(G(z)))]$ |
-| 扩散 | $x_{t}=\sqrt{\alpha_{t}}\,x_{t-1}+\sqrt{1-\alpha_{t}}\,\epsilon$；$\bar{\alpha}_{t}=\Pi \alpha_{s}$ |
+| 扩散 | $x_{t}=\sqrt{\alpha_{t}}\,x_{t-1}+\sqrt{1-\alpha_{t}}\,\epsilon$；$\bar{\alpha}_{t}=\prod_{s=1}^{t}\alpha_{s}$ |
 | 归一化流 | $\log p(x)=\log p(z)+\sum \log\vert \det \dfrac{\partial f}{\partial x}\vert $ |
 
 ### A.7 常用超参数与复杂度速查
@@ -2277,7 +2305,7 @@ $$x_{3}=\sqrt{0.729} \times 2+ \sqrt{1- 0.729} \times 0.5 \approx 1.7076+0.2603 
 | MLP / CNN | 层数/宽度、η、batch、Dropout p | 容量大/η 大 → 不稳或过拟合 | 前向 `O(参数×样本)` / 同阶 |
 | 自注意力 | `n`、`d_model`、头数 h | n 平方增长主导 | $O(n^{2}d)$ / $O(n^{2}d)$ |
 | K-means | `K`、初始化次数 | K 大 → J 必不增 | $O(NKd \cdot iter)$ / `O(Kd)` |
-| Q-learning | $\alpha$、$\gamma$、$\epsilon$ | γ 大远视、ε 大探索 | 表格 `O(|S||A|)` |
+| Q-learning | $\alpha$、$\gamma$、$\epsilon$ | γ 大远视、ε 大探索 | 表格 $O(\lvert S\rvert\lvert A\rvert)$ |
 
 ::: tip 补充 · 超参数搜索
 网格搜索（全面但指数增长）→ 随机搜索（高维更高效，因多数超参数不敏感）→ 贝叶斯优化 / Hyperband（用已有试验指导下一次）。所有搜索都只在**训练/验证折**上进行。
@@ -2333,7 +2361,7 @@ sklearn 的 `C` 是**正则系数的倒数**（$C=\dfrac{1}{\lambda}$），C 越
 | 1 | 泛化是目标；$Err=Bias^{2}+\operatorname{Var}+\sigma^{2}$；NFL 说明必须按分布选模型 |
 | 2 | 贝叶斯/MLE/MAP 一家亲；交叉熵与 KL 同源；$w \leftarrow w- \eta \nabla L$ 是所有深度训练的骨架 |
 | 3 | 闭式解 $(X^{T}X)^{-1}X^{T}y$；L1 稀疏 L2 收缩；正则等价于加先验 |
-| 4 | 三种建模路线；sigmoid/softmax + 交叉熵；判别式不建 p(x|C) |
+| 4 | 三种建模路线；sigmoid/softmax + 交叉熵；判别式不建 $p(x\mid C)$ |
 | 5 | 三分数据集；P/R/F1 与 PR-AUC；预处理必须放进 Pipeline |
 | 6 | 最大间隔 $\dfrac{2}{\|w\|}$；对偶才能用核；Gram 半正定 + KKT 互补松弛 |
 | 7 | 熵→增益→增益率→基尼；预/后剪枝；Bagging 降方差、Boosting 降偏差 |
@@ -2366,7 +2394,7 @@ sklearn 的 `C` 是**正则系数的倒数**（$C=\dfrac{1}{\lambda}$），C 越
 | 策略梯度 | log-derivative trick | 减只依赖 s 的基线 | $\nabla J=E[ \nabla \log \pi \cdot A]$ |
 | VAE ELBO | $\log E_{q}[\dfrac{p(x\|z)p(z)}{q}]$ | Jensen | 重构项 − KL |
 | GAN 最优 D | 对 `D(x)` 逐点求导 | $\dfrac{p_{data}}{D}=\dfrac{p_{g}}{1- D}$ | $D*=\dfrac{p_{data}}{p_{data}+p_{g}}$，$2JS- 2\log 2$ |
-| 扩散前向 | 高斯可加性 | $\bar{\alpha}_{t}=\Pi \alpha_{s}$ | $x_{t}=\sqrt{\bar{\alpha}_{t}}x_{0}+\sqrt{1- \bar{\alpha}_{t}}\epsilon$ |
+| 扩散前向 | 高斯可加性 | $\bar{\alpha}_{t}=\prod_{s=1}^{t}\alpha_{s}$ | $x_{t}=\sqrt{\bar{\alpha}_{t}}x_{0}+\sqrt{1-\bar{\alpha}_{t}}\epsilon$ |
 | 归一化流 | 变量变换 | 三角 Jacobian | $\log p_{X}=\log p_{Z}+\sum s$ |
 
 ### A.12 常用符号与矩阵维度速查
@@ -2527,6 +2555,6 @@ sklearn 的 `C` 是**正则系数的倒数**（$C=\dfrac{1}{\lambda}$），C 越
 ::: tip 复习路线建议
 第一轮：按 12 章正文过一遍，把每个 `danger` 与附录 B 对应条目对照；
 第二轮：只做「综合例题精讲」18 题与「易混概念对照」52 组，并用 A.11 推导索引逐条默写公式，检验是否真正掌握推导；
-第三轮：用题库按章抽题，重点复盘计算题（梯度下降、交叉熵、混淆矩阵、信息增益、SVM 间隔、卷积尺寸、注意力、值迭代、Q-learning、XGBoost 增益、ELBO/GAN、扩散 ᾱ）的手算过程。
+第三轮：用题库按章抽题，重点复盘计算题（梯度下降、交叉熵、混淆矩阵、信息增益、SVM 间隔、卷积尺寸、注意力、值迭代、Q-learning、XGBoost 增益、ELBO/GAN、扩散 $\bar{\alpha}_{t}$）的手算过程。
 :::
 

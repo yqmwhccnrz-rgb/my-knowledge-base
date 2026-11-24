@@ -394,6 +394,37 @@ print(pd.crosstab(df['性别'], df['专业'], normalize='index').round(2))
 多个分组键会产生 MultiIndex，用 `unstack()` 把某层索引转成列、`stack()` 反向；`reset_index()` 把索引变回普通列便于导出。宽表转长表用 `melt()`，常与 `seaborn` 分组绘图配合。
 :::
 
+::: tip 补充 · 分箱与长宽表转换
+`pd.cut` 按值域等宽分箱，`pd.qcut` 按样本分位数等频分箱；重复分位边界可能导致 `qcut` 报错。
+
+```python
+import pandas as pd
+
+s = pd.Series([1, 2, 3, 4, 100])
+print(pd.cut(s, bins=2, labels=["低", "高"]))
+print(pd.qcut(s, q=2, labels=["低", "高"]))
+
+wide = pd.DataFrame(
+    {"A": [1, 2], "B": [3, 4]},
+    index=["x", "y"],
+)
+
+stacked = wide.stack().rename("值")
+print(stacked)
+print(stacked.unstack())
+
+long = wide.rename_axis("对象").reset_index().melt(
+    id_vars="对象",
+    var_name="指标",
+    value_name="值",
+)
+print(long)
+```
+
+- `stack()` 把列压入行索引，得到带 MultiIndex 的 Series；`unstack()` 反向展开。
+- `melt()` 保留 `id_vars`，把其余列整理成“变量名—值”两列。
+:::
+
 ::: tip 数据预处理三板斧：缺失、编码、标准化
 - **缺失值**：`dropna()` 删除（缺失少且非 MNAR 时）、`fillna(均值/中位数/众数)`、`interpolate()`（时序插值）、或建缺失指示列；填补必须在训练集内拟合（见 4.8 节数据泄露）。
 - **分类变量编码**：定类变量用**独热编码** `pd.get_dummies()` / `OneHotEncoder`（无序，避免引入虚假大小）；有序等级可用标签编码 `map` 成 $1,2,3 \cdots$；高基数类别可考虑目标编码（防泄露须交叉拟合）。
@@ -407,6 +438,61 @@ print(pd.crosstab(df['性别'], df['专业'], normalize='index').round(2))
 - **Apriori 算法**：利用“频繁项集的任何子集也必频繁”（支持度的**向下封闭性**）逐层剪枝、反复扫描数据库；缺点是候选集爆炸。
 - **FP-growth 算法**：把数据库压缩成 FP 树，按条件模式基递归挖掘，只需两次扫描且**不产生候选集**，大数据下快于 Apriori。
 - Python 可用 `mlxtend.frequent_patterns` 的 `apriori()` 与 `association_rules()`（事务数据先做 one-hot 矩阵）。
+:::
+
+::: tip 补充 · mlxtend 关联规则最小示例
+以下 API 已按 [Apriori](https://rasbt.github.io/mlxtend/user_guide/frequent_patterns/apriori/) 与 [association_rules](https://rasbt.github.io/mlxtend/user_guide/frequent_patterns/association_rules/) 官方文档核对。输入必须是逐事务的 0/1 或布尔型 one-hot DataFrame。
+
+```python
+import pandas as pd
+from mlxtend.frequent_patterns import apriori, association_rules
+
+tx = pd.DataFrame(
+    [
+        [1, 1, 0],
+        [1, 1, 0],
+        [1, 0, 0],
+        [0, 0, 1],
+    ],
+    columns=["A", "B", "C"],
+)
+
+frequent = apriori(tx, min_support=0.25, use_colnames=True)
+rules = association_rules(
+    frequent,
+    metric="confidence",
+    min_threshold=0.6,
+    num_itemsets=len(tx),
+)
+print(
+    rules[
+        [
+            "antecedents",
+            "consequents",
+            "support",
+            "confidence",
+            "lift",
+        ]
+    ]
+)
+```
+
+`antecedents` 与 `consequents` 是 `frozenset`；`num_itemsets` 传入事务总数。
+:::
+
+::: tip 工作例题 · 关联规则的完整数值计算
+沿用上述 4 笔事务：$T_{1}=\{A,B\}$、$T_{2}=\{A,B\}$、$T_{3}=\{A\}$、$T_{4}=\{C\}$。因此
+
+$$
+\begin{aligned}
+support(A)&=\dfrac{3}{4}=0.75, & support(B)&=\dfrac{2}{4}=0.50,\\
+support(A\cup B)&=\dfrac{2}{4}=0.50.\\
+confidence(A\Rightarrow B)&=\dfrac{support(A\cup B)}{support(A)}=\dfrac{2}{3}\approx0.6667,\\
+lift(A\Rightarrow B)&=\dfrac{confidence(A\Rightarrow B)}{support(B)}=\dfrac{2/3}{1/2}=\dfrac{4}{3}\approx1.3333.
+\end{aligned}
+$$
+
+反向规则的 $confidence(B\Rightarrow A)=\dfrac{2}{2}=1$，其提升度同样是 $\dfrac{4}{3}$。提升度大于 1 只表示正相关，不代表因果关系。
 :::
 
 ---
@@ -1872,7 +1958,7 @@ $$
 | PCA | 相关矩阵特征值 $\lambda_{j}$；贡献率 $\lambda_{j}/\sum \lambda_{i}$；累计 ≥80% 定 m |
 | 载荷 | $a_{ji}\sqrt{\lambda}_{j}$ |
 | 欧氏距离 | $d=\sqrt{\sum(x_{i}- y_{i})^{2}}$ |
-| 夹角余弦 | $\cos\theta=\dfrac{X\cdot Y}{|X||Y|}$ |
+| 夹角余弦 | $\cos\theta=\dfrac{X\cdot Y}{\lVert X\rVert\lVert Y\rVert}$ |
 | 轮廓系数 | $s=\dfrac{b- a}{\max(a,b)} \in[- 1,1]$ |
 | PCA 代码 | `StandardScaler().fit_transform(X); PCA().fit(Z)` |
 | 层次聚类 | $pdist \to linkage(method='ward') \to fcluster(t=K)$ |
