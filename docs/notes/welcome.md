@@ -97,6 +97,7 @@ int c = a + b;
 | 占位符 | 含义 |
 | --- | --- |
 | `%d` | 整型（`int`） |
+| `%u` | 无符号十进制整数（`unsigned int`） |
 | `%f` | 实型（`float` / `double` 输出均可） |
 | `%lf` | 实型（`double`，主要用于 `scanf`） |
 | `%c` | 字符型（`char`） |
@@ -1042,6 +1043,35 @@ int sum(int ar[], int n);
 int sum(int [], int);
 ```
 
+**完整例：用指针参数复制数组**。函数返回状态，调用处检查成功后才使用结果；此例假定两数组不重叠。
+
+```c
+#include <stddef.h>
+#include <stdio.h>
+
+int copy_array(int *dst, const int *src, size_t n) {
+    size_t i;
+    if (dst == NULL || src == NULL) {
+        return 0;
+    }
+    for (i = 0; i < n; i++) {
+        dst[i] = src[i];
+    }
+    return 1;
+}
+
+int main(void) {
+    int src[] = {1, 2, 3, 4};
+    int dst[4] = {0};
+    size_t n = sizeof(src) / sizeof(src[0]);
+    if (!copy_array(dst, src, n)) {
+        return 1;
+    }
+    printf("%d %d %d %d\n", dst[0], dst[1], dst[2], dst[3]);
+    return 0;
+}
+```
+
 ```c
 int (*fp)(int, int) = max;   /* 指向函数的指针：括号不能省；fp(3,5) 等价于 max(3,5) */
 int **pp = &p;               /* 指向指针的指针（多级指针）：*pp 是 p，**pp 是 p 所指的值 */
@@ -1275,6 +1305,8 @@ void f(enum color c) {
     printf("%d\n", c);
 }
 ```
+
+> `scanf` 取址说明：标准允许读入底层整数再显式转enum更稳妥；`scanf("%d", &t)` 是否类型匹配取决于该枚举实现采用的兼容整数类型，不应武断判定原例一定 UB。更可移植的做法是先用 `int` 接收并检查 `scanf` 返回值与取值范围，再显式转换为 `enum color`。
 
 - 枚举量可以作为值
 - 枚举类型可以跟上 `enum` 作为类型

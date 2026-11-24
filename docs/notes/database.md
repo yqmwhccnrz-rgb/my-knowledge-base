@@ -361,9 +361,11 @@ DROP DATABASE IF EXISTS teaching;
 | 整数 | `TINYINT(1B) / SMALLINT(2B) / MEDIUMINT(3B) / INT(4B) / BIGINT(8B)` | `INT(11)` 的 11 只是**显示宽度**，不限制取值范围（配合 ZEROFILL 才生效，8.0.17 起废弃） |
 | 定点/浮点 | `DECIMAL(M,D)` / `FLOAT` / `DOUBLE` | **金额必须用 DECIMAL**，FLOAT/DOUBLE 有二进制精度误差 |
 | 字符串 | `CHAR(n)` / `VARCHAR(n)` / `TEXT` / `BLOB` | CHAR 定长、末尾空格处理不同；VARCHAR 变长需 1~2 字节记长度；`n` 在 MySQL 4.0+ 是**字符数**不是字节数 |
-| 日期时间 | `DATE / TIME / DATETIME / TIMESTAMP / YEAR` | `TIMESTAMP` 占 4 字节且受时区影响、范围 1970–2038；`DATETIME` 占 8 字节、与时区无关 |
+| 日期时间 | `DATE / TIME / DATETIME / TIMESTAMP / YEAR` | `TIMESTAMP` 基础占 4 字节且受时区影响、范围 1970–2038；`DATETIME` 与时区无关，MySQL 5.6.4+ 通常 5 字节（小数秒另加） |
 | 枚举集合 | `ENUM / SET` | ENUM 单选、内部按序号存；改枚举项代价大，慎用 |
 | 其他 | `JSON`（5.7+）、`BOOLEAN`（=TINYINT(1)）、`BIT` | JSON 列可用Generated Column + 索引优化 |
+
+> **DATETIME 存储口径**：MySQL 5.6.4+ 的 `DATETIME` 通常占 **5 字节**；`DATETIME(p)` 再按小数秒精度 p 增加 **0/1/2/3 字节**（p=0 加 0，p=1~2 加 1，p=3~4 加 2，p=5~6 加 3，依据 MySQL 官方存储要求表）。传统教材/旧版常写 8 字节；考试按题设口径作答。
 
 ![数据类型与六类完整性约束](/db/db-datatype.svg)
 
@@ -519,7 +521,7 @@ SELECT DISTINCT Sdept FROM Student ORDER BY Sdept ASC LIMIT 2;
 | `RIGHT [OUTER] JOIN` | 右表全部 + 左表匹配 | 右表不丢 |
 | `CROSS JOIN` | 笛卡尔积 | 忘写 ON 的后果 |
 | 自连接 | 表与自身连接，须起别名 | 查「同系」「上下级」 |
-| `UNION / UNION ALL` | 纵向合并结果集（列数、类型相容） | UNION 去重且排序，UNION ALL 不去重更快 |
+| `UNION / UNION ALL` | 纵向合并结果集（列数、类型相容） | `UNION` 会去重，可能有去重/排序开销，但 SQL 不保证最终结果有序，需 `ORDER BY`；`UNION ALL` 不去重、通常更快 |
 
 ![连接类型、子查询与集合运算](/db/db-join.svg)
 
@@ -590,7 +592,7 @@ HAVING COUNT(DISTINCT Cno) = (SELECT COUNT(*) FROM Course);
 - `GROUP BY` 后 SELECT 只能出现分组列或聚合表达式（严格模式 `ONLY_FULL_GROUP_BY`）。
 - `ORDER BY` 默认 ASC，`NULL` 在 MySQL 升序中排**最前**（Oracle 中排最后）。
 - `LIMIT` 必须配合 `ORDER BY` 才有确定的「前 N 名」语义。
-- `UNION` 会去重（有排序开销），业务确认无重复时优先 `UNION ALL`。
+- `UNION` 会去重且可能有去重/排序开销，但 SQL 不保证最终结果有序，需 `ORDER BY`；确认无重复时优先 `UNION ALL`。
 :::
 
 ### 6.4 NULL 与三值逻辑（贯穿查询、约束、索引）
@@ -968,6 +970,33 @@ $$
 - **检查点恢复规则**（按事务相对检查点的状态分四类）：① 检查点前开始且已提交 → **无需处理**；② 检查点前开始、尚未提交 → **UNDO**；③ 检查点后开始且已提交（更新可能未落盘）→ **REDO**；④ 检查点后开始、尚未提交 → **UNDO**。
 :::
 
+::: tip 工作示例 · 并发调度与检查点恢复（综合）
+初始 $A=100,\ B=0,\ C=7$。$T1$ 执行 $A \leftarrow A-10,\ B \leftarrow B+10$；$T2$ 执行 $A \leftarrow A+5$。两者遵守 2PL，调度为：
+```text
+T1: BEGIN; S1(C); R1(C)=7
+T2: BEGIN; X2(A); R2(A)=100; W2(A)=105
+CHECKPOINT（活跃事务 T1、T2）
+T2: COMMIT
+T1: X1(A); R1(A)=105; W1(A)=95; X1(B); R1(B)=0; W1(B)=10
+系统崩溃（T1 未提交）
+```
+并发段中 T1 先读 C，T2 写 A 后提交，T1 才读 A；冲突边只有 $T2 \to T1$，故调度冲突可串行化。T1 全程只加锁不放锁，T2 提交时释放，符合 2PL。
+
+本例日志（忽略 Read 记录）：
+
+| LSN | 日志记录 |
+| --- | --- |
+| 1 | `<T1,BEGIN>` |
+| 2 | `<T2,BEGIN>` |
+| 3 | `<T2,UPDATE,A,100,105>` |
+| 4 | `<CHECKPOINT>`，活跃 `{T1,T2}` |
+| 5 | `<T2,COMMIT>` |
+| 6 | `<T1,UPDATE,A,105,95>` |
+| 7 | `<T1,UPDATE,B,0,10>` |
+
+恢复：T2 在检查点后提交，REDO 其后像（若页未刷盘），使 $A=105$；T1 到崩溃仍未提交，按 LSN 逆序 UNDO，先 $B=0$，再由前像把 $A$ 恢复为 105。最终 $A=105,\ B=0,\ C=7$，与只执行 T2 的串行结果一致。若数据页已含 T1 的未提交修改，也必须撤销；T2 的提交记录在 WAL 下已持久化。跨越检查点的事务不能只看开始时间，还要看提交状态与日志 LSN。
+:::
+
 ::: danger 易错 · 日志与恢复
 - `TRUNCATE` 是 DDL、隐式提交，**不能靠 undo 回滚**；误删表只能靠备份 + binlog 恢复。
 - binlog 是 **Server 层**逻辑日志，redo 是 **InnoDB 层**物理日志；MyISAM 没有 redo。
@@ -1154,6 +1183,16 @@ $$
 \end{aligned}
 $$
 作为对照，BCNF 分解 $STJ \to ST+ TJ$ 虽无损，却丢失 $(S,J) \to T$（不保持依赖）——这正是「3NF 可同时保证无损+保持依赖，BCNF 只能保证无损」的具体例证。
+
+::: tip 工作示例 · 属性闭包驱动的 BCNF 分解
+设 $R(A,B,C,D)$，$F=\{AB \to C,\ C \to B,\ C \to D\}$，只考虑非平凡依赖。
+
+1. **求闭包与候选码**：$(AB)^{+}=\{A,B,C,D\}$；$(C)^{+}=\{B,C,D\}$，不能推出 A，因此 C 不是超码。A 只出现在左侧，必属于候选码；候选码为 $AB$、$AC$。
+2. **判定 BCNF**：$C \to B$、$C \to D$ 的决定因素 C 不是超码（不含任何候选码），故 R 不满足 BCNF。
+3. **逐步分解**：先按 $C \to B$ 得 $R_{1}(B,C)$、$R_{2}(A,C,D)$。$R_{1}$ 的码为 C，满足 BCNF；$R_{2}$ 中码为 AC，但 $C \to D$ 仍违反 BCNF，再按 $C \to D$ 得 $R_{3}(C,D)$、$R_{4}(A,C)$。
+4. **无损验证**：$R \to R_{1}+R_{2}$ 的交集为 C 且 $C \to B$，无损；$R_{2} \to R_{3}+R_{4}$ 的交集为 C 且 $C \to D$，也无损。$R_{3}$ 的码为 C，$R_{4}$ 的码为 AC，最终均达 BCNF。
+5. **依赖保持**：$C \to B$、$C \to D$ 保留，但 $AB \to C$ 丢失；在 $\{C \to B,C \to D\}$ 下 $(AB)^{+}=\{A,B\}$，不能推出 C。因此该 BCNF 分解无损但不保持依赖。
+:::
 
 ---
 

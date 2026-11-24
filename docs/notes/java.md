@@ -1325,6 +1325,62 @@ synchronized (queue) {
 - `Future.get()` 会阻塞；`CompletableFuture` 支持 `thenApply` / `thenCompose` / `allOf` / `exceptionally` 组合异步，并可指定自定义线程池避免共用 `ForkJoinPool.commonPool()`。
 :::
 
+::: tip 完整场景 · 线程池饱和与 CallerRunsPolicy 反压
+目标：核心 2 线程、有界队列容量 2，构造确定性的“线程满 + 队列满”，观察第 5 个任务回到调用线程执行。
+
+```java
+import java.util.concurrent.*;
+
+public class PoolSaturationDemo {
+    public static void main(String[] args) throws Exception {
+        CountDownLatch started = new CountDownLatch(2);
+        CountDownLatch release = new CountDownLatch(1);
+        Runnable hold = () -> {
+            started.countDown();
+            try {
+                release.await();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        };
+        ThreadPoolExecutor pool = new ThreadPoolExecutor(
+                2, 2, 30, TimeUnit.SECONDS,
+                new ArrayBlockingQueue<>(2),
+                Executors.defaultThreadFactory(),
+                new ThreadPoolExecutor.CallerRunsPolicy());
+        try {
+            pool.execute(hold);
+            pool.execute(hold);
+            started.await();
+            pool.execute(() -> {});
+            pool.execute(() -> {});
+            Thread caller = Thread.currentThread();
+            CountDownLatch fifthDone = new CountDownLatch(1);
+            Thread[] runner = new Thread[1];
+            pool.execute(() -> {
+                runner[0] = Thread.currentThread();
+                fifthDone.countDown();
+            });
+            fifthDone.await();
+            if (runner[0] != caller) {
+                throw new AssertionError("第5个任务应由调用线程执行");
+            }
+            System.out.println("队列满，第5个任务由调用线程执行");
+        } finally {
+            release.countDown();
+            pool.shutdown();
+            if (!pool.awaitTermination(5, TimeUnit.SECONDS)) {
+                pool.shutdownNow();
+            }
+        }
+    }
+}
+```
+
+- `started` 等两个核心线程真正启动并阻塞后再提交后续任务，避免靠 `sleep` 猜状态；前两个任务占核心线程，接着两个空任务只能入队。
+- 第 5 个任务触发 `CallerRunsPolicy`；调用线程执行被拒绝任务会阻塞后续提交，从而形成**反压**。若业务不能阻塞提交线程，应结合限流、降级与监控，而不是换成静默丢弃。
+:::
+
 ### 12.9 并发工具类（★★★）
 
 | 工具 | 语义 | 要点 / 场景 |
@@ -1413,6 +1469,18 @@ try { /* 访问受限资源 */ } finally { sem.release(); }
 ::: danger 易错 · ThreadLocal
 `ThreadLocal` 的 Key 是**弱引用**，但 Value 是强引用；在线程池中线程长期不销毁，Key 被回收后 Value 仍挂在 `ThreadLocalMap` 里造成**内存泄漏**。使用完毕务必在 `finally` 中调用 `remove()`。
 :::
+
+#### 13.1.4 对象分配、TLAB 与逃逸分析
+
+HotSpot 等分代收集器通常在 **Eden 区**为新对象分配内存；具体机制取决于收集器如何维护空闲空间。
+
+| 机制 | 做法 | 取舍 |
+| --- | --- | --- |
+| **指针碰撞**（bump-the-pointer） | 维护分界指针，空闲空间连续，分配后只移动指针 | 简单高效；要求复制或标记-整理等收集器维持连续空闲区 |
+| **空闲列表**（free list） | 维护若干空闲块，分配时查找足够大的块并分割、更新链表 | 能利用碎片，但查找与元数据维护更复杂；标记-清除类收集器常用 |
+
+- **TLAB（Thread Local Allocation Buffer，线程本地分配缓冲）**：在 Eden 中为线程预留私有缓冲，线程内快速分配只需移动指针；缓冲用尽后走慢路径申请新 TLAB，并可能触发 GC。缓冲大小与补充策略因收集器而异。
+- **逃逸分析**：JIT 证明对象不逃逸出方法/线程时，可做**标量替换**，把对象字段拆成局部变量，减少甚至消除堆分配；这是优化而非 Java 语言保证，不能依赖“对象一定在栈上”或“一定不分配”。
 
 ### 13.2 枚举与注解（★★）
 ```java

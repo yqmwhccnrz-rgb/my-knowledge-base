@@ -1040,6 +1040,15 @@ subplot(2,1,1); plot(x, sin(x)); title('sin'); grid on
 subplot(2,1,2); plot(x, cos(x)); title('cos'); grid on
 ```
 
+**平铺布局（R2019b+）**：`tiledlayout(m,n)` 创建布局，`nexttile` 返回下一个坐标轴并按顺序激活：
+
+```matlab
+x = linspace(0, 2*pi, 200);
+tiledlayout(1, 2);
+nexttile; plot(x, sin(x)); title('sin')
+nexttile; plot(x, cos(x)); title('cos')
+```
+
 ::: danger 易错点 · 三个经典绘图坑
 1. 画叠加曲线前忘写 `hold on` → 后一条覆盖前一条。
 2. 用 `plot` 画圆/椭圆后没写 `axis equal` → 看起来是椭圆（窗口拉伸）。
@@ -1555,6 +1564,15 @@ plot(t, y)
 f = @(t,z) [z(2); -z(1)];
 [t, z] = ode45(f, [0 2*pi], [1; 0]);
 plot(t, z(:,1))      % → cos(t)
+```
+
+**边界情形：反向积分**。`tspan` 的终点可以小于起点；下例解析解为 $y(t)=\exp(t)$：
+
+```matlab
+% y'=y, y(0)=1，从 0 反向积分到 -ln(2)
+f = @(t,y) y;
+[t, y] = ode45(f, [0 -log(2)], 1);
+fprintf('y(-ln2) = %.6f\n', y(end));   % ≈ 0.500000
 ```
 
 ::: danger 易错点 · 刚性方程用错求解器

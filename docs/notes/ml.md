@@ -136,6 +136,10 @@ $R^{2}= 1$ 为完美预测，$R^{2}= 0$ 相当于「总预测训练集平均值�
 
 **常用样本数据集**：`forge`（二分类玩具数据）、`wave`（一维回归）、`cancer`（乳腺癌，569 样本 / 30 特征）、`boston_housing`（回归，506 样本 / 13 特征，扩展交互项后 105 特征）、`iris`、`digits`、`make_blobs` / `make_moons`。
 
+::: warning Boston 数据集版本说明
+`boston_housing` 及本文后续 Boston 叙述均为历史教材示例。`load_boston` 已从 scikit-learn 1.2 起移除；新项目请改用 `fetch_california_housing`（回归，首次调用需下载数据）或本地内置的 `load_diabetes`（回归，442 样本 / 10 特征）。历史教材叙述保留用于理解原有结论。
+:::
+
 ### 2.3 监督学习算法（上）
 
 ![监督学习算法选型速查](/ml/ml-algorithms.svg)
@@ -696,6 +700,64 @@ grid.fit(X_train, y_train)
 ```
 
 这样每一折内部都会**重新 fit 缩放器**，彻底消除泄露。
+
+::: tip 补充 · Pipeline + 分层交叉验证 + 网格调参完整示例
+以下 API 已按当前 scikit-learn 官方文档核对。使用本地内置的乳腺癌数据，无需联网；为避免已弃用的 `LogisticRegression.penalty`，这里保持默认 L2，只搜索 `C`。
+
+```python
+from sklearn.datasets import load_breast_cancer
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import classification_report
+from sklearn.model_selection import (
+    GridSearchCV,
+    StratifiedKFold,
+    train_test_split,
+)
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+
+X, y = load_breast_cancer(return_X_y=True)
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.2,
+    stratify=y,
+    random_state=42,
+)
+
+pipe = Pipeline(
+    [
+        ("scaler", StandardScaler()),
+        ("clf", LogisticRegression(max_iter=2000)),
+    ]
+)
+
+param_grid = {"clf__C": [0.01, 0.1, 1.0, 10.0]}
+cv = StratifiedKFold(
+    n_splits=5,
+    shuffle=True,
+    random_state=42,
+)
+
+search = GridSearchCV(
+    pipe,
+    param_grid=param_grid,
+    scoring="f1",
+    cv=cv,
+    n_jobs=-1,
+    refit=True,
+)
+search.fit(X_train, y_train)
+
+print(search.best_params_)
+print("CV F1:", search.best_score_)
+print(classification_report(y_test, search.predict(X_test)))
+```
+
+- 每折只在训练折内拟合 `StandardScaler`，因此缩放不泄露验证折信息。
+- `refit=True` 用最佳参数在完整训练集上重拟合；`best_score_` 是训练集内部的平均交叉验证 F1，不是测试集分数。
+- 测试集只在最后评估一次；`search.predict` 调用的是已重拟合的最佳管道。
+:::
 
 ### 6.4 通用管道接口
 
