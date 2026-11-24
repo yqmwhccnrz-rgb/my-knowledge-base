@@ -79,6 +79,8 @@ summary: "高等数学 全面详解笔记，将上下册内容按知识逻辑综
 | 左右极限 | $\lim_{x \to x_{0}} f= A \Leftrightarrow f(x_{0}^{-})= f(x_{0}^{+})= A$ |
 | 夹逼准则 | $g \le f \le h$ 且 $\lim g= \lim h= A \Rightarrow \lim f= A$ |
 | 单调有界准则 | 单调有界数列必有极限（用于递推数列 $a_{n+1}= f(a_{n})$） |
+| 无穷小的运算 | 有限个无穷小之和/积仍是无穷小；**有界量 × 无穷小 = 无穷小**；非零无穷小与无穷大互为倒数 |
+| 无穷小比较 | 设 $\lim\dfrac{\alpha}{\beta}$（$\beta$ 为无穷小）：$=0$ ⇒ $\alpha$ 高阶（$\alpha=o(\beta)$）；$=\infty$ ⇒ 低阶；$=c\ne 0$ ⇒ 同阶；$=1$ ⇒ 等价（$\alpha\sim\beta$）；$\lim\dfrac{\alpha}{\beta^{k}}=c\ne 0$ ⇒ $\alpha$ 是 $\beta$ 的 $k$ 阶无穷小 |
 | 两个重要极限 | $\lim_{x \to 0} \dfrac{\sin x}{x}= 1$；$\lim_{x \to \infty}\left(1+\dfrac{1}{x}\right)^{x}= e$、$\lim_{x \to 0}(1+x)^{\dfrac{1}{x}}= e$ |
 
 ::: tip 补充 · 海涅定理（归结原则）
@@ -99,6 +101,8 @@ $\lim_{x \to x_{0}} f(x)= A$ ⇔ 对任意满足 $x_{n} \to x_{0}$（$x_{n} \ne 
 <div class="kb-tile-item kb-tile-wide">
 
 $\sin x \sim \tan x \sim \arcsin x \sim \arctan x \sim \ln(1+x) \sim e^{x}- 1 \sim x$
+
+$a^{x}- 1 \sim x \ln a$；$x-\arctan x \sim \dfrac{x^{3}}{3}$；$\tan x- \sin x \sim \dfrac{x^{3}}{2}$
 
 </div>
 
@@ -214,6 +218,8 @@ $f'(x_{0})= \lim_{\Delta x \to 0}\dfrac{f(x_{0}+\Delta x)- f(x_{0})}{\Delta x}$�
 
 | 类型 | 公式 |
 | --- | --- |
+| 基本导数（三角） | $(\sin x)'=\cos x$、$(\cos x)'=-\sin x$、$(\tan x)'=\sec^{2}x$、$(\cot x)'=-\csc^{2}x$、$(\sec x)'=\sec x \tan x$、$(\csc x)'=-\csc x \cot x$ |
+| 基本导数（反三角/指对） | $(\arcsin x)'=\dfrac{1}{\sqrt{1- x^{2}}}$、$(\arctan x)'=\dfrac{1}{1+x^{2}}$；$(a^{x})'=a^{x}\ln a$、$(\log_{a}x)'=\dfrac{1}{x \ln a}$、$(\ln|x|)'=\dfrac{1}{x}$ |
 | 四则 | $(uv)'=u'v+uv'$；$\left(\dfrac{u}{v}\right)'= \dfrac{u'v- uv'}{v^{2}}$ |
 | 复合（链式） | $y=f(u), u=g(x) \Rightarrow y'= f'(u)g'(x)$，多层复合逐层相乘 |
 | 反函数 | $\dfrac{dx}{dy}= \dfrac{1}{y'}$；$\dfrac{d^{2}x}{dy^{2}}=- \dfrac{y''}{(y')^{3}}$ |
@@ -330,6 +336,8 @@ $\int f(x)dx= F(x)+ C \Leftrightarrow F'(x)=f(x)$。**连续函数必有原函�
 | $\int \sin x dx$, $\int \cos x dx$ | $-\cos x+C$，$\sin x+C$ |
 | $\int\dfrac{dx}{1+x^{2}}$, $\int\dfrac{dx}{\sqrt{1- x^{2}}}$ | $\arctan x+C$，$\arcsin x+C$ |
 | $\int \sec x dx$ | $\ln|\sec x+\tan x|+C$ |
+| $\int \tan x dx$, $\int \cot x dx$, $\int \csc x dx$ | $-\ln|\cos x|+C$、$\ln|\sin x|+C$、$\ln|\csc x- \cot x|+C$ |
+| $\int\dfrac{dx}{x^{2}- a^{2}}$, $\int\dfrac{dx}{\sqrt{x^{2}\pm a^{2}}}$ | $\dfrac{1}{2a}\ln\left|\dfrac{x- a}{x+a}\right|+C$；$\ln\left|x+\sqrt{x^{2}\pm a^{2}}\right|+C$（三角代换回代的最终形式） |
 | $\int\dfrac{dx}{a^{2}+x^{2}}$, $\int\dfrac{dx}{\sqrt{a^{2}- x^{2}}}$ | $\left(\dfrac{1}{a}\right)\arctan\left(\dfrac{x}{a}\right)+C$, $\arcsin\left(\dfrac{x}{a}\right)+C$ |
 | $\int\dfrac{f'(x)}{f(x)}dx$ | $\ln|f(x)|+C$（最高频凑微分） |
 
@@ -358,7 +366,7 @@ $\int f(x)dx= F(x)+ C \Leftrightarrow F'(x)=f(x)$。**连续函数必有原函�
 ::: danger 易错 · 不定积分
 - **不要漏 `+C`**；分段积分时各段常数须由连续性统一（否则原函数不连续）。
 - 三角代换回代时用辅助直角三角形，别把 `t` 直接留在答案里。
-- $e^{-x^{2}}$、$\dfrac{\sin x}{x}$、$\dfrac{1}{\ln} x$、$\sqrt{1+k^{2}\sin^{2}x}$ 等**原函数不是初等函数**（刘维尔定理），不要硬算；它们靠级数、变限积分或数值方法处理（见第 5、12 章）。
+- $e^{-x^{2}}$、$\dfrac{\sin x}{x}$、$\dfrac{1}{\ln x}$、$\sqrt{1+k^{2}\sin^{2}x}$ 等**原函数不是初等函数**（刘维尔定理），不要硬算；它们靠级数、变限积分或数值方法处理（见第 5、12 章）。
 - $\int\dfrac{dx}{x}=\ln\lvert x\rvert+C$，绝对值不能省。
 :::
 
@@ -403,6 +411,7 @@ $\int_{a}^{b} f(x)dx= \lim_{\lambda \to 0} \sum f(\xi_{i})\Delta x_{i}$（$\lamb
 | 定理 | 内容 |
 | --- | --- |
 | 积分中值定理 | $f$ 连续 ⇒ $\int_{a}^{b} f dx= f(\xi)(b- a)$ |
+| 估值定理 | $m \le f \le M$ ⇒ $m(b- a) \le \int_{a}^{b} f dx \le M(b- a)$（积分不等式证明的基础） |
 | 积分上限函数 | $\Phi(x)= \int_{a}^{x} f(t)dt$；$f$ 连续 ⇒ $\Phi '(x)=f(x)$；$f$ 可积 ⇒ $\Phi$ 连续（未必可导） |
 | 变限求导通式 | $\dfrac{d}{dx} \int_{\alpha(x)}^{\beta(x)} f(t)dt= f(\beta)\beta '- f(\alpha)\alpha '$ |
 | **牛顿–莱布尼茨** | $\int_{a}^{b} f dx= F(b)- F(a)$，把求和极限化为原函数增量 |
@@ -530,7 +539,7 @@ $y'+2y=e^{x}$：积分因子 $e^{2x}$，两边乘后 $(e^{2x}y)'=e^{3x}$，
 
 **解的结构**：`n` 阶线性方程通解含 `n` 个独立任意常数；齐次解的线性组合仍是齐次解；**非齐次通解 = 齐次通解 + 一个特解**；两非齐次解之差是齐次解。
 
-**二阶常系数齐次** $y″+py′+qy=0$，特征方程 $r^{2}+pr+q=0$：
+**二阶常系数齐次** $y''+py'+qy=0$，特征方程 $r^{2}+pr+q=0$：
 
 | 特征根 | 通解 |
 | --- | --- |
@@ -541,6 +550,7 @@ $y'+2y=e^{x}$：积分因子 $e^{2x}$，两边乘后 $(e^{2x}y)'=e^{3x}$，
 **非齐次特解（待定系数法）**：
 - $f(x)=e^{\lambda x}P_{m}(x)$ ⇒ 设 $y*=x^{k} e^{\lambda x}Q_{m}(x)$，`k` 是 $\lambda$ 作为特征根的重数（0/1/2）；
 - $f(x)=e^{\alpha x}[A \cos \beta x+B \sin \beta x]$ ⇒ 设 $y*=x^{k} e^{\alpha x}[C \cos \beta x+D \sin \beta x]$，`k` 由 $\alpha+i\beta$ 是否为特征根决定。
+$n$ 阶推广：解特征方程 $r^{n}+a_{1}r^{n- 1}+ \cdots+a_{n}=0$；$k$ 重实根 $r$ 贡献 $e^{rx}, xe^{rx}, \cdots, x^{k- 1}e^{rx}$；$k$ 对共轭复根 $\alpha ±i\beta$ 贡献 $e^{\alpha x}x^{j}\cos \beta x$ 与 $e^{\alpha x}x^{j}\sin \beta x$（$j=0, \cdots, k- 1$）。
 
 ::: tip 工作例题 · 三组方程
 $$
@@ -662,6 +672,7 @@ $|a|= \sqrt{1+4+1}= \sqrt{6} \approx 2.449$；$\cos \theta= \dfrac{1}{\sqrt{6} \
 | 累次极限 | $\lim_x\lim_y f$ 与 $\lim_y\lim_x f$；二者存在且不等 ⇒ 二重极限不存在（反之不成立） |
 | 偏导数 | $f_{x}(x_{0},y_{0})=\lim \dfrac{f(x_{0}+h,y_{0})- f(x_{0},y_{0})}{h}$（固定其余变量） |
 | 全微分 | $\Delta z= A\Delta x+B\Delta y+o(\rho)$，$\rho=\sqrt{\Delta x^{2}+\Delta y^{2}}$ ⇒ $dz=f_{x}dx+f_{y}dy$ |
+| 可微的判定与近似 | 用定义验证 $\Delta z- (f_{x}\Delta x+f_{y}\Delta y)=o(\rho)$；近似计算 $f(x_{0}+\Delta x, y_{0}+\Delta y) \approx f(x_{0},y_{0})+dz$ |
 
 **关系图（二元，与一元差别很大）**：
 
@@ -780,7 +791,7 @@ $$
 $$
 :::
 
-**对称性**（先于计算使用）：若 $D$ 关于 $y$ 轴对称且 $f$ 对 $x$ 为奇 ⇒ 积分为 0、为偶 ⇒ 两倍；若 D 关于 $y=x$ 对称，则 $\iint _{D} f(x,y)d\sigma= \iint _{D} f(y,x)d\sigma$（轮换对称性，可把 $\iint  \dfrac{f(x)}{f(x)+f(y)}$ 化为面积的一半）。
+**对称性**（先于计算使用）：若 $D$ 关于 $y$ 轴对称且 $f$ 对 $x$ 为奇 ⇒ 积分为 0、为偶 ⇒ 两倍；若 D 关于 $y=x$ 对称，则 $\iint _{D} f(x,y)d\sigma= \iint _{D} f(y,x)d\sigma$（轮换对称性，可把 $\iint  \dfrac{f(x)}{f(x)+f(y)}$ 化为面积的一半）。三重积分有完全相同的奇偶对称与轮换对称结论（看 $\Omega$ 的对称性配合 $f$ 的奇偶性）。
 
 ### 10.2 三重积分
 
@@ -841,8 +852,8 @@ $$
 | 公式 | 表达式 | 条件 |
 | --- | --- | --- |
 | **格林** | $\oint _{L} Pdx+Qdy= \iint _{D}\left( \dfrac{\partial Q}{\partial x}- \dfrac{\partial P}{\partial y}\right)dxdy$ | `L` 为正向（逆时针）分段光滑闭曲线，`P,Q` 在 `D` 上有一阶连续偏导 |
-| **高斯** | $\oiint _{\Sigma} P dydz+Q dzdx+R dxdy= \iiint _\Omega\left( \dfrac{\partial P}{\partial x}+ \dfrac{\partial Q}{\partial y}+ \dfrac{\partial R}{\partial z}\right)dV$ | $\sum$ 取**外侧**闭曲面 |
-| **斯托克斯** | $\oint _\Gamma Pdx+Qdy+Rdz= \iint _{\Sigma}(rot A) \cdot n dS$ | $\Gamma$ 与 $\sum$ 的侧符合右手规则 |
+| **高斯** | $\oiint _{\Sigma} P dydz+Q dzdx+R dxdy= \iiint _\Omega\left( \dfrac{\partial P}{\partial x}+ \dfrac{\partial Q}{\partial y}+ \dfrac{\partial R}{\partial z}\right)dV$ | $\Sigma$ 取**外侧**闭曲面 |
+| **斯托克斯** | $\oint _\Gamma Pdx+Qdy+Rdz= \iint _{\Sigma}(rot A) \cdot n dS$ | $\Gamma$ 与 $\Sigma$ 的侧符合右手规则 |
 
 **统一视角**：三者都是「**边界上的积分 = 内部某种导数的积分**」，即广义斯托克斯定理 $\int_{\partial M} \omega= \int_{M} d\omega$；牛顿–莱布尼茨是它在区间 $[a,b]$ 上的 1 维特例。
 
@@ -951,6 +962,10 @@ $$
 
 $\sum a_{n}(x- x_{0})^{n}$ 的**收敛半径** $R= \lim|\dfrac{a_{n}}{a_{n+1}}|$ 或 $R=\dfrac{1}{\limsup_{n\to\infty}\sqrt[n]{|a_{n}|}}$；收敛区间 $(x_{0}- R, x_{0}+R)$，**端点必须单独判断**才得收敛域。
 
+::: danger 易错 · 收敛半径
+缺项幂级数（如 $\sum a_{n}x^{2n}$、$\sum a_{n}x^{2n+1}$）**不能**直接套 $R=\lim\left|\dfrac{a_{n}}{a_{n+1}}\right|$，须对通项 $u_{n}(x)$ 用比值/根值法直接解 $|x|$ 的范围；平移型 $\sum a_{n}(x- x_{0})^{n}$ 可先视 $t=x- x_{0}$ 求 $R$，再平移回 $x$。
+:::
+
 | 性质 | 内容 |
 | --- | --- |
 | 阿贝尔定理 | 在收敛区间内闭一致收敛；和函数在收敛区间内连续 |
@@ -1047,7 +1062,7 @@ $$
 \end{aligned}
 $$
 **根值强于比值**：由 $\lim \dfrac{u_{n+1}}{u_{n}}= \rho \Rightarrow \lim_{n\to\infty}\sqrt[n]{u_{n}}= \rho$，反之不然；故含 `n` 次幂的项优先用根值。
-**阿贝尔 / 狄利克雷判别法**：处理 $\sum a_{n}b_{n}$ 型，若 $\sum a_{n}$ 部分和有界且 $b_{n}$ 单调趋于 0 ⇒ 收敛（狄利克雷）；这解释了交错级数判别的一般原理。
+**阿贝尔 / 狄利克雷判别法**：处理 $\sum a_{n}b_{n}$ 型，若 $\sum a_{n}$ 部分和有界且 $b_{n}$ 单调趋于 0 ⇒ 收敛（狄利克雷）；若 $\sum a_{n}$ 收敛且 $b_{n}$ 单调有界 ⇒ 收敛（阿贝尔）。这解释了交错级数判别的一般原理。
 
 ::: tip 补充 · 积分判别的两个经典临界例
 $\sum \dfrac{1}{n \ln n}$ 与 $\sum \dfrac{1}{n(\ln n)^{2}}$ 都是比值/根值 $\rho=1$ 失效、比较判别也难处理的临界级数，用积分判别（换元 $u=\ln x$）：
@@ -1375,7 +1390,7 @@ $$
 | 一阶方程 | 按可分离 → 齐次 → 线性 → 伯努利 → 全微分的顺序判别；齐次常需先作平移 $x=X+h, y=Y+k$ |
 | 可降阶 | 判断缺 y 还是缺 x，选择令 $p=y'$ 后把 $y''$ 写成 $p'$ 或 $p\dfrac{dp}{dy}$ |
 | 二阶常系数 | 特征方程 → 齐次通解 → 按右端形式设特解（共振乘 $x^{k}$） |
-| 由解反求方程 | 由解的结构反推特征根，或用 $y″+py′+qy=0$ 待定 p,q |
+| 由解反求方程 | 由解的结构反推特征根，或用 $y''+py'+qy=0$ 待定 p,q |
 | 变限积分方程 | 两边求导化为 ODE，并从**原方程**提取初始条件 |
 | 应用题 | 由变化率/几何条件列方程（如「切线斜率」「冷却速率」），再定初值 |
 
@@ -1395,7 +1410,7 @@ $$
 | --- | --- |
 | 判二重极限不存在 | 沿 $y=kx$（得依赖 k 的值）或沿 $y=x$ 与 $y=x^{2}$ 得不同值 |
 | 求偏导 / 全微分 | 固定其余变量；抽象复合函数先画变量图再写链式 |
-| 判可微性 | 偏导连续 ⇒ 可微（最常用）；否则回定义算 $\dfrac{\lim[\Delta z- f_{x}\Delta x- f_{y}\Delta y]}{\rho}$ |
+| 判可微性 | 偏导连续 ⇒ 可微（最常用）；否则回定义验证 $\lim\dfrac{\Delta z- f_{x}\Delta x- f_{y}\Delta y}{\rho}=0$ |
 | 方向导数 / 梯度 | 可微时用 $\nabla f \cdot e_{l}$；单位化方向向量别忘 |
 | 切平面 / 法线 | $\nabla F$ 作法向量；参数曲线用 $r′(t)$ |
 | 极值 / 最值 | 驻点 → $\Delta=AC- B^{2}$ 判别 → 闭区域再查边界；条件极值用拉格朗日 |
@@ -1515,12 +1530,12 @@ $$e^{ix}=[1- \frac{x^{2}}{2!}+ \frac{x^{4}}{4!}- \cdots]+ i[x- \frac{x^{3}}{3!}+
 
 ### 综 1 · 极限 → 导数 → 泰勒（第 1–3 章）
 
-题：设 $f(x)$ 在 $x=0$ 二阶可导，$\lim_{x \to 0}[\dfrac{f(x)}{x}+ \sin \dfrac{x^{2}}{x^{2}}]= 1$，求 $f(0)$、$f'(0)$，并讨论 $f''(0)$ 能否确定。
+题：设 $f(x)$ 在 $x=0$ 二阶可导，$\lim_{x \to 0}\left[\dfrac{f(x)}{x}+ \dfrac{\sin x}{x^{2}}\right]= 1$，求 $f(0)$、$f'(0)$，并讨论 $f''(0)$ 能否确定。
 
 $$
 \begin{aligned}
 &\text{(1)} \; \text{通分：} \; \lim \frac{x f(x)+ \sin x}{x^{2}}= 1 \; \text{（有限）} \; \Rightarrow \; \text{分子必须为} \; O(x^{2}) \\
-&\text{(2)} \; \text{若} \; f(0)=0 \; \text{，则} \; \text{x f(x) ~ f(0)x} \; \text{而} \; \sin x \sim x \Rightarrow \; \text{分子} \; \text{~ (f(0)+1)x} \\
+&\text{(2)} \; x \to 0 \; \text{时} \; x f(x) \sim f(0)x \; \text{，而} \; \sin x \sim x \Rightarrow \; \text{分子} \sim (f(0)+1)x \\
 &\text{要使其为} \; O(x^{2}) \; \text{必须} \; f(0)=- 1 \\
 &\text{(3)} \; \text{泰勒：} \; f(x)=- 1+ f'(0)x+ \frac{1}{2} f''(0)x^{2}+ o(x^{2}) \; \text{，} \; \sin x= x- \frac{x^{3}}{6}+ o(x^{3}) \\
 &\text{分子} \; = x[- 1+ f'(0)x+ \frac{1}{2} f''(0)x^{2}+ o(x^{2})]+ x- \frac{x^{3}}{6}+ o(x^{3}) \\
@@ -1603,7 +1618,7 @@ $$
 
 ### 综 6 · 三大公式的选择（第 10、11 章）
 
-题：计算 $\oiint _{\Sigma} x^{3} dydz+ y^{3} dzdx+ z^{3} dxdy$，$\sum$ 为球面 $x^{2}+y^{2}+z^{2}=R^{2}$ 外侧。
+题：计算 $\oiint _{\Sigma} x^{3} dydz+ y^{3} dzdx+ z^{3} dxdy$，$\Sigma$ 为球面 $x^{2}+y^{2}+z^{2}=R^{2}$ 外侧。
 
 $$
 \begin{aligned}
@@ -1763,6 +1778,7 @@ $$
 | --- | --- |
 | 两个重要极限 | $\lim_{x \to 0} \dfrac{\sin x}{x}= 1$；$\lim_{x \to \infty}\left(1+\dfrac{1}{x}\right)^{x}= e$ |
 | $1^\infty$ 速算 | $\lim f^g= e^{\lim g(f- 1)}$（$f \to 1, g \to \infty$） |
+| 常用数列极限 | $\lim_{n \to \infty}\sqrt[n]{n}= 1$、$\lim_{n \to \infty}\sqrt[n]{a}= 1(a>0)$；$\lim_{n \to \infty}\dfrac{n^{k}}{a^{n}}= 0(a>1)$、$\lim_{n \to \infty}\dfrac{a^{n}}{n!}= 0$、$\lim_{n \to \infty}\dfrac{n!}{n^{n}}= 0$（增长率：$\ln n \ll n^{k} \ll a^{n} \ll n! \ll n^{n}$） |
 | 等价无穷小 | $\sin x \sim \tan x \sim \arcsin x \sim \ln(1+x) \sim e^{x}- 1 \sim x$；$1-\cos x \sim \dfrac{x^{2}}{2}$；$(1+x)^\alpha- 1 \sim \alpha x$；$x-\sin x \sim \dfrac{x^{3}}{6}$ |
 | 五个麦克劳林 | $e^{x}=\sum\dfrac{x^{n}}{n!}$；$\sin x=\sum\dfrac{(-1)^{n}x^{2n+1}}{(2n+1)!}$；$\cos x=\sum\dfrac{(-1)^{n}x^{2n}}{(2n)!}$；$\ln(1+x)=\sum\dfrac{(-1)^{n-1}x^{n}}{n}$；$(1+x)^\alpha=1+\alpha x+\dfrac{\alpha(\alpha- 1)x^{2}}{2}+ \cdots$ |
 | 泰勒余项 | 佩亚诺 $o((x- x_{0})^{n})$；拉格朗日 $\dfrac{f^{(n+1)}(\xi)(x- x_{0})^{n+1}}{(n+1)!}$ |

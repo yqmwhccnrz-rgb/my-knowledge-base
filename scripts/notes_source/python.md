@@ -1,5 +1,5 @@
 ---
-summary: "9 章 Python 数据分析笔记：ndarray、numpy 函数、Series 与 DataFrame、数据清洗、分组聚合与可视化，涵盖视图/拷贝、标签对齐、apply/merge、透视表等实战知识点。"
+summary: "9 章 + 附录 Python 数据分析笔记：ndarray、numpy 函数、Series 与 DataFrame、数据清洗、分组聚合与可视化，涵盖视图/拷贝、标签对齐、apply/merge、透视表等实战知识点，附 Python 语言基础速查。"
 ---
 
 # Python 数据分析笔记
@@ -24,6 +24,7 @@ summary: "9 章 Python 数据分析笔记：ndarray、numpy 函数、Series 与 
 | 第 7 章 | matplotlib 与 seaborn 可视化（含中文显示、子图、双轴） |
 | 第 8 章 | 易错点汇总 |
 | 第 9 章 | 知识点速查总结 |
+| 附录 | Python 语言基础速查（类型与字符串、容器、函数、文件 / 异常 / OOP / 生成器、环境与包管理） |
 
 ---
 
@@ -242,6 +243,17 @@ print(a)                  # 不受影响，仍是 [0 999 2 3 4 5]
 - 去重：`np.unique(arr)`。
 - 拼接：`np.concatenate([a, b])`；分割：`np.split(arr, 份数或位置)`。
 - 变形：`np.reshape(arr, (行, 列))`。
+- 展平：`arr.ravel()`（通常返回视图）/ `arr.flatten()`（总是返回拷贝）；`np.transpose(arr, (1,0))` 可按指定轴转置。
+
+### 3.5 线性代数（np.linalg）
+
+```python
+np.linalg.inv(A)         # 逆矩阵
+np.linalg.det(A)         # 行列式
+np.linalg.eig(A)         # 特征值与特征向量 → (w, v)
+np.linalg.solve(A, b)    # 解线性方程组 Ax=b（数值上优于先求 inv 再相乘）
+np.linalg.norm(v)        # 向量 / 矩阵范数
+```
 
 ---
 
@@ -383,6 +395,8 @@ import pandas as pd
 df = pd.read_csv('文件夹/文件名.csv')     # 读 CSV
 df.to_csv('文件夹/文件名.csv')            # 导出 CSV
 df = pd.read_json('文件夹/文件名.json')   # 读 JSON
+df = pd.read_excel('data.xlsx')          # 读 Excel（需要 openpyxl 库）
+df.to_excel('data.xlsx', index=False)    # 导出 Excel，index=False 不写出索引列
 ```
 
 ```python
@@ -439,6 +453,8 @@ df.sort_values(by='列', ascending=False)  # 按值排序
 | `df.apply` | 对行或列应用函数 |
 | `df.append` | 旧版追加行，pandas 2.0 起已移除，应改用 `pd.concat` |
 
+> `pd.merge` 的 `how` 参数决定连接方式：`'inner'`（默认，只留两边都有的键）/ `'left'` / `'right'` / `'outer'`；两边键名不同时用 `left_on='列1', right_on='列2'`。
+
 ### 6.4 时间数据与分组聚合
 
 ```python
@@ -464,6 +480,7 @@ plt.rcParams['axes.unicode_minus'] = False     # 让负号正常显示
 plt.plot(x, y, label='曲线')
 plt.xlabel('横轴'); plt.ylabel('纵轴')
 plt.title('标题'); plt.legend()
+plt.savefig('fig.png', dpi=200)   # 保存为图片文件（建议放在 plt.show() 之前）
 plt.show()
 ```
 
@@ -552,3 +569,73 @@ sns.pairplot(df)                   # 两两散点图矩阵
 ### 9.3 一句话记忆
 
 > numpy 管「同类型的多维数组 + 向量化计算」，pandas 管「带标签的表格 + 清洗与聚合」；切片多是视图、索引分 `loc`/`iloc`、缺失用 `isna`、合并分 `concat`/`merge`——把这几个分界记牢，绝大多数易错点都能避开。
+
+---
+
+## 附录 Python 语言基础速查
+
+### A.1 类型、运算符与字符串
+
+- 数值 `int` / `float` / `complex`：`7/2 → 3.5`（真除）、`7//2 → 3`（整除）、`7%2 → 1`（取余）、`2**10`（幂）
+- `==` 比较值，`is` 比较是否同一对象；判值一律用 `==`（小整数 -5~256 有缓存，`is` 会「碰巧」为真）
+- `bool(0)`、`bool('')`、`bool([])`、`bool(None)` 均为 `False`，其余值为 `True`
+- 字符串**不可变**；切片规则同列表：`s[1:4]` 左闭右开、`s[::-1]` 反转
+- 常用方法：`split` / `join` / `strip` / `replace` / `find` / `upper` / `lower`；格式化 `f'x={x:.2f}'`
+
+### A.2 四种容器
+
+| 容器 | 字面量 | 可变? | 特点与常用操作 |
+| --- | --- | --- | --- |
+| 列表 list | `[1, 2, 3]` | 可变 | `append` / `extend` / `insert` / `pop` / `remove` / `sort` / 切片 |
+| 元组 tuple | `(1, 2)` | 不可变 | 可作字典键；单元素必须写 `(1,)` |
+| 字典 dict | `{'a': 1}` | 可变 | `keys()` / `values()` / `items()`、`get(k, 默认)`，3.7 起保持插入序 |
+| 集合 set | `{1, 2, 3}` | 可变 | 自动去重；交并差 `&` `\|` `-` |
+
+```python
+[x * 2 for x in lst if x > 1]          # 列表推导式
+{k: v * 2 for k, v in dic.items()}     # 字典推导式
+```
+
+- `b = a` 只是引用同一对象；浅拷贝 `a.copy()`，深拷贝 `copy.deepcopy(a)`
+
+### A.3 函数
+
+```python
+def f(a, b=1, *args, **kwargs):     # 默认参数、可变位置参数、可变关键字参数
+    return a + b
+
+g = lambda x: x + 1                 # 匿名函数，只能写单个表达式
+```
+
+- ⚠️ 默认参数只在定义时求值一次：`def f(x, lst=[])` 会跨调用累积，应写 `lst=None` 再在函数体内新建
+- 作用域 LEGB：局部 → 外层函数 → 全局 → 内置；函数内要给全局变量赋值须先 `global 名`
+
+### A.4 文件、异常、OOP 与生成器
+
+```python
+with open('a.txt', encoding='utf-8') as f:   # 退出 with 块自动 close
+    data = f.read()                          # 也可 readlines() 或 for line in f
+
+try: n = int(s)
+except ValueError as e: print('转换失败:', e)   # else 无异常才执行；finally 必执行；raise 主动抛异常
+```
+
+```python
+class Dog(Animal):                        # 括号里写父类即继承
+    def __init__(self, name):             # 构造方法，self 是实例自身
+        super().__init__()                # 调用父类构造
+        self.name = name
+    def __str__(self):                    # 魔术方法：print(实例) 时的字符串形式
+        return f'Dog({self.name})'
+
+squares = (x * x for x in range(5))       # 生成器表达式，惰性求值，用 next() 逐个取
+```
+
+- 含 `yield` 的函数是生成器函数，每次 `next()` 执行到下一个 `yield` 处暂停并交出值
+- 常见魔术方法：`__init__` `__str__` `__repr__` `__len__` `__getitem__` `__eq__`；`@property` 把方法变成属性访问
+- 迭代器需实现 `__iter__` 与 `__next__`；`for` 循环本质是不断调用 `next()` 直到 `StopIteration`
+
+### A.5 环境与包管理
+
+- `pip install numpy`；`pip freeze > requirements.txt` 导出依赖，`pip install -r requirements.txt` 还原
+- 虚拟环境：`python -m venv .venv`；激活（Windows）`.venv\Scripts\activate`、（macOS/Linux）`source .venv/bin/activate`；`deactivate` 退出

@@ -374,6 +374,14 @@ y = sin(x) .* cos(x);      % 必须点乘！写成 * 会报维度错误
 :::
 
 
+**隐式扩展**（R2016b 起）：两数组做点运算时，若各维度**相等或其中一维为 1**，会自动扩展成同型（替代 `bsxfun`）：
+
+```matlab
+v = [1 2 3];  c = (1:2).';
+v + c         % → [2 3 4; 3 4 5]（1×3 与 2×1 扩展成 2×3）
+v .* c        % 逐元素乘同理
+```
+
 #### 2.5.2 关系运算
 
 6 种关系运算符：`<` `<=` `>` `>=` `==` `~=`（**注意不是 `!=`**），对应函数 `lt` `le` `gt` `ge` `eq` `ne`。
@@ -436,10 +444,18 @@ num2str(3.14), str2num('3.14'), str2double('3.14'), int2str(3)
 ['Room temperature is ', num2str(21.1111), ' degrees C.']
 strcat('ss','ff','DD','1234')
 eval('[t, sin(t), cos(t)]')         % 把字符串当命令执行
+
+strcmp('abc','abc'), strcmpi('A','a')           % 串比较 → 1 1（区分 / 不区分大小写）
+strfind('ababab','ab'), contains('hello','ell') % 找子串位置 / 是否包含
+upper('ab'), lower('AB'), strtrim('  x ')       % 大小写转换、去首尾空白
+sprintf('r=%.2f', 3.14159)                      % 按格式生成串 → 'r=3.14'
+strsplit('a,b,c',','), strjoin({'a','b'},'-')   % 分割 / 拼接
 ```
 
 
 
+
+R2016b 起还提供 **string 类型**：`s = "hello"`（双引号），用 `+` 拼接（`"x=" + 3.14` 自动把数转成串），长度用 `strlength(s)` 或 `s.Length`，与 char 用 `string()` / `char()` 互转。
 
 #### 2.6.3 结构数据与单元数据
 
@@ -546,6 +562,13 @@ flipud(A) % 上下翻转
 ::: danger 易错点 · 复数矩阵 `'` 与 `.'`
 对含复数的矩阵，`A'` 是**共轭转置**（Hermitian），`A.'` 才是纯转置。做线性代数题时用 `A'`；只想交换行列、不改变元素时用 `A.'`。这是 MATLAB 与数学书写习惯最容易混淆的一处。
 :::
+
+**拼接与复制**：
+
+```matlab
+cat(1, A, B)     % 沿第 1 维拼接 = [A; B]；cat(2, A, B) = [A, B]
+repmat(A, 2, 3)  % 把 A 平铺复制成 2×3 块
+```
 
 #### 3.2.3 矩阵求逆与伪逆
 
@@ -906,9 +929,17 @@ end
 | 形式 | 说明 |
 | --- | --- |
 | **主函数 / 子函数** | 一个函数文件中第一个函数是主函数，外部只能调主函数；其余为子函数，仅本文件内可见 |
-| **匿名函数** | `f = @(x) ...`，见 4.3.2 |
+| **匿名函数** | `f = @(x) ...`，见下方示例 |
 | **嵌套函数** | 定义在另一个函数体内，可访问外层函数的变量（需配 `end`） |
 | **内联函数 `inline`** | 原书介绍过，现已废弃(见附录 B.1) |
+
+```matlab
+% 匿名函数：函数体只能是单个表达式；定义时捕获的外部变量值被「快照」固定
+f = @(x,y) x.^2 + y.^2;
+f(3,4)            % → 25
+g = @sin;         % 函数句柄：直接引用已有函数（注意函数名后不加括号）
+g(pi/2)           % → 1
+```
 
 
 ### 4.5 程序调试与优化
@@ -924,6 +955,13 @@ end
 ```matlab
 tic;  ...代码...;  toc       % 简单计时
 profile on;  myfun();  profile viewer   % 逐函数耗时剖析
+```
+
+**向量化优化两大手段**：① 循环前用 `zeros` / `ones` 预分配数组；② 用向量化代替循环：
+
+```matlab
+A = zeros(1, n);      % 预分配，避免循环中反复扩容复制内存
+y = sin(x) ./ x;      % 对整条向量一次算完，远快于 for 逐元素
 ```
 
 
@@ -1096,6 +1134,14 @@ axis([xmin xmax ymin ymax zmin zmax]); axis vis3d
 ```
 
 
+
+**图形导出**：
+
+```matlab
+saveas(gcf, 'fig.png')                              % 保存当前窗口（png/fig/pdf/eps 等）
+exportgraphics(gcf, 'fig.png', 'Resolution', 300)   % 高分辨率导出（R2020a 起推荐）
+print(gcf, '-dpdf', '-r300', 'fig.pdf')             % 经打印接口导出
+```
 
 ### 5.6 图像处理与动画
 
@@ -1293,6 +1339,10 @@ y1 = polyval(p, x1, S, mu);      % 求值也要传 S、mu
 :::
 
 
+::: tip 提示
+装有 Curve Fitting Toolbox 时，`cftool` 可打开交互式曲线拟合 App（选数据、选模型、看 R² / SSE 等拟合优度）；编程方式还可用 `fit(x, y, 'poly2')`（x、y 须为列向量）。
+:::
+
 ---
 
 ## 第7章 数值微分与积分
@@ -1315,6 +1365,7 @@ diff(A, n, dim)      % 矩阵按指定维差分
 x = 0:0.01:pi;
 y = sin(x);
 dy = diff(y) ./ diff(x);        % 长度比 x 少 1
+dy2 = gradient(y, 0.01);        % gradient：结果与 y 同长，内部中心差分、两端单边差分
 plot(x(1:end-1), dy)
 
 % 或者直接给出函数，用中心差商
@@ -1337,6 +1388,11 @@ h 太小会因浮点相减而**灾难性抵消**，误差反而变大。双精�
 - 给定**离散数据点** → `trapz`。
 
 #### 7.2.2 定积分实现
+
+```matlab
+I = integral(@(x) 1./x, 1, 2)                 % ∫₁²(1/x)dx = ln2 ≈ 0.6931，自适应求积首选
+I3 = integral3(@(x,y,z) x.*y.*z, 0,1, 0,1, 0,1)   % 三重积分（内层限也可给函数句柄）
+```
 
 
 ::: danger 易错点 · integral 要求向量化
@@ -1576,7 +1632,7 @@ inv(A), det(A), rank(A), eig(A), A^2, A.'
 ### 9.2 符号微积分
 
 ```matlab
-syms x a
+syms x a n y
 limit(sin(x)/x, x, 0)            % → 1
 limit((1+1/n)^n, n, inf)         % → exp(1)
 diff(sin(x^2), x)                % → 2*x*cos(x^2)
@@ -1812,7 +1868,7 @@ fclose(fid);
 if fid < 0, error('打开失败: %s', msg); end
 ```
 
-低级函数：`fread` / `fwrite`（二进制）、`fgetl` / `fgets`（按行）、`feof`、`frewind`、`fseek`、`ftell`。
+低级函数：`fread` / `fwrite`（二进制）、`fgetl` / `fgets`（按行）、`feof`、`frewind`、`fseek`、`ftell`。高层读写推荐 `readtable` / `writetable`（表格）与 `readmatrix` / `writematrix`（数值矩阵），见附录 B.1。
 
 
 #### 13.2.2 MAT 文件

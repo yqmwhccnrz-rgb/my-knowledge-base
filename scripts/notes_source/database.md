@@ -106,6 +106,7 @@ DBMS 的主要功能：① **数据定义**（DDL）；② **数据操纵**（DM
 
 ::: tip 现代数据库生态：NoSQL、NewSQL 与选型
 - **NoSQL**：键值（Redis）、文档（MongoDB）、列族（HBase/Cassandra）、图（Neo4j）；用 BASE 与最终一致性换取水平扩展与灵活模式。
+- **CAP 定理**：分布式系统中 **一致性 C、可用性 A、分区容错性 P** 三者最多同时满足两个；网络分区 P 客观存在、必须容忍，因此实际是在 **CP**（ZooKeeper、etcd、HBase：分区时拒绝服务保一致）与 **AP**（Cassandra、Eureka：分区时仍可读写保可用）之间选择；**BASE**（基本可用、软状态、最终一致）是 AP 路线的工程化表述。
 - **NewSQL / 分布式**：TiDB、OceanBase、CockroachDB、PolarDB；兼顾 SQL/ACID 与分布式扩展，常基于 Raft/Paxos + 分布式事务。
 - **国产数据库**：达梦 DM、人大金仓 KingbaseES、openGauss、OceanBase、TiDB、PolarDB、GaussDB、TDSQL；多用于信创与政企核心系统。
 - **云数据库 / HTAP / 湖仓一体**：RDS、Serverless DB、Aurora；OLTP 与 OLAP 融合（TiDB TiFlash）、Lakehouse（Iceberg/Hudi/Delta Lake）。
@@ -190,6 +191,8 @@ $$
 :::
 
 **关系演算**：以数理逻辑谓词为基础，是**非过程化**的。元组关系演算（如 ALPHA：`GET W (Student.Sname): Student.Sdept='CS'`）、域关系演算（如 QBE）。SQL 在表达能力上等价于关系代数 + 关系演算，且**具有关系完备性**；实际 SQL 还带聚合、分组、更新等超出的能力。
+
+演算表达式的标准形式：元组关系演算 $\{t \mid P(t)\}$（t 为元组变量，P 为谓词公式），域关系演算 $\{x_{1}, \cdots, x_{n} \mid P(x_{1}, \cdots, x_{n})\}$；只有**安全表达式**才保证结果有限，考试常要求代数式与演算式互相改写。
 
 ::: tip 连接运算的三个易漏点
 - **等值连接 vs 自然连接**：前者保留两列同名属性，后者去重只留一列。
@@ -578,6 +581,8 @@ HAVING COUNT(DISTINCT Cno) = (SELECT COUNT(*) FROM Course);
 ::: tip 查询优化与执行计划
 `EXPLAIN SELECT …` 的关键列：`type`（`system > const > eq_ref > ref > range > index > ALL`，出现 **ALL 即全表扫描**）、`possible_keys / key`（候选与实际使用索引）、`rows`（预估扫描行数）、`Extra`（`Using index` 覆盖索引、`Using filesort` 需额外排序、`Using temporary` 用临时表）。
 索引失效的典型原因：对索引列做函数/运算（`WHERE YEAR(date)=2024`）、隐式类型转换（字符串列传数字）、`LIKE '%abc'` 前置通配、违反最左前缀、`OR` 连接非索引列、优化器判断全表扫描更便宜。**改写目标：让条件能直接命中索引列本身。**
+
+**经典查询处理步骤**（教材视角）：查询分析 → 查询检查（语法/权限/视图消解）→ **查询优化** → 查询执行；优化分**代数优化**（改写表达式）与**存取路径选择**（选索引/连接算法）。启发式代数优化原则：① **尽早执行选择**（先缩小中间结果）；② **把投影与选择结合**同时进行；③ 把子查询尽可能**改写成连接**；④ 需要重复使用的中间结果先物化。
 :::
 
 ::: danger 易错 · 查询章
@@ -885,7 +890,7 @@ $$
 \begin{aligned}
 &\text{A} \; \text{上：} \; \text{R2(A)} \; \text{在} \; \text{W1(A)} \; \text{之前} \; \to T2 \to T1 \; \text{；} \; \text{W1(A)} \; \text{在} \; \text{W2(A)} \; \text{之前} \; \to T1 \to T2 \Rightarrow \; \text{出现环} \\
 &\text{B} \; \text{上：} \; \text{W2(B)} \; \text{在} \; \text{R1(B)} \; \text{之前} \; \to T2 \to T1 \; \text{；} \; \text{R2(B)} \; \text{在} \; \text{W1(B)} \; \text{之前} \; \to T2 \to T1 \\
-&\text{优先图：} \; \text{T1 ⇄  T2} \; \text{（有环）} \; \Rightarrow \; \text{该调度} \; \text{**} \; \text{不是冲突可串行化} \; \text{**} \; \text{的}
+&\text{优先图：} \; \text{T1} \leftrightarrow \text{T2} \; \text{（有环）} \; \Rightarrow \; \text{该调度}\textbf{不是冲突可串行化}\text{的}
 \end{aligned}
 $$
 若优先图无环，则拓扑序即等价的串行次序（如 $T1 \to T2$）。**2PL 保证可串行化但不保证无死锁**；时间戳排序、乐观并发控制（OCC/MVCC）是另外的实现路线。
@@ -956,6 +961,11 @@ $$
 | **介质故障（硬故障）** | 磁盘损坏、磁头划伤，数据文件丢失 | **重装数据库 + 转储副本 + 重放日志（REDO）**，需 DBA 介入，代价最大 |
 
 记忆：事务故障靠 UNDO；系统故障 UNDO+REDO；介质故障靠备份+日志重放。恢复子系统核心组件是**日志 + 检查点（checkpoint）**——检查点缩小了崩溃后需要扫描重放的日志范围。
+:::
+
+::: tip 经典日志记录与检查点恢复规则（常考简答）
+- **更新日志记录**的字段：事务 ID、操作类型、**前像（旧值）、后像（新值）**；UNDO 用前像写回、REDO 用后像重做。
+- **检查点恢复规则**（按事务相对检查点的状态分四类）：① 检查点前开始且已提交 → **无需处理**；② 检查点前开始、尚未提交 → **UNDO**；③ 检查点后开始且已提交（更新可能未落盘）→ **REDO**；④ 检查点后开始、尚未提交 → **UNDO**。
 :::
 
 ::: danger 易错 · 日志与恢复
@@ -1066,7 +1076,7 @@ $$
 &\text{(3)} \; \text{逐个把} \; \text{LR} \; \text{属性加入} \; \text{B} \; \text{再求闭包：} \\
 &(AB)^{+}={A,B} \to AB \to C \; \text{加} \; C \to C \to D \; \text{加} \; D \to D \to E \; \text{加} \; \text{E = {A,B,C,D,E} }\checkmark \; \text{候选码} \\
 &(BC)^{+}={B,C} \to C \to D \to D \to E \to E \to A={A,B,C,D,E} \checkmark \; \text{候选码} \\
-&\text{(BD)+ = {B,D} → D→E → E→A → (AB} \; \text{已含} \; \text{? A} \; \text{、} \; \text{B} \; \text{、} \; \text{C?} \; \text{由} \; AB \to C \; \text{得} \; \text{C) =} \; \text{全部} \; \checkmark \; \text{候选码} \\
+&(BD)^{+}={B,D} \to D \to E \to E \to A \to AB \to C={A,B,C,D,E} \checkmark \; \text{候选码} \\
 &(BE)^{+}={B,E} \to E \to A \to AB \to C \to C \to D= \; \text{全部} \; \checkmark \; \text{候选码} \\
 &\text{(4)} \; \text{故候选码为} \; \text{AB} \; \text{、} \; \text{BC} \; \text{、} \; \text{BD} \; \text{、} \; \text{BE} \; \text{（四个）；主属性} \; \text{= {A,B,C,D,E}} \; \text{全部，非主属性为空}
 \end{aligned}
@@ -1116,6 +1126,12 @@ $$
 - **无损连接性**：分解后各子关系自然连接能**精确还原**原关系（不产生伪元组、不丢失元组）。二元分解 $R \to R1,R2$ 无损 ⟺ $(R1 \cap R2) \to(R1- R2)$ 或 $(R1 \cap R2) \to(R2- R1)$ 在 $F^{+}$ 中。上例 $SL \to SD+DL$：交集 `Sdept`，$Sdept \to Sloc$ 成立 ⇒ 无损。
 - **保持依赖性**：分解后各子模式上函数依赖集的并集能逻辑蕴含原 F（保证约束仍可**局部检查**，不必每次做连接）。
 - 定理：任何关系模式都可分解为 **3NF 且同时满足无损连接与保持依赖**；BCNF 一定无损但**不一定保持依赖**——这正是工程上常停在 3NF 的原因。
+:::
+
+::: tip 多值依赖与 4NF 判定（补充）
+- **多值依赖** $X \twoheadrightarrow Y$（$Z= U- X- Y$）：给定 x 值，Y 的取值集合与 Z 的取值**无关**（同一 x 下 $Y \times Z$ 成对出现）；非平凡 MVD 要求 `Y ⊄ X` 且 $X \cup Y \ne U$。
+- 关键性质：① $X \to Y$ 则 $X \twoheadrightarrow Y$（**函数依赖是多值依赖的特例**）；② 互补性：$X \twoheadrightarrow Y$ 则 $X \twoheadrightarrow Z$。
+- 一个关系中存在**两个及以上相互独立的多值事实**（如 CTB 中 课程↔教师、课程↔教材相互独立）时，即使每个决定因素组合都是码（满足 BCNF）也**不是 4NF**，必须按每个 MVD 分解（CT + CB）。
 :::
 
 ::: danger 易错 · 规范化
@@ -1571,7 +1587,7 @@ $$
 \begin{aligned}
 &\text{A} \; \text{：} \; \text{R2(A)} \; \text{先于} \; W1(A) \to T2 \to T1 \; \text{；} \; \text{W1(A)} \; \text{先于} \; W2(A) \to T1 \to T2 \\
 &\text{B} \; \text{：} \; \text{R2(B)} \; \text{先于} \; W1(B) \to T2 \to T1 \; \text{；} \; \text{W2(B)} \; \text{先于} \; R1(B) \to T2 \to T1 \\
-&\text{优先图含} \; \text{T1⇄ T2} \; \text{环} \; \Rightarrow \; \text{不是冲突可串行化调度}
+&\text{优先图含} \; \text{T1} \leftrightarrow \text{T2} \; \text{环} \; \Rightarrow \; \text{不是冲突可串行化调度}
 \end{aligned}
 $$
 若要修正，可让 T1 与 T2 遵守**两段锁协议**（各自一次性申请所需 X 锁，事务结束统一释放），所得调度必可串行化，但可能出现死锁需要检测与回滚。
