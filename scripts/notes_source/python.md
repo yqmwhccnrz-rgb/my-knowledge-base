@@ -22,7 +22,7 @@ summary: "9 章 + 附录 Python 数据分析笔记：ndarray、numpy 函数、Se
 | [C 语言](/notes/welcome.html) | `ndarray` 的同构连续存储、0 基索引与视图/拷贝可对照 C 数组和指针。 |
 | [MATLAB](/notes/matlab.html) | NumPy `axis=0`↔MATLAB `dim=1`；注意 0/1 基与行列优先差异。 |
 | [数据挖掘](/notes/datamining.html) | pandas 清洗/聚合接 scipy/statsmodels；先推断还是先预测要分清。 |
-| [Python 机器学习](/notes/ml.html) | DataFrame→X/y→Pipeline；预处理只在训练折 `fit`。 |
+| [Python 机器学习](/notes/ml.html) | `DataFrame` → `X`/`y` → `Pipeline`；预处理只在训练折 `fit`。 |
 
 ## 全书目录
 
@@ -236,15 +236,15 @@ print(a)                  # 不受影响，仍是 [0 999 2 3 4 5]
 | 函数 | 作用 |
 | --- | --- |
 | `np.sqrt(x)` | 平方根 |
-| `np.exp(x)` | e 的 x 次幂 |
-| `np.log(x)` | 自然对数（以 e 为底，即 ln x） |
+| `np.exp(x)` | $e$ 的 $x$ 次幂 |
+| `np.log(x)` | 自然对数（以 $e$ 为底，即 $x$ 的自然对数） |
 | `np.sin(x)` / `np.cos(x)` | 正弦 / 余弦 |
 | `np.abs(x)` | 绝对值 |
-| `np.power(a, b)` | a 的 b 次幂 |
+| `np.power(a, b)` | `a` 的 `b` 次幂 |
 | `np.round(x)` | 四舍五入（见下方易错点：银行家舍入） |
 | `np.ceil(x)` | 向上取整 |
 | `np.floor(x)` | 向下取整 |
-| `np.isnan(x)` | 检测缺失值（NaN） |
+| `np.isnan(x)` | 检测缺失值（`NaN`） |
 
 ### 3.2 基本统计函数
 
@@ -260,7 +260,7 @@ print(a)                  # 不受影响，仍是 [0 999 2 3 4 5]
 | `np.percentile(x, q)` | 分位数，`q` 取 0~100 |
 | `np.cumsum` / `np.cumprod` | 累积和 / 累积积 |
 
-**按行 / 列统计**：$np.\max(arr, axis=0)$ 沿「行方向」压缩，返回**每一列**的最值；`axis=1` 沿「列方向」压缩，返回**每一行**的最值——别记反。
+**按行 / 列统计**：`np.max(arr, axis=0)` 沿「行方向」压缩，返回**每一列**的最值；`axis=1` 沿「列方向」压缩，返回**每一行**的最值——别记反。
 
 `np.var/np.std` 默认 `ddof=0`（总体）；pandas 默认 `ddof=1`，MATLAB `std` 默认除以 `n-1`（样本），跨工具核对请显式指定。
 

@@ -163,14 +163,14 @@ DBMS 的主要功能：① **数据定义**（DDL）；② **数据操纵**（DM
 
 | 运算 | 记号 | 含义 |
 | --- | --- | --- |
-| 并 | $R \cup S$ | 属于 R 或 S 的元组（去重） |
-| 差 | $R- S$ | 属于 R 但不属于 S 的元组 |
+| 并 | $R \cup S$ | 属于 $R$ 或 $S$ 的元组（去重） |
+| 差 | $R- S$ | 属于 $R$ 但不属于 $S$ 的元组 |
 | 交 | $R \cap S$ | 同时属于两者的元组，$R \cap S= R-(R- S)$ |
-| 笛卡尔积 | $R \times S$ | R 的每个元组与 S 的每个元组拼接；基数 $=\vert R\vert  \times\vert S\vert $，度数 `= 属性数之和` |
-| **选择** | $\sigma_{F}(R)$ | 按条件 F **选行**（水平方向） |
+| 笛卡尔积 | $R \times S$ | $R$ 的每个元组与 $S$ 的每个元组拼接；基数 $=\lvert R\rvert\times\lvert S\rvert$，度数为属性数之和 |
+| **选择** | $\sigma_{F}(R)$ | 按条件 $F$ **选行**（水平方向） |
 | **投影** | $\pi_{A}(R)$ | 选出指定属性**列**并**去重**（垂直方向） |
 | **连接** | $R ⋈_{A\theta B} S$ | $\sigma_{\text{条件}}(R\times S)$；等值连接、自然连接（自动按同名属性等值并去掉重复列） |
-| **除** | `R ÷ S` | 找出"与 S 中所有值都配对"的 R 中属性值，常用来表达"全部/所有" |
+| **除** | $R \div S$ | 找出"与 $S$ 中所有值都配对"的 $R$ 中属性值，常用来表达"全部/所有" |
 
 ![关系代数八种运算](/db/db-algebra.svg)
 
@@ -207,10 +207,10 @@ $$
 | $\sigma_{F}(R)$ | `SELECT * FROM R WHERE F` |
 | $\pi_{A}(R)$ | `SELECT DISTINCT A FROM R` |
 | $R \cup S$ | `SELECT … FROM R UNION SELECT … FROM S` |
-| $R- S$ | `SELECT … FROM R EXCEPT SELECT … FROM S`（MySQL 8.0.31 起原生支持，更早版本用 `NOT EXISTS` / $LEFT JOIN \cdots IS NULL$） |
+| $R- S$ | `SELECT … FROM R EXCEPT SELECT … FROM S`（MySQL 8.0.31 起原生支持，更早版本用 `NOT EXISTS` / `LEFT JOIN ... IS NULL`） |
 | $R \cap S$ | `INTERSECT`（MySQL 8.0.31 起原生支持，更早版本用 `INNER JOIN` / `IN`） |
 | $R \times S$ | `CROSS JOIN` |
-| `R ⋈ S` | $JOIN \cdots ON$ / `NATURAL JOIN` |
+| `R ⋈ S` | `JOIN ... ON` / `NATURAL JOIN` |
 | `R ÷ S` | 双重 `NOT EXISTS` 或 `GROUP BY + HAVING COUNT(DISTINCT)` |
 | $\gamma_{G, agg}(R)$ | `SELECT G, agg(…) FROM R GROUP BY G`（分组聚合是关系代数的扩展） |
 
@@ -358,12 +358,12 @@ DROP DATABASE IF EXISTS teaching;
 
 | 类别 | 类型 | 要点 |
 | --- | --- | --- |
-| 整数 | `TINYINT(1B) / SMALLINT(2B) / MEDIUMINT(3B) / INT(4B) / BIGINT(8B)` | `INT(11)` 的 11 只是**显示宽度**，不限制取值范围（配合 ZEROFILL 才生效，8.0.17 起废弃） |
-| 定点/浮点 | `DECIMAL(M,D)` / `FLOAT` / `DOUBLE` | **金额必须用 DECIMAL**，FLOAT/DOUBLE 有二进制精度误差 |
-| 字符串 | `CHAR(n)` / `VARCHAR(n)` / `TEXT` / `BLOB` | CHAR 定长、末尾空格处理不同；VARCHAR 变长需 1~2 字节记长度；`n` 在 MySQL 4.0+ 是**字符数**不是字节数 |
+| 整数 | `TINYINT(1B) / SMALLINT(2B) / MEDIUMINT(3B) / INT(4B) / BIGINT(8B)` | `INT(11)` 的 11 只是**显示宽度**，不限制取值范围（配合 `ZEROFILL` 才生效，8.0.17 起废弃） |
+| 定点/浮点 | `DECIMAL(M,D)` / `FLOAT` / `DOUBLE` | **金额必须用 `DECIMAL`**，`FLOAT`/`DOUBLE` 有二进制精度误差 |
+| 字符串 | `CHAR(n)` / `VARCHAR(n)` / `TEXT` / `BLOB` | `CHAR` 定长、末尾空格处理不同；`VARCHAR` 变长需 1~2 字节记长度；`n` 在 MySQL 4.0+ 是**字符数**不是字节数 |
 | 日期时间 | `DATE / TIME / DATETIME / TIMESTAMP / YEAR` | `TIMESTAMP` 基础占 4 字节且受时区影响、范围 1970–2038；`DATETIME` 与时区无关，MySQL 5.6.4+ 通常 5 字节（小数秒另加） |
-| 枚举集合 | `ENUM / SET` | ENUM 单选、内部按序号存；改枚举项代价大，慎用 |
-| 其他 | `JSON`（5.7+）、`BOOLEAN`（=TINYINT(1)）、`BIT` | JSON 列可用Generated Column + 索引优化 |
+| 枚举集合 | `ENUM / SET` | `ENUM` 单选、内部按序号存；改枚举项代价大，慎用 |
+| 其他 | `JSON`（5.7+）、`BOOLEAN`（=TINYINT(1)）、`BIT` | `JSON` 列可用 Generated Column + 索引优化 |
 
 > **DATETIME 存储口径**：MySQL 5.6.4+ 的 `DATETIME` 通常占 **5 字节**；`DATETIME(p)` 再按小数秒精度 p 增加 **0/1/2/3 字节**（p=0 加 0，p=1~2 加 1，p=3~4 加 2，p=5~6 加 3，依据 MySQL 官方存储要求表）。传统教材/旧版常写 8 字节；考试按题设口径作答。
 
@@ -373,10 +373,10 @@ DROP DATABASE IF EXISTS teaching;
 
 | 约束 | 写法 | 作用 |
 | --- | --- | --- |
-| `PRIMARY KEY` | 列级或表级 | 实体完整性；自动 NOT NULL + UNIQUE；**每表最多一个**（可组合多列） |
-| $FOREIGN KEY \cdots REFERENCES$ | 表级 | 参照完整性；要求被参照列有唯一索引，两表通常同为 InnoDB |
-| `UNIQUE` | 列级/表级 | 唯一性；**允许多个 NULL**（MySQL） |
-| `NOT NULL` | 列级 | 禁止 NULL |
+| `PRIMARY KEY` | 列级或表级 | 实体完整性；自动 `NOT NULL` + `UNIQUE`；**每表最多一个**（可组合多列） |
+| `FOREIGN KEY … REFERENCES …` | 表级 | 参照完整性；要求被参照列有唯一索引，两表通常同为 InnoDB |
+| `UNIQUE` | 列级/表级 | 唯一性；**允许多个 `NULL`**（MySQL） |
+| `NOT NULL` | 列级 | 禁止 `NULL` |
 | `DEFAULT` | 列级 | 未给值时填默认值 |
 | `CHECK` | 列级/表级 | 域约束（MySQL 8.0.16 起才真正生效，之前仅解析忽略） |
 | `AUTO_INCREMENT` | 列级 | 自增，必须被索引，通常作代理主键 |
@@ -505,12 +505,12 @@ SELECT DISTINCT Sdept FROM Student ORDER BY Sdept ASC LIMIT 2;
 
 | 常用谓词 / 函数 | 说明 |
 | --- | --- |
-| `BETWEEN a AND b` / $IN( \cdots)$ / `LIKE '模式'` | 范围 / 集合 / 模糊匹配（`%` 任意串、`_` 单字符，`ESCAPE` 转义） |
+| `BETWEEN a AND b` / `IN(…)` / `LIKE '模式'` | 范围 / 集合 / 模糊匹配（`%` 任意串、`_` 单字符，`ESCAPE` 转义） |
 | `IS NULL` / `IS NOT NULL` | 判空 |
-| `COUNT / SUM / AVG / MAX / MIN` | 聚合函数，除 `COUNT(*)` 外都**忽略 NULL**；`SUM` 遇全 NULL 返回 NULL |
-| `AND / OR / NOT` | 三值逻辑：TRUE / FALSE / **UNKNOWN**，`NOT IN` 遇子查询含 NULL 会返回空结果 |
-| $CASE WHEN \cdots THEN \cdots ELSE \cdots END$ | 条件表达式（可实现行列转换、分组打标） |
-| `COALESCE / IFNULL` | 用默认值替换 NULL |
+| `COUNT / SUM / AVG / MAX / MIN` | 聚合函数，除 `COUNT(*)` 外都**忽略 `NULL`**；`SUM` 遇全 `NULL` 返回 `NULL` |
+| `AND / OR / NOT` | 三值逻辑：`TRUE` / `FALSE` / **`UNKNOWN`**，`NOT IN` 遇子查询含 `NULL` 会返回空结果 |
+| `CASE WHEN … THEN … ELSE … END` | 条件表达式（可实现行列转换、分组打标） |
+| `COALESCE / IFNULL` | 用默认值替换 `NULL` |
 
 ### 6.2 多表连接（★★★）
 
@@ -553,7 +553,7 @@ GROUP BY s.Sno, s.Sname ORDER BY cnt DESC, s.Sname;
 | 比较 + `ANY/ALL` | $> ANY( \cdots)$（大于最小）/ $> ALL( \cdots)$（大于最大） | 与聚合 MAX/MIN 等价 |
 | `EXISTS` 相关子查询 | `WHERE EXISTS (SELECT 1 FROM SC WHERE …)` | 逐行求值、找到即停，通常效率高 |
 | `NOT EXISTS` 双重否定 | 表达「全部 / 所有」 | 对应关系代数除运算 |
-| 派生表 / CTE | `FROM (SELECT …) AS t` / $WITH cte AS( \cdots)$ | MySQL 8.0 支持 CTE 与窗口函数 |
+| 派生表 / CTE | `FROM (SELECT …) AS t` / `WITH cte AS (...)` | MySQL 8.0 支持 CTE 与窗口函数 |
 
 ::: tip 工作示例 · 子查询与「全部」表达（含实际结果）
 ```sql
@@ -600,11 +600,11 @@ WHERE 只保留 TRUE 的行，FALSE 与 UNKNOWN 都被丢弃
 | 场景 | 陷阱 | 正确写法 |
 | --- | --- | --- |
 | 判空 | `WHERE col = NULL` 恒空 | `col IS NULL` / `IS NOT NULL` |
-| 聚合 | `SUM/AVG/MAX/MIN/COUNT(col)` 忽略 NULL | 需当 0 时用 `COALESCE(col,0)`；`COUNT(*)` 计全部行 |
-| `NOT IN` | 子查询含 NULL → 结果恒空 | 改 `NOT EXISTS` 或加 `IS NOT NULL` |
-| 外连接 | 补 NULL 的行仍参与 `COUNT(*)` | 用 `COUNT(右表列)` |
-| 唯一约束 | MySQL 的 UNIQUE 允许多个 NULL | 需"非空唯一"时显式加 `NOT NULL` |
-| 排序 | MySQL 升序时 NULL 排最前 | 用 `ORDER BY col IS NULL, col` 控制 |
+| 聚合 | `SUM/AVG/MAX/MIN/COUNT(col)` 忽略 `NULL` | 需当 0 时用 `COALESCE(col,0)`；`COUNT(*)` 计全部行 |
+| `NOT IN` | 子查询含 `NULL` → 结果恒空 | 改 `NOT EXISTS` 或加 `IS NOT NULL` |
+| 外连接 | 补 `NULL` 的行仍参与 `COUNT(*)` | 用 `COUNT(右表列)` |
+| 唯一约束 | MySQL 的 `UNIQUE` 允许多个 `NULL` | 需"非空唯一"时显式加 `NOT NULL` |
+| 排序 | MySQL 升序时 `NULL` 排最前 | 用 `ORDER BY col IS NULL, col` 控制 |
 
 ### 6.5 常见 SQL 书写规范与性能清单
 
@@ -687,7 +687,7 @@ EXPLAIN SELECT * FROM Student WHERE Sdept='CS';
 **索引不是越多越好**：每个索引都要占用磁盘、在 `INSERT/UPDATE/DELETE` 时维护 B+树、并参与优化器代价估算；高频写入表应克制建索引，优先给「高选择性 + 高频 WHERE/ORDER BY/JOIN 列」建。
 :::
 
-> **跨科提示**：B+树节点/页衔接 [操作系统](/notes/os.html) 的磁盘块与 Buffer Pool 页缓存；`O(log n)` 按页访问计，真实耗时还取决于 [组成原理](/notes/coa.html) 的 Cache/AMAT。
+> **跨科提示**：B+树节点/页衔接 [操作系统](/notes/os.html) 的磁盘块与 Buffer Pool 页缓存；$O(\log n)$ 按页访问计，真实耗时还取决于 [组成原理](/notes/coa.html) 的 Cache/AMAT。
 
 ::: danger 易错 · 索引
 - 主键自动建聚簇索引；没有显式主键时 InnoDB 选第一个非空唯一索引，再没有就生成隐藏 `rowid`。
@@ -697,7 +697,7 @@ EXPLAIN SELECT * FROM Student WHERE Sdept='CS';
 - 视图是**虚表**，索引是**实结构**；不能对普通视图建索引（物化视图除外，MySQL 不原生支持）。
 :::
 
-> **跨科提示**：HASH 索引只擅长等值；Java `equals/hashCode` 契约见 [Java](/notes/java.html)，冲突/装载因子/ASL 的理论假设见 [数据结构](/notes/datastructure.html)，不要跨场景套用 O(1)。
+> **跨科提示**：HASH 索引只擅长等值；Java `equals/hashCode` 契约见 [Java](/notes/java.html)，冲突/装载因子/ASL 的理论假设见 [数据结构](/notes/datastructure.html)，不要跨场景套用 $O(1)$。
 
 ### 7.3 索引选择与执行计划诊断
 
@@ -914,7 +914,7 @@ $$
 
 | 维度 | 分类 | 说明 |
 | --- | --- | --- |
-| 备份内容 | **逻辑备份**（mysqldump / mysqlpump / mydumper，导出 SQL 语句）／**物理备份**（直接拷贝数据文件，XtraBackup） | 逻辑备份跨版本好、慢；物理备份快、适合大库 |
+| 备份内容 | **逻辑备份**（`mysqldump` / `mysqlpump` / `mydumper`，导出 SQL 语句）／**物理备份**（直接拷贝数据文件，`XtraBackup`） | 逻辑备份跨版本好、慢；物理备份快、适合大库 |
 | 数据范围 | **完全备份**（全量）／**增量备份**（自上次备份以来的变化）／**差异备份**（自上次全量以来的变化） | 增量恢复要按序回放所有增量，差异只需全量+最后一次差异 |
 | 运行状态 | 冷备（停机）／温备（只读）／**热备**（在线不中断，InnoDB + XtraBackup） | 生产一般热备 |
 | 一致性 | 一致性备份（含 `--single-transaction`）／非一致性 | `mysqldump --single-transaction` 借 MVCC 取得一致快照且**不锁表** |
@@ -1079,17 +1079,17 @@ $$
 
 | 概念 | 定义 |
 | --- | --- |
-| 函数依赖 $X \to Y$ | 对 R 的任意合法关系，任意两元组若在 X 上取值相同，则在 Y 上必相同 |
-| 平凡函数依赖 | `Y ⊆ X`（如 $(Sno,Cno) \to Sno$），恒成立 |
-| **完全函数依赖** $X \to f Y$ | Y 依赖整个 X，不依赖 X 的任一真子集 |
-| **部分函数依赖** $X \to p Y$ | Y 只依赖 X 的某个真子集 |
-| **传递函数依赖** | $X \to Y$、$Y \to Z$、$Y \not\to X$、`Z ⊄ Y` ⇒ $X \to t Z$ |
+| 函数依赖 $X \to Y$ | 对 $R$ 的任意合法关系，任意两元组若在 $X$ 上取值相同，则在 $Y$ 上必相同 |
+| 平凡函数依赖 | $Y \subseteq X$（如 $(Sno,Cno) \to Sno$），恒成立 |
+| **完全函数依赖** $X \to f Y$ | $Y$ 依赖整个 $X$，不依赖 $X$ 的任一真子集 |
+| **部分函数依赖** $X \to p Y$ | $Y$ 只依赖 $X$ 的某个真子集 |
+| **传递函数依赖** | $X \to Y$、$Y \to Z$、$Y \not\to X$、$Z \not\subseteq Y \Rightarrow X \to t Z$ |
 
 **Armstrong 公理系统**（自反律、增广律、传递律，是**完备且可靠**的推理规则）：
 $$
 \begin{aligned}
-&\text{A1} \; \text{自反律：若} \; \text{Y ⊆ X ⊆ U} \; \text{，则} \; X \to Y \\
-&\text{A2} \; \text{增广律：若} \; X \to Y \; \text{且} \; \text{Z ⊆ U} \; \text{，则} \; XZ \to YZ \\
+&\text{A1} \; \text{自反律：若} \; Y\subseteq X\subseteq U \; \text{，则} \; X \to Y \\
+&\text{A2} \; \text{增广律：若} \; X \to Y \; \text{且} \; Z\subseteq U \; \text{，则} \; XZ \to YZ \\
 &\text{A3} \; \text{传递律：若} \; X \to Y \; \text{且} \; Y \to Z \; \text{，则} \; X \to Z \\
 &\text{推论：合并规则} \; (X \to Y, X \to Z \Rightarrow X \to YZ) \; \text{、分解规则} \; (X \to YZ \Rightarrow X \to Y) \; \text{、伪传递规则} \; (X \to Y, WY \to Z \Rightarrow WX \to Z)
 \end{aligned}
@@ -1230,10 +1230,10 @@ $$
 
 $$
 \begin{aligned}
-&\text{(1)} \; \text{系} \; \text{(} \; \text{系号} \; \text{PK,} \; \text{系名} \; \text{,} \; \text{系主任} \; \text{)                       ←} \; \text{实体直接转} \\
-&\text{(2)} \; \text{学生} \; \text{(} \; \text{学号} \; \text{PK,} \; \text{姓名} \; \text{,} \; \text{性别} \; \text{,} \; \text{系号} \; \text{FK,} \; \text{入学年份} \; \text{)     ← 1:n} \; \text{把} \; \text{1} \; \text{端码与联系属性并入} \; \text{n} \; \text{端} \\
+&\text{(1)} \; \text{系} \; \text{(} \; \text{系号} \; \text{PK,} \; \text{系名} \; \text{,} \; \text{系主任} \; \text{)} \leftarrow \; \text{实体直接转} \\
+&\text{(2)} \; \text{学生} \; \text{(} \; \text{学号} \; \text{PK,} \; \text{姓名} \; \text{,} \; \text{性别} \; \text{,} \; \text{系号} \; \text{FK,} \; \text{入学年份} \; \text{)} \leftarrow 1:n \; \text{把} \; \text{1} \; \text{端码与联系属性并入} \; \text{n} \; \text{端} \\
 &\text{(3)} \; \text{课程} \; \text{(} \; \text{课程号} \; \text{PK,} \; \text{课程名} \; \text{,} \; \text{学分} \; \text{)} \\
-&\text{(4)} \; \text{选修} \; \text{(} \; \text{学号} \; \text{FK,} \; \text{课程号} \; \text{FK,} \; \text{成绩} \; \text{, PRIMARY KEY(} \; \text{学号} \; \text{,} \; \text{课程号} \; \text{))  ← m:n} \; \text{必须独立建表}
+&\text{(4)} \; \text{选修} \; \text{(} \; \text{学号} \; \text{FK,} \; \text{课程号} \; \text{FK,} \; \text{成绩} \; \text{, PRIMARY KEY(} \; \text{学号} \; \text{,} \; \text{课程号} \; \text{))} \leftarrow m:n \; \text{必须独立建表}
 \end{aligned}
 $$
 **得分点**：① 每个实体一个关系；② 1:n 不单独建表；③ m:n 单独建表且组合主码；④ 联系属性不能丢；⑤ 标出 PK/FK。
@@ -1425,7 +1425,7 @@ DROP TRIGGER IF EXISTS trg_sc_before_insert;
 | --- | --- |
 | 触发时机 | `BEFORE`（可校验/改写 `NEW` 值）/ `AFTER`（审计、级联维护） |
 | 粒度 | MySQL 只支持 **`FOR EACH ROW` 行级**触发器，不支持语句级 |
-| `NEW` / `OLD` | `NEW` = 新行（INSERT/UPDATE 可用）；`OLD` = 旧行（UPDATE/DELETE 可用）；**INSERT 无 OLD、DELETE 无 NEW** |
+| `NEW` / `OLD` | `NEW` = 新行（INSERT/UPDATE 可用）；`OLD` = 旧行（UPDATE/DELETE 可用）；**INSERT 无 `OLD`、DELETE 无 `NEW`** |
 | 组合 | 一张表同一时机同一事件可有多个触发器（MySQL 5.7+），执行顺序可用 `FOLLOWS/PRECEDES` 指定；旧版本每种最多一个 |
 | 限制 | 触发器内**不能对触发表本身再做 DML**（会报「Can't update table ... already used by statement」）；不能显式事务控制 |
 
@@ -1666,7 +1666,7 @@ $$
 ④ 校验数据一致性后，导出 orders 表并回灌生产库
 ⑤ 复盘：加权限管控（应用账号不应有 DROP）、开启延迟从库、定期演练恢复
 ```
-**RPO / RTO**：相关 binlog 均已持久化（如 `sync_binlog=1`）时本方案 RPO ≈ 0，可恢复到误操作前一刻；RTO 取决于全量备份体积与 binlog 回放时长。注意 **TRUNCATE/DROP 是 DDL、隐式提交，无法用回滚或 undo 撤销**。
+**RPO / RTO**：相关 binlog 均已持久化（如 `sync_binlog=1`）时本方案 RPO $\approx 0$，可恢复到误操作前一刻；RTO 取决于全量备份体积与 binlog 回放时长。注意 **TRUNCATE/DROP 是 DDL、隐式提交，无法用回滚或 undo 撤销**。
 
 ### 综 8 · 服务端编程与防注入综合（第 8、15、16、17 章）
 
@@ -1733,37 +1733,37 @@ finally:
 | # | 主题 | 语法 / 公式 |
 | --- | --- | --- |
 | 1 | 三级模式 | 外模式（多个）— 外模式/模式映像 → 逻辑独立性；模式（唯一）— 模式/内模式映像 → 物理独立性；内模式（唯一） |
-| 2 | 关系模式 | `R(U, D, DOM, F)`，简写 $R(A_{1}, \cdots,A_{n})$；关系 = 元组的有限集合 |
-| 3 | 关系代数 | $\sigma_{F}(R)$ 选择、$\pi_{A}(R)$ 投影、`R⋈S` 连接、`R÷S` 除、$R \cup S$、$R- S$、$R \cap S$、$R \times S$ |
-| 4 | 除运算 | $\pi_{Sno,Cno}(SC) \div  \pi_{Cno}(Course)$ = 选修全部课程的学生 |
-| 5 | 建库 | $CREATE DATABASE[IF NOT EXISTS] db DEFAULT CHARACTER SET utf8mb4[COLLATE \cdots];$ |
+| 2 | 关系模式 | $R(U,D,\mathrm{DOM},F)$，简写 $R(A_{1},\cdots,A_{n})$；关系为元组的有限集合 |
+| 3 | 关系代数 | $\sigma_{F}(R)$ 选择、$\pi_{A}(R)$ 投影、$R\bowtie S$ 连接、$R\div S$ 除、$R \cup S$、$R-S$、$R \cap S$、$R \times S$ |
+| 4 | 除运算 | $\pi_{Sno,Cno}(SC) \div \pi_{Cno}(Course)$，即选修全部课程的学生 |
+| 5 | 建库 | `CREATE DATABASE[IF NOT EXISTS] db DEFAULT CHARACTER SET utf8mb4[COLLATE …];` |
 | 6 | 建表 | `CREATE TABLE t (col type [约束], …, [表级约束]) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;` |
 | 7 | 六类约束 | `PRIMARY KEY`、`FOREIGN KEY … REFERENCES …`、`UNIQUE`、`NOT NULL`、`DEFAULT`、`CHECK` |
-| 8 | 外键动作 | `ON DELETE {RESTRICT, CASCADE, SET NULL, NO ACTION}`（UPDATE 同理） |
+| 8 | 外键动作 | `ON DELETE {RESTRICT, CASCADE, SET NULL, NO ACTION}`（`UPDATE` 同理） |
 | 9 | 改表 | `ALTER TABLE t ADD / MODIFY / CHANGE / DROP COLUMN …; RENAME TO …` |
-| 10 | 插入 | $INSERT INTO t[(cols)] VALUES( \cdots),( \cdots);$ / `INSERT INTO t SELECT …` |
+| 10 | 插入 | `INSERT INTO t[(cols)] VALUES(…),(…);` / `INSERT INTO t SELECT …` |
 | 11 | 更新删除 | `UPDATE t SET c=… WHERE …;` / `DELETE FROM t WHERE …;` / `TRUNCATE TABLE t;` |
 | 12 | SELECT 书写 | `SELECT [DISTINCT] … FROM … [JOIN … ON …] [WHERE …] [GROUP BY … [HAVING …]] [ORDER BY …] [LIMIT …]` |
-| 13 | SELECT 执行序 | FROM/JOIN → WHERE → GROUP BY → HAVING → SELECT → ORDER BY → LIMIT |
+| 13 | SELECT 执行序 | `FROM`/`JOIN` → `WHERE` → `GROUP BY` → `HAVING` → `SELECT` → `ORDER BY` → `LIMIT` |
 | 14 | 判空 | `IS NULL / IS NOT NULL`；`COALESCE(x, 默认值)` / `IFNULL` |
 | 15 | 模糊匹配 | `LIKE '%串%'`，`_` 单字符，`ESCAPE` 转义；前置 `%` 无法用索引 |
-| 16 | 聚合 | `COUNT(*) 计全部行`；`COUNT(col)/SUM/AVG/MAX/MIN` 忽略 NULL |
+| 16 | 聚合 | `COUNT(*)` 计全部行；`COUNT(col)/SUM/AVG/MAX/MIN` 忽略 `NULL` |
 | 17 | 连接 | `INNER JOIN / LEFT JOIN / RIGHT JOIN / CROSS JOIN / 自连接（别名）` |
-| 18 | 集合 | `UNION`（去重）/ `UNION ALL`（不去重）/ `INTERSECT` / `EXCEPT`（MySQL 8.0.31 起原生支持，旧版用 JOIN/NOT EXISTS 模拟） |
+| 18 | 集合 | `UNION`（去重）/ `UNION ALL`（不去重）/ `INTERSECT` / `EXCEPT`（MySQL 8.0.31 起原生支持，旧版用 `JOIN`/`NOT EXISTS` 模拟） |
 | 19 | 子查询 | `IN / ANY / ALL / EXISTS / NOT EXISTS`；派生表 `FROM (SELECT …) AS t` |
 | 20 | CTE | `WITH cte AS (SELECT …) SELECT * FROM cte;`；递归 `WITH RECURSIVE` |
 | 21 | 窗口函数 | `ROW_NUMBER() OVER(PARTITION BY … ORDER BY …)`、`RANK / LAG / LEAD` |
 | 22 | 视图 | `CREATE [OR REPLACE] VIEW v AS SELECT … [WITH CHECK OPTION];` |
 | 23 | 索引 | `CREATE [UNIQUE] INDEX idx ON t(c1,c2);` / `DROP INDEX` / `SHOW INDEX` / `EXPLAIN` |
 | 24 | 最左前缀 | 联合索引 `(a,b,c)` 可用 `a`、`a,b`、`a,b,c`；范围列之后不再用于定位 |
-| 25 | 用户权限 | $CREATE USER 'u'@'h' IDENTIFIED BY ' \cdots ';$ / $GRANT privileges ON db.t TO \cdots;$ / `REVOKE` / `SHOW GRANTS` |
-| 26 | 角色 | $CREATE ROLE r; GRANT \cdots TO r; GRANT r TO 'u'@'h'; SET DEFAULT ROLE r TO 'u'@'h';$ |
+| 25 | 用户权限 | `CREATE USER 'u'@'h' IDENTIFIED BY '…';` / `GRANT privileges ON db.t TO …;` / `REVOKE` / `SHOW GRANTS` |
+| 26 | 角色 | `CREATE ROLE r; GRANT … TO r; GRANT r TO 'u'@'h'; SET DEFAULT ROLE r TO 'u'@'h';` |
 | 27 | 事务 | `START TRANSACTION; … SAVEPOINT sp; … COMMIT / ROLLBACK [TO sp];` |
-| 28 | ACID | $A \leftrightarrow undo \log$；C↔ 完整性约束 + A/I/D；I↔ 锁 + MVCC；$D \leftrightarrow redo \log$ |
+| 28 | ACID | $A\leftrightarrow\text{undo log}$；$C\leftrightarrow\text{完整性约束}+A/I/D$；$I\leftrightarrow\text{锁}+\text{MVCC}$；$D\leftrightarrow\text{redo log}$ |
 | 29 | 隔离级别 | `READ UNCOMMITTED / READ COMMITTED / REPEATABLE READ(MySQL 默认) / SERIALIZABLE` |
 | 30 | 查看隔离级别 | `SELECT @@transaction_isolation;`（MySQL 8.0；旧版 `@@tx_isolation`） |
-| 31 | 显式加锁 | `SELECT … FOR UPDATE`（X）/ `LOCK IN SHARE MODE`（S，8.0 可用 `FOR SHARE`） |
-| 32 | 三级封锁 | 一级：写前 X 锁至事务末（防丢失修改）；二级：+读 S 锁读完放（防脏读）；三级：+读 S 锁至末（防不可重复读） |
+| 31 | 显式加锁 | `SELECT … FOR UPDATE`（$X$）/ `LOCK IN SHARE MODE`（$S$，8.0 可用 `FOR SHARE`） |
+| 32 | 三级封锁 | 一级：写前 $X$ 锁至事务末（防丢失修改）；二级：+读 $S$ 锁读完放（防脏读）；三级：+读 $S$ 锁至末（防不可重复读） |
 | 33 | 2PL | 扩展阶段只加锁、收缩阶段只放锁 ⇒ 冲突可串行化（充分非必要），不保证无死锁 |
 | 34 | 备份 | `mysqldump -u root -p --single-transaction --routines --triggers --master-data=2 db > db.sql` |
 | 35 | 还原 | `mysql -u root -p db < db.sql`；`SOURCE /path/db.sql;` |
@@ -1772,18 +1772,18 @@ finally:
 | 38 | redo/binlog 内部两阶段提交 | redo prepare → 写 binlog → redo commit；崩溃时按 binlog 是否完整决定提交或回滚（非分布式 2PC） |
 | 39 | 函数依赖 | $X \to Y$；完全 $X \to f Y$、部分 $X \to p Y$、传递 $X \to t Z$ |
 | 40 | Armstrong | A1 自反律、A2 增广律、A3 传递律；推论：合并/分解/伪传递 |
-| 41 | 闭包 | $X^{+}$ 反复并入满足 $A⊆X^{+}$ 的 $A \to B$ 中的 B；$X^{+}=U$ ⇒ X 为超码 |
-| 42 | 范式 | 1NF 原子值；2NF 非主属性完全依赖码；3NF 非平凡 X→A 中 X 为超码或 A 为主属性；BCNF 中 X 为超码；4NF 非平凡 MVD 的 X 为超码 |
+| 41 | 闭包 | $X^{+}$ 反复并入满足 $A\subseteq X^{+}$ 的 $A \to B$ 中的 $B$；$X^{+}=U \Rightarrow X$ 为超码 |
+| 42 | 范式 | 1NF 原子值；2NF 非主属性完全依赖码；3NF 非平凡 $X\to A$ 中 $X$ 为超码或 $A$ 为主属性；BCNF 中 $X$ 为超码；4NF 非平凡 MVD 的 $X$ 为超码 |
 | 43 | 二元分解无损 | $R \to R1,R2$ 无损 ⟺ $(R1 \cap R2) \to(R1- R2)$ 或 $(R1 \cap R2) \to(R2- R1)$ 在 $F^{+}$ 中 |
 | 44 | ER 转换 | 实体→关系；1:1 任一方加外码；1:n 在 n 端加 1 端码；m:n 独立建表（组合主码 + 联系属性） |
 | 45 | 六阶段 | 需求分析 → 概念结构 → 逻辑结构 → 物理结构 → 实施 → 运行维护 |
 | 46 | 存储过程 | `DELIMITER`、`CREATE PROCEDURE p(IN a INT, OUT b INT) BEGIN … END`、`DELIMITER;` |
-| 47 | 函数 | $CREATE FUNCTION f(x INT) RETURNS type DETERMINISTIC BEGIN RETURN \cdots; END$ |
+| 47 | 函数 | `CREATE FUNCTION f(x INT) RETURNS type DETERMINISTIC BEGIN RETURN …; END` |
 | 48 | 游标 | `DECLARE cur CURSOR FOR …; DECLARE CONTINUE HANDLER FOR NOT FOUND SET done=1; OPEN / FETCH / CLOSE` |
-| 49 | 触发器 | $CREATE TRIGGER trg BEFORE / AFTER INSERT / UPDATE / DELETE ON t FOR EACH ROW BEGIN \cdots \text{NEW/OLD} \cdots END$ |
-| 50 | 事件 | $SET GLOBAL event_{scheduler}=ON; CREATE EVENT e ON SCHEDULE EVERY 1 DAY DO \cdots;$ |
+| 49 | 触发器 | `CREATE TRIGGER trg BEFORE / AFTER INSERT / UPDATE / DELETE ON t FOR EACH ROW BEGIN … NEW/OLD … END` |
+| 50 | 事件 | `SET GLOBAL event_scheduler=ON; CREATE EVENT e ON SCHEDULE EVERY 1 DAY DO …;` |
 | 51 | 参数化 | Python `cur.execute("… WHERE a=%s AND b=%s",(x,y))`；Java `PreparedStatement` + `setString/setInt` |
-| 52 | 例题结果 | 教学库：CS 系 2 人、平均 19.5；李勇 92；选课数 3/2/1/1；$COUNT(*)=7$、$COUNT(Grade)=6$；无人选修=操作系统 |
+| 52 | 例题结果 | 教学库：CS 系 2 人、平均 19.5；李勇 92；选课数 3/2/1/1；`COUNT(*)=7`、`COUNT(Grade)=6`；无人选修=操作系统 |
 | 53 | 日期时间 | `TIMESTAMP` 基础 4 B、受时区影响；`DATETIME` 通常 5 B，`DATETIME(p)` 另加 0/1/2/3 B |
 
 ## 附录 B 易错点速查

@@ -241,7 +241,7 @@ for (int x : a) System.out.println(x);
 | `float` | 32 | 0.0f | `Float` | `3.14F` | 约 6~7 位有效数字 |
 | `double` | 64 | 0.0 | `Double` | `3.14`、`1e-3` | 约 15 位有效数字（默认） |
 | `char` | 16 | `\u0000` | `Character` | `'A'`、`'\u4e2d'` | UTF-16 码元，可当无符号整数参与运算 |
-| `boolean` | — | false | `Boolean` | `true` / `false` | **不能与整数互转** |
+| `boolean` | — | `false` | `Boolean` | `true` / `false` | **不能与整数互转** |
 
 > 局部变量**没有默认值**，未初始化就使用会编译报错；只有字段（实例/静态）和数组元素才有上表默认值。JDK 10+ 可用 `var x = 1;` 由编译器推断局部变量类型，但 `var` 不能用于字段、方法参数、返回值，也不能 `var x = null;`。
 
@@ -669,7 +669,7 @@ IntUnaryOperator add = x -> x + base;   // OK，base 未被重新赋值
 
 | 类型 | 定义位置 | 持有外部引用 | 典型用途 |
 | --- | --- | --- | --- |
-| 成员内部类 | 类体中，非 static | ✔（`Outer.this`） | 与外部实例强绑定，如 `Map.Entry` 实现 |
+| 成员内部类 | 类体中，非 `static` | ✔（`Outer.this`） | 与外部实例强绑定，如 `Map.Entry` 实现 |
 | 静态嵌套类 | 类体中，`static` | ✘ | 更轻量，如 `Integer` 缓存、`Builder` |
 | 局部内部类 | 方法 / 代码块内 | ✔ | 仅方法内使用，可访问 effectively final 局部变量 |
 | 匿名内部类 | `new Interface() { /* 实现方法 */ }` | ✔ | 一次性实现；有多个抽象方法时仍需用它 |
@@ -879,7 +879,7 @@ public int compareTo(Object o) { return compareTo((String) o); }  // 转发 + �
 | 限制 | 根本原因 | 常用绕法 |
 | --- | --- | --- |
 | `List<int>` 非法 | 擦除后容器要装 `Object` | 用包装类 `List<Integer>`（有装箱开销） |
-| `new T()` / `new T[n]` | 运行时不知道 T 是什么 | 传入 `Class<T>` + 反射，或 `Supplier<T>`；数组用 `Array.newInstance(type, n)` |
+| `new T()` / `new T[n]` | 运行时不知道 `T` 是什么 | 传入 `Class<T>` + 反射，或 `Supplier<T>`；数组用 `Array.newInstance(type, n)` |
 | `instanceof List<String>` | 运行时泛型信息已消失 | 只判断 `instanceof List`，再逐元素校验类型 |
 | 静态字段/方法用类的 `T` | 静态成员属于类，不属于某个参数化实例 | 改成**静态泛型方法**（自己声明 `<T>`） |
 | `catch (T e)` / 泛型异常类 | JVM 无法区分擦除后的异常类型 | 用具体异常类型；泛型信息放在异常字段里 |
@@ -903,7 +903,7 @@ public static <T extends Comparable<? super T>> T max(List<? extends T> list) {
 }
 ```
 
-签名三处讲究：① `<T extends Comparable<? super T>>` 允许「父类实现了 Comparable」的子类（如某子类继承已实现 `Comparable<父类>` 的基类）；② 参数 `List<? extends T>` 让 `List<Integer>` 也能传给 `T = Number`；③ 用 `Iterator` 而非 `get(i)`，对 `LinkedList` 也是 O(n)。
+签名三处讲究：① `<T extends Comparable<? super T>>` 允许「父类实现了 Comparable」的子类（如某子类继承已实现 `Comparable<父类>` 的基类）；② 参数 `List<? extends T>` 让 `List<Integer>` 也能传给 `T = Number`；③ 用 `Iterator` 而非 `get(i)`，对 `LinkedList` 也是 $O(n)$。
 
 ---
 
@@ -921,14 +921,14 @@ public static <T extends Comparable<? super T>> T max(List<? extends T> list) {
 
 | 接口 | 实现类 | 底层 | 特点 / 复杂度 |
 | --- | --- | --- | --- |
-| `List` | `ArrayList` | 动态数组 | 随机访问 O(1)，插入删除尾部 O(1)、中间 O(n) |
-| | `LinkedList` | 双向链表 | 头尾插入删除 O(1)，随机访问 O(n) |
-| `Set` | `HashSet` | 哈希表 | 增删查 O(1)，无序 |
-| | `TreeSet` | 红黑树 | 有序，增删查 O(log n) |
+| `List` | `ArrayList` | 动态数组 | 随机访问 $O(1)$，插入删除尾部 $O(1)$、中间 $O(n)$ |
+| | `LinkedList` | 双向链表 | 头尾插入删除 $O(1)$，随机访问 $O(n)$ |
+| `Set` | `HashSet` | 哈希表 | 增删查 $O(1)$，无序 |
+| | `TreeSet` | 红黑树 | 有序，增删查 $O(\log n)$ |
 | | `LinkedHashSet` | 哈希 + 链表 | 保持插入顺序 |
 | `Queue` | `ArrayDeque` | 循环数组 | 双端队列，优于遗留 `Stack` |
 | | `PriorityQueue` | 堆 | 按优先级出队 |
-| `Map` | `HashMap` | 哈希表 | 增删查 O(1) |
+| `Map` | `HashMap` | 哈希表 | 增删查 $O(1)$ |
 | | `TreeMap` | 红黑树 | 键有序 |
 | | `LinkedHashMap` | 哈希 + 链表 | 保持插入/访问顺序 |
 | | `Hashtable` | 哈希表 | 遗留、线程安全、`null` 键非法，不推荐 |
@@ -936,7 +936,7 @@ public static <T extends Comparable<? super T>> T max(List<? extends T> list) {
 ::: info HashMap 底层要点（常考）
 - 底层是 `Node<K,V>[]` 数组 + 链表/红黑树。容量始终为 2 的幂。
 - 索引：`hash = (h = key.hashCode()) ^ (h >>> 16)` 再 `(n-1) & hash`，高位也参与运算以减少冲突。
-- 链表长度 ≥ **8（TREEIFY_THRESHOLD）** 且数组容量 ≥ 64 时转红黑树；≤ 6 退化为链表。
+- 链表长度 $\ge$ **8（TREEIFY_THRESHOLD）** 且数组容量 $\ge$ 64 时转红黑树；$\le$ 6 退化为链表。
 - `key` 须正确重写 `equals`+`hashCode`（见 13.6 节），否则找不到对应桶。
 :::
 
@@ -970,10 +970,10 @@ static final int hash(Object key) {
 | 环节 | 规则 / 默认值 |
 | --- | --- |
 | 初始容量 | 16（懒初始化：第一次 put 才真正分配数组） |
-| 负载因子 | 0.75；阈值 = 容量 × 负载因子 |
-| 扩容 | size > 阈值 → 容量翻倍；JDK 8 用 `(hash & oldCap)` 判断高位，元素要么留原下标要么去 `原下标 + oldCap`，无需重新计算 hash |
-| 冲突处理 | 先链表尾插；同桶链表长度 ≥ 8 **且**数组容量 ≥ 64 → 转红黑树；容量不足 64 时优先扩容 |
-| 退化 | 树节点数 ≤ 6 → 退回链表 |
+| 负载因子 | 0.75；$\text{阈值}=\text{容量}\times\text{负载因子}$ |
+| 扩容 | $\text{size}>\text{阈值}$ → 容量翻倍；JDK 8 用 `(hash & oldCap)` 判断高位，元素要么留原下标要么去 `原下标 + oldCap`，无需重新计算 `hash` |
+| 冲突处理 | 先链表尾插；同桶链表长度 $\ge8$ **且**数组容量 $\ge64$ → 转红黑树；容量不足 64 时优先扩容 |
+| 退化 | 树节点数 $\le6$ → 退回链表 |
 | 判同 | 先比 `hash`，再用 `key.equals()`；相同则覆盖 value 并返回旧值 |
 | null | 允许 **1 个 null 键**（固定放桶 0）、多个 null 值 |
 
@@ -981,7 +981,7 @@ static final int hash(Object key) {
 作为键的类必须**同时正确重写 `equals` 和 `hashCode`**，且参与比较的字段在对象放入 Map 后**不可再修改**，否则 `get` 时会定位到另一个桶 ——「存进去却找不到自己」。`HashMap` 完全非线程安全，并发写用 `ConcurrentHashMap`（JDK 8 起桶级 `synchronized` + CAS，不再使用分段锁）。
 :::
 
-> **跨科提示**：`HashMap` 的 O(1) 是均摊假设，依赖 `equals/hashCode` 与低冲突；树化/桶链见 [数据结构](/notes/datastructure.html)，数据库范围查询应选 B+树，见 [数据库](/notes/database.html)。
+> **跨科提示**：`HashMap` 的 $O(1)$ 是均摊假设，依赖 `equals/hashCode` 与低冲突；树化/桶链见 [数据结构](/notes/datastructure.html)，数据库范围查询应选 B+树，见 [数据库](/notes/database.html)。
 
 ### 9.6 fail-fast 与视图（★★★）
 
@@ -1017,15 +1017,15 @@ for (String w : text.split(" ")) m.merge(w, 1, Integer::sum);
 
 | 需求 | 首选 | 理由 |
 | --- | --- | --- |
-| 按索引频繁随机访问 | `ArrayList` | 连续数组，`get(i)` 为 O(1)、缓存友好 |
-| 频繁在头部/中间增删 | `LinkedList`（或按需换成 `ArrayDeque`） | 已知节点位置时改指针 O(1)；但按索引定位仍 O(n) |
-| 去重、不关心顺序 | `HashSet` | 哈希 O(1) |
-| 去重且要排序 / 范围查询 | `TreeSet` | 红黑树 O(log n)、有序 |
+| 按索引频繁随机访问 | `ArrayList` | 连续数组，`get(i)` 为 $O(1)$、缓存友好 |
+| 频繁在头部/中间增删 | `LinkedList`（或按需换成 `ArrayDeque`） | 已知节点位置时改指针 $O(1)$；但按索引定位仍 $O(n)$ |
+| 去重、不关心顺序 | `HashSet` | 哈希 $O(1)$ |
+| 去重且要排序 / 范围查询 | `TreeSet` | 红黑树 $O(\log n)$、有序 |
 | 保持插入顺序 | `LinkedHashSet` / `LinkedHashMap` | 双向链表维护顺序，可作 LRU 基础 |
-| 键值对高频查找 | `HashMap` | O(1)；千万注意键的不可变性 |
+| 键值对高频查找 | `HashMap` | $O(1)$；千万注意键的不可变性 |
 | 键有序 / 需要首尾、区间 | `TreeMap` | `firstKey()`、`headMap()` 等 |
 | 队列 / 栈 / 双端 | `ArrayDeque` | 比遗留 `Stack`、`Vector` 更快，且不支持 null |
-| 按优先级出队 | `PriorityQueue` | 二叉堆，出队 O(log n) |
+| 按优先级出队 | `PriorityQueue` | 二叉堆，出队 $O(\log n)$ |
 | 多线程读写 | `ConcurrentHashMap`、`CopyOnWriteArrayList`、阻塞队列 | 按场景选择，勿用 `Collections.synchronizedXxx` 扛高并发 |
 | 对外暴露只读集合 | `List.of` / `Collections.unmodifiableList` | 防止调用方意外修改内部状态 |
 
@@ -1150,7 +1150,7 @@ t.start();                             // 启动（不能重复 start）
 | --- | --- |
 | `synchronized` 方法/块 | 内置锁（监视器锁），同一时刻仅一个线程进入 |
 | `ReentrantLock` | 显式锁，可定时/可中断/公平锁 |
-| `volatile` | 保证对 volatile 变量的写对后续读可见，**不保证原子性，也不承诺实时延迟** |
+| `volatile` | 保证对 `volatile` 变量的写对后续读可见，**不保证原子性，也不承诺实时延迟** |
 | 原子类 `AtomicInteger` 等 | CAS 无锁原子更新 |
 | `final` 字段 | 冻结构造期赋值；正确发布后安全，但引用对象仍可能可变 |
 | `ThreadLocal` | 每线程独立副本，避免共享 |
@@ -1196,7 +1196,7 @@ Future<Integer> f = es.submit(() -> 42);
 es.shutdown();
 ```
 
-| `Thread.State` | 进入条件 | 回到 RUNNABLE 的条件 |
+| `Thread.State` | 进入条件 | 回到 `RUNNABLE` 的条件 |
 | --- | --- | --- |
 | `NEW` | `new Thread(...)` 尚未 `start()` | `start()` |
 | `RUNNABLE` | 就绪或正在运行（JVM 不区分二者） | — |
@@ -1719,7 +1719,7 @@ try (ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(Path.
 | --- | --- |
 | `Buffer`（`ByteBuffer` 等） | 数据容器；`position/limit/capacity` 三指针，`flip()` 写模式切读模式，`clear()` 复位再写 |
 | `Channel`（`FileChannel`/`SocketChannel`/`ServerSocketChannel`） | **双向**通道，读写都必须经过 Buffer |
-| `Selector` | **单线程轮询多个 Channel 的就绪事件**（可连接/可读/可写），Linux 底层为 `epoll` |
+| `Selector` | **单线程轮询多个 `Channel` 的就绪事件**（可连接/可读/可写），Linux 底层为 `epoll` |
 
 - 与传统 I/O 对比：I/O **面向流、阻塞、一连接一线程**；NIO **面向缓冲区、非阻塞、一线程管多连接**。
 - **Reactor 模型**：`Selector.select()` 返回就绪 Channel 集合，按事件类型（ACCEPT/READ/WRITE）分派给 handler；Netty、Redis、Nginx 均基于此。
@@ -1803,9 +1803,9 @@ System.out.println(set.size());               // 2      —— 两个「相等�
 | 14 | `switch` 表达式正式（`->` + `yield`）、`instanceof` 模式匹配预览、`record` 预览、有用的 NPE 详细提示、移除 CMS（JDK 9 废弃，JEP 363） |
 | 15 | 文本块 `"""` 正式、密封类预览 |
 | 16 | `record` 预览转正、`instanceof` 模式匹配正式、Stream `toList()`（JDK 16 新增） |
-| **17（LTS）** | 密封类 `sealed` 正式、switch 模式匹配预览、强封装 JDK 内部 API |
+| **17（LTS）** | 密封类 `sealed` 正式、`switch` 模式匹配预览、强封装 JDK 内部 API |
 | 18–20 | 默认 UTF-8（18）、虚拟线程 / 结构化并发（19/20 预览）、记录模式匹配（19/20 预览） |
-| **21（LTS）** | **虚拟线程**（`Executors.newVirtualThreadPerTaskExecutor()`）正式、序列集合 `SequencedCollection`、switch 模式匹配与记录模式正式、分代 ZGC |
+| **21（LTS）** | **虚拟线程**（`Executors.newVirtualThreadPerTaskExecutor()`）正式、序列集合 `SequencedCollection`、`switch` 模式匹配与记录模式正式、分代 ZGC |
 | **25（LTS）** | `ScopedValue`、KDF API、紧凑源文件与实例 `main`、灵活构造体正式；结构化并发仍为预览 |
 
 ```java
@@ -1861,20 +1861,20 @@ class CalculatorTest {
 
 | 主题 | 要点 |
 | --- | --- |
-| 基本类型位数 | byte 8 / short 16 / int 32 / long 64 / float 32 / double 64 / char 16 / boolean — |
+| 基本类型位数 | `byte` 8 / `short` 16 / `int` 32 / `long` 64 / `float` 32 / `double` 64 / `char` 16 / `boolean` — |
 | 字符串 | `==` 比地址、`equals` 比内容；字面量入常量池 |
-| 自动装箱缓存 | Integer/Long/Short/Byte:-128~127；Character:0~127；Boolean:TRUE/FALSE；Float/Double 无 |
+| 自动装箱缓存 | `Integer`/`Long`/`Short`/`Byte`:-128~127；`Character`:0~127；`Boolean`:`TRUE`/`FALSE`；`Float`/`Double` 无 |
 | 继承 | 单继承、多接口；覆盖方法签名一致、可见性不收窄；`@Override` 校验 |
-| Object | `equals`+`hashCode` 须成对重写；`toString` 建议重写 |
+| `Object` | `equals`+`hashCode` 须成对重写；`toString` 建议重写 |
 | lambda | 仅函数式接口（单抽象方法）；捕获变量须 effectively final；`this` 指向外围对象 |
 | 泛型擦除 | 运行时无泛型；不能用基本类型、不能 `new T`、不能 `instanceof List<String>` |
 | PECS | Producer `extends`、Consumer `super` |
-| 集合 | ArrayList 随机快、LinkedList 增删快；HashMap O(1)、TreeMap 有序 O(log n) |
-| 异常 | RuntimeException 未检查、其余 Exception 已检查；捕获子类在前 |
+| 集合 | `ArrayList` 随机快、`LinkedList` 增删快；`HashMap` $O(1)$、`TreeMap` 有序 $O(\log n)$ |
+| 异常 | `RuntimeException` 未检查、其余 `Exception` 已检查；捕获子类在前 |
 | 并发 | `synchronized` 原子+可见；`volatile` 仅可见不原子；自增用 `AtomicInteger` |
 | 线程安全集合 | `ConcurrentHashMap`、阻塞队列、`CopyOnWriteArrayList` |
 | JVM 内存 | 堆+方法区（共享）、栈+PC+本地栈（私有）；GC 用可达性分析 |
-| Stream | 中间操作惰性、终止才触发；只能消费一次；`parallelStream` 可并行 |
+| `Stream` | 中间操作惰性、终止才触发；只能消费一次；`parallelStream` 可并行 |
 | JDK / JRE / JVM | JDK ⊃ JRE ⊃ JVM；**字节码**跨平台，各平台 JVM 实现不同；解释 + JIT 混合执行 |
 | 初始化顺序 | 父静态 → 子静态 → 父实例字段/块/构造 → 子实例字段/块/构造；构造器勿调可覆盖方法 |
 | 参数传递 | 只有**值传递**：可改引用指向对象的内容，不能让外部变量改指向 |
@@ -1882,14 +1882,14 @@ class CalculatorTest {
 | 接口默认方法 | 类优先；多接口同名默认方法必须显式重写；可用 `X.super.m()` 选其一 |
 | 桥方法 | 擦除后父类与子类签名不一致时，编译器合成 `compareTo(Object)` 之类转发方法 |
 | 泛型协变 | 泛型**不协变**（`List<String>` ≠ `List<Object>`）；数组协变但运行时用 `ArrayStoreException` 兜底 |
-| HashMap | `hash=(h)^(h>>>16)`；`index=(n-1)&hash`；容量 2 的幂、负载因子 0.75；树化 8 且容量≥64、退化 6 |
+| HashMap | `hash=(h)^(h>>>16)`；`index=(n-1)&hash`；容量 2 的幂、负载因子 0.75；树化 8 且容量 $\ge64$、退化 6 |
 | fail-fast | `modCount` 检测结构性修改；删除用 `Iterator.remove()` 或 `removeIf` |
 | JMM | happens-before 六规则；`volatile` 可见 + 禁重排，**不保证复合操作原子性** |
 | 线程池 | 核心线程 → 有界队列 → 最大线程 → 拒绝策略；`submit` 的异常封装在 `Future` 里 |
 | GC | 可达性分析（非引用计数）、GC Roots、新生代 Eden+S0/S1 与老年代、G1 为 JDK 9+ 默认 |
-| java.time | `LocalDate/LocalDateTime/Instant` 等全部不可变；月份从 1 开始；`DateTimeFormatter` 线程安全；`Instant` 适合存储 |
+| `java.time` | `LocalDate/LocalDateTime/Instant` 等全部不可变；月份从 1 开始；`DateTimeFormatter` 线程安全；`Instant` 适合存储 |
 | NIO.2 | `Path`/`Files`；`walk`/`lines` 的流必须关闭；字符编码显式 UTF-8 |
-| 新特性 | 8 lambda/Stream、11 HTTP Client、17 密封类、21 虚拟线程、25 Scoped Values（均为 LTS） |
+| 新特性 | 8 lambda/`Stream`、11 HTTP Client、17 密封类、21 虚拟线程、25 Scoped Values（均为 LTS） |
 
 ## 附录 B 各章易错点速查
 
