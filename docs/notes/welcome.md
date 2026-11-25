@@ -11,6 +11,10 @@ summary: "11 章正文 + 附录 14 道练习题：从数据类型、流程控制
 - **关键词**：数据类型、运算符、循环、函数、数组、指针、字符串、结构体
 :::
 
+::: tip 标准与编译基准
+正文示例以 **C99** 为基线，兼容 C11/C17；涉及 C23 的差异会单独注明。可移植性检查可用 `cc -std=c11 -Wall -Wextra -Wpedantic main.c -o main`，不要依赖固定字节数、枚举底层类型或位段布局。
+:::
+
 ## 全书目录
 
 | 章节 | 主要内容 |
@@ -37,7 +41,7 @@ summary: "11 章正文 + 附录 14 道练习题：从数据类型、流程控制
 ```c
 #include <stdio.h>
 
-int main()
+int main(void)
 {
     printf("Hello, world!\n");
     return 0;
@@ -152,14 +156,14 @@ C 代码里统一写 `\n` 即可，编译器与运行环境会处理平台差异
 
 原文还给出：
 
-- 内存中表达的形式：整数用二进制（补码）；浮点数用编码（符号位 + 指数 + 尾数）
+- 内存中表达的形式：整数用二进制（常见平台为补码；C23 之前有符号整数的表示由实现定义）；浮点数用编码（符号位 + 指数 + 尾数）
 - 浮点数表示范围更大，但存在精度限制
 - 64 位平台典型字节数：`char` 1、`short` 2、`int` 4、`long long` 8、`float` 4、`double` 8、指针 8；`long` 在 Linux/macOS 为 8、Windows 为 4，一切以 `sizeof` 实测为准
 
 ### 2.3 sizeof
 
 ::: tip 定义
-`sizeof` 是**静态**的：`sizeof` 的结果在编译期就确定了，运行期不会改变。
+`sizeof` 对非变长数组（VLA）在编译期确定；VLA 的 `sizeof` 在运行期求值。结果类型是 `size_t`，输出用 `%zu`（C99）。
 :::
 
 - 语法：`sizeof(变量名/数据类型)`，返回所占的字节数
@@ -227,7 +231,7 @@ printf("%zu", sizeof(int));   /* 通常输出 4 */
 
 ### 2.8 字符类型
 
-`char`：字符的输入、输出与计算都按 ASCII 码进行。常用 ASCII 码：`'A'` 是 65，`'a'` 是 97，`'0'` 是 48。
+`char`：字符运算使用执行字符集的编码，常见平台为 ASCII（`'A'` 65、`'a'` 97、`'0'` 48），但 C 标准不保证所有平台都用 ASCII；可移植代码应使用字符字面量。
 
 **逃逸字符**：
 
@@ -317,7 +321,8 @@ else            count = count + 10;
 ### 2.12 位运算符
 
 - 六个位运算符：`&` 按位与、`|` 按位或、`^` 按位异或、`~` 按位取反（单目）、`<<` 左移、`>>` 右移；移位左操作数是被移的数据、右操作数是位数
-- 常用技巧：`x & 1` 判奇偶；`x | 1` 置最低位为 1；`x ^ 1` 翻转最低位；`x << 1` 等于 ×2；`x >> 1` 等于 ÷2（非负数向下取整）；`a ^ b ^ b == a`
+- 常用技巧：`x & 1` 判奇偶；`x | 1` 置最低位为 1；`x ^ 1` 翻转最低位；非负且不溢出时 `x << 1` 等于 ×2、`x >> 1` 等于 ÷2；`((a ^ b) ^ b) == a`
+- 有符号左移负数或结果溢出是未定义行为；有符号右移负数由实现定义。移位次数必须为 `0 ~ 宽度-1`
 
 ## 第3章 流程控制
 
@@ -465,9 +470,9 @@ return 0;
 ```c
 #include <stdio.h>
 
-int main() {
+int main(void) {
     int x;
-    scanf("%d", &x);
+    if (scanf("%d", &x) != 1) return 1;
     int digit;
     int ret = 0;
 
@@ -490,17 +495,21 @@ int main() {
 #### 阶乘
 
 ```c
-int n;
-scanf("%d", &n);
-int fact = 1;
-int i = 1;
+#include <stdio.h>
+int main(void) {
+    int n;
+    if (scanf("%d", &n) != 1 || n < 0) return 1;
+    int fact = 1;
+    int i = 1;
 
-while (i <= n) {
-    fact *= i;
-    i++;
+    while (i <= n) {
+        fact *= i;
+        i++;
+    }
+
+    printf("%d!=%d\n", n, fact);
+    return 0;
 }
-
-printf("%d!=%d\n", n, fact);
 ```
 
 #### 求和
@@ -550,7 +559,7 @@ void sum(int begin, int end) {
     printf("%d到%d的和是%d\n", begin, end, sum);
 }
 
-int main() {
+int main(void) {
     sum(1, 10);
     sum(20, 30);
     sum(35, 45);
@@ -626,7 +635,7 @@ C 的编译器从上到下顺序分析你的代码。在调用 `sum(1, 10)` 的�
 ```c
 double max(double a, double b);   /* 函数原型（提前声明） */
 
-int main() {
+int main(void) {
     int a, b, c;
     a = 5; b = 6;
     c = max(10, 12);
@@ -646,7 +655,7 @@ double max(double a, double b) {  /* 实际的函数定义可以写在后面 */
 ```c
 void swap(int a, int b);
 
-int main() {
+int main(void) {
     int a = 5; int b = 6;
     swap(a, b);
     printf("a=%d b=%d\n", a, b);
@@ -684,7 +693,7 @@ void swap(int a, int b) {
 
 ```c
 void f(void);   /* 明确表示没有参数 */
-void f();       /* 在传统 C 中，表示 f 的参数表未知，并不表示没有参数 */
+void f();       /* C17 及之前表示参数表未知；C23 起表示无参数，仍推荐写 void */
 ```
 
 ::: danger 易错点
@@ -712,7 +721,7 @@ double weight[20];
 ```
 
 - 元素数量必须是整数
-- C99 之前：元素数量必须是编译时刻确定的字面量
+- C99 之前：元素数量必须是整数常量表达式（不一定是字面量）；C99 起支持变长数组（VLA），但 C11/C17 中是否支持由实现决定
 
 ### 5.2 数组的特点
 
@@ -724,7 +733,7 @@ double weight[20];
 - 数组的每个单元就是该类型的一个变量，可以出现在赋值的左边或右边（在赋值左边的叫做**左值**）
 
 ```c
-int a[10];              /* 10 个单元：a[0], a[1], ... a[9] */
+int a[10] = {0};        /* 10 个单元并初始化为 0：a[0], a[1], ... a[9] */
 a[2] = a[1] + 6;        /* 下标做左值，也可以做右值 */
 ```
 
@@ -788,25 +797,25 @@ for (i = 0; i < length; i++) {
 **完整例：统计数字出现次数**
 
 ```c
-const int number = 10;
-int x;
-int count[number];      /* 定义数组 */
-int i;
+#include <stdio.h>
+#define NUMBER 10       /* 宏是整数常量表达式；const int 不能用于 C89 数组边界 */
+int main(void) {
+    int x;
+    int count[NUMBER] = {0};
+    int i;
 
-for (i = 0; i < number; i++) {
-    count[i] = 0;      /* 初始化数组 */
-}
-
-scanf("%d", &x);
-while (x != -1) {
-    if (x >= 0 && x <= 9) {
-        count[x]++;    /* 数组参与运算 */
+    if (scanf("%d", &x) != 1) return 1;
+    while (x != -1) {
+        if (x >= 0 && x <= 9) {
+            count[x]++;    /* 数组参与运算 */
+        }
+        if (scanf("%d", &x) != 1) return 1;
     }
-    scanf("%d", &x);
-}
 
-for (i = 0; i < number; i++) {
-    printf("%d:%d\n", i, count[i]);
+    for (i = 0; i < NUMBER; i++) {
+        printf("%d:%d\n", i, count[i]);
+    }
+    return 0;
 }
 ```
 
@@ -844,12 +853,12 @@ int a[][5] = {
 
 ### 6.1 取地址运算 &
 
-`scanf("%d", &i);` 中的 `&`：获得变量的地址，它的操作数必须是**变量**。
+`scanf("%d", &i);` 中的 `&`：获得对象的地址，操作数必须是**左值**（变量、数组元素、结构体成员等）。
 
-- `&` 不能对别的东西取地址（如 `a++`、`++i` 不是变量）
+- `&` 不能对非左值取地址（如 `a++`、`++i`）
 - 想要输出地址，用 `%p` 作占位符
 - 地址的大小是否与 `int` 相同取决于编译器和平台
-- 相邻数组元素的地址差正好是元素类型的大小（`int` 数组相邻元素相差 4 个字节）
+- 相邻数组元素的地址差是 `sizeof(元素类型)`；不要假定 `int` 一定为 4 字节
 
 ```c
 int i;
@@ -871,7 +880,7 @@ int *p = &i;
 
 **示意图**：
 
-```
+```text
 普通变量的值是实际的值：
 count  ┌─────┐
        │  7  │
@@ -978,26 +987,26 @@ int *p = a;
 ```
 
 - 如果指针不是指向连续分配的空间（如数组），则这种运算没有意义
-- 可以对指针做的算术运算：给指针加、减一个整数（`+`、`+=`、`-`、`-=`）；递增递减（`++` / `--`）；两个指针相减（得到它们之间相差的**元素个数**）
+- 可以对指针做的算术运算：给指针加、减一个整数（`+`、`+=`、`-`、`-=`）；递增递减（`++` / `--`）。只能在同一数组/分配块内（含末尾后一位置）运算；同块两个指针相减得到**元素个数**
 - `*p++`：取出 p 所指的那个数据来，完事之后顺便把 p 移到下一个位置去
 - `*` 的优先级虽然高，但是没有 `++` 高
-- 指针比较：`<`、`<=`、`==`、`>`、`>=`、`!=` 都可以对指针做，比较的是它们在内存中的地址；数组中的单元的地址肯定是线性递增的
+- 指针相等比较（`==` / `!=`）可用于任意指针；`<`、`<=`、`>`、`>=` 只有指向同一数组/聚合对象（含末尾后一位置）时才具有可移植的确定顺序
 - 常用于数组类的连续空间操作，在某些 CPU 上可以直接被翻译成一条汇编指令
 
 ### 6.7 数组与指针
 
-**0 地址**：内存中有 0 地址，但 0 地址通常是个不能随便碰的地址，所以指针不应该随意具有 0 值。因此可以用 0 地址来表示特殊的事情：返回的指针是无效的；指针没有被真正初始化（先初始化为 0）。`NULL` 是一个预定义的符号，表示 0 地址。
+**空指针**：解引用空指针是未定义行为。C 用整数常量表达式 `0` 或 `(void *)0` 表示空指针常量；`NULL` 是标准头文件提供的宏，通常展开为空指针常量，**不保证其数值就是地址 0**。指针使用前应初始化为 `NULL` 并检查。
 
 **指针的类型**：
 
-- 无论指向什么类型，所有指针的**大小**都是一样的，因为都是地址
+- 对象指针可用 `void *` 相互转换；函数指针与对象指针不保证同大小，`sizeof` 才是可靠判断
 - 但是指向不同类型的指针是不能直接互相赋值的，这是为了避免用错指针
 - `void *` 表示「不知道指向什么的指针」：任何对象指针都能**隐式**转换成 `void *`（无需强转）；C 中从 `void *` 取回具体类型时同样可以**隐式**转换回原指针类型（显式强转只是工程习惯 / 为兼容 C++）
 - 指针也可以转换类型：
 
 ```c
 int *p = &i;
-void *q = (void *)p;
+void *q = p;          /* C 中对象指针可隐式转为 void * */
 ```
 
 这并没有改变 `p` 所指的变量的类型，只是让后面用不同的眼光通过 `q` 看它所指的变量。
@@ -1088,15 +1097,16 @@ void *realloc(void *p, size_t newsize); /* 扩大/缩小已分配空间，返回
 ```
 
 - 向 `malloc` 申请空间的单位是**字节**
-- 返回 `void *`，使用时通常显式转换成需要的指针类型：`(int *)malloc(n * sizeof(int))`
-- 如果没空间，则 `malloc` 会返回 `0` 或者 `NULL`
+- 返回 `void *`；C 中可隐式赋给对象指针，通常无需强转（强转可能掩盖漏写 `<stdlib.h>`）；C++ 才需要显式转换
+- 如果没空间，则 `malloc` / `calloc` / `realloc` 返回 `NULL`；每次分配后都要检查
+- `realloc` 必须用临时指针接收返回值；失败时原指针仍有效，不能直接覆盖它。另需检查 `n > SIZE_MAX / sizeof *p` 防止字节数溢出
 - 申请过的空间，最终都应该要还（借出来，迟早都是要还的）
-- 只能还申请来的空间的**首地址**
+- 只能还申请来的空间的**首地址**；`free(NULL)` 安全，但释放后应把指针置为 `NULL`
 
 **`free()`**：把申请得来的空间还给「系统」。
 
 ::: danger 易错点 · 常见问题
-1. 申请了没 `free` —— 长时间运行内存逐渐下降（新：忘了；旧：找不到合适的 `free` 时机）
+1. 申请了没 `free` —— 长时间运行内存泄漏，可用内存逐渐减少（新：忘了；旧：找不到合适的 `free` 时机）
 2. `free` 过了再 `free`（double free）
 3. 地址变过了，直接去 `free`（传入的不是当初返回的首地址）
 :::
@@ -1130,10 +1140,10 @@ char word[] = {'H', 'e', 'l', 'l', 'o', '!'};
 ### 7.2 字符串常量与指针
 
 ```c
-char *s = "Hello, world!";
+const char *s = "Hello, world!";
 ```
 
-`s` 是一个指针，初始化为指向一个字符串常量。由于这个常量所在的地方是**只读区域**，所以实际上应该是 `const char *s`；但由于历史原因，编译器接受不带 `const` 的写法。然而试图对 `s` 所指的字符串做写操作会导致严重的后果。
+`s` 是一个指针，初始化为指向一个字符串常量。字符串字面量在 C 中类型为 `char[]`，但修改它是未定义行为；因此声明为 `const char *s`，明确只读意图。
 
 如果需要修改字符串，应该用数组：
 
@@ -1145,7 +1155,7 @@ char s[] = "Hello, world!";
 
 | | 含义 |
 | --- | --- |
-| `char *str = "Hello";` | 字符串常量，只读；`str` 可改指向 |
+| `const char *str = "Hello";` | 字符串常量，只读；`str` 可改指向 |
 | `char word[] = "Hello";` | 在本地变量空间里复制了一份，可改内容；`word` 不可改指向 |
 
 - 数组：这个字符串「在这里」（作为本地变量空间，自动被回收）
@@ -1167,10 +1177,10 @@ printf("%s", string);
 
 ```c
 char string[8];
-scanf("%7s", string);
+if (scanf("%7s", string) != 1) { /* 输入失败，勿使用 string */ }
 ```
 
-在 `%` 和 `s` 之间的数字表示最多允许读的字符数量，这个数字应该比数组长度**小 1**（给结尾的 `'\0'` 留位置）。
+在 `%` 和 `s` 之间的数字表示最多允许读的字符数量，这个数字应该比数组长度**小 1**（给结尾的 `'\0'` 留位置）；宽度只防越界，仍要检查返回值。
 
 **空字符串**：
 
@@ -1190,7 +1200,7 @@ scanf("%s", string);     /* 严重错误 */
 ### 7.4 程序参数
 
 ```c
-int main(int argc, char const *argv[])
+int main(int argc, char *argv[])
 ```
 
 - `argv[0]` 是命令本身
@@ -1240,8 +1250,12 @@ char *strcpy(char *restrict dst, const char *restrict src);
 复制一个字符串（先申请空间，再拷贝）：
 
 ```c
-char *dst = (char *)malloc(strlen(src) + 1);
-strcpy(dst, src);
+char *dst = malloc(strlen(src) + 1);
+if (dst == NULL) { /* 分配失败：记录错误并退出 */ }
+else {
+    strcpy(dst, src);
+    free(dst);       /* 不再使用时释放；如需返回 dst，则由调用方负责 free */
+}
 ```
 
 ::: tip 提示
@@ -1259,7 +1273,7 @@ char *strrchr(const char *s, int c);   /* 从后往前找 */
 
 ```c
 char *strstr(const char *s1, const char *s2);
-char *strcasestr(const char *s1, const char *s2);   /* 忽略大小写 */
+char *strcasestr(const char *s1, const char *s2);  /* POSIX，非 ISO C；需 <strings.h> */
 ```
 
 返回 `NULL` 表示没有找到。
@@ -1295,9 +1309,9 @@ enum color { red, yellow, green };
 void f(enum color c);
 
 int main(void) {
-    enum color t = red;
-    scanf("%d", &t);
-    f(t);
+    int value;
+    if (scanf("%d", &value) != 1 || value < red || value > green) return 1;
+    f((enum color)value);
     return 0;
 }
 
@@ -1306,7 +1320,7 @@ void f(enum color c) {
 }
 ```
 
-> `scanf` 取址说明：标准允许读入底层整数再显式转enum更稳妥；`scanf("%d", &t)` 是否类型匹配取决于该枚举实现采用的兼容整数类型，不应武断判定原例一定 UB。更可移植的做法是先用 `int` 接收并检查 `scanf` 返回值与取值范围，再显式转换为 `enum color`。
+> 可移植输入：先用 `int` 接收，检查 `scanf` 返回值与 `[red, green]` 范围，再显式转换为 `enum color`；不要假设枚举与 `int` 类型兼容。
 
 - 枚举量可以作为值
 - 枚举类型可以跟上 `enum` 作为类型
@@ -1325,13 +1339,13 @@ enum COLOR { RED, YELLOW, GREEN, NumCOLORS };
 
 enum COLOR { RED, YELLOW, GREEN, NumCOLORS };
 
-int main(int argc, char const *argv[]) {
+int main(void) {
     int color = -1;
-    char *ColorNames[NumCOLORS] = { "red", "yellow", "green", };
-    char *colorName = NULL;
+    const char *ColorNames[NumCOLORS] = { "red", "yellow", "green", };
+    const char *colorName = NULL;
 
     printf("输入你喜欢的颜色的代码：");
-    scanf("%d", &color);
+    if (scanf("%d", &color) != 1) return 1;
 
     if (color >= 0 && color < NumCOLORS) {
         colorName = ColorNames[color];
@@ -1363,14 +1377,14 @@ enum COLOR { RED = 1, YELLOW, GREEN = 5, NumCOLORS };
 
 enum COLOR { RED = 1, YELLOW, GREEN = 5, NumCOLORS };
 
-int main(int argc, char const *argv[]) {
+int main(void) {
     printf("code for GREEN is %d\n", GREEN);
     return 0;
 }
 ```
 
 ::: danger 易错点
-枚举只是 int：即使给枚举类型的变量赋一个不存在的整数值，也没有任何 warning 或 error。（C23 起若指定了底层类型，超出范围的行为由实现定义。）所以**不要**把枚举当成「自动校验的有限集合」，边界检查仍要自己写 —— 上例中的 `if (color >= 0 && color < NumCOLORS)` 不能省。
+枚举变量由实现选择兼容的整型，不一定就是 `int`；给枚举变量赋一个不存在的整数值，C17 及之前通常不会报错，C23 的固定底层类型规则也有边界。所以**不要**把枚举当成「自动校验的有限集合」，边界检查仍要自己写 —— 上例中的 `if (color >= 0 && color < NumCOLORS)` 不能省。
 
 另外注意：一旦中间手动指定了大数值（如 `GREEN = 5`），`NumCOLORS` 就不再等于**枚举个数**了（这里变成 6，但只有 3 个颜色）。「自动计数」套路要求**所有值都不显式指定**。
 :::
@@ -1452,7 +1466,7 @@ void set_date(Date *p, int y, int m, int d) {
 
 ### 9.4 内存对齐
 
-结构体在内存中的大小**不一定等于**各成员之和。编译器为了让访问速度更快，会让每个成员对齐到其类型大小的整数倍地址上（填充 padding 字节）。
+结构体在内存中的大小**不一定等于**各成员之和。编译器会按实现规定的对齐要求摆放成员并填充 padding；常见平台让成员对齐到其类型大小的整数倍地址，但这不是 C 标准保证。
 
 ::: tip 例题
 ```c
@@ -1474,7 +1488,7 @@ struct Flags { unsigned int on : 1; unsigned int mode : 3; };  /* 位段：`:n` 
 ```
 
 - 联合体大小由最大成员决定（含对齐）；任一时刻只有一个成员有效，给新成员赋值会覆盖旧值，常用于节省内存或按不同类型解读同一段内存
-- 位段把成员按位存放以节省空间，多用于硬件寄存器、标志位；位段类型一般用 `unsigned`，避免符号位带来的歧义
+- 位段把成员按位存放以节省空间，多用于硬件寄存器、标志字；位段类型一般用 `unsigned`，避免符号位带来的歧义。位段分配顺序、对齐和跨平台二进制布局均由实现定义，不可直接写入文件或网络协议
 
 ---
 
@@ -1498,14 +1512,33 @@ struct Flags { unsigned int on : 1; unsigned int mode : 3; };  /* 位段：`:n` 
 ## 第11章 文件操作
 
 ```c
-FILE *fp = fopen("data.txt", "r");  /* 模式：r 读、w 写(清空原内容)、a 追加；+ 可读写、b 二进制；失败返回 NULL，必须检查 */
-fprintf(fp, "%d %s\n", 1, "abc");   /* 格式化写入文件 */
-fscanf(fp, "%d", &x);               /* 格式化从文件读入 */
-fread(buf, sizeof(int), n, fp);     /* 二进制块读，返回实际读到的项数；fwrite(buf, sizeof(int), n, fp) 块写 */
-fclose(fp);                         /* 用完必须关闭：冲刷缓冲区、释放资源 */
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+    int x = 0;
+    FILE *fp = fopen("data.txt", "w");  /* r 读、w 清空后写、a 追加；+ 可读写、b 二进制 */
+    if (fp == NULL) { perror("fopen"); return EXIT_FAILURE; }
+    if (fprintf(fp, "%d %s\n", 1, "abc") < 0) {
+        perror("fprintf"); fclose(fp); return EXIT_FAILURE;
+    }
+    if (fclose(fp) != 0) { perror("fclose"); return EXIT_FAILURE; }
+
+    fp = fopen("data.txt", "r");
+    if (fp == NULL) { perror("fopen"); return EXIT_FAILURE; }
+    if (fscanf(fp, "%d", &x) != 1) {
+        fclose(fp); return EXIT_FAILURE;
+    }
+    if (fclose(fp) != 0) { perror("fclose"); return EXIT_FAILURE; }
+    printf("读回：%d\n", x);
+    return 0;
+}
 ```
 
-- `fgetc(fp)` / `fputc(c, fp)` 逐字符读写；`fgetc` 读到文件尾返回 `EOF`(-1)；`fgets(buf, sizeof(buf), fp)` 安全地读一行
+- `size_t fread(void *ptr, size_t size, size_t nmemb, FILE *fp)` / `fwrite(...)` 按项读写；短读时用 `feof` 区分文件结束、用 `ferror` 判断错误，短写也要处理
+- `fgetc(fp)` / `fputc(c, fp)` 逐字符读写；`fgetc` 返回 `int` 以区分字符与 `EOF`(-1)
+- `fgets(buf, sizeof buf, fp)` 读一行并保留 `'\n'`；返回 `NULL` 时同样检查 `feof` / `ferror`
+- `fclose` 不仅释放资源，还会刷新写缓冲区；失败也要处理
 
 ## 附录 练习题
 
@@ -1537,12 +1570,12 @@ fclose(fp);                         /* 用完必须关闭：冲刷缓冲区、�
 ```c
 #include <stdio.h>
 
-int main() {
+int main(void) {
     int money, n, i;
     int faces[] = {100, 50, 20, 10, 5, 1};
 
     printf("请输入金额：");
-    scanf("%d", &money);
+    if (scanf("%d", &money) != 1 || money < 0) return 1;
 
     for (i = 0; i < 6; i++) {
         n = money / faces[i];
@@ -1566,7 +1599,7 @@ int main() {
 ```c
 #include <stdio.h>
 
-int main() {
+int main(void) {
     int i, j, isPrime;
     for (i = 2; i < 100; i++) {
         isPrime = 1;
@@ -1590,7 +1623,7 @@ int main() {
 ```c
 #include <stdio.h>
 
-int main() {
+int main(void) {
     int x = 2, cnt = 0, i, isPrime;
     while (cnt < 50) {
         isPrime = 1;
@@ -1615,12 +1648,12 @@ int main() {
 ```c
 #include <stdio.h>
 
-int main() {
+int main(void) {
     int amount;             /* 单位：角 */
     int x, y, z, count = 0;
 
     printf("请输入金额（角，10 元以下）：");
-    scanf("%d", &amount);
+    if (scanf("%d", &amount) != 1 || amount < 0) return 1;
 
     for (x = 0; x <= amount / 5; x++) {       /* 五角个数 */
         for (y = 0; y <= amount / 2; y++) {   /* 两角个数 */
@@ -1647,10 +1680,10 @@ int main() {
 ```c
 #include <stdio.h>
 
-int main() {
+int main(void) {
     int n, i, sum = 0;
     printf("请输入 n：");
-    scanf("%d", &n);
+    if (scanf("%d", &n) != 1 || n < 0) return 1;
     for (i = 1; i <= n; i++) { sum += i; }
     printf("1 到 %d 的和是 %d\n", n, sum);
     return 0;
@@ -1668,10 +1701,10 @@ int main() {
 ```c
 #include <stdio.h>
 
-int main() {
+int main(void) {
     int x, digit, ret = 0;
     printf("请输入一个整数：");
-    scanf("%d", &x);
+    if (scanf("%d", &x) != 1 || x < 0) return 1;
     while (x > 0) {
         digit = x % 10;
         ret = ret * 10 + digit;
@@ -1693,10 +1726,10 @@ int main() {
 ```c
 #include <stdio.h>
 
-int main() {
+int main(void) {
     int x, mask = 1, t;
     printf("请输入一个整数：");
-    scanf("%d", &x);
+    if (scanf("%d", &x) != 1 || x < 0) return 1;
 
     t = x;
     while (t > 9) {          /* 构造最高位的 mask */
@@ -1725,10 +1758,10 @@ int main() {
 ```c
 #include <stdio.h>
 
-int main() {
+int main(void) {
     int a, b, t;
     printf("请输入两个整数：");
-    scanf("%d %d", &a, &b);
+    if (scanf("%d %d", &a, &b) != 2) return 1;
     while (b != 0) {
         t = a % b;
         a = b;
@@ -1750,7 +1783,7 @@ int main() {
 ```c
 #include <stdio.h>
 
-int main() {
+int main(void) {
     int i, a, b, c;
     for (i = 100; i <= 999; i++) {
         a = i / 100;         /* 百位 */
@@ -1775,7 +1808,7 @@ int main() {
 ```c
 #include <stdio.h>
 
-int main() {
+int main(void) {
     int i, j;
     for (i = 1; i <= 9; i++) {
         for (j = 1; j <= i; j++) {
@@ -1798,7 +1831,7 @@ int main() {
 ```c
 #include <stdio.h>
 
-int main() {
+int main(void) {
     int i, j, isPrime, count = 0, sum = 0;
     for (i = 100; i <= 200; i++) {
         isPrime = 1;
@@ -1823,7 +1856,7 @@ int main() {
 ```c
 #include <stdio.h>
 
-int main() {
+int main(void) {
     int low = 1, high = 100, mid;
     char ans;
 
@@ -1833,7 +1866,7 @@ int main() {
     while (low <= high) {
         mid = (low + high) / 2;
         printf("我猜是 %d？(大了L / 小了S / 对了Y)：", mid);
-        scanf(" %c", &ans);
+        if (scanf(" %c", &ans) != 1) return 1;
         if (ans == 'Y' || ans == 'y') {
             printf("我猜中啦！\n"); return 0;
         } else if (ans == 'L' || ans == 'l') {
@@ -1858,22 +1891,20 @@ int main() {
 ```c
 #include <stdio.h>
 
-int main() {
-    const int n = 100;
-    int prime[n + 1];       /* 0 表示是素数，1 表示被划掉 */
+int main(void) {
+#define N 100
+    int prime[N + 1] = {0}; /* 0 表示是素数，1 表示被划掉 */
     int i, j;
 
-    for (i = 0; i <= n; i++) { prime[i] = 0; }
-
-    for (i = 2; i * i <= n; i++) {
+    for (i = 2; i * i <= N; i++) {
         if (prime[i] == 0) {
-            for (j = i * i; j <= n; j += i) {
+            for (j = i * i; j <= N; j += i) {
                 prime[j] = 1;
             }
         }
     }
 
-    for (i = 2; i <= n; i++) {
+    for (i = 2; i <= N; i++) {
         if (prime[i] == 0) { printf("%d ", i); }
     }
     return 0;
@@ -1929,7 +1960,7 @@ int main(void) {
     while (turn < 9) {
         c = (turn % 2 == 0) ? 'X' : 'O';
         printf("%c 落子，输入行列（0-2 0-2）：", c);
-        scanf("%d %d", &x, &y);
+        if (scanf("%d %d", &x, &y) != 2) return 1;
         if (x < 0 || x > 2 || y < 0 || y > 2 || board[x][y] != ' ') {
             printf("无效位置，重新输入\n");
             continue;

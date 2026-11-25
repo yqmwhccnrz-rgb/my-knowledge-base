@@ -1,5 +1,5 @@
 ---
-summary: "Java 程序设计 详细笔记，全书 12 章 + 8 个进阶专题，覆盖 Java 平台与开发环境、基本程序结构、对象与类、继承、接口与 lambda、异常与日志、泛型、集合框架、GUI 事件、Swing、并发；并补充 JVM 内存模型与 GC、枚举与注解、java.time、Stream API、NIO.2 文件 I/O、equals/hashCode 契约、Java 8 → 21 新特性、工程常用工具等进阶知识。含 10 张自绘图（集合框架、异常体系、线程状态、JVM 内存、泛型擦除与 PECS、HashMap 底层、Stream 流水线、I/O 体系、线程池、对象契约）、大量可编译代码示例、工作示例、对比表、公式速查与易错点。"
+summary: "Java 程序设计 详细笔记，全书 12 章 + 8 个进阶专题，覆盖 Java 平台与开发环境、基本程序结构、对象与类、继承、接口与 lambda、异常与日志、泛型、集合框架、GUI 事件、Swing、并发；并补充 JVM 内存模型与 GC、枚举与注解、java.time、Stream API、NIO.2 文件 I/O、equals/hashCode 契约、Java 8 → 25 新特性、工程常用工具等进阶知识。含 10 张自绘图（集合框架、异常体系、线程状态、JVM 内存、泛型擦除与 PECS、HashMap 底层、Stream 流水线、I/O 体系、线程池、对象契约）、大量可编译代码示例、工作示例、对比表、公式速查与易错点。"
 ---
 
 # Java 程序设计笔记
@@ -50,7 +50,7 @@ Java 去除了 C++ 中易错、少用的特性：无指针运算、无头文件�
 - **动态性**：运行时可装载类，适合从网络动态加载。
 
 ### 1.3 Java 发展简史与常见误解（★）
-- Java 1996 年发布，最初由 Sun 公司开发；现由 Oracle 维护。版本节奏：Java 8（LTS，2014）之后改为约每 6 个月一个特性版，LTS 版（8、11、17、21…）才是长期支持版。
+- Java 1996 年发布，最初由 Sun 公司开发；现由 Oracle 维护。版本节奏：Java 8（LTS，2014）之后改为约每 6 个月一个特性版，LTS 版（8、11、17、21、25…）才是长期支持版。
 - **常见误解纠正**："Java 很慢"——现代 JVM 有 JIT 即时编译与分层编译，性能已接近原生；"Java 只能写 Web"——它覆盖桌面、移动（Android 早期）、大数据、后端、嵌入式等。
 
 ### 1.4 JVM / JRE / JDK 三者关系（★★★）
@@ -1142,13 +1142,13 @@ t.start();                             // 启动（不能重复 start）
 | --- | --- |
 | `synchronized` 方法/块 | 内置锁（监视器锁），同一时刻仅一个线程进入 |
 | `ReentrantLock` | 显式锁，可定时/可中断/公平锁 |
-| `volatile` | 保证可见性（一个线程写、其他立即可见），**不保证原子性** |
+| `volatile` | 保证对 volatile 变量的写对后续读可见，**不保证原子性，也不承诺实时延迟** |
 | 原子类 `AtomicInteger` 等 | CAS 无锁原子更新 |
-| `final` 字段 | 正确发布后不可变，天然线程安全 |
+| `final` 字段 | 冻结构造期赋值；正确发布后安全，但引用对象仍可能可变 |
 | `ThreadLocal` | 每线程独立副本，避免共享 |
 
 ::: danger 并发易错点
-- **`synchronized` 保证原子性 + 可见性 + 有序性（一定程度）**，但锁对象必须同一把；锁 `this` 与锁 `类名.class` 不是同一把锁。
+- **`synchronized` 保证临界区的互斥执行 + 可见性**；同一把锁的 `unlock` happens-before 后续 `lock`，但锁对象必须一致。锁 `this` 与锁 `类名.class` 不是同一把锁。
 - `volatile` **不能替代锁**来计数自增（`i++` 仍非原子）；自增用 `AtomicInteger.incrementAndGet()`。
 - 死锁：两个线程互相等待对方持有的锁——按**固定顺序**获取多把锁可避免。
 - 不要使用已废弃的 `stop()`/`suspend()`（会破坏状态/死锁）。
@@ -1157,7 +1157,7 @@ t.start();                             // 启动（不能重复 start）
 ### 12.3 线程安全集合（★★★）
 `java.util` 下的普通集合**非线程安全**。并发场景用 `java.util.concurrent`：
 - **阻塞队列** `ArrayBlockingQueue`/`LinkedBlockingQueue`：生产者-消费者模型核心。
-- **并发 Map/Set**：`ConcurrentHashMap`（分段/桶级锁，高并发读写）、`ConcurrentSkipListMap`（有序）。
+- **并发 Map/Set**：`ConcurrentHashMap`（JDK 8+ 使用 CAS + `synchronized` 桶/树节点，高并发读写）、`ConcurrentSkipListMap`（有序）。
 - **写时复制** `CopyOnWriteArrayList`：读多写少场景，读无锁。
 - **并行数组算法**：`Arrays.parallelSort`。
 
@@ -1233,7 +1233,7 @@ private volatile int counter;                       // counter++ 仍非原子！
 | volatile | 对 volatile 变量的写 happens-before 之后对它的读 |
 | 监视器锁 | `unlock` happens-before 之后对同一把锁的 `lock` |
 | 线程启动 | `start()` happens-before 新线程中的任何操作 |
-| 线程终止 | 线程中所有操作 happens-before 其他线程 `join()` 返回 / `isAlive()` 为 false |
+| 线程终止 | 线程中所有操作 happens-before 其他线程成功返回的 `join()`，或检测到该线程已终止（如 `isAlive()` 返回 `false`） |
 | 传递性 | A hb B、$B hb C \Rightarrow A hb C$ |
 
 ```java
@@ -1321,7 +1321,7 @@ synchronized (queue) {
 
 ::: danger 易错 · 线程池
 - `Executors.newFixedThreadPool` / `newSingleThreadExecutor` 用**无界** `LinkedBlockingQueue`，`newCachedThreadPool` 的 maximum 近乎无限，高并发下都可能 OOM。生产环境应显式 `new ThreadPoolExecutor(...)`，配有界队列和有意义的拒绝策略。
-- `execute()` 抛出的异常会直接到未捕获异常处理器；`submit()` 会把异常**封装进 Future**，只有调用 `get()` 时才抛 `ExecutionException` —— 不 get 就等于吞了异常。
+- `execute()` 抛出的异常会直接到未捕获异常处理器；`submit()` 把任务异常封装进 `Future`，调用 `get()` 时抛 `ExecutionException`（取消则抛 `CancellationException`）——不检查结果就不会暴露任务失败。
 - `Future.get()` 会阻塞；`CompletableFuture` 支持 `thenApply` / `thenCompose` / `allOf` / `exceptionally` 组合异步，并可指定自定义线程池避免共用 `ForkJoinPool.commonPool()`。
 :::
 
@@ -1349,11 +1349,9 @@ public class PoolSaturationDemo {
                 Executors.defaultThreadFactory(),
                 new ThreadPoolExecutor.CallerRunsPolicy());
         try {
-            pool.execute(hold);
-            pool.execute(hold);
+            for (int i = 0; i < 2; i++) pool.execute(hold);
             started.await();
-            pool.execute(() -> {});
-            pool.execute(() -> {});
+            for (int i = 0; i < 2; i++) pool.execute(() -> {});
             Thread caller = Thread.currentThread();
             CountDownLatch fifthDone = new CountDownLatch(1);
             Thread[] runner = new Thread[1];
@@ -1777,7 +1775,7 @@ System.out.println(set.size());               // 2      —— 两个「相等�
 
 ---
 
-### 13.7 Java 8 → 21 常用新特性速览（★★）
+### 13.7 Java 8 → 25 常用新特性速览（★★）
 
 | 版本 | 关键特性 |
 | --- | --- |
@@ -1791,6 +1789,7 @@ System.out.println(set.size());               // 2      —— 两个「相等�
 | **17（LTS）** | 密封类 `sealed` 正式、switch 模式匹配预览、强封装 JDK 内部 API |
 | 18–20 | 默认 UTF-8（18）、虚拟线程 / 结构化并发（19/20 预览）、记录模式匹配（19/20 预览） |
 | **21（LTS）** | **虚拟线程**（`Executors.newVirtualThreadPerTaskExecutor()`）正式、序列集合 `SequencedCollection`、switch 模式匹配与记录模式正式、分代 ZGC |
+| **25（LTS）** | `ScopedValue`、KDF API、紧凑源文件与实例 `main`、灵活构造体正式；结构化并发仍为预览 |
 
 ```java
 // 几处最常用新语法速写
@@ -1809,7 +1808,7 @@ if (obj instanceof String s && s.length() > 3) {          // Java 16+ 模式匹�
 sealed interface Shape permits Circle, Square {}         // Java 17+ 限制可实现的子类
 ```
 
-> 版本选择：生产环境优先 LTS（8 / 11 / 17 / 21），升级前注意 `--release` 编译目标、第三方库兼容性与 GC 变化。虚拟线程适合**IO 密集**高并发（不是 CPU 密集），能大幅简化"每请求一线程"模型，但仍是协作式调度，别在虚拟线程里做长时间 `synchronized` 阻塞。
+> 版本选择：生产环境优先 LTS（8 / 11 / 17 / 21 / 25），升级前注意 `--release` 编译目标、第三方库兼容性与 GC 变化。虚拟线程适合**IO 密集**高并发（不是 CPU 密集），由 JVM 调度到载体线程，阻塞操作通常会自动卸载；早期 JDK 的 `synchronized` 可能钉住载体线程，应避免长临界区并核对目标 JDK 的行为。
 
 ### 13.8 工程常用类库与工具（★★）
 
@@ -1850,24 +1849,20 @@ class CalculatorTest {
 | 自动装箱缓存 | Integer/Long/Short/Byte:-128~127；Character:0~127；Boolean:TRUE/FALSE；Float/Double 无 |
 | 继承 | 单继承、多接口；覆盖方法签名一致、可见性不收窄；`@Override` 校验 |
 | Object | `equals`+`hashCode` 须成对重写；`toString` 建议重写 |
-| 接口默认方法冲突 | 实现类必须显式重写 |
-| lambda | 仅函数式接口（单抽象方法）；捕获变量须 effectively final |
+| lambda | 仅函数式接口（单抽象方法）；捕获变量须 effectively final；`this` 指向外围对象 |
 | 泛型擦除 | 运行时无泛型；不能用基本类型、不能 `new T`、不能 `instanceof List<String>` |
 | PECS | Producer `extends`、Consumer `super` |
 | 集合 | ArrayList 随机快、LinkedList 增删快；HashMap O(1)、TreeMap 有序 O(log n) |
-| HashMap | 容量 2 的幂；`(n-1)&hash`；链表≥8 树化、≤6 退化；需正确 `equals/hashCode` |
 | 异常 | RuntimeException 未检查、其余 Exception 已检查；捕获子类在前 |
 | 并发 | `synchronized` 原子+可见；`volatile` 仅可见不原子；自增用 `AtomicInteger` |
 | 线程安全集合 | `ConcurrentHashMap`、阻塞队列、`CopyOnWriteArrayList` |
 | JVM 内存 | 堆+方法区（共享）、栈+PC+本地栈（私有）；GC 用可达性分析 |
-| java.time | `LocalDate/LocalDateTime/Instant` 不可变线程安全；`DateTimeFormatter` 格式化 |
 | Stream | 中间操作惰性、终止才触发；只能消费一次；`parallelStream` 可并行 |
 | JDK / JRE / JVM | JDK ⊃ JRE ⊃ JVM；**字节码**跨平台，各平台 JVM 实现不同；解释 + JIT 混合执行 |
 | 初始化顺序 | 父静态 → 子静态 → 父实例字段/块/构造 → 子实例字段/块/构造；构造器勿调可覆盖方法 |
 | 参数传递 | 只有**值传递**：可改引用指向对象的内容，不能让外部变量改指向 |
 | 动态绑定 | 仅可覆盖的实例方法；字段 / `static` / `private` / `final` 均为静态绑定 |
 | 接口默认方法 | 类优先；多接口同名默认方法必须显式重写；可用 `X.super.m()` 选其一 |
-| lambda | 捕获变量 effectively final；`this` 指向外围对象；仅可用于函数式接口 |
 | 桥方法 | 擦除后父类与子类签名不一致时，编译器合成 `compareTo(Object)` 之类转发方法 |
 | 泛型协变 | 泛型**不协变**（`List<String>` ≠ `List<Object>`）；数组协变但运行时用 `ArrayStoreException` 兜底 |
 | HashMap | `hash=(h)^(h>>>16)`；`index=(n-1)&hash`；容量 2 的幂、负载因子 0.75；树化 8 且容量≥64、退化 6 |
@@ -1875,9 +1870,9 @@ class CalculatorTest {
 | JMM | happens-before 六规则；`volatile` 可见 + 禁重排，**不保证复合操作原子性** |
 | 线程池 | 核心线程 → 有界队列 → 最大线程 → 拒绝策略；`submit` 的异常封装在 `Future` 里 |
 | GC | 可达性分析（非引用计数）、GC Roots、新生代 Eden+S0/S1 与老年代、G1 为 JDK 9+ 默认 |
-| java.time | 全部不可变；月份从 1 开始；`DateTimeFormatter` 线程安全；`Instant` 适合存储 |
+| java.time | `LocalDate/LocalDateTime/Instant` 等全部不可变；月份从 1 开始；`DateTimeFormatter` 线程安全；`Instant` 适合存储 |
 | NIO.2 | `Path`/`Files`；`walk`/`lines` 的流必须关闭；字符编码显式 UTF-8 |
-| 新特性 | 8 lambda/Stream、11 HTTP Client、17 密封类、21 虚拟线程（均为 LTS） |
+| 新特性 | 8 lambda/Stream、11 HTTP Client、17 密封类、21 虚拟线程、25 Scoped Values（均为 LTS） |
 
 ## 附录 B 各章易错点速查
 

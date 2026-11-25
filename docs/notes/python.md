@@ -11,6 +11,10 @@ summary: "9 章 + 附录 Python 数据分析笔记：ndarray、numpy 函数、Se
 - **关键词**：numpy、ndarray、pandas、Series、DataFrame、数据清洗、分组聚合、可视化
 :::
 
+::: tip 版本与 API 基准
+示例以 Python 3.10+、NumPy 1.24+、pandas 2.2+、matplotlib 3.7+、seaborn 0.12+ 的 API 为基准；pandas 2.2 起月重采样用 `ME`，旧版别名 `M` 仍可见于旧资料。安装与排错统一用 `python -m pip`。
+:::
+
 ## 全书目录
 
 | 章节 | 主要内容 |
@@ -121,6 +125,7 @@ numpy 的数据类型（dtype）按占用字节分得很细，下表整理自原
 - 指定区间随机整数：`np.random.randint(开始, 结束, (行, 列))`
 - 标准正态分布（均值 0、方差 1）：`np.random.randn(行, 列)`
 - **设置随机种子**：`np.random.seed(数字)` —— 同一种子下生成的随机数组相同，便于复现实验结果
+- **新版随机数生成器（推荐）**：`rng = np.random.default_rng(数字)`；用 `rng.random((行,列))`、`rng.integers(...)`、`rng.standard_normal(...)`，避免改动全局随机状态
 
 **高级构造方法**（原笔记图片补充）：`np.fromfunction(函数, shape)` 按坐标生成、`np.loadtxt('文件')` 从文本文件读入。
 
@@ -193,7 +198,7 @@ print(y.mean(axis=1))
 
 - **矩阵乘法**：用 `@` 符号（不是 `*`，`*` 是逐元素乘）：`a @ b`。
 
-### 2.4 视图与拷贝（极易踩坑）
+## 2.4 视图与拷贝（极易踩坑）
 
 ::: danger 易错点 · 切片返回「视图」
 numpy 里**切片返回的是原数组的视图（view），共享同一块内存**；而**花式索引（整数数组）和布尔索引返回的是拷贝（copy），相互独立**。改了视图，原数组也会跟着变——这常常让人困惑。
@@ -335,7 +340,8 @@ s.tail(n)          # 看后 n 条，不填默认后 5 条
 
 ```python
 idx = pd.date_range('2024-01-01', periods=10, freq='D')   # 生成日期索引，D=天
-s.resample('M').mean()     # 重采样，M=按月求均值（也可用 Y 年 / Q 季 / W 周）
+s = pd.Series(range(10), index=idx)                      # 重采样要求 DatetimeIndex
+s.resample('ME').mean()    # 重采样，ME=按月求均值（旧版 pandas 用 M；季/年/周同理）
 ```
 
 ::: danger 易错点 · Series 运算按「标签」对齐
@@ -369,7 +375,7 @@ df = pd.DataFrame({'a': [1, 2], 'b': [3, 4]},
                   columns=['a', 'b'])
 ```
 
-### 5.2 属性与访问数据
+## 5.2 属性与访问数据
 
 | 属性 / 方法 | 含义 | 示例 |
 | --- | --- | --- |
@@ -397,7 +403,7 @@ df.sample(n)          # 随机抽样 n 条；不填参数默认只取 1 条
 | `df.isin([...])` / `df.isna()` | 判断元素是否在集合中 / 是否为缺失值 |
 | `df['列'].sum()` / `.mean()` / `.max()` / `.min()` / `.median()` / `.mode()` / `.var()` / `.std()` / `.quantile()` | 对某一列做统计 |
 | `df.describe()` | 描述信息（数值列的统计概览） |
-| `df.value_counts()` | 元素出现次数 |
+| `df['列'].value_counts()` | 单列元素出现次数；全表先 `stack()` 再统计 |
 | `df.drop_duplicates()` / `df.duplicated()` | 去重 / 查看是否重复 |
 | `df.replace(...)` | 替换元素 |
 | `df.cumsum()` | 累计和 |
@@ -481,9 +487,10 @@ df.sort_values(by='列', ascending=False)  # 按值排序
 ### 6.4 时间数据与分组聚合
 
 ```python
-pd.to_datetime(df['日期'])            # 字符串转时间类型
+df['日期'] = pd.to_datetime(df['日期'], errors='raise')  # 字符串转时间类型；非法值报错
+# 清洗场景可改 errors='coerce'，将非法值转为 NaT 后再处理
 df['年'] = df['日期'].dt.year        # 通过 .dt 取年月日、星期等
-df.set_index('日期').resample('M').sum()   # 按时间频率重采样
+df.set_index('日期').resample('ME').sum()  # 按月末频率重采样（旧版 pandas 用 M）
 df.groupby('类别')['销售额'].agg(['sum', 'mean', 'count'])
 ```
 
@@ -584,7 +591,7 @@ sns.pairplot(df)                   # 两两散点图矩阵
 | `drop_duplicates()` 删除、`duplicated()` 只查看 | 别写反 |
 | `np.std` 是标准差、`np.var` 是方差、`np.mean` 是均值 | 都可用 `axis` 指定行列 |
 | `pd.concat` 拼接、`pd.merge` 按键合并、`groupby` 分组 | 三者用途不同 |
-| `df.append` 已弃用 | 用 `pd.concat` |
+| `df.append` 已移除（pandas 2.0 起） | 用 `pd.concat` |
 | 布尔转换中 `0` 为 False、非 0 为 True | `bool(2)` 为 True |
 | 广播要求对应维度相等或其一为 1 | 否则报 `ValueError` |
 
@@ -631,7 +638,7 @@ sns.pairplot(df)                   # 两两散点图矩阵
 ### A.1 类型、运算符与字符串
 
 - 数值 `int` / `float` / `complex`：`7/2 → 3.5`（真除）、`7//2 → 3`（整除）、`7%2 → 1`（取余）、`2**10`（幂）
-- `==` 比较值，`is` 比较是否同一对象；判值一律用 `==`（小整数 -5~256 有缓存，`is` 会「碰巧」为真）
+- `==` 比较值，`is` 比较是否同一对象；判值一律用 `==`（CPython 常见实现缓存 -5~256，`is` 可能「碰巧」为真）
 - `bool(0)`、`bool('')`、`bool([])`、`bool(None)` 均为 `False`，其余值为 `True`
 - 字符串**不可变**；切片规则同列表：`s[1:4]` 左闭右开、`s[::-1]` 反转
 - 常用方法：`split` / `join` / `strip` / `replace` / `find` / `upper` / `lower`；格式化 `f'x={x:.2f}'`
@@ -691,5 +698,6 @@ squares = (x * x for x in range(5))       # 生成器表达式，惰性求值，
 
 ### A.5 环境与包管理
 
-- `pip install numpy`；`pip freeze > requirements.txt` 导出依赖，`pip install -r requirements.txt` 还原
+- 安装当前解释器：`python -m pip install numpy pandas matplotlib seaborn openpyxl`；用 `python -m pip --version` 确认 pip 与 Python 对应
+- 导出依赖：`python -m pip freeze > requirements.txt`；还原：`python -m pip install -r requirements.txt`；生产环境建议另行锁定直接依赖版本
 - 虚拟环境：`python -m venv .venv`；激活（Windows）`.venv\Scripts\activate`、（macOS/Linux）`source .venv/bin/activate`；`deactivate` 退出
