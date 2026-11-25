@@ -54,7 +54,7 @@ summary: "《Python 机器学习基础教程》8 章精读笔记：以 scikit-le
 
 | 库 | 作用 | 笔记要点 |
 | --- | --- | --- |
-| **NumPy** | `ndarray` 多维数组，scikit-learn 的**基本数据结构** | 所有数据都要转成二维 NumPy 数组 `X`；数组元素必须同类型 |
+| **NumPy** | `ndarray` 多维数组，scikit-learn 的**基础数值结构** | `X` 通常为二维数组、DataFrame 或稀疏矩阵；不要求转成同类型 `ndarray`，分类特征需先编码 |
 | **SciPy** | 科学计算函数集合 | 最重要的是 `scipy.sparse` 稀疏矩阵，用于大部分元素为 0 的数据（如词袋） |
 | **matplotlib** | 科学绘图 | 散点图、散点图矩阵用于观察数据 |
 | **pandas** | DataFrame，数据清洗与查看 | `value_counts()` 检查分类列取值；`scatter_matrix` 画散点图矩阵 |
@@ -62,18 +62,21 @@ summary: "《Python 机器学习基础教程》8 章精读笔记：以 scikit-le
 | **mglearn** | 本书配套的绘图 / 数据辅助库 | 仅用于美化绘图与加载示例数据，不是重点 |
 | **scikit-learn** | 机器学习算法实现 | 依赖 NumPy + SciPy；所有算法都是**估计器类** |
 
-> 书中使用 Python 3（写作时为 3.5），并强调 `random_state` 固定随机种子以保证结果可复现。新项目一律用 Python 3。
+> 书中使用 Python 3（写作时为 3.5），并强调 `random_state` 固定随机种子以保证结果可复现。本轮 API 以 **scikit-learn ≥1.2** 为基线；1.8 起 `LogisticRegression.penalty` 已弃用（计划 1.10 移除），新代码用 `l1_ratio` 指定 L1/L2/弹性网。
 
 ### 1.3 scikit-learn 估计器接口（★）
 
 所有算法（预处理、监督、无监督）都实现为**估计器（Estimator）类**：
 
 ```python
+from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 
+iris = load_iris(as_frame=True)
 X_train, X_test, y_train, y_test = train_test_split(
     iris['data'], iris['target'], random_state=0)   # 默认 75% 训练 / 25% 测试
+X_new = X_test[:1]                                  # 单条预测也保持二维
 
 knn = KNeighborsClassifier(n_neighbors=1)           # 1. 实例化并设参数
 knn.fit(X_train, y_train)                           # 2. 用训练数据构建模型
@@ -96,14 +99,14 @@ print(knn.score(X_test, y_test))                    # 4. 评估：分类默认�
 ### 1.4 第一个应用：鸢尾花分类
 
 1. **初识数据**：`load_iris()` 有 150 朵花、4 个特征（花萼/花瓣长宽）、3 个类别，是**三分类**监督问题；数据通常是 `Bunch` 对象（含 `data`、`target`、`target_names`、`DESCR`）。
-2. **划分数据**：不能用训练数据评估模型——模型会「记住」整个训练集，这种记忆无法说明**泛化能力**。`train_test_split` 先用伪随机数打乱再切分（默认 75% / 25%），否则按标签排序的数据会让测试集只剩一个类别。
+2. **划分数据**：不能用训练数据评估模型——模型会「记住」整个训练集，这种记忆无法说明**泛化能力**。普通独立样本的 `train_test_split` 默认 `shuffle=True`、75% / 25%；分类可加 `stratify=y`。时序或分组数据不能随机打乱，应改用时间切分或分组切分。
 3. **观察数据**：先可视化（散点图 / 散点图矩阵），不要一上来就建模。散点图矩阵两两查看特征，但**无法同时显示多个特征间的联合关系**。
 4. **建模**：k 近邻取训练集中距离最近的 k 个邻居，用多数类别投票；`KNeighborsClassifier(n_neighbors=1)`。
 5. **评估**：测试集精度约 **0.97**（97%），意味着对新鸢尾花的预测约 97% 正确。
 
 ### 1.5 易错点
 
-- `train_test_split` 必须**先打乱**再切分；`random_state` 只影响可复现性，不影响打乱本身。
+- 普通独立样本可按需打乱；时序/分组数据必须避免随机打乱。`random_state` 只控制切分的可复现性。
 - 预测单条数据时也要构造成**二维数组**（`X_new.reshape(1, -1)` 或 `[[...]]`），scikit-learn 不接受一维输入。
 - 精度高不等于模型可用：第 5 章会说明类别不平衡时 90% 精度可能来自「永远预测多数类」。
 
@@ -122,7 +125,7 @@ print(knn.score(X_test, y_test))                    # 4. 评估：分类默认�
 | **分类** | 离散的**类别**（class） | 鸢尾花品种、 spam / 非 spam | 精度 accuracy |
 | **回归** | 连续值 | 房价、内存价格、租车数量 | **R²（决定系数）** |
 
-$R^{2}= 1$ 为完美预测，$R^{2}= 0$ 相当于「总预测训练集平均值」的常数模型，也可能为负（比常数模型更差）。二分类是最容易理解的情形，但书中大多数算法**既能分类也能回归**，且分类算法都能用于多分类。
+$R^{2}= 1$ 为完美预测，$R^{2}= 0$ 相当于「预测评估集均值」的常数模型，也可能为负（比该常数模型更差）；用训练集均值预测时，只有训练/评估集均值相近才恰为 0。二分类是最容易理解的情形，但书中大多数算法**既能分类也能回归**，且分类算法都能用于多分类。
 
 ### 2.2 泛化、过拟合与欠拟合（★）
 
@@ -134,10 +137,10 @@ $R^{2}= 1$ 为完美预测，$R^{2}= 0$ 相当于「总预测训练集平均值�
 
 **模型复杂度与数据集大小**：存在一个最佳复杂度使泛化性能最好。数据集越大，可容纳的模型复杂度越高——**增大数据量往往比反复调参更有效**。注意「训练集和测试集分数都很接近且偏低」通常说明**欠拟合**而非过拟合（一维线性回归就是例子）。
 
-**常用样本数据集**：`forge`（二分类玩具数据）、`wave`（一维回归）、`cancer`（乳腺癌，569 样本 / 30 特征）、`boston_housing`（回归，506 样本 / 13 特征，扩展交互项后 105 特征）、`iris`、`digits`、`make_blobs` / `make_moons`。
+**常用样本数据集**：`forge`（二分类玩具数据）、`wave`（一维回归）、`cancer`（乳腺癌，569 样本 / 30 特征）、`iris`、`digits`、`make_blobs` / `make_moons`；回归替代数据用 `fetch_california_housing`（20,640 样本 / 8 特征，首次需下载）或 `load_diabetes`（442 / 10）。教材 Boston 数据仅保留为历史示例。
 
 ::: warning Boston 数据集版本说明
-`boston_housing` 及本文后续 Boston 叙述均为历史教材示例。`load_boston` 已从 scikit-learn 1.2 起移除；新项目请改用 `fetch_california_housing`（回归，首次调用需下载数据）或本地内置的 `load_diabetes`（回归，442 样本 / 10 特征）。历史教材叙述保留用于理解原有结论。
+`boston_housing` 及本文后续 Boston 叙述均为历史教材示例。`load_boston` 已从 scikit-learn 1.2 起移除；新项目请改用 `fetch_california_housing`（首次调用需下载）或本地内置的 `load_diabetes`。替代数据的特征、样本量与噪声不同，教材中的最优参数和分数**不能直接照搬**。
 :::
 
 ### 2.3 监督学习算法（上）
@@ -166,15 +169,17 @@ reg = KNeighborsRegressor(n_neighbors=3).fit(X_train, y_train)
 | `LinearRegression` | 回归 | 无 | 无参数；高维时容易过拟合 |
 | **Ridge**（岭回归） | 回归 | **L2**：系数整体趋近 0 | `alpha`，默认 1.0；增大 alpha → 系数更小、训练集性能降、泛化可能升 |
 | **Lasso** | 回归 | **L1**：部分系数**恰为 0**，可自动选特征 | `alpha`；减小 alpha 可缓解欠拟合，常需同时增大 `max_iter` |
-| `LogisticRegression` | 分类 | 默认 L2 | `C`（**正则化强度的倒数**，C 越大约束越弱、模型越复杂）；`penalty='l1'` 可得更易解释的稀疏模型 |
+| `LogisticRegression` | 分类 | 默认 L2 | `C` 为逆正则强度（越大约束越弱）；sklearn ≥1.8 用 `l1_ratio=1` + `solver='saga'` 做 L1，二分类也可用 `liblinear`；旧版 `penalty='l1'` 已弃用 |
 | `LinearSVC` | 分类 | 默认 L2 | `C`，与 LogisticRegression 决策边界相似 |
+
+**正则化记号**：本笔记 `Ridge` / `Lasso` 的 `alpha` 越大约束越强，`LogisticRegression` / SVM 的 `C` 越大约束越弱；理论式中的 $\lambda$ 必须先对齐损失是否取平均，不能直接等同于 `alpha` 或 $C$。
 
 **要点**：
 
-- 训练集与测试集分数都低且接近 → **欠拟合**（如默认 alpha=1.0 的 Lasso 在波士顿数据上只用了 105 个特征中的 4 个）；
+- 训练集与测试集分数都低且接近 → **欠拟合**（教材历史示例：默认 alpha=1.0 的 Lasso 在 Boston 扩展特征上只用了 105 个特征中的 4 个；换替代数据后须重新验证）；
 - 训练与测试分数接近但偏低 → 模型可能欠拟合；训练远高于测试 → 过拟合；
 - 线性模型**训练与预测都极快**，能扩展到十万/百万级样本，对**稀疏数据效果好**；大数据可用 `solver='sag'` 或 `SGDClassifier` / `SGDRegressor`；
-- 多分类常用「一对多（one-vs-rest）」，`decision_function` 每类一个分数，`classes_` 给出类别顺序，取 argmax 即预测。
+- 多分类策略取决于模型：`LinearSVC` 常用一对多；`LogisticRegression` 的 `lbfgs` / `saga` 在 ≥3 类时优化多项损失。`decision_function` 每类一个分数，`classes_` 给出列顺序，取 argmax 即预测。
 
 #### 2.3.3 朴素贝叶斯分类器
 
@@ -242,7 +247,7 @@ svm = SVC(kernel='rbf', C=1.0, gamma='scale').fit(X_train, y_train)
 
 | 参数 | 作用 | 太小 / 太大 |
 | --- | --- | --- |
-| `C` | 正则化参数（与线性模型同向：C 大 = 约束弱） | 太小 → 边界近乎线性、误分类点影响小；太大 → 边界剧烈弯曲去迁就个别点 |
+| `C` | 正则化参数（与线性模型同向：C 大 = 约束弱） | 太小 → 更重视间隔与整体鲁棒性；太大 → 更努力拟合个别点、易过拟合 |
 | `gamma` | RBF 核宽度（决定单个点影响范围） | 太小 → 影响范围大、模型简单；太大 → 每个点各自成岛、过拟合 |
 
 - **优点**：对**特征含义相似的中等规模**数据集非常强大，决策边界平滑。
@@ -258,7 +263,7 @@ mlp = MLPClassifier(hidden_layer_sizes=(100,), activation='relu',
 ```
 
 - **多层感知机（MLP）** 即普通前馈网络：输入层 → 一个或多个隐层（非线性 `relu` / `tanh`）→ 输出层。
-- **复杂度控制**：隐层数、每层隐单元数、L2 惩罚 `alpha`。权重总数 = 各层结点数乘积之和（100 特征 + 100 隐单元 ≈ 10 100 个权重；加第二隐层翻到约 20 100 个）。
+- **复杂度控制**：隐层数、每层隐单元数、L2 惩罚 `alpha`。权重总数 = 相邻层结点数乘积之和（100 输入 + 100 隐单元 + 1 输出 ≈ 10 100 个权重；加第二个 100 单元隐层后 ≈ 20 100 个，均另计偏置）。
 - **调参套路**：先建一个**大到能过拟合**的网络确认任务可学，再缩小网络或增大 `alpha` 提升泛化。
 - `solver`：`'adam'`（默认，多数情况好用但**对缩放敏感**）、`'lbfgs'`（鲁棒但大数据慢）、`'sgd'`（参数最多）。入门推荐 adam 与 lbfgs。
 - **必须缩放**：所有输入特征应**均值 0、方差 1**；书中乳腺癌数据缩放后精度明显提升，否则会出现「达到最大迭代次数」警告。
@@ -269,8 +274,8 @@ mlp = MLPClassifier(hidden_layer_sizes=(100,), activation='relu',
 
 | 方法 | 输出 | 说明 |
 | --- | --- | --- |
-| `decision_function` | 二分类形状 `(n_samples,)`，多分类 `(n_samples, n_classes)` | 正值偏向正类、负值偏向反类；**看符号即可复现 predict** |
-| `predict_proba` | 二分类恒为 `(n_samples, 2)`，多分类每类一列 | 每行和为 1；取 argmax 复现预测；通常比决策函数更易解释 |
+| `decision_function` | 二分类形状 `(n_samples,)`，多分类 `(n_samples, n_classes)` | 二分类看符号；多分类按 `classes_` 取 argmax |
+| `predict_proba` | 二分类恒为 `(n_samples, 2)`，多分类每类一列 | 每行和为 1；argmax 通常复现预测，但概率校准模型（如 `SVC(probability=True)`）可能不同 |
 
 **注意**：
 
@@ -296,7 +301,7 @@ mlp = MLPClassifier(hidden_layer_sizes=(100,), activation='relu',
 ### 2.6 易错点
 
 - **C 是正则化强度的倒数**：`C` 越大模型越复杂；而 Ridge / Lasso 的 `alpha` 越大模型越简单，方向相反。
-- 线性模型 / SVM / 神经网络 / k-NN **需要缩放**；决策树、随机森林、朴素贝叶斯**不需要缩放**。
+- k-NN / SVM / 神经网络及带正则的线性模型通常**需要缩放**；普通 OLS、决策树、随机森林、朴素贝叶斯通常不需要。
 - 训练集与测试集分数**都低且接近**是欠拟合，不是过拟合。
 - 决策树与随机森林**无法外推**到训练特征范围之外；时间序列/未来预测不要直接用原始时间戳喂给树模型。
 - `predict_proba` 的列顺序来自 `classes_`，不是「0/1」的直觉顺序。
@@ -333,7 +338,7 @@ X_test_scaled  = scaler.transform(X_test)  # 用同一变换，绝不重新 fit
 | `Normalizer` | 按**样本**（行）缩放到单位范数 | 文本 / 方向型数据 |
 | `SimpleImputer`（补充） | 填补缺失值：`strategy='mean'/'median'/'most_frequent'/'constant'` | 统计量只能在训练折上 `fit`，同样要放进 Pipeline 防泄露 |
 
-**铁律（书中用一整节强调）**：`fit` 只在训练集上做，训练与测试应用**完全相同的变换**。`transform` 总是减去**训练集**的最小值、除以**训练集**的范围，因此测试集缩放后**可能超出 [0, 1]**——这是正常现象，不是 bug。
+**铁律（书中用一整节强调）**：`fit` 只在训练集上做，训练与测试应用**完全相同的变换**。以 `MinMaxScaler` 为例，`transform` 减去训练集最小值、除以训练集范围，因此测试集缩放后**可能超出 [0, 1]**；其他缩放器并不都执行这一步。
 
 若分别对训练集与测试集各自 `fit`，两图看起来都「规整」，但**相对位置被改变**，模型学到的是错的数据分布，评估结果不可信。这正是第 6 章「数据泄露」的轻量版本。
 
@@ -351,7 +356,7 @@ X_test_scaled  = scaler.transform(X_test)  # 用同一变换，绝不重新 fit
 
 ```python
 from sklearn.decomposition import PCA
-pca = PCA(n_components=2).fit(X_scaled)   # 默认仅旋转保留全部成分
+pca = PCA(n_components=2).fit(X_scaled)   # 明确保留 2 个主成分；n_components=None 才保留全部
 X_pca = pca.transform(X_scaled)
 ```
 
@@ -383,7 +388,7 @@ centers = km.cluster_centers_
 - **自底向上**：每个点初始为一组，反复合并最相似的两组，形成**层次结构**。
 - `linkage`：`'ward'`（默认，方差增加最小 → 大小相近的簇）、`'average'`、`'complete'`。
 - 需指定 `n_clusters`；scikit-learn 不画树状图，可用 `scipy.cluster.hierarchy.dendrogram` 辅助判断合适的切割点。
-- 优点：给出**完整的层次划分**，可通过树状图查看；缺点：同样倾向大小相近的簇，不能识别噪声点。
+- 优点：给出**完整的层次划分**，可通过树状图查看；缺点：不能识别噪声点；其中 Ward 连接偏向大小相近、较紧凑的簇。
 
 #### DBSCAN
 
@@ -403,9 +408,9 @@ centers = km.cluster_centers_
 #### 聚类的评估
 
 - **不能用精度（accuracy）**：簇标签本身**没有语义**，重要的是「哪些点被分到同一簇」。
-- 有真实标签时：**ARI（调整兰德指数）**、**NMI（归一化互信息）**，取值 0（随机）到 1（完全一致），比精度合理。
+- 有真实标签时：**ARI（调整兰德指数）**取值范围约 [-1, 1]，1 为完全一致、0 为随机水平附近、负值表示差于随机；**NMI（归一化互信息）**为 [0, 1]。它们比直接 accuracy 合理。
 - 无真实标签时：**轮廓系数（silhouette_score）**，但书中指出它会偏爱 k 均值那种凸形簇（k 均值分数最高，人眼却更喜欢 DBSCAN 的结果）。
-- 更稳健的思路是**基于鲁棒性**：加噪声或换参数反复聚类，结果一致才可信（写书时 scikit-learn 尚未内置）。
+- 更稳健的思路是**基于鲁棒性**：加噪声或换参数反复聚类，结果一致才可信；这属于评估流程，不是某个聚类器的内置 `score`。
 - **聚类的应用与评估本质上是定性的、探索性的**——人工检查每个簇的典型样本往往比单一指标更有价值。
 
 ### 3.5 估计器接口小结（★）
@@ -417,7 +422,7 @@ centers = km.cluster_centers_
 | `transform(X)` | 生成输入 X 的**新表示** | 预处理、降维、特征提取 |
 | `fit_transform(X)` | 二者合并 | `StandardScaler`、`PCA` 等 |
 
-**约定**：`X` 恒为二维连续值 NumPy 数组 / SciPy 稀疏矩阵（行 = 样本）；`y` 为一维目标数组；`X_train`/`y_train`、`X_test`/`y_test` 是全书统一命名。
+**约定**：`X` 为二维数值数组、DataFrame 或 SciPy 稀疏矩阵（行 = 样本，分类特征需先编码）；`y` 通常为一维目标数组；`X_train`/`y_train`、`X_test`/`y_test` 是全书统一命名。
 
 ### 3.6 易错点
 
@@ -449,17 +454,18 @@ y = data_dummies['income_>50K'].values
 | 必须分离目标 | 把输出变量或其派生列留在特征里，是监督建模**非常常见的错误** |
 | 检查取值 | 先用 `Series.value_counts()` 看唯一值，人工输入常有拼写/大小写差异（male / man） |
 | 类别是数字时 | 数字不代表连续！若语义无顺序关系（如 workclass 的 0~8）**必须**当作离散变量做 one-hot；五星评分则视任务而定 |
-| 指定分类列 | 用 `ColumnTransformer` 明确标记哪些列是分类变量（旧版的 `OneHotEncoder(categorical_features=...)` 参数已在新版 sklearn 中移除） |
+| 指定分类列 | 用 `ColumnTransformer` 明确标记分类列；`OneHotEncoder(categorical_features=...)` 已移除。拟合训练折时设 `handle_unknown='ignore'`，测试集出现新类别时编码为全 0 |
 
-**get_dummies 的经典陷阱**：若训练集与测试集**分开**调用 `get_dummies`，某取值只在训练集出现时，两边生成的列数与列名不同 → 模型无法应用到测试集；更糟的是列的位置对应了不同的语义。解决：在合并后的数据框上统一编码，或显式对齐列名。
+**get_dummies 的经典陷阱**：训练集与测试集**分开**调用时，列数与列名可能不同，模型无法应用，列位置也可能错位。解决：生产流程把 `OneHotEncoder(handle_unknown='ignore')` 放进 Pipeline；若已分开 `get_dummies`，须用训练列名 `reindex` 测试集并填 0。不要先合并再编码，否则测试集类别会泄漏进词表。
 
 ### 4.2 分箱、离散化、线性模型与树
 
 ```python
+import numpy as np
 from sklearn.preprocessing import OneHotEncoder, PolynomialFeatures
 bins = np.linspace(-3, 3, 11)
 which_bin = np.digitize(X, bins=bins)
-X_binned = OneHotEncoder(sparse_output=False).fit_transform(which_bin)   # sklearn>=1.2 参数名（旧版为 sparse=False）
+X_binned = OneHotEncoder(sparse_output=False, handle_unknown='ignore').fit_transform(which_bin)  # sklearn>=1.2；旧版为 sparse=False
 ```
 
 把连续特征划入若干**箱子（bin）**并 one-hot 化后：
@@ -475,7 +481,7 @@ X_binned = OneHotEncoder(sparse_output=False).fit_transform(which_bin)   # sklea
 from sklearn.preprocessing import PolynomialFeatures
 poly = PolynomialFeatures(degree=2, include_bias=False)
 X_poly = poly.fit_transform(X)
-print(poly.get_feature_names_out())   # 查看每个新特征的来源（旧版为 get_feature_names()）
+print(poly.get_feature_names_out())   # sklearn>=1.0；旧版为 get_feature_names()
 ```
 
 - **交互特征** = 特征之间的乘积；**多项式特征** = 特征的平方、立方等。
@@ -492,7 +498,7 @@ print(poly.get_feature_names_out())   # 查看每个新特征的来源（旧版�
 | `exp` | 与 log 反向，调节相对比例 |
 | `sin` / `cos` | **周期性模式**（一天中的时刻、星期几、季节） |
 
-**原因**：多数模型在特征（回归中还包括目标）近似**高斯分布**时表现最好；线性模型与神经网络依赖每个特征的**尺度与分布**，而树模型只关心特征的顺序。若特征与目标是非线性关系（如内存价格随年份指数下降），直接建模很困难，`log` 变换能把关系拉直——书中对价格取对数后，树模型与线性模型都能外推，未取对数时决策树只能给出常数。
+**原因**：线性模型与神经网络常受益于特征的**尺度与分布**调整，树模型只关心顺序、并不要求高斯分布。若特征与目标呈指数关系（如内存价格随年份下降），`log` 可把关系拉直，便于线性模型拟合；对目标取对数也可改变误差尺度。树模型仍不能外推到训练特征范围之外，不能靠 log 变换获得这种能力。
 
 ### 4.5 自动化特征选择
 
@@ -535,7 +541,7 @@ print(poly.get_feature_names_out())   # 查看每个新特征的来源（旧版�
 ```python
 from sklearn.model_selection import cross_val_score, StratifiedKFold, KFold
 from sklearn.model_selection import LeaveOneOut, ShuffleSplit, GroupKFold
-scores = cross_val_score(logreg, X, y, cv=5)          # 默认 3 折/5 折，分类用分层 k 折
+scores = cross_val_score(logreg, X, y, cv=5)          # 5 折；分类器自动使用分层 K 折
 print(scores.mean(), scores.std())
 ```
 
@@ -543,7 +549,7 @@ print(scores.mean(), scores.std())
 | --- | --- | --- |
 | **k 折交叉验证** | 数据分成 k 份，轮流用 k−1 份训练、1 份验证，取 k 个分数的平均 | 通用默认；k 越大每折训练数据越多（10 折用 90%），但计算更贵 |
 | **分层 k 折（StratifiedKFold）** | 每折中各类别比例与整体一致 | **分类默认**，避免按标签排序时某折只有一个类别 |
-| `KFold(shuffle=True)` | 打乱后再切分 | 数据按标签/时间排序且不想用分层时 |
+| `KFold(shuffle=True)` | 打乱后再切分 | 独立同分布回归数据；时序数据应改用 `TimeSeriesSplit` |
 | **留一法（LeaveOneOut）** | 每折只留 1 个样本做验证 | 小数据集；计算极贵、方差大 |
 | `ShuffleSplit` | 多次随机划分，可指定 `train_size` / `test_size` | 需要重复随机切分 |
 | **`GroupKFold`** | 按 `groups` 数组分组，**同一组不会同时出现在训练和验证折** | 同一人的多张照片、同一患者的多次记录；**groups 不是标签** |
@@ -552,7 +558,7 @@ print(scores.mean(), scores.std())
 
 ### 5.2 网格搜索（★）
 
-**数据必须三分为训练 / 验证 / 测试**：训练集建模型，验证集选模型与参数，测试集只在**最后**评估一次。若用测试集或交叉验证去选参数，测试数据就被「用完了」，再用同一数据评估会得到**过于乐观**的估计——书中对比：验证集最高 96%，而最终测试集只有 **92%**，不能声称 97%。
+**数据必须三分为训练 / 验证 / 测试**：训练集建模型，验证集或训练集内部交叉验证选模型与参数，独立测试集只在**最后**评估一次。反复用同一测试集选参会使其退化为验证集，估计过于乐观；交叉验证本身正是规范调参手段，只要测试集始终隔离。书中对比：验证集最高 96%，而最终测试集只有 **92%**，不能声称 97%。
 
 ```python
 from sklearn.model_selection import GridSearchCV
@@ -570,7 +576,7 @@ print(grid.score(X_test, y_test))     # 这才是泛化性能
 | `best_score_` | **交叉验证的平均验证精度**，不是测试集分数 |
 | `best_estimator_` | 用最佳参数在**整个训练集**上重新拟合的模型 |
 | `cv_results_` | 每种参数组合在各折的分数、均值与标准差；二维网格适合画热图 |
-| **嵌套交叉验证** | 外层评估、内层调参；结论只能表述为「SVC 在 iris 上交叉验证平均精度 98%」，不多不少 |
+| **嵌套交叉验证** | 外层评估、内层调参；报告外层均值与标准差，不把内层 `best_score_` 当泛化性能 |
 | 非网格空间 | `param_grid` 可传**字典列表**，为不同 kernel / 不同模型指定各自的参数集合 |
 
 > 热图若呈「垂直条形」，说明只有 gamma 影响精度、C 不重要；网格每加一个参数，需训练的模型数**指数增长**。
@@ -614,7 +620,7 @@ rs = RandomizedSearchCV(SVC(), param_distributions={'C': loguniform(1e-3, 1e3),
 from sklearn.metrics import confusion_matrix, classification_report
 from sklearn.metrics import precision_recall_curve, average_precision_score
 from sklearn.metrics import roc_curve, roc_auc_score
-print(classification_report(y_test, y_pred))
+print(classification_report(y_test, y_pred, zero_division=0))  # 某类无预测/无真实样本时避免 0/0 警告
 ```
 
 **为什么 accuracy 会骗人**：在 9:1 不平衡数据上，永远预测多数类就有 90% 精度，却「什么都没学到」。书中用 `DummyClassifier` 与真实分类器对比说明：同一精度下模型可能有天壤之别。
@@ -622,26 +628,26 @@ print(classification_report(y_test, y_pred))
 **阈值与曲线**：
 
 - 改变 `decision_function` 的阈值即是在 precision 与 recall 之间做折中，目标应由**业务目标**驱动（如「召回率至少 90%」）；
-- **PR 曲线**每个点对应一个阈值，曲线下面积即 **average precision**（`average_precision_score`）；把所有样本判为正类可得 100% 召回率，但精确率极低，模型无用；
+- **PR 曲线**每个点对应一个阈值，其阶梯下面积为 **AP（average precision，`average_precision_score`）**；AP 不等同于对 PR 点做梯形积分得到的 PR-AUC。把所有样本判为正类可得 100% 召回率，但精确率极低，模型无用；
 - **ROC 曲线**以 FPR 为横轴、TPR 为纵轴，**AUC** 是曲线下面积，衡量「正类样本排名高于反类」的程度；AUC = 1.0 表示存在某个阈值可以完美分类。书中 `gamma=0.01` 的 SVC 精度一般但 **AUC = 1.0**——只看精度会漏掉这个好模型；
-- **多分类**：常用宏平均 / 微平均 / 加权平均的 F1；`classification_report` 逐类给出，类别不平衡时大类会主导；
-- **回归**：默认 $R^{2}$ 最直观；业务上有时按 MSE / MAE 调参，但书中建议优先 R²。
+- **多分类**：常用宏平均 / 微平均 / 加权平均的 F1；`classification_report` 逐类给出，宏平均同等看待各类，加权平均会受大类影响；
+- **回归**：$R^{2}$ 便于比较同尺度模型；业务上按误差单位选 MAE / RMSE，需求百分比且真值非零时用 MAPE，不能一律优先 R²。
 
 #### 在模型选择中使用指标
 
-`GridSearchCV(..., scoring='roc_auc')` 可指定评分；分类默认 accuracy、回归默认 R²。选哪个指标必须回到**最终目标**：商业指标（增加利润、减少损失）最理想，难以直接度量时再退而求其次用代理指标。
+`GridSearchCV(..., scoring='roc_auc')` 可指定评分；分类默认 accuracy、回归默认 R²。二分类 ROC-AUC 需要 `decision_function` / `predict_proba` 的连续分数，多分类用 `roc_auc_ovr` / `roc_auc_ovo`。选指标须回到**最终目标**：商业指标最理想，难以度量时再用代理指标。
 
 ::: tip 补充 · 类别不平衡的处理
 - **算法侧**：`class_weight='balanced'`（LogisticRegression、RandomForestClassifier、SVC 等支持），按类别频率倒数加大少数类的错分代价。
 - **数据侧**：随机过采样/欠采样；**SMOTE**（`imblearn.over_sampling.SMOTE`，在少数类近邻间插值合成新样本）——重采样只能作用于**训练折内部**，否则造成泄露。
 - **决策侧**：移动分类阈值（默认 0.5）换取更高召回，沿 PR/ROC 曲线选业务可接受的工作点。
-- **评估侧**：划分用 `train_test_split(..., stratify=y)` 与分层 K 折；看 F1 / PR-AUC 而非 accuracy。
+- **评估侧**：划分用 `train_test_split(..., stratify=y)` 与分层 K 折；看 F1 / PR 曲线 / AP 而非 accuracy。
 :::
 
 ### 5.4 本章两个必须记住的要点（原书强调）
 
 1. 用测试集或交叉验证**选模型 / 选参数**，就「用完了」测试数据；必须保留一份从未参与任何决策的测试集，或改用嵌套交叉验证。
-2. 网格搜索与交叉验证只能作用于**单个监督模型**；现实流程包含预处理等多个步骤，必须引入第 6 章的 `Pipeline`，否则预处理会在交叉验证之外泄露信息。
+2. 网格搜索与交叉验证作用于**单个估计器**；现实流程包含预处理等多个步骤，必须引入第 6 章的 `Pipeline`，否则预处理会在交叉验证之外泄露信息。
 
 ### 5.5 易错点
 
@@ -686,7 +692,7 @@ print(pipe.score(X_test, y_test))
 - 每个步骤是 `(名称, 估计器实例)` 元组；
 - `pipe.fit` 依次对中间步骤调用 `fit` + `transform`，把输出喂给下一步，最后一步仅调用 `fit`；
 - 预测时中间步骤只调用 `transform`，最后一步 `predict`；
-- **除最后一步外，所有步骤都必须有 `transform` 方法**；最后一步只需有 `fit`（因此可以做「只有 scaler + PCA」的纯变换管道，调用 `pipe.transform`）。
+- 监督管道的中间步骤必须有 `transform`，末步需 `fit` + `predict` / `score`；纯变换管道的每一步都需 `fit` + `transform`，才能调用 `pipe.transform`。
 
 ### 6.3 在网格搜索中使用管道（★）
 
@@ -702,7 +708,7 @@ grid.fit(X_train, y_train)
 这样每一折内部都会**重新 fit 缩放器**，彻底消除泄露。
 
 ::: tip 补充 · Pipeline + 分层交叉验证 + 网格调参完整示例
-以下 API 已按当前 scikit-learn 官方文档核对。使用本地内置的乳腺癌数据，无需联网；为避免已弃用的 `LogisticRegression.penalty`，这里保持默认 L2，只搜索 `C`。
+以下 API 已按 scikit-learn 1.9.1 官方文档核对。使用本地内置的乳腺癌数据，无需联网；`LogisticRegression.penalty` 自 1.8 起弃用、计划 1.10 移除，这里保持默认 L2（`l1_ratio=0`），只搜索 `C`。
 
 ```python
 from sklearn.datasets import load_breast_cancer
@@ -772,12 +778,16 @@ print(classification_report(y_test, search.predict(X_test)))
 ### 6.5 同时搜索预处理参数与模型参数
 
 ```python
+from sklearn.linear_model import Ridge
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import PolynomialFeatures, StandardScaler
+
 pipe = make_pipeline(StandardScaler(), PolynomialFeatures(), Ridge())
 param_grid = {'polynomialfeatures__degree': [1, 2, 3],
               'ridge__alpha': [0.001, 0.01, 0.1, 1, 10, 100]}
 ```
 
-- 书中 boston 数据的热图显示：**二次多项式有用，三次比一次、二次都差很多**；
+- 教材用 Boston 数据展示：**二次多项式有用，三次比一次、二次都差很多**；这是该数据上的历史结果，换 California/Diabetes 后须重新搜索与评估；
 - 策略很强，但 `GridSearchCV` 会穷举所有组合，**每加一个参数模型数量指数增长**。
 
 ### 6.6 用网格搜索选择「用哪个模型」
@@ -785,6 +795,8 @@ param_grid = {'polynomialfeatures__degree': [1, 2, 3],
 把模型本身作为管道的一个步骤，并在参数网格里给它赋不同的估计器；不需要某步骤时设为 `None` 跳过：
 
 ```python
+from sklearn.ensemble import RandomForestClassifier
+
 pipe = Pipeline([('preprocessing', StandardScaler()), ('classifier', SVC())])
 param_grid = [
     {'classifier': [SVC()], 'preprocessing': [StandardScaler(), None],
@@ -803,7 +815,7 @@ param_grid = [
 
 ### 6.8 易错点
 
-- 参数名是 `步骤名__参数`（**两个下划线**），写成单下划线或直接用 `C` 会报错或被忽略。
+- 参数名是 `步骤名__参数`（**两个下划线**）；不存在该步骤或参数时 `set_params` 会报 `ValueError`，不会被忽略。
 - `make_pipeline` 自动命名是类名小写，与手写 `Pipeline` 的名称不同，参数网格要相应改。
 - 特征选择、缩放、PCA 等**任何依赖数据的步骤**都必须在管道内；只在管道外做一次 `fit_transform` 就是泄露。
 - 管道最后一步没有 `predict` 也可以（纯变换管道），但中间步骤没有 `transform` 一定不行。
@@ -841,7 +853,7 @@ feature_names = vect.get_feature_names_out()
 - 输出是 **SciPy 稀疏矩阵**——词表动辄数万维，但每篇文档只含几十个非零值。
 - 用 `min_df`（如 `min_df=5`，词至少出现在 5 个文档中）**丢弃稀有词例**，可显著减少特征数、加速训练，往往不损失精度。
 
-> 书中提示：`CountVectorizer` 默认设置不学习任何统计量，所以单独在训练集 fit 后再交叉验证尚可接受；但实际项目**从一开始就应放进 Pipeline**。
+> `CountVectorizer` 会从训练文本学习词表与 `min_df` 筛选结果，若在交叉验证外先 `fit`，验证折信息已进入词表，构成泄露；应从开始就放进 Pipeline。
 
 ### 7.3 停用词
 
@@ -883,7 +895,7 @@ grid = GridSearchCV(pipe, param_grid, cv=5)
 
 - 二元分词能捕捉**上下文**：书中 `worth` 单独出现无判别力，但 `not worth` 是负面、`definitely worth` / `well worth` 是正面。
 - 书中实验：**加二元分词提升明显，三元分词贡献很小**；更长的 n-gram 会让特征数暴涨并带来过拟合，原则上二元数量是一元的平方级。
-- 大多数应用 `min` 应设为 1（单词本身信息量丰富）。
+- `min_df` 常从 1 开始试（保留单词本身的信息量），再按验证集在稀疏度与性能间权衡；它不是固定规则。
 
 ### 7.6 高级分词、词干提取与词形还原
 
@@ -906,7 +918,7 @@ doc_topics = lda.fit_transform(X_tfidf)
 
 - 每个**主题**是词上的分布，每篇文档是主题上的混合；主题**没有内在顺序**，改变主题数会改变所有主题。
 - `learning_method='batch'` 比默认 `online` 慢但结果更好；增大 `max_iter` 也常有收益。
-- 查看每个主题权重最高的词来命名主题；可对 `document_topics` 求和看各主题整体权重。
+- 查看每个主题权重最高的词来命名主题；可对 `doc_topics` 求和看各主题整体权重。
 - **LDA 是随机算法**，改 `random_state` 可能得到完全不同的主题；对无监督结论要**通过查看主题内的具体文档**验证直觉。
 - 注意与**线性判别分析（Linear Discriminant Analysis）** 同名缩写 LDA，两者完全不同。
 - LDA 生成的主题也可作为监督学习的**紧凑特征**，训练样本很少时尤其有用。
@@ -960,7 +972,7 @@ class MyTransformer(BaseEstimator, TransformerMixin):
 ```
 
 - 继承 `BaseEstimator` 获得 `get_params` / `set_params`（网格搜索必需），继承 `TransformerMixin` 获得 `fit_transform`；
-- `fit` 必须**只接受 `X` 和 `y`** 两个参数，且即使是无监督模型也要保留 `y=None`；
+- `fit` 至少要接受 `X`、`y=None`，还可声明 `sample_weight` 等元数据参数；无监督步骤保留 `y=None` 才能兼容管线；
 - 这样自定义步骤就能无缝放进管道，参与交叉验证，避免数据泄露。
 
 ### 8.4 下一步方向
@@ -968,11 +980,11 @@ class MyTransformer(BaseEstimator, TransformerMixin):
 | 方向 | 说明 |
 | --- | --- |
 | **理论** | 统计学习基础（《The Elements of Statistical Learning》等）补足偏差—方差、正则化、优化的理解 |
-| **其他框架** | keras / TensorFlow / theano / lasagna 做深度学习（支持 GPU，可比 CPU 快 10~100 倍）；`xgboost` 做大规模梯度提升；`vw`（vowpal wabbit）适合流数据与超大数据集 |
+| **其他框架** | PyTorch / TensorFlow（Keras）/ JAX 做深度学习，可利用 GPU 加速；`xgboost` / LightGBM 做梯度提升；`vw`（Vowpal Wabbit）适合流式与超大规模学习。书中旧框架名单仅作历史参考 |
 | **其他任务类型** | 排序、推荐系统、时间序列预测等，范式远多于本书的分类/回归/聚类 |
 | **概率建模** | 用概率语言描述问题结构（如融合 GPS、指南针、加速度计做定位），再结合机器学习与概率推断；不要把所有物理先验丢进黑盒 |
 | **更大数据集** | 本书假设数据能放进内存（NumPy 数组或稀疏矩阵）。扩展路径：**核外学习**（分块从磁盘/网络读取、逐块更新模型，仅部分模型支持）或**集群分布式**（Hadoop / Spark MLLib，需复杂基础设施） |
-| **磨练技术** | Kaggle、OpenML（2 万+ 数据集、5 万+ 任务）；但比赛给定了指标与预处理好的数据，别忘了**定义问题与收集数据**才是现实工作中同等重要的能力 |
+| **磨练技术** | Kaggle、OpenML 提供竞赛与公开数据；但比赛给定了指标与预处理好的数据，别忘了**定义问题与收集数据**才是现实工作中同等重要的能力 |
 
 > 全书结语：继续挖掘数据，同时**不要忽视大局**。
 
@@ -991,12 +1003,12 @@ class MyTransformer(BaseEstimator, TransformerMixin):
 | 三接口 | `fit` 学参数、`predict` 出标签、`transform` 换表示；`fit` 会**重置**模型 |
 | 数据划分 | 训练 / 验证 / 测试三分；选模型和调参只能碰验证集，测试集最后用一次 |
 | 缩放铁律 | 只在训练集 `fit`，训练与测试用**同一个** `transform`；测试集可超出 [0,1] |
-| 何时缩放 | k-NN、线性模型、SVM、神经网络、PCA **需要**；树与随机森林**不需要** |
+| 何时缩放 | k-NN、SVM、神经网络、正则化线性模型通常需要；PCA 量纲不同时需要；普通 OLS、树与随机森林通常不需要 |
 | 复杂度方向 | `C` 越大越复杂、`alpha` 越大越简单、`max_depth` 越大越复杂 |
 | 欠拟合信号 | 训练与测试分数**都低且接近**；过拟合是训练高、测试低 |
 | 算法起步 | 先用线性模型 / 朴素贝叶斯 / k-NN 做基线，再上随机森林、梯度提升、SVM、神经网络 |
-| 不平衡数据 | 别只看 accuracy；用 precision / recall / F1、PR 曲线、AUC 与 `classification_report` |
+| 不平衡数据 | 别只看 accuracy；用 precision / recall / F1、PR 曲线/AP、ROC-AUC 与 `classification_report` |
 | 防泄露 | 任何依赖数据的步骤（缩放、特征选择、tf-idf）都放进 `Pipeline`，参数名用 `步骤名__参数` |
-| 树不能外推 | 时间序列/未来预测要把时间拆成周期特征或 one-hot，别直接喂时间戳整数 |
+| 树不能外推 | 未来预测可拆周期特征（sin/cos 或 one-hot）并配趋势特征；超出训练范围仍难外推，优先用时序模型 |
 | 文本主线 | 词袋 → `min_df` 去稀有词 → $tf-idf \to n-gram$ 线性模型看系数；主题用 LDA |
 | 聚类评估 | 不用 accuracy；有标签用 ARI/NMI，无标签用轮廓系数 + 人工检查 |

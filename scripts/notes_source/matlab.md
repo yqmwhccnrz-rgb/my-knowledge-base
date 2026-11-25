@@ -2,7 +2,7 @@
 summary: "14 章 MATLAB 笔记：从矩阵与运算、程序流程控制、绘图，到数据分析、数值积分、方程求解与符号计算，再到句柄图形、GUI、Simulink 与接口；涵盖隐式扩展、string、预分配等实战要点。"
 ---
 
-# Matlab 笔记
+# MATLAB 笔记
 
 ::: info 笔记概要
 - **所属课程**：MATLAB 程序设计与应用
@@ -59,7 +59,7 @@ MATLAB 起源于矩阵运算，现已把**数值计算、符号计算、图形�
 
 ### 1.3 操作界面与搜索路径
 
-R2012b 之后的主窗口主要由以下部分组成：
+R2012b 起的主窗口主要由以下部分组成：
 
 | 窗口 | 作用 |
 | --- | --- |
@@ -160,7 +160,7 @@ ans =
 
 ```matlab
 A = [1,2,3; 4,5,6; 7,8,9]      % 同一行用逗号/空格分隔，不同行用分号
-B = [2+3i, 5; 3-5j, 6j]        % 复数矩阵
+B = [2+3i, 5, 1; 3-5j, 6j, 2; 1, 2, 3]  % 3×3 复数矩阵，保证可与 A 拼接
 C = [A, B; B, A]                % 用小矩阵拼接成大矩阵（要求维度相容）
 R = [1,2,3; 4,5,6]; I = [6,7,8; 9,10,11];
 Z = R + 1i*I                    % 实部矩阵 + 虚部矩阵构成复数矩阵
@@ -346,8 +346,8 @@ funm(A, @fun)    % 一般矩阵函数，@fun 可取 @exp @log @sin @cos @sinh @c
 ```matlab
 A + B             % 同型矩阵对应元素相加（或标量加每个元素）
 A * B             % 矩阵乘：A 的列数必须等于 B 的行数
-A \ B             % 左除：等价于 inv(A)*B，即解 A*X = B
-B / A             % 右除：等价于 B*inv(A)，即解 X*A = B
+A \ B             % 左除：解 A*X=B；不要显式写 inv(A)*B
+B / A             % 右除：解 X*A=B；不要显式写 B*inv(A)
 A ^ 2             % 方阵乘方，等价于 A*A
 ```
 
@@ -813,15 +813,15 @@ end
 
 ```matlab
 % 例：输入若干数，输入 0 结束，求和与平均
-sum = 0; n = 0;
+total = 0; n = 0;                 % 避免覆盖内置 sum / mean
 x = input('Enter a number (end in 0): ');
 while x ~= 0
-    sum = sum + x;
+    total = total + x;
     n = n + 1;
     x = input('Enter a number (end in 0): ');
 end
 if n > 0
-    sum, mean = sum/n
+    fprintf('sum=%g, mean=%g\n', total, total/n);
 end
 ```
 
@@ -831,7 +831,7 @@ end
 % 例：求 [1,500] 内全部完数（一个数等于其真因子之和）
 for m = 1:500
     s = 0;
-    for k = 1:m/2
+    for k = 1:floor(m/2)
         if rem(m,k) == 0
             s = s + k;
         end
@@ -884,11 +884,11 @@ end
 实参的**顺序、个数**要与形参一致。函数可以调用自身（递归）：
 
 ```matlab
-function f = factor(n)
+function f = fact(n)      % 自定义函数避免覆盖内置 factor
 if n <= 1
     f = 1;
 else
-    f = factor(n-1)*n;    % 递归调用
+    f = fact(n-1)*n;      % 递归调用
 end
 end
 ```
@@ -1040,7 +1040,7 @@ subplot(2,1,1); plot(x, sin(x)); title('sin'); grid on
 subplot(2,1,2); plot(x, cos(x)); title('cos'); grid on
 ```
 
-**平铺布局（R2019b+）**：`tiledlayout(m,n)` 创建布局，`nexttile` 返回下一个坐标轴并按顺序激活：
+**平铺布局（R2019b 起）**：`tiledlayout(m,n)` 创建布局，`nexttile` 返回下一个坐标轴并按顺序激活：
 
 ```matlab
 x = linspace(0, 2*pi, 200);
@@ -1137,7 +1137,7 @@ rotate3d on         % 允许鼠标拖动旋转
 colormap(jet)       % 色图：jet / parula(默认) / hsv / hot / cool / gray / bone
 colorbar            % 显示色标
 shading flat / faceted / interp   % 曲面着色方式
-caxis([cmin cmax])  % 色标范围（新版用 clim）
+caxis([cmin cmax])  % 色标范围（R2022a 起推荐用 clim）
 light('Position',[1 0 1]); lighting gouraud; material shiny
 axis([xmin xmax ymin ymax zmin zmax]); axis vis3d
 ```
@@ -1156,7 +1156,7 @@ print(gcf, '-dpdf', '-r300', 'fig.pdf')             % 经打印接口导出
 
 ```matlab
 A = imread('photo.jpg');     % 读入图像（返回 uint8 三维数组：高×宽×通道）
-imshow(A); imwrite(B,'out.png');
+imshow(A); imwrite(A,'out.png');
 image(A); axis image off      % 低层显示
 ```
 
@@ -1461,20 +1461,13 @@ plot(f, P1); xlabel('f (Hz)'); ylabel('|P1|')   % 在 50、120 Hz 处出现峰
 
 ```matlab
 x = A\b               % 首选：反斜杠，内部按 A 的结构自动选算法
-```
-
-
-```matlab
 [L,U] = lu(A);        % LU 分解（A = L*U，带置换时 [L,U,P] = lu(A)）
 R = chol(A);          % Cholesky 分解（A = R'*R，要求对称正定）
 [Q,R] = qr(A);        % QR 分解
-```
 
-```matlab
 A = [1,2,3; 4,5,6; 7,8,0];  b = [1;2;3];
 x = A\b;
-% 验证残差
-norm(A*x - b)
+norm(A*x - b)         % 验证残差，应接近 0
 ```
 
 #### 8.1.2 迭代解法
@@ -1524,7 +1517,7 @@ r = roots([1 0 -2 -5]);
 % 无约束、多变量（单纯形法，无需梯度）
 [x, fval] = fminsearch(@(x) (x(1)-1)^2 + (x(2)-2)^2, [0;0])
 
-% 无约束、多变量（梯度法，需 Optimization Toolbox）
+% 无约束、多变量（拟牛顿法，无需显式梯度；需 Optimization Toolbox）
 [x, fval] = fminunc(@(x) x(1)^2 + x(2)^2, [1;1])
 
 % 线性规划：min f'*x  s.t. A*x<=b, Aeq*x=beq, lb<=x<=ub
@@ -1532,7 +1525,7 @@ r = roots([1 0 -2 -5]);
 ```
 
 ```matlab
-options = optimset('Display','iter','TolX',1e-8);   % 原书写法
+options = optimoptions('fminbnd','Display','iter','TolX',1e-8); % 现代写法
 [x,fval] = fminbnd(f,0,5,options);
 ```
 
@@ -1599,7 +1592,7 @@ S = sym('a*x^2 + b*x + c');
 ```
 
 ::: danger 易错点 · sym(1/3) 与 sym('1/3')
-`sym(1/3)` 先把 1/3 算成 double（$0.3333 \cdots$）再转符号，会得到近似有理数；要精确值应写 `sym('1/3')` 或 `sym(1)/3`。同理 `sym(pi)` 与 `sym('pi')` 不同。
+`sym(1/3)` 先把 1/3 算成 double（$0.3333 \cdots$）再转符号，会得到近似有理数；要精确值应写 `sym('1/3')` 或 `sym(1)/3`。`sym(pi)` 与 `sym('pi')` 都可表示符号常量 π；一般浮点输入仍需注意近似值。
 :::
 
 ```matlab
@@ -1698,7 +1691,7 @@ dsolve(diff(y,x) == y, y(0) == 1)  % → exp(x)
 
 MATLAB 的图形对象构成一棵**层次树**：
 
-```
+```text
 Root（根，屏幕）
  └─ Figure（图形窗口）
      └─ Axes（坐标轴）
@@ -1771,7 +1764,7 @@ camlight headlight
 
 ## 第11章 MATLAB 图形用户界面设计
 
-原书介绍两条路线：**用 `uicontrol` / `uimenu` 以代码方式搭界面**，以及用 **GUIDE** 可视化设计。
+原书介绍两条路线：**用 `uicontrol` / `uimenu` 以代码方式搭界面**，以及用 **GUIDE** 可视化设计。现代版本优先用 **App Designer**（`appdesigner`）或 `uifigure` + UI 组件；GUIDE 仅用于维护旧项目（见附录 B.1）。
 
 ### 11.1 对话框设计（控件）
 
@@ -1796,7 +1789,7 @@ end
 
 ```matlab
 f = figure;
-m = uimenu(f, 'Text','文件');          % 新版属性 Text（旧版 Label）
+m = uimenu(f, 'Text','文件');          % 推荐属性 Text（旧版 Label）
 uimenu(m, 'Text','打开', 'Callback',@openfile);
 cm = uicontextmenu;                     % 快捷（右键）菜单
 ```
@@ -1804,9 +1797,17 @@ cm = uicontextmenu;                     % 快捷（右键）菜单
 
 ### 11.3 可视化 GUI 设计
 
+App Designer 适合拖放控件、布局并自动生成回调；程序化创建则用 `uifigure` 和 `uibutton` / `uiaxes` 等组件：
 
+```matlab
+fig = uifigure('Name','演示');
+ax = uiaxes(fig, 'Position',[20 80 300 200]);
+btn = uibutton(fig, 'Text','绘制', 'Position',[20 20 100 30], ...
+    'ButtonPushedFcn', @(src,event) plot(ax, 0:0.1:2*pi, sin(0:0.1:2*pi)));
+```
 
 ---
+
 
 ## 第12章 MATLAB Simulink 系统仿真
 
@@ -1877,13 +1878,20 @@ S 函数（System Function）用 MATLAB / C / C++ 编写自定义模块，按 `�
 #### 13.2.1 文件操作
 
 ```matlab
-fid = fopen('data.txt', 'r');       % 'r'读 'w'写 'a'追加
+[fid, msg] = fopen('data.txt', 'r');   % 'r'读 'w'写 'a'追加
+if fid < 0
+    error('打开失败: %s', msg);
+end
 A = fscanf(fid, '%f', [3 inf]);
-fprintf(fid, '%8.4f\n', x);
 fclose(fid);
 
-[fid, msg] = fopen('data.txt','r');
-if fid < 0, error('打开失败: %s', msg); end
+[fid, msg] = fopen('out.txt', 'w');   % 写文件必须用可写模式
+if fid < 0
+    error('打开失败: %s', msg);
+end
+x = 3.14159;                       % 待写数据
+fprintf(fid, '%8.4f\n', x);
+if fclose(fid) ~= 0, error('关闭失败'); end
 ```
 
 低级函数：`fread` / `fwrite`（二进制）、`fgetl` / `fgets`（按行）、`feof`、`frewind`、`fseek`、`ftell`。高层读写推荐 `readtable` / `writetable`（表格）与 `readmatrix` / `writematrix`（数值矩阵），见附录 B.1。
@@ -1950,9 +1958,10 @@ function koch(p1, p2, n)
         koch(p1, a, n-1); koch(a, c, n-1);
         koch(c, b, n-1);  koch(b, p2, n-1);
     end
-    axis equal; axis off
 end
 ```
+
+保存为 `koch.m` 后调用：`koch([0 0], [1 0], 5); axis equal; axis off`。
 
 ::: danger 易错点 · 递归要有终止条件
 递归函数**必须有 `n == 0` 之类的基线分支**，否则无限递归直到栈溢出。科赫曲线层数 n=5 时线段数是 $4^{5}=1024$，n 再大绘制会明显变慢。
