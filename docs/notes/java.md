@@ -6,8 +6,8 @@ summary: "Java 程序设计 详细笔记，全书 12 章 + 8 个进阶专题，�
 
 ::: info 笔记概要
 - **所属课程**：Java 程序设计（计算机类 / 软件工程等专业核心基础课，及软件开发方向通用语言课）。
-- **核心内容**：Java 以"一次编写、到处运行"的 JVM 平台 + 庞大类库著称。笔记按"语言基础 → 面向对象（类/继承/接口/泛型）→ 核心类库（集合/异常/IO/并发）→ 图形界面"主线展开，覆盖第 1–12 章；并在文末补充教材相对单薄、但工程必备的进阶主题（JVM 内存与 GC、枚举/注解、java.time、Stream、NIO.2、对象契约）。
-- **学习建议**：Java 是"强类型 + 面向对象 + 自动内存管理"的语言，学习要抓住三条线——① 语法（类型/运算符/控制流/字符串）是否熟练；② 面向对象三要素（封装/继承/多态）与接口、泛型如何落地；③ 类库（集合、异常、并发、IO）的 API 与适用场景。
+- **核心内容**：Java 以"一次编写、到处运行"的 JVM 平台 + 庞大类库著称。笔记按"语言基础 → 面向对象（类/继承/接口/泛型）→ 核心类库（集合/异常/I/O/并发）→ 图形界面"主线展开，覆盖第 1–12 章；并在文末补充教材相对单薄、但工程必备的进阶主题（JVM 内存与 GC、枚举/注解、java.time、Stream、NIO.2、对象契约）。
+- **学习建议**：Java 是"强类型 + 面向对象 + 自动内存管理"的语言，学习要抓住三条线——① 语法（类型/运算符/控制流/字符串）是否熟练；② 面向对象三要素（封装/继承/多态）与接口、泛型如何落地；③ 类库（集合、异常、并发、I/O）的 API 与适用场景。
 :::
 
 ## 全书目录
@@ -67,6 +67,8 @@ Java 去除了 C++ 中易错、少用的特性：无指针运算、无头文件�
 跨平台的不是 JVM 本身，而是**字节码**：同一份 `.class` 可以在 Windows / macOS / Linux 各自的 JVM 上运行，但每个平台的 JVM 实现是不同的本地程序。另外 `javac` 编译产物是**字节码而非机器码**，所以 Java 属于"编译 + 解释 + JIT 混合"执行：热点代码会被 JIT 编译成本地机器码缓存复用（Code Cache）。
 :::
 
+> **跨科提示**：字节码最终由 [组成原理](/notes/coa.html) 的 ISA/CPU 执行，JIT Code Cache 不等于硬件 Cache；GC 停顿表现为 [操作系统](/notes/os.html) 的线程暂停。
+
 ### 1.5 白皮书 11 个术语逐条速查（★★）
 
 | 术语 | 含义 | 具体体现 |
@@ -125,7 +127,7 @@ JVM 运行时数据区（方法区存类元数据、堆存对象、栈存栈帧�
 操作系统 / CPU 执行
 ```
 
-- **双亲委派模型**：自定义加载器 → $Application \to Platform$，收到加载请求先委托父加载器，父加载不了才自己尝试。作用是**保证 `java.lang.*` 等核心类不被用户同名类冒名替换**。`Class.forName`、`ClassLoader.loadClass` 会触发加载（是否初始化取决于参数）。
+- **双亲委派模型**：自定义加载器 → Application → Platform → Bootstrap（逐级向上委托），父加载不了才由当前加载器自己尝试。作用是**保证 `java.lang.*` 等核心类不被用户同名类冒名替换**。`Class.forName`、`ClassLoader.loadClass` 会触发加载（是否初始化取决于参数）。
 - **打破双亲委派的场景**（高频）：① JDBC/JNDI 等 SPI 用**线程上下文类加载器**让父加载器"借用"子加载器加载厂商驱动实现；② Tomcat 每个应用独立 `WebAppClassLoader`、**优先自己加载**以隔离不同版本的同名类；③ OSGi 热插拔的网状加载。打破一般通过重写 `loadClass` 实现。
 - 常用命令：`javac -encoding UTF-8 -d out src/*.java`（编译到 out）、`java -cp out com.example.Main`（按类路径运行）、`javap -c -p Main`（反汇编字节码，理解 `i++`/装箱/桥方法时极有用）、`jar tf app.jar`（列出归档内容）。
 
@@ -193,6 +195,8 @@ System.out.println(s1.equals(s3)); // true  —— equals 比较内容
 字面量 `""` 在编译期入池，运行时相同字面量复用同一对象（`s1==s2` 为 true）。`new String("abc")` 一定在堆上新建对象，可用 `s3.intern()` 尝试入池并返回池中引用。
 :::
 
+> **跨科提示**：Java `String` 用 UTF-16 码元，网络/文件常用 UTF-8 字节；编码转换不同于 [组成原理](/notes/coa.html) 的大小端，见 [计算机网络](/notes/network.html)。
+
 ### 3.5 输入与输出（★★）
 ```java
 Scanner in = new Scanner(System.in);
@@ -233,13 +237,15 @@ for (int x : a) System.out.println(x);
 | `byte` | 8 | 0 | `Byte` | `(byte) 127` | $- 128 \sim 127$ |
 | `short` | 16 | 0 | `Short` | `(short) 32767` | $- 32768 \sim 32767$ |
 | `int` | 32 | 0 | `Integer` | `123`、`0b1010`、`0xFF`、`1_000_000` | $-2^{31} \sim 2^{31}-1$ |
-| `long` | 64 | 0L | `Long` | `123L` | $\pm 2^{63}$ |
+| `long` | 64 | 0L | `Long` | `123L` | $-2^{63} \sim 2^{63}-1$ |
 | `float` | 32 | 0.0f | `Float` | `3.14F` | 约 6~7 位有效数字 |
 | `double` | 64 | 0.0 | `Double` | `3.14`、`1e-3` | 约 15 位有效数字（默认） |
 | `char` | 16 | `\u0000` | `Character` | `'A'`、`'\u4e2d'` | UTF-16 码元，可当无符号整数参与运算 |
 | `boolean` | — | false | `Boolean` | `true` / `false` | **不能与整数互转** |
 
 > 局部变量**没有默认值**，未初始化就使用会编译报错；只有字段（实例/静态）和数组元素才有上表默认值。JDK 10+ 可用 `var x = 1;` 由编译器推断局部变量类型，但 `var` 不能用于字段、方法参数、返回值，也不能 `var x = null;`。
+
+> **跨科提示**：Java 类型宽度由语言固定（`long` 64 位），不同于 [组成原理](/notes/coa.html) 中 C 类型随实现变化；网络多字节字段另须统一字节序，见 [计算机网络](/notes/network.html)。
 
 #### 3.8.2 数值转换与表达式类型提升
 
@@ -975,6 +981,8 @@ static final int hash(Object key) {
 作为键的类必须**同时正确重写 `equals` 和 `hashCode`**，且参与比较的字段在对象放入 Map 后**不可再修改**，否则 `get` 时会定位到另一个桶 ——「存进去却找不到自己」。`HashMap` 完全非线程安全，并发写用 `ConcurrentHashMap`（JDK 8 起桶级 `synchronized` + CAS，不再使用分段锁）。
 :::
 
+> **跨科提示**：`HashMap` 的 O(1) 是均摊假设，依赖 `equals/hashCode` 与低冲突；树化/桶链见 [数据结构](/notes/datastructure.html)，数据库范围查询应选 B+树，见 [数据库](/notes/database.html)。
+
 ### 9.6 fail-fast 与视图（★★★）
 
 ```java
@@ -1067,7 +1075,7 @@ SwingUtilities.invokeLater(() -> {
 ```
 
 ::: danger 易错 · Swing 线程规则
-所有对 Swing 组件的访问都要在 EDT 上进行；耗时任务（网络、IO、大计算）绝不能放在 `ActionListener` 里同步执行，否则界面**冻结**。正确做法是用 `SwingWorker`（`doInBackground` 做后台、`done` 回 EDT 更新 UI）或线程池 + `invokeLater` 回投结果。
+所有对 Swing 组件的访问都要在 EDT 上进行；耗时任务（网络、I/O、大计算）绝不能放在 `ActionListener` 里同步执行，否则界面**冻结**。正确做法是用 `SwingWorker`（`doInBackground` 做后台、`done` 回 EDT 更新 UI）或线程池 + `invokeLater` 回投结果。
 :::
 
 ---
@@ -1252,6 +1260,8 @@ Runnable r2 = () -> { synchronized (lockB) { synchronized (lockA) { } } };
 `ReentrantLock`、`Semaphore`、`CountDownLatch` 的底层都是 AQS：内部一个 `volatile int state`（锁=重入次数、信号量=剩余许可、latch=计数）+ **CLH 变体的 FIFO 双向等待队列**。抢不到 `state` 的线程被封装成 Node 入队并 `park`，释放时按序 `unpark` 后继。分**独占模式**（ReentrantLock）与**共享模式**（Semaphore/CountDownLatch）；`Condition` 靠"每个条件一个条件队列，signal 时把节点转回同步队列"实现。公平锁与非公平锁只差一步：抢锁前是否先检查队列中有没有前驱在排队。
 :::
 
+> **跨科提示**：`synchronized` 是管程锁，AQS 的 CLH 队列对应 [操作系统](/notes/os.html) 的阻塞等待；数据库 S/X 锁跨事务保持，不能把 Java 临界区当事务。见 [数据库](/notes/database.html)。
+
 ```java
 // 双重检查锁定（DCL）单例：instance 必须 volatile，防止「分配内存→初始化→赋引用」重排序
 class Singleton {
@@ -1324,6 +1334,8 @@ synchronized (queue) {
 - `execute()` 抛出的异常会直接到未捕获异常处理器；`submit()` 把任务异常封装进 `Future`，调用 `get()` 时抛 `ExecutionException`（取消则抛 `CancellationException`）——不检查结果就不会暴露任务失败。
 - `Future.get()` 会阻塞；`CompletableFuture` 支持 `thenApply` / `thenCompose` / `allOf` / `exceptionally` 组合异步，并可指定自定义线程池避免共用 `ForkJoinPool.commonPool()`。
 :::
+
+> **跨科提示**：有界线程池的拒绝/反压对应 [计算机网络](/notes/network.html) 的 `rwnd/cwnd` 限速与 [操作系统](/notes/os.html) 的阻塞唤醒；连接池还受数据库连接数约束，见 [数据库](/notes/database.html)。
 
 ::: tip 完整场景 · 线程池饱和与 CallerRunsPolicy 反压
 目标：核心 2 线程、有界队列容量 2，构造确定性的“线程满 + 队列满”，观察第 5 个任务回到调用线程执行。
@@ -1480,6 +1492,8 @@ HotSpot 等分代收集器通常在 **Eden 区**为新对象分配内存；具�
 - **TLAB（Thread Local Allocation Buffer，线程本地分配缓冲）**：在 Eden 中为线程预留私有缓冲，线程内快速分配只需移动指针；缓冲用尽后走慢路径申请新 TLAB，并可能触发 GC。缓冲大小与补充策略因收集器而异。
 - **逃逸分析**：JIT 证明对象不逃逸出方法/线程时，可做**标量替换**，把对象字段拆成局部变量，减少甚至消除堆分配；这是优化而非 Java 语言保证，不能依赖“对象一定在栈上”或“一定不分配”。
 
+> **跨科提示**：Java GC 管堆对象，OS 管虚拟页；二者停顿与回收单位不同，分配局部性/Cache 行/伪共享的性能链路见 [操作系统](/notes/os.html)、[组成原理](/notes/coa.html)。
+
 ### 13.2 枚举与注解（★★）
 ```java
 enum Size { SMALL, MEDIUM, LARGE }          // 枚举是类，可加字段/方法
@@ -1627,7 +1641,7 @@ int sum = orders.parallelStream().reduce(0, (acc, o) -> acc + o.amount(), Intege
 ::: danger 易错 · Stream
 - **只能消费一次**：终止操作后再用同一 Stream 会抛 `IllegalStateException`；要复用请重新 `list.stream()`，或用 `Supplier<Stream<T>>`。
 - 中间操作**无副作用**：不要在 `filter`/`map` 里修改外部集合或累加计数器（并行流会出错），归约请用 `reduce`/`collect`；`peek` 只用于调试。
-- `parallelStream()` 默认共用 `ForkJoinPool.commonPool()`，IO 密集任务别用它；有状态/有序操作（`sorted`、`limit`）会削弱并行收益，小数据量反而更慢。
+- `parallelStream()` 默认共用 `ForkJoinPool.commonPool()`，I/O 密集任务别用它；有状态/有序操作（`sorted`、`limit`）会削弱并行收益，小数据量反而更慢。
 - `List.of(...)`、数组、`Files.lines(...)`、`Stream.iterate`、`Stream.generate` 都能作为数据源；`Files.lines` 返回的流持有文件句柄，**必须 try-with-resources 关闭**。
 - `Optional` 用于表达"可能无结果"，优先 `orElse`/`orElseGet`/`orElseThrow`/`map`，不要无脑 `get()`。
 :::
@@ -1668,8 +1682,9 @@ try (Stream<Path> paths = Files.walk(dir)) {        // walk 返回的流持有�
     long total = paths.filter(Files::isRegularFile)
                       .filter(p -> p.toString().endsWith(".java"))
                       .mapToLong(p -> {
-                          try { return Files.lines(p, StandardCharsets.UTF_8).count(); }
-                          catch (IOException e) { return 0L; }
+                          try (Stream<String> lines = Files.lines(p, StandardCharsets.UTF_8)) {
+                              return lines.count();
+                          } catch (IOException e) { return 0L; }
                       }).sum();
     System.out.println("Java 文件总行数：" + total);
 }
@@ -1706,7 +1721,7 @@ try (ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(Path.
 | `Channel`（`FileChannel`/`SocketChannel`/`ServerSocketChannel`） | **双向**通道，读写都必须经过 Buffer |
 | `Selector` | **单线程轮询多个 Channel 的就绪事件**（可连接/可读/可写），Linux 底层为 `epoll` |
 
-- 与传统 IO 对比：IO **面向流、阻塞、一连接一线程**；NIO **面向缓冲区、非阻塞、一线程管多连接**。
+- 与传统 I/O 对比：I/O **面向流、阻塞、一连接一线程**；NIO **面向缓冲区、非阻塞、一线程管多连接**。
 - **Reactor 模型**：`Selector.select()` 返回就绪 Channel 集合，按事件类型（ACCEPT/READ/WRITE）分派给 handler；Netty、Redis、Nginx 均基于此。
 
 ```java
@@ -1719,6 +1734,8 @@ try (FileChannel ch = FileChannel.open(Path.of("a.txt"), StandardOpenOption.READ
     }
 }
 ```
+
+> **跨科提示**：Linux `epoll` 提供就绪通知而非协议；`accept/recv` 的阻塞唤醒衔接 [操作系统](/notes/os.html)，Java `Selector`/Reactor 衔接 [计算机网络](/notes/network.html) 的并发服务器。
 
 ### 13.6 equals 与 hashCode 契约精解（★★★）
 
@@ -1808,7 +1825,7 @@ if (obj instanceof String s && s.length() > 3) {          // Java 16+ 模式匹�
 sealed interface Shape permits Circle, Square {}         // Java 17+ 限制可实现的子类
 ```
 
-> 版本选择：生产环境优先 LTS（8 / 11 / 17 / 21 / 25），升级前注意 `--release` 编译目标、第三方库兼容性与 GC 变化。虚拟线程适合**IO 密集**高并发（不是 CPU 密集），由 JVM 调度到载体线程，阻塞操作通常会自动卸载；早期 JDK 的 `synchronized` 可能钉住载体线程，应避免长临界区并核对目标 JDK 的行为。
+> 版本选择：生产环境优先 LTS（8 / 11 / 17 / 21 / 25），升级前注意 `--release` 编译目标、第三方库兼容性与 GC 变化。虚拟线程适合**I/O 密集**高并发（不是 CPU 密集），由 JVM 调度到载体线程，阻塞操作通常会自动卸载；早期 JDK 的 `synchronized` 可能钉住载体线程，应避免长临界区并核对目标 JDK 的行为。
 
 ### 13.8 工程常用类库与工具（★★）
 
@@ -1899,7 +1916,7 @@ class CalculatorTest {
 21. `stop()/suspend()` 已废弃；死锁靠固定加锁顺序避免。
 22. `Stream` 只能消费一次；并行流注意线程安全。
 23. 旧 `Date`/`Calendar` 线程不安全，改用 `java.time`。
-24. `Files.readAllLines` 等 NIO.2 API 更现代；IO 资源务必关闭。
+24. `Files.readAllLines` 等 NIO.2 API 更现代；I/O 资源务必关闭。
 25. 一个 `.java` 最多一个 public 类，文件名须匹配；`main` 必须 `public static void main(String[] args)`。
 26. `List.of/Set.of/Map.of` 返回**完全不可变**集合，`sort/add/remove` 抛 `UnsupportedOperationException`；`Arrays.asList` 只是固定大小（`set` 可、`add` 不可）。
 27. 构造器里调用可覆盖方法，会在子类字段初始化之前执行，可能读到 0/null。

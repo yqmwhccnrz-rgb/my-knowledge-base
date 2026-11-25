@@ -687,6 +687,8 @@ EXPLAIN SELECT * FROM Student WHERE Sdept='CS';
 **索引不是越多越好**：每个索引都要占用磁盘、在 `INSERT/UPDATE/DELETE` 时维护 B+树、并参与优化器代价估算；高频写入表应克制建索引，优先给「高选择性 + 高频 WHERE/ORDER BY/JOIN 列」建。
 :::
 
+> **跨科提示**：B+树节点/页衔接 [操作系统](/notes/os.html) 的磁盘块与 Buffer Pool 页缓存；`O(log n)` 按页访问计，真实耗时还取决于 [组成原理](/notes/coa.html) 的 Cache/AMAT。
+
 ::: danger 易错 · 索引
 - 主键自动建聚簇索引；没有显式主键时 InnoDB 选第一个非空唯一索引，再没有就生成隐藏 `rowid`。
 - 二级索引存的是**主键值**而非行指针，所以主键宜短且单调（长主键会让所有二级索引变大）。
@@ -694,6 +696,8 @@ EXPLAIN SELECT * FROM Student WHERE Sdept='CS';
 - `NULL` 值也可以被索引；但低选择性列（如性别）建单列索引通常无用（优化器宁可全表扫描）。
 - 视图是**虚表**，索引是**实结构**；不能对普通视图建索引（物化视图除外，MySQL 不原生支持）。
 :::
+
+> **跨科提示**：HASH 索引只擅长等值；Java `equals/hashCode` 契约见 [Java](/notes/java.html)，冲突/装载因子/ASL 的理论假设见 [数据结构](/notes/datastructure.html)，不要跨场景套用 O(1)。
 
 ### 7.3 索引选择与执行计划诊断
 
@@ -805,6 +809,8 @@ COMMIT;              -- 或 ROLLBACK（全部回滚）
 上表是考研与面试的标准答案：**A↔ undo、D↔ redo、I↔ 锁/MVCC、C↔ 最终结果**。另外 MySQL 默认 `autocommit=1`，单条 DML 自动成为一个事务；显式事务需 `START TRANSACTION` 或 `SET autocommit=0`。
 :::
 
+> **跨科提示**：ACID 的 A/I/D 衔接 [操作系统](/notes/os.html) 的原子原语、并发控制与稳定存储；事务比一次加锁临界区多提交、回滚和崩溃恢复语义。
+
 ### 9.2 四类并发异常与四种隔离级别（★★★）
 
 并发若不加以控制，会产生四类经典不一致：
@@ -872,6 +878,8 @@ InnoDB 每行有隐藏列 `DB_TRX_ID`（最后修改事务 ID）、`DB_ROLL_PTR`
 - 快照读（普通 SELECT）走 MVCC 不加锁；当前读（`SELECT … FOR UPDATE` / `LOCK IN SHARE MODE` / `UPDATE` / `DELETE`）走锁与 Next-Key Lock。
 :::
 
+> **跨科提示**：2PL（两阶段加锁）≠ 2PC（两阶段提交）；S/X 锁与 [操作系统](/notes/os.html) 死锁、[Java](/notes/java.html) 监视器锁都需检测/规约，但持有范围不同。
+
 ### 9.4 事务调度可串行化判定（优先图）
 
 **题**：两个事务（A、B 为数据项）
@@ -895,6 +903,8 @@ $$
 - **时间戳排序**：每个事务分配全局递增时间戳 TS(T)，冲突时按 TS 决定谁先谁后（TS 小的先执行），TS 大的事务被拒绝则**回滚并重新盖章**，天然无死锁但可能反复重启。
 - **乐观并发控制（OCC）**：读-校验-写三阶段，先不加锁地做，提交前校验读集是否被他人改过，冲突则回滚重试；适合**读多写少、冲突率低**的场景（应用层版本号乐观锁即其简化版）。
 :::
+
+> **跨科提示**：单机事务靠锁/MVCC；跨节点原子提交需在 [计算机网络](/notes/network.html) 上运行 2PC，TCP 不保证共同提交，协调者超时须有恢复/查询决策。
 
 ---
 
@@ -940,13 +950,15 @@ mysqlbinlog --stop-datetime="2026-11-13 14:29:59" mysql-bin.000003 | mysql -u ro
 
 $$
 \begin{aligned}
-&\text{一条} \; \text{UPDATE} \; \text{的日志协作（两阶段提交} \; \text{2PC} \; \text{）：} \\
+&\text{一条} \; \text{UPDATE} \; \text{的日志协作（redo/binlog 内部两阶段提交）：} \\
 &\text{(1)} \; \text{记录} \; \text{undo} \; \text{（保存旧值）} \; \text{(2)} \; \text{修改内存中的} \; \text{Buffer Pool} \; \text{页} \\
 &\text{(3)} \; \text{写} \; redo \log \; \text{（} \; \text{prepare} \; \text{状态）} \; \text{(4)} \; \text{写} \; \text{binlog} \\
 &(5) redo \log \; \text{改写成} \; \text{commit}
 \end{aligned}
 $$
-**为什么要两阶段提交**：binlog 与 redo 分属两层，若「redo 已提交但 binlog 没写」→ 主库有数据、从库没有；反之从库多数据。2PC 以 binlog 是否完整写入作为最终提交依据，保证**主库与从库一致**。崩溃恢复时：redo 为 prepare 且 binlog 完整 → 提交；redo 为 prepare 但 binlog 不完整 → 回滚。
+**为什么要内部两阶段提交**：binlog 与 redo 分属两层，需避免崩溃恢复时二者对提交状态产生矛盾。内部协议以 binlog 是否完整写入作为最终依据：redo 为 prepare 且 binlog 完整 → 提交；redo 为 prepare 但 binlog 不完整 → 回滚。它不保证异步从库实时追平；这与跨节点分布式 2PC 不是同一协议。
+
+> **跨科提示**：此处是 redo/binlog 的内部两阶段提交，不是分布式 2PC；`fsync`/稳定存储衔接 [操作系统](/notes/os.html)，异步主从仍可能延迟。
 
 ::: tip 三类故障与恢复策略（经典考点）
 | 故障 | 例子 | 恢复方法 |
@@ -1535,6 +1547,8 @@ except Exception:
 生产代码的关键不在「能不能连上」，而在：① 一律参数化；② 用连接池且正确归还；③ 显式事务、及时提交；④ 处理死锁/超时重试；⑤ 应用账号最小权限。这些同时也是面试高频考点。
 :::
 
+> **跨科提示**：连接池复用 [计算机网络](/notes/network.html) 的 TCP 连接，线程池执行 [Java](/notes/java.html) 任务；二者应有界反压，数据库锁等待会使线程进入 [操作系统](/notes/os.html) 阻塞态。
+
 ---
 
 ## 综合例题精讲（跨章）
@@ -1652,7 +1666,7 @@ $$
 ④ 校验数据一致性后，导出 orders 表并回灌生产库
 ⑤ 复盘：加权限管控（应用账号不应有 DROP）、开启延迟从库、定期演练恢复
 ```
-**RPO / RTO**：本方案 RPO ≈ 0（binlog 完整时可精确到误操作前一刻），RTO 取决于全量备份体积与 binlog 回放时长。注意 **TRUNCATE/DROP 是 DDL、隐式提交，无法用回滚或 undo 撤销**。
+**RPO / RTO**：相关 binlog 均已持久化（如 `sync_binlog=1`）时本方案 RPO ≈ 0，可恢复到误操作前一刻；RTO 取决于全量备份体积与 binlog 回放时长。注意 **TRUNCATE/DROP 是 DDL、隐式提交，无法用回滚或 undo 撤销**。
 
 ### 综 8 · 服务端编程与防注入综合（第 8、15、16、17 章）
 
@@ -1755,7 +1769,7 @@ finally:
 | 35 | 还原 | `mysql -u root -p db < db.sql`；`SOURCE /path/db.sql;` |
 | 36 | PITR | `mysqlbinlog --start-datetime=… --stop-datetime=… mysql-bin.00000N \| mysql -u root -p` |
 | 37 | 日志分工 | binlog（Server/逻辑，复制+PITR）、redo（InnoDB/物理，崩溃恢复）、undo（回滚+MVCC） |
-| 38 | 两阶段提交 | redo prepare → 写 binlog → redo commit；崩溃时按 binlog 是否完整决定提交或回滚 |
+| 38 | redo/binlog 内部两阶段提交 | redo prepare → 写 binlog → redo commit；崩溃时按 binlog 是否完整决定提交或回滚（非分布式 2PC） |
 | 39 | 函数依赖 | $X \to Y$；完全 $X \to f Y$、部分 $X \to p Y$、传递 $X \to t Z$ |
 | 40 | Armstrong | A1 自反律、A2 增广律、A3 传递律；推论：合并/分解/伪传递 |
 | 41 | 闭包 | $X^{+}$ 反复并入满足 $A⊆X^{+}$ 的 $A \to B$ 中的 B；$X^{+}=U$ ⇒ X 为超码 |
@@ -1854,7 +1868,7 @@ finally:
 
 70. binlog 是 Server 层逻辑日志（复制/PITR），redo 是 InnoDB 层物理日志（崩溃恢复）。
 71. undo log 同时服务于事务回滚与 MVCC 版本链；MyISAM 没有 redo/undo。
-72. 两阶段提交以 binlog 是否完整决定崩溃后提交或回滚，保证主从一致。
+72. redo/binlog 内部两阶段提交按 binlog 是否完整决定崩溃后提交或回滚；异步从库仍可能有复制延迟。
 73. `TRUNCATE/DROP` 是 DDL、隐式提交，误删只能靠备份 + binlog 恢复。
 74. 主从复制**不是备份**（误删会同步到从库），仍需独立备份与恢复演练。
 75. RPO 看备份频率 + binlog，RTO 看备份体积与回放速度；有备份不等于能恢复。

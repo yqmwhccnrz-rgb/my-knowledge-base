@@ -18,8 +18,8 @@ function readTitle(file) {
 
 function noteLinks() {
   if (!fs.existsSync(notesDir)) return []
-  // 导读排最前，其余按文件名顺序；「原件下载」页已移除，不进导航
-  const rank = (f) => (f === 'welcome.md' ? 0 : 1)
+  // 导读排最前，学习地图第二，其余按文件名顺序；「原件下载」页已移除，不进导航
+  const rank = (f) => (f === 'welcome.md' ? 0 : f === 'study-map.md' ? 1 : 2)
   return fs.readdirSync(notesDir)
     .filter((f) => f.endsWith('.md') && f !== 'library.md')
     .sort((a, b) => rank(a) - rank(b) || a.localeCompare(b))
@@ -62,7 +62,7 @@ function featureCards() {
   const files = fs.readdirSync(notesDir)
     .filter((f) => f.endsWith('.md') && f !== 'library.md')
     .sort((a, b) => {
-      const rank = (x) => (x === 'welcome.md' ? 0 : 1)
+      const rank = (x) => (x === 'welcome.md' ? 0 : x === 'study-map.md' ? 1 : 2)
       return rank(a) - rank(b) || a.localeCompare(b)
     })
   return files.map((f) => ({
@@ -75,7 +75,7 @@ function featureCards() {
 
 // 每页独立的 description，避免全站共用一句站点描述（利于搜索结果与分享卡片）
 const PAGE_DESCRIPTIONS = {
-  'index.md': '个人知识库：24 门课程精要笔记、4220 道习题、四六级英语阅读、75 段英语听力与 200 题听写训练，能读、能查、能练。',
+  'index.md': '个人知识库：25 门课程精要笔记与跨科学习地图、4220 道习题、四六级英语阅读、75 段英语听力与 200 题听写训练，能读、能查、能练。',
   'quiz.md': '按 25 门科目随机抽题，覆盖单选、多选、判断、填空、程序设计与计算分析题，提交后即时判分并查看解析。',
   'listening.md': '75 段英语听力真题，按章节与分段筛选，支持逐句高亮对照英文原文与中文翻译。',
   'dictation.md': '200 个听写片段，盲听打字后逐词比对，可逐题查看英文原文与中文翻译。',
@@ -200,6 +200,7 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: '笔记', link: notes[0]?.link ?? '/' },
+      { text: '学习地图', link: '/notes/study-map.html' },
       { text: '习题测试', link: '/quiz.html' },
       { text: '英语练习', link: '/reading.html' },
       { text: '听力训练', link: '/dictation.html' }

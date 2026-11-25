@@ -11,6 +11,15 @@ summary: "14 章 MATLAB 笔记：从矩阵与运算、程序流程控制、绘�
 - **关键词**：矩阵、点运算、冒号表达式、M 文件、函数文件、plot、polyfit、integral、ode45、syms、句柄
 :::
 
+**跨科提示**
+
+| 科目 | 衔接要点 |
+| --- | --- |
+| [C 语言](/notes/welcome.html) | MEX 桥接；C 行优先/0 基 vs MATLAB 列优先/1 基。 |
+| [Python 数据分析](/notes/python.html) | `dim` 对应 `axis`；MATLAB 冒号含右端，NumPy 切片不含。 |
+| [数据挖掘](/notes/datamining.html) | `std` 默认 n−1，NumPy 默认 n；描述统计后接推断/建模。 |
+| [机器学习理论](/notes/mltheory.html) | `A\b` 对应正规方程，`fminunc/fmincon` 对应梯度与约束优化。 |
+| [Python 机器学习](/notes/ml.html) | 统计工具箱的拟合—变换—评估对应 Pipeline。 |
 
 ## 全书目录
 
@@ -1182,7 +1191,7 @@ movie(F, 2, 30)              % 播放 2 遍，每秒 30 帧
 ### 6.1 数据统计分析
 
 ::: danger 最重要的规则 · 默认按列
-MATLAB 的统计函数默认对矩阵的**每一列**分别计算（$\dim=1$），返回一个行向量；要对**每一行**计算，须显式给 $\dim=2$。这与 numpy 的 `axis` 习惯不同，是最容易出错的地方。
+MATLAB 的统计函数默认对矩阵的**每一列**分别计算（$\dim=1$），返回一个行向量；要对**每一行**计算，须显式给 $\dim=2$。NumPy `axis=0` 同样按列、`axis=1` 同样按行；真正要区分的是 MATLAB 的 1 基下标与 NumPy/C 的 0 基下标。
 :::
 
 ```matlab
@@ -1234,7 +1243,7 @@ corrcoef(A)          % 相关系数矩阵
 ```
 
 ::: danger 易错点 · std 的 flag
-`std(x)` 默认按 **n-1** 归一化（无偏样本标准差），`std(x,1)` 才按 **n**。如果你和 pandas/numpy 的结果对不上，多半是这个默认值的差异（numpy 的 `np.std` 默认 ddof=0）。含 `NaN` 时结果也是 `NaN`，用 `std(A,'omitnan')`。
+`std(x)` 默认按 **n-1** 归一化（样本标准差），`std(x,1)` 才按 **n**。pandas 默认 `ddof=1`，与 MATLAB 一致；NumPy 的 `np.std` 默认 `ddof=0`，跨工具核对时要显式指定。含 `NaN` 时结果也是 `NaN`，用 `std(A,'omitnan')`。
 :::
 
 #### 6.1.5 排序
@@ -1526,7 +1535,7 @@ r = roots([1 0 -2 -5]);
 
 ```matlab
 options = optimoptions('fminbnd','Display','iter','TolX',1e-8); % 现代写法
-[x,fval] = fminbnd(f,0,5,options);
+[x,fval] = fminbnd(@(x) (x-3).^2,0,5,options);
 ```
 
 
