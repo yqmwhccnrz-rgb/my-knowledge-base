@@ -136,6 +136,7 @@ $$
 | 协方差 `Cov(X,Y)` | 共变程度；独立 ⇒ 协方差为 0，**反之不成立** |
 | 相关系数 $\rho$ | $\dfrac{\operatorname{Cov}(X,Y)}{\sigma_{X} \sigma_{Y}} \in[- 1,1]$，只度量**线性**相关 |
 | 条件期望 | $E(Y\lvert X)$ 是回归分析的数学核心（总体回归函数即条件均值） |
+| 跨科提示 | 概率分布给 $E,\operatorname{Var}$，但风险还需结合损失与偏好；$E[PV(CF)]\ne PV(E[CF])$（贴现率随机或与现金流相关时），见 [微观经济学](/notes/micro.html)、[证券投资学](/notes/securities.html)、[利息理论](/notes/interest.html)。 |
 
 | 分布 | 由谁构造 | 在计量中的用途 |
 | --- | --- | --- |
@@ -268,7 +269,7 @@ $$
 
 ### 3.3 OLS 估计量的推导（★★★）
 
-最小化 $\sum e_{i}^{2}= \sum(Y_{i}- \hat{\beta}_{0}- \hat{\beta}_{1}X_{i})^{2}$，对两个参数求偏导并令为 0，得**正规方程**：
+最小化 $\sum e_{i}^{2}= \sum(Y_{i}- \hat{\beta}_{0}- \hat{\beta}_{1}X_{i})^{2}$，对两个参数求偏导并令为 0（[数学](/notes/math.html) 的无条件极值一阶条件），得**正规方程**：
 
 $$
 \begin{aligned}
@@ -419,7 +420,7 @@ $$
 | 线性-对数 | $Y= \beta_{0}+ \beta_{1}lnX$ | X 上升 1% → Y 变动约 $\beta_{1}/100$（即 $0.01\beta_{1}$）单位 |
 | 对数-线性 | $lnY= \beta_{0}+ \beta_{1}X$ | X 上升 1 单位 → Y 变动约 $100\beta_{1}\%$ |
 | 对数模型中的虚拟变量 | $lnY= \beta_{0}+ \delta D+ \beta_{1}X+ u$ | `D=1` 组 Y 相对基准组差约 $100\delta\%$（精确为 $100(e^{\delta}-1)\%$） |
-| **双对数** | $lnY= \beta_{0}+ \beta_{1}lnX$ | $\beta_{1}$ 直接是**弹性**（最常用） |
+| **双对数** | $lnY= \beta_{0}+ \beta_{1}lnX$ | $\beta_{1}$ 直接是**带符号弹性**；向下需求时 $\beta_1=-E_d$，见 [微观经济学](/notes/micro.html) |
 | 多项式 / 交互 | $Y= \beta_{0}+\beta_{1}X+\beta_{2}X^{2}$ | 边际效应 $\beta_{1}+2\beta_{2}X$ 随 X 变化 |
 
 ![多元回归、偏效应与虚拟变量](/econ/econ-multiple.svg)
@@ -468,6 +469,7 @@ $$
 | $Y= \beta_{0}+\beta_{1}lnX$ | X 增 1% → Y 变约 $\beta_{1}/100$ 单位 | $\beta_{1}/X$ |
 | $lnY= \beta_{0}+\beta_{1}lnX$ | **弹性** | $\beta_{1}\cdot Y/X$ |
 | $Y= \beta_{0}+\beta_{1}X+\beta_{2}X^{2}$ | 二次（U 型/倒 U 型） | $\beta_{1}+2\beta_{2}X$ |
+| 跨科提示 | 边际效应 $\partial Y/\partial X$；弹性 $(\partial Y/\partial X)(X/Y)$ | Logit/Probit 的 $\beta$ 也不是概率边际效应，见 [数学](/notes/math.html)、[微观经济学](/notes/micro.html) |
 
 ::: tip 工作示例 · 倒 U 型转折点（环境库兹涅茨曲线、经验-工资曲线常用）
 估计得 $\hat{Y}= 10+ 2X- 0.1X^{2}$：
@@ -692,6 +694,7 @@ $$
 | 短期乘数 | $\beta_{0}$ | X 当期变动 1 单位对 Y 的当期影响 |
 | 延迟乘数 | $\beta_{1}, \beta_{2}, \cdots$ | 各滞后期的额外影响 |
 | **长期乘数（水平模型）** | $\sum \beta_{i}$ | X 永久变动 1 单位后 Y 的总变化；双对数模型中才称长期弹性 |
+| 跨科提示 | 长期乘数 $\sum\beta_i$；几何滞后下为 $\beta_0/(1-\lambda)$ | 对应 [宏观经济学](/notes/macro.html) 乘数的累积传导，但估计的是条件模型总效应，见 [数学](/notes/math.html) |
 
 直接估计分布滞后会遇到：滞后长度 s 难定、自由度损失、滞后项间**高度共线**。
 
@@ -858,7 +861,7 @@ $$
 
 | 补充模型 | 用途 |
 | --- | --- |
-| **ARCH / GARCH** | 金融收益率「波动聚集」：$\sigma^{2}_{t}= \omega+ \alpha \epsilon^{2}_{t- 1}+ \beta \sigma^{2}_{t- 1}$，$\alpha+\beta$ 接近 1 表示冲击持久；EGARCH / GJR 刻画杠杆效应（坏消息放大波动） |
+| **ARCH / GARCH** | [证券投资学](/notes/securities.html) 的金融收益率「波动聚集」：$\sigma^{2}_{t}= \omega+ \alpha \epsilon^{2}_{t- 1}+ \beta \sigma^{2}_{t- 1}$，$\alpha+\beta$ 接近 1 表示冲击持久；EGARCH / GJR 刻画杠杆效应（坏消息放大波动） |
 | VAR | 把所有变量都当内生，每个变量对自身与其它变量滞后回归；用脉冲响应、方差分解分析动态传导 |
 | 季节调整 / SARIMA | 含季节周期的数据 |
 
@@ -1351,6 +1354,9 @@ $$
 | 协整 | Granger 因果 | 长期共同运动 vs 短期增量预测；都不等于结构因果 |
 | 固定效应 | 随机效应 | 允许 μ_i 与 x 相关（一致）vs 假定不相关（更有效但可能不一致） |
 | Logit 系数 | 边际效应 / OR | 对数发生比斜率 vs 概率变化 / 发生比倍数 |
+| 回归系数 $\beta$ | CAPM $\beta$ | 前者依赖模型设定；后者 $Cov(r_i,r_M)/Var(r_M)$ 是市场敏感度，见 [证券投资学](/notes/securities.html) |
+| 虚拟变量 $\delta$ | 利息力 $\delta$ / 实际贴现率 $d$ | 前者是组间差；后两者属利息度量，见 [利息理论](/notes/interest.html) |
+| 检验 $\beta$（第二类错误概率） | 回归 $\beta$ / CAPM $\beta$ | 同名不同义，读假设检验时勿与资产风险混淆 |
 | 伪 R² | OLS 的 R² | 基于似然，数值不可直接横向比较 |
 | 相关关系 | 因果效应 | 条件期望的关联 vs 反事实框架下的处理效应 |
 

@@ -15,6 +15,15 @@ summary: "9 章 + 附录 Python 数据分析笔记：ndarray、numpy 函数、Se
 示例以 Python 3.10+、NumPy 1.24+、pandas 2.2+、matplotlib 3.7+、seaborn 0.12+ 的 API 为基准；pandas 2.2 起月重采样用 `ME`，旧版别名 `M` 仍可见于旧资料。安装与排错统一用 `python -m pip`。
 :::
 
+**跨科提示**
+
+| 科目 | 衔接要点 |
+| --- | --- |
+| [C 语言](/notes/welcome.html) | `ndarray` 的同构连续存储、0 基索引与视图/拷贝可对照 C 数组和指针。 |
+| [MATLAB](/notes/matlab.html) | NumPy `axis=0`↔MATLAB `dim=1`；注意 0/1 基与行列优先差异。 |
+| [数据挖掘](/notes/datamining.html) | pandas 清洗/聚合接 scipy/statsmodels；先推断还是先预测要分清。 |
+| [Python 机器学习](/notes/ml.html) | DataFrame→X/y→Pipeline；预处理只在训练折 `fit`。 |
+
 ## 全书目录
 
 | 章节 | 主要内容 |
@@ -167,7 +176,7 @@ a = np.array([[1, 2, 3],
               [4, 5, 6]])     # shape (2, 3)
 b = np.array([10, 20, 30])    # shape (3,)
 a + b
-# b 沿 axis=0 广播成 (2, 3)：每一行都加上 [10, 20, 30]
+# b 按最右维对齐并扩展成 (2, 3)：每一行都加上 [10, 20, 30]
 # 结果：
 # [[11, 22, 33],
 #  [14, 25, 36]]
@@ -252,6 +261,8 @@ print(a)                  # 不受影响，仍是 [0 999 2 3 4 5]
 | `np.cumsum` / `np.cumprod` | 累积和 / 累积积 |
 
 **按行 / 列统计**：$np.\max(arr, axis=0)$ 沿「行方向」压缩，返回**每一列**的最值；`axis=1` 沿「列方向」压缩，返回**每一行**的最值——别记反。
+
+`np.var/np.std` 默认 `ddof=0`（总体）；pandas 默认 `ddof=1`，MATLAB `std` 默认除以 `n-1`（样本），跨工具核对请显式指定。
 
 
 ### 3.3 比较与逻辑函数
@@ -589,7 +600,7 @@ sns.pairplot(df)                   # 两两散点图矩阵
 | `dropna` / `fillna` 默认不改原表 | 赋回变量或 `inplace=True` |
 | `dropna` 是删除、`fillna` 是填充 | 别写反 |
 | `drop_duplicates()` 删除、`duplicated()` 只查看 | 别写反 |
-| `np.std` 是标准差、`np.var` 是方差、`np.mean` 是均值 | 都可用 `axis` 指定行列 |
+| `np.std` 是标准差、`np.var` 是方差、`np.mean` 是均值 | 都可用 `axis` 指定行列；`var/std` 默认 `ddof=0` |
 | `pd.concat` 拼接、`pd.merge` 按键合并、`groupby` 分组 | 三者用途不同 |
 | `df.append` 已移除（pandas 2.0 起） | 用 `pd.concat` |
 | 布尔转换中 `0` 为 False、非 0 为 True | `bool(2)` 为 True |
