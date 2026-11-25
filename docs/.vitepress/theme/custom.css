@@ -452,9 +452,30 @@ body.kb-resizing .VPDoc.has-aside .main {
 @media (max-width: 767px) {
   .vp-doc table {
     display: block;
+    width: 100%;
+    max-width: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
+  }
+  /* 多列表格给单元格保留可读的最小宽度：容器仍 100% 宽，内容在表格内部横滑 */
+  .vp-doc table:has(th:nth-child(3)) th,
+  .vp-doc table:has(th:nth-child(3)) td { min-width: 110px; }
+  .vp-doc table:has(th:nth-child(4)) th,
+  .vp-doc table:has(th:nth-child(4)) td { min-width: 130px; }
+  .vp-doc table:has(th:nth-child(5)) th,
+  .vp-doc table:has(th:nth-child(5)) td { min-width: 120px; }
+  .vp-doc table:has(th:nth-child(6)) th,
+  .vp-doc table:has(th:nth-child(6)) td { min-width: 110px; }
+  /* 内容区矢量结构图保留可读宽度，交给段落横向滚动，避免缩到 390px 后文字不可读 */
+  .vp-doc p:has(> img[src$=".svg"]) {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+  .vp-doc p > img[src$=".svg"] {
+    min-width: 720px;
+    max-width: none;
   }
 }
 /* 两列长文本对照表（表头带 .kb-bal 标记）：固定 50/50 列宽，
