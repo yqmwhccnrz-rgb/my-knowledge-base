@@ -15,9 +15,9 @@ summary: "《Python 机器学习基础教程》8 章精读笔记：以 scikit-le
 
 | 科目 | 衔接要点 |
 | --- | --- |
-| [Python 数据分析](/notes/python.html) | DataFrame→X/y；划分数据前先明确清洗与特征构造。 |
-| [数据挖掘](/notes/datamining.html) | `statsmodels` 做推断，`sklearn` 做预测；p 值不替代泛化指标。 |
-| [机器学习理论](/notes/mltheory.html) | 损失、λ/C/α 与评估同口径；AP 不等于梯形 PR-AUC。 |
+| [Python 数据分析](/notes/python.html) | `DataFrame` → `X`/`y`；划分数据前先明确清洗与特征构造。 |
+| [数据挖掘](/notes/datamining.html) | `statsmodels` 做推断，`sklearn` 做预测；$p$ 值不替代泛化指标。 |
+| [机器学习理论](/notes/mltheory.html) | 损失、$\lambda$ / `C` / `alpha` 与评估同口径；AP 不等于梯形 PR-AUC。 |
 | [MATLAB](/notes/matlab.html) | 矩阵与最优化对应模型推导；统计工具箱对应 Pipeline 的拟合—变换流程。 |
 | [C 语言](/notes/welcome.html) | 0 基索引、连续存储与浮点误差是数值计算的底层。 |
 
@@ -133,7 +133,7 @@ print(knn.score(X_test, y_test))                    # 4. 评估：分类默认�
 | 任务 | 输出 | 例子 | `score` 默认指标 |
 | --- | --- | --- | --- |
 | **分类** | 离散的**类别**（class） | 鸢尾花品种、 spam / 非 spam | 准确率 accuracy |
-| **回归** | 连续值 | 房价、内存价格、租车数量 | **R²（决定系数）** |
+| **回归** | 连续值 | 房价、内存价格、租车数量 | **$R^2$（决定系数）** |
 
 $R^{2}= 1$ 为完美预测，$R^{2}= 0$ 相当于「预测评估集均值」的常数模型，也可能为负（比该常数模型更差）；用训练集均值预测时，只有训练/评估集均值相近才恰为 0。二分类是最容易理解的情形，但书中大多数算法**既能分类也能回归**，且分类算法都能用于多分类。
 
@@ -172,13 +172,13 @@ reg = KNeighborsRegressor(n_neighbors=3).fit(X_train, y_train)
 
 #### 2.3.2 线性模型
 
-预测公式：$\hat{y}= w[0] \cdot x[0]+ w[1] \cdot x[1]+ \cdots+ w[p] \cdot x[p]+ b$，其中 `w` 存于 `coef_`、`b` 存于 `intercept_`。
+预测公式：$\hat{y}=w_{0}x_{0}+w_{1}x_{1}+\cdots+w_{p}x_{p}+b$，其中 `w` 存于 `coef_`、`b` 存于 `intercept_`。
 
 | 模型 | 类别 | 正则化 | 关键参数与特点 |
 | --- | --- | --- | --- |
 | `LinearRegression` | 回归 | 无 | 无参数；高维时容易过拟合 |
-| **Ridge**（岭回归） | 回归 | **L2**：系数整体趋近 0 | `alpha`，默认 1.0；增大 alpha → 系数更小、训练集性能降、泛化可能升 |
-| **Lasso** | 回归 | **L1**：部分系数**恰为 0**，可自动选特征 | `alpha`；减小 alpha 可缓解欠拟合，常需同时增大 `max_iter` |
+| **Ridge**（岭回归） | 回归 | **L2**：系数整体趋近 0 | `alpha`，默认 1.0；增大 `alpha` → 系数更小、训练集性能降、泛化可能升 |
+| **Lasso** | 回归 | **L1**：部分系数**恰为 0**，可自动选特征 | `alpha`；减小 `alpha` 可缓解欠拟合，常需同时增大 `max_iter` |
 | `LogisticRegression` | 分类 | 默认 L2 | `C` 为逆正则强度（越大约束越弱）；sklearn ≥1.8 用 `l1_ratio=1` + `solver='saga'` 做 L1，二分类也可用 `liblinear`；旧版 `penalty='l1'` 已弃用 |
 | `LinearSVC` | 分类 | 默认 L2 | `C`，与 LogisticRegression 决策边界相似 |
 
@@ -212,7 +212,7 @@ print(tree.feature_importances_)   # 特征重要性，总和为 1
 - **原理**：对特征做一系列「if/else」判断，叶结点给出预测；回归叶结点输出该区域内训练目标的均值。
 - **控制复杂度**：不预剪枝会长到所有叶结点**纯**为止 → 训练集 100% 准确率、严重过拟合。常用预剪枝参数 `max_depth`、`max_leaf_nodes`、`min_samples_leaf`。
 - **优点**：速度快、**不需要缩放**、可可视化（`export_graphviz`）、容易解释；`feature_importances_` 可查看每个特征的重要性。
-- **缺点**：即使预剪枝也**经常过拟合、泛化差**；决策边界是轴平行的；**不能外推**到训练数据范围之外（Citi Bike 案例中随机森林与树在未来时间上给出常数预测，R² 为负）。实践中多用下面的集成方法替代单棵树。
+- **缺点**：即使预剪枝也**经常过拟合、泛化差**；决策边界是轴平行的；**不能外推**到训练数据范围之外（Citi Bike 案例中随机森林与树在未来时间上给出常数预测，$R^2$ 为负）。实践中多用下面的集成方法替代单棵树。
 
 > 决策树回归与线性回归在「分箱后」的差异：分箱让**线性模型**更灵活（每个箱子一个取值），却让**决策树**灵活性下降——因为树本来就能自己学出最优分箱位置。
 
@@ -225,7 +225,7 @@ print(tree.feature_importances_)   # 特征重要性，总和为 1
 | 思想 | 多棵**相互独立、略有差异**的树，结果取平均 | 串行**纠正前一棵树的错误**，每棵树都浅（弱学习器） |
 | 随机性来源 | 自助采样（bootstrap）+ `max_features` 随机选特征 | 主要靠连续拟合残差，随机性较少 |
 | 常用参数 | `n_estimators`、`max_features`、`max_depth`、`n_jobs=-1` | `n_estimators`、`learning_rate`、`max_depth`（默认 3）、`subsample` |
-| 默认 | 树完全生长；分类 `max_features=sqrt(n_features)`，回归 `max_features=n_features` | 默认 100 棵树、深度 3、学习率 0.1 |
+| 默认 | 树完全生长；分类 `max_features='sqrt'`，回归 `max_features=n_features` | 默认 100 棵树、深度 3、学习率 0.1 |
 | 调参 | `max_features` 大 → 树相似；小 → 树差异大、需更深 | `learning_rate` 与 `n_estimators` 需权衡；常需更多调参 |
 | 表现 | 几乎总优于单棵树，鲁棒、不需缩放 | 准确率**通常略高于**随机森林；训练更慢，预测速度与内存取决于树数、树深和实现，不能一概而论 |
 
@@ -257,7 +257,7 @@ svm = SVC(kernel='rbf', C=1.0, gamma='scale').fit(X_train, y_train)
 
 | 参数 | 作用 | 太小 / 太大 |
 | --- | --- | --- |
-| `C` | 正则化参数（与线性模型同向：C 大 = 约束弱） | 太小 → 更重视间隔与整体鲁棒性；太大 → 更努力拟合个别点、易过拟合 |
+| `C` | 正则化参数（与线性模型同向：`C` 大 = 约束弱） | 太小 → 更重视间隔与整体鲁棒性；太大 → 更努力拟合个别点、易过拟合 |
 | `gamma` | RBF 核宽度（决定单个点影响范围） | 太小 → 影响范围大、模型简单；太大 → 每个点各自成岛、过拟合 |
 
 - **优点**：对**特征含义相似的中等规模**数据集非常强大，决策边界平滑。
@@ -310,7 +310,7 @@ mlp = MLPClassifier(hidden_layer_sizes=(100,), activation='relu',
 
 ### 2.6 易错点
 
-- **C 是正则化强度的倒数**：`C` 越大模型越复杂；而 Ridge / Lasso 的 `alpha` 越大模型越简单，方向相反。
+- **`C` 是正则化强度的倒数**：`C` 越大模型越复杂；而 Ridge / Lasso 的 `alpha` 越大模型越简单，方向相反。
 - k-NN / SVM / 神经网络及带正则的线性模型通常**需要缩放**；普通 OLS、决策树、随机森林、朴素贝叶斯通常不需要。
 - 训练集与测试集分数**都低且接近**是欠拟合，不是过拟合。
 - 决策树与随机森林**无法外推**到训练特征范围之外；时间序列/未来预测不要直接用原始时间戳喂给树模型。
@@ -358,7 +358,7 @@ X_test_scaled  = scaler.transform(X_test)  # 用同一变换，绝不重新 fit
 
 | 方法 | 原理 | 特点与用途 |
 | --- | --- | --- |
-| **PCA（主成分分析）** | 先减去均值、再旋转到方差最大的正交方向，保留前 k 个主成分 | 无监督、线性；`components_` 每行一个主成分按重要性排序；`explained_variance_ratio_` 看解释方差；常用于可视化与去噪；成分/系数**可正可负**，解释性弱 |
+| **PCA（主成分分析）** | 先减去均值、再旋转到方差最大的正交方向，保留前 $k$ 个主成分 | 无监督、线性；`components_` 每行一个主成分按重要性排序；`explained_variance_ratio_` 看解释方差；常用于可视化与去噪；成分/系数**可正可负**，解释性弱 |
 | **NMF（非负矩阵分解）** | 把数据分解为**非负**分量与非负系数的加权和 | 适合由多个独立源**叠加**而成的数据（音轨、多乐器音乐、人脸）；分量全为正，**比 PCA 更易解释**（无正负抵消） |
 | **t-SNE（流形学习）** | 保持高维空间中点的「邻近关系」，映射到 2D / 3D | **只用于可视化**，不能用于训练或变换新数据；无监督却能清楚分开类别；对 `perplexity` 等参数敏感 |
 
@@ -429,7 +429,7 @@ centers = km.cluster_centers_
 | --- | --- | --- |
 | `fit(X[, y])` | 从数据学习模型/参数 | 所有估计器 |
 | `predict(X)` | 生成**新输出**（标签、回归值、簇标签） | 分类器、回归器、聚类 |
-| `transform(X)` | 生成输入 X 的**新表示** | 预处理、降维、特征提取 |
+| `transform(X)` | 生成输入 `X` 的**新表示** | 预处理、降维、特征提取 |
 | `fit_transform(X)` | 二者合并 | `StandardScaler`、`PCA` 等 |
 
 **约定**：`X` 为二维数值数组、DataFrame 或 SciPy 稀疏矩阵（行 = 样本，分类特征需先编码）；`y` 通常为一维目标数组；`X_train`/`y_train`、`X_test`/`y_test` 是全书统一命名。
@@ -460,7 +460,7 @@ y = data_dummies['income_>50K'].values
 
 | 要点 | 说明 |
 | --- | --- |
-| 与统计学虚拟编码的区别 | 统计学常用 $k- 1$ 个特征（全 0 表示第 k 类），可避免数据矩阵秩亏；one-hot 用 k 个 |
+| 与统计学虚拟编码的区别 | 统计学常用 $k-1$ 个特征（全 0 表示第 $k$ 类），可避免数据矩阵秩亏；one-hot 用 $k$ 个 |
 | 必须分离目标 | 把输出变量或其派生列留在特征里，是监督建模**非常常见的错误** |
 | 检查取值 | 先用 `Series.value_counts()` 看唯一值，人工输入常有拼写/大小写差异（male / man） |
 | 类别是数字时 | 数字不代表连续！若语义无顺序关系（如 workclass 的 0~8）**必须**当作离散变量做 one-hot；五星评分则视任务而定 |
@@ -503,9 +503,9 @@ print(poly.get_feature_names_out())   # sklearn>=1.0；旧版为 get_feature_nam
 
 | 变换 | 适用情形 |
 | --- | --- |
-| `log(x + 1)` | **计数数据**（登录次数、订单数），取值非负且常有长尾；+1 是为了处理 x = 0 |
+| `log(x + 1)` | **计数数据**（登录次数、订单数），取值非负且常有长尾；+1 是为了处理 `x = 0` |
 | `log(y + 1)` | 预测计数型目标时同样有效 |
-| `exp` | 与 log 反向，调节相对比例 |
+| `exp` | 与 `log` 反向，调节相对比例 |
 | `sin` / `cos` | **周期性模式**（一天中的时刻、星期几、季节） |
 
 **原因**：线性模型与神经网络常受益于特征的**尺度与分布**调整，树模型只关心顺序、并不要求高斯分布。若特征与目标呈指数关系（如内存价格随年份下降），`log` 可把关系拉直，便于线性模型拟合；对目标取对数也可改变误差尺度。树模型仍不能外推到训练特征范围之外，不能靠 log 变换获得这种能力。
@@ -557,12 +557,12 @@ print(scores.mean(), scores.std())
 
 | 策略 | 做法 | 适用 |
 | --- | --- | --- |
-| **k 折交叉验证** | 数据分成 k 份，轮流用 k−1 份训练、1 份验证，取 k 个分数的平均 | 通用默认；k 越大每折训练数据越多（10 折用 90%），但计算更贵 |
-| **分层 k 折（StratifiedKFold）** | 每折中各类别比例与整体一致 | **分类默认**，避免按标签排序时某折只有一个类别 |
+| **$k$ 折交叉验证** | 数据分成 $k$ 份，轮流用 $k-1$ 份训练、1 份验证，取 $k$ 个分数的平均 | 通用默认；$k$ 越大每折训练数据越多（10 折用 90%），但计算更贵 |
+| **分层 $k$ 折（`StratifiedKFold`）** | 每折中各类别比例与整体一致 | **分类默认**，避免按标签排序时某折只有一个类别 |
 | `KFold(shuffle=True)` | 打乱后再切分 | 独立同分布回归数据；时序数据应改用 `TimeSeriesSplit` |
-| **留一法（LeaveOneOut）** | 每折只留 1 个样本做验证 | 小数据集；计算极贵、方差大 |
+| **留一法（`LeaveOneOut`）** | 每折只留 1 个样本做验证 | 小数据集；计算极贵、方差大 |
 | `ShuffleSplit` | 多次随机划分，可指定 `train_size` / `test_size` | 需要重复随机切分 |
-| **`GroupKFold`** | 按 `groups` 数组分组，**同一组不会同时出现在训练和验证折** | 同一人的多张照片、同一患者的多次记录；**groups 不是标签** |
+| **`GroupKFold`** | 按 `groups` 数组分组，**同一组不会同时出现在训练和验证折** | 同一人的多张照片、同一患者的多次记录；**`groups` 不是标签** |
 
 **交叉验证的优点**：比单次 `train_test_split` 更稳健（避免碰巧分到「幸运」的测试集）、每折都能给出分数从而看出方差、训练数据利用率更高。书里 iris 上 5 折准确率从 90% 到 100% 波动，说明模型对划分敏感或数据太小。
 
@@ -620,11 +620,11 @@ rs = RandomizedSearchCV(SVC(), param_distributions={'C': loguniform(1e-3, 1e3),
 
 | 指标 | 公式 | 关心什么 |
 | --- | --- | --- |
-| 准确率 **accuracy** | (TP+TN) / 全部 | 整体正确比例 |
-| 精确率 **precision**（书中「准确率」） | TP / (TP+FP) | **限制假正例**：如药物临床试验很贵，只在很确定有效时才推进 |
-| 召回率 **recall** / TPR | TP / (TP+FN) | **限制假反例**：如癌症筛查不能漏诊 |
-| **F1** | 2·precision·recall / (precision+recall) | 两者的调和平均 |
-| **FPR** 假正例率 | FP / (FP+TN) | ROC 的横轴 |
+| 准确率 **accuracy** | $\dfrac{TP+TN}{TP+TN+FP+FN}$ | 整体正确比例 |
+| 精确率 **precision**（书中「准确率」） | $\dfrac{TP}{TP+FP}$ | **限制假正例**：如药物临床试验很贵，只在很确定有效时才推进 |
+| 召回率 **recall** / TPR | $\dfrac{TP}{TP+FN}$ | **限制假反例**：如癌症筛查不能漏诊 |
+| **F1** | $\dfrac{2PR}{P+R}$ | 两者的调和平均 |
+| **FPR** 假正例率 | $\dfrac{FP}{FP+TN}$ | ROC 的横轴 |
 
 ```python
 from sklearn.metrics import confusion_matrix, classification_report
@@ -641,11 +641,11 @@ print(classification_report(y_test, y_pred, zero_division=0))  # 某类无预测
 - **PR 曲线**每个点对应一个阈值，其阶梯下面积为 **AP（average precision，`average_precision_score`）**；AP 不等同于对 PR 点做梯形积分得到的 PR-AUC。把所有样本判为正类可得 100% 召回率，但精确率极低，模型无用；
 - **ROC 曲线**以 FPR 为横轴、TPR 为纵轴，**AUC** 是曲线下面积，衡量「正类样本排名高于反类」的程度；AUC = 1.0 表示存在某个阈值可以完美分类。书中 `gamma=0.01` 的 SVC 准确率一般但 **AUC = 1.0**——只看准确率会漏掉这个好模型；
 - **多分类**：常用宏平均 / 微平均 / 加权平均的 F1；`classification_report` 逐类给出，宏平均同等看待各类，加权平均会受大类影响；
-- **回归**：$R^{2}$ 便于比较同尺度模型；业务上按误差单位选 MAE / RMSE，需求百分比且真值非零时用 MAPE，不能一律优先 R²。
+- **回归**：$R^{2}$ 便于比较同尺度模型；业务上按误差单位选 MAE / RMSE，需求百分比且真值非零时用 MAPE，不能一律优先 $R^2$。
 
 #### 在模型选择中使用指标
 
-`GridSearchCV(..., scoring='roc_auc')` 可指定评分；分类默认 accuracy、回归默认 R²。二分类 ROC-AUC 需要 `decision_function` / `predict_proba` 的连续分数，多分类用 `roc_auc_ovr` / `roc_auc_ovo`。选指标须回到**最终目标**：商业指标最理想，难以度量时再用代理指标。
+`GridSearchCV(..., scoring='roc_auc')` 可指定评分；分类默认 accuracy、回归默认 $R^2$。二分类 ROC-AUC 需要 `decision_function` / `predict_proba` 的连续分数，多分类用 `roc_auc_ovr` / `roc_auc_ovo`。选指标须回到**最终目标**：商业指标最理想，难以度量时再用代理指标。
 
 ::: tip 补充 · 类别不平衡的处理
 - **算法侧**：`class_weight='balanced'`（LogisticRegression、RandomForestClassifier、SVC 等支持），按类别频率倒数加大少数类的错分代价。
@@ -878,7 +878,7 @@ vect = CountVectorizer(min_df=5, stop_words='english')
 
 **词频—逆文档频率**：对「在某文档中频繁出现、但在语料库多数文档里不常出现」的词给高权重，抑制到处都出现的高频词。
 
-$tf-idf(t, d)= tf(t, d) \times idf(t)$，其中 $idf(t)=\log\left(\dfrac{1+N}{1+N_{w}}\right)+1$，N 为文档总数，$N_w$ 为包含词 t 的文档数；之后通常再做 L2 归一化。
+$\operatorname{tf\text{-}idf}(t,d)=\operatorname{tf}(t,d)\times\operatorname{idf}(t)$，其中 $\operatorname{idf}(t)=\log\left(\dfrac{1+N}{1+N_{w}}\right)+1$，$N$ 为文档总数，$N_{w}$ 为包含词 $t$ 的文档数；之后通常再做 L2 归一化。
 
 ```python
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -1018,7 +1018,7 @@ class MyTransformer(BaseEstimator, TransformerMixin):
 | 欠拟合信号 | 训练与测试分数**都低且接近**；过拟合是训练高、测试低 |
 | 算法起步 | 先用线性模型 / 朴素贝叶斯 / k-NN 做基线，再上随机森林、梯度提升、SVM、神经网络 |
 | 不平衡数据 | 别只看 accuracy；用 precision / recall / F1、PR 曲线/AP、ROC-AUC 与 `classification_report` |
-| 防泄露 | 任何依赖数据的步骤（缩放、特征选择、tf-idf）都放进 `Pipeline`，参数名用 `步骤名__参数` |
-| 树不能外推 | 未来预测可拆周期特征（sin/cos 或 one-hot）并配趋势特征；超出训练范围仍难外推，优先用时序模型 |
-| 文本主线 | 词袋 → `min_df` 去稀有词 → $tf-idf \to n-gram$ 线性模型看系数；主题用 LDA |
+| 防泄露 | 任何依赖数据的步骤（缩放、特征选择、`tf-idf`）都放进 `Pipeline`，参数名用 `步骤名__参数` |
+| 树不能外推 | 未来预测可拆周期特征（`sin`/`cos` 或 one-hot）并配趋势特征；超出训练范围仍难外推，优先用时序模型 |
+| 文本主线 | 词袋 → `min_df` 去稀有词 → `tf-idf` → `n-gram` 线性模型看系数；主题用 LDA |
 | 聚类评估 | 不用 accuracy；有标签用 ARI/NMI，无标签用轮廓系数 + 人工检查 |
